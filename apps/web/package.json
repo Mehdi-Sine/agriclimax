@@ -4,8 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "lint": "next lint || true",
-    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run"
   },
   "dependencies": {
@@ -18,6 +18,9 @@
     "@types/node": "^24.0.0",
     "@types/react": "^19.0.0",
     "typescript": "^5.0.0",
-    "vitest": "^3.0.0"
+    "vitest": "^3.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.0.0",
+    "@types/geojson": "^7946.0.0"
   }
 }

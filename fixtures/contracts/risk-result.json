@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "cell_id": "demo-001",
+  "valid_date": "2026-07-01",
+  "production_id": "wheat_soft",
+  "indicator_id": "tmax_days_above",
+  "hazard": {
+    "value": 3,
+    "unit": "d"
+  },
+  "exposure": null,
+  "sensitivity": null,
+  "risk": {
+    "level": "moderate",
+    "score": null
+  },
+  "confidence": {
+    "level": "low",
+    "scientific_status": "exploratory",
+    "reasons": [
+      "Données fictives, sans validation scientifique"
+    ]
+  },
+  "rule": {
+    "rule_id": "demo_heat_wheat",
+    "version": "0.1.0"
+  },
+  "provenance": [
+    {
+      "source_id": "demo-fiction",
+      "observed_at": null,
+      "retrieved_at": null
+    }
+  ],
+  "quality": {
+    "freshness": "fresh",
+    "flags": [
+      "demo",
+      "fictitious"
+    ]
+  }
+}
