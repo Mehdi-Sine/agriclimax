@@ -2,14 +2,16 @@
   "name": "agriclimax",
   "private": true,
   "packageManager": "pnpm@10.0.0",
-  "workspaces": [
-    "apps/*"
-  ],
   "scripts": {
     "dev": "pnpm --filter @agriclimax/web dev",
     "build": "pnpm --filter @agriclimax/web build",
     "typecheck": "pnpm --filter @agriclimax/web typecheck",
     "test": "pnpm --filter @agriclimax/web test",
-    "lint": "pnpm --filter @agriclimax/web lint"
+    "lint": "pnpm --filter @agriclimax/web lint",
+    "check-contracts": "python scripts/check_contracts.py"
+  },
+  "engines": {
+    "node": ">=20.9",
+    "pnpm": "10.x"
   }
 }
