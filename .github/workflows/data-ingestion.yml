@@ -1,0 +1,48 @@
+name: Fixture weather ingestion
+on:
+  workflow_dispatch:
+    inputs:
+      from:
+        description: First UTC date (empty means yesterday)
+        type: string
+      to:
+        description: Last UTC date (inclusive)
+        type: string
+  schedule:
+    - cron: '20 6 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: fixture-weather-ingestion
+  cancel-in-progress: false
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r engine/requirements-dev.lock -e 'engine[dev]'
+      - uses: actions/cache@v4
+        with:
+          path: work/weather
+          key: demo-weather-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: demo-weather-v1-
+      - name: Ingest explicit fictitious fixtures
+        env:
+          DATE_FROM: ${{ inputs.from }}
+          DATE_TO: ${{ inputs.to }}
+        shell: bash
+        run: |
+          if [[ -n "$DATE_FROM" || -n "$DATE_TO" ]]; then
+            python scripts/ingest_weather.py --from "$DATE_FROM" --to "$DATE_TO"
+          else
+            python scripts/ingest_weather.py --daily
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fictitious-weather-run
+          path: work/weather/manifests/

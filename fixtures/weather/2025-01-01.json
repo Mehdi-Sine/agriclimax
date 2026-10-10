@@ -1,0 +1,9 @@
+{
+  "published_at": "2025-01-02T00:00:00Z",
+  "expected_count": 3,
+  "rows": [
+    {"cell_id":"demo-cell", "variable":"temperature", "observed_at":"2025-01-01T13:00:00+01:00", "timezone":"Europe/Paris", "value":283.15, "unit":"K"},
+    {"cell_id":"demo-cell", "variable":"precipitation", "observed_at":"2025-01-01T12:00:00Z", "timezone":"UTC", "value":0.002, "unit":"m"},
+    {"cell_id":"demo-cell", "variable":"humidity", "observed_at":"2025-01-01T12:00:00Z", "timezone":"UTC", "value":65, "unit":"%"}
+  ]
+}
