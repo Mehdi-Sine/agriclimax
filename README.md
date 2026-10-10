@@ -104,3 +104,18 @@ Le typage lance `next typegen` avant `tsc` pour fonctionner sur un checkout neuf
 Le fichier `apps/web/AGENTS.md` est généré par `next dev` et conservé comme consigne
 locale du framework. Le bilan et les captures de validation sont dans
 `docs/codex/verification/task01/`.
+
+## Shell et design system — Task 05
+
+`pnpm dev` ouvre le shell de démonstration ; `/design-system` présente les
+composants, états, thèmes et assets. Les données sont fictives, sans carte,
+moteur de veille ou diagnostic métier. Filtres et navigation partagent le
+contexte URL de Task 01. La démo ne nécessite aucune clé ni police distante.
+Voir `docs/design/DESIGN_SYSTEM.md` pour les API et
+`docs/codex/verification/task05/` pour les preuves responsive/accessibilité.
+
+Après intégration de main Tasks 02–04, le shell peut vérifier un contexte live
+explicite avec `?mode=live&production=...&indicator=...&rule=...&version=...&date=...&bbox=...`.
+La base vide affiche « Données absentes » sans recours aux fixtures. Les détails
+métier live restent à intégrer dans Task 06. Dans l'environnement cloud à proxy,
+le serveur Node utilise `NODE_USE_ENV_PROXY=1` comme dans la validation Task 04.

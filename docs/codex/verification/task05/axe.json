@@ -1,0 +1,158 @@
+[
+  {
+    "viewport": "desktop",
+    "theme": "light",
+    "route": "/",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 12
+      }
+    ],
+    "passes": 23
+  },
+  {
+    "viewport": "desktop",
+    "theme": "light",
+    "route": "/design-system",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 5
+      }
+    ],
+    "passes": 26
+  },
+  {
+    "viewport": "desktop",
+    "theme": "dark",
+    "route": "/",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 12
+      }
+    ],
+    "passes": 23
+  },
+  {
+    "viewport": "desktop",
+    "theme": "dark",
+    "route": "/design-system",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 5
+      }
+    ],
+    "passes": 26
+  },
+  {
+    "viewport": "tablet",
+    "theme": "light",
+    "route": "/",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 13
+      }
+    ],
+    "passes": 23
+  },
+  {
+    "viewport": "tablet",
+    "theme": "light",
+    "route": "/design-system",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 5
+      }
+    ],
+    "passes": 26
+  },
+  {
+    "viewport": "tablet",
+    "theme": "dark",
+    "route": "/",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 12
+      }
+    ],
+    "passes": 23
+  },
+  {
+    "viewport": "tablet",
+    "theme": "dark",
+    "route": "/design-system",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 5
+      }
+    ],
+    "passes": 26
+  },
+  {
+    "viewport": "mobile",
+    "theme": "light",
+    "route": "/",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 10
+      }
+    ],
+    "passes": 20
+  },
+  {
+    "viewport": "mobile",
+    "theme": "light",
+    "route": "/design-system",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 5
+      }
+    ],
+    "passes": 26
+  },
+  {
+    "viewport": "mobile",
+    "theme": "dark",
+    "route": "/",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 10
+      }
+    ],
+    "passes": 20
+  },
+  {
+    "viewport": "mobile",
+    "theme": "dark",
+    "route": "/design-system",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 5
+      }
+    ],
+    "passes": 26
+  }
+]

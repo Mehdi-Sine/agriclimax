@@ -1,0 +1,38 @@
+{
+  "original_commit": "da805b5",
+  "original_base": "5c2426f",
+  "new_main": "e3c14d64a421208833d8c18893e0053b31d9d078",
+  "backup_branch": "backup/task05-before-main-update",
+  "overlapping_files": [
+    "apps/web/package.json",
+    "pnpm-lock.yaml"
+  ],
+  "actual_conflicts": [
+    "apps/web/package.json"
+  ],
+  "resolution": "Dependencies from main plus Task 05 React DOM types; lockfile merged and frozen install passed.",
+  "preserved_paths": [
+    "apps/web/components/ui",
+    "apps/web/styles",
+    "apps/web/public",
+    "apps/web/components/shell/catalogue.tsx",
+    "apps/web/components/shell/brand.tsx",
+    "apps/web/components/shell/theme-toggle.tsx"
+  ],
+  "differences_in_preserved_paths": [],
+  "protected_paths": [
+    "engine",
+    "config",
+    "scripts",
+    "supabase",
+    ".github",
+    "contracts",
+    "apps/web/lib/server",
+    "apps/web/app/api"
+  ],
+  "differences_in_protected_paths": [],
+  "git_identity": {
+    "name": "Mehdi-Sine",
+    "email": "medsine@acta.asso.fr"
+  }
+}

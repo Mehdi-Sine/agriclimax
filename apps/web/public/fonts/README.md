@@ -1,0 +1,1 @@
+Manrope et Inter variables, sous-ensembles latin/latin-ext. Source : @fontsource-variable/manrope et @fontsource-variable/inter 5.3.0, npm. Licences SIL OFL jointes. Fichiers non modifiés ; hébergement local, aucune requête Google Fonts.

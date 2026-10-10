@@ -1,28 +1,57 @@
 :root {
-  --brand-primary: #123D38;
-  --brand-secondary: #287E88;
-  --brand-accent: #BDE1CF;
-  --surface-base: #F6F7F3;
-  --text-primary: #263A43;
-  --accent-amber: #D99545;
-  --risk-low: #66A98E;
-  --risk-moderate: #E7C75C;
-  --risk-high: #E68F4D;
-  --risk-critical: #C65358;
-  --risk-unavailable: #718C85;
-  --radius-sm: .375rem;
-  --radius-md: .625rem;
-  --radius-lg: .875rem;
-  --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem;
-  --space-6: 1.5rem; --space-8: 2rem;
+  --brand-primary: #123d38;
+  --brand-secondary: #287e88;
+  --brand-accent: #bde1cf;
+  --surface-base: #f6f7f3;
+  --text-primary: #263a43;
+  --accent-amber: #d99545;
+  --risk-low: #66a98e;
+  --risk-moderate: #e7c75c;
+  --risk-high: #e68f4d;
+  --risk-critical: #c65358;
+  --risk-unavailable: #718c85;
+  --surface-raised: #ffffff;
+  --surface-subtle: #edf1ed;
+  --text-muted: #52676c;
+  --border: #cfd8d3;
+  --control-border: #71847e;
+  --interactive: #123d38;
+  --on-interactive: #ffffff;
+  --focus: #287e88;
+  --risk-ink: #12201e;
+  --critical-ink: #000000;
+  --demo-bg: #f5e9d7;
+  --demo-ink: #704514;
+  --backdrop: #12201e80;
+  --shadow: 0 12px 36px #12201e18;
+  --font-heading: "Manrope", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --duration: 150ms;
   color-scheme: light;
 }
-
 [data-theme="dark"] {
-  --surface-base: #12201E;
-  --text-primary: #E7EFEB;
+  --surface-base: #12201e;
+  --surface-raised: #1b2d2a;
+  --surface-subtle: #243a35;
+  --text-primary: #e7efeb;
+  --text-muted: #b3c6bd;
+  --border: #415c52;
+  --control-border: #8ba99c;
+  --interactive: #bde1cf;
+  --on-interactive: #123d38;
+  --focus: #bde1cf;
+  --demo-bg: #3d3021;
+  --demo-ink: #f0cca0;
+  --shadow: 0 12px 36px #00000030;
   color-scheme: dark;
 }
-
-.metric-number { font-variant-numeric: tabular-nums; }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
