@@ -8,10 +8,23 @@
     "typecheck": "pnpm --filter @agriclimax/web typecheck",
     "test": "pnpm --filter @agriclimax/web test",
     "lint": "pnpm --filter @agriclimax/web lint",
-    "check-contracts": "python scripts/check_contracts.py"
+    "check-contracts": "python scripts/check_contracts.py",
+    "check-security": "python scripts/quality/security.py",
+    "check-bundle": "python scripts/quality/security.py --bundle apps/web/.next/static",
+    "check-migrations": "python scripts/quality/migrations.py",
+    "check-budget": "python scripts/quality/budget.py",
+    "test-quality": "python -m unittest discover -s tests/quality -p 'test_*.py' -v && node --test tests/quality/*.test.mjs",
+    "test-e2e": "node tests/e2e/demo.mjs",
+    "smoke": "python scripts/quality/smoke.py"
   },
   "engines": {
     "node": ">=20.9",
     "pnpm": "10.x"
+  },
+  "pnpm": {
+    "overrides": {
+      "vitest": "4.1.11",
+      "tinypool": "2.1.2"
+    }
   }
 }

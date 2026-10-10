@@ -119,3 +119,12 @@ explicite avec `?mode=live&production=...&indicator=...&rule=...&version=...&dat
 La base vide affiche « Données absentes » sans recours aux fixtures. Les détails
 métier live restent à intégrer dans Task 06. Dans l'environnement cloud à proxy,
 le serveur Node utilise `NODE_USE_ENV_PROXY=1` comme dans la validation Task 04.
+
+## Qualité transversale — Task 09
+
+`make check` ajoute les guards sécurité/migrations et leurs tests aux checks
+Task 01. Les workflows Quality et Security audits couvrent le build, le mode
+démo, les contrats, les migrations, les dépendances et la fuite de secrets serveur.
+Voir [les commandes, budgets et limites](docs/ops/QUALITY_SECURITY.md) et
+[le rapport Task 09](docs/codex/verification/task09/REPORT.md).
+Les audits restent bloquants sur les vulnérabilités documentées dans le rapport.

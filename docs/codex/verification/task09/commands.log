@@ -1,0 +1,22 @@
+git fetch origin
+ git rebase origin/main
+ git config user.name Mehdi-Sine
+ git config user.email mehdi.sine@acta.asso.fr
+ make check PYTHON=.venv/bin/python
+ python scripts/quality/migrations.py --base origin/main
+ python -m coverage run --include=security.py,migrations.py,budget.py -m unittest discover -s tests/quality
+ python -m coverage report --fail-under=80
+ python -m ruff check scripts/quality tests/quality
+ work/actionlint/actionlint -shellcheck= .github/workflows/*.yml
+ PYTHON=.venv/bin/python bash supabase/tests/run-local.sh public
+ PYTHON=.venv/bin/python bash supabase/tests/run-local.sh extensions
+ python scripts/quality/security.py --bundle apps/web/.next/static
+ python supabase/scripts/check_client_secrets.py
+ python scripts/quality/budget.py
+ python scripts/quality/smoke.py
+ CHROMIUM_EXECUTABLE=/usr/bin/chromium node tests/e2e/demo.mjs # exit 1: a11y
+ pnpm audit --audit-level high --json # exit 1: braces
+ pip-audit --strict --disable-pip --no-deps -r engine/requirements-dev.lock # pytest, baseline current main identical
+ pip-audit --strict --disable-pip --no-deps -r scripts/quality/requirements.lock
+ npm audit --prefix tests/e2e --audit-level high
+ work/gitleaks/gitleaks git --redact --report-format json .

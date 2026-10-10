@@ -1,0 +1,51 @@
+{
+  "base": "a5c7c903313f675a4910d06b0029f1db870174a1",
+  "branch": "codex/09-quality-security",
+  "date": "2026-10-10",
+  "checks": {
+    "make_check": "passed",
+    "contracts": "passed",
+    "engine_tests": 44,
+    "web_tests": 33,
+    "quality_tests": 7,
+    "logging_tests": 2,
+    "coverage_percent": 82,
+    "lint": "passed",
+    "typecheck": "passed",
+    "build": "passed",
+    "sql_schemas": [
+      "public",
+      "extensions"
+    ],
+    "sql_migrations": 4,
+    "http_smoke": "passed",
+    "responsive_interactions": "passed",
+    "axe": "failed-desktop-label-content-name-mismatch",
+    "client_secret_guard": "passed",
+    "source_secret_scan": "passed",
+    "gitleaks": "passed-exact-git-blob-false-positive-reviewed",
+    "js_audit": "failed",
+    "python_audit": "failed",
+    "tools_audit": "passed",
+    "browser_audit": "passed",
+    "gzip_bytes": 195601
+  },
+  "js_vulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 1,
+    "high": 1,
+    "critical": 0
+  },
+  "blocking_advisories": [
+    "GHSA-vfj7-8cjw-p6xm",
+    "PYSEC-2026-1845"
+  ],
+  "nonblocking_advisories": [
+    "GHSA-2g4f-4pwh-qvx6"
+  ],
+  "scientific_changes": false,
+  "contract_changes": false,
+  "migration_changes": false,
+  "merge_performed": false
+}

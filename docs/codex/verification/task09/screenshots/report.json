@@ -1,0 +1,125 @@
+[
+  {
+    "name": "desktop",
+    "width": 1440,
+    "height": 900,
+    "durationMs": 2151,
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "name": "desktop",
+    "route": "/",
+    "theme": "light",
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "name": "desktop",
+    "route": "/",
+    "theme": "dark",
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "name": "desktop",
+    "route": "/design-system",
+    "theme": "light",
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "name": "desktop",
+    "route": "/design-system",
+    "theme": "dark",
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "name": "tablet",
+    "width": 1024,
+    "height": 768,
+    "durationMs": 1884,
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "route": "/",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "route": "/",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "route": "/design-system",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "route": "/design-system",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "width": 390,
+    "height": 844,
+    "durationMs": 1369,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "route": "/",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "route": "/",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "route": "/design-system",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "route": "/design-system",
+    "theme": "dark",
+    "violations": []
+  }
+]

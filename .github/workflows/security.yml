@@ -1,0 +1,90 @@
+name: Security audits
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '23 6 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  secrets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - name: Gitleaks full history, redacted
+        # CLI binary download, no paid account/license needed for private repositories.
+        shell: bash
+        run: |
+          mkdir -p work/gitleaks
+          curl --fail --location --silent --show-error -o work/gitleaks/release.tar.gz https://github.com/gitleaks/gitleaks/releases/download/v8.24.2/gitleaks_8.24.2_linux_x64.tar.gz
+          cd work/gitleaks
+          echo 'fa0500f6b7e41d28791ebc680f5dd9899cd42b58629218a5f041efa899151a8e  release.tar.gz' | sha256sum --check
+          tar -xzf release.tar.gz gitleaks
+          cd ../..
+          work/gitleaks/gitleaks git --redact --exit-code 1 --report-format json --report-path work/gitleaks/report.json .
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: secrets-redacted
+          path: work/gitleaks/report.json
+  js-dependencies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+        with:
+          version: 10.0.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: JS audit (all dependency classes; high/critical blocking)
+        run: |
+          mkdir -p work/audits
+          pnpm audit --audit-level high --json > work/audits/javascript.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: javascript-audit
+          path: work/audits/
+  python-dependencies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Python auditor in isolated environment
+        run: |
+          python -m venv work/audit
+          work/audit/bin/python -m pip install -r scripts/quality/requirements.lock
+      - name: Audit runtime and quality dependencies, preserve both exit codes
+        shell: bash
+        run: |
+          mkdir -p work/audits
+          set +e
+          work/audit/bin/pip-audit --strict --disable-pip --no-deps -r engine/requirements-dev.lock --format json --output work/audits/python.json
+          engine_status=$?
+          work/audit/bin/pip-audit --strict --disable-pip --no-deps -r scripts/quality/requirements.lock --format json --output work/audits/quality-tools.json
+          tools_status=$?
+          test "$engine_status" = 0 && test "$tools_status" = 0
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: python-audits
+          path: work/audits/
+  browser-dependencies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - run: npm audit --prefix tests/e2e --audit-level high
