@@ -1,0 +1,38 @@
+{
+  "base": "5c2426f7510693143b4494107bb647b32a1b65e4",
+  "branch": "codex/09-quality-security",
+  "date": "2026-10-10",
+  "checks": {
+    "lint": "passed",
+    "typecheck": "passed",
+    "build": "passed",
+    "engine_tests": 10,
+    "web_tests": 3,
+    "quality_tests": 7,
+    "logging_tests": 2,
+    "targeted_coverage_percent": 81.6,
+    "client_gzip_bytes": 174695,
+    "http_smoke": "passed",
+    "sql_migrations_applied": 2,
+    "secret_scans": "passed",
+    "js_audit": "failed",
+    "engine_audit": "failed",
+    "quality_tools_audit": "passed",
+    "browser_tools_audit": "passed"
+  },
+  "js_vulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 1,
+    "critical": 0
+  },
+  "blocking_advisories": [
+    "GHSA-vfj7-8cjw-p6xm",
+    "PYSEC-2026-1845"
+  ],
+  "scientific_changes": false,
+  "contract_changes": false,
+  "migration_changes": false,
+  "merge_performed": false
+}
