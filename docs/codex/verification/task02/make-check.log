@@ -1,0 +1,83 @@
+.venv/bin/python scripts/check_contracts.py
+V1: 3 schemas/examples, demo GeoJSON and 4 YAML files validated offline.
+.venv/bin/python -m pytest engine/tests
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-8.4.2, pluggy-1.6.0
+rootdir: /workspace/agriclimax-task02/engine
+configfile: pyproject.toml
+collected 28 items
+
+engine/tests/test_contracts.py ........                                  [ 28%]
+engine/tests/test_indicators.py ..                                       [ 35%]
+engine/tests/test_science.py ..................                          [100%]
+
+============================== 28 passed in 0.18s ==============================
+pnpm lint
+
+> agriclimax@ lint /workspace/agriclimax-task02
+> pnpm --filter @agriclimax/web lint
+
+
+> @agriclimax/web@ lint /workspace/agriclimax-task02/apps/web
+> eslint . --max-warnings 0
+
+pnpm typecheck
+
+> agriclimax@ typecheck /workspace/agriclimax-task02
+> pnpm --filter @agriclimax/web typecheck
+
+
+> @agriclimax/web@ typecheck /workspace/agriclimax-task02/apps/web
+> next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+pnpm test
+
+> agriclimax@ test /workspace/agriclimax-task02
+> pnpm --filter @agriclimax/web test
+
+
+> @agriclimax/web@ test /workspace/agriclimax-task02/apps/web
+> vitest run
+
+
+ RUN  v3.2.7 /workspace/agriclimax-task02/apps/web
+
+ ✓ lib/foundation.test.ts (3 tests) 5ms
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  16:37:36
+   Duration  250ms (transform 71ms, setup 0ms, collect 73ms, tests 5ms, environment 0ms, prepare 54ms)
+
+pnpm build
+
+> agriclimax@ build /workspace/agriclimax-task02
+> pnpm --filter @agriclimax/web build
+
+
+> @agriclimax/web@ build /workspace/agriclimax-task02/apps/web
+> next build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.ts took 18ms
+- Experiments (use with caution):
+  ⨯ useTypeScriptCli
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.1s
+  Running TypeScript ...
+  Finished TypeScript in 1730ms ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/3) ...
+✓ Generating static pages using 2 workers (3/3) in 89ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+└ ○ /_not-found
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
