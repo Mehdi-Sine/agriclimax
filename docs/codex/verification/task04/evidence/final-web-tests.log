@@ -1,0 +1,19 @@
+
+> agriclimax@ test /workspace/agriclimax
+> pnpm --filter @agriclimax/web test
+
+
+> @agriclimax/web@ test /workspace/agriclimax/apps/web
+> vitest run
+
+
+ RUN  v3.2.7 /workspace/agriclimax/apps/web
+
+ ✓ lib/server/api.test.ts (22 tests) 28ms
+ ✓ lib/foundation.test.ts (3 tests) 6ms
+
+ Test Files  2 passed (2)
+      Tests  25 passed (25)
+   Start at  17:47:48
+   Duration  856ms (transform 140ms, setup 0ms, collect 310ms, tests 34ms, environment 0ms, prepare 143ms)
+

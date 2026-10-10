@@ -1,0 +1,245 @@
+BEGIN
+     database      | migration_actor |                                                           version
+-------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------
+ agriclimax_task04 | postgres        | PostgreSQL 17.5 (Debian 17.5-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+(1 row)
+
+ extname  | extversion | extension_schema
+----------+------------+------------------
+ postgis  | 3.5.2      | extensions
+ pgcrypto | 1.3        | extensions
+(2 rows)
+
+       schema       |       table        | relrowsecurity | relforcerowsecurity
+--------------------+--------------------+----------------+---------------------
+ agriclimax_private | indicator_results  | t              | t
+ agriclimax_private | indicators         | t              | t
+ agriclimax_private | observations       | t              | t
+ agriclimax_private | parameter_versions | t              | t
+ agriclimax_private | rule_versions      | t              | t
+ agriclimax_private | run_manifests      | t              | t
+ public             | grid_cells         | t              | t
+ public             | productions        | t              | t
+ public             | risk_results       | t              | t
+ public             | sources            | t              | t
+ public             | watch_signals      | t              | t
+(11 rows)
+
+    table_schema    |     table_name     |     column_name     |        data_type         | is_nullable |  column_default
+--------------------+--------------------+---------------------+--------------------------+-------------+-------------------
+ agriclimax_private | indicator_results  | id                  | uuid                     | NO          | gen_random_uuid()
+ agriclimax_private | indicator_results  | cell_id             | text                     | NO          |
+ agriclimax_private | indicator_results  | valid_date          | date                     | NO          |
+ agriclimax_private | indicator_results  | production_id       | text                     | NO          |
+ agriclimax_private | indicator_results  | indicator_id        | text                     | NO          |
+ agriclimax_private | indicator_results  | rule_id             | text                     | NO          |
+ agriclimax_private | indicator_results  | rule_version        | text                     | NO          |
+ agriclimax_private | indicator_results  | value               | double precision         | YES         |
+ agriclimax_private | indicator_results  | unit                | text                     | NO          |
+ agriclimax_private | indicator_results  | provenance          | jsonb                    | NO          |
+ agriclimax_private | indicator_results  | quality             | jsonb                    | NO          |
+ agriclimax_private | indicator_results  | run_id              | uuid                     | NO          |
+ agriclimax_private | indicators         | id                  | text                     | NO          |
+ agriclimax_private | indicators         | unit                | text                     | NO          |
+ agriclimax_private | indicators         | metadata            | jsonb                    | NO          | '{}'::jsonb
+ agriclimax_private | indicators         | created_at          | timestamp with time zone | NO          | now()
+ agriclimax_private | observations       | id                  | uuid                     | NO          | gen_random_uuid()
+ agriclimax_private | observations       | cell_id             | text                     | NO          |
+ agriclimax_private | observations       | source_id           | text                     | NO          |
+ agriclimax_private | observations       | variable_id         | text                     | NO          |
+ agriclimax_private | observations       | observed_at         | timestamp with time zone | NO          |
+ agriclimax_private | observations       | retrieved_at        | timestamp with time zone | NO          |
+ agriclimax_private | observations       | value               | double precision         | YES         |
+ agriclimax_private | observations       | unit                | text                     | NO          |
+ agriclimax_private | observations       | quality             | jsonb                    | NO          |
+ agriclimax_private | observations       | run_id              | uuid                     | NO          |
+ agriclimax_private | parameter_versions | id                  | text                     | NO          |
+ agriclimax_private | parameter_versions | version             | text                     | NO          |
+ agriclimax_private | parameter_versions | parameters          | jsonb                    | NO          |
+ agriclimax_private | parameter_versions | scientific_status   | text                     | NO          |
+ agriclimax_private | parameter_versions | provenance          | jsonb                    | NO          |
+ agriclimax_private | parameter_versions | created_at          | timestamp with time zone | NO          | now()
+ agriclimax_private | rule_versions      | id                  | text                     | NO          |
+ agriclimax_private | rule_versions      | version             | text                     | NO          |
+ agriclimax_private | rule_versions      | indicator_id        | text                     | NO          |
+ agriclimax_private | rule_versions      | parameter_id        | text                     | NO          |
+ agriclimax_private | rule_versions      | parameter_version   | text                     | NO          |
+ agriclimax_private | rule_versions      | metadata            | jsonb                    | NO          | '{}'::jsonb
+ agriclimax_private | rule_versions      | created_at          | timestamp with time zone | NO          | now()
+ agriclimax_private | run_manifests      | id                  | uuid                     | NO          | gen_random_uuid()
+ agriclimax_private | run_manifests      | idempotency_key     | text                     | NO          |
+ agriclimax_private | run_manifests      | status              | text                     | NO          |
+ agriclimax_private | run_manifests      | engine_version      | text                     | NO          |
+ agriclimax_private | run_manifests      | started_at          | timestamp with time zone | NO          | now()
+ agriclimax_private | run_manifests      | completed_at        | timestamp with time zone | YES         |
+ agriclimax_private | run_manifests      | provenance          | jsonb                    | NO          |
+ agriclimax_private | run_manifests      | quality             | jsonb                    | NO          |
+ agriclimax_private | run_manifests      | manifest            | jsonb                    | NO          | '{}'::jsonb
+ public             | grid_cells         | id                  | text                     | NO          |
+ public             | grid_cells         | geom                | USER-DEFINED             | NO          |
+ public             | grid_cells         | centroid            | USER-DEFINED             | YES         |
+ public             | grid_cells         | grid_system         | text                     | NO          |
+ public             | grid_cells         | resolution          | text                     | YES         |
+ public             | productions        | id                  | text                     | NO          |
+ public             | productions        | name_fr             | text                     | NO          |
+ public             | productions        | category            | text                     | NO          |
+ public             | productions        | scientific_status   | text                     | NO          |
+ public             | productions        | metadata            | jsonb                    | NO          | '{}'::jsonb
+ public             | risk_results       | id                  | uuid                     | NO          | gen_random_uuid()
+ public             | risk_results       | cell_id             | text                     | NO          |
+ public             | risk_results       | valid_date          | date                     | NO          |
+ public             | risk_results       | production_id       | text                     | NO          |
+ public             | risk_results       | indicator_id        | text                     | NO          |
+ public             | risk_results       | rule_id             | text                     | NO          |
+ public             | risk_results       | rule_version        | text                     | NO          |
+ public             | risk_results       | hazard              | jsonb                    | NO          |
+ public             | risk_results       | exposure            | jsonb                    | YES         |
+ public             | risk_results       | sensitivity         | jsonb                    | YES         |
+ public             | risk_results       | risk                | jsonb                    | NO          |
+ public             | risk_results       | confidence          | jsonb                    | NO          |
+ public             | risk_results       | provenance          | jsonb                    | NO          |
+ public             | risk_results       | quality             | jsonb                    | NO          |
+ public             | risk_results       | computed_at         | timestamp with time zone | NO          | now()
+ public             | risk_results       | published           | boolean                  | NO          | false
+ public             | risk_results       | run_id              | uuid                     | YES         |
+ public             | sources            | id                  | text                     | NO          |
+ public             | sources            | title               | text                     | NO          |
+ public             | sources            | authors             | text                     | YES         |
+ public             | sources            | publication_year    | integer                  | YES         |
+ public             | sources            | doi                 | text                     | YES         |
+ public             | sources            | url                 | text                     | YES         |
+ public             | sources            | license             | text                     | YES         |
+ public             | sources            | created_at          | timestamp with time zone | NO          | now()
+ public             | watch_signals      | id                  | uuid                     | NO          | gen_random_uuid()
+ public             | watch_signals      | signal_key          | text                     | NO          |
+ public             | watch_signals      | created_at          | timestamp with time zone | NO          | now()
+ public             | watch_signals      | valid_from          | timestamp with time zone | YES         |
+ public             | watch_signals      | valid_to            | timestamp with time zone | YES         |
+ public             | watch_signals      | territory           | jsonb                    | NO          |
+ public             | watch_signals      | production_id       | text                     | YES         |
+ public             | watch_signals      | risk_level          | text                     | NO          |
+ public             | watch_signals      | headline            | text                     | NO          |
+ public             | watch_signals      | facts               | jsonb                    | NO          |
+ public             | watch_signals      | evidence_result_ids | ARRAY                    | NO          | '{}'::uuid[]
+ public             | watch_signals      | narrative           | text                     | YES         |
+ public             | watch_signals      | ai_assisted         | boolean                  | NO          | false
+ public             | watch_signals      | ai_metadata         | jsonb                    | YES         |
+(97 rows)
+
+     schemaname     |     tablename      |                            indexname                            |                                                                                                         indexdef
+--------------------+--------------------+-----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ agriclimax_private | indicator_results  | indicator_results_cell_id_valid_date_production_id_indicato_key | CREATE UNIQUE INDEX indicator_results_cell_id_valid_date_production_id_indicato_key ON agriclimax_private.indicator_results USING btree (cell_id, valid_date, production_id, indicator_id, rule_id, rule_version, run_id)
+ agriclimax_private | indicator_results  | indicator_results_lookup_idx                                    | CREATE INDEX indicator_results_lookup_idx ON agriclimax_private.indicator_results USING btree (production_id, indicator_id, valid_date, cell_id)
+ agriclimax_private | indicator_results  | indicator_results_pkey                                          | CREATE UNIQUE INDEX indicator_results_pkey ON agriclimax_private.indicator_results USING btree (id)
+ agriclimax_private | indicator_results  | indicator_results_run_idx                                       | CREATE INDEX indicator_results_run_idx ON agriclimax_private.indicator_results USING btree (run_id)
+ agriclimax_private | indicators         | indicators_pkey                                                 | CREATE UNIQUE INDEX indicators_pkey ON agriclimax_private.indicators USING btree (id)
+ agriclimax_private | observations       | observations_cell_id_source_id_variable_id_observed_at_run__key | CREATE UNIQUE INDEX observations_cell_id_source_id_variable_id_observed_at_run__key ON agriclimax_private.observations USING btree (cell_id, source_id, variable_id, observed_at, run_id)
+ agriclimax_private | observations       | observations_cell_time_idx                                      | CREATE INDEX observations_cell_time_idx ON agriclimax_private.observations USING btree (cell_id, variable_id, observed_at DESC)
+ agriclimax_private | observations       | observations_pkey                                               | CREATE UNIQUE INDEX observations_pkey ON agriclimax_private.observations USING btree (id)
+ agriclimax_private | observations       | observations_run_idx                                            | CREATE INDEX observations_run_idx ON agriclimax_private.observations USING btree (run_id)
+ agriclimax_private | observations       | observations_source_time_idx                                    | CREATE INDEX observations_source_time_idx ON agriclimax_private.observations USING btree (source_id, variable_id, observed_at DESC)
+ agriclimax_private | parameter_versions | parameter_versions_pkey                                         | CREATE UNIQUE INDEX parameter_versions_pkey ON agriclimax_private.parameter_versions USING btree (id, version)
+ agriclimax_private | rule_versions      | rule_versions_pkey                                              | CREATE UNIQUE INDEX rule_versions_pkey ON agriclimax_private.rule_versions USING btree (id, version)
+ agriclimax_private | run_manifests      | run_manifests_idempotency_key_key                               | CREATE UNIQUE INDEX run_manifests_idempotency_key_key ON agriclimax_private.run_manifests USING btree (idempotency_key)
+ agriclimax_private | run_manifests      | run_manifests_pkey                                              | CREATE UNIQUE INDEX run_manifests_pkey ON agriclimax_private.run_manifests USING btree (id)
+ agriclimax_private | run_manifests      | run_manifests_started_idx                                       | CREATE INDEX run_manifests_started_idx ON agriclimax_private.run_manifests USING btree (started_at)
+ public             | grid_cells         | grid_cells_geom_gix                                             | CREATE INDEX grid_cells_geom_gix ON public.grid_cells USING gist (geom)
+ public             | grid_cells         | grid_cells_pkey                                                 | CREATE UNIQUE INDEX grid_cells_pkey ON public.grid_cells USING btree (id)
+ public             | productions        | productions_pkey                                                | CREATE UNIQUE INDEX productions_pkey ON public.productions USING btree (id)
+ public             | risk_results       | risk_results_cell_id_valid_date_production_id_indicator_id__key | CREATE UNIQUE INDEX risk_results_cell_id_valid_date_production_id_indicator_id__key ON public.risk_results USING btree (cell_id, valid_date, production_id, indicator_id, rule_id, rule_version)
+ public             | risk_results       | risk_results_lookup_idx                                         | CREATE INDEX risk_results_lookup_idx ON public.risk_results USING btree (valid_date, production_id, indicator_id)
+ public             | risk_results       | risk_results_pkey                                               | CREATE UNIQUE INDEX risk_results_pkey ON public.risk_results USING btree (id)
+ public             | risk_results       | risk_results_published_map_idx                                  | CREATE INDEX risk_results_published_map_idx ON public.risk_results USING btree (production_id, indicator_id, rule_id, rule_version, valid_date, cell_id) WHERE published
+ public             | risk_results       | risk_results_published_series_idx                               | CREATE INDEX risk_results_published_series_idx ON public.risk_results USING btree (cell_id, production_id, indicator_id, rule_id, rule_version, valid_date) WHERE published
+ public             | risk_results       | risk_results_run_idx                                            | CREATE INDEX risk_results_run_idx ON public.risk_results USING btree (run_id)
+ public             | sources            | sources_pkey                                                    | CREATE UNIQUE INDEX sources_pkey ON public.sources USING btree (id)
+ public             | watch_signals      | watch_signals_pkey                                              | CREATE UNIQUE INDEX watch_signals_pkey ON public.watch_signals USING btree (id)
+ public             | watch_signals      | watch_signals_signal_key_key                                    | CREATE UNIQUE INDEX watch_signals_signal_key_key ON public.watch_signals USING btree (signal_key)
+(27 rows)
+
+     schemaname     |     tablename      |          policyname          |          roles          |  cmd   |   qual    | with_check
+--------------------+--------------------+------------------------------+-------------------------+--------+-----------+------------
+ agriclimax_private | indicator_results  | agriclimax_server            | {service_role}          | ALL    | true      | true
+ agriclimax_private | indicators         | agriclimax_server            | {service_role}          | ALL    | true      | true
+ agriclimax_private | observations       | agriclimax_server            | {service_role}          | ALL    | true      | true
+ agriclimax_private | parameter_versions | agriclimax_server            | {service_role}          | ALL    | true      | true
+ agriclimax_private | rule_versions      | agriclimax_server            | {service_role}          | ALL    | true      | true
+ agriclimax_private | run_manifests      | agriclimax_server            | {service_role}          | ALL    | true      | true
+ public             | grid_cells         | agriclimax_map_geometry      | {agriclimax_api_reader} | SELECT | true      |
+ public             | grid_cells         | agriclimax_server            | {service_role}          | ALL    | true      | true
+ public             | productions        | agriclimax_server            | {service_role}          | ALL    | true      | true
+ public             | risk_results       | agriclimax_published_results | {agriclimax_api_reader} | SELECT | published |
+ public             | risk_results       | agriclimax_server            | {service_role}          | ALL    | true      | true
+ public             | sources            | agriclimax_server            | {service_role}          | ALL    | true      | true
+ public             | watch_signals      | agriclimax_server            | {service_role}          | ALL    | true      | true
+(13 rows)
+
+    table_schema    |     table_name     |        grantee        | privilege_type
+--------------------+--------------------+-----------------------+----------------
+ agriclimax_private | indicator_results  | service_role          | DELETE
+ agriclimax_private | indicator_results  | service_role          | INSERT
+ agriclimax_private | indicator_results  | service_role          | SELECT
+ agriclimax_private | indicator_results  | service_role          | UPDATE
+ agriclimax_private | indicators         | service_role          | DELETE
+ agriclimax_private | indicators         | service_role          | INSERT
+ agriclimax_private | indicators         | service_role          | SELECT
+ agriclimax_private | indicators         | service_role          | UPDATE
+ agriclimax_private | observations       | service_role          | DELETE
+ agriclimax_private | observations       | service_role          | INSERT
+ agriclimax_private | observations       | service_role          | SELECT
+ agriclimax_private | observations       | service_role          | UPDATE
+ agriclimax_private | parameter_versions | service_role          | INSERT
+ agriclimax_private | parameter_versions | service_role          | SELECT
+ agriclimax_private | rule_versions      | service_role          | INSERT
+ agriclimax_private | rule_versions      | service_role          | SELECT
+ agriclimax_private | run_manifests      | service_role          | DELETE
+ agriclimax_private | run_manifests      | service_role          | INSERT
+ agriclimax_private | run_manifests      | service_role          | SELECT
+ agriclimax_private | run_manifests      | service_role          | UPDATE
+ public             | grid_cells         | agriclimax_api_reader | SELECT
+ public             | grid_cells         | service_role          | DELETE
+ public             | grid_cells         | service_role          | INSERT
+ public             | grid_cells         | service_role          | SELECT
+ public             | grid_cells         | service_role          | UPDATE
+ public             | productions        | service_role          | DELETE
+ public             | productions        | service_role          | INSERT
+ public             | productions        | service_role          | SELECT
+ public             | productions        | service_role          | UPDATE
+ public             | risk_results       | agriclimax_api_reader | SELECT
+ public             | risk_results       | service_role          | DELETE
+ public             | risk_results       | service_role          | INSERT
+ public             | risk_results       | service_role          | SELECT
+ public             | risk_results       | service_role          | UPDATE
+ public             | sources            | service_role          | DELETE
+ public             | sources            | service_role          | INSERT
+ public             | sources            | service_role          | SELECT
+ public             | sources            | service_role          | UPDATE
+ public             | watch_signals      | service_role          | DELETE
+ public             | watch_signals      | service_role          | INSERT
+ public             | watch_signals      | service_role          | SELECT
+ public             | watch_signals      | service_role          | UPDATE
+(42 rows)
+
+          proname           |         owner         | prosecdef |                              proconfig                              |                                                                         proacl
+----------------------------+-----------------------+-----------+---------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------
+ agriclimax_map_risks       | agriclimax_api_reader | t         | {"search_path=pg_catalog, extensions, public",statement_timeout=5s} | {agriclimax_api_reader=X/agriclimax_api_reader,anon=X/agriclimax_api_reader,authenticated=X/agriclimax_api_reader,service_role=X/agriclimax_api_reader}
+ agriclimax_risk_payload    | postgres              | f         | {search_path=pg_catalog}                                            | {postgres=X/postgres,agriclimax_api_reader=X/postgres}
+ agriclimax_risk_series     | agriclimax_api_reader | t         | {"search_path=pg_catalog, public",statement_timeout=5s}             | {agriclimax_api_reader=X/agriclimax_api_reader,anon=X/agriclimax_api_reader,authenticated=X/agriclimax_api_reader,service_role=X/agriclimax_api_reader}
+ agriclimax_territory_risks | agriclimax_api_reader | t         | {"search_path=pg_catalog, extensions, public",statement_timeout=5s} | {agriclimax_api_reader=X/agriclimax_api_reader,anon=X/agriclimax_api_reader,authenticated=X/agriclimax_api_reader,service_role=X/agriclimax_api_reader}
+ agriclimax_validate_query  | postgres              | f         | {search_path=pg_catalog}                                            | {postgres=X/postgres,agriclimax_api_reader=X/postgres}
+(5 rows)
+
+        rolname        | rolcanlogin | rolinherit | rolbypassrls
+-----------------------+-------------+------------+--------------
+ anon                  | f           | t          | f
+ authenticated         | f           | t          | f
+ service_role          | f           | t          | t
+ agriclimax_api_reader | f           | f          | f
+(4 rows)
+
+ migration_history_relation
+----------------------------
+
+(1 row)
+
+COMMIT

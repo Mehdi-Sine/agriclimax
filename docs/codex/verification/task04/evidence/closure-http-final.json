@@ -1,0 +1,52 @@
+{
+  "tested_at": "2026-10-10T19:52:27.907305+00:00",
+  "endpoints": {
+    "map": {
+      "status": 200,
+      "body": {
+        "type": "FeatureCollection",
+        "limit": 1000,
+        "features": [],
+        "truncated": false
+      },
+      "cache_control": "no-store",
+      "secret_absent": true
+    },
+    "series": {
+      "status": 200,
+      "body": [],
+      "cache_control": "no-store",
+      "secret_absent": true
+    },
+    "territory": {
+      "status": 200,
+      "body": {
+        "bbox": [
+          -5,
+          43,
+          1,
+          49
+        ],
+        "rule": {
+          "rule_id": "demo-rule",
+          "version": "1.0"
+        },
+        "groups": [],
+        "aggregation": "intersecting_cell_counts",
+        "indicator_id": "tmax_days_above",
+        "production_id": "wheat_soft"
+      },
+      "cache_control": "no-store",
+      "secret_absent": true
+    }
+  },
+  "invalid_query": {
+    "status": 400,
+    "body": {
+      "error": {
+        "code": "INVALID_QUERY",
+        "message": "Param\u00e8tres de requ\u00eate invalides."
+      }
+    }
+  }
+}

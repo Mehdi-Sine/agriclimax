@@ -1,0 +1,30 @@
+[
+  {
+    "case": "map-invalid",
+    "status": 400,
+    "error_code": "INVALID_QUERY",
+    "cache_control": "no-store",
+    "secret_absent": true
+  },
+  {
+    "case": "map-dev",
+    "status": 502,
+    "error_code": "UPSTREAM_UNAVAILABLE",
+    "cache_control": "no-store",
+    "secret_absent": true
+  },
+  {
+    "case": "series-dev",
+    "status": 502,
+    "error_code": "UPSTREAM_UNAVAILABLE",
+    "cache_control": "no-store",
+    "secret_absent": true
+  },
+  {
+    "case": "territory-dev",
+    "status": 502,
+    "error_code": "UPSTREAM_UNAVAILABLE",
+    "cache_control": "no-store",
+    "secret_absent": true
+  }
+]

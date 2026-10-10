@@ -1,0 +1,71 @@
+{
+  "inspected_at": "2026-10-10T19:52:31.783090+00:00",
+  "method": "read-only REST; no SQL access",
+  "roles": {
+    "server": {
+      "openapi": {
+        "http_status": 200,
+        "task_tables_listed": [
+          "grid_cells",
+          "productions",
+          "risk_results",
+          "sources",
+          "watch_signals"
+        ],
+        "task_rpcs_listed": [
+          "agriclimax_map_risks",
+          "agriclimax_risk_series",
+          "agriclimax_territory_risks"
+        ]
+      },
+      "sources": {
+        "http_status": 200
+      },
+      "productions": {
+        "http_status": 200
+      },
+      "grid_cells": {
+        "http_status": 200
+      },
+      "risk_results": {
+        "http_status": 200
+      },
+      "watch_signals": {
+        "http_status": 200
+      }
+    },
+    "publishable": {
+      "openapi": {
+        "http_status": 401
+      },
+      "sources": {
+        "http_status": 401,
+        "postgrest_code": "42501"
+      },
+      "productions": {
+        "http_status": 401,
+        "postgrest_code": "42501"
+      },
+      "grid_cells": {
+        "http_status": 401,
+        "postgrest_code": "42501"
+      },
+      "risk_results": {
+        "http_status": 401,
+        "postgrest_code": "42501"
+      },
+      "watch_signals": {
+        "http_status": 401,
+        "postgrest_code": "42501"
+      }
+    }
+  },
+  "sql_state": {
+    "tables": "unverified",
+    "postgis": "unverified",
+    "indexes": "unverified",
+    "rls": "unverified",
+    "migration_history": "unverified"
+  },
+  "migrations_applied_by_task04": []
+}

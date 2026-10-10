@@ -1,0 +1,37 @@
+BEGIN
+INSERT 0 1
+INSERT 0 1
+INSERT 0 10000
+INSERT 0 100000
+UPDATE 10
+INSERT 0 10
+INSERT 0 1
+INSERT 0 1
+SET
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+DO
+RESET
+DO
+SET
+DO
+RESET
+SET
+ authenticated_rpc_ok 
+----------------------
+ t
+(1 row)
+
+RESET
+SET
+ server_can_read_private_rows 
+------------------------------
+ t
+(1 row)
+
+RESET
+ROLLBACK

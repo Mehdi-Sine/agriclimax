@@ -1,0 +1,66 @@
+{
+  "inspected_at": "2026-10-10T11:32:02.152153+00:00",
+  "method": "read-only REST; no SQL access",
+  "roles": {
+    "server": {
+      "openapi": {
+        "http_status": 200,
+        "task_tables_listed": [],
+        "task_rpcs_listed": []
+      },
+      "sources": {
+        "http_status": 404,
+        "postgrest_code": "PGRST205"
+      },
+      "productions": {
+        "http_status": 404,
+        "postgrest_code": "PGRST205"
+      },
+      "grid_cells": {
+        "http_status": 404,
+        "postgrest_code": "PGRST205"
+      },
+      "risk_results": {
+        "http_status": 404,
+        "postgrest_code": "PGRST205"
+      },
+      "watch_signals": {
+        "http_status": 404,
+        "postgrest_code": "PGRST205"
+      }
+    },
+    "publishable": {
+      "openapi": {
+        "http_status": 401
+      },
+      "sources": {
+        "http_status": 404,
+        "postgrest_code": "PGRST205"
+      },
+      "productions": {
+        "http_status": 404,
+        "postgrest_code": "PGRST205"
+      },
+      "grid_cells": {
+        "http_status": 404,
+        "postgrest_code": "PGRST205"
+      },
+      "risk_results": {
+        "http_status": 404,
+        "postgrest_code": "PGRST205"
+      },
+      "watch_signals": {
+        "http_status": 404,
+        "postgrest_code": "PGRST205"
+      }
+    }
+  },
+  "sql_state": {
+    "tables": "unverified",
+    "postgis": "unverified",
+    "indexes": "unverified",
+    "rls": "unverified",
+    "migration_history": "unverified"
+  },
+  "migrations_applied_by_task04": []
+}
