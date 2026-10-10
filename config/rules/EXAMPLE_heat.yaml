@@ -1,0 +1,14 @@
+# EXEMPLE FICTIF — ne pas considérer comme seuil agronomique validé.
+rule_id: demo_heat_wheat
+version: "0.1.0"
+status: exploratory
+production_id: wheat_soft
+indicator_id: tmax_days_above
+parameters:
+  temperature_threshold_c: 30
+  window_days: 7
+classification:
+  moderate: 2
+  high: 4
+  critical: 6
+sources: []

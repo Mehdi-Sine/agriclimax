@@ -1,0 +1,14 @@
+schema_version: "1.0"
+indicators:
+  - id: tmax_days_above
+    name_fr: Jours au-dessus d'un seuil de Tmax
+    unit: d
+    scientific_status: exploratory
+  - id: gdd
+    name_fr: Somme de températures
+    unit: degree_day
+    scientific_status: exploratory
+  - id: thi
+    name_fr: Temperature Humidity Index
+    unit: index
+    scientific_status: exploratory

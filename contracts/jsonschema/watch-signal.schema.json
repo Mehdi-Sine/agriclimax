@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WatchSignalV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "signal_id",
+    "created_at",
+    "validity",
+    "territory",
+    "production_id",
+    "risk_level",
+    "headline",
+    "evidence",
+    "ai"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "signal_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "validity": {
+      "type": "object"
+    },
+    "territory": {
+      "type": "object"
+    },
+    "production_id": {
+      "type": "string"
+    },
+    "risk_level": {
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "critical",
+        "unavailable"
+      ]
+    },
+    "headline": {
+      "type": "string"
+    },
+    "summary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "ai": {
+      "type": "object",
+      "required": [
+        "assisted"
+      ],
+      "properties": {
+        "assisted": {
+          "type": "boolean"
+        },
+        "template_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

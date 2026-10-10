@@ -1,0 +1,28 @@
+:root {
+  --brand-primary: #123D38;
+  --brand-secondary: #287E88;
+  --brand-accent: #BDE1CF;
+  --surface-base: #F6F7F3;
+  --text-primary: #263A43;
+  --accent-amber: #D99545;
+  --risk-low: #66A98E;
+  --risk-moderate: #E7C75C;
+  --risk-high: #E68F4D;
+  --risk-critical: #C65358;
+  --risk-unavailable: #718C85;
+  --radius-sm: .375rem;
+  --radius-md: .625rem;
+  --radius-lg: .875rem;
+  --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem;
+  --space-6: 1.5rem; --space-8: 2rem;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --surface-base: #12201E;
+  --text-primary: #E7EFEB;
+  color-scheme: dark;
+}
+
+.metric-number { font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }

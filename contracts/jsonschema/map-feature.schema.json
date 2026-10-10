@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AgriclimaXMapFeaturePropertiesV1",
+  "type": "object",
+  "required": [
+    "cell_id",
+    "valid_date",
+    "production_id",
+    "indicator_id",
+    "risk_level",
+    "confidence_level",
+    "freshness"
+  ],
+  "properties": {
+    "cell_id": {
+      "type": "string"
+    },
+    "valid_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "production_id": {
+      "type": "string"
+    },
+    "indicator_id": {
+      "type": "string"
+    },
+    "risk_level": {
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "critical",
+        "unavailable"
+      ]
+    },
+    "confidence_level": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "freshness": {
+      "enum": [
+        "fresh",
+        "stale",
+        "unknown"
+      ]
+    },
+    "hazard_value": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "hazard_unit": {
+      "type": "string"
+    }
+  }
+}

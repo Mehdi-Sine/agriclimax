@@ -1,0 +1,13 @@
+# Checklist de revue PR
+- [ ] Scope de la task respecté
+- [ ] `contracts/` inchangé ou procédure suivie
+- [ ] pas de secret client
+- [ ] science : statut/source/version corrects
+- [ ] risk/confidence distincts
+- [ ] demo explicitement signalée
+- [ ] tests automatisés
+- [ ] migrations forward-only
+- [ ] accessibilité et responsive si UI
+- [ ] desktop/tablet/mobile capturés si UI
+- [ ] documentation impactée
+- [ ] limitation et dette explicites
