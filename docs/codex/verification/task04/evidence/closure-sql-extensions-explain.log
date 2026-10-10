@@ -1,0 +1,67 @@
+BEGIN
+INSERT 0 1
+INSERT 0 1
+INSERT 0 10000
+INSERT 0 100000
+ANALYZE
+ANALYZE
+                                                                                                                                                                                                                                          QUERY PLAN                                                                                                                                                                                                                                           
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=29.13..42.27 rows=1 width=48) (actual time=0.552..0.673 rows=25 loops=1)
+   Buffers: shared hit=156 read=5 dirtied=3
+   ->  Result  (cost=29.13..42.27 rows=1 width=48) (actual time=0.550..0.669 rows=25 loops=1)
+         Buffers: shared hit=156 read=5 dirtied=3
+         ->  Sort  (cost=29.13..29.13 rows=1 width=136) (actual time=0.485..0.487 rows=25 loops=1)
+               Sort Key: r.cell_id
+               Sort Method: quicksort  Memory: 31kB
+               Buffers: shared hit=156 read=5 dirtied=3
+               ->  Nested Loop  (cost=0.57..29.12 rows=1 width=136) (actual time=0.119..0.453 rows=25 loops=1)
+                     Buffers: shared hit=156 read=5 dirtied=3
+                     ->  Index Scan using grid_cells_geom_gix on grid_cells g  (cost=0.15..20.67 rows=1 width=136) (actual time=0.101..0.200 rows=25 loops=1)
+                           Index Cond: ((geom && '0103000020E6100000010000000500000000000000000014C0000000000080454000000000000014C09A9999999999454033333333333313C09A9999999999454033333333333313C0000000000080454000000000000014C00000000000804540'::geometry) AND (geom && '0103000020E6100000010000000500000000000000000014C0000000000080454000000000000014C09A9999999999454033333333333313C09A9999999999454033333333333313C0000000000080454000000000000014C00000000000804540'::geometry))
+                           Filter: st_intersects(geom, '0103000020E6100000010000000500000000000000000014C0000000000080454000000000000014C09A9999999999454033333333333313C09A9999999999454033333333333313C0000000000080454000000000000014C00000000000804540'::geometry)
+                           Buffers: shared hit=32 read=4 dirtied=3
+                     ->  Index Only Scan using risk_results_published_series_idx on risk_results r  (cost=0.42..8.45 rows=1 width=16) (actual time=0.009..0.009 rows=1 loops=25)
+                           Index Cond: ((cell_id = g.id) AND (production_id = 'task04-demo-production'::text) AND (indicator_id = 'task04-demo-indicator'::text) AND (rule_id = 'task04-demo-rule'::text) AND (rule_version = '1.0'::text) AND (valid_date = '2026-07-01'::date))
+                           Heap Fetches: 50
+                           Buffers: shared hit=124 read=1
+ Planning:
+   Buffers: shared hit=182 read=31 dirtied=1
+ Planning Time: 1.029 ms
+ Execution Time: 0.719 ms
+(22 rows)
+
+                                                                                                                                                            QUERY PLAN                                                                                                                                                             
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Bitmap Heap Scan on risk_results  (cost=4.65..43.97 rows=10 width=433) (actual time=0.034..0.049 rows=10 loops=1)
+   Recheck Cond: ((cell_id = 'task04-demo-1'::text) AND (production_id = 'task04-demo-production'::text) AND (indicator_id = 'task04-demo-indicator'::text) AND (rule_id = 'task04-demo-rule'::text) AND (rule_version = '1.0'::text) AND (valid_date >= '2026-07-01'::date) AND (valid_date <= '2026-07-10'::date) AND published)
+   Heap Blocks: exact=20
+   Buffers: shared hit=23
+   ->  Bitmap Index Scan on risk_results_published_series_idx  (cost=0.00..4.64 rows=10 width=0) (actual time=0.014..0.014 rows=20 loops=1)
+         Index Cond: ((cell_id = 'task04-demo-1'::text) AND (production_id = 'task04-demo-production'::text) AND (indicator_id = 'task04-demo-indicator'::text) AND (rule_id = 'task04-demo-rule'::text) AND (rule_version = '1.0'::text) AND (valid_date >= '2026-07-01'::date) AND (valid_date <= '2026-07-10'::date))
+         Buffers: shared hit=3
+ Planning:
+   Buffers: shared hit=36
+ Planning Time: 0.160 ms
+ Execution Time: 0.062 ms
+(11 rows)
+
+SET
+                                     QUERY PLAN                                      
+-------------------------------------------------------------------------------------
+ Result  (cost=0.00..0.26 rows=1 width=32) (actual time=4.667..4.668 rows=1 loops=1)
+   Buffers: shared hit=562 read=42 written=36
+ Planning Time: 0.023 ms
+ Execution Time: 4.674 ms
+(4 rows)
+
+                                     QUERY PLAN                                      
+-------------------------------------------------------------------------------------
+ Result  (cost=0.00..0.26 rows=1 width=32) (actual time=2.000..2.000 rows=1 loops=1)
+   Buffers: shared hit=664 read=4 written=4
+ Planning Time: 0.018 ms
+ Execution Time: 2.005 ms
+(4 rows)
+
+RESET
+ROLLBACK
