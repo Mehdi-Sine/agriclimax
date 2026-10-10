@@ -39,7 +39,7 @@ try {
     assert.ok(durationMs < 15000, 'Local demo navigation exceeds 15s smoke budget');
     assert.ok(await page.locator('main').isVisible(), 'Visible main landmark required');
     assert.ok((await page.locator('body').innerText()).includes('AgriclimaX'));
-    assert.ok((await page.locator('[data-demo="true"]').innerText()).includes('Données fictives'));
+    assert.ok((await page.locator('[data-demo="true"]').first().innerText()).includes('Données fictives'));
     assert.equal(await page.locator('html').getAttribute('lang'), 'fr');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, 'Horizontal overflow');
     assert.equal(await page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches), true);
@@ -49,14 +49,50 @@ try {
     const violations = a11y.violations.map((v) => ({ id: v.id, impact: v.impact, count: v.nodes.length }));
     reports.push({ name, width, height, durationMs: Math.round(durationMs), violations });
     await page.screenshot({ path: path.join(artifactDir, `${name}.png`), fullPage: true });
-    assert.deepEqual(violations, [], `${name}: WCAG A/AA violations`);
-    const interactiveCount = await page.locator('a[href],button,input,select,textarea,[tabindex="0"]').count();
-    if (interactiveCount) {
-      await page.keyboard.press('Tab');
-      assert.equal(await page.evaluate(() => document.activeElement !== document.body), true, 'Keyboard focus must enter UI');
+    // Collect every viewport before enforcing the accessibility gate.
+    await page.keyboard.press('Tab');
+    assert.equal(await page.locator(':focus').innerText(), 'Aller au contenu');
+    await page.keyboard.press('Enter');
+    assert.equal(await page.locator(':focus').getAttribute('id'), 'main');
+    if (name === 'mobile') {
+      const opener = page.getByRole('button', { name: 'Filtres', exact: true });
+      await opener.click();
+      const dialog = page.getByRole('dialog');
+      await dialog.waitFor({ state: 'visible' });
+      for (let index = 0; index < 12; index++) {
+        await page.keyboard.press('Tab');
+        assert.equal(await dialog.evaluate(el => el.contains(document.activeElement)), true);
+      }
+      await page.keyboard.press('Escape');
+      assert.equal(await opener.evaluate(el => el === document.activeElement), true);
+    }
+    if (name === 'tablet') {
+      await page.getByRole('button', { name: 'Replier la veille', exact: true }).click();
+      await page.getByRole('button', { name: 'Afficher la veille', exact: true }).click();
+    }
+    await page.getByRole('button', { name: 'Voir le diagnostic', exact: true }).filter({ visible: true }).first().click();
+    await page.getByRole('dialog').waitFor({ state: 'visible' });
+    assert.ok((await page.getByRole('dialog').innerText()).includes('demo-fiction'));
+    await page.keyboard.press('Escape');
+    for (const route of ['/', '/design-system']) {
+      await page.goto(`${baseURL}${route}`, { waitUntil: 'networkidle' });
+      for (const theme of ['light', 'dark']) {
+        if ((await page.locator('html').getAttribute('data-theme') || 'light') !== theme) {
+          await page.getByRole('button', { name: theme === 'dark' ? 'Activer le thème sombre' : 'Activer le thème clair' }).click();
+        }
+        await page.addScriptTag({ path: axePath });
+        const result = await page.evaluate(async () => window.axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] } }));
+        const issues = result.violations.map(v => ({ id: v.id, impact: v.impact, count: v.nodes.length }));
+        reports.push({ name, route, theme, violations: issues });
+        // All violations remain blocking at the final aggregate gate.
+        assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+        if (route === '/design-system') {
+          assert.equal(await page.locator('.skeleton').first().evaluate(el => getComputedStyle(el).animationName), 'none');
+        }
+      }
     }
     await page.goto(`${baseURL}/?production=dairy_cattle&date=2026-02-30&territory=%3Cscript%3E`, { waitUntil: 'networkidle' });
-    assert.ok(await page.locator('[data-demo="true"]').isVisible(), 'Demo survives empty/invalid context');
+    assert.ok(await page.locator('[data-demo="true"]').first().isVisible(), 'Demo survives empty/invalid context');
     assert.deepEqual(failures, [], 'Browser errors');
     assert.deepEqual(external, [], 'Unexpected remote dependency in demo');
     await context.close();
@@ -65,4 +101,5 @@ try {
   await writeFile(path.join(artifactDir, 'report.json'), JSON.stringify(reports, null, 2));
   await browser.close();
 }
+assert.ok(reports.every(report => report.violations.length === 0), 'Blocking accessibility violations: see report.json');
 console.log('Demo E2E, accessibility and responsive checks passed (desktop/tablet/mobile).');

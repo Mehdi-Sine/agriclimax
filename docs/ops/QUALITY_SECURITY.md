@@ -1,6 +1,6 @@
 # Qualité, sécurité et observabilité — Task 09
 
-Branche : `codex/09-quality-security`. Base : main Task 01 `5c2426f`.
+Branche : `codex/09-quality-security`. Base rebasée : main Tasks 01–05 `a5c7c90`.
 Aucune formule, configuration scientifique, migration ni contrat V1 modifié.
 
 ## Installation et checks
@@ -82,19 +82,22 @@ valeurs évidentes et la sentinelle. Il complète Gitleaks ; aucune regex ne pro
 l'absence de tous secrets encodés/obfusqués. La garde des références privilégiées
 est volontairement conservatrice et peut nécessiter revue pour un SDK futur.
 
-Les migrations existantes sont immuables, leurs versions uniques, les nouvelles
-versions suivent la base. Leur SQL est réellement exécuté en transaction, avec
-ON_ERROR_STOP. Le harness PostGIS n'émule pas auth/storage de Supabase ; Task 04
-doit fournir son harness d'autorisation si ces dépendances apparaissent.
-Aucun test n'affirme que la RLS actuelle est prête pour production.
+Les migrations existantes sont immuables et leurs versions uniques. Le job SQL
+réutilise le harness Task 04 sans le modifier, sur PostGIS 17 fixé par digest,
+avec matrice public/extensions : quatre migrations, permissions/RLS, publication,
+RPC bornées, idempotence, contrats JSON et plans de requêtes sur données fictives.
+Il ne remplace pas un test de la plateforme Supabase complète auth/storage.
+Le workflow data-ingestion de main est conservé : aucun second pipeline data.
 
-Les E2E utilisent landmarks, langue et marqueur démo existants. Ils vérifient
-le chargement et le contexte URL valide/invalide sans classes CSS internes,
-les erreurs navigateur, l'absence d'origine distante, l'overflow et axe WCAG
-A/AA aux formats 1440×900, 1024×768 et 390×844. Si des contrôles apparaissent,
-un Tab doit entrer dans l'UI. Le focus visible, les interactions complexes,
-le lecteur d'écran et les états métier restent à tester par leur owner :
-axe seul ne certifie pas WCAG AA. La page actuelle n'a aucun contrôle interactif.
+Les E2E couvrent 1440×900, 1024×768 et 390×844 : démo hors ligne, absence
+d'overflow, erreurs navigateur, lien d'évitement clavier, dialogues et restauration
+du focus mobile, panneau tablette, diagnostic fictif, contexte invalide, thèmes
+clair/sombre et catalogue. axe exécute WCAG A/AA sur les deux pages et deux thèmes.
+Les violations sont collectées pour tous les formats puis font échouer la suite.
+Le smoke teste aussi les trois API invalides (400, no-store, nosniff) et garantit
+qu'un contexte live incomplet ne bascule pas vers les fixtures.
+Le scanner Task 04 vérifie également la valeur SUPABASE_SECRET_KEY réelle injectée,
+en complément de la sentinelle Task 09. Aucun secret n'est imprimé.
 
 Budget initial : total JS/CSS gzip <=2 MiB, HTML démo <256 KiB, navigation locale
 networkidle <15 s. Ce sont des smoke budgets conservateurs ; ni score Lighthouse
@@ -134,10 +137,18 @@ propres tests et sans changement de contrat imposé ici.
 ## Points bloquants observés
 
 Voir `../codex/cross-workstream/09-security-request.md` : alerte braces high sans
-correctif annoncé, pytest à mettre à jour par Task 02, RLS à traiter par Task 04.
+correctif annoncé, pytest encore présent sur main ; la RLS métier est désormais couverte par Task 04.
+Le shell actuel présente une violation label-content-name-mismatch sur le lien
+de marque (signature visible omise du nom accessible). Le gate E2E reste bloquant.
+AJV 8.17.1 présente aussi une alerte moderate ; aucun audit n’est masqué.
 Aucune suppression d'alerte, allowlist générale ou continue-on-error sur ces gates.
 La CI security sera rouge tant que les alertes de dépendances restent présentes.
 
 CODEOWNERS reste une proposition : l'owner d'intégration doit désigner des
 mainteneurs réels pour .github/, contracts/ et supabase/migrations/. Aucun owner
 GitHub inventé et aucune protection de main modifiée par Task 09.
+
+Gitleaks : .gitleaksignore ne contient qu’un fingerprint historique précis du
+hash Git de migration 0004 dans le rapport Task 04. Vérifié par git hash-object
+et git cat-file : il s’agit d’un blob SHA-1, pas d’une clé. Aucun chemin ou type
+de secret entier n’est exclu. Les alertes de dépendances ne sont pas allowlistées.

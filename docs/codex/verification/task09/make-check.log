@@ -1,0 +1,122 @@
+.venv/bin/python -m unittest discover -s tests/quality -p 'test_*.py' -v
+test_quality_workflows_reject_write_permissions_and_invalid_steps (test_automation.Automation.test_quality_workflows_reject_write_permissions_and_invalid_steps) ... ok
+test_yaml_on_stays_a_string_and_duplicates_fail (test_automation.Automation.test_yaml_on_stays_a_string_and_duplicates_fail) ... ok
+test_budget_rejects_missing_or_excessive_assets (test_guards.Guards.test_budget_rejects_missing_or_excessive_assets) ... ok
+test_bundle_is_required_and_secret_sentinel_fails (test_guards.Guards.test_bundle_is_required_and_secret_sentinel_fails) ... ok
+test_migrations_cannot_change_or_go_backwards (test_guards.Guards.test_migrations_cannot_change_or_go_backwards) ... ok
+test_obvious_secrets_and_supabase_jwt (test_guards.Guards.test_obvious_secrets_and_supabase_jwt) ... ok
+test_source_client_boundary_and_safe_reporting (test_guards.Guards.test_source_client_boundary_and_safe_reporting) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.131s
+
+OK
+node --test tests/quality/*.test.mjs
+✔ logs allowlisted context and drops raw credentials/PII/errors (1.495928ms)
+✔ rejects unsafe identifiers and invalid metadata (0.338141ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 70.060236
+.venv/bin/python scripts/quality/security.py
+Source secret guard passed.
+.venv/bin/python scripts/quality/migrations.py
+Migration inventory/forward-only guard passed.
+.venv/bin/python scripts/check_contracts.py
+V1: 3 schemas/examples, demo GeoJSON and 4 YAML files validated offline.
+.venv/bin/python scripts/quality/check_automation.py
+Automation YAML/JSON structure, duplicates and read-only permissions validated.
+.venv/bin/python -m pytest engine/tests
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-8.4.2, pluggy-1.6.0
+rootdir: /workspace/agriclimax/engine
+configfile: pyproject.toml
+collected 44 items
+
+engine/tests/ingestion/test_ingestion.py ................                [ 36%]
+engine/tests/test_contracts.py ........                                  [ 54%]
+engine/tests/test_indicators.py ..                                       [ 59%]
+engine/tests/test_science.py ..................                          [100%]
+
+============================== 44 passed in 0.65s ==============================
+pnpm lint
+
+> agriclimax@ lint /workspace/agriclimax
+> pnpm --filter @agriclimax/web lint
+
+
+> @agriclimax/web@ lint /workspace/agriclimax/apps/web
+> eslint . --max-warnings 0
+
+pnpm typecheck
+
+> agriclimax@ typecheck /workspace/agriclimax
+> pnpm --filter @agriclimax/web typecheck
+
+
+> @agriclimax/web@ typecheck /workspace/agriclimax/apps/web
+> next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+pnpm test
+
+> agriclimax@ test /workspace/agriclimax
+> pnpm --filter @agriclimax/web test
+
+
+> @agriclimax/web@ test /workspace/agriclimax/apps/web
+> vitest run
+
+
+ RUN  v4.1.11 /workspace/agriclimax/apps/web
+
+
+ Test Files  4 passed (4)
+      Tests  33 passed (33)
+   Start at  21:53:58
+   Duration  1.82s (transform 579ms, setup 0ms, import 1.02s, tests 146ms, environment 0ms)
+
+pnpm build
+
+> agriclimax@ build /workspace/agriclimax
+> pnpm --filter @agriclimax/web build
+
+
+> @agriclimax/web@ build /workspace/agriclimax/apps/web
+> next build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.ts took 23ms
+- Experiments (use with caution):
+  ⨯ useTypeScriptCli
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1032ms
+  Running TypeScript ...
+  Finished TypeScript in 3.5s ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/8) ...
+  Generating static pages using 2 workers (2/8) 
+  Generating static pages using 2 workers (4/8) 
+  Generating static pages using 2 workers (6/8) 
+✓ Generating static pages using 2 workers (8/8) in 190ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /api/risks/map
+├ ƒ /api/risks/series
+├ ƒ /api/risks/territory
+├ ○ /design-system
+└ ○ /manifest.webmanifest
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

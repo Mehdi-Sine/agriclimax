@@ -1,41 +1,34 @@
-# Task 09 → Tasks 04 / 05 : contrôles à intégrer
+# Task 09 — alertes revalidées sur main Tasks 01–05
 
-## Task 04 : sécurité DB/API
+Base : `a5c7c903313f675a4910d06b0029f1db870174a1`, 2026-10-10.
+Aucun changement de contrat partagé demandé ou réalisé.
 
-Sur le main Task 01 (`5c2426f`), les migrations créent les tables publiques
-sans activation RLS ni politiques. Task 09 ne modifie pas les migrations.
-Avant toute connexion à une base réelle, Task 04 doit définir les grants/RLS,
-les accès anon/authenticated/service_role et leurs tests d'autorisation négatifs.
-Ne pas exposer les tables par défaut et ne pas utiliser un secret serveur dans le client.
+## Sécurité DB/API — ancienne alerte résolue
 
-Le job SQL teste aujourd'hui le SQL/PostGIS sur une DB jetable ; il ne simule
-pas toute la plateforme Supabase. Si les migrations utilisent auth/storage,
-Task 04 devra fournir un harness Supabase local réaliste, sans fausse fonction
-auth.uid qui masquerait les erreurs d'autorisation.
+Task 04 active et force la RLS des 11 tables métier, retire l'accès direct client
+et fournit des RPC bornées et un harness négatif. Task 09 réutilise ce harness
+sur public/extensions. L'ancienne alerte « RLS absente » est retirée.
+Les objets techniques PostGIS et limites Supabase restent documentés par Task 04 ;
+aucune migration ni configuration hébergée n'est modifiée ici.
 
-## Task 05 : hooks sémantiques de démo
+## Python — alerte toujours présente sur main
 
-Conserver le landmark main, lang=fr, l'affichage « Données fictives » et le
-marqueur existant data-demo="true". Le smoke/E2E transverse ne dépend pas de
-classes CSS ni de composants internes. Ajouter les tests clavier détaillés des
-sheets/dialogues au domaine propriétaire ; Task 09 ne prétend pas les couvrir
-sur la page de fondation actuellement non interactive.
+Le lock actuel contient pytest 8.4.2 et pyproject impose pytest<9.
+L'audit frais confirme PYSEC-2026-1845 / GHSA-6w46-j5rx-g56g / CVE-2025-71176,
+correctif annoncé >=9.0.3. Mise à jour coordonnée du domaine engine requise.
+L'audit CI Python reste bloquant ; aucune exception ajoutée.
 
-Aucun changement de contrat V1 demandé.
+## JavaScript — alertes actuelles
 
-## Task 02 : dépendance de test Python
+braces 3.0.3 : GHSA-vfj7-8cjw-p6xm, high, toujours présent sur main et cette branche,
+sans version corrigée publiée par l'audit. AJV 8.17.1 ajouté par Task 04 :
+GHSA-2g4f-4pwh-qvx6, moderate, correctif >=8.18.0.
+Les overrides racine Vitest 4.1.11/Tinypool 2.1.2 suppriment les alertes de test
+observées sur main. Aucun changement des dépendances métier directes.
 
-L'audit du lockfile hérité détecte `pytest==8.4.2` : PYSEC-2026-1845,
-GHSA-6w46-j5rx-g56g / CVE-2025-71176. Le correctif annoncé est pytest>=9.0.3.
-Le pyproject actuel borne pytest<9. Task 09 n'édite pas `engine/`.
-Task 02 doit mettre à jour la contrainte et le lockfile, puis revalider ses tests.
-L'audit CI Python reste bloquant en attendant ; aucune vulnérabilité ignorée.
+## Accessibilité du shell — nouvelle alerte reproductible
 
-## Outillage JS : vulnérabilité sans correctif disponible
-
-Après correction via overrides racine Vitest 4.1.11 / Tinypool 2.1.2,
-l'audit JS ne conserve que `braces==3.0.3`, GHSA-vfj7-8cjw-p6xm (high),
-transitif de eslint-config-next → fast-glob → micromatch.
-L'avis ne publie pas de version corrigée au 10 octobre 2026.
-Surveiller une publication corrigée ; l'audit high/critical reste bloquant.
-Aucun remplacement de librairie de glob ni patch tiers non vérifié n'est introduit.
+axe WCAG 2.5.3 : label-content-name-mismatch, serious, lien `.brand`.
+Le nom accessible « AgriclimaX — accueil » omet la signature visible
+« Observer. Comprendre. Anticiper. ». Corriger ce nom dans le domaine Task 05.
+Le gate E2E ne supprime pas cette violation et collecte tous les formats/thèmes.
