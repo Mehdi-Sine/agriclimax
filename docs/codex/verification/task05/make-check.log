@@ -1,0 +1,95 @@
+/tmp/agriclimax-task05-venv/bin/python scripts/check_contracts.py
+V1: 3 schemas/examples, demo GeoJSON and 4 YAML files validated offline.
+/tmp/agriclimax-task05-venv/bin/python -m pytest engine/tests
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-8.4.2, pluggy-1.6.0
+rootdir: /workspace/agriclimax/engine
+configfile: pyproject.toml
+collected 44 items
+
+engine/tests/ingestion/test_ingestion.py ................                [ 36%]
+engine/tests/test_contracts.py ........                                  [ 54%]
+engine/tests/test_indicators.py ..                                       [ 59%]
+engine/tests/test_science.py ..................                          [100%]
+
+============================== 44 passed in 0.42s ==============================
+pnpm lint
+
+> agriclimax@ lint /workspace/agriclimax
+> pnpm --filter @agriclimax/web lint
+
+
+> @agriclimax/web@ lint /workspace/agriclimax/apps/web
+> eslint . --max-warnings 0
+
+pnpm typecheck
+
+> agriclimax@ typecheck /workspace/agriclimax
+> pnpm --filter @agriclimax/web typecheck
+
+
+> @agriclimax/web@ typecheck /workspace/agriclimax/apps/web
+> next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+pnpm test
+
+> agriclimax@ test /workspace/agriclimax
+> pnpm --filter @agriclimax/web test
+
+
+> @agriclimax/web@ test /workspace/agriclimax/apps/web
+> vitest run
+
+
+ RUN  v3.2.7 /workspace/agriclimax/apps/web
+
+ ✓ components/shell/load-shell-data.test.tsx (5 tests) 105ms
+ ✓ components/ui/scientific.test.tsx (3 tests) 27ms
+ ✓ lib/server/api.test.ts (22 tests) 23ms
+ ✓ lib/foundation.test.ts (3 tests) 6ms
+
+ Test Files  4 passed (4)
+      Tests  33 passed (33)
+   Start at  21:29:09
+   Duration  1.74s (transform 252ms, setup 0ms, collect 709ms, tests 161ms, environment 1ms, prepare 271ms)
+
+pnpm build
+
+> agriclimax@ build /workspace/agriclimax
+> pnpm --filter @agriclimax/web build
+
+
+> @agriclimax/web@ build /workspace/agriclimax/apps/web
+> next build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.ts took 29ms
+- Experiments (use with caution):
+  ⨯ useTypeScriptCli
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.5s
+  Running TypeScript ...
+  Finished TypeScript in 4.2s ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/8) ...
+  Generating static pages using 2 workers (2/8)
+  Generating static pages using 2 workers (4/8)
+  Generating static pages using 2 workers (6/8)
+✓ Generating static pages using 2 workers (8/8) in 207ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /api/risks/map
+├ ƒ /api/risks/series
+├ ƒ /api/risks/territory
+├ ○ /design-system
+└ ○ /manifest.webmanifest
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

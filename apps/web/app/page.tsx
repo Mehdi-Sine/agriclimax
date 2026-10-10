@@ -1,17 +1,26 @@
-import { DemoRiskRepository } from '../lib/demo-repository';
-import { parseContext } from '../lib/url-state';
+import { loadShellData } from "../components/shell/load-shell-data";
+import { parseContext } from "../lib/url-state";
+import { ProductShell } from "../components/shell/product-shell";
 
-export default async function Page({ searchParams }: {
+export default async function Page({
+  searchParams,
+}: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(await searchParams)) {
-    if (typeof value === 'string') params.set(key, value);
+    if (typeof value === "string") params.set(key, value);
+    else if (Array.isArray(value))
+      for (const item of value) params.append(key, item);
   }
-  const result = await new DemoRiskRepository().getMapFeatures(parseContext(params));
-  return <main>
-    <h1>AgriclimaX</h1><p>Observer. Comprendre. Anticiper.</p>
-    <p data-demo="true"><strong>{result.label}</strong> — démonstration sans connexion externe.</p>
-    <p>{result.data.features.length} territoire(s) fictif(s) disponible(s) pour ce contexte.</p>
-  </main>;
+  const context = parseContext(params);
+  const data = await loadShellData(params);
+  const liveContext = Object.fromEntries(
+    ["mode", "rule", "version", "bbox", "zoom", "limit"].flatMap((key) =>
+      params.has(key) ? [[key, params.get(key)!]] : [],
+    ),
+  );
+  return (
+    <ProductShell context={context} data={data} liveContext={liveContext} />
+  );
 }

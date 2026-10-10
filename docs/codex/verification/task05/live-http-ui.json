@@ -1,0 +1,90 @@
+{
+  "tested_at": "2026-10-10T21:31:48.757926+00:00",
+  "endpoints": {
+    "map": {
+      "status": 200,
+      "body": {
+        "type": "FeatureCollection",
+        "limit": 1000,
+        "features": [],
+        "truncated": false
+      },
+      "cache_control": "no-store",
+      "secret_absent": true
+    },
+    "series": {
+      "status": 200,
+      "body": [],
+      "cache_control": "no-store",
+      "secret_absent": true
+    },
+    "territory": {
+      "status": 200,
+      "body": {
+        "bbox": [
+          -5,
+          43,
+          1,
+          49
+        ],
+        "rule": {
+          "rule_id": "demo-rule",
+          "version": "1.0"
+        },
+        "groups": [],
+        "aggregation": "intersecting_cell_counts",
+        "indicator_id": "tmax_days_above",
+        "production_id": "wheat_soft"
+      },
+      "cache_control": "no-store",
+      "secret_absent": true
+    }
+  },
+  "ui": [
+    {
+      "viewport": "desktop",
+      "empty_state": true,
+      "demo_absent": true,
+      "live_context_preserved": true,
+      "overflow": false,
+      "errors": [],
+      "axe": {
+        "violations": [],
+        "passes": 23
+      }
+    },
+    {
+      "viewport": "tablet",
+      "empty_state": true,
+      "demo_absent": true,
+      "live_context_preserved": true,
+      "overflow": false,
+      "errors": [],
+      "axe": {
+        "violations": [],
+        "passes": 23
+      }
+    },
+    {
+      "viewport": "mobile",
+      "empty_state": true,
+      "demo_absent": true,
+      "live_context_preserved": true,
+      "overflow": false,
+      "errors": [],
+      "axe": {
+        "violations": [],
+        "passes": 20
+      }
+    }
+  ],
+  "invalid_query": {
+    "status": 400,
+    "body": {
+      "error": {
+        "code": "INVALID_QUERY",
+        "message": "Paramètres de requête invalides."
+      }
+    }
+  }
+}

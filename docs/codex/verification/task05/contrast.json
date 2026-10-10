@@ -1,0 +1,310 @@
+[
+  {
+    "theme": "light",
+    "foreground": "text-primary",
+    "background": "surface-base",
+    "ratio": 11.035,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "text-primary",
+    "background": "surface-raised",
+    "ratio": 11.873,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "text-primary",
+    "background": "surface-subtle",
+    "ratio": 10.407,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "text-muted",
+    "background": "surface-base",
+    "ratio": 5.552,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "text-muted",
+    "background": "surface-raised",
+    "ratio": 5.974,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "text-muted",
+    "background": "surface-subtle",
+    "ratio": 5.236,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "interactive",
+    "background": "surface-base",
+    "ratio": 11.151,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "interactive",
+    "background": "surface-raised",
+    "ratio": 11.998,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "interactive",
+    "background": "surface-subtle",
+    "ratio": 10.516,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "on-interactive",
+    "background": "interactive",
+    "ratio": 11.998,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "demo-ink",
+    "background": "demo-bg",
+    "ratio": 6.87,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "risk-ink",
+    "background": "risk-low",
+    "ratio": 6.099,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "risk-ink",
+    "background": "risk-moderate",
+    "ratio": 10.169,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "risk-ink",
+    "background": "risk-high",
+    "ratio": 6.715,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "critical-ink",
+    "background": "risk-critical",
+    "ratio": 4.779,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "risk-ink",
+    "background": "risk-unavailable",
+    "ratio": 4.63,
+    "minimum": 4.5
+  },
+  {
+    "theme": "light",
+    "foreground": "focus",
+    "background": "surface-base",
+    "ratio": 4.406,
+    "minimum": 3
+  },
+  {
+    "theme": "light",
+    "foreground": "focus",
+    "background": "surface-raised",
+    "ratio": 4.74,
+    "minimum": 3
+  },
+  {
+    "theme": "light",
+    "foreground": "focus",
+    "background": "surface-subtle",
+    "ratio": 4.155,
+    "minimum": 3
+  },
+  {
+    "theme": "light",
+    "foreground": "control-border",
+    "background": "surface-base",
+    "ratio": 3.68,
+    "minimum": 3
+  },
+  {
+    "theme": "light",
+    "foreground": "control-border",
+    "background": "surface-raised",
+    "ratio": 3.959,
+    "minimum": 3
+  },
+  {
+    "theme": "light",
+    "foreground": "control-border",
+    "background": "surface-subtle",
+    "ratio": 3.47,
+    "minimum": 3
+  },
+  {
+    "theme": "dark",
+    "foreground": "text-primary",
+    "background": "surface-base",
+    "ratio": 14.343,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "text-primary",
+    "background": "surface-raised",
+    "ratio": 12.329,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "text-primary",
+    "background": "surface-subtle",
+    "ratio": 10.362,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "text-muted",
+    "background": "surface-base",
+    "ratio": 9.375,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "text-muted",
+    "background": "surface-raised",
+    "ratio": 8.059,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "text-muted",
+    "background": "surface-subtle",
+    "ratio": 6.773,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "interactive",
+    "background": "surface-base",
+    "ratio": 11.858,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "interactive",
+    "background": "surface-raised",
+    "ratio": 10.193,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "interactive",
+    "background": "surface-subtle",
+    "ratio": 8.567,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "on-interactive",
+    "background": "interactive",
+    "ratio": 8.475,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "demo-ink",
+    "background": "demo-bg",
+    "ratio": 8.429,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "risk-ink",
+    "background": "risk-low",
+    "ratio": 6.099,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "risk-ink",
+    "background": "risk-moderate",
+    "ratio": 10.169,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "risk-ink",
+    "background": "risk-high",
+    "ratio": 6.715,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "critical-ink",
+    "background": "risk-critical",
+    "ratio": 4.779,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "risk-ink",
+    "background": "risk-unavailable",
+    "ratio": 4.63,
+    "minimum": 4.5
+  },
+  {
+    "theme": "dark",
+    "foreground": "focus",
+    "background": "surface-base",
+    "ratio": 11.858,
+    "minimum": 3
+  },
+  {
+    "theme": "dark",
+    "foreground": "focus",
+    "background": "surface-raised",
+    "ratio": 10.193,
+    "minimum": 3
+  },
+  {
+    "theme": "dark",
+    "foreground": "focus",
+    "background": "surface-subtle",
+    "ratio": 8.567,
+    "minimum": 3
+  },
+  {
+    "theme": "dark",
+    "foreground": "control-border",
+    "background": "surface-base",
+    "ratio": 6.597,
+    "minimum": 3
+  },
+  {
+    "theme": "dark",
+    "foreground": "control-border",
+    "background": "surface-raised",
+    "ratio": 5.671,
+    "minimum": 3
+  },
+  {
+    "theme": "dark",
+    "foreground": "control-border",
+    "background": "surface-subtle",
+    "ratio": 4.766,
+    "minimum": 3
+  }
+]

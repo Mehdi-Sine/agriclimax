@@ -50,3 +50,25 @@ Ces valeurs sont des **tokens de présentation**, jamais des seuils scientifique
 
 ## Actifs attendus
 `logo-wordmark.svg`, `symbol.svg`, `app-icon.svg`, variantes monochromes et dark. Les SVG doivent être maintenables et sans ressource non licenciée.
+
+## Actifs livrés — Task 05
+
+`apps/web/lib/brand.ts` centralise nom, signature, descripteur et chemin du symbole.
+`public/brand/` contient `logo-wordmark.svg`, `symbol.svg`, `app-icon.svg`,
+`favicon.svg`, `logo-monochrome.svg`, `logo-dark.svg`, `symbol-monochrome.svg`
+et `symbol-dark.svg`. Les traits originaux représentent signal, horizon et point,
+sans alerte triangulaire, imagerie agricole décorative ou motif IA.
+
+Le symbole utilise un viewBox 48×48 ; icône/favicon 64×64 avec marge interne.
+Le logo utilise un viewBox 260×48. Les couleurs fallback des SVG autonomes sont
+limitées aux actifs de marque, avec des variables CSS pour les intégrations.
+La variante monochrome utilise `currentColor`. Employer la variante dark sur
+fond sombre. Maintenir le ratio et une zone libre d'au moins 8 px à taille 48 px.
+Le symbole reste lisible en petit format ; le wordmark privilégie les grands
+formats. Le texte SVG utilise Manrope avec fallback système : pour un export
+imprimé figé, charger la police ou convertir le texte en contours dans l'outil
+éditorial. Aucun asset propriétaire.
+
+Le manifest fournit le nom et l'icône ; aucun service worker ni promesse de
+fonctionnement hors ligne PWA n'est ajouté. Les polices et fixtures restent
+locales. L'identité interactive utilise le symbole inline et le nom de `BRAND`.
