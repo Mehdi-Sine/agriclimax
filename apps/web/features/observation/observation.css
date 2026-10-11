@@ -1,0 +1,280 @@
+.observation-space {
+  min-width: 0;
+}
+.observation-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.observation-toolbar h2 {
+  margin: var(--space-1) 0;
+}
+.observation-toolbar p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+.observation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.observation-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--detail-width);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface-raised);
+}
+.observation-workspace.detail-collapsed {
+  grid-template-columns: minmax(0, 1fr);
+}
+.detail-collapsed .observation-desktop-detail {
+  display: none;
+}
+.observation-cartography {
+  min-width: 0;
+}
+.observation-map-frame {
+  position: relative;
+}
+.observation-map {
+  width: 100%;
+  height: 430px;
+}
+.observation-map-tools {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  display: flex;
+  gap: var(--space-2);
+}
+.observation-map-tools .button {
+  box-shadow: var(--shadow);
+  background: var(--surface-raised);
+}
+.observation-map-status {
+  position: absolute;
+  inset: 25% var(--space-8) auto;
+  background: var(--surface-raised);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+.observation-map-caption,
+.observation-layer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--border);
+}
+.observation-map-caption {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.observation-legend {
+  border-top: 1px solid var(--border);
+  padding: var(--space-4);
+}
+.observation-legend strong {
+  font-size: 0.875rem;
+}
+.observation-legend .legend {
+  margin: var(--space-2) 0;
+  gap: var(--space-1);
+}
+.observation-legend .badge {
+  font-size: 0.75rem;
+}
+.observation-desktop-detail {
+  padding: var(--space-4);
+  border-left: 1px solid var(--border);
+  max-height: 660px;
+  overflow-y: auto;
+}
+.observation-detail-content {
+  font-size: 0.875rem;
+}
+.observation-detail-content h3 {
+  margin: 0;
+}
+.observation-detail-content h4 {
+  margin-bottom: 0;
+}
+.observation-detail-content p {
+  overflow-wrap: anywhere;
+}
+.observation-resize {
+  margin-bottom: var(--space-4);
+  font-size: 0.75rem;
+}
+.observation-live-config {
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  margin-bottom: var(--space-4);
+}
+.observation-rule-fields {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-top: var(--space-4);
+}
+.observation-rule-fields .field {
+  min-width: 180px;
+}
+.observation-data-status {
+  margin: var(--space-4) 0;
+}
+.observation-table {
+  margin: var(--space-4) 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+}
+.observation-table summary,
+.observation-live-config summary {
+  padding: var(--space-3);
+  cursor: pointer;
+  min-height: 44px;
+}
+.observation-table-scroll {
+  overflow-x: auto;
+}
+.observation-table table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.875rem;
+}
+.observation-table caption {
+  text-align: left;
+  color: var(--text-muted);
+  padding: var(--space-3);
+}
+.observation-table th,
+.observation-table td {
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  border-top: 1px solid var(--border);
+}
+.observation-bottom-sheet {
+  display: none;
+}
+.observation-space .maplibregl-ctrl-attrib {
+  background: var(--surface-raised);
+  color: var(--text-muted);
+}
+.observation-space .maplibregl-ctrl-attrib a {
+  color: var(--text-primary);
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .observation-workspace {
+    grid-template-columns: minmax(0, 1fr) 290px;
+  }
+  .observation-resize {
+    display: none;
+  }
+  .observation-map {
+    height: 400px;
+  }
+}
+@media (max-width: 767px) {
+  .observation-toolbar {
+    align-items: start;
+    flex-direction: column;
+  }
+  .observation-toolbar h2 {
+    font-size: 1.125rem;
+  }
+  .observation-actions {
+    width: 100%;
+  }
+  .observation-actions .button {
+    flex: 1;
+  }
+  .observation-workspace {
+    display: block;
+  }
+  .observation-desktop-detail,
+  .observation-desktop-detail-toggle {
+    display: none;
+  }
+  .observation-map {
+    height: max(360px, 48dvh);
+  }
+  .observation-map-tools {
+    top: var(--space-2);
+    left: var(--space-2);
+  }
+  .observation-layer-row {
+    font-size: 0.75rem;
+  }
+  .observation-map-caption {
+    align-items: start;
+    flex-direction: column;
+  }
+  .observation-legend {
+    padding: var(--space-3);
+  }
+  .observation-legend .legend {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .observation-table {
+    margin-bottom: 260px;
+  }
+  .observation-bottom-sheet {
+    display: block;
+    position: fixed;
+    z-index: 15;
+    left: 0;
+    right: 0;
+    bottom: 72px;
+    max-height: 30dvh;
+    overflow-y: auto;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    padding: var(--space-3) var(--space-4);
+    box-shadow: var(--shadow);
+  }
+  .observation-bottom-sheet.expanded {
+    max-height: 75dvh;
+  }
+  .observation-bottom-sheet .badges {
+    margin: var(--space-3) 0;
+  }
+  .observation-sheet-handle {
+    width: 36px;
+    height: 4px;
+    margin: 0 auto var(--space-2);
+    border-radius: var(--radius-sm);
+    background: var(--control-border);
+  }
+}
+
+.observation-hidden {
+  display: none !important;
+}
+
+.observation-mobile-legend { display: none; }
+@media (max-width: 767px) {
+  .observation-active .page-intro { display: none; }
+  .observation-toolbar { gap: var(--space-2); }
+  .observation-toolbar .eyebrow, .observation-toolbar p { display: none; }
+  .observation-mobile-legend { display: block; position: absolute; top: var(--space-2); right: var(--space-2); }
+}
+
+@media (min-width: 768px) {
+  .observation-active .page-intro { margin-bottom: var(--space-4); }
+  .observation-active .page-intro .eyebrow, .observation-active .page-intro p { display: none; }
+  .observation-active .page-intro h1 { margin: 0; }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .observation-active .filters { grid-template-columns: repeat(4, minmax(0, 1fr)) auto; align-items: end; }
+  .observation-active .filters .field { min-width: 0; }
+}

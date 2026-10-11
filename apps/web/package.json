@@ -2,8 +2,8 @@
   "name": "@agriclimax/web",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node features/observation/prepare-worker.mjs && next dev",
+    "build": "node features/observation/prepare-worker.mjs && next build",
     "lint": "eslint . --max-warnings 0",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run"

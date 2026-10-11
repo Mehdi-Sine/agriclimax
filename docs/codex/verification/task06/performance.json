@@ -1,0 +1,15 @@
+{
+  "targetFps": 60,
+  "environment": "Chromium headless, SwiftShader software WebGL; not a hardware/GPU guarantee",
+  "viewport": [
+    1440,
+    900
+  ],
+  "riskCells": 1,
+  "basemapFeatures": 29,
+  "interaction": "120 requestAnimationFrame intervals with repeated keyboard pan",
+  "frames": 120,
+  "averageFrameMs": 26.25,
+  "averageFps": 38.1,
+  "p95FrameMs": 50.1
+}

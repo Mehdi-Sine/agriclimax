@@ -9,6 +9,7 @@ import watchFixture from "../../../../fixtures/contracts/watch-signal.json";
 import { BRAND } from "../../lib/brand";
 import { BrandLockup, BrandSymbol } from "./brand";
 import { ThemeToggle } from "./theme-toggle";
+import { ObservationSpace } from "../../features/observation/observation-space";
 import {
   Button,
   Select,
@@ -58,9 +59,13 @@ export function ProductShell({
     return () => window.removeEventListener("popstate", sync);
   }, []);
   function withLiveContext(params: URLSearchParams) {
+    for (const key of ["mode", "rule", "version", "bbox", "zoom", "limit"]) {
+      const value = new URLSearchParams(location.search).get(key);
+      if (value) params.set(key, value);
+    }
     if (data.mode === "live")
       for (const [key, value] of Object.entries(liveContext))
-        params.set(key, value);
+        if (!params.has(key)) params.set(key, value);
     return params;
   }
   function navigate(next: typeof space) {
@@ -243,7 +248,7 @@ export function ProductShell({
       </div>
       <main
         id="main"
-        className={`app-main ${space === "watch" ? "mobile-watch" : "mobile-map"}`}
+        className={`app-main ${space === "observation" ? "observation-active" : ""} ${space === "watch" ? "mobile-watch" : "mobile-map"}`}
         tabIndex={-1}
       >
         <div className="page-intro row">
@@ -263,7 +268,7 @@ export function ProductShell({
             </p>
           </div>
           <Button
-            className="tablet-toggle"
+            className={`tablet-toggle ${space === "observation" ? "observation-hidden" : ""}`}
             onClick={() => setCollapsed(!collapsed)}
             aria-expanded={!collapsed}
           >
@@ -291,10 +296,12 @@ export function ProductShell({
             </Sheet>
           </div>
         </div>
-        {data.mode === "live" && data.state === "source-error" && (
+        {space !== "observation" && data.mode === "live" && data.state === "source-error" && (
           <Callout title="Lecture live">{data.message}</Callout>
         )}
-        {space === "diagnostic" ? (
+        {space === "observation" ? (
+          <ObservationSpace initialData={data} />
+        ) : space === "diagnostic" ? (
           <Panel
             title={
               demo

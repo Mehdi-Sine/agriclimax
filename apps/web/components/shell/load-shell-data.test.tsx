@@ -1,7 +1,10 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 vi.mock("server-only", () => ({}));
-vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: vi.fn(), replace: vi.fn() }),
+  useSearchParams: () => new URLSearchParams(),
+}));
 import { loadShellData } from "./load-shell-data";
 import { ProductShell } from "./product-shell";
 import { SupabaseRiskRepository } from "../../lib/server/supabase-risk-repository";
@@ -29,21 +32,19 @@ describe("shell demo/live boundary", () => {
       />,
     );
     expect(markup).toContain('data-demo="true"');
-    expect(markup).toContain("demo-fiction");
+    expect(markup).toContain("Données fictives");
   });
   it("renders an empty validated live response without inventing a risk or demo signal", async () => {
     vi.stubEnv("NEXT_PUBLIC_SUPABASE_URL", "https://project.supabase.co");
     vi.stubEnv("SUPABASE_SECRET_KEY", "test-secret-sentinel");
-    const transport = vi
-      .fn<typeof fetch>()
-      .mockResolvedValue(
-        Response.json({
-          type: "FeatureCollection",
-          features: [],
-          truncated: false,
-          limit: 1000,
-        }),
-      );
+    const transport = vi.fn<typeof fetch>().mockResolvedValue(
+      Response.json({
+        type: "FeatureCollection",
+        features: [],
+        truncated: false,
+        limit: 1000,
+      }),
+    );
     const data = await loadShellData(
       params,
       new SupabaseRiskRepository(transport),
@@ -85,7 +86,7 @@ describe("shell demo/live boundary", () => {
     expect(data).toMatchObject({ mode: "live", state: "source-error" });
     expect(transport).not.toHaveBeenCalled();
   });
-  it("only summarizes populated live data pending Task 06, without reclassifying it", () => {
+  it("renders the Observation loading boundary without reclassifying live results", () => {
     expect(liveMapSummary(2)).toEqual({
       mode: "live",
       state: "available",
@@ -94,8 +95,8 @@ describe("shell demo/live boundary", () => {
     const markup = renderToStaticMarkup(
       <ProductShell context={parseContext(params)} data={liveMapSummary(2)} />,
     );
-    expect(markup).toContain("Données live disponibles");
+    expect(markup).toContain("Chargement");
     expect(markup).not.toContain("demo-fiction");
-    expect(markup).not.toContain("Risque :");
+    expect(markup).not.toContain("Cellule fictive");
   });
 });
