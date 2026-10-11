@@ -1,0 +1,14 @@
+✔ accepts only the approved exact lint chain/version within its lifetime (3.464757ms)
+✔ fails at expiry, before approval and on an unlimited extension (1.302705ms)
+✔ fails if another advisory or a broad CVE exclusion is configured (1.229503ms)
+✔ fails when the same package enters production, changes version or introducer (1.326774ms)
+✔ fails on a stale exclusion and allows complete removal after an upgrade (0.439565ms)
+✔ fails if braces is copied into any Next production server trace (0.582775ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 82.91255

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "desktop",
+    "width": 1440,
+    "height": 900,
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "width": 1440,
+    "height": 900,
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "width": 1024,
+    "height": 768,
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "width": 1024,
+    "height": 768,
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "width": 390,
+    "height": 844,
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "width": 390,
+    "height": 844,
+    "theme": "dark",
+    "violations": []
+  }
+]

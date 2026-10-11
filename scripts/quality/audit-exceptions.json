@@ -1,0 +1,16 @@
+{
+  "exceptions": [
+    {
+      "package": "braces",
+      "version": "3.0.3",
+      "ghsa": "GHSA-vfj7-8cjw-p6xm",
+      "cve": "CVE-2026-93687",
+      "approved_on": "2026-10-11",
+      "expires_on": "2026-11-10",
+      "owner": "Mehdi-Sine",
+      "scope": "dev lint tooling only; no production dependency or Next server output trace",
+      "justification": "Only eslint-config-next introduces this exact version through @next/eslint-plugin-next, fast-glob and micromatch. No fixed compatible parent is published. Lint uses repository-controlled patterns, not application request input. Developer/build availability risk remains accepted temporarily.",
+      "reevaluate": "Remove as soon as a compatible parent eliminates this version; mandatory review before expiry. See docs/ops/QUALITY_SECURITY.md and docs/codex/verification/task08/SECURITY_EXCEPTION.md."
+    }
+  ]
+}

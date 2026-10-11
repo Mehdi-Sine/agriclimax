@@ -1,0 +1,122 @@
+/workspace/agriclimax/.venv/bin/python -m unittest discover -s tests/quality -p 'test_*.py' -v
+test_quality_workflows_reject_write_permissions_and_invalid_steps (test_automation.Automation.test_quality_workflows_reject_write_permissions_and_invalid_steps) ... ok
+test_yaml_on_stays_a_string_and_duplicates_fail (test_automation.Automation.test_yaml_on_stays_a_string_and_duplicates_fail) ... ok
+test_budget_rejects_missing_or_excessive_assets (test_guards.Guards.test_budget_rejects_missing_or_excessive_assets) ... ok
+test_bundle_is_required_and_secret_sentinel_fails (test_guards.Guards.test_bundle_is_required_and_secret_sentinel_fails) ... ok
+test_migrations_cannot_change_or_go_backwards (test_guards.Guards.test_migrations_cannot_change_or_go_backwards) ... ok
+test_obvious_secrets_and_supabase_jwt (test_guards.Guards.test_obvious_secrets_and_supabase_jwt) ... ok
+test_source_client_boundary_and_safe_reporting (test_guards.Guards.test_source_client_boundary_and_safe_reporting) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.067s
+
+OK
+node --test tests/quality/*.test.mjs
+✔ tests/quality/logging.test.mjs (68.057665ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 79.133623
+/workspace/agriclimax/.venv/bin/python scripts/quality/security.py
+Source secret guard passed.
+/workspace/agriclimax/.venv/bin/python scripts/quality/migrations.py
+Migration inventory/forward-only guard passed.
+/workspace/agriclimax/.venv/bin/python scripts/check_contracts.py
+V1: 3 schemas/examples, demo GeoJSON and 4 YAML files validated offline.
+/workspace/agriclimax/.venv/bin/python scripts/quality/check_automation.py
+Automation YAML/JSON structure, duplicates and read-only permissions validated.
+/workspace/agriclimax/.venv/bin/python -m pytest engine/tests
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-8.4.2, pluggy-1.6.0
+rootdir: /workspace/agriclimax/engine
+configfile: pyproject.toml
+plugins: platformdirs-4.12.4
+collected 44 items
+
+engine/tests/ingestion/test_ingestion.py ................                [ 36%]
+engine/tests/test_contracts.py ........                                  [ 54%]
+engine/tests/test_indicators.py ..                                       [ 59%]
+engine/tests/test_science.py ..................                          [100%]
+
+============================== 44 passed in 0.29s ==============================
+pnpm lint
+
+> agriclimax@ lint /workspace/agriclimax
+> pnpm --filter @agriclimax/web lint
+
+
+> @agriclimax/web@ lint /workspace/agriclimax/apps/web
+> eslint . --max-warnings 0
+
+pnpm typecheck
+
+> agriclimax@ typecheck /workspace/agriclimax
+> pnpm --filter @agriclimax/web typecheck
+
+
+> @agriclimax/web@ typecheck /workspace/agriclimax/apps/web
+> next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+pnpm test
+
+> agriclimax@ test /workspace/agriclimax
+> pnpm --filter @agriclimax/web test
+
+
+> @agriclimax/web@ test /workspace/agriclimax/apps/web
+> vitest run
+
+
+ RUN  v4.1.11 /workspace/agriclimax/apps/web
+
+
+ Test Files  5 passed (5)
+      Tests  74 passed (74)
+   Start at  08:17:15
+   Duration  2.41s (transform 495ms, setup 0ms, import 1.18s, tests 413ms, environment 0ms)
+
+pnpm build
+
+> agriclimax@ build /workspace/agriclimax
+> pnpm --filter @agriclimax/web build
+
+
+> @agriclimax/web@ build /workspace/agriclimax/apps/web
+> next build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.ts took 34ms
+- Experiments (use with caution):
+  ⨯ useTypeScriptCli
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 268ms
+  Running TypeScript ...
+  Finished TypeScript in 4.8s ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/9) ...
+  Generating static pages using 2 workers (2/9)
+  Generating static pages using 2 workers (4/9)
+  Generating static pages using 2 workers (6/9)
+✓ Generating static pages using 2 workers (9/9) in 274ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /api/risks/map
+├ ƒ /api/risks/series
+├ ƒ /api/risks/territory
+├ ○ /design-system
+├ ƒ /diagnostic
+└ ○ /manifest.webmanifest
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

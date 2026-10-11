@@ -21,6 +21,7 @@ import {
   RISK_LABELS,
 } from "../../components/ui/scientific";
 import type { ShellData } from "../../lib/shell-data";
+import { diagnosticHref } from "../../lib/diagnostic";
 import "./observation.css";
 const MapCanvas = dynamic(() => import("./map-canvas"), {
   ssr: false,
@@ -30,7 +31,7 @@ const EMPTY: Collection = { type: "FeatureCollection", features: [] };
 const demoAdapter = new DemoObservationAdapter();
 const apiAdapter = new ApiObservationAdapter();
 
-function LocalDetail({ p, demo }: { p: Properties; demo: boolean }) {
+function LocalDetail({ p, demo, diagnosticLink }: { p: Properties; demo: boolean; diagnosticLink?: string }) {
   return (
     <div className="stack observation-detail-content">
       <span className="eyebrow">
@@ -93,6 +94,7 @@ function LocalDetail({ p, demo }: { p: Properties; demo: boolean }) {
         indépendantes. Aucun seuil ni calcul scientifique n’est déduit par la
         carte.
       </Callout>
+      {diagnosticLink && <a className="button button-secondary" href={diagnosticLink}>Voir le diagnostic scientifique</a>}
     </div>
   );
 }
@@ -207,8 +209,11 @@ export function ObservationSpace({ initialData }: { initialData: ShellData }) {
     (f) => f.properties.cell_id === selected,
   );
   const demo = mode === "demo";
+  const diagnosticLink = feature?.properties.result
+    ? diagnosticHref({ ...feature.properties, rule: feature.properties.result.rule }, mode, params)
+    : undefined;
   const detail = feature ? (
-    <LocalDetail p={feature.properties} demo={demo} />
+    <LocalDetail p={feature.properties} demo={demo} diagnosticLink={diagnosticLink} />
   ) : (
     <div className="stack">
       <h3>{selected ? selected : "Choisir une zone"}</h3>
@@ -494,6 +499,7 @@ export function ObservationSpace({ initialData }: { initialData: ShellData }) {
                 Validité : {feature.properties.valid_date} ·{" "}
                 {demo ? "Données fictives" : "Données live"}
               </small>
+              {diagnosticLink && <a className="button button-secondary" href={diagnosticLink}>Voir le diagnostic scientifique</a>}
             </>
           ) : (
             <p>Sélection absente de ce contexte.</p>

@@ -22,6 +22,9 @@
     "pnpm": "10.x"
   },
   "pnpm": {
+    "auditConfig": {
+      "ignoreGhsas": ["GHSA-vfj7-8cjw-p6xm"]
+    },
     "overrides": {
       "vitest": "4.1.11",
       "tinypool": "2.1.2"

@@ -16,7 +16,7 @@ export function BrandSymbol() {
 }
 export function BrandLockup() {
   return (
-    <Link href="/" className="brand" aria-label={`${BRAND.name} — accueil`}>
+    <Link href="/" className="brand" title={`${BRAND.name} — accueil`}>
       <BrandSymbol />
       <span>
         <strong>{BRAND.name}</strong>

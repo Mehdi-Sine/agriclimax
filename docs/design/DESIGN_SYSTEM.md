@@ -86,3 +86,14 @@ live/available et live/source-error. Le loader server-only du shell consomme les
 lectures validées de Task 04. Cette union UI n'étend aucun JSON Schema ou repository
 partagé. Le mode live vide ne porte ni marqueur demo, ni badge de risque inventé.
 Le live non vide expose seulement un compte en attendant l'intégration Task 06.
+
+### Consommateur Diagnostic Task 08
+
+`ScientificDiagnostic` compose les badges indépendants, `Metric`, `Callout`,
+`EvidenceList`, `DataState` et la légende. Il n’utilise pas
+`ScientificMethodCard` (statut exploratoire fixe) ni `TerritorySummary` (libellé
+fictif fixe) pour les données live. Tableau accessible de valeurs reçues, fenêtre
+fournie par le moteur, composantes absentes explicitement non disponibles.
+Les styles `diagnostic-*` réutilisent les tokens de surfaces/texte/bordures en
+clair et sombre ; le drawer existant conserve focus trap, Échap et restitution
+du focus. La route dédiée utilise un lien d’évitement et des ancres de sections.

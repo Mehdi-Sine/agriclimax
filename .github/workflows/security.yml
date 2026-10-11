@@ -46,7 +46,9 @@ jobs:
       - name: JS audit (all dependency classes; high/critical blocking)
         run: |
           mkdir -p work/audits
-          pnpm audit --audit-level high --json > work/audits/javascript.json
+          pnpm install --frozen-lockfile --ignore-scripts
+          node scripts/quality/audit-exceptions.mjs > work/audits/exception-scope.json
+          pnpm audit --audit-level high > work/audits/javascript.txt
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:

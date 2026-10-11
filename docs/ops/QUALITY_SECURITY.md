@@ -134,15 +134,21 @@ porter leurs champs de traçabilité V1 ; les logs opérationnels ne les remplac
 pas. Chaque futur adaptateur pourra adopter le logger dans sa Task, avec ses
 propres tests et sans changement de contrat imposé ici.
 
-## Points bloquants observés
+## Exception ciblée et résultats actuels Task 08
 
-Voir `../codex/cross-workstream/09-security-request.md` : alerte braces high sans
-correctif annoncé, pytest encore présent sur main ; la RLS métier est désormais couverte par Task 04.
-Le shell actuel présente une violation label-content-name-mismatch sur le lien
-de marque (signature visible omise du nom accessible). Le gate E2E reste bloquant.
-AJV 8.17.1 présente aussi une alerte moderate ; aucun audit n’est masqué.
-Aucune suppression d'alerte, allowlist générale ou continue-on-error sur ces gates.
-La CI security sera rouge tant que les alertes de dépendances restent présentes.
+AJV et pytest ont été corrigés ; le lien de marque et les E2E passent.
+Seule exception temporaire : braces 3.0.3, GHSA-vfj7-8cjw-p6xm /
+CVE-2026-93687, introduit uniquement par eslint-config-next en dev.
+Aucun parent compatible corrigé publié. Expiration UTC : 2026-11-10.
+Voir [analyse et preuves Task 08](../codex/verification/task08/SECURITY_EXCEPTION.md).
+
+Le guard `node scripts/quality/audit-exceptions.mjs` impose la chaîne/version,
+la portée dev et l’expiration avant l’audit ; `--build` contrôle les traces serveur.
+Security et Quality restent bloquants pour toute autre alerte. Aucun seuil abaissé.
+Retirer ensemble le GHSA de package.json et l’entrée de
+scripts/quality/audit-exceptions.json après correctif ; réévaluer avant expiration.
+Le rapport JS est texte : pnpm 10.0.0 conserve un code brut erroné en mode JSON
+après exclusion, contrairement à sa commande native sans --json.
 
 CODEOWNERS reste une proposition : l'owner d'intégration doit désigner des
 mainteneurs réels pour .github/, contracts/ et supabase/migrations/. Aucun owner
@@ -151,4 +157,4 @@ GitHub inventé et aucune protection de main modifiée par Task 09.
 Gitleaks : .gitleaksignore ne contient qu’un fingerprint historique précis du
 hash Git de migration 0004 dans le rapport Task 04. Vérifié par git hash-object
 et git cat-file : il s’agit d’un blob SHA-1, pas d’une clé. Aucun chemin ou type
-de secret entier n’est exclu. Les alertes de dépendances ne sont pas allowlistées.
+de secret entier n’est exclu. Seule l’exception GHSA/version/portée décrite ci-dessus est autorisée.

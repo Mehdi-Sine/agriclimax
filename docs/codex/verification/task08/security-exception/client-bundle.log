@@ -1,0 +1,5 @@
+
+> agriclimax@ check-bundle /workspace/agriclimax
+> python scripts/quality/security.py --bundle apps/web/.next/static
+
+Client bundle guard passed.

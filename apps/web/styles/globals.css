@@ -756,3 +756,36 @@ input[type="checkbox"] {
 .tooltip-wrap .tooltip-dismissed {
   display: none;
 }
+
+/* Task 08: expert side panel, then a dedicated mobile reading surface. */
+.diagnostic-layout { display: grid; grid-template-columns: minmax(240px, 1fr) minmax(0, 3fr); gap: var(--space-6, 24px); align-items: start; }
+.diagnostic-context { position: sticky; top: 24px; min-width: 0; }
+.diagnostic-context h1 { font-size: 28px; }
+.diagnostic-context nav a { display: inline-flex; align-items: center; min-height: 44px; }
+.diagnostic-panel { min-width: 0; }
+.diagnostic-panel h2, .overlay-content h2 { font-size: 21px; }
+.diagnostic-factors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+.diagnostic-factor { background: var(--surface-subtle); border-radius: var(--radius-md, 12px); padding: 16px; min-width: 0; }
+.diagnostic-facts { margin: 16px 0; }
+.diagnostic-facts > div { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.diagnostic-facts dt { color: var(--text-muted); font-size: 14px; }
+.diagnostic-facts dd { margin: 4px 0 0; overflow-wrap: anywhere; }
+.diagnostic-source + .diagnostic-source { border-top: 1px solid var(--border); margin-top: 16px; }
+.diagnostic-range { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; margin-bottom: 24px; }
+.diagnostic-table-wrap { overflow-x: auto; }
+.diagnostic-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.diagnostic-table caption { text-align: left; padding: 12px 0; color: var(--text-muted); }
+.diagnostic-table th, .diagnostic-table td { padding: 12px 8px; text-align: left; border-bottom: 1px solid var(--border); }
+.diagnostic-table .badge { white-space: normal; }
+.diagnostic-panel .scientific-card, .overlay-content .scientific-card { overflow-wrap: anywhere; }
+@media (max-width: 1279px) { .diagnostic-layout { grid-template-columns: minmax(210px, 1fr) minmax(0, 2fr); } .diagnostic-factors { grid-template-columns: 1fr; } }
+@media (max-width: 767px) {
+  .diagnostic-layout { display: block; padding-bottom: 24px; }
+  .diagnostic-context { position: static; margin-bottom: 20px; }
+  .diagnostic-context nav ul { display: flex; flex-wrap: wrap; gap: 8px 16px; padding: 0; list-style: none; }
+  .diagnostic-context > .diagnostic-facts { display: none; }
+  .diagnostic-range { display: grid; grid-template-columns: 1fr; }
+  .diagnostic-table thead { display: none; }
+  .diagnostic-table tr { display: grid; gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .diagnostic-table th, .diagnostic-table td { border: 0; padding: 0; }
+}

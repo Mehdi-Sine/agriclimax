@@ -7,6 +7,7 @@ check: check-quality check-contracts test-python
 	$(PNPM) typecheck
 	$(PNPM) test
 	$(PNPM) build
+	node scripts/quality/audit-exceptions.mjs --build
 
 test: test-python
 	$(PNPM) test
@@ -20,6 +21,7 @@ check-contracts:
 
 .PHONY: check-quality
 check-quality:
+	node scripts/quality/audit-exceptions.mjs
 	$(PYTHON) -m unittest discover -s tests/quality -p 'test_*.py' -v
 	node --test tests/quality/*.test.mjs
 	$(PYTHON) scripts/quality/security.py

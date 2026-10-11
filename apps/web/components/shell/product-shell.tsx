@@ -10,6 +10,8 @@ import { BRAND } from "../../lib/brand";
 import { BrandLockup, BrandSymbol } from "./brand";
 import { ThemeToggle } from "./theme-toggle";
 import { ObservationSpace } from "../../features/observation/observation-space";
+import { ScientificDiagnostic } from "../diagnostic/scientific-diagnostic";
+import { diagnosticHref } from "../../lib/diagnostic";
 import {
   Button,
   Select,
@@ -22,13 +24,10 @@ import {
 import {
   ConfidenceBadge,
   FreshnessBadge,
-  RiskBadge,
   RiskLegend,
   Metric,
   SignalCard,
   SourceChip,
-  ScientificMethodCard,
-  EvidenceList,
   DataState,
   TerritorySummary,
 } from "../ui/scientific";
@@ -59,13 +58,13 @@ export function ProductShell({
     return () => window.removeEventListener("popstate", sync);
   }, []);
   function withLiveContext(params: URLSearchParams) {
-    for (const key of ["mode", "rule", "version", "bbox", "zoom", "limit"]) {
-      const value = new URLSearchParams(location.search).get(key);
-      if (value) params.set(key, value);
-    }
-    if (data.mode === "live")
-      for (const [key, value] of Object.entries(liveContext))
-        if (!params.has(key)) params.set(key, value);
+    for (const [key, value] of Object.entries(liveContext))
+      params.set(key, value);
+    if (typeof window !== "undefined")
+      for (const key of ["mode", "rule", "version", "bbox", "zoom", "limit"]) {
+        const value = new URLSearchParams(window.location.search).get(key);
+        if (value) params.set(key, value);
+      }
     return params;
   }
   function navigate(next: typeof space) {
@@ -140,70 +139,23 @@ export function ProductShell({
   const liveStatus =
     data.mode === "live" && data.state === "available" ? (
       <Callout title="Données live disponibles">
-        {data.count} résultat(s) reçus. La restitution cartographique sera
-        intégrée dans Task 06.
+        {data.count} résultat(s) reçus. Consultez la carte ou le diagnostic.
+        {data.results?.map((result) => <p key={`${result.cell_id}:${result.valid_date}`}>
+          <a className="button button-secondary" href={diagnosticHref(result, "live", withLiveContext(serializeContext(context)))}>Diagnostic · {result.cell_id} · {result.valid_date}</a>
+        </p>)}
       </Callout>
     ) : (
       <DataState state={emptyState} />
     );
-  const diagnostic = (
-    <div className="stack">
-      {demo ? (
-        <DataState state="demo" />
-      ) : (
-        <Callout title="Source Supabase">
-          {data.mode === "live" && data.state === "source-error"
-            ? data.message
-            : "Données live, sans recours aux fixtures."}
-        </Callout>
-      )}
-      {available && properties ? (
-        <>
-          <TerritorySummary name="Territoire démo 001">
-            <div className="badges">
-              <RiskBadge level={properties.risk_level} />
-              <ConfidenceBadge level={properties.confidence_level} />
-              <FreshnessBadge freshness={properties.freshness} />
-            </div>
-            <p className="muted">
-              Validité : 01 juillet 2026 · date calendaire
-            </p>
-            <Metric
-              label="Aléa — jours de chaleur"
-              value={properties.hazard_value ?? null}
-              unit={properties.hazard_unit ?? ""}
-            />
-            <p className="muted">
-              Exposition : indisponible · Sensibilité : indisponible.
-              <br />
-              Score de risque : indisponible. La classe affichée provient de la
-              fixture.
-            </p>
-          </TerritorySummary>
-          <ScientificMethodCard version={riskFixture.rule.version}>
-            <EvidenceList
-              items={[
-                "Source : demo-fiction (fictive)",
-                "Date d’observation et de récupération : inconnues",
-                "Qualité : demo, fictitious",
-                "Statut : exploratoire, non validé scientifiquement",
-              ]}
-            />
-            <Callout title="Limite d’interprétation">
-              Aucun calcul ni seuil déduit de l’interface. La confiance faible
-              est indépendante de la classe de risque.
-            </Callout>
-          </ScientificMethodCard>
-        </>
-      ) : demo ? (
-        <DataState state="missing" />
-      ) : (
-        liveStatus
-      )}
-    </div>
-  );
+  const diagnosticContext = withLiveContext(serializeContext(context));
+  const diagnostic = available && data.mode === "demo" ? (
+    <ScientificDiagnostic data={{ mode: "demo", state: "available", result: data.diagnostic, series: [data.diagnostic] }} />
+  ) : data.mode === "live" && data.state === "available" ? (
+    <div className="stack">{liveStatus}</div>
+  ) : <DataState state={emptyState} />;
   const detail = (
-    <Drawer title="Diagnostic · démonstration" trigger="Voir le diagnostic">
+    <Drawer title="Diagnostic scientifique" trigger="Voir le diagnostic">
+      {available && data.mode === "demo" && <p><a className="button button-secondary" href={diagnosticHref(data.diagnostic, "demo", diagnosticContext)}>Ouvrir le diagnostic partageable</a></p>}
       {diagnostic}
     </Drawer>
   );
@@ -305,7 +257,7 @@ export function ProductShell({
           <Panel
             title={
               demo
-                ? "Diagnostic scientifique — composants de démonstration"
+                ? "Diagnostic scientifique — données fictives"
                 : "Diagnostic scientifique — état des données"
             }
           >

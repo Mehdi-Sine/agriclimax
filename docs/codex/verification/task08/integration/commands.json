@@ -1,0 +1,26 @@
+[
+  {
+    "command": "pnpm lint",
+    "exit_code": 0
+  },
+  {
+    "command": "pnpm typecheck",
+    "exit_code": 0
+  },
+  {
+    "command": "pnpm test",
+    "exit_code": 0
+  },
+  {
+    "command": "pnpm build",
+    "exit_code": 0
+  },
+  {
+    "command": "python -m pytest engine/tests",
+    "exit_code": 0
+  },
+  {
+    "command": "make check",
+    "exit_code": 0
+  }
+]

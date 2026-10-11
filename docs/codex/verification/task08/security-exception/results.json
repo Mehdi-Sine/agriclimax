@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-11",
+  "exception": "GHSA-vfj7-8cjw-p6xm",
+  "package": "braces@3.0.3",
+  "expires_on": "2026-11-10",
+  "checks": {
+    "pnpm audit --audit-level high": 0,
+    "python engine audit": 0,
+    "python quality audit": 0,
+    "npm browser audit": 0,
+    "Gitleaks full history": 0,
+    "make check (including pnpm build)": 0,
+    "exception tests": 0,
+    "production scope and 11 Next server traces": 0,
+    "client bundle secret guard": 0,
+    "pnpm install --frozen-lockfile --ignore-scripts": 0
+  },
+  "tests": {
+    "web": 86,
+    "engine": 44,
+    "quality_python": 7,
+    "quality_node": 8
+  },
+  "business_files_changed": false,
+  "merge": false
+}
