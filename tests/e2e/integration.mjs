@@ -47,6 +47,32 @@ try {
       assert.ok(action.y >= validity.y + validity.height, 'Bottom sheet action must not overlap validity');
     }
     await capture('map');
+    if (name === 'desktop') {
+      // Hold the RSC navigation while moveend's debounce commits the camera.
+      // Selection must be preserved even before the router's response arrives.
+      await page.goto(`${base}/?mode=demo`, { waitUntil:'networkidle' });
+      await page.locator('.maplibregl-canvas').waitFor({ state:'visible' });
+      await page.locator('.observation-map-status').waitFor({ state:'detached' });
+      await page.waitForFunction(() => new URL(location.href).searchParams.has('zoom'));
+      const zoomBefore = Number(new URL(page.url()).searchParams.get('zoom'));
+      let releaseNavigation;
+      const navigationGate = new Promise(resolve => { releaseNavigation = resolve; });
+      const rsc = url => url.origin === base && url.searchParams.has('_rsc');
+      await page.route(rsc, async route => { await navigationGate; await route.continue(); });
+      await page.evaluate(() => {
+        document.querySelector('button[aria-label="Zoom avant"]').click();
+        document.querySelector('.observation-table button').click();
+      });
+      try {
+        await page.waitForFunction(() => new URL(location.href).searchParams.get('territory') === 'demo-001');
+      } finally {
+        releaseNavigation();
+      }
+      await page.waitForLoadState('networkidle');
+      await page.unroute(rsc);
+      assert.equal(new URL(page.url()).searchParams.get('territory'), 'demo-001', 'Camera and delayed router must not erase selection');
+      assert.ok(Math.abs(Number(new URL(page.url()).searchParams.get('zoom')) - zoomBefore - 1) < .05, 'Selection must also keep the newest camera');
+    }
     const link = page.getByRole('link', { name:'Voir le diagnostic scientifique', exact:true }).filter({ visible:true }).first();
     const diagnostic = new URL(await link.getAttribute('href'), base);
     await link.click(); await page.waitForURL('**/diagnostic?**'); await page.waitForLoadState('networkidle');

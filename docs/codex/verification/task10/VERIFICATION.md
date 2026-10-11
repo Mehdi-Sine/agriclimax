@@ -98,3 +98,11 @@ Vérification complémentaire : pip check et ruff passent ; couverture des guard
 Les relances E2E après rebuild ont d’abord rencontré un serveur Next orphelin
 occupant 3000 et servant des chunks obsolètes : serveur remplacé, suites finales
 relancées avec succès, sans modifier MapLibre ni affaiblir les assertions.
+
+La CI a ensuite reproduit une course préexistante : le moveend différé réécrivait
+l’URL avec la sélection du dernier render pendant la navigation RSC. Correction :
+la ref de contexte est mise à jour immédiatement à chaque intention, caméra
+comprise ; la publication URL reste débouncée et compare l’URL réellement visible.
+Un E2E retient volontairement la réponse RSC, déclenche zoom et sélection dans
+le même tour, puis exige cellule conservée et zoom +1 après libération. Le timeout
+ayant révélé le défaut est conservé, sans attente artificielle avant sélection.

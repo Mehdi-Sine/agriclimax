@@ -185,6 +185,9 @@ export function ObservationSpace({ initialData }: { initialData: ShellData }) {
     [],
   );
   function update(next: URLSearchParams, replace = false) {
+    // Router transitions are asynchronous. A pending moveend must merge with the
+    // newest selection immediately, rather than overwrite it with the last render.
+    latest.current = new URLSearchParams(next);
     if (replace) window.history.replaceState(null, "", `/?${next}`);
     else router.push(`/?${next}`, { scroll: false });
   }
@@ -197,9 +200,11 @@ export function ObservationSpace({ initialData }: { initialData: ShellData }) {
   }
   function onMove(v: Viewport) {
     if (moveTimer.current) clearTimeout(moveTimer.current);
+    // A selection during this debounce must also carry the newest camera.
+    latest.current = viewportParams(latest.current, v);
     moveTimer.current = setTimeout(() => {
       const next = viewportParams(latest.current, v);
-      if (next.toString() !== latest.current.toString()) update(next, true);
+      if (next.toString() !== new URLSearchParams(window.location.search).toString()) update(next, true);
     }, 250);
   }
   const currentData = stateKey === requestKey && data?.mode === mode ? data : null;

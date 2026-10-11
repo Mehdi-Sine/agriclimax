@@ -7,6 +7,10 @@ caméra. La navigation shell ouvre le diagnostic partageable ; le lien signal �
 carte transporte la règle/version de l’EvidenceBundle. Les identifiants pointés
 acceptés par l’API restent présents dans l’URL.
 
+Une course caméra/sélection est corrigée : un moveend différé ne peut plus
+effacer la cellule pendant la navigation ; un E2E avec réponse RSC retenue exige
+aussi la conservation du zoom.
+
 Deux corrections mobiles empêchent le lien Diagnostic de partager la ligne de
 validité du bottom sheet et la navigation fixe de recouvrir la fin de la veille.
 Aucun redesign, fonctionnalité métier, formule, seuil, contrat, migration,

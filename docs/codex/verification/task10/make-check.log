@@ -10,18 +10,18 @@ test_obvious_secrets_and_supabase_jwt (test_guards.Guards.test_obvious_secrets_a
 test_source_client_boundary_and_safe_reporting (test_guards.Guards.test_source_client_boundary_and_safe_reporting) ... ok
 
 ----------------------------------------------------------------------
-Ran 7 tests in 0.414s
+Ran 7 tests in 0.164s
 
 OK
 node --test tests/quality/*.test.mjs
-✔ accepts only the approved exact lint chain/version within its lifetime (10.246735ms)
-✔ fails at expiry, before approval and on an unlimited extension (5.217484ms)
-✔ fails if another advisory or a broad CVE exclusion is configured (4.659768ms)
-✔ fails when the same package enters production, changes version or introducer (5.348222ms)
-✔ fails on a stale exclusion and allows complete removal after an upgrade (2.127532ms)
-✔ fails if braces is copied into any Next production server trace (1.764279ms)
-✔ logs allowlisted context and drops raw credentials/PII/errors (3.675984ms)
-✔ rejects unsafe identifiers and invalid metadata (1.317984ms)
+✔ accepts only the approved exact lint chain/version within its lifetime (6.497867ms)
+✔ fails at expiry, before approval and on an unlimited extension (2.424513ms)
+✔ fails if another advisory or a broad CVE exclusion is configured (2.512675ms)
+✔ fails when the same package enters production, changes version or introducer (2.910072ms)
+✔ fails on a stale exclusion and allows complete removal after an upgrade (1.02126ms)
+✔ fails if braces is copied into any Next production server trace (2.101716ms)
+✔ logs allowlisted context and drops raw credentials/PII/errors (2.733482ms)
+✔ rejects unsafe identifiers and invalid metadata (1.59438ms)
 ℹ tests 8
 ℹ suites 0
 ℹ pass 8
@@ -29,7 +29,7 @@ node --test tests/quality/*.test.mjs
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 1117.043213
+ℹ duration_ms 386.074451
 /workspace/agriclimax-v01/work/python/bin/python scripts/quality/security.py
 Source secret guard passed.
 /workspace/agriclimax-v01/work/python/bin/python scripts/quality/migrations.py
@@ -51,7 +51,7 @@ engine/tests/test_contracts.py ........                                  [ 54%]
 engine/tests/test_indicators.py ..                                       [ 59%]
 engine/tests/test_science.py ..................                          [100%]
 
-============================== 44 passed in 5.86s ==============================
+============================== 44 passed in 0.60s ==============================
 pnpm lint
 
 > agriclimax@ lint /workspace/agriclimax-v01
@@ -87,8 +87,8 @@ pnpm test
 
  Test Files  8 passed (8)
       Tests  109 passed (109)
-   Start at  18:39:45
-   Duration  9.33s (transform 1.43s, setup 0ms, import 4.89s, tests 1.15s, environment 3ms)
+   Start at  18:59:48
+   Duration  6.10s (transform 1.04s, setup 0ms, import 3.09s, tests 772ms, environment 1ms)
 
 pnpm build
 
@@ -100,20 +100,20 @@ pnpm build
 > node features/observation/prepare-worker.mjs && next build
 
 ▲ Next.js 16.4.0 (Turbopack)
-✓ Running next.config.ts took 135ms
+✓ Running next.config.ts took 44ms
 - Experiments (use with caution):
   ⨯ useTypeScriptCli
 
   Creating an optimized production build ...
-✓ Compiled successfully in 3.7s
+✓ Compiled successfully in 1718ms
   Running TypeScript ...
-  Finished TypeScript in 14.6s ...
+  Finished TypeScript in 13.8s ...
   Collecting page data using 2 workers ...
   Generating static pages using 2 workers (0/10) ...
   Generating static pages using 2 workers (2/10)
   Generating static pages using 2 workers (4/10)
   Generating static pages using 2 workers (7/10)
-✓ Generating static pages using 2 workers (10/10) in 1305ms
+✓ Generating static pages using 2 workers (10/10) in 542ms
   Finalizing page optimization ...
 
 Route (app)

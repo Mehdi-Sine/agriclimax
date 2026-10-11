@@ -8,9 +8,9 @@
 - Aucun merge, push main, changement de contrat/science/RLS/migration ou seed DEV.
 
 La Preview est créée par l’intégration GitHub/Vercel existante. Le statut Vercel
-sur le commit applicatif est success (« Deployment has completed »). Le dernier
-commit de documentation redéclenche cette intégration ; ses checks et son lien
-sont consultables dans la PR, sans dépendre d’un SHA inscrit dans son propre contenu.
+sur le commit applicatif est success (« Deployment has completed »). Chaque push redéclenche cette intégration ; l’alias de Preview suit la branche.
+Les checks et le déploiement du dernier commit sont consultables dans la PR,
+sans dépendre d’un SHA inscrit dans son propre contenu.
 
 **Accessibilité HTTP non attestée depuis cet environnement.** La requête vers
 l’URL exacte de Preview est refusée par le proxy avant d’atteindre Vercel :

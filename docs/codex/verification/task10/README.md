@@ -27,6 +27,8 @@ clair/sombre, alternative clavier à la carte et focus des overlays hérités.
 Le contexte partagé conserve production, indicateur, date, cellule/territoire,
 règle/version, comparaison et caméra. Les identifiants contenant un point,
 autorisés par l’API existante, ne sont plus perdus par la navigation UI.
+Les mises à jour de sélection/caméra sont synchronisées immédiatement pour
+empêcher un moveend différé de supprimer la cellule pendant une navigation.
 Aucun résultat scientifique n’est recalculé par ces liens.
 
 ## Démo et connexion réelle
