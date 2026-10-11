@@ -20,3 +20,7 @@ preuves du live réel restent distinctes. Exception braces 3.0.3 héritée incha
 
 Documentation, limites et prochaines étapes : docs/codex/verification/task10/.
 Statut Preview/CI et PR : DELIVERY.md. PR draft uniquement, aucun merge.
+
+Preview : https://agriclimax-git-codex-10-integration-v01-mehdi-sines-projects.vercel.app
+Déploiement Vercel réussi ; visite HTTP bloquée par la liste réseau du proxy
+de l’environnement (403 CONNECT), donc accessibilité publique non attestée.
