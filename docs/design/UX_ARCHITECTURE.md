@@ -63,8 +63,9 @@ montre missing ; aucun signal hors contexte n'est affiché.
   Deux métriques prioritaires, troisième carte masquée au premier niveau.
 
 La grille d'observation est un emplacement explicitement sans carte réelle.
-La veille est une composition de fixture, le diagnostic une fiche de composants.
-Pas de carte Task 06, moteur Task 07 ni diagnostic/séries métier Task 08.
+La veille est une composition de fixture. Task 08 remplace le diagnostic par
+une vue explicative métier et une route partageable.
+Pas de carte Task 06 ni moteur Task 07.
 L'intégration ultérieure remplacera les emplacements par des slots fonctionnels
 sans modifier les palettes ou la signification des états.
 
@@ -74,6 +75,21 @@ Le shell démo reste local par défaut. Le paramètre explicite `mode=live` util
 le repository serveur Task 04 avec production/indicateur/règle/version/date/bbox
 fournis, sans défaut scientifique. Une collection vide est missing, une erreur
 reste source-error sans fallback démo. Le contexte live est conservé dans les
-filtres et la navigation. Les résultats non vides sont seulement comptés, en
-attente de Task 06 ; aucun signal ou diagnostic fictif n'est ajouté aux données live.
+filtres et la navigation. Les résultats non vides sont comptés et disposent de liens vers leur diagnostic
+Task 08, en attendant la carte Task 06. Aucun signal ou diagnostic fictif n’est
+ajouté aux données live.
 Les API, migrations et moteurs existants sont inchangés.
+
+### Diagnostic scientifique Task 08
+
+Le drawer du shell réutilise `ScientificDiagnostic`. Son lien partageable ouvre
+`/diagnostic` avec cellule, production, indicateur, date et version exacte de
+règle. Desktop : contexte et retour à gauche, panneau expert à droite. Mobile :
+vue dédiée, sections dans une seule colonne et série en lignes lisibles. La
+période consultée est un formulaire GET partageable ; elle ne redéfinit pas la
+fenêtre scientifique du résultat.
+
+Composantes, confiance, qualité, provenance et limites sont distinctes. Aucune
+classification scientifique n’est calculée. Les métadonnées absentes dans V1
+sont annoncées. Les lectures live réutilisent le repository validé Task 04 sans
+remplacement par une fixture. Retour et historique conservent le contexte.

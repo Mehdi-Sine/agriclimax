@@ -1,4 +1,7 @@
 import "server-only";
+import type { DiagnosticResult } from "../../lib/diagnostic";
+import fixture from "../../../../fixtures/contracts/risk-result.json";
+import { validateSeries } from "../../lib/server/response-validation";
 import { DemoRiskRepository } from "../../lib/demo-repository";
 import { parseContext } from "../../lib/url-state";
 import { SupabaseRiskRepository } from "../../lib/server/supabase-risk-repository";
@@ -24,7 +27,7 @@ export async function loadShellData(
     const result = await new DemoRiskRepository().getMapFeatures(
       parseContext(params),
     );
-    return { mode: "demo", collection: result.data };
+    return { mode: "demo", collection: result.data, diagnostic: validateSeries([fixture])[0] as unknown as DiagnosticResult };
   }
   const query = new URLSearchParams();
   for (const key of LIVE_QUERY_KEYS) {
@@ -32,7 +35,9 @@ export async function loadShellData(
   }
   try {
     const result = await repository.getMapFeatures(parseMap(query));
-    return liveMapSummary(result.features.length);
+    if (result.features.length === 0) return liveMapSummary(0);
+    return { mode: "live", state: "available", count: result.features.length,
+      results: result.features.map(feature => feature.properties.result as unknown as DiagnosticResult) };
   } catch (error) {
     const message =
       error instanceof ApiError && error.code === "INVALID_QUERY"

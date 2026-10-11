@@ -10,6 +10,7 @@ import { ProductShell } from "./product-shell";
 import { SupabaseRiskRepository } from "../../lib/server/supabase-risk-repository";
 import { parseContext } from "../../lib/url-state";
 import { liveMapSummary } from "../../lib/shell-data";
+import fixture from "../../../../fixtures/contracts/risk-result.json";
 
 const params = new URLSearchParams(
   "mode=live&production=wheat_soft&indicator=tmax_days_above&rule=demo-rule&version=1.0&date=2026-07-01&bbox=-5,43,1,49",
@@ -98,5 +99,25 @@ describe("shell demo/live boundary", () => {
     expect(markup).toContain("Chargement");
     expect(markup).not.toContain("demo-fiction");
     expect(markup).not.toContain("Cellule fictive");
+  });
+  it("offers a deep-link from a validated live map result without relabelling it as demo", async () => {
+    const repository = new SupabaseRiskRepository();
+    vi.spyOn(repository, "getMapFeatures").mockResolvedValue({
+      type: "FeatureCollection", truncated: false, limit: 1000,
+      features: [{ type: "Feature", id: "11111111-1111-4111-8111-111111111111",
+        geometry: { type: "Polygon", coordinates: [[[0, 0], [1, 0], [1, 1], [0, 0]]] },
+        properties: { cell_id: fixture.cell_id, valid_date: fixture.valid_date,
+          production_id: fixture.production_id, indicator_id: fixture.indicator_id,
+          risk_level: "moderate", confidence_level: "low", freshness: "fresh", result: fixture } }],
+    });
+    const data = await loadShellData(params, repository);
+    const html = renderToStaticMarkup(<ProductShell context={parseContext(params)} data={data}
+      liveContext={{ mode: "live", bbox: "-5,43,1,49", zoom: "8" }} />);
+    expect(html).toContain("/diagnostic?");
+    expect(html).toContain("cell=demo-001");
+    expect(html).toContain("rule=demo_heat_wheat");
+    expect(html).toContain("version=0.1.0");
+    expect(html).toContain("mode=live");
+    expect(html).not.toContain('data-demo="true"');
   });
 });

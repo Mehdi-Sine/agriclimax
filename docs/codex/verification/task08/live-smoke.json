@@ -1,0 +1,18 @@
+[
+  {
+    "kind": "api",
+    "http_status": 200,
+    "bytes": 2,
+    "missing": false,
+    "source_error": false,
+    "demo_marker": false
+  },
+  {
+    "kind": "diagnostic",
+    "http_status": 200,
+    "bytes": 16106,
+    "missing": true,
+    "source_error": false,
+    "demo_marker": false
+  }
+]
