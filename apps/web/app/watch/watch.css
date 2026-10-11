@@ -8,6 +8,7 @@
 .watch-main .filters { grid-template-columns: repeat(4, minmax(0, 1fr)) auto auto; }
 @media (max-width: 1279px) { .watch-main .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 767px) {
+  .watch-main { padding-bottom: calc(88px + var(--space-6)); }
   .watch-list { grid-template-columns: minmax(0, 1fr); }
   .watch-navigation { display: none; }
   .watch-main .row { flex-wrap: wrap; }

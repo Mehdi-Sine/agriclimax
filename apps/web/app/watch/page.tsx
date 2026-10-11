@@ -41,7 +41,13 @@ export default async function WatchPage({ searchParams }: {
     <a className="button button-secondary" href={`/watch?mode=${demo ? 'demo' : 'live'}`}>Réinitialiser</a>
   </form>;
   const signalContext = selected ? { ...filters, territoryId: selected.signal.territory.cell_id, productionId: selected.signal.production_id, date: selected.signal.validity.date, indicatorId: selected.bundle.facts[0].result.indicator_id } : filters;
-  const mapHref = contextLink(signalContext, 'observation', demo ? 'demo' : 'live', params);
+  const signalParams = new URLSearchParams(params);
+  if (selected) {
+    const rule = selected.bundle.facts[0].result.rule;
+    signalParams.set('rule', rule.rule_id);
+    signalParams.set('version', rule.version);
+  }
+  const mapHref = contextLink(signalContext, 'observation', demo ? 'demo' : 'live', signalParams);
   const diagnosticHref = selected ? signalDiagnosticLink(selected, signalContext, params) : contextLink(signalContext, 'diagnostic', demo ? 'demo' : 'live', params);
   return <>
     <a href="#main" className="skip-link">Aller au contenu</a>

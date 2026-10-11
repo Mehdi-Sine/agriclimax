@@ -1,0 +1,95 @@
+[
+  {
+    "name": "desktop",
+    "theme": "light",
+    "width": 1440,
+    "height": 900,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "theme": "dark",
+    "width": 1440,
+    "height": 900,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "flows": [
+      "map-selection",
+      "map-diagnostic-link",
+      "deep-link",
+      "reload",
+      "keyboard",
+      "range",
+      "context-return",
+      "history",
+      "missing",
+      "live-invalid"
+    ],
+    "errors": [],
+    "external": []
+  },
+  {
+    "name": "tablet",
+    "theme": "light",
+    "width": 1024,
+    "height": 768,
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "theme": "dark",
+    "width": 1024,
+    "height": 768,
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "flows": [
+      "map-selection",
+      "map-diagnostic-link",
+      "deep-link",
+      "reload",
+      "keyboard",
+      "range",
+      "context-return",
+      "history",
+      "missing",
+      "live-invalid"
+    ],
+    "errors": [],
+    "external": []
+  },
+  {
+    "name": "mobile",
+    "theme": "light",
+    "width": 390,
+    "height": 844,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "theme": "dark",
+    "width": 390,
+    "height": 844,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "flows": [
+      "map-selection",
+      "map-diagnostic-link",
+      "deep-link",
+      "reload",
+      "keyboard",
+      "range",
+      "context-return",
+      "history",
+      "missing",
+      "live-invalid"
+    ],
+    "errors": [],
+    "external": []
+  }
+]
