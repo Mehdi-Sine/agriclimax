@@ -1,0 +1,16 @@
+.watch-main { max-width: 1440px; margin-inline: auto; }
+.watch-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); margin-bottom: var(--space-4); }
+.watch-navigation { display: flex; gap: var(--space-4); align-items: center; }
+.watch-navigation a { min-height: 44px; display: inline-flex; align-items: center; }
+.watch-main code, .watch-main p, .watch-main h2 { overflow-wrap: anywhere; }
+.watch-main pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .85rem; }
+.watch-main summary { cursor: pointer; min-height: 44px; padding-block: var(--space-3); }
+.watch-main .filters { grid-template-columns: repeat(4, minmax(0, 1fr)) auto auto; }
+@media (max-width: 1279px) { .watch-main .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 767px) {
+  .watch-list { grid-template-columns: minmax(0, 1fr); }
+  .watch-navigation { display: none; }
+  .watch-main .row { flex-wrap: wrap; }
+  .watch-main .filters { grid-template-columns: minmax(0, 1fr); }
+  .watch-main .compact-context { flex-wrap: wrap; }
+}
