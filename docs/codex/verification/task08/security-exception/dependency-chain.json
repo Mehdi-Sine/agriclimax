@@ -1,0 +1,52 @@
+[
+  {
+    "name": "agriclimax",
+    "path": "/workspace/agriclimax",
+    "private": true
+  },
+  {
+    "name": "@agriclimax/web",
+    "path": "/workspace/agriclimax/apps/web",
+    "private": true,
+    "devDependencies": {
+      "eslint-config-next": {
+        "from": "eslint-config-next",
+        "version": "16.4.0",
+        "resolved": "https://registry.npmjs.org/eslint-config-next/-/eslint-config-next-16.4.0.tgz",
+        "path": "/workspace/agriclimax/node_modules/.pnpm/eslint-config-next@16.4.0_@typescript-eslint+parser@8.71.1_eslint@9.39.5_typescript@5.9_e9d4444669cd1837ee86606bc1292754/node_modules/eslint-config-next",
+        "dependencies": {
+          "@next/eslint-plugin-next": {
+            "from": "@next/eslint-plugin-next",
+            "version": "16.4.0",
+            "resolved": "https://registry.npmjs.org/@next/eslint-plugin-next/-/eslint-plugin-next-16.4.0.tgz",
+            "path": "/workspace/agriclimax/node_modules/.pnpm/@next+eslint-plugin-next@16.4.0_eslint@9.39.5/node_modules/@next/eslint-plugin-next",
+            "dependencies": {
+              "fast-glob": {
+                "from": "fast-glob",
+                "version": "3.3.1",
+                "resolved": "https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.1.tgz",
+                "path": "/workspace/agriclimax/node_modules/.pnpm/fast-glob@3.3.1/node_modules/fast-glob",
+                "dependencies": {
+                  "micromatch": {
+                    "from": "micromatch",
+                    "version": "4.0.8",
+                    "resolved": "https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz",
+                    "path": "/workspace/agriclimax/node_modules/.pnpm/micromatch@4.0.8/node_modules/micromatch",
+                    "dependencies": {
+                      "braces": {
+                        "from": "braces",
+                        "version": "3.0.3",
+                        "resolved": "https://registry.npmjs.org/braces/-/braces-3.0.3.tgz",
+                        "path": "/workspace/agriclimax/node_modules/.pnpm/braces@3.0.3/node_modules/braces"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+]

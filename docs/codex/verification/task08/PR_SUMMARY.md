@@ -7,9 +7,10 @@ frontend. Hazard/exposure/sensitivity/risk, confiance, fraîcheur, qualité, rè
 fenêtre/série, provenance, statut et limites restent distincts. Une composante
 absente ne vaut jamais zéro ; les métadonnées absentes de V1 sont annoncées.
 
-**Blocage sécurité restant :** `pnpm audit --audit-level high` échoue sur
-`braces 3.0.3` (GHSA-vfj7-8cjw-p6xm), sans correctif publié. L’audit et son seuil
-restent actifs. PR draft, aucun merge.
+**Sécurité :** exception temporaire strictement ciblée pour braces 3.0.3 /
+GHSA-vfj7-8cjw-p6xm, dépendance ESLint uniquement dev, sans correctif compatible
+publié. Expiration 2026-11-10 imposée par guard CI ; autres audits bloquants et
+seuils conservés. Analyse : `SECURITY_EXCEPTION.md`. PR draft, aucun merge.
 
 ## Périmètre
 
@@ -19,13 +20,13 @@ restent actifs. PR draft, aucun merge.
 - Contrats consommés : RiskResult V1, map/series existants ; aucun contrat modifié.
 - Impact scientifique : aucun changement de règle, paramètre, configuration ou moteur.
 - Sécurité : AJV 8.17.1 → 8.18.0 ; pytest 8.4.2 → 9.0.3, borne dev ajustée et compatibilité testée. Aucun autre paquet Python modifié.
-- Migrations/workflows/seuils : inchangés. Pas d’écriture distante ou déploiement.
+- Migrations/seuils : inchangés. Workflows : guard d’exception, audit JS natif texte, contrôle post-build des traces. Pas d’écriture distante ou déploiement.
 
 ## Vérification
 
 - `pnpm lint`, `pnpm typecheck`, `pnpm test` (86 tests), `pnpm build`, `python -m pytest engine/tests` (44 tests) et `make check` : passent.
 - Audits Python stricts du lock engine et du lock qualité : passent ; audit navigateur npm high : passe.
-- Audit JS high : 1 high braces, sans correctif publié, aucun moderate/critical après AJV. JSON avant/après conservés.
+- Audit JS high : passe avec l’unique exception documentée braces ; rapports bruts antérieurs conservés.
 - E2E Observation, Diagnostic et Task 09 : desktop/tablette/mobile, carte et sélection, couches, contexte, deep-link/retour, drawer/clavier et clair/sombre ; zéro violation axe détectée.
 - Guard bundle client : passe, aucun secret détecté. Démo explicitement marquée, erreurs live sans remplacement fictif.
 - Rapport actuel : `docs/codex/verification/task08/INTEGRATION.md` ; résultats, audits et captures : `docs/codex/verification/task08/integration/`.

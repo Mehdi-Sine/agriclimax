@@ -92,6 +92,7 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm build
+      - run: node scripts/quality/audit-exceptions.mjs --build
       - run: python scripts/quality/security.py --bundle apps/web/.next/static
       - run: python supabase/scripts/check_client_secrets.py
       - run: python scripts/quality/budget.py

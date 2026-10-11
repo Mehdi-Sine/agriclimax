@@ -1,0 +1,134 @@
+node scripts/quality/audit-exceptions.mjs
+{"exception":"GHSA-vfj7-8cjw-p6xm","paths":[{"project":"@agriclimax/web","group":"devDependencies","chain":["eslint-config-next","@next/eslint-plugin-next","fast-glob","micromatch","braces"],"version":"3.0.3"}],"productionBracesPaths":0,"serverTracesChecked":0}
+python -m unittest discover -s tests/quality -p 'test_*.py' -v
+test_quality_workflows_reject_write_permissions_and_invalid_steps (test_automation.Automation.test_quality_workflows_reject_write_permissions_and_invalid_steps) ... ok
+test_yaml_on_stays_a_string_and_duplicates_fail (test_automation.Automation.test_yaml_on_stays_a_string_and_duplicates_fail) ... ok
+test_budget_rejects_missing_or_excessive_assets (test_guards.Guards.test_budget_rejects_missing_or_excessive_assets) ... ok
+test_bundle_is_required_and_secret_sentinel_fails (test_guards.Guards.test_bundle_is_required_and_secret_sentinel_fails) ... ok
+test_migrations_cannot_change_or_go_backwards (test_guards.Guards.test_migrations_cannot_change_or_go_backwards) ... ok
+test_obvious_secrets_and_supabase_jwt (test_guards.Guards.test_obvious_secrets_and_supabase_jwt) ... ok
+test_source_client_boundary_and_safe_reporting (test_guards.Guards.test_source_client_boundary_and_safe_reporting) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.078s
+
+OK
+node --test tests/quality/*.test.mjs
+✔ accepts only the approved exact lint chain/version within its lifetime (3.947402ms)
+✔ fails at expiry, before approval and on an unlimited extension (1.498847ms)
+✔ fails if another advisory or a broad CVE exclusion is configured (1.159154ms)
+✔ fails when the same package enters production, changes version or introducer (1.789384ms)
+✔ fails on a stale exclusion and allows complete removal after an upgrade (0.287135ms)
+✔ fails if braces is copied into any Next production server trace (0.561159ms)
+✔ logs allowlisted context and drops raw credentials/PII/errors (1.685044ms)
+✔ rejects unsafe identifiers and invalid metadata (0.399709ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 152.920644
+python scripts/quality/security.py
+Source secret guard passed.
+python scripts/quality/migrations.py
+Migration inventory/forward-only guard passed.
+python scripts/check_contracts.py
+V1: 3 schemas/examples, demo GeoJSON and 4 YAML files validated offline.
+python scripts/quality/check_automation.py
+Automation YAML/JSON structure, duplicates and read-only permissions validated.
+python -m pytest engine/tests
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.0.3, pluggy-1.6.0
+rootdir: /workspace/agriclimax/engine
+configfile: pyproject.toml
+plugins: platformdirs-4.12.4
+collected 44 items
+
+engine/tests/ingestion/test_ingestion.py ................                [ 36%]
+engine/tests/test_contracts.py ........                                  [ 54%]
+engine/tests/test_indicators.py ..                                       [ 59%]
+engine/tests/test_science.py ..................                          [100%]
+
+============================== 44 passed in 0.48s ==============================
+pnpm lint
+
+> agriclimax@ lint /workspace/agriclimax
+> pnpm --filter @agriclimax/web lint
+
+
+> @agriclimax/web@ lint /workspace/agriclimax/apps/web
+> eslint . --max-warnings 0
+
+pnpm typecheck
+
+> agriclimax@ typecheck /workspace/agriclimax
+> pnpm --filter @agriclimax/web typecheck
+
+
+> @agriclimax/web@ typecheck /workspace/agriclimax/apps/web
+> next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+pnpm test
+
+> agriclimax@ test /workspace/agriclimax
+> pnpm --filter @agriclimax/web test
+
+
+> @agriclimax/web@ test /workspace/agriclimax/apps/web
+> vitest run
+
+
+ RUN  v4.1.11 /workspace/agriclimax/apps/web
+
+
+ Test Files  6 passed (6)
+      Tests  86 passed (86)
+   Start at  13:57:16
+   Duration  3.07s (transform 654ms, setup 0ms, import 1.59s, tests 370ms, environment 1ms)
+
+pnpm build
+
+> agriclimax@ build /workspace/agriclimax
+> pnpm --filter @agriclimax/web build
+
+
+> @agriclimax/web@ build /workspace/agriclimax/apps/web
+> node features/observation/prepare-worker.mjs && next build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.ts took 38ms
+- Experiments (use with caution):
+  ⨯ useTypeScriptCli
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 572ms
+  Running TypeScript ...
+  Finished TypeScript in 5.4s ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/9) ...
+  Generating static pages using 2 workers (2/9)
+  Generating static pages using 2 workers (4/9)
+  Generating static pages using 2 workers (6/9)
+✓ Generating static pages using 2 workers (9/9) in 571ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /api/risks/map
+├ ƒ /api/risks/series
+├ ƒ /api/risks/territory
+├ ○ /design-system
+├ ƒ /diagnostic
+└ ○ /manifest.webmanifest
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+node scripts/quality/audit-exceptions.mjs --build
+{"exception":"GHSA-vfj7-8cjw-p6xm","paths":[{"project":"@agriclimax/web","group":"devDependencies","chain":["eslint-config-next","@next/eslint-plugin-next","fast-glob","micromatch","braces"],"version":"3.0.3"}],"productionBracesPaths":0,"serverTracesChecked":11}

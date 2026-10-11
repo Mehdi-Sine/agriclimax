@@ -101,3 +101,9 @@ et redémarrage du serveur production. Les captures finales correspondent à ce
 contrôle réussi. Aucun déploiement ou seed distant.
 Axe ne certifie pas WCAG complet. Les états live non vides de Task 06 sont vérifiés
 avec les réponses API validées du harness navigateur, pas une écriture distante.
+
+## Suivi sécurité du 11 octobre 2026
+
+Le blocage braces décrit ci-dessus est désormais traité par l’exception ciblée
+[SECURITY_EXCEPTION.md](SECURITY_EXCEPTION.md), autorisée dans la demande de suivi.
+Aucun fichier métier modifié. Résultats actualisés dans `security-exception/`.
