@@ -11,3 +11,6 @@ work/
 next-env.d.ts
 
 .coverage
+
+# Generated from the locked MapLibre v6 package before dev/build.
+apps/web/public/maps/maplibre/
