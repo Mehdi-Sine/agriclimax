@@ -1,28 +1,15 @@
-# Task 07 — Veille structurée et EvidenceBundle vérifiable
+# Task 07 — Veille intégrée à la carte et au diagnostic
 
-La route `/watch` présente des signaux dérivés de résultats structurés, avec
-filtres partageables, vues compacte/détaillée et détail de provenance. La fixture
-existante est explicitement fictive ; le mode live non branché affiche son état
-sans fallback. Confiance, fraîcheur, période, sources et règle/version sont
-conservées dans un EvidenceBundle versionné avec digest et références validées.
+La route `/watch` expose des signaux structurés, des filtres partageables, des cartes compacte/détaillée, le détail et la provenance. Le `EvidenceBundle` versionné et la narration déterministe désactivable sont conservés, sans LLM réel ni accès libre à la DB.
 
-La narration server-only utilise un provider déterministe, désactivable, sans
-LLM réel ni accès libre à la DB. Les segments référencent leurs evidence IDs.
-Tout ajout de valeur, URL ou conclusion hors projection factuelle est rejeté.
-L’audit conserve le payload, le modèle/provider, la version et le timestamp UTC ;
-les contenus assistés par IA sont distingués explicitement.
+Rebase sans conflit sur `main` `bde2ab2`, après Tasks 06/08. Le shell ouvre `/watch` ; les anciens `/?view=watch` redirigent. Le diagnostic Task 08 reçoit cell/production/indicator/date/rule/version exacts du signal. Le contexte carte Task 06 conserve territoire, comparaison et cadrage, aussi en démo. Le smoke Task 09 suit le parcours intégré.
 
-Contrats consommés : WatchSignalV1 et RiskResultV1, inchangés.
-Impact scientifique/security/migration : aucun calcul, seuil, migration ou RLS
-modifié ; isolation server-only et contrôle du bundle client. Pas de fournisseur
-réel branché. Données de démonstration non validées scientifiquement.
+Versions récentes de main préservées. Changements hors Task 07 limités à quelques lignes de raccordement dans `app/page.tsx`, `product-shell.tsx` et `tests/e2e/demo.mjs`. Aucun fichier carte/diagnostic/UI, contrat, moteur, migration, lockfile, guard ou politique de sécurité remplacé.
 
-Validation : baseline main et make check final, lint, typecheck, build,
-44 tests Python, 52 tests web, tests qualité et contrats. Vérification navigateur
-desktop/tablette/mobile avec axe, clavier et zéro requête externe ; captures et
-logs dans `docs/codex/verification/task07/`.
+Validation : pnpm lint/typecheck/test/build, 106 tests web, 44 tests Python, make check complet, guards contrats/qualité/migrations/secrets/budget et smoke HTTP. Gitleaks : aucun leak. Audits Python/outils/navigateur : aucune vulnérabilité connue. Seule exception JS héritée : braces 3.0.3, GHSA-vfj7-8cjw-p6xm, limitée au dev et absente des traces de production ; aucun seuil ou exclusion ajouté.
 
-Limites : route `/watch` dédiée ; raccordement du slot/navigation du shell au
-workstream d’intégration documenté dans `cross-workstream/07-request.md`.
-Adapter live et persistance de l’audit non branchés. Carte/diagnostic métier
-restent aux Tasks 06/08. PR draft, aucun merge.
+Desktop/tablette/mobile : 25 états intégrés passent avec axe, clavier, thèmes, anciens liens et parcours Veille → Diagnostic → Carte → Veille, sans requête externe. Suites E2E shell, observation et diagnostic passent. Une différence de bbox apparue au premier lancement parallèle d’Observation ne se reproduit pas en relance isolée ; aucun code carte ni assertion modifié.
+
+Rapport, captures et logs : `docs/codex/verification/task07/rebase/`. Vercel Preview est redéclenchée par le push ; son résultat précis sera relevé dans le suivi de cette PR. PR draft, aucun merge.
+
+Limites conservées : source de signaux live non branchée, audit narratif non persisté en DB. Démonstration explicitement fictive et non validée scientifiquement.

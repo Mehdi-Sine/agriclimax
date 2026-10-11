@@ -68,8 +68,12 @@ export function ProductShell({
     return params;
   }
   function navigate(next: typeof space) {
-    setSpace(next);
     const params = withLiveContext(serializeContext(context));
+    if (next === "watch") {
+      router.push(`/watch?${params}`, { scroll: false });
+      return;
+    }
+    setSpace(next);
     if (next !== "observation") params.set("view", next);
     router.push(`/?${params}`, { scroll: false });
   }

@@ -1,6 +1,5 @@
 import 'server-only';
-import { BrandSymbol } from '../../components/shell/brand';
-import { BRAND } from '../../lib/brand';
+import { BrandLockup } from '../../components/shell/brand';
 import { ThemeToggle } from '../../components/shell/theme-toggle';
 import { Sheet, Callout } from '../../components/ui/primitives';
 import { DataState, RISK_LABELS } from '../../components/ui/scientific';
@@ -8,7 +7,7 @@ import { FixtureWatchRepository } from '../../features/watch/server/repository';
 import { narrate } from '../../features/watch/server/narrative';
 import { WatchSignalCard } from '../../features/watch/signal-card';
 import { WatchSignalDetail } from '../../features/watch/signal-detail';
-import { watchFilters, contextLink, RISK_LEVELS } from '../../features/watch/context';
+import { watchFilters, contextLink, signalDiagnosticLink, RISK_LEVELS } from '../../features/watch/context';
 import type { WatchRecord } from '../../features/watch/model';
 import './watch.css';
 
@@ -43,10 +42,10 @@ export default async function WatchPage({ searchParams }: {
   </form>;
   const signalContext = selected ? { ...filters, territoryId: selected.signal.territory.cell_id, productionId: selected.signal.production_id, date: selected.signal.validity.date, indicatorId: selected.bundle.facts[0].result.indicator_id } : filters;
   const mapHref = contextLink(signalContext, 'observation', demo ? 'demo' : 'live', params);
-  const diagnosticHref = contextLink(signalContext, 'diagnostic', demo ? 'demo' : 'live', params);
+  const diagnosticHref = selected ? signalDiagnosticLink(selected, signalContext, params) : contextLink(signalContext, 'diagnostic', demo ? 'demo' : 'live', params);
   return <>
     <a href="#main" className="skip-link">Aller au contenu</a>
-    <header className="app-header"><a href={mapHref} className="brand"><BrandSymbol /><span><strong>{BRAND.name}</strong><small>{BRAND.signature}</small></span></a><nav aria-label="Espaces produit" className="watch-navigation"><a href={mapHref}>Observation</a><a href={href({ signal: null })} aria-current="page">Veille</a><a href={diagnosticHref}>Diagnostic</a></nav><ThemeToggle /></header>
+    <header className="app-header"><BrandLockup /><nav aria-label="Espaces produit" className="watch-navigation"><a href={mapHref}>Observation</a><a href={href({ signal: null })} aria-current="page">Veille</a><a href={diagnosticHref}>Diagnostic</a></nav><ThemeToggle /></header>
     <aside aria-label="Mode de données" className="demo-banner" data-demo={demo || undefined}>{demo ? <><strong>Données fictives</strong> · Mode démo explicite · Aucune validation scientifique</> : <><strong>Mode live</strong> · Source de veille non connectée</>}</aside>
     <main id="main" className="app-main watch-main" tabIndex={-1}>
       <div className="page-intro"><span className="eyebrow">AgriclimaX · Observer. Comprendre. Anticiper.</span><h1>{selected ? 'Vérifier un signal' : 'Veille climatique agricole'}</h1><p>Des signaux structurés. Des preuves consultables. Un contexte partagé.</p></div>

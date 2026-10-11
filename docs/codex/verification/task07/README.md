@@ -1,5 +1,8 @@
 # Task 07 — Veille / Watch
 
+Rapport de livraison initiale, conservé comme historique. Après intégration des
+Tasks 06 et 08, voir [le rapport de rebase](rebase/README.md) et ses captures.
+
 ## Base et périmètre
 
 - Dernier main vérifié par GitHub puis `git fetch origin main` :

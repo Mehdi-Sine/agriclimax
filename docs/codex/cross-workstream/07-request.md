@@ -1,5 +1,19 @@
 # Task 07 — point d’intégration du shell
 
+## Raccordement réalisé le 2026-10-11
+
+Rebase sans conflit sur main `bde2ab2`. Sur instruction explicite de l’utilisateur,
+la navigation du shell ouvre désormais `/watch` ; les anciens `/?view=watch`
+redirigent. Le diagnostic Task 08 reçoit cell/rule/version exacts du signal et
+la carte Task 06 conserve bbox/zoom, territoire et comparaison, même en démo.
+Le BrandLockup corrigé dans main est réutilisé. Carte, diagnostic, composants UI,
+contrats, dépendances et guards plus récents ne sont pas remplacés.
+
+Les demandes suivantes sont historiques. Seule la source live de signaux reste
+non branchée ; aucun LLM réel ajouté.
+
+## Demande initiale (historique)
+
 La veille métier est disponible à `/watch` (mode demo par défaut, explicitement
 fictif). Elle consomme les composants et tokens Task 05 sans modifier
 `components/shell`, `components/ui`, `styles`, les contrats, le moteur ou l’API.

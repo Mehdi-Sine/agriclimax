@@ -1,0 +1,7 @@
+
+> agriclimax@ lint /workspace/agriclimax-watch
+> pnpm --filter @agriclimax/web lint
+
+
+> @agriclimax/web@ lint /workspace/agriclimax-watch/apps/web
+> eslint . --max-warnings 0

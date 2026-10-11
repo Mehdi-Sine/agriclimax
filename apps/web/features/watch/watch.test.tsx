@@ -6,7 +6,8 @@ import { deriveSignal, closeBundle } from './server/evidence';
 import { FixtureWatchRepository, StructuredResultWatchRepository } from './server/repository';
 import { narrate, DeterministicTemplateProvider } from './server/narrative';
 import { readSignal } from './model';
-import { watchFilters, contextLink } from './context';
+import { watchFilters, contextLink, signalDiagnosticLink } from './context';
+import { loadDiagnostic } from '../../components/diagnostic/load-diagnostic';
 import { WatchSignalDetail } from './signal-detail';
 import { WatchSignalCard } from './signal-card';
 import WatchPage from '../../app/watch/page';
@@ -86,6 +87,22 @@ describe('watch repositories and context', () => {
     expect(params.get('view')).toBe('diagnostic');
     expect(params.get('mode')).toBe('live');
     expect(params.get('version')).toBe('1');
+  });
+  it('routes the exact signal to Task 08 and preserves the Task 06 viewport in demo', async () => {
+    const context = filters('production=wheat_soft&territory=demo-001&date=2026-07-01&compare=2026-06-30');
+    const extra = new URLSearchParams('bbox=-5,43,1,49&zoom=7&rule=wrong&version=wrong');
+    const map = new URL(contextLink(context, 'observation', 'demo', extra), 'https://example.test');
+    expect(map.searchParams.get('bbox')).toBe('-5,43,1,49');
+    expect(map.searchParams.get('zoom')).toBe('7');
+    const url = new URL(signalDiagnosticLink(record(), context, extra), 'https://example.test');
+    expect(url.pathname).toBe('/diagnostic');
+    expect(url.searchParams.get('cell')).toBe('demo-001');
+    expect(url.searchParams.get('rule')).toBe(fixture.rule.rule_id);
+    expect(url.searchParams.get('version')).toBe(fixture.rule.version);
+    expect(url.searchParams.get('compare')).toBe('2026-06-30');
+    const diagnostic = await loadDiagnostic(url.searchParams);
+    expect(diagnostic.state).toBe('available');
+    if (diagnostic.state === 'available') expect(diagnostic.result).toEqual(fixture);
   });
 });
 
