@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
+import { existsSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 const require = createRequire(import.meta.url);
@@ -11,7 +12,8 @@ const base = process.env.INTEGRATION_BASE || 'http://127.0.0.1:3000';
 const dir = path.resolve(process.env.INTEGRATION_ARTIFACTS || 'work/integration');
 const realLive = process.env.INTEGRATION_LIVE === 'real';
 await mkdir(dir, { recursive: true });
-const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_EXECUTABLE || '/usr/bin/chromium', args: ['--no-sandbox', '--enable-unsafe-swiftshader'] });
+const executablePath = process.env.CHROMIUM_EXECUTABLE || (existsSync('/usr/bin/chromium') ? '/usr/bin/chromium' : undefined);
+const browser = await chromium.launch({ ...(executablePath ? { executablePath } : {}), args: ['--no-sandbox', '--enable-unsafe-swiftshader'] });
 const reports = [];
 const live = 'mode=live&production=wheat_soft&indicator=tmax_days_above&date=2026-07-01&rule=demo_heat_wheat&version=1.0&bbox=-5.5,41,10,51.5&zoom=6';
 try {
