@@ -58,13 +58,13 @@ export function ProductShell({
     return () => window.removeEventListener("popstate", sync);
   }, []);
   function withLiveContext(params: URLSearchParams) {
-    for (const key of ["mode", "rule", "version", "bbox", "zoom", "limit"]) {
-      const value = new URLSearchParams(location.search).get(key);
-      if (value) params.set(key, value);
-    }
-    if (data.mode === "live")
-      for (const [key, value] of Object.entries(liveContext))
-        if (!params.has(key)) params.set(key, value);
+    for (const [key, value] of Object.entries(liveContext))
+      params.set(key, value);
+    if (typeof window !== "undefined")
+      for (const key of ["mode", "rule", "version", "bbox", "zoom", "limit"]) {
+        const value = new URLSearchParams(window.location.search).get(key);
+        if (value) params.set(key, value);
+      }
     return params;
   }
   function navigate(next: typeof space) {
@@ -139,8 +139,7 @@ export function ProductShell({
   const liveStatus =
     data.mode === "live" && data.state === "available" ? (
       <Callout title="Données live disponibles">
-        {data.count} résultat(s) reçus. La restitution cartographique sera
-        intégrée dans Task 06.
+        {data.count} résultat(s) reçus. Consultez la carte ou le diagnostic.
         {data.results?.map((result) => <p key={`${result.cell_id}:${result.valid_date}`}>
           <a className="button button-secondary" href={diagnosticHref(result, "live", withLiveContext(serializeContext(context)))}>Diagnostic · {result.cell_id} · {result.valid_date}</a>
         </p>)}

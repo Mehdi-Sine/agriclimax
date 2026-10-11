@@ -1,5 +1,6 @@
 # Résultats — Task 08
 
+> Actualisation après merge Task 06 : voir [INTEGRATION.md](INTEGRATION.md) et les preuves `integration/`. Le bilan ci-dessous décrit la première livraison.
 Vérification du 11 octobre 2026. Base `be3711e` (fetch de `origin/main`
 réussi), branches/merges Tasks 01–05 et 09 présents. Auteur et committer
 configurés avant commit : **Mehdi-Sine <mehdi.sine@acta.asso.fr>**, identiques

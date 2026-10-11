@@ -1,5 +1,6 @@
 # Task 08 — diagnostic scientifique
 
+> Actualisation après merge Task 06 : voir [INTEGRATION.md](INTEGRATION.md) et les preuves `integration/`. Le bilan ci-dessous décrit la première livraison.
 Branche : `codex/08-scientific-diagnostic` (nom demandé par l’utilisateur,
 prioritaire sur le nom du fichier task). Base : dernier `origin/main` vérifié
 par fetch, `be3711e`, contenant Tasks 01–05 et 09.

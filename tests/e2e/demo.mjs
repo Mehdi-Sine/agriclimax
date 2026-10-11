@@ -12,6 +12,7 @@ const baseURL = 'http://127.0.0.1:3000';
 const artifactDir = path.resolve(process.env.QUALITY_ARTIFACTS || 'work/quality/e2e');
 await mkdir(artifactDir, { recursive: true });
 const browser = await chromium.launch({
+  args: ['--no-sandbox', '--enable-unsafe-swiftshader'],
   ...(process.env.CHROMIUM_EXECUTABLE ? { executablePath: process.env.CHROMIUM_EXECUTABLE } : {}),
 });
 const reports = [];
@@ -66,6 +67,7 @@ try {
       await page.keyboard.press('Escape');
       assert.equal(await opener.evaluate(el => el === document.activeElement), true);
     }
+    await page.getByRole('button', { name: 'Veille', exact: true }).filter({ visible: true }).first().click();
     if (name === 'tablet') {
       await page.getByRole('button', { name: 'Replier la veille', exact: true }).click();
       await page.getByRole('button', { name: 'Afficher la veille', exact: true }).click();

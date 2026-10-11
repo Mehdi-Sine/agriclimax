@@ -11,6 +11,7 @@ import { SupabaseRiskRepository } from "../../lib/server/supabase-risk-repositor
 import { parseContext } from "../../lib/url-state";
 import { liveMapSummary } from "../../lib/shell-data";
 import fixture from "../../../../fixtures/contracts/risk-result.json";
+import { diagnosticHref } from "../../lib/diagnostic";
 
 const params = new URLSearchParams(
   "mode=live&production=wheat_soft&indicator=tmax_days_above&rule=demo-rule&version=1.0&date=2026-07-01&bbox=-5,43,1,49",
@@ -113,11 +114,14 @@ describe("shell demo/live boundary", () => {
     const data = await loadShellData(params, repository);
     const html = renderToStaticMarkup(<ProductShell context={parseContext(params)} data={data}
       liveContext={{ mode: "live", bbox: "-5,43,1,49", zoom: "8" }} />);
-    expect(html).toContain("/diagnostic?");
-    expect(html).toContain("cell=demo-001");
-    expect(html).toContain("rule=demo_heat_wheat");
-    expect(html).toContain("version=0.1.0");
-    expect(html).toContain("mode=live");
+    expect(data.mode).toBe("live");
+    if (data.mode !== "live" || data.state !== "available" || !data.results?.[0]) throw new Error("Expected a validated live result");
+    const href = diagnosticHref(data.results[0], "live", params);
+    expect(href).toContain("/diagnostic?");
+    expect(href).toContain("cell=demo-001");
+    expect(href).toContain("rule=demo_heat_wheat");
+    expect(href).toContain("version=0.1.0");
+    expect(href).toContain("mode=live");
     expect(html).not.toContain('data-demo="true"');
   });
 });

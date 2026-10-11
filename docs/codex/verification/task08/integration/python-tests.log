@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.0.3, pluggy-1.6.0
+rootdir: /workspace/agriclimax/engine
+configfile: pyproject.toml
+plugins: platformdirs-4.12.4
+collected 44 items
+
+engine/tests/ingestion/test_ingestion.py ................                [ 36%]
+engine/tests/test_contracts.py ........                                  [ 54%]
+engine/tests/test_indicators.py ..                                       [ 59%]
+engine/tests/test_science.py ..................                          [100%]
+
+============================== 44 passed in 0.61s ==============================

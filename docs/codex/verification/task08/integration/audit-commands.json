@@ -1,0 +1,18 @@
+[
+  {
+    "command": "pnpm audit --audit-level high --json",
+    "exit_code": 1
+  },
+  {
+    "command": "pip-audit --cache-dir work/pip-audit-cache --strict --disable-pip --no-deps -r engine/requirements-dev.lock --format json --output docs/codex/verification/task08/integration/python-after.json",
+    "exit_code": 0
+  },
+  {
+    "command": "pip-audit --cache-dir work/pip-audit-cache --strict --disable-pip --no-deps -r scripts/quality/requirements.lock --format json --output docs/codex/verification/task08/integration/tools-after.json",
+    "exit_code": 0
+  },
+  {
+    "command": "npm audit --prefix tests/e2e --audit-level high --json",
+    "exit_code": 0
+  }
+]

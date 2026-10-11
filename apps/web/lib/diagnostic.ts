@@ -29,7 +29,7 @@ export const SCIENTIFIC_STATUSES: Record<ScientificStatus, string> = {
 };
 
 /** Identity includes the scientific rule/version. No default is inferred for live. */
-export function diagnosticHref(result: DiagnosticResult, mode: 'demo' | 'live', context = new URLSearchParams()) {
+export function diagnosticHref(result: Pick<DiagnosticResult, 'cell_id' | 'valid_date' | 'production_id' | 'indicator_id' | 'rule'>, mode: 'demo' | 'live', context = new URLSearchParams()) {
   const params = new URLSearchParams(context);
   params.delete('view');
   for (const [key, value] of Object.entries({ mode, cell: result.cell_id, date: result.valid_date,

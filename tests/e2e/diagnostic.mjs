@@ -11,7 +11,7 @@ const axePath = a11yRequire.resolve('axe-core/axe.min.js');
 const base = 'http://127.0.0.1:3000';
 const artifacts = path.resolve(process.env.DIAGNOSTIC_ARTIFACTS || 'work/diagnostic-browser');
 await mkdir(artifacts, { recursive: true });
-const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_EXECUTABLE || '/usr/bin/chromium', args: ['--no-sandbox'] });
+const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_EXECUTABLE || '/usr/bin/chromium', args: ['--no-sandbox', '--enable-unsafe-swiftshader'] });
 const reports = [];
 try {
   for (const [name, width, height] of [['desktop', 1440, 900], ['tablet', 1024, 768], ['mobile', 390, 844]]) {
@@ -25,17 +25,15 @@ try {
       else await route.continue();
     });
     await page.goto(`${base}/?production=wheat_soft&indicator=tmax_days_above&date=2026-07-01&territory=demo-001&compare=2026-06-30`, { waitUntil: 'networkidle' });
-    const trigger = page.getByRole('button', { name: 'Voir le diagnostic', exact: true }).filter({ visible: true }).first();
-    await trigger.click();
-    const dialog = page.getByRole('dialog');
-    await dialog.waitFor({ state: 'visible' });
-    assert.ok((await dialog.innerText()).includes('Exposure'));
-    const link = dialog.getByRole('link', { name: 'Ouvrir le diagnostic partageable' });
+    await page.getByRole('button', { name: 'demo-001', exact: true }).click();
+    await page.locator('.maplibregl-canvas').waitFor({ state: 'visible' });
+    assert.ok(await page.locator('.maplibregl-canvas').isVisible());
+    const link = page.getByRole('link', { name: 'Voir le diagnostic scientifique', exact: true }).filter({ visible: true }).first();
     const href = await link.getAttribute('href');
     assert.ok(href.includes('cell=demo-001'));
-    await page.keyboard.press('Escape');
-    assert.equal(await trigger.evaluate(element => element === document.activeElement), true, 'Drawer restores focus');
-    await page.goto(`${base}${href}`, { waitUntil: 'networkidle' });
+    await link.click();
+    await page.waitForURL(/\/diagnostic\?/);
+    await page.waitForLoadState('networkidle');
     assert.ok((await page.locator('main').innerText()).includes('demo_heat_wheat'));
     for (const theme of ['light', 'dark']) {
       if ((await page.locator('html').getAttribute('data-theme') || 'light') !== theme)
@@ -78,7 +76,7 @@ try {
     assert.equal(await page.locator('.risk').count(), 0);
     await page.screenshot({ path: path.join(artifacts, `${name}-live-invalid.png`) });
     assert.deepEqual(errors, []); assert.deepEqual(external, []);
-    reports.push({ name, flows: ['drawer', 'deep-link', 'reload', 'keyboard', 'range', 'context-return', 'history', 'missing', 'live-invalid'], errors, external });
+    reports.push({ name, flows: ['map-selection', 'map-diagnostic-link', 'deep-link', 'reload', 'keyboard', 'range', 'context-return', 'history', 'missing', 'live-invalid'], errors, external });
     await context.close();
   }
 } finally {

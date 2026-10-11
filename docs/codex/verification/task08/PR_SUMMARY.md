@@ -1,30 +1,32 @@
 ## Problème et résultat
 
-Le diagnostic du shell ne présentait qu’une fiche fictive fixe et aucun lien
-partageable pour auditer un résultat live. Cette PR fournit un diagnostic commun
-au drawer et à `/diagnostic`, identifié par cellule, date, production, indicateur
-et version exacte de règle. Il distingue chaque composante, confiance, qualité,
-fraîcheur, provenance, statut et limites. Exposure/sensitivity absentes ne
-deviennent jamais zéro ; aucune formule ni seuil n’est ajouté au frontend.
+Le diagnostic scientifique doit rester accessible et auditable après l’intégration
+de la carte Task 06. Cette PR fournit la vue métier Task 08, sa route partageable
+et son accès depuis la cellule sélectionnée de la carte, sans calcul scientifique
+frontend. Hazard/exposure/sensitivity/risk, confiance, fraîcheur, qualité, règle,
+fenêtre/série, provenance, statut et limites restent distincts. Une composante
+absente ne vaut jamais zéro ; les métadonnées absentes de V1 sont annoncées.
+
+**Blocage sécurité restant :** `pnpm audit --audit-level high` échoue sur
+`braces 3.0.3` (GHSA-vfj7-8cjw-p6xm), sans correctif publié. L’audit et son seuil
+restent actifs. PR draft, aucun merge.
 
 ## Périmètre
 
-- Task / branche : Task 08 uniquement, `codex/08-scientific-diagnostic`, depuis `be3711e`.
-- Contrats consommés : RiskResult V1 et lectures map/series Task 04.
-- Contrats modifiés : aucun.
-- Impact scientifique : restitution des valeurs et métadonnées fournies ; aucune règle, formule, configuration ou classification modifiée.
-- Impact sécurité / migrations / rollback : loader serveur validé, erreurs masquées, pas de migration ni écriture distante. Retirer la route et ses liens suffit au rollback UI.
-- Vue desktop en panneau, drawer existant, vue dédiée mobile ; tableau de série avec fenêtre de calcul distincte de la période consultée.
-- Nom accessible du logo partagé corrigé pour respecter son contenu visible, défaut préexistant Task 09.
+- Task / branche : Task 08, `codex/08-scientific-diagnostic`, rebasée sur main `9159764` contenant Task 06.
+- Imports ObservationSpace et diagnostic conservés ; accès à location protégé au rendu serveur, contexte carte/deep-link préservé.
+- Lien diagnostic ajouté au panneau carte et au résumé mobile, fondé sur l’identité et la version reçues.
+- Contrats consommés : RiskResult V1, map/series existants ; aucun contrat modifié.
+- Impact scientifique : aucun changement de règle, paramètre, configuration ou moteur.
+- Sécurité : AJV 8.17.1 → 8.18.0 ; pytest 8.4.2 → 9.0.3, borne dev ajustée et compatibilité testée. Aucun autre paquet Python modifié.
+- Migrations/workflows/seuils : inchangés. Pas d’écriture distante ou déploiement.
 
 ## Vérification
 
-- `make check` baseline et final : succès ; 44 tests Python, 74 tests web, guards, contrats, lint, typecheck et build.
-- E2E diagnostic et régression Task 09 : desktop/tablette/mobile, clair/sombre, contexte, deep-link, historique, clavier et drawer ; zéro violation axe détectée, aucune exclusion.
-- Données fictives explicitement marquées ; live sans remplacement par fixture.
-- Guard secrets source et bundle client : passent.
-- RPC/API live HTTP 200, collection vide ; diagnostic HTTP 200/missing sans badge risque ou marqueur demo.
-- Limites : aucune méthode complète/seuil/nature de valeur fournie dans V1, absences affichées ; live non vide testé avec réponses validées en tests, DEV vide. Audits dépendances et harness SQL Task 04 non relancés, dépendances/DB inchangées.
-- Rapport et captures : `docs/codex/verification/task08/`.
-
-PR draft pour revue. Aucun déploiement et aucun merge.
+- `pnpm lint`, `pnpm typecheck`, `pnpm test` (86 tests), `pnpm build`, `python -m pytest engine/tests` (44 tests) et `make check` : passent.
+- Audits Python stricts du lock engine et du lock qualité : passent ; audit navigateur npm high : passe.
+- Audit JS high : 1 high braces, sans correctif publié, aucun moderate/critical après AJV. JSON avant/après conservés.
+- E2E Observation, Diagnostic et Task 09 : desktop/tablette/mobile, carte et sélection, couches, contexte, deep-link/retour, drawer/clavier et clair/sombre ; zéro violation axe détectée.
+- Guard bundle client : passe, aucun secret détecté. Démo explicitement marquée, erreurs live sans remplacement fictif.
+- Rapport actuel : `docs/codex/verification/task08/INTEGRATION.md` ; résultats, audits et captures : `docs/codex/verification/task08/integration/`.
+- Limites : aucune définition complète de méthode/seuil/nature de valeur dans V1 ; absences affichées. Live non vide testé via API simulée validée, sans insertion distante. Axe ne certifie pas WCAG complet.
