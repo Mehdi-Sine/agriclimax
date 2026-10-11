@@ -68,14 +68,11 @@ try {
       assert.equal(await opener.evaluate(el => el === document.activeElement), true);
     }
     await page.getByRole('button', { name: 'Veille', exact: true }).filter({ visible: true }).first().click();
-    if (name === 'tablet') {
-      await page.getByRole('button', { name: 'Replier la veille', exact: true }).click();
-      await page.getByRole('button', { name: 'Afficher la veille', exact: true }).click();
-    }
-    await page.getByRole('button', { name: 'Voir le diagnostic', exact: true }).filter({ visible: true }).first().click();
-    await page.getByRole('dialog').waitFor({ state: 'visible' });
-    assert.ok((await page.getByRole('dialog').innerText()).includes('demo-fiction'));
-    await page.keyboard.press('Escape');
+    await page.waitForURL('**/watch?**');
+    await page.getByRole('link', { name: 'Vérifier le signal', exact: true }).click();
+    await page.getByRole('link', { name: 'Ouvrir le diagnostic', exact: true }).click();
+    await page.waitForURL('**/diagnostic?**');
+    assert.ok((await page.locator('main').innerText()).includes('demo-fiction'));
     for (const route of ['/', '/design-system']) {
       await page.goto(`${baseURL}${route}`, { waitUntil: 'networkidle' });
       for (const theme of ['light', 'dark']) {
