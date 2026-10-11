@@ -24,10 +24,29 @@ Il n'y a ni validation visuelle de Preview ni build Vercel réussi attesté.
 La configuration Vercel n'a pas été modifiée et aucune restriction réseau
 n'a été contournée. Le build de production local et les captures sont validés.
 
-## CI GitHub
+## CI GitHub — résultat sur le commit applicatif
 
-Quality et Security audits ont été déclenchés à l'ouverture de la PR.
-Le résultat distant reste distinct des checks locaux verts : le smoke Task 09
-attend encore les interactions du slot Task 05 remplacé par la carte.
-La demande d'adaptation est documentée dans la note inter-workstream, sans
-modifier ce workstream. Les résultats locaux détaillés sont dans REPORT.md.
+Quality : **failure**, run 38124934727.
+- guards, python-contracts, SQL public et SQL extensions : **success**.
+- web-demo : installation, lint, typecheck, tests, build, bundle secrets et budget
+  **success** ; smoke navigateur **failure**, timeout sur l'ancien bouton
+  `Voir le diagnostic` absent du nouveau slot Observation.
+- Le nouveau script `tests/e2e/observation.mjs` passe localement ; son raccord au
+  workflow et l'adaptation du smoke existant sont demandés à Task 09.
+
+Security audits : **failure**, run 38124934670.
+- Gitleaks et audit dépendances navigateur : **success**.
+- Audit JS : exit 1 ; détail dans l'artifact `javascript-audit` du run.
+- Audit Python : une vulnérabilité connue dans un package ; audit des dépendances
+  qualité sans vulnérabilité. Détail dans l'artifact `python-audits`.
+- Aucun fichier de dépendances ou lockfile n'a changé dans Task 06 : ces audits
+  portent sur les dépendances déjà présentes dans main. Correction à traiter
+  dans le workstream qualité/sécurité, sans contourner les gates.
+
+Le commit documentaire suivant `660b2625848bd802d5a9c5b4496a2d9ebb0cf4e9`
+porte également un status Vercel **failure** ; l'URL cible est cette fois
+https://vercel.com/docs/deployments/troubleshoot-project-collaboration?utm_source=notifications
+Ce lien oriente vers un problème de collaboration projet ; il ne donne pas à
+lui seul le détail de l'autorisation manquante.
+
+La PR reste draft. Aucun résultat distant rouge n'est présenté comme vert.

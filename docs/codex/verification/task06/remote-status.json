@@ -14,5 +14,27 @@
     "http_status": 502,
     "code": "UPSTREAM_UNAVAILABLE",
     "nonempty_real_live_data_verified": false
+  },
+  "ci": {
+    "application_commit": "2b7946e393dd2ac1c7cddd11c6992398fd1f4273",
+    "quality": {
+      "run_id": 38124934727,
+      "conclusion": "failure",
+      "guards": "success",
+      "python_contracts": "success",
+      "sql_public": "success",
+      "sql_extensions": "success",
+      "web_build_lint_typecheck_tests_secrets_budget": "success",
+      "legacy_smoke": "failure: timeout waiting for Voir le diagnostic"
+    },
+    "security": {
+      "run_id": 38124934670,
+      "conclusion": "failure",
+      "gitleaks": "success",
+      "browser_dependencies": "success",
+      "javascript_dependencies": "failure",
+      "python_dependencies": "failure: one known vulnerability reported"
+    },
+    "dependency_lockfiles_changed": false
   }
 }

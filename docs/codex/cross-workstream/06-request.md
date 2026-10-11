@@ -29,3 +29,11 @@ node tests/e2e/observation.mjs
 Le nouveau script conserve la vérification offline, responsive, clavier,
 accessibilité du nouvel espace et états live simulés ; il ne change pas les
 gardes de sécurité, contrats ou workflows Task 09.
+
+## Résultat CI confirmé sur la PR #25
+
+Quality web-demo échoue précisément sur le clic `Voir le diagnostic` du smoke
+historique ; lint/typecheck/test/build et les gardes secrets/budget passent.
+Les audits de dépendances JS et Python échouent aussi sur le lockfile hérité
+inchangé. Voir les runs 38124934727 / 38124934670 et leurs artifacts pour les
+correctifs à préparer dans le workstream 09. Ne pas supprimer ou affaiblir les gates.
