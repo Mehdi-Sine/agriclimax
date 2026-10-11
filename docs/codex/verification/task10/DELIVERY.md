@@ -12,16 +12,39 @@ sur le commit applicatif est success (« Deployment has completed »). Chaque pu
 Les checks et le déploiement du dernier commit sont consultables dans la PR,
 sans dépendre d’un SHA inscrit dans son propre contenu.
 
-**Accessibilité HTTP non attestée depuis cet environnement.** La requête vers
-l’URL exacte de Preview est refusée par le proxy avant d’atteindre Vercel :
-`CONNECT tunnel failed, response 403`, code HTTP applicatif inconnu (`000`).
-Ce refus ne prouve ni une erreur applicative ni l’accessibilité publique.
-L’environnement n’autorise initialement ni vercel.com ni ce domaine vercel.app ;
-une demande de configuration réseau a été transmise. Aucun contournement proxy,
-login Vercel ou secret supplémentaire n’a été introduit.
-La validation locale et le succès du déploiement ne remplacent pas une visite
-HTTP/navigateur de la Preview. Cette dernière vérification reste à effectuer
-après autorisation du domaine dans la configuration de l’environnement.
+## Reprise des validations — 11 octobre 2026
+
+Branche existante récupérée au commit `7fd4ff52da72c2cfb60a96f870719f15ffbf55fa`.
+Aucune reprise d’implémentation. Frontières concernées : validation distante et
+preuves documentaires uniquement.
+
+L’autorisation réseau est effective pour les requêtes réalisées : la Preview
+répond désormais HTTP **302** sur observation (`/?mode=demo`), diagnostic demo
+et veille (`/watch?mode=demo`). Les trois redirections pointent vers
+`https://vercel.com/sso-api` : la protection Vercel Authentication empêche
+l’accès à l’application depuis cette session. Le précédent refus CONNECT 403
+est levé ; les parcours et captures navigateur de Preview restent non validés.
+Cette limite est explicitement acceptée comme **non bloquante pour Task 10**
+par le demandeur. La validation navigateur distante n’est pas revendiquée.
+La protection Vercel Authentication et les configurations de sécurité sont conservées.
+
+Contrôle GitHub en lecture seule à 19:36 UTC : PR #26 ouverte et draft, SHA
+identique à la branche récupérée. Les neuf jobs Quality/Security sont SUCCESS :
+guards, python-contracts, web-demo, sql (public), sql (extensions), secrets,
+js-dependencies, python-dependencies et browser-dependencies. Le statut Vercel
+et Vercel Preview Comments sont aussi SUCCESS. Le déploiement associé est
+[2QA5Qw8Rv5Mp18knqknWu64Trya7](https://vercel.com/mehdi-sines-projects/agriclimax/2QA5Qw8Rv5Mp18knqknWu64Trya7).
+Les validations déjà réussies n’ont pas été relancées.
+
+Commandes : `git ls-remote`, `git fetch origin codex/10-integration-v01`, checkout
+local de la branche existante, `gh pr view 26 --json headRefOid,state,isDraft,statusCheckRollup`,
+HEAD puis GET `curl` des trois parcours. Les appels réseau ont utilisé la
+permission réseau de commande et le proxy hérité. Preuves sans cookies, nonce
+SSO ni secrets : `resume-remote-validation.json`.
+
+La finalisation porte uniquement sur la documentation et ses preuves : commit et
+push sur la branche existante, mise à jour de la PR draft #26. Aucun merge ni
+changement applicatif, DB, contrat, protection Vercel ou configuration de sécurité.
 
 ## Checks
 
@@ -34,3 +57,18 @@ Le contrôle DEV est le SQL en lecture seule `integration-empty.sql`.
 
 Le suivi final des checks est attaché à la PR et résumé dans la livraison au
 lecteur. Les checks requis ne sont ni désactivés ni ignorés pour la draft.
+
+## Finalisation locale et suivi CI
+
+Relecture des preuves locales existantes : `make check`, E2E shell, observation,
+diagnostic et intégration réussis ; 30 états d’intégration/responsive/AA dans les
+modes réel et CI. Couverture des guards 82 %, budget client 565449 octets gzip
+pour 2097152 autorisés. Ces validations ne nécessitent pas de nouvelle exécution
+pour une modification exclusivement documentaire.
+
+À la finalisation, contrôles locaux relancés avec succès :
+`python scripts/quality/security.py`, `python scripts/quality/migrations.py`,
+`python scripts/quality/check_automation.py`, `python scripts/check_contracts.py`
+et `git diff --check`. Les checks CI seront vérifiés sur le commit documentaire
+poussé ; leur statut courant fait autorité dans la PR. Task 10 est finalisée avec
+la limitation de Preview ci-dessus, sans attester un parcours distant authentifié.

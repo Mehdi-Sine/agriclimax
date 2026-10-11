@@ -26,5 +26,9 @@ Documentation, limites et prochaines étapes : docs/codex/verification/task10/.
 Statut Preview/CI et PR : DELIVERY.md. PR draft uniquement, aucun merge.
 
 Preview : https://agriclimax-git-codex-10-integration-v01-mehdi-sines-projects.vercel.app
-Déploiement Vercel réussi ; visite HTTP bloquée par la liste réseau du proxy
-de l’environnement (403 CONNECT), donc accessibilité publique non attestée.
+Reprise du 11 octobre : CI et déploiement du commit `7fd4ff5` verts. Accès réseau
+Preview rétabli ; les trois parcours répondent 302 vers Vercel SSO. Validation
+navigateur distante limitée par Vercel Authentication, limite acceptée comme
+non bloquante pour Task 10. Protection et configuration de sécurité inchangées ;
+voir DELIVERY.md. Les preuves locales sont conservées et les guards documentaires
+ont été relancés avec succès lors de la finalisation.
