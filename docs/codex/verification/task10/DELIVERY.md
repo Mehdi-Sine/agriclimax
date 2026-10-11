@@ -72,3 +72,11 @@ pour une modification exclusivement documentaire.
 et `git diff --check`. Les checks CI seront vérifiés sur le commit documentaire
 poussé ; leur statut courant fait autorité dans la PR. Task 10 est finalisée avec
 la limitation de Preview ci-dessus, sans attester un parcours distant authentifié.
+
+Le premier commit documentaire de reprise (`016b1d3`) a utilisé l’identité Git
+par défaut du nouvel environnement, associée à `@medsine`. Vercel a refusé son
+déploiement car ce compte n’appartient pas à l’équipe. Le commit suivant utilise
+l’identité déjà documentée dans README.md et employée par les commits de Task 10 :
+`Mehdi-Sine <mehdi.sine@acta.asso.fr>`. Aucune modification d’accès ou de sécurité,
+aucune réécriture de l’historique poussé. Ce refus de déploiement est distinct de
+la redirection SSO protégeant la Preview applicative existante.
