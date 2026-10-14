@@ -1,0 +1,69 @@
+{
+  "runs": 76,
+  "sources": [
+    {
+      "stations": 5,
+      "last_date": "2026-10-13",
+      "source_id": "meteofrance-climatology",
+      "first_date": "2026-09-01",
+      "observations": 1110,
+      "station_days": 185,
+      "available_values": 1110
+    },
+    {
+      "stations": 5,
+      "last_date": "2026-10-14",
+      "source_id": "meteofrance-observations",
+      "first_date": "2026-10-14",
+      "observations": 15,
+      "station_days": 5,
+      "available_values": 15
+    }
+  ],
+  "checked_at": "2026-10-14T14:29:38.847106+00:00",
+  "duplicates": 0,
+  "grid_cells": 0,
+  "risk_results": 0,
+  "rpc_security": [
+    {
+      "function": "agriclimax_persist_station_batch",
+      "anon_execute": false,
+      "auth_execute": false,
+      "server_execute": true,
+      "security_definer": false
+    },
+    {
+      "function": "agriclimax_station_weather",
+      "anon_execute": false,
+      "auth_execute": false,
+      "server_execute": true,
+      "security_definer": false
+    },
+    {
+      "function": "agriclimax_weather_stations",
+      "anon_execute": false,
+      "auth_execute": false,
+      "server_execute": true,
+      "security_definer": false
+    }
+  ],
+  "rule_versions": 0,
+  "station_count": 5,
+  "station_security": [
+    {
+      "rls": true,
+      "table": "station_weather_batches",
+      "forced": true,
+      "anon_select": false,
+      "auth_insert": false
+    },
+    {
+      "rls": true,
+      "table": "weather_stations",
+      "forced": true,
+      "anon_select": false,
+      "auth_insert": false
+    }
+  ],
+  "invented_publication_times": 0
+}

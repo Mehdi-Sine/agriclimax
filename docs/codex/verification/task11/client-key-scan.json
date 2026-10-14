@@ -1,0 +1,17 @@
+{
+  "client_files": 30,
+  "keys": {
+    "METEOFRANCE_CLIMATOLOGY_API_KEY": {
+      "configured": true,
+      "found_in_client": false
+    },
+    "METEOFRANCE_OBSERVATIONS_API_KEY": {
+      "configured": true,
+      "found_in_client": false
+    },
+    "SUPABASE_SECRET_KEY": {
+      "configured": true,
+      "found_in_client": false
+    }
+  }
+}

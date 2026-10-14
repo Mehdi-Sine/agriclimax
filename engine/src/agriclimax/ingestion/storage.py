@@ -85,7 +85,16 @@ class SQLiteObservationRepository:
 
                 if stable(old) == stable(batch):
                     return False
-                if batch.provenance.published_at < old.provenance.published_at:
+                if (
+                    batch.provenance.published_at is not None
+                    and old.provenance.published_at is not None
+                    and batch.provenance.published_at < old.provenance.published_at
+                ):
+                    raise ValueError("older_revision_rejected")
+                if (
+                    batch.provenance.published_at is None
+                    and batch.provenance.retrieved_at < old.provenance.retrieved_at
+                ):
                     raise ValueError("older_revision_rejected")
             connection.execute(
                 "INSERT OR REPLACE INTO batches VALUES (?,?,?,?)",
