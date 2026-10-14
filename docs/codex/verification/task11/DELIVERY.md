@@ -26,3 +26,12 @@ La requête HTTP depuis l'environnement renvoie 302 vers `vercel.com` : protecti
 Vercel Authentication conservée. Aucun contrôle navigateur distant authentifié
 revendiqué, aucun bypass, changement d'accès ou déploiement manuel.
 Les preuves API/E2E portent sur le build de production local avec Supabase réel.
+
+## Reprise exploitation — 14 octobre 2026
+
+Workflow préparé : contrôle des secrets avant acquisition, exit codes conservés
+avec pipefail, logs/manifests en artefact 30 jours. Fréquence, configuration,
+comportements d'échec, idempotence et relance : [OPERATIONS.md](OPERATIONS.md).
+Inventaire secrets/variables GitHub refusé en 403 : présence non vérifiée.
+Le workflow live n'est pas encore enregistré sur main. La PR reste draft tant
+que les prérequis d'exploitation ne sont pas confirmés ; aucun merge ni activation.

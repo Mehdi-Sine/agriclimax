@@ -1,0 +1,29 @@
+{
+  "method": "isolated workflow shell steps; synthetic bindings/CLI, no API or DB calls",
+  "results": [
+    {
+      "case": "bindings missing",
+      "exit": 1,
+      "log_exists": true,
+      "no_value_exposed": true
+    },
+    {
+      "case": "bindings present",
+      "exit": 0,
+      "log_exists": true,
+      "no_value_exposed": true
+    },
+    {
+      "case": "archive exit 0",
+      "exit": 0,
+      "tee_preserves_exit": true,
+      "log_exists": true
+    },
+    {
+      "case": "archive exit 7",
+      "exit": 7,
+      "tee_preserves_exit": true,
+      "log_exists": true
+    }
+  ]
+}

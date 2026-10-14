@@ -150,6 +150,11 @@ et observations. Les variables du cloud de travail ne sont pas copiées sur GitH
 Manifests uploadés, sources en cache distinct du mode demo. Le cron ne tourne pas
 sur une branche draft ; aucune automation distante n'a été activée dans cette tâche.
 
+Runbook d'activation et état des prérequis GitHub :
+`docs/codex/verification/task11/OPERATIONS.md`. Le workflow vérifie les bindings
+avant acquisition et conserve logs/manifests en artefact pendant 30 jours,
+y compris les logs en cas d'authentification fatale sans manifest.
+
 Tests : `python -m pytest engine/tests/ingestion`, `pnpm test`,
 `supabase/tests/run-local.sh public` et `extensions` ; preuves Task 11 dans
 `docs/codex/verification/task11/`.
