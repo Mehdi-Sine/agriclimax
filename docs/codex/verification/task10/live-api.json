@@ -1,0 +1,37 @@
+[
+  {
+    "kind": "map",
+    "status": 200,
+    "body": {
+      "type": "FeatureCollection",
+      "limit": 1000,
+      "features": [],
+      "truncated": false
+    }
+  },
+  {
+    "kind": "series",
+    "status": 200,
+    "body": []
+  },
+  {
+    "kind": "territory",
+    "status": 200,
+    "body": {
+      "bbox": [
+        -5.5,
+        41,
+        10,
+        51.5
+      ],
+      "rule": {
+        "rule_id": "demo_heat_wheat",
+        "version": "1.0"
+      },
+      "groups": [],
+      "aggregation": "intersecting_cell_counts",
+      "indicator_id": "tmax_days_above",
+      "production_id": "wheat_soft"
+    }
+  }
+]

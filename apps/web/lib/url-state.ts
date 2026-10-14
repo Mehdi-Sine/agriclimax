@@ -17,7 +17,7 @@ export function parseContext(params: URLSearchParams): AppContext {
   for (const field of Object.keys(keys) as (keyof AppContext)[]) {
     const value = params.get(keys[field])?.trim();
     if (value && value.length <= 128 &&
-        ((field === 'date' || field === 'compareDate') ? validDate(value) : /^[a-zA-Z0-9_-]+$/.test(value))) {
+        ((field === 'date' || field === 'compareDate') ? validDate(value) : /^[a-zA-Z0-9_.-]+$/.test(value))) {
       context[field] = value;
     }
   }

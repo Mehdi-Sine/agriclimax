@@ -1,0 +1,17 @@
+{
+  "project": "yyfbpecxvxglzxopsmel",
+  "method": "Supabase MCP read-only SQL, no seed",
+  "results": [
+    {
+      "verification": {
+        "map_empty": true,
+        "series_empty": true,
+        "rpc_permissions": true,
+        "territory_empty": true,
+        "empty_risk_results": true,
+        "business_tables_rls": true,
+        "reader_has_no_bypassrls": true
+      }
+    }
+  ]
+}

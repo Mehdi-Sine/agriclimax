@@ -1,0 +1,142 @@
+{
+  "checked_at_utc": "2026-10-11T19:36:36.768364+00:00",
+  "preview": "https://agriclimax-git-codex-10-integration-v01-mehdi-sines-projects.vercel.app",
+  "pr": {
+    "headRefOid": "7fd4ff52da72c2cfb60a96f870719f15ffbf55fa",
+    "isDraft": true,
+    "state": "OPEN",
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-11T19:06:34Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/38166587936/job/114550299544",
+        "name": "guards",
+        "startedAt": "2026-10-11T19:06:12Z",
+        "status": "COMPLETED",
+        "workflowName": "Quality"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-11T19:06:22Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/38166587825/job/114550298816",
+        "name": "secrets",
+        "startedAt": "2026-10-11T19:06:12Z",
+        "status": "COMPLETED",
+        "workflowName": "Security audits"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-11T19:06:40Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/38166587936/job/114550299651",
+        "name": "python-contracts",
+        "startedAt": "2026-10-11T19:06:13Z",
+        "status": "COMPLETED",
+        "workflowName": "Quality"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-11T19:06:29Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/38166587825/job/114550298868",
+        "name": "js-dependencies",
+        "startedAt": "2026-10-11T19:06:12Z",
+        "status": "COMPLETED",
+        "workflowName": "Security audits"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-11T19:09:21Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/38166587936/job/114550299610",
+        "name": "web-demo",
+        "startedAt": "2026-10-11T19:06:13Z",
+        "status": "COMPLETED",
+        "workflowName": "Quality"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-11T19:06:28Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/38166587825/job/114550298680",
+        "name": "python-dependencies",
+        "startedAt": "2026-10-11T19:06:12Z",
+        "status": "COMPLETED",
+        "workflowName": "Security audits"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-11T19:07:23Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/38166587936/job/114550299747",
+        "name": "sql (public)",
+        "startedAt": "2026-10-11T19:06:12Z",
+        "status": "COMPLETED",
+        "workflowName": "Quality"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-11T19:06:22Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/38166587825/job/114550298926",
+        "name": "browser-dependencies",
+        "startedAt": "2026-10-11T19:06:12Z",
+        "status": "COMPLETED",
+        "workflowName": "Security audits"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-11T19:07:05Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/38166587936/job/114550299713",
+        "name": "sql (extensions)",
+        "startedAt": "2026-10-11T19:06:12Z",
+        "status": "COMPLETED",
+        "workflowName": "Quality"
+      },
+      {
+        "__typename": "StatusContext",
+        "context": "Vercel",
+        "startedAt": "2026-10-11T19:06:29Z",
+        "state": "SUCCESS",
+        "targetUrl": "https://vercel.com/mehdi-sines-projects/agriclimax/2QA5Qw8Rv5Mp18knqknWu64Trya7"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-11T19:06:30Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://vercel.com/github",
+        "name": "Vercel Preview Comments",
+        "startedAt": "2026-10-11T19:06:30Z",
+        "status": "COMPLETED",
+        "workflowName": ""
+      }
+    ]
+  },
+  "http": [
+    {
+      "path": "/?mode=demo",
+      "exit_code": 0,
+      "http_status": "302",
+      "redirect_origin": "https://vercel.com/sso-api",
+      "error": ""
+    },
+    {
+      "path": "/diagnostic?mode=demo&cell=demo-001&production=wheat_soft&indicator=tmax_days_above&date=2026-07-01&rule=demo_heat_wheat&version=0.1.0",
+      "exit_code": 0,
+      "http_status": "302",
+      "redirect_origin": "https://vercel.com/sso-api",
+      "error": ""
+    },
+    {
+      "path": "/watch?mode=demo",
+      "exit_code": 0,
+      "http_status": "302",
+      "redirect_origin": "https://vercel.com/sso-api",
+      "error": ""
+    }
+  ],
+  "browser_validation": "Blocked before application by Vercel SSO; no authenticated session or bypass credential introduced."
+}

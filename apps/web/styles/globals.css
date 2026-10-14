@@ -763,6 +763,7 @@ input[type="checkbox"] {
 .diagnostic-context h1 { font-size: 28px; }
 .diagnostic-context nav a { display: inline-flex; align-items: center; min-height: 44px; }
 .diagnostic-panel { min-width: 0; }
+.diagnostic-header nav a { display: inline-flex; align-items: center; min-height: 44px; }
 .diagnostic-panel h2, .overlay-content h2 { font-size: 21px; }
 .diagnostic-factors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
 .diagnostic-factor { background: var(--surface-subtle); border-radius: var(--radius-md, 12px); padding: 16px; min-width: 0; }
@@ -780,6 +781,8 @@ input[type="checkbox"] {
 .diagnostic-panel .scientific-card, .overlay-content .scientific-card { overflow-wrap: anywhere; }
 @media (max-width: 1279px) { .diagnostic-layout { grid-template-columns: minmax(210px, 1fr) minmax(0, 2fr); } .diagnostic-factors { grid-template-columns: 1fr; } }
 @media (max-width: 767px) {
+  .diagnostic-header { flex-wrap: wrap; justify-content: space-between; }
+  .diagnostic-header nav { order: 3; flex-basis: 100%; justify-content: space-between; }
   .diagnostic-layout { display: block; padding-bottom: 24px; }
   .diagnostic-context { position: static; margin-bottom: 20px; }
   .diagnostic-context nav ul { display: flex; flex-wrap: wrap; gap: 8px 16px; padding: 0; list-style: none; }

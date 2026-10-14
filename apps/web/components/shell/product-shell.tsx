@@ -12,6 +12,7 @@ import { ThemeToggle } from "./theme-toggle";
 import { ObservationSpace } from "../../features/observation/observation-space";
 import { ScientificDiagnostic } from "../diagnostic/scientific-diagnostic";
 import { diagnosticHref } from "../../lib/diagnostic";
+import { sharedContext } from "../../lib/integration-context";
 import {
   Button,
   Select,
@@ -68,9 +69,24 @@ export function ProductShell({
     return params;
   }
   function navigate(next: typeof space) {
-    const params = withLiveContext(serializeContext(context));
+    const params = sharedContext(new URLSearchParams(window.location.search));
     if (next === "watch") {
       router.push(`/watch?${params}`, { scroll: false });
+      return;
+    }
+    if (next === "diagnostic") {
+      const cell = params.get("territory");
+      const result = data.mode === "demo" && data.collection.features.length > 0
+        ? data.diagnostic
+        : data.mode === "live" && data.state === "available"
+          ? data.results?.find(result => result.cell_id === cell)
+          : undefined;
+      if (result && (!cell || result.cell_id === cell)) {
+        router.push(diagnosticHref(result, data.mode, params));
+      } else {
+        if (cell) params.set("cell", cell);
+        router.push(`/diagnostic?${params}`);
+      }
       return;
     }
     setSpace(next);

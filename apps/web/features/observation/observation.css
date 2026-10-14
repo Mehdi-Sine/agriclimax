@@ -248,6 +248,8 @@
   .observation-bottom-sheet .badges {
     margin: var(--space-3) 0;
   }
+  .observation-bottom-sheet > small { display: block; }
+  .observation-bottom-sheet > .button { display: flex; width: 100%; margin-top: var(--space-2); }
   .observation-sheet-handle {
     width: 36px;
     height: 4px;
