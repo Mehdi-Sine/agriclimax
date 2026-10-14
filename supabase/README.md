@@ -1,5 +1,21 @@
 # Supabase / PostGIS — Task 04
 
+## Extension Task 11 — observations station
+
+La migration additive `20261014133958_meteofrance_station_ingestion.sql` ajoute
+deux tables privées RLS pour stations Point EPSG:4326 et lots station/source/date,
+avec trois RPC SECURITY INVOKER réservées au serveur. Elle est appliquée à DEV
+pour le backfill réel autorisé. Les treize tables métier sont désormais couvertes
+par les tests RLS ; les onze tables Task 04 et les RPC risques restent conservées.
+Aucun polygone, interpolation, production, règle, résultat de risque ou publication
+n'est créé par cette ingestion. [Mode live et API station](../engine/src/agriclimax/ingestion/METEOFRANCE.md)
+et [inspection / proposition avant application](../docs/codex/verification/task11/PLAN.md).
+
+Le test `station_weather.sql` est exclusivement local/transactionnel ; il est
+rollbacké avant les tests Task 04. Ne jamais exécuter ce seed synthétique sur DEV.
+
+## Architecture Task 04
+
 Les fichiers `migrations/0001*` et `0002*` restent inchangés. Ajouter les migrations
 dans l'ordre ; ne jamais rejouer une migration déjà enregistrée ni modifier son SQL.
 Le bilan DEV, les effets/reversibilité et les résultats se trouvent dans

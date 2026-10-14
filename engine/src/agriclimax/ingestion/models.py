@@ -13,11 +13,22 @@ class StrictModel(BaseModel):
 
 class RawObservation(StrictModel):
     cell_id: str = Field(min_length=1)
-    variable: Literal["temperature", "precipitation", "humidity"]
+    variable: Literal[
+        "temperature",
+        "temperature_min",
+        "temperature_max",
+        "precipitation",
+        "humidity",
+        "etp_monteith",
+    ]
     observed_at: datetime
     timezone: str
     value: float | None = Field(allow_inf_nan=False)
     unit: str
+    quality_flags: tuple[str, ...] = ()
+    source_field: str | None = None
+    source_checksum: str | None = None
+    temporal_resolution: Literal["instantaneous", "daily", "hourly"] = "instantaneous"
 
     @field_validator("observed_at")
     @classmethod
@@ -36,14 +47,17 @@ class RawObservation(StrictModel):
 class Provenance(StrictModel):
     source_id: str
     retrieved_at: datetime
-    published_at: datetime
+    published_at: datetime | None
     checksum: str
     demo: bool
     normalizer_version: Literal["1"] = "1"
+    publication_time_known: bool = True
 
     @field_validator("retrieved_at", "published_at")
     @classmethod
-    def utc(cls, value: datetime) -> datetime:
+    def utc(cls, value: datetime | None) -> datetime | None:
+        if value is None:
+            return None
         if value.utcoffset() is None:
             raise ValueError("Timezone offset required")
         return value.astimezone(UTC)
@@ -59,6 +73,9 @@ class Observation(StrictModel):
     unit: str
     quality_flags: tuple[str, ...]
     provenance: Provenance
+    source_field: str | None = None
+    source_checksum: str | None = None
+    temporal_resolution: Literal["instantaneous", "daily", "hourly"] = "instantaneous"
 
 
 class DayBatch(StrictModel):

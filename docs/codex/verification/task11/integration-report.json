@@ -1,0 +1,242 @@
+[
+  {
+    "name": "desktop",
+    "state": "map",
+    "width": 1440,
+    "height": 900,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "diagnostic",
+    "width": 1440,
+    "height": 900,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "watch",
+    "width": 1440,
+    "height": 900,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "watch-detail",
+    "width": 1440,
+    "height": 900,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "diagnostic-dark",
+    "width": 1440,
+    "height": 900,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "live-empty",
+    "width": 1440,
+    "height": 900,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "live-diagnostic-empty",
+    "width": 1440,
+    "height": 900,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "live-watch-unconnected",
+    "width": 1440,
+    "height": 900,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "api-error",
+    "width": 1440,
+    "height": 900,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "state": "network-error",
+    "width": 1440,
+    "height": 900,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "state": "map",
+    "width": 1024,
+    "height": 768,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "state": "diagnostic",
+    "width": 1024,
+    "height": 768,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "state": "watch",
+    "width": 1024,
+    "height": 768,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "state": "watch-detail",
+    "width": 1024,
+    "height": 768,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "state": "diagnostic-dark",
+    "width": 1024,
+    "height": 768,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "state": "live-empty",
+    "width": 1024,
+    "height": 768,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "state": "live-diagnostic-empty",
+    "width": 1024,
+    "height": 768,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "state": "live-watch-unconnected",
+    "width": 1024,
+    "height": 768,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "state": "api-error",
+    "width": 1024,
+    "height": 768,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "state": "network-error",
+    "width": 1024,
+    "height": 768,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "map",
+    "width": 390,
+    "height": 844,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "diagnostic",
+    "width": 390,
+    "height": 844,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "watch",
+    "width": 390,
+    "height": 844,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "watch-detail",
+    "width": 390,
+    "height": 844,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "diagnostic-dark",
+    "width": 390,
+    "height": 844,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "live-empty",
+    "width": 390,
+    "height": 844,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "live-diagnostic-empty",
+    "width": 390,
+    "height": 844,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "live-watch-unconnected",
+    "width": 390,
+    "height": 844,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "api-error",
+    "width": 390,
+    "height": 844,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "state": "network-error",
+    "width": 390,
+    "height": 844,
+    "liveTransport": "Supabase DEV",
+    "violations": []
+  }
+]

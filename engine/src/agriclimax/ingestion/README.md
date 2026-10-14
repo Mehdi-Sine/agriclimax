@@ -1,5 +1,10 @@
 # Ingestion météo
 
+Task 11 ajoute le provider Météo-France et le mode `live_meteofrance`, séparés de
+la démo : [stations, auth, backfill, persistance et limites](METEOFRANCE.md).
+Le provider générique France ci-dessous reste désactivé ; le provider Météo-France
+utilise les points d'accès et formats réellement vérifiés.
+
 Depuis la racine avec le moteur installé (`pip install -e 'engine[dev]'`) :
 
 ```sh

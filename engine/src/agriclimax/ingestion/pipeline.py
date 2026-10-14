@@ -9,7 +9,7 @@ from uuid import uuid4
 
 from .models import Provenance
 from .normalize import normalize
-from .providers import WeatherProvider
+from .providers import FatalProviderError, WeatherProvider
 from .storage import ObservationRepository, SourceCache, write_manifest
 
 
@@ -54,13 +54,18 @@ def run(
             payload = provider.decode(source.content)
             if not isinstance(payload, dict):
                 raise TypeError("invalid_envelope")
-            published = datetime.fromisoformat(payload["published_at"])
+            published = (
+                datetime.fromisoformat(payload["published_at"])
+                if payload["published_at"] is not None
+                else None
+            )
             provenance = Provenance(
                 source_id=provider.source_id,
                 retrieved_at=source.retrieved_at,
                 published_at=published,
                 checksum=checksum,
                 demo=provider.demo,
+                publication_time_known=getattr(provider, "publication_time_known", True),
             )
             batch = normalize(payload, day, provenance, max_age, clock())
             stage = "persist"
@@ -71,7 +76,17 @@ def run(
                 checksum=checksum,
                 changed=changed,
                 issues=list(batch.issues),
+                observation_count=len(batch.observations),
+                available_count=sum(row.value is not None for row in batch.observations),
+                quality_flags=sorted(
+                    {flag for row in batch.observations for flag in row.quality_flags}
+                ),
+                station_unavailable=any(
+                    "station_unavailable" in row.quality_flags for row in batch.observations
+                ),
             )
+        except FatalProviderError:
+            raise
         except Exception as error:  # noqa: BLE001 - isolate failures from provider plugins
             # Deliberately omit exception text, URLs and provider payloads from logs.
             result.update(
@@ -95,7 +110,10 @@ def run(
             write_manifest(root / "manifests", manifest)
         day += timedelta(days=1)
     manifest["finished_at"] = clock().isoformat()
-    manifest["successful"] = all(item["status"] not in {"error", "invalid"} for item in results)
+    manifest["successful"] = all(
+        item["status"] not in {"error", "invalid"} and item.get("station_unavailable") is not True
+        for item in results
+    )
     if not dry_run:
         write_manifest(root / "manifests", manifest)
     return manifest

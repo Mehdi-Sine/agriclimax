@@ -18,6 +18,10 @@ class SourcePayload:
     retrieved_at: datetime
 
 
+class FatalProviderError(RuntimeError):
+    """Configuration/authentication failure; do not continue other dates."""
+
+
 class WeatherProvider(Protocol):
     source_id: str
     demo: bool
