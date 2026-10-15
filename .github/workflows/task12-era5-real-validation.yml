@@ -1,0 +1,50 @@
+name: Task12 ERA5 real validation
+
+on:
+  workflow_dispatch:
+
+jobs:
+  validate-era5:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Task 12 branch
+        uses: actions/checkout@v4
+        with:
+          ref: codex/12-climatology-anomalies
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install \
+            -r engine/requirements-dev.lock \
+            -r engine/requirements-climate.lock \
+            -e "engine[dev,climate]"
+
+      - name: Check CDS secret
+        env:
+          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
+        run: |
+          test -n "$CDSAPI_KEY"
+
+      - name: ERA5-Land real smoke test
+        env:
+          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
+        run: |
+          python scripts/ingest_climatology.py \
+            --source era5-land \
+            --bbox -5.0,48.2,-4.2,48.8 \
+            --start-date 1991-09-01 \
+            --end-date 1991-09-03 \
+            --reference-start-year 1991 \
+            --reference-end-year 2020 \
+            --dry-run
+
+      - name: Climate tests
+        run: |
+          python -m pytest engine/tests/climate -v
