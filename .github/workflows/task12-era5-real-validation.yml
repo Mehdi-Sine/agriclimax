@@ -45,7 +45,7 @@ jobs:
             --dataset-version cds-snapshot-2026-10-15 \
             --persist-supabase
             
-            - name: ERA5-Land idempotence replay
+      - name: ERA5-Land idempotence replay
         env:
           CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
