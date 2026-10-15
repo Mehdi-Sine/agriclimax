@@ -203,8 +203,13 @@ export function ObservationSpace({ initialData }: { initialData: ShellData }) {
     // A selection during this debounce must also carry the newest camera.
     latest.current = viewportParams(latest.current, v);
     moveTimer.current = setTimeout(() => {
+      const current = new URLSearchParams(window.location.search);
+      // A production-space navigation can change the URL before the old map
+      // unmounts. Its pending camera update must not restore the previous space.
+      if (window.location.pathname !== "/" || current.get("mode") !== latest.current.get("mode")
+        || current.get("production") !== latest.current.get("production")) return;
       const next = viewportParams(latest.current, v);
-      if (next.toString() !== new URLSearchParams(window.location.search).toString()) update(next, true);
+      if (next.toString() !== current.toString()) update(next, true);
     }, 250);
   }
   const currentData = stateKey === requestKey && data?.mode === mode ? data : null;

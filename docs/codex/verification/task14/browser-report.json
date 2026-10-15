@@ -1,0 +1,68 @@
+[
+  {
+    "view": "observation",
+    "width": 1440,
+    "status": 200,
+    "layout": {
+      "width": 1440,
+      "scroll": 1440
+    },
+    "axe_violations": 0,
+    "context_preserved": true
+  },
+  {
+    "view": "diagnostic",
+    "width": 1440,
+    "status": 200,
+    "layout": {
+      "width": 1440,
+      "scroll": 1440
+    },
+    "axe_violations": 0,
+    "context_preserved": true
+  },
+  {
+    "view": "watch",
+    "width": 1440,
+    "status": 200,
+    "layout": {
+      "width": 1440,
+      "scroll": 1440
+    },
+    "axe_violations": 0,
+    "context_preserved": true
+  },
+  {
+    "view": "observation",
+    "width": 390,
+    "status": 200,
+    "layout": {
+      "width": 390,
+      "scroll": 390
+    },
+    "axe_violations": 0,
+    "context_preserved": true
+  },
+  {
+    "view": "diagnostic",
+    "width": 390,
+    "status": 200,
+    "layout": {
+      "width": 390,
+      "scroll": 390
+    },
+    "axe_violations": 0,
+    "context_preserved": true
+  },
+  {
+    "view": "watch",
+    "width": 390,
+    "status": 200,
+    "layout": {
+      "width": 390,
+      "scroll": 390
+    },
+    "axe_violations": 0,
+    "context_preserved": true
+  }
+]

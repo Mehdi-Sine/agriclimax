@@ -1,0 +1,2852 @@
+[
+  {
+    "rule_id": "cattle.thi.exposure",
+    "rule_version": "1.0.0",
+    "production": "cattle",
+    "formula_id": "bohmanova-2005-thi-26-v1",
+    "formula": "(1.8*T_C+32)-(0.55-0.0055*RH_pct)*(1.8*T_C-26)",
+    "value": 66.1841,
+    "unit": "THI",
+    "value_kind": "maximum_daily_synthetic",
+    "status": "available",
+    "reason": null,
+    "period": {
+      "start": "2026-09-01T00:00:00+00:00",
+      "end_exclusive": "2026-10-01T00:00:00+00:00",
+      "timezone": "UTC"
+    },
+    "resolution": "daily",
+    "level": "below_configured_reference",
+    "thresholds": [
+      72.0
+    ],
+    "confidence": {
+      "level": "low",
+      "coverage": 1.0,
+      "reason": "no_validated_confidence_policy"
+    },
+    "freshness": "stale",
+    "data_freshness": "stale",
+    "provenance": [
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.411256Z",
+        "published_at": null,
+        "checksum": "c1b12202c05a440724ff0b30a5a726d72c803bf1789985de2eb3138b30128ae9",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.411897Z",
+        "published_at": null,
+        "checksum": "c83e3d84591365a62c11987e56c206cf21729e23e12eafbceb9fce07a300e389",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.412134Z",
+        "published_at": null,
+        "checksum": "9a93827d73ff2111937c9e762ed4f9b57b6702fa0c67fc34968475213f35b7d2",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.412343Z",
+        "published_at": null,
+        "checksum": "7be77da47064e7fad3aa09b0717c697d9771b994086eaf2b427fe067a2f048e1",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.412588Z",
+        "published_at": null,
+        "checksum": "753313a48b454fae81e105f78c3d9e61aa56d7ec01b329acd9a8e8605ac9a852",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.412904Z",
+        "published_at": null,
+        "checksum": "1df670f15174a483fb87c9a4bfe09885520a456bced411c6b3d4881362660a35",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.413161Z",
+        "published_at": null,
+        "checksum": "99965e83b931c2dce7bbd9949f48345e444e6d3162902e024cebe02889689a38",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.413362Z",
+        "published_at": null,
+        "checksum": "1b55b620570d432bf7d9319b2a7bd948d2afe232740af38364bca7886b65fd69",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.413594Z",
+        "published_at": null,
+        "checksum": "5e2c1cc8ab1d4aae898e9bc9e5f4343b4539683dd336995981b22f0cb0f938b1",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.413886Z",
+        "published_at": null,
+        "checksum": "b142a1e84c516d462b310da699179df74357fc170064773aaa2e079fe450ecc5",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.414130Z",
+        "published_at": null,
+        "checksum": "61d99898786504296d3606fde23d17f4fb68b206850b3e9603b78804a5882666",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.414348Z",
+        "published_at": null,
+        "checksum": "be2b0169d000b8091da82d5e3207219b11ce17e1c4a2530edb4e050feffed04e",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.414557Z",
+        "published_at": null,
+        "checksum": "f1ab2b25cb6eaad92be60a6f515490104b070ed6964e8f6da5580b276699aa95",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.414795Z",
+        "published_at": null,
+        "checksum": "97e6c5b99ce98f78a972609687084a585095395077c71e98bfed963bd074762b",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.415094Z",
+        "published_at": null,
+        "checksum": "9b9599d6c02bd016ec435cd8bdfef327b8fd0009a790ca4a5097a29445273128",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.415315Z",
+        "published_at": null,
+        "checksum": "3b7c29e3b104773d7f2a7510215b1e6615cf3a4cdbbdbc3ec410e7a0a3a202ed",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.415543Z",
+        "published_at": null,
+        "checksum": "aae897d6051cde4c92d8d84517a4e9b77ec9f898dc43a708a26a77bafa0b514e",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.415765Z",
+        "published_at": null,
+        "checksum": "99fbabf33519bbbda4aec3483dcc1261bff630bca5341b591a3fa85fbd1072bf",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416011Z",
+        "published_at": null,
+        "checksum": "f35404f7bd3a19a8778f36f47a9d9dd93c35c3202ed637a697a35db363fe4cc7",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416239Z",
+        "published_at": null,
+        "checksum": "978b4dc82793f61e240686153b57ce50ab00c984c36850d918fe0d52ff54091f",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416467Z",
+        "published_at": null,
+        "checksum": "93a0f4a32dcbcf7b14fbecccf5604573804465366e5278613a80810cc384237e",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416697Z",
+        "published_at": null,
+        "checksum": "e6ac8b655305e91c297f541d0ef176958464f25dccbf363dcd70dd386256e61d",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416947Z",
+        "published_at": null,
+        "checksum": "c69d53d023546a98e539a857dbaf29c362dc8e6b6e47417b7a5a804ad1fb79b4",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.417226Z",
+        "published_at": null,
+        "checksum": "9314a02f8372235fbe694824512d57d2ba41106dbda8fb5eb8f262af670b6049",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.417468Z",
+        "published_at": null,
+        "checksum": "fa1436c707189ace3e8bc90e781c74239f1d44d61afa5ff6f58bffdd27ebd217",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.417713Z",
+        "published_at": null,
+        "checksum": "e36287c55ffe8d3225f4d3488e786c25240770ed9179c13278be82eac48b61b8",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.417978Z",
+        "published_at": null,
+        "checksum": "277263d339882726de414f2c4134cb2e7e69a5d51c203792493ea04ff3c6900c",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.418256Z",
+        "published_at": null,
+        "checksum": "c006d9ba9914d384d57eee78189615bd357f395c3cff1bd807bb973ef678ae70",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.418511Z",
+        "published_at": null,
+        "checksum": "36cc69db9c5fe5c36d30e0a07a7657f756bb6075aa95b564659116f479f6c189",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.418761Z",
+        "published_at": null,
+        "checksum": "236ea39add041bf00570170ba9a511a6b36df14291a84329bcca5af9f2f03a5b",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      }
+    ],
+    "scientific_source": {
+      "title": "National Genetic Evaluation of Milk Yield for Heat Tolerance of United States Holsteins",
+      "authors": "J. Bohmanova, I. Misztal, S. Tsuruta, H.D. Norman, T.J. Lawlor",
+      "year": 2005,
+      "url": "https://www.ars.usda.gov/ARSUserFiles/80420530/Publications/Scientific/Conferences/2005/IB_33_160_BohmanovaEtAl.pdf",
+      "consulted_at": "2026-10-15",
+      "scope": "US Holsteins, first-parity test-day milk records; threshold 72 assumed in the study, not universal; no clinical inference",
+      "licence": "not established"
+    },
+    "scientific_status": "exploratory",
+    "limits": [
+      "race",
+      "âge",
+      "niveau de production",
+      "stade physiologique",
+      "bâtiment",
+      "ventilation",
+      "ombrage",
+      "accès à l’eau",
+      "rayonnement",
+      "vent",
+      "microclimat"
+    ],
+    "notice": "Indicateur climatique d’exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique.",
+    "quality_flags": [
+      "synthetic_daily_not_hourly_mean",
+      "source_daily_windows_not_harmonized"
+    ],
+    "series": [
+      {
+        "at": "2026-09-01T00:00:00+00:00",
+        "value": 61.958110000000005
+      },
+      {
+        "at": "2026-09-02T00:00:00+00:00",
+        "value": 63.39884000000001
+      },
+      {
+        "at": "2026-09-03T00:00:00+00:00",
+        "value": 65.08084000000001
+      },
+      {
+        "at": "2026-09-04T00:00:00+00:00",
+        "value": 64.32667000000001
+      },
+      {
+        "at": "2026-09-05T00:00:00+00:00",
+        "value": 62.51806
+      },
+      {
+        "at": "2026-09-06T00:00:00+00:00",
+        "value": 66.10608
+      },
+      {
+        "at": "2026-09-07T00:00:00+00:00",
+        "value": 64.48196
+      },
+      {
+        "at": "2026-09-08T00:00:00+00:00",
+        "value": 60.061119999999995
+      },
+      {
+        "at": "2026-09-09T00:00:00+00:00",
+        "value": 57.44819999999999
+      },
+      {
+        "at": "2026-09-10T00:00:00+00:00",
+        "value": 60.9726
+      },
+      {
+        "at": "2026-09-11T00:00:00+00:00",
+        "value": 61.4151
+      },
+      {
+        "at": "2026-09-12T00:00:00+00:00",
+        "value": 59.89696
+      },
+      {
+        "at": "2026-09-13T00:00:00+00:00",
+        "value": 62.3217
+      },
+      {
+        "at": "2026-09-14T00:00:00+00:00",
+        "value": 63.63843
+      },
+      {
+        "at": "2026-09-15T00:00:00+00:00",
+        "value": 61.10119
+      },
+      {
+        "at": "2026-09-16T00:00:00+00:00",
+        "value": 58.58368
+      },
+      {
+        "at": "2026-09-17T00:00:00+00:00",
+        "value": 58.934
+      },
+      {
+        "at": "2026-09-18T00:00:00+00:00",
+        "value": 60.011399999999995
+      },
+      {
+        "at": "2026-09-19T00:00:00+00:00",
+        "value": 63.50847999999999
+      },
+      {
+        "at": "2026-09-20T00:00:00+00:00",
+        "value": 63.16725
+      },
+      {
+        "at": "2026-09-21T00:00:00+00:00",
+        "value": 62.347
+      },
+      {
+        "at": "2026-09-22T00:00:00+00:00",
+        "value": 63.08644
+      },
+      {
+        "at": "2026-09-23T00:00:00+00:00",
+        "value": 60.968819999999994
+      },
+      {
+        "at": "2026-09-24T00:00:00+00:00",
+        "value": 64.18016
+      },
+      {
+        "at": "2026-09-25T00:00:00+00:00",
+        "value": 60.43267
+      },
+      {
+        "at": "2026-09-26T00:00:00+00:00",
+        "value": 57.92748
+      },
+      {
+        "at": "2026-09-27T00:00:00+00:00",
+        "value": 60.73415000000001
+      },
+      {
+        "at": "2026-09-28T00:00:00+00:00",
+        "value": 59.87408
+      },
+      {
+        "at": "2026-09-29T00:00:00+00:00",
+        "value": 66.1841
+      },
+      {
+        "at": "2026-09-30T00:00:00+00:00",
+        "value": 60.599799999999995
+      }
+    ],
+    "daily": [
+      {
+        "date": "2026-09-01",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 61.958110000000005
+      },
+      {
+        "date": "2026-09-02",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 63.39884000000001
+      },
+      {
+        "date": "2026-09-03",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 65.08084000000001
+      },
+      {
+        "date": "2026-09-04",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 64.32667000000001
+      },
+      {
+        "date": "2026-09-05",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 62.51806
+      },
+      {
+        "date": "2026-09-06",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 66.10608
+      },
+      {
+        "date": "2026-09-07",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 64.48196
+      },
+      {
+        "date": "2026-09-08",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 60.061119999999995
+      },
+      {
+        "date": "2026-09-09",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 57.44819999999999
+      },
+      {
+        "date": "2026-09-10",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 60.9726
+      },
+      {
+        "date": "2026-09-11",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 61.4151
+      },
+      {
+        "date": "2026-09-12",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 59.89696
+      },
+      {
+        "date": "2026-09-13",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 62.3217
+      },
+      {
+        "date": "2026-09-14",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 63.63843
+      },
+      {
+        "date": "2026-09-15",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 61.10119
+      },
+      {
+        "date": "2026-09-16",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 58.58368
+      },
+      {
+        "date": "2026-09-17",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 58.934
+      },
+      {
+        "date": "2026-09-18",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 60.011399999999995
+      },
+      {
+        "date": "2026-09-19",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 63.50847999999999
+      },
+      {
+        "date": "2026-09-20",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 63.16725
+      },
+      {
+        "date": "2026-09-21",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 62.347
+      },
+      {
+        "date": "2026-09-22",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 63.08644
+      },
+      {
+        "date": "2026-09-23",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 60.968819999999994
+      },
+      {
+        "date": "2026-09-24",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 64.18016
+      },
+      {
+        "date": "2026-09-25",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 60.43267
+      },
+      {
+        "date": "2026-09-26",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 57.92748
+      },
+      {
+        "date": "2026-09-27",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 60.73415000000001
+      },
+      {
+        "date": "2026-09-28",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 59.87408
+      },
+      {
+        "date": "2026-09-29",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 66.1841
+      },
+      {
+        "date": "2026-09-30",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 60.599799999999995
+      }
+    ],
+    "metrics": [
+      {
+        "threshold": 72.0,
+        "comparison": ">",
+        "count": 0,
+        "unit": "d",
+        "days_above": 0,
+        "episodes": 0,
+        "max_episode_duration": 0,
+        "cumulative_exposure": 0.0,
+        "exposure_unit": "THI.d",
+        "partial": false,
+        "episode_count_kind": "complete_period_episodes"
+      }
+    ],
+    "night_recovery": {
+      "status": "unavailable",
+      "reason": "hourly_data_required",
+      "nights_without_recovery": null,
+      "complete_nights": 0,
+      "threshold": 72.0,
+      "timezone": "Europe/Paris",
+      "start_hour": 22,
+      "end_hour": 6
+    },
+    "anomaly": {
+      "status": "unavailable",
+      "value": null,
+      "reason": "Task12_reference_has_no_humidity_or_homologous_THI"
+    },
+    "station_id": "29075001",
+    "source_quality_flags": [
+      "daily_source_date_label",
+      "publication_time_unknown",
+      "source_quality_code_1"
+    ],
+    "spatial_support": "station_points_no_interpolation",
+    "station_metadata": {
+      "id": "29075001",
+      "name": "BREST-GUIPAVAS",
+      "latitude": 48.453833,
+      "longitude": -4.391167,
+      "altitude_m": 92.0,
+      "metadata": {
+        "id": "29075001",
+        "nom": "BREST-GUIPAVAS",
+        "posteOuvert": true,
+        "typePoste": 0,
+        "lon": -4.391167,
+        "lat": 48.453833,
+        "alt": 92,
+        "postePublic": true,
+        "catalog_checksum": "9ae4422fb0fed8ff17104e265d07ac0a03b4c3f02fe32693e562a94148cb7f89",
+        "api_version": "DPClim/v1"
+      }
+    }
+  },
+  {
+    "rule_id": "cattle.thi.exposure",
+    "rule_version": "1.0.0",
+    "production": "cattle",
+    "formula_id": "bohmanova-2005-thi-26-v1",
+    "formula": "(1.8*T_C+32)-(0.55-0.0055*RH_pct)*(1.8*T_C-26)",
+    "value": 75.45492,
+    "unit": "THI",
+    "value_kind": "maximum_daily_synthetic",
+    "status": "available",
+    "reason": null,
+    "period": {
+      "start": "2026-09-01T00:00:00+00:00",
+      "end_exclusive": "2026-10-01T00:00:00+00:00",
+      "timezone": "UTC"
+    },
+    "resolution": "daily",
+    "level": "exposure_above_reference",
+    "thresholds": [
+      72.0
+    ],
+    "confidence": {
+      "level": "low",
+      "coverage": 1.0,
+      "reason": "no_validated_confidence_policy"
+    },
+    "freshness": "stale",
+    "data_freshness": "stale",
+    "provenance": [
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.411256Z",
+        "published_at": null,
+        "checksum": "c1b12202c05a440724ff0b30a5a726d72c803bf1789985de2eb3138b30128ae9",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.411897Z",
+        "published_at": null,
+        "checksum": "c83e3d84591365a62c11987e56c206cf21729e23e12eafbceb9fce07a300e389",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.412134Z",
+        "published_at": null,
+        "checksum": "9a93827d73ff2111937c9e762ed4f9b57b6702fa0c67fc34968475213f35b7d2",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.412343Z",
+        "published_at": null,
+        "checksum": "7be77da47064e7fad3aa09b0717c697d9771b994086eaf2b427fe067a2f048e1",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.412588Z",
+        "published_at": null,
+        "checksum": "753313a48b454fae81e105f78c3d9e61aa56d7ec01b329acd9a8e8605ac9a852",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.412904Z",
+        "published_at": null,
+        "checksum": "1df670f15174a483fb87c9a4bfe09885520a456bced411c6b3d4881362660a35",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.413161Z",
+        "published_at": null,
+        "checksum": "99965e83b931c2dce7bbd9949f48345e444e6d3162902e024cebe02889689a38",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.413362Z",
+        "published_at": null,
+        "checksum": "1b55b620570d432bf7d9319b2a7bd948d2afe232740af38364bca7886b65fd69",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.413594Z",
+        "published_at": null,
+        "checksum": "5e2c1cc8ab1d4aae898e9bc9e5f4343b4539683dd336995981b22f0cb0f938b1",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.413886Z",
+        "published_at": null,
+        "checksum": "b142a1e84c516d462b310da699179df74357fc170064773aaa2e079fe450ecc5",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.414130Z",
+        "published_at": null,
+        "checksum": "61d99898786504296d3606fde23d17f4fb68b206850b3e9603b78804a5882666",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.414348Z",
+        "published_at": null,
+        "checksum": "be2b0169d000b8091da82d5e3207219b11ce17e1c4a2530edb4e050feffed04e",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.414557Z",
+        "published_at": null,
+        "checksum": "f1ab2b25cb6eaad92be60a6f515490104b070ed6964e8f6da5580b276699aa95",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.414795Z",
+        "published_at": null,
+        "checksum": "97e6c5b99ce98f78a972609687084a585095395077c71e98bfed963bd074762b",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.415094Z",
+        "published_at": null,
+        "checksum": "9b9599d6c02bd016ec435cd8bdfef327b8fd0009a790ca4a5097a29445273128",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.415315Z",
+        "published_at": null,
+        "checksum": "3b7c29e3b104773d7f2a7510215b1e6615cf3a4cdbbdbc3ec410e7a0a3a202ed",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.415543Z",
+        "published_at": null,
+        "checksum": "aae897d6051cde4c92d8d84517a4e9b77ec9f898dc43a708a26a77bafa0b514e",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.415765Z",
+        "published_at": null,
+        "checksum": "99fbabf33519bbbda4aec3483dcc1261bff630bca5341b591a3fa85fbd1072bf",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416011Z",
+        "published_at": null,
+        "checksum": "f35404f7bd3a19a8778f36f47a9d9dd93c35c3202ed637a697a35db363fe4cc7",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416239Z",
+        "published_at": null,
+        "checksum": "978b4dc82793f61e240686153b57ce50ab00c984c36850d918fe0d52ff54091f",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416467Z",
+        "published_at": null,
+        "checksum": "93a0f4a32dcbcf7b14fbecccf5604573804465366e5278613a80810cc384237e",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416697Z",
+        "published_at": null,
+        "checksum": "e6ac8b655305e91c297f541d0ef176958464f25dccbf363dcd70dd386256e61d",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416947Z",
+        "published_at": null,
+        "checksum": "c69d53d023546a98e539a857dbaf29c362dc8e6b6e47417b7a5a804ad1fb79b4",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.417226Z",
+        "published_at": null,
+        "checksum": "9314a02f8372235fbe694824512d57d2ba41106dbda8fb5eb8f262af670b6049",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.417468Z",
+        "published_at": null,
+        "checksum": "fa1436c707189ace3e8bc90e781c74239f1d44d61afa5ff6f58bffdd27ebd217",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.417713Z",
+        "published_at": null,
+        "checksum": "e36287c55ffe8d3225f4d3488e786c25240770ed9179c13278be82eac48b61b8",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.417978Z",
+        "published_at": null,
+        "checksum": "277263d339882726de414f2c4134cb2e7e69a5d51c203792493ea04ff3c6900c",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.418256Z",
+        "published_at": null,
+        "checksum": "c006d9ba9914d384d57eee78189615bd357f395c3cff1bd807bb973ef678ae70",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.418511Z",
+        "published_at": null,
+        "checksum": "36cc69db9c5fe5c36d30e0a07a7657f756bb6075aa95b564659116f479f6c189",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.418761Z",
+        "published_at": null,
+        "checksum": "236ea39add041bf00570170ba9a511a6b36df14291a84329bcca5af9f2f03a5b",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      }
+    ],
+    "scientific_source": {
+      "title": "National Genetic Evaluation of Milk Yield for Heat Tolerance of United States Holsteins",
+      "authors": "J. Bohmanova, I. Misztal, S. Tsuruta, H.D. Norman, T.J. Lawlor",
+      "year": 2005,
+      "url": "https://www.ars.usda.gov/ARSUserFiles/80420530/Publications/Scientific/Conferences/2005/IB_33_160_BohmanovaEtAl.pdf",
+      "consulted_at": "2026-10-15",
+      "scope": "US Holsteins, first-parity test-day milk records; threshold 72 assumed in the study, not universal; no clinical inference",
+      "licence": "not established"
+    },
+    "scientific_status": "exploratory",
+    "limits": [
+      "race",
+      "âge",
+      "niveau de production",
+      "stade physiologique",
+      "bâtiment",
+      "ventilation",
+      "ombrage",
+      "accès à l’eau",
+      "rayonnement",
+      "vent",
+      "microclimat"
+    ],
+    "notice": "Indicateur climatique d’exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique.",
+    "quality_flags": [
+      "synthetic_daily_not_hourly_mean",
+      "source_daily_windows_not_harmonized"
+    ],
+    "series": [
+      {
+        "at": "2026-09-01T00:00:00+00:00",
+        "value": 70.44505000000001
+      },
+      {
+        "at": "2026-09-02T00:00:00+00:00",
+        "value": 71.11732
+      },
+      {
+        "at": "2026-09-03T00:00:00+00:00",
+        "value": 70.66636000000001
+      },
+      {
+        "at": "2026-09-04T00:00:00+00:00",
+        "value": 73.63847
+      },
+      {
+        "at": "2026-09-05T00:00:00+00:00",
+        "value": 73.09511
+      },
+      {
+        "at": "2026-09-06T00:00:00+00:00",
+        "value": 75.45492
+      },
+      {
+        "at": "2026-09-07T00:00:00+00:00",
+        "value": 74.13362000000001
+      },
+      {
+        "at": "2026-09-08T00:00:00+00:00",
+        "value": 71.0169
+      },
+      {
+        "at": "2026-09-09T00:00:00+00:00",
+        "value": 63.38433999999999
+      },
+      {
+        "at": "2026-09-10T00:00:00+00:00",
+        "value": 62.44543999999999
+      },
+      {
+        "at": "2026-09-11T00:00:00+00:00",
+        "value": 63.94683
+      },
+      {
+        "at": "2026-09-12T00:00:00+00:00",
+        "value": 65.73892
+      },
+      {
+        "at": "2026-09-13T00:00:00+00:00",
+        "value": 67.2075
+      },
+      {
+        "at": "2026-09-14T00:00:00+00:00",
+        "value": 69.89524
+      },
+      {
+        "at": "2026-09-15T00:00:00+00:00",
+        "value": 71.68809
+      },
+      {
+        "at": "2026-09-16T00:00:00+00:00",
+        "value": 65.00666
+      },
+      {
+        "at": "2026-09-17T00:00:00+00:00",
+        "value": 64.2156
+      },
+      {
+        "at": "2026-09-18T00:00:00+00:00",
+        "value": 65.41316
+      },
+      {
+        "at": "2026-09-19T00:00:00+00:00",
+        "value": 65.22752
+      },
+      {
+        "at": "2026-09-20T00:00:00+00:00",
+        "value": 67.077
+      },
+      {
+        "at": "2026-09-21T00:00:00+00:00",
+        "value": 68.32004
+      },
+      {
+        "at": "2026-09-22T00:00:00+00:00",
+        "value": 66.82203
+      },
+      {
+        "at": "2026-09-23T00:00:00+00:00",
+        "value": 66.23277
+      },
+      {
+        "at": "2026-09-24T00:00:00+00:00",
+        "value": 67.4112
+      },
+      {
+        "at": "2026-09-25T00:00:00+00:00",
+        "value": 68.5049
+      },
+      {
+        "at": "2026-09-26T00:00:00+00:00",
+        "value": 68.89998
+      },
+      {
+        "at": "2026-09-27T00:00:00+00:00",
+        "value": 70.08118
+      },
+      {
+        "at": "2026-09-28T00:00:00+00:00",
+        "value": 71.67016000000001
+      },
+      {
+        "at": "2026-09-29T00:00:00+00:00",
+        "value": 72.0614
+      },
+      {
+        "at": "2026-09-30T00:00:00+00:00",
+        "value": 71.63752000000001
+      }
+    ],
+    "daily": [
+      {
+        "date": "2026-09-01",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 70.44505000000001
+      },
+      {
+        "date": "2026-09-02",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 71.11732
+      },
+      {
+        "date": "2026-09-03",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 70.66636000000001
+      },
+      {
+        "date": "2026-09-04",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 73.63847
+      },
+      {
+        "date": "2026-09-05",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 73.09511
+      },
+      {
+        "date": "2026-09-06",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 75.45492
+      },
+      {
+        "date": "2026-09-07",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 74.13362000000001
+      },
+      {
+        "date": "2026-09-08",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 71.0169
+      },
+      {
+        "date": "2026-09-09",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 63.38433999999999
+      },
+      {
+        "date": "2026-09-10",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 62.44543999999999
+      },
+      {
+        "date": "2026-09-11",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 63.94683
+      },
+      {
+        "date": "2026-09-12",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 65.73892
+      },
+      {
+        "date": "2026-09-13",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 67.2075
+      },
+      {
+        "date": "2026-09-14",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 69.89524
+      },
+      {
+        "date": "2026-09-15",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 71.68809
+      },
+      {
+        "date": "2026-09-16",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 65.00666
+      },
+      {
+        "date": "2026-09-17",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 64.2156
+      },
+      {
+        "date": "2026-09-18",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 65.41316
+      },
+      {
+        "date": "2026-09-19",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 65.22752
+      },
+      {
+        "date": "2026-09-20",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 67.077
+      },
+      {
+        "date": "2026-09-21",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 68.32004
+      },
+      {
+        "date": "2026-09-22",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 66.82203
+      },
+      {
+        "date": "2026-09-23",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 66.23277
+      },
+      {
+        "date": "2026-09-24",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 67.4112
+      },
+      {
+        "date": "2026-09-25",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 68.5049
+      },
+      {
+        "date": "2026-09-26",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 68.89998
+      },
+      {
+        "date": "2026-09-27",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 70.08118
+      },
+      {
+        "date": "2026-09-28",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 71.67016000000001
+      },
+      {
+        "date": "2026-09-29",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 72.0614
+      },
+      {
+        "date": "2026-09-30",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 71.63752000000001
+      }
+    ],
+    "metrics": [
+      {
+        "threshold": 72.0,
+        "comparison": ">",
+        "count": 5,
+        "unit": "d",
+        "days_above": 5,
+        "episodes": 2,
+        "max_episode_duration": 4,
+        "cumulative_exposure": 8.383520000000019,
+        "exposure_unit": "THI.d",
+        "partial": false,
+        "episode_count_kind": "complete_period_episodes"
+      }
+    ],
+    "night_recovery": {
+      "status": "unavailable",
+      "reason": "hourly_data_required",
+      "nights_without_recovery": null,
+      "complete_nights": 0,
+      "threshold": 72.0,
+      "timezone": "Europe/Paris",
+      "start_hour": 22,
+      "end_hour": 6
+    },
+    "anomaly": {
+      "status": "unavailable",
+      "value": null,
+      "reason": "Task12_reference_has_no_humidity_or_homologous_THI"
+    },
+    "station_id": "31069001",
+    "source_quality_flags": [
+      "daily_source_date_label",
+      "publication_time_unknown",
+      "source_quality_code_1"
+    ],
+    "spatial_support": "station_points_no_interpolation",
+    "station_metadata": {
+      "id": "31069001",
+      "name": "TOULOUSE-BLAGNAC",
+      "latitude": 43.621,
+      "longitude": 1.378833,
+      "altitude_m": 151.0,
+      "metadata": {
+        "id": "31069001",
+        "nom": "TOULOUSE-BLAGNAC",
+        "posteOuvert": true,
+        "typePoste": 0,
+        "lon": 1.378833,
+        "lat": 43.621,
+        "alt": 151,
+        "postePublic": true,
+        "catalog_checksum": "4604cbd81505f5fba2a55bd89a6c3e68bb7073a0bf969a02ea2a6cf02002a8b7",
+        "api_version": "DPClim/v1"
+      }
+    }
+  },
+  {
+    "rule_id": "cattle.thi.exposure",
+    "rule_version": "1.0.0",
+    "production": "cattle",
+    "formula_id": "bohmanova-2005-thi-26-v1",
+    "formula": "(1.8*T_C+32)-(0.55-0.0055*RH_pct)*(1.8*T_C-26)",
+    "value": 76.29877,
+    "unit": "THI",
+    "value_kind": "maximum_daily_synthetic",
+    "status": "available",
+    "reason": null,
+    "period": {
+      "start": "2026-09-01T00:00:00+00:00",
+      "end_exclusive": "2026-10-01T00:00:00+00:00",
+      "timezone": "UTC"
+    },
+    "resolution": "daily",
+    "level": "exposure_above_reference",
+    "thresholds": [
+      72.0
+    ],
+    "confidence": {
+      "level": "low",
+      "coverage": 1.0,
+      "reason": "no_validated_confidence_policy"
+    },
+    "freshness": "stale",
+    "data_freshness": "stale",
+    "provenance": [
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.411256Z",
+        "published_at": null,
+        "checksum": "c1b12202c05a440724ff0b30a5a726d72c803bf1789985de2eb3138b30128ae9",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.411897Z",
+        "published_at": null,
+        "checksum": "c83e3d84591365a62c11987e56c206cf21729e23e12eafbceb9fce07a300e389",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.412134Z",
+        "published_at": null,
+        "checksum": "9a93827d73ff2111937c9e762ed4f9b57b6702fa0c67fc34968475213f35b7d2",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.412343Z",
+        "published_at": null,
+        "checksum": "7be77da47064e7fad3aa09b0717c697d9771b994086eaf2b427fe067a2f048e1",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.412588Z",
+        "published_at": null,
+        "checksum": "753313a48b454fae81e105f78c3d9e61aa56d7ec01b329acd9a8e8605ac9a852",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.412904Z",
+        "published_at": null,
+        "checksum": "1df670f15174a483fb87c9a4bfe09885520a456bced411c6b3d4881362660a35",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.413161Z",
+        "published_at": null,
+        "checksum": "99965e83b931c2dce7bbd9949f48345e444e6d3162902e024cebe02889689a38",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.413362Z",
+        "published_at": null,
+        "checksum": "1b55b620570d432bf7d9319b2a7bd948d2afe232740af38364bca7886b65fd69",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.413594Z",
+        "published_at": null,
+        "checksum": "5e2c1cc8ab1d4aae898e9bc9e5f4343b4539683dd336995981b22f0cb0f938b1",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.413886Z",
+        "published_at": null,
+        "checksum": "b142a1e84c516d462b310da699179df74357fc170064773aaa2e079fe450ecc5",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.414130Z",
+        "published_at": null,
+        "checksum": "61d99898786504296d3606fde23d17f4fb68b206850b3e9603b78804a5882666",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.414348Z",
+        "published_at": null,
+        "checksum": "be2b0169d000b8091da82d5e3207219b11ce17e1c4a2530edb4e050feffed04e",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.414557Z",
+        "published_at": null,
+        "checksum": "f1ab2b25cb6eaad92be60a6f515490104b070ed6964e8f6da5580b276699aa95",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.414795Z",
+        "published_at": null,
+        "checksum": "97e6c5b99ce98f78a972609687084a585095395077c71e98bfed963bd074762b",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.415094Z",
+        "published_at": null,
+        "checksum": "9b9599d6c02bd016ec435cd8bdfef327b8fd0009a790ca4a5097a29445273128",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.415315Z",
+        "published_at": null,
+        "checksum": "3b7c29e3b104773d7f2a7510215b1e6615cf3a4cdbbdbc3ec410e7a0a3a202ed",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.415543Z",
+        "published_at": null,
+        "checksum": "aae897d6051cde4c92d8d84517a4e9b77ec9f898dc43a708a26a77bafa0b514e",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.415765Z",
+        "published_at": null,
+        "checksum": "99fbabf33519bbbda4aec3483dcc1261bff630bca5341b591a3fa85fbd1072bf",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416011Z",
+        "published_at": null,
+        "checksum": "f35404f7bd3a19a8778f36f47a9d9dd93c35c3202ed637a697a35db363fe4cc7",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416239Z",
+        "published_at": null,
+        "checksum": "978b4dc82793f61e240686153b57ce50ab00c984c36850d918fe0d52ff54091f",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416467Z",
+        "published_at": null,
+        "checksum": "93a0f4a32dcbcf7b14fbecccf5604573804465366e5278613a80810cc384237e",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416697Z",
+        "published_at": null,
+        "checksum": "e6ac8b655305e91c297f541d0ef176958464f25dccbf363dcd70dd386256e61d",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.416947Z",
+        "published_at": null,
+        "checksum": "c69d53d023546a98e539a857dbaf29c362dc8e6b6e47417b7a5a804ad1fb79b4",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.417226Z",
+        "published_at": null,
+        "checksum": "9314a02f8372235fbe694824512d57d2ba41106dbda8fb5eb8f262af670b6049",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.417468Z",
+        "published_at": null,
+        "checksum": "fa1436c707189ace3e8bc90e781c74239f1d44d61afa5ff6f58bffdd27ebd217",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.417713Z",
+        "published_at": null,
+        "checksum": "e36287c55ffe8d3225f4d3488e786c25240770ed9179c13278be82eac48b61b8",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.417978Z",
+        "published_at": null,
+        "checksum": "277263d339882726de414f2c4134cb2e7e69a5d51c203792493ea04ff3c6900c",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.418256Z",
+        "published_at": null,
+        "checksum": "c006d9ba9914d384d57eee78189615bd357f395c3cff1bd807bb973ef678ae70",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.418511Z",
+        "published_at": null,
+        "checksum": "36cc69db9c5fe5c36d30e0a07a7657f756bb6075aa95b564659116f479f6c189",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      {
+        "source_id": "meteofrance-climatology",
+        "retrieved_at": "2026-10-15T13:49:50.418761Z",
+        "published_at": null,
+        "checksum": "236ea39add041bf00570170ba9a511a6b36df14291a84329bcca5af9f2f03a5b",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      }
+    ],
+    "scientific_source": {
+      "title": "National Genetic Evaluation of Milk Yield for Heat Tolerance of United States Holsteins",
+      "authors": "J. Bohmanova, I. Misztal, S. Tsuruta, H.D. Norman, T.J. Lawlor",
+      "year": 2005,
+      "url": "https://www.ars.usda.gov/ARSUserFiles/80420530/Publications/Scientific/Conferences/2005/IB_33_160_BohmanovaEtAl.pdf",
+      "consulted_at": "2026-10-15",
+      "scope": "US Holsteins, first-parity test-day milk records; threshold 72 assumed in the study, not universal; no clinical inference",
+      "licence": "not established"
+    },
+    "scientific_status": "exploratory",
+    "limits": [
+      "race",
+      "âge",
+      "niveau de production",
+      "stade physiologique",
+      "bâtiment",
+      "ventilation",
+      "ombrage",
+      "accès à l’eau",
+      "rayonnement",
+      "vent",
+      "microclimat"
+    ],
+    "notice": "Indicateur climatique d’exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique.",
+    "quality_flags": [
+      "synthetic_daily_not_hourly_mean",
+      "source_daily_windows_not_harmonized"
+    ],
+    "series": [
+      {
+        "at": "2026-09-01T00:00:00+00:00",
+        "value": 72.193
+      },
+      {
+        "at": "2026-09-02T00:00:00+00:00",
+        "value": 73.27687
+      },
+      {
+        "at": "2026-09-03T00:00:00+00:00",
+        "value": 73.2551
+      },
+      {
+        "at": "2026-09-04T00:00:00+00:00",
+        "value": 72.9245
+      },
+      {
+        "at": "2026-09-05T00:00:00+00:00",
+        "value": 75.37939999999999
+      },
+      {
+        "at": "2026-09-06T00:00:00+00:00",
+        "value": 74.80566999999999
+      },
+      {
+        "at": "2026-09-07T00:00:00+00:00",
+        "value": 76.29877
+      },
+      {
+        "at": "2026-09-08T00:00:00+00:00",
+        "value": 74.74578
+      },
+      {
+        "at": "2026-09-09T00:00:00+00:00",
+        "value": 68.83694000000001
+      },
+      {
+        "at": "2026-09-10T00:00:00+00:00",
+        "value": 66.7327
+      },
+      {
+        "at": "2026-09-11T00:00:00+00:00",
+        "value": 65.85018000000001
+      },
+      {
+        "at": "2026-09-12T00:00:00+00:00",
+        "value": 67.15039999999999
+      },
+      {
+        "at": "2026-09-13T00:00:00+00:00",
+        "value": 67.31924000000001
+      },
+      {
+        "at": "2026-09-14T00:00:00+00:00",
+        "value": 69.32712
+      },
+      {
+        "at": "2026-09-15T00:00:00+00:00",
+        "value": 71.48888000000001
+      },
+      {
+        "at": "2026-09-16T00:00:00+00:00",
+        "value": 71.69092
+      },
+      {
+        "at": "2026-09-17T00:00:00+00:00",
+        "value": 67.55157
+      },
+      {
+        "at": "2026-09-18T00:00:00+00:00",
+        "value": 67.66032000000001
+      },
+      {
+        "at": "2026-09-19T00:00:00+00:00",
+        "value": 67.11196
+      },
+      {
+        "at": "2026-09-20T00:00:00+00:00",
+        "value": 68.89998
+      },
+      {
+        "at": "2026-09-21T00:00:00+00:00",
+        "value": 69.33236000000001
+      },
+      {
+        "at": "2026-09-22T00:00:00+00:00",
+        "value": 68.69176999999999
+      },
+      {
+        "at": "2026-09-23T00:00:00+00:00",
+        "value": 69.49582
+      },
+      {
+        "at": "2026-09-24T00:00:00+00:00",
+        "value": 68.6045
+      },
+      {
+        "at": "2026-09-25T00:00:00+00:00",
+        "value": 69.4695
+      },
+      {
+        "at": "2026-09-26T00:00:00+00:00",
+        "value": 70.1075
+      },
+      {
+        "at": "2026-09-27T00:00:00+00:00",
+        "value": 70.75092000000001
+      },
+      {
+        "at": "2026-09-28T00:00:00+00:00",
+        "value": 69.10697
+      },
+      {
+        "at": "2026-09-29T00:00:00+00:00",
+        "value": 71.17403999999999
+      },
+      {
+        "at": "2026-09-30T00:00:00+00:00",
+        "value": 72.35894
+      }
+    ],
+    "daily": [
+      {
+        "date": "2026-09-01",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 72.193
+      },
+      {
+        "date": "2026-09-02",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 73.27687
+      },
+      {
+        "date": "2026-09-03",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 73.2551
+      },
+      {
+        "date": "2026-09-04",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 72.9245
+      },
+      {
+        "date": "2026-09-05",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 75.37939999999999
+      },
+      {
+        "date": "2026-09-06",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 74.80566999999999
+      },
+      {
+        "date": "2026-09-07",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 76.29877
+      },
+      {
+        "date": "2026-09-08",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 74.74578
+      },
+      {
+        "date": "2026-09-09",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 68.83694000000001
+      },
+      {
+        "date": "2026-09-10",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 66.7327
+      },
+      {
+        "date": "2026-09-11",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 65.85018000000001
+      },
+      {
+        "date": "2026-09-12",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 67.15039999999999
+      },
+      {
+        "date": "2026-09-13",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 67.31924000000001
+      },
+      {
+        "date": "2026-09-14",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 69.32712
+      },
+      {
+        "date": "2026-09-15",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 71.48888000000001
+      },
+      {
+        "date": "2026-09-16",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 71.69092
+      },
+      {
+        "date": "2026-09-17",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 67.55157
+      },
+      {
+        "date": "2026-09-18",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 67.66032000000001
+      },
+      {
+        "date": "2026-09-19",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 67.11196
+      },
+      {
+        "date": "2026-09-20",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 68.89998
+      },
+      {
+        "date": "2026-09-21",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 69.33236000000001
+      },
+      {
+        "date": "2026-09-22",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 68.69176999999999
+      },
+      {
+        "date": "2026-09-23",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 69.49582
+      },
+      {
+        "date": "2026-09-24",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 68.6045
+      },
+      {
+        "date": "2026-09-25",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 69.4695
+      },
+      {
+        "date": "2026-09-26",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 70.1075
+      },
+      {
+        "date": "2026-09-27",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 70.75092000000001
+      },
+      {
+        "date": "2026-09-28",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 69.10697
+      },
+      {
+        "date": "2026-09-29",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 71.17403999999999
+      },
+      {
+        "date": "2026-09-30",
+        "coverage": 1.0,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": 72.35894
+      }
+    ],
+    "metrics": [
+      {
+        "threshold": 72.0,
+        "comparison": ">",
+        "count": 9,
+        "unit": "d",
+        "days_above": 9,
+        "episodes": 2,
+        "max_episode_duration": 8,
+        "cumulative_exposure": 17.23802999999998,
+        "exposure_unit": "THI.d",
+        "partial": false,
+        "episode_count_kind": "complete_period_episodes"
+      }
+    ],
+    "night_recovery": {
+      "status": "unavailable",
+      "reason": "hourly_data_required",
+      "nights_without_recovery": null,
+      "complete_nights": 0,
+      "threshold": 72.0,
+      "timezone": "Europe/Paris",
+      "start_hour": 22,
+      "end_hour": 6
+    },
+    "anomaly": {
+      "status": "unavailable",
+      "value": null,
+      "reason": "Task12_reference_has_no_humidity_or_homologous_THI"
+    },
+    "station_id": "13054001",
+    "source_quality_flags": [
+      "daily_source_date_label",
+      "publication_time_unknown",
+      "source_quality_code_1"
+    ],
+    "spatial_support": "station_points_no_interpolation",
+    "station_metadata": {
+      "id": "13054001",
+      "name": "MARIGNANE",
+      "latitude": 43.437,
+      "longitude": 5.2115,
+      "altitude_m": 6.0,
+      "metadata": {
+        "id": "13054001",
+        "nom": "MARIGNANE",
+        "posteOuvert": true,
+        "typePoste": 0,
+        "lon": 5.2115,
+        "lat": 43.437,
+        "alt": 6,
+        "postePublic": true,
+        "catalog_checksum": "c4db6f777a2b4246b32309db09ad2fc90409f539af359701878fc5ce84a4721f",
+        "api_version": "DPClim/v1"
+      }
+    }
+  },
+  {
+    "rule_id": "cattle.thi.exposure",
+    "rule_version": "1.0.0",
+    "production": "cattle",
+    "formula_id": "bohmanova-2005-thi-26-v1",
+    "formula": "(1.8*T_C+32)-(0.55-0.0055*RH_pct)*(1.8*T_C-26)",
+    "value": 65.02072000000003,
+    "unit": "THI",
+    "value_kind": "maximum_observed_sample",
+    "status": "insufficient",
+    "reason": null,
+    "period": {
+      "start": "2026-10-15T00:00:00+00:00",
+      "end_exclusive": "2026-10-16T00:00:00+00:00",
+      "timezone": "UTC"
+    },
+    "resolution": "hourly",
+    "level": "below_configured_reference",
+    "thresholds": [
+      72.0
+    ],
+    "confidence": {
+      "level": "low",
+      "coverage": 0.041666666666666664,
+      "reason": "no_validated_confidence_policy"
+    },
+    "freshness": "fresh",
+    "data_freshness": "fresh",
+    "provenance": [
+      {
+        "source_id": "meteofrance-observations",
+        "retrieved_at": "2026-10-15T13:49:53.849307Z",
+        "published_at": null,
+        "checksum": "c838db11e8030eebb516cfd34447d8570af9554e1cb337b213fd174b65720949",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      }
+    ],
+    "scientific_source": {
+      "title": "National Genetic Evaluation of Milk Yield for Heat Tolerance of United States Holsteins",
+      "authors": "J. Bohmanova, I. Misztal, S. Tsuruta, H.D. Norman, T.J. Lawlor",
+      "year": 2005,
+      "url": "https://www.ars.usda.gov/ARSUserFiles/80420530/Publications/Scientific/Conferences/2005/IB_33_160_BohmanovaEtAl.pdf",
+      "consulted_at": "2026-10-15",
+      "scope": "US Holsteins, first-parity test-day milk records; threshold 72 assumed in the study, not universal; no clinical inference",
+      "licence": "not established"
+    },
+    "scientific_status": "exploratory",
+    "limits": [
+      "race",
+      "âge",
+      "niveau de production",
+      "stade physiologique",
+      "bâtiment",
+      "ventilation",
+      "ombrage",
+      "accès à l’eau",
+      "rayonnement",
+      "vent",
+      "microclimat"
+    ],
+    "notice": "Indicateur climatique d’exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique.",
+    "quality_flags": [
+      "incomplete_coverage",
+      "counts_durations_lower_bounds_episodes_observed_fragments"
+    ],
+    "series": [
+      {
+        "at": "2026-10-15T00:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T01:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T02:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T03:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T04:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T05:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T06:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T07:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T08:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T09:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T10:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T11:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T12:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T13:00:00+00:00",
+        "value": 65.02072000000003
+      },
+      {
+        "at": "2026-10-15T14:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T15:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T16:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T17:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T18:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T19:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T20:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T21:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T22:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T23:00:00+00:00",
+        "value": null
+      }
+    ],
+    "daily": [
+      {
+        "date": "2026-10-15",
+        "coverage": 0.041666666666666664,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": null
+      }
+    ],
+    "metrics": [
+      {
+        "threshold": 72.0,
+        "comparison": ">",
+        "count": 0,
+        "unit": "h",
+        "days_above": 0,
+        "episodes": 0,
+        "max_episode_duration": 0,
+        "cumulative_exposure": 0.0,
+        "exposure_unit": "THI.h",
+        "partial": true,
+        "episode_count_kind": "observed_fragments"
+      }
+    ],
+    "night_recovery": {
+      "status": "unavailable",
+      "nights_without_recovery": null,
+      "complete_nights": 0,
+      "incomplete_nights": 2,
+      "threshold": 72.0,
+      "timezone": "Europe/Paris",
+      "start_hour": 22,
+      "end_hour": 6
+    },
+    "anomaly": {
+      "status": "unavailable",
+      "value": null,
+      "reason": "Task12_reference_has_no_humidity_or_homologous_THI"
+    },
+    "station_id": "29075001",
+    "source_quality_flags": [
+      "et0_not_available",
+      "publication_time_unknown",
+      "recent_sample_not_daily_aggregate"
+    ],
+    "spatial_support": "station_points_no_interpolation",
+    "station_metadata": {
+      "id": "29075001",
+      "name": "BREST-GUIPAVAS",
+      "latitude": 48.453833,
+      "longitude": -4.391167,
+      "altitude_m": 92.0,
+      "metadata": {
+        "Id_station": "29075001",
+        "Id_omm": "07110",
+        "Nom_usuel": "BREST-GUIPAVAS",
+        "Latitude": "48.453833",
+        "Longitude": "-4.391167",
+        "Altitude": "92",
+        "Date_ouverture": "1945-01-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    }
+  },
+  {
+    "rule_id": "cattle.thi.exposure",
+    "rule_version": "1.0.0",
+    "production": "cattle",
+    "formula_id": "bohmanova-2005-thi-26-v1",
+    "formula": "(1.8*T_C+32)-(0.55-0.0055*RH_pct)*(1.8*T_C-26)",
+    "value": 72.03600000000006,
+    "unit": "THI",
+    "value_kind": "maximum_observed_sample",
+    "status": "insufficient",
+    "reason": null,
+    "period": {
+      "start": "2026-10-15T00:00:00+00:00",
+      "end_exclusive": "2026-10-16T00:00:00+00:00",
+      "timezone": "UTC"
+    },
+    "resolution": "hourly",
+    "level": "exposure_above_reference",
+    "thresholds": [
+      72.0
+    ],
+    "confidence": {
+      "level": "low",
+      "coverage": 0.041666666666666664,
+      "reason": "no_validated_confidence_policy"
+    },
+    "freshness": "fresh",
+    "data_freshness": "fresh",
+    "provenance": [
+      {
+        "source_id": "meteofrance-observations",
+        "retrieved_at": "2026-10-15T13:49:53.849307Z",
+        "published_at": null,
+        "checksum": "c838db11e8030eebb516cfd34447d8570af9554e1cb337b213fd174b65720949",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      }
+    ],
+    "scientific_source": {
+      "title": "National Genetic Evaluation of Milk Yield for Heat Tolerance of United States Holsteins",
+      "authors": "J. Bohmanova, I. Misztal, S. Tsuruta, H.D. Norman, T.J. Lawlor",
+      "year": 2005,
+      "url": "https://www.ars.usda.gov/ARSUserFiles/80420530/Publications/Scientific/Conferences/2005/IB_33_160_BohmanovaEtAl.pdf",
+      "consulted_at": "2026-10-15",
+      "scope": "US Holsteins, first-parity test-day milk records; threshold 72 assumed in the study, not universal; no clinical inference",
+      "licence": "not established"
+    },
+    "scientific_status": "exploratory",
+    "limits": [
+      "race",
+      "âge",
+      "niveau de production",
+      "stade physiologique",
+      "bâtiment",
+      "ventilation",
+      "ombrage",
+      "accès à l’eau",
+      "rayonnement",
+      "vent",
+      "microclimat"
+    ],
+    "notice": "Indicateur climatique d’exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique.",
+    "quality_flags": [
+      "incomplete_coverage",
+      "counts_durations_lower_bounds_episodes_observed_fragments"
+    ],
+    "series": [
+      {
+        "at": "2026-10-15T00:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T01:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T02:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T03:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T04:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T05:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T06:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T07:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T08:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T09:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T10:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T11:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T12:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T13:00:00+00:00",
+        "value": 72.03600000000006
+      },
+      {
+        "at": "2026-10-15T14:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T15:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T16:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T17:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T18:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T19:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T20:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T21:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T22:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T23:00:00+00:00",
+        "value": null
+      }
+    ],
+    "daily": [
+      {
+        "date": "2026-10-15",
+        "coverage": 0.041666666666666664,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": null
+      }
+    ],
+    "metrics": [
+      {
+        "threshold": 72.0,
+        "comparison": ">",
+        "count": 1,
+        "unit": "h",
+        "days_above": 1,
+        "episodes": 1,
+        "max_episode_duration": 1,
+        "cumulative_exposure": 0.03600000000005821,
+        "exposure_unit": "THI.h",
+        "partial": true,
+        "episode_count_kind": "observed_fragments"
+      }
+    ],
+    "night_recovery": {
+      "status": "unavailable",
+      "nights_without_recovery": null,
+      "complete_nights": 0,
+      "incomplete_nights": 2,
+      "threshold": 72.0,
+      "timezone": "Europe/Paris",
+      "start_hour": 22,
+      "end_hour": 6
+    },
+    "anomaly": {
+      "status": "unavailable",
+      "value": null,
+      "reason": "Task12_reference_has_no_humidity_or_homologous_THI"
+    },
+    "station_id": "31069001",
+    "source_quality_flags": [
+      "et0_not_available",
+      "publication_time_unknown",
+      "recent_sample_not_daily_aggregate"
+    ],
+    "spatial_support": "station_points_no_interpolation",
+    "station_metadata": {
+      "id": "31069001",
+      "name": "TOULOUSE-BLAGNAC",
+      "latitude": 43.621,
+      "longitude": 1.378833,
+      "altitude_m": 151.0,
+      "metadata": {
+        "Id_station": "31069001",
+        "Id_omm": "07630",
+        "Nom_usuel": "TOULOUSE-BLAGNAC",
+        "Latitude": "43.621000",
+        "Longitude": "1.378833",
+        "Altitude": "151",
+        "Date_ouverture": "1947-01-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    }
+  },
+  {
+    "rule_id": "cattle.thi.exposure",
+    "rule_version": "1.0.0",
+    "production": "cattle",
+    "formula_id": "bohmanova-2005-thi-26-v1",
+    "formula": "(1.8*T_C+32)-(0.55-0.0055*RH_pct)*(1.8*T_C-26)",
+    "value": 69.87844000000005,
+    "unit": "THI",
+    "value_kind": "maximum_observed_sample",
+    "status": "insufficient",
+    "reason": null,
+    "period": {
+      "start": "2026-10-15T00:00:00+00:00",
+      "end_exclusive": "2026-10-16T00:00:00+00:00",
+      "timezone": "UTC"
+    },
+    "resolution": "hourly",
+    "level": "below_configured_reference",
+    "thresholds": [
+      72.0
+    ],
+    "confidence": {
+      "level": "low",
+      "coverage": 0.041666666666666664,
+      "reason": "no_validated_confidence_policy"
+    },
+    "freshness": "fresh",
+    "data_freshness": "fresh",
+    "provenance": [
+      {
+        "source_id": "meteofrance-observations",
+        "retrieved_at": "2026-10-15T13:49:53.849307Z",
+        "published_at": null,
+        "checksum": "c838db11e8030eebb516cfd34447d8570af9554e1cb337b213fd174b65720949",
+        "demo": false,
+        "normalizer_version": "1",
+        "publication_time_known": false
+      }
+    ],
+    "scientific_source": {
+      "title": "National Genetic Evaluation of Milk Yield for Heat Tolerance of United States Holsteins",
+      "authors": "J. Bohmanova, I. Misztal, S. Tsuruta, H.D. Norman, T.J. Lawlor",
+      "year": 2005,
+      "url": "https://www.ars.usda.gov/ARSUserFiles/80420530/Publications/Scientific/Conferences/2005/IB_33_160_BohmanovaEtAl.pdf",
+      "consulted_at": "2026-10-15",
+      "scope": "US Holsteins, first-parity test-day milk records; threshold 72 assumed in the study, not universal; no clinical inference",
+      "licence": "not established"
+    },
+    "scientific_status": "exploratory",
+    "limits": [
+      "race",
+      "âge",
+      "niveau de production",
+      "stade physiologique",
+      "bâtiment",
+      "ventilation",
+      "ombrage",
+      "accès à l’eau",
+      "rayonnement",
+      "vent",
+      "microclimat"
+    ],
+    "notice": "Indicateur climatique d’exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique.",
+    "quality_flags": [
+      "incomplete_coverage",
+      "counts_durations_lower_bounds_episodes_observed_fragments"
+    ],
+    "series": [
+      {
+        "at": "2026-10-15T00:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T01:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T02:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T03:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T04:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T05:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T06:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T07:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T08:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T09:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T10:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T11:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T12:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T13:00:00+00:00",
+        "value": 69.87844000000005
+      },
+      {
+        "at": "2026-10-15T14:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T15:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T16:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T17:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T18:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T19:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T20:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T21:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T22:00:00+00:00",
+        "value": null
+      },
+      {
+        "at": "2026-10-15T23:00:00+00:00",
+        "value": null
+      }
+    ],
+    "daily": [
+      {
+        "date": "2026-10-15",
+        "coverage": 0.041666666666666664,
+        "thi_mean": null,
+        "thi_max": null,
+        "thi_synthetic": null
+      }
+    ],
+    "metrics": [
+      {
+        "threshold": 72.0,
+        "comparison": ">",
+        "count": 0,
+        "unit": "h",
+        "days_above": 0,
+        "episodes": 0,
+        "max_episode_duration": 0,
+        "cumulative_exposure": 0.0,
+        "exposure_unit": "THI.h",
+        "partial": true,
+        "episode_count_kind": "observed_fragments"
+      }
+    ],
+    "night_recovery": {
+      "status": "unavailable",
+      "nights_without_recovery": null,
+      "complete_nights": 0,
+      "incomplete_nights": 2,
+      "threshold": 72.0,
+      "timezone": "Europe/Paris",
+      "start_hour": 22,
+      "end_hour": 6
+    },
+    "anomaly": {
+      "status": "unavailable",
+      "value": null,
+      "reason": "Task12_reference_has_no_humidity_or_homologous_THI"
+    },
+    "station_id": "13054001",
+    "source_quality_flags": [
+      "et0_not_available",
+      "publication_time_unknown",
+      "recent_sample_not_daily_aggregate"
+    ],
+    "spatial_support": "station_points_no_interpolation",
+    "station_metadata": {
+      "id": "13054001",
+      "name": "MARIGNANE",
+      "latitude": 43.437,
+      "longitude": 5.2115,
+      "altitude_m": 6.0,
+      "metadata": {
+        "Id_station": "13054001",
+        "Id_omm": "07650",
+        "Nom_usuel": "MARIGNANE",
+        "Latitude": "43.437000",
+        "Longitude": "5.211500",
+        "Altitude": "6",
+        "Date_ouverture": "1920-09-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    }
+  }
+]

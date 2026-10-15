@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import { CattleWorkspace } from '../features/cattle/workspace';
 import { loadShellData } from "../components/shell/load-shell-data";
 import { parseContext } from "../lib/url-state";
 import { ProductShell } from "../components/shell/product-shell";
@@ -16,6 +18,7 @@ export default async function Page({
       for (const item of value) params.append(key, item);
   }
   if (params.get('mode') === 'wheat') return <WheatWorkspace params={params} view="observation" />;
+  if (params.get('production') === 'cattle' && params.get('mode') === 'live_meteofrance') return <CattleWorkspace params={params} view="observation" />;
   const context = parseContext(params);
   if (params.get("view") === "watch") {
     params.delete("view");
@@ -28,6 +31,9 @@ export default async function Page({
     ),
   );
   return (
-    <ProductShell context={context} data={data} liveContext={liveContext} />
+    <>
+      <Link className="button button-secondary" href="/?mode=live_meteofrance&production=cattle&indicator=thi">Bovins · exposition thermique THI · live Météo-France</Link>
+      <ProductShell context={context} data={data} liveContext={liveContext} />
+    </>
   );
 }
