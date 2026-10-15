@@ -10,17 +10,15 @@ fixtures de démonstration. Chaque entrée exacte est versionnée dans `inputs/`
 
 `WHEAT_STORAGE=supabase` sélectionne exclusivement la lecture des portefeuilles
 persistés via la nouvelle RPC ; une erreur distante ne bascule pas sur le bundle.
-La migration correspondante n'a **pas** été appliquée à distance dans cette
-exécution : l'approbation automatique l'a refusée, au motif que la création de
-tables/fonctions/droits persistants exige une autorisation distante explicite.
-Les tests de migration, permissions et replay ont été exécutés dans des bases
-Docker jetables locales, sans mutation des données Task11/Task12 distantes.
+La migration a été appliquée au DEV le 15 octobre 2026 via le plugin Supabase,
+après autorisation explicite de l'utilisateur. Le refus automatique de la première
+exécution est donc résolu. Les tests SQL locaux antérieurs restent versionnés.
 
 La migration candidate est `supabase/migrations/20261015140022_wheat_portfolios.sql` :
 une table privée append-only, RLS forcée, droits SELECT/INSERT seulement pour
 service_role, RPC INVOKER de persistance et lecture bornée, lecture d'entrées
-Task11/Task12 en option. Aucune migration existante modifiée. L'application distante
-et l'activation de ce mode nécessitent une autorisation séparée. Aucun merge.
+Task11/Task12 en option. Aucune migration existante modifiée. L'application distante est terminée ; le mode web par défaut reste le bundle.
+Aucun merge.
 
 ## Environnement reproductible
 
@@ -145,3 +143,48 @@ bash supabase/tests/run-local.sh extensions
 Le composant de risque et son V1, le code Task12 et les données persistées des
 Tasks11/12 restent inchangés. Les captures/publications ne sont pas une validation
 scientifique et ne déclenchent aucune autre Task.
+
+## Finalisation DEV — 15 octobre 2026
+
+Branche distante vérifiée : `ab752a5ff2813ba5ad53d0ccfcc2af9295f03adb`,
+un commit devant main, aucun retard. Aucun code réimplémenté.
+Migration inspectée : aucun DROP, TRUNCATE, DELETE ni modification des tables
+Task11/12 ; seuls la table Wheat, son index, ses politiques et trois RPC sont créés.
+Application réussie sur `agriclimax-dev` (`yyfbpecxvxglzxopsmel`).
+
+Contrôles distants réussis : RLS activée et forcée ; SELECT/INSERT uniquement pour
+service_role hors propriétaire ; trois RPC SECURITY INVOKER, exécutables par
+service_role et interdites à anon/authenticated. Lecture des entrées sous
+service_role fonctionnelle. Aucun doublon : une ligne, une clé distincte.
+
+Un seul portefeuille déjà calculé et versionné a été persisté : Embrun 05046001,
+7–13 octobre 2026, clé
+`579cd177fd94425187f8f2fb0db28b733aa8a6f36966597f26fa025cd05ea25e`.
+SHA-256 calculé selon la sérialisation Python existante. Les sept checksums de
+provenance correspondent aux lots Task11 distants. Premier insert réussi, replay
+sans insertion, lecture RPC sous service_role égale au payload original (JSONB).
+GDD 53,5 °C jours, pluie 19 mm ; deux anomalies nulles, aucune normale fabriquée.
+Les neuf autres portefeuilles du bundle n'ont pas été écrits au DEV.
+
+Comptages et empreintes MD5 du contenu intégral des dix tables privées préexistantes
+identiques avant migration et après persistance. Tables non vides : run_manifests
+76 / 701233ae23b96758b6282925e3767e36 ; weather_stations
+5 / b994b7ff7ab04d379a5fe8388070165e ; station_weather_batches
+190 / 24dc5a7e4ebf5ab7877eedcce3d7ea86 ; climate_references
+300 / 08b4b1eb42a87e9863adf74b96190ee5. Les six autres sont vides.
+
+Les advisors ne signalent aucun objet Wheat. Ils signalent des objets préexistants :
+[PostGIS public / RLS spatial_ref_sys](https://supabase.com/docs/guides/database/database-linter?lint=0013_rls_disabled_in_public),
+[extension public](https://supabase.com/docs/guides/database/database-linter?lint=0014_extension_in_public),
+[RPC SECURITY DEFINER publiques](https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable).
+Aucune correction hors Task13 effectuée.
+
+Limite de cette reprise : git fetch est bloqué par le proxy localhost:8080
+indisponible ; le checkout local fourni est antérieur à Task13. La tentative locale
+make check s'arrête sur spawnSync pnpm EPERM et ne valide donc pas Task13.
+Le log versionné du commit Task13 reste cohérent : 90 tests Python, 145 tests web,
+lint/typecheck/build réussis. Aucun nouveau succès local revendiqué.
+Lecture serveur vérifiée au niveau RPC/service_role ; le transport HTTP et le mode
+web Supabase n'ont pas été rejoués dans cet environnement. Identité Git locale
+configurée : Mehdi-Sine <mehdi.sine@acta.asso.fr>. Documentation publiée par le
+connecteur GitHub en raison de l'indisponibilité du transport Git local.
