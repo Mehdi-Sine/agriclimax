@@ -4,6 +4,7 @@ import { BrandLockup } from '../../components/shell/brand';
 import { ThemeToggle } from '../../components/shell/theme-toggle';
 import { Panel } from '../../components/ui/primitives';
 import { observationHref, sharedContext } from '../../lib/integration-context';
+import { WheatWorkspace } from '../../features/wheat/workspace';
 
 export default async function Page({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = new URLSearchParams();
@@ -11,6 +12,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
     if (typeof value === 'string') params.append(key, value);
     else if (Array.isArray(value)) for (const item of value) params.append(key, item);
   }
+  if (params.get('mode') === 'wheat') return <WheatWorkspace params={params} view="diagnostic" />;
   const data = await loadDiagnostic(params);
   const back = observationHref(params);
   const watch = sharedContext(new URL(back, 'http://localhost').searchParams);

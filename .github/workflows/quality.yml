@@ -60,6 +60,8 @@ jobs:
       - run: python -m ruff check scripts/quality tests/quality
       - run: python -m ruff check engine/src/agriclimax/climate engine/tests/climate scripts/ingest_climatology.py scripts/compare_climatology.py
       - run: python -m mypy --strict engine/src/agriclimax/climate scripts/ingest_climatology.py scripts/compare_climatology.py
+      - run: python -m ruff check engine/src/agriclimax/wheat engine/tests/wheat scripts/compute_wheat.py scripts/export_wheat_schema.py scripts/bundle_wheat.py
+      - run: python -m mypy --strict engine/src/agriclimax/wheat scripts/compute_wheat.py scripts/export_wheat_schema.py scripts/bundle_wheat.py
       - run: python scripts/check_contracts.py
       - run: python scripts/quality/check_automation.py
       - run: python -m pytest engine/tests --junitxml=work/quality/python.xml
@@ -118,6 +120,7 @@ jobs:
           python scripts/quality/smoke.py
           node tests/e2e/demo.mjs
           INTEGRATION_ARTIFACTS=work/quality/e2e/integration node tests/e2e/integration.mjs
+          WHEAT_ARTIFACTS=work/quality/e2e/wheat node tests/e2e/wheat.mjs
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:

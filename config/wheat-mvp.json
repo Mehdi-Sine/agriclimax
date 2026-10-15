@@ -1,0 +1,11 @@
+{
+  "rule_version": "wheat-climate-1",
+  "parameter_set_id": "descriptive-example-1",
+  "gdd_base_c": 4,
+  "heat_threshold_c": 25,
+  "frost_threshold_c": 0,
+  "dry_threshold_mm": 1,
+  "spell_min_days": 3,
+  "max_grid_distance_km": 20,
+  "parameter_source": "Analyst-selected descriptive example; not calibrated for wheat cultivar, location or stage. Formula conventions: xclim 0.58.1 growing_degree_days, tx_days_above, tn_days_below, maximum_consecutive_dry_days."
+}

@@ -1,0 +1,553 @@
+{
+  "station": {
+    "id": "67124001",
+    "name": "STRASBOURG-ENTZHEIM",
+    "latitude": 48.5495,
+    "metadata": {
+      "Pack": "RADOME",
+      "Id_omm": "07190",
+      "Altitude": "150",
+      "Latitude": "48.549500",
+      "Longitude": "7.640333",
+      "Nom_usuel": "STRASBOURG-ENTZHEIM",
+      "Id_station": "67124001",
+      "api_version": "DPObs/v1",
+      "Date_ouverture": "1923-04-01",
+      "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91"
+    },
+    "longitude": 7.640333,
+    "altitude_m": 150,
+    "retrieved_at": "2026-10-14T14:24:37.860512+00:00"
+  },
+  "batches": [
+    {
+      "issues": [],
+      "status": "complete",
+      "freshness": "stale",
+      "source_id": "meteofrance-climatology",
+      "provenance": {
+        "demo": false,
+        "checksum": "81653bb3a8b5994e2abaf233d517dd1261185b2cc2633c11727b50994b07dbbe",
+        "source_id": "meteofrance-climatology",
+        "published_at": null,
+        "retrieved_at": "2026-10-14T14:23:50.066226Z",
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      "valid_date": "2026-09-01",
+      "observations": [
+        {
+          "unit": "mm",
+          "value": 3.1,
+          "cell_id": "67124001",
+          "variable": "etp_monteith",
+          "provenance": {
+            "demo": false,
+            "checksum": "81653bb3a8b5994e2abaf233d517dd1261185b2cc2633c11727b50994b07dbbe",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:50.066226Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-01T00:00:00Z",
+          "source_unit": "mm",
+          "source_field": "ETPMON",
+          "quality_flags": [
+            "daily_source_date_label",
+            "et0_equivalence_not_asserted",
+            "publication_time_unknown",
+            "source_quality_code_9"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "%",
+          "value": 68.0,
+          "cell_id": "67124001",
+          "variable": "humidity",
+          "provenance": {
+            "demo": false,
+            "checksum": "81653bb3a8b5994e2abaf233d517dd1261185b2cc2633c11727b50994b07dbbe",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:50.066226Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-01T00:00:00Z",
+          "source_unit": "%",
+          "source_field": "UM",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "mm",
+          "value": 0.0,
+          "cell_id": "67124001",
+          "variable": "precipitation",
+          "provenance": {
+            "demo": false,
+            "checksum": "81653bb3a8b5994e2abaf233d517dd1261185b2cc2633c11727b50994b07dbbe",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:50.066226Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-01T00:00:00Z",
+          "source_unit": "mm",
+          "source_field": "RR",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "degC",
+          "value": 19.3,
+          "cell_id": "67124001",
+          "variable": "temperature",
+          "provenance": {
+            "demo": false,
+            "checksum": "81653bb3a8b5994e2abaf233d517dd1261185b2cc2633c11727b50994b07dbbe",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:50.066226Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-01T00:00:00Z",
+          "source_unit": "degC",
+          "source_field": "TM",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "degC",
+          "value": 26.1,
+          "cell_id": "67124001",
+          "variable": "temperature_max",
+          "provenance": {
+            "demo": false,
+            "checksum": "81653bb3a8b5994e2abaf233d517dd1261185b2cc2633c11727b50994b07dbbe",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:50.066226Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-01T00:00:00Z",
+          "source_unit": "degC",
+          "source_field": "TX",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "degC",
+          "value": 13.3,
+          "cell_id": "67124001",
+          "variable": "temperature_min",
+          "provenance": {
+            "demo": false,
+            "checksum": "81653bb3a8b5994e2abaf233d517dd1261185b2cc2633c11727b50994b07dbbe",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:50.066226Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-01T00:00:00Z",
+          "source_unit": "degC",
+          "source_field": "TN",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        }
+      ],
+      "schema_version": "internal-1"
+    },
+    {
+      "issues": [],
+      "status": "complete",
+      "freshness": "stale",
+      "source_id": "meteofrance-climatology",
+      "provenance": {
+        "demo": false,
+        "checksum": "bbaa56fa5ae1db38c1f684d3d08f8ad0cf26b4bf361acd09dedd8ff22dbbc387",
+        "source_id": "meteofrance-climatology",
+        "published_at": null,
+        "retrieved_at": "2026-10-14T14:23:51.409330Z",
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      "valid_date": "2026-09-02",
+      "observations": [
+        {
+          "unit": "mm",
+          "value": 3.4,
+          "cell_id": "67124001",
+          "variable": "etp_monteith",
+          "provenance": {
+            "demo": false,
+            "checksum": "bbaa56fa5ae1db38c1f684d3d08f8ad0cf26b4bf361acd09dedd8ff22dbbc387",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:51.409330Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-02T00:00:00Z",
+          "source_unit": "mm",
+          "source_field": "ETPMON",
+          "quality_flags": [
+            "daily_source_date_label",
+            "et0_equivalence_not_asserted",
+            "publication_time_unknown",
+            "source_quality_code_9"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "%",
+          "value": 65.0,
+          "cell_id": "67124001",
+          "variable": "humidity",
+          "provenance": {
+            "demo": false,
+            "checksum": "bbaa56fa5ae1db38c1f684d3d08f8ad0cf26b4bf361acd09dedd8ff22dbbc387",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:51.409330Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-02T00:00:00Z",
+          "source_unit": "%",
+          "source_field": "UM",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "mm",
+          "value": 0.0,
+          "cell_id": "67124001",
+          "variable": "precipitation",
+          "provenance": {
+            "demo": false,
+            "checksum": "bbaa56fa5ae1db38c1f684d3d08f8ad0cf26b4bf361acd09dedd8ff22dbbc387",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:51.409330Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-02T00:00:00Z",
+          "source_unit": "mm",
+          "source_field": "RR",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "degC",
+          "value": 19.4,
+          "cell_id": "67124001",
+          "variable": "temperature",
+          "provenance": {
+            "demo": false,
+            "checksum": "bbaa56fa5ae1db38c1f684d3d08f8ad0cf26b4bf361acd09dedd8ff22dbbc387",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:51.409330Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-02T00:00:00Z",
+          "source_unit": "degC",
+          "source_field": "TM",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "degC",
+          "value": 27.7,
+          "cell_id": "67124001",
+          "variable": "temperature_max",
+          "provenance": {
+            "demo": false,
+            "checksum": "bbaa56fa5ae1db38c1f684d3d08f8ad0cf26b4bf361acd09dedd8ff22dbbc387",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:51.409330Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-02T00:00:00Z",
+          "source_unit": "degC",
+          "source_field": "TX",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "degC",
+          "value": 11.4,
+          "cell_id": "67124001",
+          "variable": "temperature_min",
+          "provenance": {
+            "demo": false,
+            "checksum": "bbaa56fa5ae1db38c1f684d3d08f8ad0cf26b4bf361acd09dedd8ff22dbbc387",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:51.409330Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-02T00:00:00Z",
+          "source_unit": "degC",
+          "source_field": "TN",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        }
+      ],
+      "schema_version": "internal-1"
+    },
+    {
+      "issues": [],
+      "status": "complete",
+      "freshness": "stale",
+      "source_id": "meteofrance-climatology",
+      "provenance": {
+        "demo": false,
+        "checksum": "23d186c1514c08466aec526d810329e18ea05c9f7bd76c716d061cebd3094991",
+        "source_id": "meteofrance-climatology",
+        "published_at": null,
+        "retrieved_at": "2026-10-14T14:23:51.889196Z",
+        "normalizer_version": "1",
+        "publication_time_known": false
+      },
+      "valid_date": "2026-09-03",
+      "observations": [
+        {
+          "unit": "mm",
+          "value": 4.7,
+          "cell_id": "67124001",
+          "variable": "etp_monteith",
+          "provenance": {
+            "demo": false,
+            "checksum": "23d186c1514c08466aec526d810329e18ea05c9f7bd76c716d061cebd3094991",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:51.889196Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-03T00:00:00Z",
+          "source_unit": "mm",
+          "source_field": "ETPMON",
+          "quality_flags": [
+            "daily_source_date_label",
+            "et0_equivalence_not_asserted",
+            "publication_time_unknown",
+            "source_quality_code_9"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "%",
+          "value": 56.0,
+          "cell_id": "67124001",
+          "variable": "humidity",
+          "provenance": {
+            "demo": false,
+            "checksum": "23d186c1514c08466aec526d810329e18ea05c9f7bd76c716d061cebd3094991",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:51.889196Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-03T00:00:00Z",
+          "source_unit": "%",
+          "source_field": "UM",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "mm",
+          "value": 0.0,
+          "cell_id": "67124001",
+          "variable": "precipitation",
+          "provenance": {
+            "demo": false,
+            "checksum": "23d186c1514c08466aec526d810329e18ea05c9f7bd76c716d061cebd3094991",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:51.889196Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-03T00:00:00Z",
+          "source_unit": "mm",
+          "source_field": "RR",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "degC",
+          "value": 22.0,
+          "cell_id": "67124001",
+          "variable": "temperature",
+          "provenance": {
+            "demo": false,
+            "checksum": "23d186c1514c08466aec526d810329e18ea05c9f7bd76c716d061cebd3094991",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:51.889196Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-03T00:00:00Z",
+          "source_unit": "degC",
+          "source_field": "TM",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "degC",
+          "value": 30.7,
+          "cell_id": "67124001",
+          "variable": "temperature_max",
+          "provenance": {
+            "demo": false,
+            "checksum": "23d186c1514c08466aec526d810329e18ea05c9f7bd76c716d061cebd3094991",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:51.889196Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-03T00:00:00Z",
+          "source_unit": "degC",
+          "source_field": "TX",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        },
+        {
+          "unit": "degC",
+          "value": 11.8,
+          "cell_id": "67124001",
+          "variable": "temperature_min",
+          "provenance": {
+            "demo": false,
+            "checksum": "23d186c1514c08466aec526d810329e18ea05c9f7bd76c716d061cebd3094991",
+            "source_id": "meteofrance-climatology",
+            "published_at": null,
+            "retrieved_at": "2026-10-14T14:23:51.889196Z",
+            "normalizer_version": "1",
+            "publication_time_known": false
+          },
+          "observed_at": "2026-09-03T00:00:00Z",
+          "source_unit": "degC",
+          "source_field": "TN",
+          "quality_flags": [
+            "daily_source_date_label",
+            "publication_time_unknown",
+            "source_quality_code_1"
+          ],
+          "source_checksum": "5300768aab5e560bc6008c2b54580af35f0eb3f72f38dd185ae9e8ffda7718a8",
+          "source_timezone": "UTC",
+          "temporal_resolution": "daily"
+        }
+      ],
+      "schema_version": "internal-1"
+    }
+  ],
+  "references": []
+}

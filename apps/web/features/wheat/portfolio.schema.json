@@ -1,0 +1,409 @@
+{
+  "$defs": {
+    "Indicator": {
+      "additionalProperties": false,
+      "properties": {
+        "rule_id": {
+          "title": "Rule Id",
+          "type": "string"
+        },
+        "rule_version": {
+          "const": "wheat-climate-1",
+          "default": "wheat-climate-1",
+          "title": "Rule Version",
+          "type": "string"
+        },
+        "production": {
+          "const": "wheat",
+          "default": "wheat",
+          "title": "Production",
+          "type": "string"
+        },
+        "indicator": {
+          "title": "Indicator",
+          "type": "string"
+        },
+        "period": {
+          "$ref": "#/$defs/Window"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        },
+        "unit": {
+          "title": "Unit",
+          "type": "string"
+        },
+        "threshold": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Threshold"
+        },
+        "level": {
+          "default": null,
+          "title": "Level",
+          "type": "null"
+        },
+        "confidence": {
+          "const": "low",
+          "default": "low",
+          "title": "Confidence",
+          "type": "string"
+        },
+        "freshness": {
+          "enum": [
+            "fresh",
+            "stale",
+            "unknown"
+          ],
+          "title": "Freshness",
+          "type": "string"
+        },
+        "data_freshness": {
+          "enum": [
+            "fresh",
+            "stale",
+            "unknown"
+          ],
+          "title": "Data Freshness",
+          "type": "string"
+        },
+        "provenance": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Provenance",
+          "type": "array"
+        },
+        "scientific_sources": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Scientific Sources",
+          "type": "array"
+        },
+        "scientific_status": {
+          "const": "exploratory",
+          "default": "exploratory",
+          "title": "Scientific Status",
+          "type": "string"
+        },
+        "limits": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limits",
+          "type": "array"
+        },
+        "quality_flags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Quality Flags",
+          "type": "array"
+        },
+        "expected_days": {
+          "title": "Expected Days",
+          "type": "integer"
+        },
+        "available_days": {
+          "title": "Available Days",
+          "type": "integer"
+        },
+        "sequence_count": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sequence Count"
+        }
+      },
+      "required": [
+        "rule_id",
+        "indicator",
+        "period",
+        "value",
+        "unit",
+        "threshold",
+        "freshness",
+        "data_freshness",
+        "provenance",
+        "scientific_sources",
+        "limits",
+        "quality_flags",
+        "expected_days",
+        "available_days"
+      ],
+      "title": "Indicator",
+      "type": "object"
+    },
+    "Parameters": {
+      "additionalProperties": false,
+      "properties": {
+        "rule_version": {
+          "const": "wheat-climate-1",
+          "default": "wheat-climate-1",
+          "title": "Rule Version",
+          "type": "string"
+        },
+        "parameter_set_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Parameter Set Id",
+          "type": "string"
+        },
+        "gdd_base_c": {
+          "maximum": 40,
+          "minimum": -20,
+          "title": "Gdd Base C",
+          "type": "number"
+        },
+        "heat_threshold_c": {
+          "maximum": 60,
+          "minimum": -20,
+          "title": "Heat Threshold C",
+          "type": "number"
+        },
+        "frost_threshold_c": {
+          "maximum": 20,
+          "minimum": -40,
+          "title": "Frost Threshold C",
+          "type": "number"
+        },
+        "dry_threshold_mm": {
+          "exclusiveMinimum": 0,
+          "maximum": 20,
+          "title": "Dry Threshold Mm",
+          "type": "number"
+        },
+        "spell_min_days": {
+          "maximum": 366,
+          "minimum": 1,
+          "title": "Spell Min Days",
+          "type": "integer"
+        },
+        "max_grid_distance_km": {
+          "exclusiveMinimum": 0,
+          "maximum": 100,
+          "title": "Max Grid Distance Km",
+          "type": "number"
+        },
+        "parameter_source": {
+          "maxLength": 2000,
+          "minLength": 20,
+          "title": "Parameter Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameter_set_id",
+        "gdd_base_c",
+        "heat_threshold_c",
+        "frost_threshold_c",
+        "dry_threshold_mm",
+        "spell_min_days",
+        "max_grid_distance_km",
+        "parameter_source"
+      ],
+      "title": "Parameters",
+      "type": "object"
+    },
+    "Window": {
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "format": "date",
+          "title": "Start",
+          "type": "string"
+        },
+        "end": {
+          "format": "date",
+          "title": "End",
+          "type": "string"
+        },
+        "stage": {
+          "anyOf": [
+            {
+              "enum": [
+                "tallage",
+                "montaison",
+                "epiaison",
+                "anthese",
+                "remplissage"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stage"
+        },
+        "stage_source": {
+          "anyOf": [
+            {
+              "maxLength": 300,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stage Source"
+        },
+        "mode": {
+          "default": "explicit_calendar",
+          "enum": [
+            "explicit_calendar",
+            "supplied_stage"
+          ],
+          "title": "Mode",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "title": "Window",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "wheat-1",
+      "default": "wheat-1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "station_id": {
+      "pattern": "^\\d{8}$",
+      "title": "Station Id",
+      "type": "string"
+    },
+    "station_name": {
+      "title": "Station Name",
+      "type": "string"
+    },
+    "latitude": {
+      "maximum": 90,
+      "minimum": -90,
+      "title": "Latitude",
+      "type": "number"
+    },
+    "longitude": {
+      "maximum": 180,
+      "minimum": -180,
+      "title": "Longitude",
+      "type": "number"
+    },
+    "spatial_support": {
+      "const": "station_point",
+      "default": "station_point",
+      "title": "Spatial Support",
+      "type": "string"
+    },
+    "interpolation": {
+      "const": "none",
+      "default": "none",
+      "title": "Interpolation",
+      "type": "string"
+    },
+    "risk_computed": {
+      "const": false,
+      "default": false,
+      "title": "Risk Computed",
+      "type": "boolean"
+    },
+    "production": {
+      "const": "wheat",
+      "default": "wheat",
+      "title": "Production",
+      "type": "string"
+    },
+    "parameters": {
+      "$ref": "#/$defs/Parameters"
+    },
+    "parameter_fingerprint": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Parameter Fingerprint",
+      "type": "string"
+    },
+    "period": {
+      "$ref": "#/$defs/Window"
+    },
+    "grid_cell": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Grid Cell"
+    },
+    "grid_mapping_source": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Grid Mapping Source"
+    },
+    "computed_at": {
+      "format": "date-time",
+      "title": "Computed At",
+      "type": "string"
+    },
+    "results": {
+      "items": {
+        "$ref": "#/$defs/Indicator"
+      },
+      "title": "Results",
+      "type": "array"
+    }
+  },
+  "required": [
+    "station_id",
+    "station_name",
+    "latitude",
+    "longitude",
+    "parameters",
+    "parameter_fingerprint",
+    "period",
+    "grid_cell",
+    "grid_mapping_source",
+    "computed_at",
+    "results"
+  ],
+  "title": "Portfolio",
+  "type": "object"
+}

@@ -1,0 +1,17 @@
+.wheat-workspace { max-width: 1240px; margin: auto; display: grid; gap: var(--space-4); }
+.wheat-filters { display: flex; flex-wrap: wrap; align-items: end; gap: var(--space-3); }
+.wheat-filters .field { flex: 1 1 180px; min-width: 0; }
+.wheat-indicators { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,320px),1fr)); gap: var(--space-4); }
+.wheat-indicators article { min-width: 0; overflow-wrap: anywhere; }
+.wheat-workspace code, .wheat-workspace dd { overflow-wrap: anywhere; }
+.wheat-workspace pre { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 22rem; overflow: auto; }
+.wheat-value { font-size: 1.5rem; font-weight: 700; }
+.wheat-value span { font-size: 0.875rem; }
+.wheat-table-wrap { max-width: 100%; overflow-x: auto; }
+.wheat-table-wrap table { width: 100%; border-collapse: collapse; }
+.wheat-table-wrap td, .wheat-table-wrap th { text-align: left; padding: var(--space-3); border-bottom: 1px solid var(--control-border); }
+.wheat-map { width: 100%; max-height: 440px; background: var(--surface-subtle); }
+.wheat-land { fill: var(--surface-base); stroke: var(--control-border); stroke-width: 1; }
+.wheat-station { fill: var(--text-primary); stroke: var(--surface-base); stroke-width: 2; }
+.wheat-map a:focus .wheat-station { stroke: var(--focus); stroke-width: 4; }
+@media (max-width: 640px) { .wheat-workspace { padding: var(--space-3); } .wheat-filters { display: grid; } .wheat-table-wrap { font-size: 0.875rem; } }
