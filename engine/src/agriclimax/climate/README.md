@@ -54,7 +54,7 @@ longitude 0–360 non compatible avec la bbox demandée et doublons sont refusé
 pas transformés silencieusement. Le format NetCDF réel CDS (`t2m`, `tp`, grille latitude/longitude) a été
 vérifié via GitHub Actions, ainsi que le smoke test continental, la persistance
 DEV et le replay/idempotence. Voir les preuves et limites dans
-[VERIFICATION.md](../../../../../docs/codex/verification/task12/VERIFICATION.md).
+[VERIFICATION.md](../../../../docs/codex/verification/task12/VERIFICATION.md).
 
 ## Référence et méthodes
 
