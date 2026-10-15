@@ -46,6 +46,7 @@ for task04_migration in "$task04_root"/supabase/migrations/*.sql; do
 done
 task04_psql -f /repo/supabase/tests/station_weather.sql >"$task04_results/station-weather.log" 2>&1
 task04_psql -f /repo/supabase/tests/climate.sql >"$task04_results/climate.log" 2>&1
+task04_psql -f /repo/supabase/tests/wheat.sql >"$task04_results/wheat.log" 2>&1
 task04_psql -f /repo/supabase/tests/security.sql >"$task04_results/security.log" 2>&1
 task04_psql -f /repo/supabase/tests/benchmark.sql >"$task04_results/explain.log" 2>&1
 task04_psql -qAt -f /repo/supabase/tests/contracts.sql >"$task04_results/contracts.json"

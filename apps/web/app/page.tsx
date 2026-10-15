@@ -2,6 +2,7 @@ import { loadShellData } from "../components/shell/load-shell-data";
 import { parseContext } from "../lib/url-state";
 import { ProductShell } from "../components/shell/product-shell";
 import { redirect } from "next/navigation";
+import { WheatWorkspace } from "../features/wheat/workspace";
 
 export default async function Page({
   searchParams,
@@ -14,6 +15,7 @@ export default async function Page({
     else if (Array.isArray(value))
       for (const item of value) params.append(key, item);
   }
+  if (params.get('mode') === 'wheat') return <WheatWorkspace params={params} view="observation" />;
   const context = parseContext(params);
   if (params.get("view") === "watch") {
     params.delete("view");

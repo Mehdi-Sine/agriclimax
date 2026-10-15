@@ -10,12 +10,14 @@ import { WatchSignalDetail } from '../../features/watch/signal-detail';
 import { watchFilters, contextLink, signalDiagnosticLink, RISK_LEVELS } from '../../features/watch/context';
 import type { WatchRecord } from '../../features/watch/model';
 import './watch.css';
+import { WheatWorkspace } from '../../features/wheat/workspace';
 
 export default async function WatchPage({ searchParams }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(await searchParams)) if (typeof value === 'string') params.set(key, value);
+  if (params.get('mode') === 'wheat') return <WheatWorkspace params={params} view="watch" />;
   const filters = watchFilters(params);
   const demo = !params.has('mode') || params.get('mode') === 'demo';
   const detailed = params.get('density') === 'detailed';

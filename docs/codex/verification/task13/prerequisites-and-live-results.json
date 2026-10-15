@@ -1,0 +1,37 @@
+{
+  "main": "4a99d45",
+  "branch": "codex/13-wheat-mvp",
+  "pnpm": "10.0.0",
+  "task12": {
+    "era5_code": true,
+    "migration": "20261015073507_climatology_reference.sql",
+    "workflow": "Task12 ERA5 real validation",
+    "climate_indicators": 0,
+    "normal_1991_2020_complete": false,
+    "climate_references_revisions_initial": 240,
+    "climate_references_revisions_final": 300,
+    "remote_wheat_table_after_review_rejection": null
+  },
+  "task11": {
+    "archive_batches": 185,
+    "recent_observation_batches": 5,
+    "stations": 5
+  },
+  "wheat": {
+    "portfolios": 10,
+    "station_ids": [
+      "05046001",
+      "13054001",
+      "29075001",
+      "31069001",
+      "67124001"
+    ],
+    "results": 100,
+    "available": 80,
+    "scientific_status": "exploratory",
+    "risk_computed": false,
+    "storage": "server bundled real snapshots",
+    "remote_migration_applied": false,
+    "remote_migration_reason": "Automatic approval review rejected persistent remote schema mutation without explicit authorization."
+  }
+}

@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import type { AppContext } from "../../lib/domain";
 import { parseContext, serializeContext } from "../../lib/url-state";
 import type { ShellData } from "../../lib/shell-data";
@@ -199,6 +200,7 @@ export function ProductShell({
           />
         </nav>
         <div className="header-actions">
+          <Link href="/?mode=wheat">Blé · données réelles</Link>
           <a className="desktop-only" href="/design-system">
             Design system
           </a>
