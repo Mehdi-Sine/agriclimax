@@ -30,14 +30,6 @@ jobs:
             -e "engine[dev,climate]"
 
       - name: Check CDS secret
-        env:
-          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
-        run: |
-          test -n "$CDSAPI_KEY"
-
-           - name: Inspect real ERA5-Land structure
-        env:
-          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
         run: |
           python - <<'PY'
           import os
