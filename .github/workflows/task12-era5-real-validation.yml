@@ -35,50 +35,63 @@ jobs:
         run: |
           test -n "$CDSAPI_KEY"
 
-      - name: Diagnose CDS access safely
+           - name: Inspect real ERA5-Land structure
         env:
           CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
         run: |
           python - <<'PY'
           import os
           import cdsapi
+          import xarray as xr
 
           token = os.environ["CDSAPI_KEY"]
 
           request = {
               "product_type": "reanalysis",
-              "variable": ["2m_temperature"],
+              "variable": ["2m_temperature", "total_precipitation"],
               "year": "1991",
               "month": "09",
-              "day": ["01"],
-              "time": ["00:00"],
+              "day": ["01", "02", "03", "04"],
+              "time": [f"{h:02}:00" for h in range(24)],
               "area": [48.8, -5.0, 48.2, -4.2],
               "data_format": "netcdf",
               "download_format": "unarchived",
           }
 
-          try:
-              client = cdsapi.Client(
-                  url="https://cds.climate.copernicus.eu/api",
-                  key=token,
-                  quiet=False,
-                  debug=False,
-                  timeout=60,
-              )
-              client.retrieve(
-                  "reanalysis-era5-land",
-                  request,
-                  "era5-test.nc",
-              )
-              print("CDS_DIAGNOSTIC_OK")
-          except Exception as exc:
-              message = str(exc).replace(token, "***REDACTED***")
-              print("CDS_DIAGNOSTIC_FAILED")
-              print(type(exc).__name__)
-              print(message)
-              raise SystemExit(1)
-          PY
+          client = cdsapi.Client(
+              url="https://cds.climate.copernicus.eu/api",
+              key=token,
+              quiet=True,
+              debug=False,
+              timeout=60,
+          )
 
+          target = "era5-real.nc"
+          client.retrieve("reanalysis-era5-land", request, target)
+
+          ds = xr.open_dataset(target, engine="netcdf4")
+
+          print("ERA5_REAL_FILE_OK")
+          print("dims:", dict(ds.sizes))
+          print("variables:", list(ds.data_vars))
+          print("coords:", list(ds.coords))
+
+          for name in ds.data_vars:
+              print(
+                  "var:",
+                  name,
+                  "dims=",
+                  ds[name].dims,
+                  "units=",
+                  ds[name].attrs.get("units"),
+              )
+
+          print("latitude_range:", float(ds.latitude.min()), float(ds.latitude.max()))
+          print("longitude_range:", float(ds.longitude.min()), float(ds.longitude.max()))
+
+          ds.close()
+          PY
+          
       - name: Climate tests
         run: |
           python -m pytest engine/tests/climate -v
