@@ -1,0 +1,233 @@
+{
+  "lints": [
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "count": 7,
+      "findings": [
+        {
+          "detail": "Table \\`agriclimax_private.indicator_results\\` has a foreign key \\`indicator_results_indicator_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "indicator_results",
+            "type": "table",
+            "schema": "agriclimax_private",
+            "fkey_name": "indicator_results_indicator_id_fkey",
+            "fkey_columns": [
+              5
+            ]
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Table \\`agriclimax_private.indicator_results\\` has a foreign key \\`indicator_results_rule_id_rule_version_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "indicator_results",
+            "type": "table",
+            "schema": "agriclimax_private",
+            "fkey_name": "indicator_results_rule_id_rule_version_fkey",
+            "fkey_columns": [
+              6,
+              7
+            ]
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Table \\`agriclimax_private.rule_versions\\` has a foreign key \\`rule_versions_indicator_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "rule_versions",
+            "type": "table",
+            "schema": "agriclimax_private",
+            "fkey_name": "rule_versions_indicator_id_fkey",
+            "fkey_columns": [
+              3
+            ]
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Table \\`agriclimax_private.rule_versions\\` has a foreign key \\`rule_versions_parameter_id_parameter_version_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "rule_versions",
+            "type": "table",
+            "schema": "agriclimax_private",
+            "fkey_name": "rule_versions_parameter_id_parameter_version_fkey",
+            "fkey_columns": [
+              4,
+              5
+            ]
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Table \\`agriclimax_private.station_weather_batches\\` has a foreign key \\`station_weather_batches_source_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "station_weather_batches",
+            "type": "table",
+            "schema": "agriclimax_private",
+            "fkey_name": "station_weather_batches_source_id_fkey",
+            "fkey_columns": [
+              2
+            ]
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Table \\`agriclimax_private.wheat_portfolios\\` has a foreign key \\`wheat_portfolios_station_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "wheat_portfolios",
+            "type": "table",
+            "schema": "agriclimax_private",
+            "fkey_name": "wheat_portfolios_station_id_fkey",
+            "fkey_columns": [
+              2
+            ]
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Table \\`public.watch_signals\\` has a foreign key \\`watch_signals_production_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+          "metadata": {
+            "name": "watch_signals",
+            "type": "table",
+            "schema": "public",
+            "fkey_name": "watch_signals_production_id_fkey",
+            "fkey_columns": [
+              7
+            ]
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        }
+      ]
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "count": 12,
+      "findings": [
+        {
+          "detail": "Index \\`grid_cells_geom_gix\\` on table \\`public.grid_cells\\` has not been used",
+          "metadata": {
+            "name": "grid_cells",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Index \\`risk_results_lookup_idx\\` on table \\`public.risk_results\\` has not been used",
+          "metadata": {
+            "name": "risk_results",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Index \\`observations_cell_time_idx\\` on table \\`agriclimax_private.observations\\` has not been used",
+          "metadata": {
+            "name": "observations",
+            "type": "table",
+            "schema": "agriclimax_private"
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Index \\`observations_run_idx\\` on table \\`agriclimax_private.observations\\` has not been used",
+          "metadata": {
+            "name": "observations",
+            "type": "table",
+            "schema": "agriclimax_private"
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Index \\`observations_source_time_idx\\` on table \\`agriclimax_private.observations\\` has not been used",
+          "metadata": {
+            "name": "observations",
+            "type": "table",
+            "schema": "agriclimax_private"
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Index \\`indicator_results_lookup_idx\\` on table \\`agriclimax_private.indicator_results\\` has not been used",
+          "metadata": {
+            "name": "indicator_results",
+            "type": "table",
+            "schema": "agriclimax_private"
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Index \\`indicator_results_run_idx\\` on table \\`agriclimax_private.indicator_results\\` has not been used",
+          "metadata": {
+            "name": "indicator_results",
+            "type": "table",
+            "schema": "agriclimax_private"
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Index \\`run_manifests_started_idx\\` on table \\`agriclimax_private.run_manifests\\` has not been used",
+          "metadata": {
+            "name": "run_manifests",
+            "type": "table",
+            "schema": "agriclimax_private"
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Index \\`risk_results_run_idx\\` on table \\`public.risk_results\\` has not been used",
+          "metadata": {
+            "name": "risk_results",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Index \\`climate_indicators_lookup_idx\\` on table \\`agriclimax_private.climate_indicators\\` has not been used",
+          "metadata": {
+            "name": "climate_indicators",
+            "type": "table",
+            "schema": "agriclimax_private"
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Index \\`france_daily_map_idx\\` on table \\`agriclimax_private.france_daily\\` has not been used",
+          "metadata": {
+            "name": "france_daily",
+            "type": "table",
+            "schema": "agriclimax_private"
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        },
+        {
+          "detail": "Index \\`france_daily_acquisition_idx\\` on table \\`agriclimax_private.france_daily\\` has not been used",
+          "metadata": {
+            "name": "france_daily",
+            "type": "table",
+            "schema": "agriclimax_private"
+          },
+          "observed_at": "2026-10-15T17:42:31.990Z"
+        }
+      ]
+    }
+  ]
+}

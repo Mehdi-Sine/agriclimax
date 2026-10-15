@@ -1,0 +1,13 @@
+{
+  "scope": "one 1-degree tile, one requested UTC day plus following accumulation day",
+  "cds_catalogue_http": 200,
+  "submission": "completed and yielded a NetCDF download location",
+  "download_host": "object-store.os-api.cci2.ecmwf.int",
+  "download_error_type": "ProxyError",
+  "download_complete": false,
+  "normalized_france_rows": 0,
+  "supabase_france_daily_rows": 0,
+  "limitation": "Download host absent from managed environment allowed hosts; request to add it is pending. No signed URL, API credential or upstream body recorded.",
+  "national_acquisition_verified": false,
+  "mass_historical_backfill_started": false
+}

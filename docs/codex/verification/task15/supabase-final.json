@@ -1,0 +1,43 @@
+[
+  {
+    "verification": {
+      "rls": [
+        {
+          "relname": "france_acquisitions",
+          "relrowsecurity": true,
+          "relforcerowsecurity": true
+        },
+        {
+          "relname": "france_calendar_references",
+          "relrowsecurity": true,
+          "relforcerowsecurity": true
+        },
+        {
+          "relname": "france_daily",
+          "relrowsecurity": true,
+          "relforcerowsecurity": true
+        }
+      ],
+      "rpc": [
+        {
+          "proname": "agriclimax_france_map",
+          "prosecdef": false,
+          "anon_execute": false,
+          "authenticated_execute": false
+        },
+        {
+          "proname": "agriclimax_persist_france_daily",
+          "prosecdef": false,
+          "anon_execute": false,
+          "authenticated_execute": false
+        }
+      ],
+      "stations": 15,
+      "france_rows": 0,
+      "database_bytes": 22050483,
+      "weather_batches": 200,
+      "france_duplicate_keys": 0,
+      "weather_duplicate_keys": 0
+    }
+  }
+]

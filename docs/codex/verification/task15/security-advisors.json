@@ -1,0 +1,210 @@
+{
+  "lints": [
+    {
+      "name": "rls_disabled_in_public",
+      "title": "RLS Disabled in Public",
+      "level": "ERROR",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has not been enabled on tables in schemas exposed to PostgREST",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0013_rls_disabled_in_public",
+      "count": 1,
+      "findings": [
+        {
+          "detail": "Table \\`public.spatial_ref_sys\\` is public, but RLS has not been enabled.",
+          "metadata": {
+            "name": "spatial_ref_sys",
+            "type": "table",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        }
+      ]
+    },
+    {
+      "name": "extension_in_public",
+      "title": "Extension in Public",
+      "level": "WARN",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects extensions installed in the \\`public\\` schema.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0014_extension_in_public",
+      "count": 1,
+      "findings": [
+        {
+          "detail": "Extension \\`postgis\\` is installed in the public schema. Move it to another schema.",
+          "metadata": {
+            "name": "postgis",
+            "type": "extension",
+            "schema": "public"
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        }
+      ]
+    },
+    {
+      "name": "anon_security_definer_function_executable",
+      "title": "Public Can Execute SECURITY DEFINER Function",
+      "level": "WARN",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects `SECURITY DEFINER` functions that are callable without signing in. Revoke `EXECUTE`, switch the function to `SECURITY INVOKER`, or move it out of your exposed API schema if it is not meant to be public.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable",
+      "count": 6,
+      "findings": [
+        {
+          "detail": "Function `public.agriclimax_map_risks(p_production text, p_indicator text, p_rule text, p_version text, p_date date, p_bbox double precision[], p_zoom integer, p_limit integer)` can be executed by the `anon` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/agriclimax_map_risks`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "agriclimax_map_risks",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "p_production text, p_indicator text, p_rule text, p_version text, p_date date, p_bbox double precision[], p_zoom integer, p_limit integer",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        },
+        {
+          "detail": "Function `public.agriclimax_risk_series(p_production text, p_indicator text, p_rule text, p_version text, p_cell text, p_start date, p_end date)` can be executed by the `anon` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/agriclimax_risk_series`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "agriclimax_risk_series",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "p_production text, p_indicator text, p_rule text, p_version text, p_cell text, p_start date, p_end date",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        },
+        {
+          "detail": "Function `public.agriclimax_territory_risks(p_production text, p_indicator text, p_rule text, p_version text, p_start date, p_end date, p_bbox double precision[])` can be executed by the `anon` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/agriclimax_territory_risks`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "agriclimax_territory_risks",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "p_production text, p_indicator text, p_rule text, p_version text, p_start date, p_end date, p_bbox double precision[]",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        },
+        {
+          "detail": "Function `public.st_estimatedextent(text, text)` can be executed by the `anon` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/st_estimatedextent`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "st_estimatedextent",
+            "schema": "public",
+            "language": "c",
+            "arguments": "text, text",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        },
+        {
+          "detail": "Function `public.st_estimatedextent(text, text, text)` can be executed by the `anon` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/st_estimatedextent`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "st_estimatedextent",
+            "schema": "public",
+            "language": "c",
+            "arguments": "text, text, text",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        },
+        {
+          "detail": "Function `public.st_estimatedextent(text, text, text, boolean)` can be executed by the `anon` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/st_estimatedextent`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "st_estimatedextent",
+            "schema": "public",
+            "language": "c",
+            "arguments": "text, text, text, boolean",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        }
+      ]
+    },
+    {
+      "name": "authenticated_security_definer_function_executable",
+      "title": "Signed-In Users Can Execute SECURITY DEFINER Function",
+      "level": "WARN",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects `SECURITY DEFINER` functions that are callable by signed-in users. Revoke `EXECUTE`, switch the function to `SECURITY INVOKER`, or move it out of your exposed API schema if signed-in users should not call it.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable",
+      "count": 6,
+      "findings": [
+        {
+          "detail": "Function `public.agriclimax_map_risks(p_production text, p_indicator text, p_rule text, p_version text, p_date date, p_bbox double precision[], p_zoom integer, p_limit integer)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/agriclimax_map_risks`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "agriclimax_map_risks",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "p_production text, p_indicator text, p_rule text, p_version text, p_date date, p_bbox double precision[], p_zoom integer, p_limit integer",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        },
+        {
+          "detail": "Function `public.agriclimax_risk_series(p_production text, p_indicator text, p_rule text, p_version text, p_cell text, p_start date, p_end date)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/agriclimax_risk_series`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "agriclimax_risk_series",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "p_production text, p_indicator text, p_rule text, p_version text, p_cell text, p_start date, p_end date",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        },
+        {
+          "detail": "Function `public.agriclimax_territory_risks(p_production text, p_indicator text, p_rule text, p_version text, p_start date, p_end date, p_bbox double precision[])` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/agriclimax_territory_risks`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "agriclimax_territory_risks",
+            "schema": "public",
+            "language": "plpgsql",
+            "arguments": "p_production text, p_indicator text, p_rule text, p_version text, p_start date, p_end date, p_bbox double precision[]",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        },
+        {
+          "detail": "Function `public.st_estimatedextent(text, text)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/st_estimatedextent`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "st_estimatedextent",
+            "schema": "public",
+            "language": "c",
+            "arguments": "text, text",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        },
+        {
+          "detail": "Function `public.st_estimatedextent(text, text, text)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/st_estimatedextent`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "st_estimatedextent",
+            "schema": "public",
+            "language": "c",
+            "arguments": "text, text, text",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        },
+        {
+          "detail": "Function `public.st_estimatedextent(text, text, text, boolean)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/st_estimatedextent`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional.",
+          "metadata": {
+            "name": "st_estimatedextent",
+            "schema": "public",
+            "language": "c",
+            "arguments": "text, text, text, boolean",
+            "security_definer": true
+          },
+          "observed_at": "2026-10-15T17:42:24.947Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "snapshot": {
+      "tables": [
+        {
+          "bytes": 32768,
+          "relname": "weather_stations",
+          "n_live_tup": 15
+        },
+        {
+          "bytes": 466944,
+          "relname": "station_weather_batches",
+          "n_live_tup": 200
+        },
+        {
+          "bytes": 1122304,
+          "relname": "climate_references",
+          "n_live_tup": 480
+        },
+        {
+          "bytes": 16384,
+          "relname": "france_acquisitions",
+          "n_live_tup": 0
+        },
+        {
+          "bytes": 32768,
+          "relname": "france_daily",
+          "n_live_tup": 0
+        },
+        {
+          "bytes": 16384,
+          "relname": "france_calendar_references",
+          "n_live_tup": 0
+        }
+      ],
+      "batches": 200,
+      "stations": 15,
+      "database_bytes": 22050483,
+      "climate_revisions": 480,
+      "climate_logical_partitions": 60
+    }
+  }
+]

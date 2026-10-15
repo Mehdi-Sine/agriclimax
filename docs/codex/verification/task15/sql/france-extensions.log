@@ -1,0 +1,35 @@
+BEGIN
+SET
+DO
+RESET
+INSERT 0 45003
+ANALYZE
+ synthetic_rows | total_bytes | bytes_per_row_including_indexes 
+----------------+-------------+---------------------------------
+          45004 |    19570688 |                             434
+(1 row)
+
+SET
+                                                                     QUERY PLAN                                                                     
+----------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.41..458.17 rows=1000 width=183) (actual time=0.034..0.649 rows=1000 loops=1)
+   Buffers: shared hit=625
+   ->  Index Scan using france_daily_map_idx on france_daily  (cost=0.41..2937.80 rows=6417 width=183) (actual time=0.033..0.558 rows=1000 loops=1)
+         Index Cond: ((dataset_version = 'task15-local-only'::text) AND (valid_date = '1991-09-01'::date) AND (cell_id > ''::text))
+         Buffers: shared hit=625
+ Planning:
+   Buffers: shared hit=27
+ Planning Time: 0.537 ms
+ Execution Time: 0.719 ms
+(9 rows)
+
+                                      QUERY PLAN                                       
+---------------------------------------------------------------------------------------
+ Result  (cost=0.00..0.26 rows=1 width=32) (actual time=24.284..24.285 rows=1 loops=1)
+   Buffers: shared hit=625
+ Planning Time: 0.013 ms
+ Execution Time: 24.295 ms
+(4 rows)
+
+DO
+ROLLBACK

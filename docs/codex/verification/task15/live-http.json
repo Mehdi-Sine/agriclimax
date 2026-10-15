@@ -1,0 +1,29 @@
+{
+  "grid": {
+    "http_status": 200,
+    "rows": 0,
+    "state": "absent",
+    "support": "era5_land_grid",
+    "interpolation": "none",
+    "latency_ms": [
+      1387.23,
+      651.33,
+      701.69
+    ],
+    "median_ms": 701.69
+  },
+  "stations": {
+    "http_status": 200,
+    "rows": 15,
+    "state": null,
+    "support": "station_points",
+    "interpolation": "none",
+    "latency_ms": [
+      993.16,
+      612.54,
+      291.99
+    ],
+    "median_ms": 612.54
+  },
+  "invalid_limit_http_status": 400
+}

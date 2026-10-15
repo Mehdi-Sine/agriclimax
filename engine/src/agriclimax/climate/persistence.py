@@ -44,12 +44,22 @@ class SupabaseClimateRepository:
         )
         # Retrieval receipts remain part of the immutable provenance revision.
         # Exact replays reuse the verified source receipt and consequently the key.
-        content = json.dumps(
-            {"p_kind": kind, "p_payload": payload, "p_key": content_key(payload)}, allow_nan=False
-        ).encode()
+        return self.call(
+            "agriclimax_persist_climate",
+            {
+                "p_kind": kind,
+                "p_payload": payload,
+                "p_key": content_key(payload),
+            },
+        )
+
+    def call(self, function: str, parameters: dict[str, object]) -> bool:
+        if function not in {"agriclimax_persist_climate", "agriclimax_persist_france_daily"}:
+            raise ValueError("Unsupported climate RPC")
+        content = json.dumps(parameters, allow_nan=False).encode()
         for attempt in range(3):
             request = Request(
-                self.url,
+                self.url.rsplit("/", 1)[0] + "/" + function,
                 data=content,
                 headers={
                     "apikey": os.environ["SUPABASE_SECRET_KEY"],

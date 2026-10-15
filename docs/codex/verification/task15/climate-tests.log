@@ -1,0 +1,12 @@
+........................                                                 [100%]
+=============================== warnings summary ===============================
+tests/climate/test_climate.py::test_netcdf_day_boundary_units_and_missingness
+  <frozen importlib._bootstrap>:488: RuntimeWarning: numpy.ndarray size changed, may indicate binary incompatibility. Expected 16 from C header, got 96 from PyObject
+
+tests/climate/test_climate.py: 22 warnings
+  /workspace/agriclimax-task15/work/venv/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:96: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+  As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+    data[key] = value
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+24 passed, 23 warnings in 5.02s

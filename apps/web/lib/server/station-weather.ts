@@ -29,7 +29,7 @@ export interface WeatherStation {
   id: string; name: string; latitude: number; longitude: number; altitude_m: number;
   metadata: Record<string, unknown>; retrieved_at: string;
 }
-const stationValidator = ajv.compile<WeatherStation[]>({ type: 'array', maxItems: 100,
+const stationValidator = ajv.compile<WeatherStation[]>({ type: 'array', maxItems: 200,
   items: { type: 'object', additionalProperties: false,
     required: ['id', 'name', 'latitude', 'longitude', 'altitude_m', 'metadata', 'retrieved_at'],
     properties: { id: { type: 'string', pattern: '^\\d{8}$' }, name: { type: 'string', minLength: 1 },

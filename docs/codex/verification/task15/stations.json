@@ -1,0 +1,1952 @@
+{
+  "source": "DPObs/v1/liste-stations",
+  "catalog_sha256": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+  "candidates": 1818,
+  "selection": "deterministic_farthest_point_cosine_degrees",
+  "interpolation": "none",
+  "stations": [
+    {
+      "id": "01014002",
+      "name": "ARBENT",
+      "latitude": 46.278167,
+      "longitude": 5.669,
+      "altitude_m": 534.0,
+      "metadata": {
+        "Id_station": "01014002",
+        "Id_omm": "",
+        "Nom_usuel": "ARBENT",
+        "Latitude": "46.278167",
+        "Longitude": "5.669000",
+        "Altitude": "534",
+        "Date_ouverture": "2003-10-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "29155005",
+      "name": "OUESSANT-STIFF",
+      "latitude": 48.473333,
+      "longitude": -5.057,
+      "altitude_m": 64.0,
+      "metadata": {
+        "Id_station": "29155005",
+        "Id_omm": "07100",
+        "Nom_usuel": "OUESSANT-STIFF",
+        "Latitude": "48.473333",
+        "Longitude": "-5.057000",
+        "Altitude": "64",
+        "Date_ouverture": "1995-09-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "64543001",
+      "name": "UREPEL_SAPC",
+      "latitude": 43.068667,
+      "longitude": -1.4155,
+      "altitude_m": 410.0,
+      "metadata": {
+        "Id_station": "64543001",
+        "Id_omm": "",
+        "Nom_usuel": "UREPEL_SAPC",
+        "Latitude": "43.068667",
+        "Longitude": "-1.415500",
+        "Altitude": "410",
+        "Date_ouverture": "2007-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "20041001",
+      "name": "CAP PERTUSATO",
+      "latitude": 41.374833,
+      "longitude": 9.178333,
+      "altitude_m": 107.0,
+      "metadata": {
+        "Id_station": "20041001",
+        "Id_omm": "07770",
+        "Nom_usuel": "CAP PERTUSATO",
+        "Latitude": "41.374833",
+        "Longitude": "9.178333",
+        "Altitude": "107",
+        "Date_ouverture": "1882-01-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "59183001",
+      "name": "DUNKERQUE",
+      "latitude": 51.055833,
+      "longitude": 2.3395,
+      "altitude_m": 11.0,
+      "metadata": {
+        "Id_station": "59183001",
+        "Id_omm": "07010",
+        "Nom_usuel": "DUNKERQUE",
+        "Latitude": "51.055833",
+        "Longitude": "2.339500",
+        "Altitude": "11",
+        "Date_ouverture": "1891-01-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "79326004",
+      "name": "THENEZAY STNA",
+      "latitude": 46.725333,
+      "longitude": -0.020333,
+      "altitude_m": 132.0,
+      "metadata": {
+        "Id_station": "79326004",
+        "Id_omm": "",
+        "Nom_usuel": "THENEZAY STNA",
+        "Latitude": "46.725333",
+        "Longitude": "-0.020333",
+        "Altitude": "132",
+        "Date_ouverture": "2002-05-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "66148001",
+      "name": "CAP BEAR",
+      "latitude": 42.516167,
+      "longitude": 3.133667,
+      "altitude_m": 72.0,
+      "metadata": {
+        "Id_station": "66148001",
+        "Id_omm": "07749",
+        "Nom_usuel": "CAP BEAR",
+        "Latitude": "42.516167",
+        "Longitude": "3.133667",
+        "Altitude": "72",
+        "Date_ouverture": "1879-09-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "67443001",
+      "name": "SCHEIBENHARD",
+      "latitude": 48.964167,
+      "longitude": 8.1455,
+      "altitude_m": 144.0,
+      "metadata": {
+        "Id_station": "67443001",
+        "Id_omm": "",
+        "Nom_usuel": "SCHEIBENHARD",
+        "Latitude": "48.964167",
+        "Longitude": "8.145500",
+        "Altitude": "144",
+        "Date_ouverture": "2006-08-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "06090002",
+      "name": "PEGOMAS",
+      "latitude": 43.602667,
+      "longitude": 6.936667,
+      "altitude_m": 109.0,
+      "metadata": {
+        "Id_station": "06090002",
+        "Id_omm": "",
+        "Nom_usuel": "PEGOMAS",
+        "Latitude": "43.602667",
+        "Longitude": "6.936667",
+        "Altitude": "109",
+        "Date_ouverture": "2010-03-15",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "50509002",
+      "name": "STE MARIE DU MO",
+      "latitude": 49.4045,
+      "longitude": -1.168333,
+      "altitude_m": 5.0,
+      "metadata": {
+        "Id_station": "50509002",
+        "Id_omm": "",
+        "Nom_usuel": "STE MARIE DU MO",
+        "Latitude": "49.404500",
+        "Longitude": "-1.168333",
+        "Altitude": "5",
+        "Date_ouverture": "1997-03-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "77159001",
+      "name": "DONNEMARIE",
+      "latitude": 48.474667,
+      "longitude": 3.1265,
+      "altitude_m": 97.0,
+      "metadata": {
+        "Id_station": "77159001",
+        "Id_omm": "",
+        "Nom_usuel": "DONNEMARIE",
+        "Latitude": "48.474667",
+        "Longitude": "3.126500",
+        "Altitude": "97",
+        "Date_ouverture": "1912-05-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "15258004",
+      "name": "VIC SUR CERE",
+      "latitude": 44.965833,
+      "longitude": 2.612167,
+      "altitude_m": 657.0,
+      "metadata": {
+        "Id_station": "15258004",
+        "Id_omm": "",
+        "Nom_usuel": "VIC SUR CERE",
+        "Latitude": "44.965833",
+        "Longitude": "2.612167",
+        "Altitude": "657",
+        "Date_ouverture": "1988-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "33214002",
+      "name": "LACANAU",
+      "latitude": 45.001167,
+      "longitude": -1.138167,
+      "altitude_m": 16.0,
+      "metadata": {
+        "Id_station": "33214002",
+        "Id_omm": "",
+        "Nom_usuel": "LACANAU",
+        "Latitude": "45.001167",
+        "Longitude": "-1.138167",
+        "Altitude": "16",
+        "Date_ouverture": "1881-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "08353001",
+      "name": "RANCENNES",
+      "latitude": 50.118833,
+      "longitude": 4.813167,
+      "altitude_m": 162.0,
+      "metadata": {
+        "Id_station": "08353001",
+        "Id_omm": "",
+        "Nom_usuel": "RANCENNES",
+        "Latitude": "50.118833",
+        "Longitude": "4.813167",
+        "Altitude": "162",
+        "Date_ouverture": "2014-09-18",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "56159001",
+      "name": "PLEUCADEUC",
+      "latitude": 47.7655,
+      "longitude": -2.387167,
+      "altitude_m": 65.0,
+      "metadata": {
+        "Id_station": "56159001",
+        "Id_omm": "",
+        "Nom_usuel": "PLEUCADEUC",
+        "Latitude": "47.765500",
+        "Longitude": "-2.387167",
+        "Altitude": "65",
+        "Date_ouverture": "1990-07-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "32147001",
+      "name": "GIMONT",
+      "latitude": 43.627667,
+      "longitude": 0.884167,
+      "altitude_m": 177.0,
+      "metadata": {
+        "Id_station": "32147001",
+        "Id_omm": "",
+        "Nom_usuel": "GIMONT",
+        "Latitude": "43.627667",
+        "Longitude": "0.884167",
+        "Altitude": "177",
+        "Date_ouverture": "1872-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "18231001",
+      "name": "ST-PIERRE",
+      "latitude": 46.729,
+      "longitude": 2.631667,
+      "altitude_m": 174.0,
+      "metadata": {
+        "Id_station": "18231001",
+        "Id_omm": "",
+        "Nom_usuel": "ST-PIERRE",
+        "Latitude": "46.729000",
+        "Longitude": "2.631667",
+        "Altitude": "174",
+        "Date_ouverture": "1984-12-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "88430001",
+      "name": "ST OUEN-LES-PAREY_SAPC",
+      "latitude": 48.188833,
+      "longitude": 5.7745,
+      "altitude_m": 329.0,
+      "metadata": {
+        "Id_station": "88430001",
+        "Id_omm": "",
+        "Nom_usuel": "ST OUEN-LES-PAREY_SAPC",
+        "Latitude": "48.188833",
+        "Longitude": "5.774500",
+        "Altitude": "329",
+        "Date_ouverture": "2007-01-11",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "26258001",
+      "name": "PUY-ST-MARTIN",
+      "latitude": 44.618167,
+      "longitude": 4.976833,
+      "altitude_m": 211.0,
+      "metadata": {
+        "Id_station": "26258001",
+        "Id_omm": "",
+        "Nom_usuel": "PUY-ST-MARTIN",
+        "Latitude": "44.618167",
+        "Longitude": "4.976833",
+        "Altitude": "211",
+        "Date_ouverture": "1968-12-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "20107001",
+      "name": "CAP CORSE",
+      "latitude": 43.003833,
+      "longitude": 9.3595,
+      "altitude_m": 72.0,
+      "metadata": {
+        "Id_station": "20107001",
+        "Id_omm": "07785",
+        "Nom_usuel": "CAP CORSE",
+        "Latitude": "43.003833",
+        "Longitude": "9.359500",
+        "Altitude": "72",
+        "Date_ouverture": "1882-01-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "61345003",
+      "name": "REMALARD",
+      "latitude": 48.434,
+      "longitude": 0.777667,
+      "altitude_m": 158.0,
+      "metadata": {
+        "Id_station": "61345003",
+        "Id_omm": "",
+        "Nom_usuel": "REMALARD",
+        "Latitude": "48.434000",
+        "Longitude": "0.777667",
+        "Altitude": "158",
+        "Date_ouverture": "2014-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "76582001",
+      "name": "ST-GERMAIN-D'ETABLES",
+      "latitude": 49.8395,
+      "longitude": 1.167167,
+      "altitude_m": 22.0,
+      "metadata": {
+        "Id_station": "76582001",
+        "Id_omm": "",
+        "Nom_usuel": "ST-GERMAIN-D'ETABLES",
+        "Latitude": "49.839500",
+        "Longitude": "1.167167",
+        "Altitude": "22",
+        "Date_ouverture": "1970-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "24453001",
+      "name": "ST MARTIN  DE FRESSENGEAS",
+      "latitude": 45.4755,
+      "longitude": 0.848333,
+      "altitude_m": 277.0,
+      "metadata": {
+        "Id_station": "24453001",
+        "Id_omm": "",
+        "Nom_usuel": "ST MARTIN  DE FRESSENGEAS",
+        "Latitude": "45.475500",
+        "Longitude": "0.848333",
+        "Altitude": "277",
+        "Date_ouverture": "2006-02-24",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "73040402",
+      "name": "BONNEVAL-NIVOSE",
+      "latitude": 45.351667,
+      "longitude": 7.051167,
+      "altitude_m": 2741.0,
+      "metadata": {
+        "Id_station": "73040402",
+        "Id_omm": "",
+        "Nom_usuel": "BONNEVAL-NIVOSE",
+        "Latitude": "45.351667",
+        "Longitude": "7.051167",
+        "Altitude": "2741",
+        "Date_ouverture": "1996-01-08",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "68165001",
+      "name": "KIFFIS",
+      "latitude": 47.438,
+      "longitude": 7.355667,
+      "altitude_m": 576.0,
+      "metadata": {
+        "Id_station": "68165001",
+        "Id_omm": "07113",
+        "Nom_usuel": "KIFFIS",
+        "Latitude": "47.438000",
+        "Longitude": "7.355667",
+        "Altitude": "576",
+        "Date_ouverture": "1897-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "34277001",
+      "name": "ST MAURICE-NAVACELLE",
+      "latitude": 43.841333,
+      "longitude": 3.522333,
+      "altitude_m": 584.0,
+      "metadata": {
+        "Id_station": "34277001",
+        "Id_omm": "",
+        "Nom_usuel": "ST MAURICE-NAVACELLE",
+        "Latitude": "43.841333",
+        "Longitude": "3.522333",
+        "Altitude": "584",
+        "Date_ouverture": "1946-04-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "42019005",
+      "name": "BOEN-SUR-LIGNON_SAPC",
+      "latitude": 45.756167,
+      "longitude": 4.0015,
+      "altitude_m": 513.0,
+      "metadata": {
+        "Id_station": "42019005",
+        "Id_omm": "",
+        "Nom_usuel": "BOEN-SUR-LIGNON_SAPC",
+        "Latitude": "45.756167",
+        "Longitude": "4.001500",
+        "Altitude": "513",
+        "Date_ouverture": "2017-11-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "21633002",
+      "name": "THOREY SOUS CHARNY_SAPC",
+      "latitude": 47.319167,
+      "longitude": 4.4395,
+      "altitude_m": 421.0,
+      "metadata": {
+        "Id_station": "21633002",
+        "Id_omm": "",
+        "Nom_usuel": "THOREY SOUS CHARNY_SAPC",
+        "Latitude": "47.319167",
+        "Longitude": "4.439500",
+        "Altitude": "421",
+        "Date_ouverture": "2016-10-12",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "13056002",
+      "name": "CAP COURONNE",
+      "latitude": 43.331667,
+      "longitude": 5.053333,
+      "altitude_m": 27.0,
+      "metadata": {
+        "Id_station": "13056002",
+        "Id_omm": "07653",
+        "Nom_usuel": "CAP COURONNE",
+        "Latitude": "43.331667",
+        "Longitude": "5.053333",
+        "Altitude": "27",
+        "Date_ouverture": "1961-04-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "57689001",
+      "name": "VALMESTROFF",
+      "latitude": 49.356833,
+      "longitude": 6.262,
+      "altitude_m": 203.0,
+      "metadata": {
+        "Id_station": "57689001",
+        "Id_omm": "",
+        "Nom_usuel": "VALMESTROFF",
+        "Latitude": "49.356833",
+        "Longitude": "6.262000",
+        "Altitude": "203",
+        "Date_ouverture": "2024-03-06",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "85060002",
+      "name": "CHATEAU-D'OLONNE",
+      "latitude": 46.477167,
+      "longitude": -1.725833,
+      "altitude_m": 27.0,
+      "metadata": {
+        "Id_station": "85060002",
+        "Id_omm": "",
+        "Nom_usuel": "CHATEAU-D'OLONNE",
+        "Latitude": "46.477167",
+        "Longitude": "-1.725833",
+        "Altitude": "27",
+        "Date_ouverture": "2004-03-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "80557001",
+      "name": "ESTREES-MONS-INRAE",
+      "latitude": 49.874833,
+      "longitude": 3.031167,
+      "altitude_m": 87.0,
+      "metadata": {
+        "Id_station": "80557001",
+        "Id_omm": "",
+        "Nom_usuel": "ESTREES-MONS-INRAE",
+        "Latitude": "49.874833",
+        "Longitude": "3.031167",
+        "Altitude": "87",
+        "Date_ouverture": "1989-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "22016001",
+      "name": "ILE-DE-BREHAT",
+      "latitude": 48.855167,
+      "longitude": -3.0045,
+      "altitude_m": 25.0,
+      "metadata": {
+        "Id_station": "22016001",
+        "Id_omm": "07121",
+        "Nom_usuel": "ILE-DE-BREHAT",
+        "Latitude": "48.855167",
+        "Longitude": "-3.004500",
+        "Altitude": "25",
+        "Date_ouverture": "1850-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "53078001",
+      "name": "COUDRAY",
+      "latitude": 47.788167,
+      "longitude": -0.645333,
+      "altitude_m": 55.0,
+      "metadata": {
+        "Id_station": "53078001",
+        "Id_omm": "",
+        "Nom_usuel": "COUDRAY",
+        "Latitude": "47.788167",
+        "Longitude": "-0.645333",
+        "Altitude": "55",
+        "Date_ouverture": "1972-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "65188005",
+      "name": "GAVARNIE_SAPC",
+      "latitude": 42.733833,
+      "longitude": -0.010833,
+      "altitude_m": 1410.0,
+      "metadata": {
+        "Id_station": "65188005",
+        "Id_omm": "",
+        "Nom_usuel": "GAVARNIE_SAPC",
+        "Latitude": "42.733833",
+        "Longitude": "-0.010833",
+        "Altitude": "1410",
+        "Date_ouverture": "2007-11-13",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "09024004",
+      "name": "ASTON",
+      "latitude": 42.724167,
+      "longitude": 1.691,
+      "altitude_m": 1781.0,
+      "metadata": {
+        "Id_station": "09024004",
+        "Id_omm": "",
+        "Nom_usuel": "ASTON",
+        "Latitude": "42.724167",
+        "Longitude": "1.691000",
+        "Altitude": "1781",
+        "Date_ouverture": "2002-06-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "40033001",
+      "name": "BELIS",
+      "latitude": 44.063833,
+      "longitude": -0.453833,
+      "altitude_m": 85.0,
+      "metadata": {
+        "Id_station": "40033001",
+        "Id_omm": "",
+        "Nom_usuel": "BELIS",
+        "Latitude": "44.063833",
+        "Longitude": "-0.453833",
+        "Altitude": "85",
+        "Date_ouverture": "1970-04-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "41285001",
+      "name": "VILLENY",
+      "latitude": 47.610667,
+      "longitude": 1.743667,
+      "altitude_m": 127.0,
+      "metadata": {
+        "Id_station": "41285001",
+        "Id_omm": "",
+        "Nom_usuel": "VILLENY",
+        "Latitude": "47.610667",
+        "Longitude": "1.743667",
+        "Altitude": "127",
+        "Date_ouverture": "1927-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "51388003",
+      "name": "MOURMELON-GRAND",
+      "latitude": 49.1075,
+      "longitude": 4.3585,
+      "altitude_m": 115.0,
+      "metadata": {
+        "Id_station": "51388003",
+        "Id_omm": "",
+        "Nom_usuel": "MOURMELON-GRAND",
+        "Latitude": "49.107500",
+        "Longitude": "4.358500",
+        "Altitude": "115",
+        "Date_ouverture": "2004-04-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "29293001",
+      "name": "TREGUNC",
+      "latitude": 47.841333,
+      "longitude": -3.868833,
+      "altitude_m": 25.0,
+      "metadata": {
+        "Id_station": "29293001",
+        "Id_omm": "",
+        "Nom_usuel": "TREGUNC",
+        "Latitude": "47.841333",
+        "Longitude": "-3.868833",
+        "Altitude": "25",
+        "Date_ouverture": "2003-12-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "36035002",
+      "name": "CHAILLAC_SAPC",
+      "latitude": 46.456667,
+      "longitude": 1.302167,
+      "altitude_m": 126.0,
+      "metadata": {
+        "Id_station": "36035002",
+        "Id_omm": "",
+        "Nom_usuel": "CHAILLAC_SAPC",
+        "Latitude": "46.456667",
+        "Longitude": "1.302167",
+        "Altitude": "126",
+        "Date_ouverture": "2016-06-27",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "25056001",
+      "name": "BESANCON",
+      "latitude": 47.249,
+      "longitude": 5.988833,
+      "altitude_m": 306.0,
+      "metadata": {
+        "Id_station": "25056001",
+        "Id_omm": "07288",
+        "Nom_usuel": "BESANCON",
+        "Latitude": "47.249000",
+        "Longitude": "5.988833",
+        "Altitude": "306",
+        "Date_ouverture": "1884-12-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "81284001",
+      "name": "ALBI",
+      "latitude": 43.914667,
+      "longitude": 2.116333,
+      "altitude_m": 172.0,
+      "metadata": {
+        "Id_station": "81284001",
+        "Id_omm": "07632",
+        "Nom_usuel": "ALBI",
+        "Latitude": "43.914667",
+        "Longitude": "2.116333",
+        "Altitude": "172",
+        "Date_ouverture": "1976-11-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "95078001",
+      "name": "PONTOISE - AERO",
+      "latitude": 49.0905,
+      "longitude": 2.027667,
+      "altitude_m": 87.0,
+      "metadata": {
+        "Id_station": "95078001",
+        "Id_omm": "07053",
+        "Nom_usuel": "PONTOISE - AERO",
+        "Latitude": "49.090500",
+        "Longitude": "2.027667",
+        "Altitude": "87",
+        "Date_ouverture": "1946-11-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "05098001",
+      "name": "LES ORRES",
+      "latitude": 44.508833,
+      "longitude": 6.559333,
+      "altitude_m": 1457.0,
+      "metadata": {
+        "Id_station": "05098001",
+        "Id_omm": "",
+        "Nom_usuel": "LES ORRES",
+        "Latitude": "44.508833",
+        "Longitude": "6.559333",
+        "Altitude": "1457",
+        "Date_ouverture": "1931-02-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "47175001",
+      "name": "MONFLANQUIN",
+      "latitude": 44.532,
+      "longitude": 0.734167,
+      "altitude_m": 118.0,
+      "metadata": {
+        "Id_station": "47175001",
+        "Id_omm": "",
+        "Nom_usuel": "MONFLANQUIN",
+        "Latitude": "44.532000",
+        "Longitude": "0.734167",
+        "Altitude": "118",
+        "Date_ouverture": "1961-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "20154001",
+      "name": "MARIGNANA",
+      "latitude": 42.188833,
+      "longitude": 8.655333,
+      "altitude_m": 515.0,
+      "metadata": {
+        "Id_station": "20154001",
+        "Id_omm": "",
+        "Nom_usuel": "MARIGNANA",
+        "Latitude": "42.188833",
+        "Longitude": "8.655333",
+        "Altitude": "515",
+        "Date_ouverture": "2009-02-09",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "16193001",
+      "name": "LOUZAC ST ANDRE",
+      "latitude": 45.735833,
+      "longitude": -0.381833,
+      "altitude_m": 51.0,
+      "metadata": {
+        "Id_station": "16193001",
+        "Id_omm": "",
+        "Nom_usuel": "LOUZAC ST ANDRE",
+        "Latitude": "45.735833",
+        "Longitude": "-0.381833",
+        "Altitude": "51",
+        "Date_ouverture": "1985-06-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "38362001",
+      "name": "ST AUPRE_SAPC",
+      "latitude": 45.392667,
+      "longitude": 5.657333,
+      "altitude_m": 450.0,
+      "metadata": {
+        "Id_station": "38362001",
+        "Id_omm": "",
+        "Nom_usuel": "ST AUPRE_SAPC",
+        "Latitude": "45.392667",
+        "Longitude": "5.657333",
+        "Altitude": "450",
+        "Date_ouverture": "2007-05-15",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "23069002",
+      "name": "CROCQ",
+      "latitude": 45.867167,
+      "longitude": 2.362167,
+      "altitude_m": 710.0,
+      "metadata": {
+        "Id_station": "23069002",
+        "Id_omm": "",
+        "Nom_usuel": "CROCQ",
+        "Latitude": "45.867167",
+        "Longitude": "2.362167",
+        "Altitude": "710",
+        "Date_ouverture": "1950-12-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "35044001",
+      "name": "BROUALAN",
+      "latitude": 48.485667,
+      "longitude": -1.640833,
+      "altitude_m": 99.0,
+      "metadata": {
+        "Id_station": "35044001",
+        "Id_omm": "",
+        "Nom_usuel": "BROUALAN",
+        "Latitude": "48.485667",
+        "Longitude": "-1.640833",
+        "Altitude": "99",
+        "Date_ouverture": "1976-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "10401001",
+      "name": "VENDEUVRE-SUR-B",
+      "latitude": 48.233,
+      "longitude": 4.463,
+      "altitude_m": 180.0,
+      "metadata": {
+        "Id_station": "10401001",
+        "Id_omm": "",
+        "Nom_usuel": "VENDEUVRE-SUR-B",
+        "Latitude": "48.233000",
+        "Longitude": "4.463000",
+        "Altitude": "180",
+        "Date_ouverture": "1891-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "89273001",
+      "name": "ST FARGEAU_SAPC",
+      "latitude": 47.625833,
+      "longitude": 3.133833,
+      "altitude_m": 258.0,
+      "metadata": {
+        "Id_station": "89273001",
+        "Id_omm": "",
+        "Nom_usuel": "ST FARGEAU_SAPC",
+        "Latitude": "47.625833",
+        "Longitude": "3.133833",
+        "Altitude": "258",
+        "Date_ouverture": "1862-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "43111002",
+      "name": "LANDOS-CHARBON",
+      "latitude": 44.858,
+      "longitude": 3.843667,
+      "altitude_m": 1148.0,
+      "metadata": {
+        "Id_station": "43111002",
+        "Id_omm": "",
+        "Nom_usuel": "LANDOS-CHARBON",
+        "Latitude": "44.858000",
+        "Longitude": "3.843667",
+        "Altitude": "1148",
+        "Date_ouverture": "1990-09-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "67507003",
+      "name": "VILLE",
+      "latitude": 48.343,
+      "longitude": 7.306167,
+      "altitude_m": 264.0,
+      "metadata": {
+        "Id_station": "67507003",
+        "Id_omm": "",
+        "Nom_usuel": "VILLE",
+        "Latitude": "48.343000",
+        "Longitude": "7.306167",
+        "Altitude": "264",
+        "Date_ouverture": "1989-10-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "14366002",
+      "name": "LISIEUX_SAPC",
+      "latitude": 49.165,
+      "longitude": 0.227,
+      "altitude_m": 62.0,
+      "metadata": {
+        "Id_station": "14366002",
+        "Id_omm": "",
+        "Nom_usuel": "LISIEUX_SAPC",
+        "Latitude": "49.165000",
+        "Longitude": "0.227000",
+        "Altitude": "62",
+        "Date_ouverture": "1970-07-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "74063002",
+      "name": "CHATEL",
+      "latitude": 46.255833,
+      "longitude": 6.818833,
+      "altitude_m": 1155.0,
+      "metadata": {
+        "Id_station": "74063002",
+        "Id_omm": "",
+        "Nom_usuel": "CHATEL",
+        "Latitude": "46.255833",
+        "Longitude": "6.818833",
+        "Altitude": "1155",
+        "Date_ouverture": "1958-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "83069002",
+      "name": "PORQUEROLLES",
+      "latitude": 43.000167,
+      "longitude": 6.227167,
+      "altitude_m": 143.0,
+      "metadata": {
+        "Id_station": "83069002",
+        "Id_omm": "07670",
+        "Nom_usuel": "PORQUEROLLES",
+        "Latitude": "43.000167",
+        "Longitude": "6.227167",
+        "Altitude": "143",
+        "Date_ouverture": "1945-08-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "71340002",
+      "name": "PALINGES",
+      "latitude": 46.554667,
+      "longitude": 4.228,
+      "altitude_m": 281.0,
+      "metadata": {
+        "Id_station": "71340002",
+        "Id_omm": "",
+        "Nom_usuel": "PALINGES",
+        "Latitude": "46.554667",
+        "Longitude": "4.228000",
+        "Altitude": "281",
+        "Date_ouverture": "1885-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "04068001",
+      "name": "DAUPHIN",
+      "latitude": 43.909833,
+      "longitude": 5.767167,
+      "altitude_m": 427.0,
+      "metadata": {
+        "Id_station": "04068001",
+        "Id_omm": "",
+        "Nom_usuel": "DAUPHIN",
+        "Latitude": "43.909833",
+        "Longitude": "5.767167",
+        "Altitude": "427",
+        "Date_ouverture": "2003-08-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "37170001",
+      "name": "NEUVY-LE-ROI",
+      "latitude": 47.608,
+      "longitude": 0.596,
+      "altitude_m": 103.0,
+      "metadata": {
+        "Id_station": "37170001",
+        "Id_omm": "",
+        "Nom_usuel": "NEUVY-LE-ROI",
+        "Latitude": "47.608000",
+        "Longitude": "0.596000",
+        "Altitude": "103",
+        "Date_ouverture": "1924-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "44109012",
+      "name": "NANTES-VILLE",
+      "latitude": 47.227667,
+      "longitude": -1.514,
+      "altitude_m": 17.0,
+      "metadata": {
+        "Id_station": "44109012",
+        "Id_omm": "",
+        "Nom_usuel": "NANTES-VILLE",
+        "Latitude": "47.227667",
+        "Longitude": "-1.514000",
+        "Altitude": "17",
+        "Date_ouverture": "1989-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "61483002",
+      "name": "BAGNOLES-DE-L_ORNE",
+      "latitude": 48.541167,
+      "longitude": -0.414833,
+      "altitude_m": 151.0,
+      "metadata": {
+        "Id_station": "61483002",
+        "Id_omm": "",
+        "Nom_usuel": "BAGNOLES-DE-L_ORNE",
+        "Latitude": "48.541167",
+        "Longitude": "-0.414833",
+        "Altitude": "151",
+        "Date_ouverture": "1990-05-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "11203004",
+      "name": "LEZIGNAN-CORBIERES",
+      "latitude": 43.173,
+      "longitude": 2.728833,
+      "altitude_m": 60.0,
+      "metadata": {
+        "Id_station": "11203004",
+        "Id_omm": "",
+        "Nom_usuel": "LEZIGNAN-CORBIERES",
+        "Latitude": "43.173000",
+        "Longitude": "2.728833",
+        "Altitude": "60",
+        "Date_ouverture": "1990-08-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "62826001",
+      "name": "LE-TOUQUET",
+      "latitude": 50.5145,
+      "longitude": 1.622833,
+      "altitude_m": 5.0,
+      "metadata": {
+        "Id_station": "62826001",
+        "Id_omm": "07003",
+        "Nom_usuel": "LE-TOUQUET",
+        "Latitude": "50.514500",
+        "Longitude": "1.622833",
+        "Altitude": "5",
+        "Date_ouverture": "1947-01-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "46031001",
+      "name": "BLARS",
+      "latitude": 44.572,
+      "longitude": 1.722,
+      "altitude_m": 281.0,
+      "metadata": {
+        "Id_station": "46031001",
+        "Id_omm": "",
+        "Nom_usuel": "BLARS",
+        "Latitude": "44.572000",
+        "Longitude": "1.722000",
+        "Altitude": "281",
+        "Date_ouverture": "1964-03-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "56009001",
+      "name": "BELLE ILE-LE TALUT",
+      "latitude": 47.294333,
+      "longitude": -3.218333,
+      "altitude_m": 37.0,
+      "metadata": {
+        "Id_station": "56009001",
+        "Id_omm": "07207",
+        "Nom_usuel": "BELLE ILE-LE TALUT",
+        "Latitude": "47.294333",
+        "Longitude": "-3.218333",
+        "Altitude": "37",
+        "Date_ouverture": "1930-04-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "28363001",
+      "name": "SAINVILLE",
+      "latitude": 48.403833,
+      "longitude": 1.903167,
+      "altitude_m": 149.0,
+      "metadata": {
+        "Id_station": "28363001",
+        "Id_omm": "",
+        "Nom_usuel": "SAINVILLE",
+        "Latitude": "48.403833",
+        "Longitude": "1.903167",
+        "Altitude": "149",
+        "Date_ouverture": "1946-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "59343001",
+      "name": "LILLE-LESQUIN",
+      "latitude": 50.57,
+      "longitude": 3.0975,
+      "altitude_m": 47.0,
+      "metadata": {
+        "Id_station": "59343001",
+        "Id_omm": "07015",
+        "Nom_usuel": "LILLE-LESQUIN",
+        "Latitude": "50.570000",
+        "Longitude": "3.097500",
+        "Altitude": "47",
+        "Date_ouverture": "1944-12-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "64549001",
+      "name": "PAU-UZEIN",
+      "latitude": 43.385,
+      "longitude": -0.416333,
+      "altitude_m": 183.0,
+      "metadata": {
+        "Id_station": "64549001",
+        "Id_omm": "07610",
+        "Nom_usuel": "PAU-UZEIN",
+        "Latitude": "43.385000",
+        "Longitude": "-0.416333",
+        "Altitude": "183",
+        "Date_ouverture": "1921-01-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "06163001",
+      "name": "TENDE-OBS",
+      "latitude": 44.086667,
+      "longitude": 7.595,
+      "altitude_m": 792.0,
+      "metadata": {
+        "Id_station": "06163001",
+        "Id_omm": "",
+        "Nom_usuel": "TENDE-OBS",
+        "Latitude": "44.086667",
+        "Longitude": "7.595000",
+        "Altitude": "792",
+        "Date_ouverture": "1952-09-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "33394002",
+      "name": "ST EMILION",
+      "latitude": 44.917667,
+      "longitude": -0.188,
+      "altitude_m": 38.0,
+      "metadata": {
+        "Id_station": "33394002",
+        "Id_omm": "",
+        "Nom_usuel": "ST EMILION",
+        "Latitude": "44.917667",
+        "Longitude": "-0.188000",
+        "Altitude": "38",
+        "Date_ouverture": "1995-01-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "55129001",
+      "name": "COUROUVRE",
+      "latitude": 48.936833,
+      "longitude": 5.358333,
+      "altitude_m": 324.0,
+      "metadata": {
+        "Id_station": "55129001",
+        "Id_omm": "",
+        "Nom_usuel": "COUROUVRE",
+        "Latitude": "48.936833",
+        "Longitude": "5.358333",
+        "Altitude": "324",
+        "Date_ouverture": "2018-05-15",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "07172002",
+      "name": "PEAUGRES RAD",
+      "latitude": 45.286167,
+      "longitude": 4.705833,
+      "altitude_m": 480.0,
+      "metadata": {
+        "Id_station": "07172002",
+        "Id_omm": "",
+        "Nom_usuel": "PEAUGRES RAD",
+        "Latitude": "45.286167",
+        "Longitude": "4.705833",
+        "Altitude": "480",
+        "Date_ouverture": "2003-05-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "29276001",
+      "name": "SIBIRIL S A",
+      "latitude": 48.660833,
+      "longitude": -4.079167,
+      "altitude_m": 52.0,
+      "metadata": {
+        "Id_station": "29276001",
+        "Id_omm": "",
+        "Nom_usuel": "SIBIRIL S A",
+        "Latitude": "48.660833",
+        "Longitude": "-4.079167",
+        "Altitude": "52",
+        "Date_ouverture": "1988-04-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "19272001",
+      "name": "TULLE",
+      "latitude": 45.2425,
+      "longitude": 1.740333,
+      "altitude_m": 235.0,
+      "metadata": {
+        "Id_station": "19272001",
+        "Id_omm": "",
+        "Nom_usuel": "TULLE",
+        "Latitude": "45.242500",
+        "Longitude": "1.740333",
+        "Altitude": "235",
+        "Date_ouverture": "1867-05-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "20303002",
+      "name": "ALISTRO",
+      "latitude": 42.259667,
+      "longitude": 9.5415,
+      "altitude_m": 65.0,
+      "metadata": {
+        "Id_station": "20303002",
+        "Id_omm": "07775",
+        "Nom_usuel": "ALISTRO",
+        "Latitude": "42.259667",
+        "Longitude": "9.541500",
+        "Altitude": "65",
+        "Date_ouverture": "1990-07-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "03204001",
+      "name": "PARAY-SOUS-BRIAILLES",
+      "latitude": 46.283667,
+      "longitude": 3.337833,
+      "altitude_m": 245.0,
+      "metadata": {
+        "Id_station": "03204001",
+        "Id_omm": "",
+        "Nom_usuel": "PARAY-SOUS-BRIAILLES",
+        "Latitude": "46.283667",
+        "Longitude": "3.337833",
+        "Altitude": "245",
+        "Date_ouverture": "1937-05-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "30334003",
+      "name": "UZES",
+      "latitude": 43.9925,
+      "longitude": 4.401833,
+      "altitude_m": 72.0,
+      "metadata": {
+        "Id_station": "30334003",
+        "Id_omm": "",
+        "Nom_usuel": "UZES",
+        "Latitude": "43.992500",
+        "Longitude": "4.401833",
+        "Altitude": "72",
+        "Date_ouverture": "2002-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "31011001",
+      "name": "ARBAS",
+      "latitude": 42.996833,
+      "longitude": 0.906667,
+      "altitude_m": 402.0,
+      "metadata": {
+        "Id_station": "31011001",
+        "Id_omm": "",
+        "Nom_usuel": "ARBAS",
+        "Latitude": "42.996833",
+        "Longitude": "0.906667",
+        "Altitude": "402",
+        "Date_ouverture": "1968-02-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "12266002",
+      "name": "SEGUR",
+      "latitude": 44.2895,
+      "longitude": 2.820333,
+      "altitude_m": 879.0,
+      "metadata": {
+        "Id_station": "12266002",
+        "Id_omm": "",
+        "Nom_usuel": "SEGUR",
+        "Latitude": "44.289500",
+        "Longitude": "2.820333",
+        "Altitude": "879",
+        "Date_ouverture": "2016-10-17",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "02585001",
+      "name": "PARCY-ET-TIGNY",
+      "latitude": 49.280167,
+      "longitude": 3.331,
+      "altitude_m": 148.0,
+      "metadata": {
+        "Id_station": "02585001",
+        "Id_omm": "",
+        "Nom_usuel": "PARCY-ET-TIGNY",
+        "Latitude": "49.280167",
+        "Longitude": "3.331000",
+        "Altitude": "148",
+        "Date_ouverture": "1954-08-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "63222001",
+      "name": "MEILHAUD",
+      "latitude": 45.543667,
+      "longitude": 3.164333,
+      "altitude_m": 448.0,
+      "metadata": {
+        "Id_station": "63222001",
+        "Id_omm": "",
+        "Nom_usuel": "MEILHAUD",
+        "Latitude": "45.543667",
+        "Longitude": "3.164333",
+        "Altitude": "448",
+        "Date_ouverture": "1944-08-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "86152002",
+      "name": "MAUPREVOIR",
+      "latitude": 46.169,
+      "longitude": 0.512833,
+      "altitude_m": 144.0,
+      "metadata": {
+        "Id_station": "86152002",
+        "Id_omm": "",
+        "Nom_usuel": "MAUPREVOIR",
+        "Latitude": "46.169000",
+        "Longitude": "0.512833",
+        "Altitude": "144",
+        "Date_ouverture": "1946-06-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "31037002",
+      "name": "AVIGNONET-LAURAGAIS",
+      "latitude": 43.343167,
+      "longitude": 1.805667,
+      "altitude_m": 193.0,
+      "metadata": {
+        "Id_station": "31037002",
+        "Id_omm": "",
+        "Nom_usuel": "AVIGNONET-LAURAGAIS",
+        "Latitude": "43.343167",
+        "Longitude": "1.805667",
+        "Altitude": "193",
+        "Date_ouverture": "2021-12-13",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "54113002",
+      "name": "CHAMPENOUX-ARBO-INRAE",
+      "latitude": 48.750667,
+      "longitude": 6.340167,
+      "altitude_m": 255.0,
+      "metadata": {
+        "Id_station": "54113002",
+        "Id_omm": "",
+        "Nom_usuel": "CHAMPENOUX-ARBO-INRAE",
+        "Latitude": "48.750667",
+        "Longitude": "6.340167",
+        "Altitude": "255",
+        "Date_ouverture": "1992-10-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "37107001",
+      "name": "FERRIERE-LARCON",
+      "latitude": 46.9875,
+      "longitude": 0.875,
+      "altitude_m": 116.0,
+      "metadata": {
+        "Id_station": "37107001",
+        "Id_omm": "",
+        "Nom_usuel": "FERRIERE-LARCON",
+        "Latitude": "46.987500",
+        "Longitude": "0.875000",
+        "Altitude": "116",
+        "Date_ouverture": "1992-01-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "38366001",
+      "name": "ST-BAUDILLE",
+      "latitude": 44.796,
+      "longitude": 5.796167,
+      "altitude_m": 1040.0,
+      "metadata": {
+        "Id_station": "38366001",
+        "Id_omm": "",
+        "Nom_usuel": "ST-BAUDILLE",
+        "Latitude": "44.796000",
+        "Longitude": "5.796167",
+        "Altitude": "1040",
+        "Date_ouverture": "1953-10-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "71541001",
+      "name": "TORPES_SAPC",
+      "latitude": 46.837667,
+      "longitude": 5.337333,
+      "altitude_m": 190.0,
+      "metadata": {
+        "Id_station": "71541001",
+        "Id_omm": "",
+        "Nom_usuel": "TORPES_SAPC",
+        "Latitude": "46.837667",
+        "Longitude": "5.337333",
+        "Altitude": "190",
+        "Date_ouverture": "2018-12-06",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "88408002",
+      "name": "RUPT-SUR-MOSELLE",
+      "latitude": 47.918167,
+      "longitude": 6.663,
+      "altitude_m": 427.0,
+      "metadata": {
+        "Id_station": "88408002",
+        "Id_omm": "",
+        "Nom_usuel": "RUPT-SUR-MOSELLE",
+        "Latitude": "47.918167",
+        "Longitude": "6.663000",
+        "Altitude": "427",
+        "Date_ouverture": "1954-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "40304001",
+      "name": "SOORTS-HOSSEGOR",
+      "latitude": 43.669833,
+      "longitude": -1.426333,
+      "altitude_m": 10.0,
+      "metadata": {
+        "Id_station": "40304001",
+        "Id_omm": "",
+        "Nom_usuel": "SOORTS-HOSSEGOR",
+        "Latitude": "43.669833",
+        "Longitude": "-1.426333",
+        "Altitude": "10",
+        "Date_ouverture": "1950-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "52023002",
+      "name": "AUBERIVE_SAPC",
+      "latitude": 47.783,
+      "longitude": 5.0535,
+      "altitude_m": 349.0,
+      "metadata": {
+        "Id_station": "52023002",
+        "Id_omm": "",
+        "Nom_usuel": "AUBERIVE_SAPC",
+        "Latitude": "47.783000",
+        "Longitude": "5.053500",
+        "Altitude": "349",
+        "Date_ouverture": "1991-10-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "50020001",
+      "name": "PTE DE LA HAGUE",
+      "latitude": 49.725167,
+      "longitude": -1.939833,
+      "altitude_m": 6.0,
+      "metadata": {
+        "Id_station": "50020001",
+        "Id_omm": "07020",
+        "Nom_usuel": "PTE DE LA HAGUE",
+        "Latitude": "49.725167",
+        "Longitude": "-1.939833",
+        "Altitude": "6",
+        "Date_ouverture": "1879-06-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "85092004",
+      "name": "FONTENAY",
+      "latitude": 46.448167,
+      "longitude": -0.779833,
+      "altitude_m": 20.0,
+      "metadata": {
+        "Id_station": "85092004",
+        "Id_omm": "",
+        "Nom_usuel": "FONTENAY",
+        "Latitude": "46.448167",
+        "Longitude": "-0.779833",
+        "Altitude": "20",
+        "Date_ouverture": "1992-04-01",
+        "Pack": "RADOME",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "17093002",
+      "name": "CHATEAU D'OLERON",
+      "latitude": 45.862167,
+      "longitude": -1.204333,
+      "altitude_m": 3.0,
+      "metadata": {
+        "Id_station": "17093002",
+        "Id_omm": "",
+        "Nom_usuel": "CHATEAU D'OLERON",
+        "Latitude": "45.862167",
+        "Longitude": "-1.204333",
+        "Altitude": "3",
+        "Date_ouverture": "1980-01-01",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    },
+    {
+      "id": "01027003",
+      "name": "BALAN_AERO",
+      "latitude": 45.833,
+      "longitude": 5.106667,
+      "altitude_m": 196.0,
+      "metadata": {
+        "Id_station": "01027003",
+        "Id_omm": "",
+        "Nom_usuel": "BALAN_AERO",
+        "Latitude": "45.833000",
+        "Longitude": "5.106667",
+        "Altitude": "196",
+        "Date_ouverture": "2014-05-26",
+        "Pack": "ETENDU",
+        "catalog_checksum": "1c761412b027919812ac99e9856c81863a2becce087fc63998536195bfd84a91",
+        "api_version": "DPObs/v1"
+      }
+    }
+  ],
+  "task11_chunks": [
+    [
+      "01014002",
+      "29155005",
+      "64543001",
+      "20041001",
+      "59183001",
+      "79326004",
+      "66148001",
+      "67443001",
+      "06090002",
+      "50509002"
+    ],
+    [
+      "77159001",
+      "15258004",
+      "33214002",
+      "08353001",
+      "56159001",
+      "32147001",
+      "18231001",
+      "88430001",
+      "26258001",
+      "20107001"
+    ],
+    [
+      "61345003",
+      "76582001",
+      "24453001",
+      "73040402",
+      "68165001",
+      "34277001",
+      "42019005",
+      "21633002",
+      "13056002",
+      "57689001"
+    ],
+    [
+      "85060002",
+      "80557001",
+      "22016001",
+      "53078001",
+      "65188005",
+      "09024004",
+      "40033001",
+      "41285001",
+      "51388003",
+      "29293001"
+    ],
+    [
+      "36035002",
+      "25056001",
+      "81284001",
+      "95078001",
+      "05098001",
+      "47175001",
+      "20154001",
+      "16193001",
+      "38362001",
+      "23069002"
+    ],
+    [
+      "35044001",
+      "10401001",
+      "89273001",
+      "43111002",
+      "67507003",
+      "14366002",
+      "74063002",
+      "83069002",
+      "71340002",
+      "04068001"
+    ],
+    [
+      "37170001",
+      "44109012",
+      "61483002",
+      "11203004",
+      "62826001",
+      "46031001",
+      "56009001",
+      "28363001",
+      "59343001",
+      "64549001"
+    ],
+    [
+      "06163001",
+      "33394002",
+      "55129001",
+      "07172002",
+      "29276001",
+      "19272001",
+      "20303002",
+      "03204001",
+      "30334003",
+      "31011001"
+    ],
+    [
+      "12266002",
+      "02585001",
+      "63222001",
+      "86152002",
+      "31037002",
+      "54113002",
+      "37107001",
+      "38366001",
+      "71541001",
+      "88408002"
+    ],
+    [
+      "40304001",
+      "52023002",
+      "50020001",
+      "85092004",
+      "17093002",
+      "01027003"
+    ]
+  ],
+  "daily_availability": "not_verified; DPClim membership checked by Task11 prepare"
+}
