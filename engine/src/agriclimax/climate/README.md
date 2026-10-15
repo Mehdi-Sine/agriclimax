@@ -51,7 +51,10 @@ et méthode explicites. La date de publication inconnue reste null ; date de
 récupération distincte. Une archive ancienne ne devient pas fraîche au téléchargement.
 Formats/dimensions/unités inconnus, ensembles/expver non résolus, archives ZIP,
 longitude 0–360 non compatible avec la bbox demandée et doublons sont refusés,
-pas transformés silencieusement. Le format réel CDS reste à valider avec accès.
+pas transformés silencieusement. Le format NetCDF réel CDS (`t2m`, `tp`, grille latitude/longitude) a été
+vérifié via GitHub Actions, ainsi que le smoke test continental, la persistance
+DEV et le replay/idempotence. Voir les preuves et limites dans
+[VERIFICATION.md](../../../../docs/codex/verification/task12/VERIFICATION.md).
 
 ## Référence et méthodes
 

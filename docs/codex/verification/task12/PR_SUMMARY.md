@@ -1,8 +1,8 @@
 # Task 12 — socle climatologique ERA5-Land / anomalies
 
-AgriclimaX dispose d'observations live Météo-France mais pas encore d'une référence
-historique homogène exploitable. Cette PR prépare l'acquisition ERA5-Land par
-petite bbox/période, sa réduction quotidienne explicite, ses révisions traçables
+Task 12, mergée via la PR #28, ajoute une référence historique ERA5-Land aux
+observations live Météo-France d'AgriclimaX : acquisition par petite bbox/période,
+réduction quotidienne explicite, révisions traçables
 et des comparaisons statistiques indépendantes des règles agricoles.
 
 - Référence historique séparée du live, des indicateurs dérivés et des risques.
@@ -15,13 +15,17 @@ et des comparaisons statistiques indépendantes des règles agricoles.
   avec limites spatiales et fenêtres non harmonisées visibles.
 - Migration additive versionnée : deux tables privées RLS forcées et index,
   RPC INVOKER serveur append-only, aucune mutation des tables Task 11. Testée
-  localement public/extensions, **non appliquée à DEV**. Aucun contrat V1 modifié.
+  localement public/extensions ; persistance réelle Supabase DEV validée via
+  GitHub Actions. Aucun contrat V1 modifié.
 - Validation : tests Python/climatologie, export CLI Task 11 synthétique et rejeu,
   contrats, Ruff/mypy, lint/typecheck/build, SQL, audits et make check. Documentation
   complète et exemple numérique explicitement fictif dans ce dossier.
 
-**Draft bloquée pour acceptation réelle** : CDSAPI_KEY et accès réseau Copernicus
-non configurés. Tentative de backfill réelle arrêtée proprement ; aucun jeu
-ERA5-Land acquis, pas d'anomalie réelle prétendue, aucun seed sur DEV. La forme
-NetCDF effectivement retournée reste à vérifier. Voir VERIFICATION.md pour les
-résultats, warnings NumPy/netCDF4 et étapes restantes. Ne pas merger en cet état.
+**Livraison mergée dans `main`** : PR #28, commit
+`ccbf4805bf07f5b3ed3590d8e9c3ca92d51a51c3`. Accès CDS avec `CDSAPI_KEY`,
+téléchargement ERA5-Land, NetCDF réel (`t2m`, `tp`, grille latitude/longitude),
+full smoke test continental, persistance DEV et replay/idempotence validés.
+Tests climatologiques, Quality, Security, Vercel et workflow Task12 ERA5 real
+validation verts. Preuves et limites dans [VERIFICATION.md](VERIFICATION.md).
+Le smoke test de trois jours ne constitue pas une normale complète 1991–2020
+ni une validation scientifique agronomique ; l'exemple livré reste fictif.
