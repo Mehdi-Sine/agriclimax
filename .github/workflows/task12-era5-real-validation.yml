@@ -45,6 +45,26 @@ jobs:
             --dataset-version cds-snapshot-2026-10-15 \
             --persist-supabase
             
+            - name: ERA5-Land idempotence replay
+        env:
+          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          output=$(python scripts/ingest_climatology.py \
+            --bbox=-1.8,48.0,-1.4,48.3 \
+            --from 1991-09-01 \
+            --to 1991-09-03 \
+            --reference-start-year 1991 \
+            --reference-end-year 2020 \
+            --minimum-years 30 \
+            --dataset-version cds-snapshot-2026-10-15 \
+            --persist-supabase)
+
+          echo "$output"
+
+          python -c 'import json,sys; d=json.loads(sys.stdin.read()); assert d["changed"] == 0, d' <<< "$output"
+          
       - name: Upload ERA5 validation artifacts
         if: always()
         uses: actions/upload-artifact@v4
