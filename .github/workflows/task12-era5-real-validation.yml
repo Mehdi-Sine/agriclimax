@@ -29,9 +29,11 @@ jobs:
             -r engine/requirements-climate.lock \
             -e "engine[dev,climate]"
 
-      - name: ERA5-Land full real smoke test
+      - name: ERA5-Land real persistence test
         env:
           CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: |
           python scripts/ingest_climatology.py \
             --bbox=-1.8,48.0,-1.4,48.3 \
@@ -40,7 +42,8 @@ jobs:
             --reference-start-year 1991 \
             --reference-end-year 2020 \
             --minimum-years 30 \
-            --dataset-version cds-snapshot-2026-10-15
+            --dataset-version cds-snapshot-2026-10-15 \
+            --persist-supabase
             
       - name: Upload ERA5 validation artifacts
         if: always()
