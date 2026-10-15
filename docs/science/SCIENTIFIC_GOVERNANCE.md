@@ -28,3 +28,20 @@ Résultat accompagné au minimum de : couverture, fraîcheur, résolution source
 
 ## Sources
 Chaque seuil/paramètre scientifique significatif renvoie à une entrée `sources` avec DOI/URL/titre/auteurs/année/licence si connue.
+
+## Extension locale bovins (Task 14)
+
+Le module d'exposition `cattle.thi.exposure` utilise le vocabulaire demandé
+`exploratory` / `reviewed` / `validated` dans sa configuration dédiée. `reviewed`
+correspond au niveau `expert_reviewed` du référentiel général : expert identifié,
+compte rendu de revue et périmètre explicités. Les contrats V1 restent inchangés.
+Le statut documenté d'une référence ne promeut pas une règle automatiquement.
+Aucune configuration livrée Task 14 n'est reviewed ou validated.
+
+Chaque changement de formule, seuil, classe ou convention de nuit exige une
+nouvelle version de configuration et un historique explicatif. La promotion vers
+reviewed demande une revue experte tracée ; vers validated, un protocole approuvé
+pour un contexte bovin précis. La confiance décrit données et validation ; elle
+ne représente jamais l'intensité de l'exposition. Ni THI ni classe climatique ne
+suffisent pour qualifier un animal, sa santé, une perte de production ou une
+mesure zootechnique.

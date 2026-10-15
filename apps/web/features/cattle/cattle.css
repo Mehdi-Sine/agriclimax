@@ -1,0 +1,16 @@
+.cattle-workspace { display: grid; gap: var(--space-4); max-width: 90rem; margin-inline: auto; }
+.cattle-workspace .panel { padding: var(--space-4); }
+.cattle-map { height: 26rem; border: 1px solid var(--border); border-radius: var(--radius-md); }
+.cattle-table { overflow-x: auto; max-width: 100%; }
+.cattle-table table { border-collapse: collapse; width: 100%; }
+.cattle-table th, .cattle-table td { padding: var(--space-3); border-bottom: 1px solid var(--border); text-align: left; }
+.cattle-json { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 48rem) { .cattle-map { height: 18rem; } .cattle-workspace .filters { display: grid; grid-template-columns: 1fr; } .cattle-workspace { min-width: 0; } }
+.cattle-workspace > * { min-width: 0; }
+.cattle-workspace code { overflow-wrap: anywhere; }
+.cattle-header nav { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+@media (max-width: 48rem) {
+  .cattle-header { display: grid; grid-template-columns: 1fr auto; }
+  .cattle-header nav { grid-row: 2; grid-column: 1 / -1; }
+  .cattle-workspace select { max-width: 100%; min-width: 0; }
+}

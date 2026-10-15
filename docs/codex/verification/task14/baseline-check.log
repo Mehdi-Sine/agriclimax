@@ -1,0 +1,150 @@
+node scripts/quality/audit-exceptions.mjs
+{"exception":"GHSA-vfj7-8cjw-p6xm","paths":[{"project":"@agriclimax/web","group":"devDependencies","chain":["eslint-config-next","@next/eslint-plugin-next","fast-glob","micromatch","braces"],"version":"3.0.3"}],"productionBracesPaths":0,"serverTracesChecked":0}
+python -m unittest discover -s tests/quality -p 'test_*.py' -v
+test_quality_workflows_reject_write_permissions_and_invalid_steps (test_automation.Automation.test_quality_workflows_reject_write_permissions_and_invalid_steps) ... ok
+test_yaml_on_stays_a_string_and_duplicates_fail (test_automation.Automation.test_yaml_on_stays_a_string_and_duplicates_fail) ... ok
+test_budget_rejects_missing_or_excessive_assets (test_guards.Guards.test_budget_rejects_missing_or_excessive_assets) ... ok
+test_bundle_is_required_and_secret_sentinel_fails (test_guards.Guards.test_bundle_is_required_and_secret_sentinel_fails) ... ok
+test_migrations_cannot_change_or_go_backwards (test_guards.Guards.test_migrations_cannot_change_or_go_backwards) ... ok
+test_obvious_secrets_and_supabase_jwt (test_guards.Guards.test_obvious_secrets_and_supabase_jwt) ... ok
+test_source_client_boundary_and_safe_reporting (test_guards.Guards.test_source_client_boundary_and_safe_reporting) ... ok
+test_preflight_reports_names_without_values_and_keeps_log (test_meteofrance_operations.MeteoFranceOperations.test_preflight_reports_names_without_values_and_keeps_log) ... ok
+test_tee_preserves_cli_failure_and_manual_range_arguments (test_meteofrance_operations.MeteoFranceOperations.test_tee_preserves_cli_failure_and_manual_range_arguments) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.070s
+
+OK
+node --test tests/quality/*.test.mjs
+✔ accepts only the approved exact lint chain/version within its lifetime (1.805247ms)
+✔ fails at expiry, before approval and on an unlimited extension (0.75405ms)
+✔ fails if another advisory or a broad CVE exclusion is configured (0.670567ms)
+✔ fails when the same package enters production, changes version or introducer (0.791555ms)
+✔ fails on a stale exclusion and allows complete removal after an upgrade (0.20393ms)
+✔ fails if braces is copied into any Next production server trace (0.3263ms)
+✔ logs allowlisted context and drops raw credentials/PII/errors (0.841068ms)
+✔ rejects unsafe identifiers and invalid metadata (0.222998ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 73.55126
+python scripts/quality/security.py
+Source secret guard passed.
+python scripts/quality/migrations.py
+Migration inventory/forward-only guard passed.
+python scripts/check_contracts.py
+V1: 3 schemas/examples, demo GeoJSON and 4 YAML files validated offline.
+python scripts/quality/check_automation.py
+Automation YAML/JSON structure, duplicates and read-only permissions validated.
+python -m pytest engine/tests
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.0.3, pluggy-1.6.0
+rootdir: /workspace/agriclimax-task14/engine
+configfile: pyproject.toml
+collected 74 items
+
+engine/tests/climate/test_climate.py ...........                         [ 14%]
+engine/tests/ingestion/test_ingestion.py ................                [ 36%]
+engine/tests/ingestion/test_meteofrance.py ...................           [ 62%]
+engine/tests/test_contracts.py ........                                  [ 72%]
+engine/tests/test_indicators.py ..                                       [ 75%]
+engine/tests/test_science.py ..................                          [100%]
+
+=============================== warnings summary ===============================
+tests/climate/test_climate.py::test_netcdf_day_boundary_units_and_missingness
+  <frozen importlib._bootstrap>:488: RuntimeWarning: numpy.ndarray size changed, may indicate binary incompatibility. Expected 16 from C header, got 96 from PyObject
+
+tests/climate/test_climate.py: 22 warnings
+  /workspace/agriclimax-task14/work/venv/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:96: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+  As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+    data[key] = value
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 74 passed, 23 warnings in 0.84s ========================
+pnpm lint
+
+> agriclimax@ lint /workspace/agriclimax-task14
+> pnpm --filter @agriclimax/web lint
+
+
+> @agriclimax/web@ lint /workspace/agriclimax-task14/apps/web
+> eslint . --max-warnings 0
+
+pnpm typecheck
+
+> agriclimax@ typecheck /workspace/agriclimax-task14
+> pnpm --filter @agriclimax/web typecheck
+
+
+> @agriclimax/web@ typecheck /workspace/agriclimax-task14/apps/web
+> next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+pnpm test
+
+> agriclimax@ test /workspace/agriclimax-task14
+> pnpm --filter @agriclimax/web test
+
+
+> @agriclimax/web@ test /workspace/agriclimax-task14/apps/web
+> vitest run
+
+
+ RUN  v4.1.11 /workspace/agriclimax-task14/apps/web
+
+
+ Test Files  9 passed (9)
+      Tests  127 passed (127)
+   Start at  13:44:01
+   Duration  1.79s (transform 312ms, setup 0ms, import 873ms, tests 229ms, environment 0ms)
+
+pnpm build
+
+> agriclimax@ build /workspace/agriclimax-task14
+> pnpm --filter @agriclimax/web build
+
+
+> @agriclimax/web@ build /workspace/agriclimax-task14/apps/web
+> node features/observation/prepare-worker.mjs && next build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.ts took 13ms
+- Experiments (use with caution):
+  ⨯ useTypeScriptCli
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 4.3s
+  Running TypeScript ...
+  Finished TypeScript in 2.4s ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/12) ...
+  Generating static pages using 2 workers (3/12)
+  Generating static pages using 2 workers (6/12)
+  Generating static pages using 2 workers (9/12)
+✓ Generating static pages using 2 workers (12/12) in 129ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /api/risks/map
+├ ƒ /api/risks/series
+├ ƒ /api/risks/territory
+├ ƒ /api/weather/series
+├ ƒ /api/weather/stations
+├ ○ /design-system
+├ ƒ /diagnostic
+├ ○ /manifest.webmanifest
+└ ƒ /watch
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+node scripts/quality/audit-exceptions.mjs --build
+{"exception":"GHSA-vfj7-8cjw-p6xm","paths":[{"project":"@agriclimax/web","group":"devDependencies","chain":["eslint-config-next","@next/eslint-plugin-next","fast-glob","micromatch","braces"],"version":"3.0.3"}],"productionBracesPaths":0,"serverTracesChecked":14}

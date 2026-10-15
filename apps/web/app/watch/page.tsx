@@ -1,3 +1,4 @@
+import { CattleWorkspace } from '../../features/cattle/workspace';
 import 'server-only';
 import { BrandLockup } from '../../components/shell/brand';
 import { ThemeToggle } from '../../components/shell/theme-toggle';
@@ -18,6 +19,7 @@ export default async function WatchPage({ searchParams }: {
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(await searchParams)) if (typeof value === 'string') params.set(key, value);
   if (params.get('mode') === 'wheat') return <WheatWorkspace params={params} view="watch" />;
+  if (params.get('production') === 'cattle' && params.get('mode') === 'live_meteofrance') return <CattleWorkspace params={params} view="watch" />;
   const filters = watchFilters(params);
   const demo = !params.has('mode') || params.get('mode') === 'demo';
   const detailed = params.get('density') === 'detailed';

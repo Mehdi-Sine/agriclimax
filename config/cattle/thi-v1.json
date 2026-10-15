@@ -1,0 +1,28 @@
+{
+  "rule_id": "cattle.thi.exposure",
+  "rule_version": "1.0.0",
+  "production": "cattle",
+  "scientific_status": "exploratory",
+  "formula_id": "bohmanova-2005-thi-26-v1",
+  "formula": "(1.8*T_C+32)-(0.55-0.0055*RH_pct)*(1.8*T_C-26)",
+  "thresholds": [72],
+  "classes": [{"minimum": 72, "level": "exposure_above_reference"}],
+  "recovery_threshold": 72,
+  "night_start_hour": 22,
+  "night_end_hour": 6,
+  "night_timezone": "Europe/Paris",
+  "comparison": "strict_above; classes_lower_bound_inclusive; recovery_strict_below",
+  "source": {
+    "title": "National Genetic Evaluation of Milk Yield for Heat Tolerance of United States Holsteins",
+    "authors": "J. Bohmanova, I. Misztal, S. Tsuruta, H.D. Norman, T.J. Lawlor",
+    "year": 2005,
+    "url": "https://www.ars.usda.gov/ARSUserFiles/80420530/Publications/Scientific/Conferences/2005/IB_33_160_BohmanovaEtAl.pdf",
+    "consulted_at": "2026-10-15",
+    "scope": "US Holsteins, first-parity test-day milk records; threshold 72 assumed in the study, not universal; no clinical inference",
+    "licence": "not established"
+  },
+  "parameter_status": "exploratory",
+  "night_definition_status": "exploratory_product_convention_not_validated",
+  "limits": ["race", "âge", "niveau de production", "stade physiologique", "bâtiment", "ventilation", "ombrage", "accès à l’eau", "rayonnement", "vent", "microclimat"],
+  "notice": "Indicateur climatique d’exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique."
+}
