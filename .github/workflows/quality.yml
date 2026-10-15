@@ -55,9 +55,11 @@ jobs:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: engine/requirements-dev.lock
-      - run: python -m pip install -r engine/requirements-dev.lock -e 'engine[dev]'
+      - run: python -m pip install -r engine/requirements-dev.lock -r engine/requirements-climate.lock -e 'engine[dev]'
       - run: python -m pip check
       - run: python -m ruff check scripts/quality tests/quality
+      - run: python -m ruff check engine/src/agriclimax/climate engine/tests/climate scripts/ingest_climatology.py scripts/compare_climatology.py
+      - run: python -m mypy --strict engine/src/agriclimax/climate scripts/ingest_climatology.py scripts/compare_climatology.py
       - run: python scripts/check_contracts.py
       - run: python scripts/quality/check_automation.py
       - run: python -m pytest engine/tests --junitxml=work/quality/python.xml

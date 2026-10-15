@@ -57,7 +57,7 @@ corepack enable
 pnpm install --frozen-lockfile
 python -m venv .venv
 . .venv/bin/activate
-python -m pip install -r engine/requirements-dev.lock -e 'engine[dev]'
+python -m pip install -r engine/requirements-dev.lock -r engine/requirements-climate.lock -e 'engine[dev,climate]'
 pnpm check-contracts
 make check
 pnpm dev
@@ -128,3 +128,12 @@ démo, les contrats, les migrations, les dépendances et la fuite de secrets ser
 Voir [les commandes, budgets et limites](docs/ops/QUALITY_SECURITY.md) et
 [le rapport Task 09](docs/codex/verification/task09/REPORT.md).
 Les audits restent bloquants sur les vulnérabilités documentées dans le rapport.
+
+## Climatologie historique — Task 12
+
+Le socle ERA5-Land et les statistiques génériques sont distincts du live
+Météo-France et des risques agricoles. Période de référence obligatoire,
+réduction horaire→quotidienne explicite, provenance et révisions immuables.
+[Source, méthodes, commandes et limites](engine/src/agriclimax/climate/README.md).
+L'accès CDS et le backfill réel restent à valider ;
+[état de vérification](docs/codex/verification/task12/VERIFICATION.md).

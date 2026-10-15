@@ -1,0 +1,44 @@
+{
+  "data_kind": "synthetic_test_only",
+  "demo": true,
+  "notice": "Exemple num\u00e9rique fictif, aucune acquisition ERA5-Land r\u00e9elle. Ne pas ins\u00e9rer en base m\u00e9tier.",
+  "variable": "temperature",
+  "unit": "degC",
+  "reference_period": {
+    "start_year": 1991,
+    "end_year": 1994
+  },
+  "homologous_calendar_day": "09-01",
+  "historical_values": [
+    10.0,
+    11.0,
+    12.0,
+    13.0
+  ],
+  "sample_count": 4,
+  "current_value": 15.0,
+  "normal": 11.5,
+  "median": 11.5,
+  "percentiles": {
+    "0.1": 10.3,
+    "0.5": 11.5,
+    "0.9": 12.7
+  },
+  "absolute_anomaly": 3.5,
+  "relative_anomaly_percent": null,
+  "percentile_rank": 100.0,
+  "scientific_status": "exploratory",
+  "method_version": "calendar-day-type7-midrank-1",
+  "period_example": {
+    "aggregation": "mean",
+    "expected_days": 2,
+    "sample_count": 2,
+    "excluded_years": [],
+    "current_value": 6.0,
+    "normal": 3.0,
+    "absolute_anomaly": 3.0,
+    "percentile_rank": 100.0,
+    "method_version": "homologous-complete-period-type7-midrank-1",
+    "quality_flags": []
+  }
+}

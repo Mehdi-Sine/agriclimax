@@ -1,0 +1,79 @@
+name: Task12 ERA5 real validation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-era5:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Task 12 branch
+        uses: actions/checkout@v4
+        with:
+          ref: codex/12-climatology-anomalies
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install \
+            -r engine/requirements-dev.lock \
+            -r engine/requirements-climate.lock \
+            -e "engine[dev,climate]"
+
+      - name: ERA5-Land real persistence test
+        env:
+          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          python scripts/ingest_climatology.py \
+            --bbox=-1.8,48.0,-1.4,48.3 \
+            --from 1991-09-01 \
+            --to 1991-09-03 \
+            --reference-start-year 1991 \
+            --reference-end-year 2020 \
+            --minimum-years 30 \
+            --dataset-version cds-snapshot-2026-10-15 \
+            --persist-supabase
+            
+      - name: ERA5-Land idempotence replay
+        env:
+          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          output=$(python scripts/ingest_climatology.py \
+            --bbox=-1.8,48.0,-1.4,48.3 \
+            --from 1991-09-01 \
+            --to 1991-09-03 \
+            --reference-start-year 1991 \
+            --reference-end-year 2020 \
+            --minimum-years 30 \
+            --dataset-version cds-snapshot-2026-10-15 \
+            --persist-supabase)
+
+          echo "$output"
+
+          python -c 'import json,sys; d=json.loads(sys.stdin.read()); assert d["changed"] == 0, d' <<< "$output"
+          
+      - name: Upload ERA5 validation artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: task12-era5-real-smoke
+          path: |
+            work/era5-land/manifest.json
+            work/era5-land/normalized/
+      
+      - name: Climate tests
+        run: |
+          python -m pytest engine/tests/climate -v
