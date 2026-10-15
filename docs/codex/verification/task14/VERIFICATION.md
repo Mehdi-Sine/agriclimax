@@ -114,3 +114,9 @@ node tests/e2e/cattle.mjs
 Le test navigateur nécessite un serveur local buildé, les bindings Task 11 réels
 et Chromium (`CHROMIUM_EXECUTABLE` optionnel). Les tests unitaires restent hors
 réseau. Formule/règle/config/source exactes sont présentes dans chaque résultat.
+
+## Reprise après merge Task 13
+
+Voir [le rapport de rebase et de vérification d'intégration](rebase-task13/VERIFICATION.md)
+pour la base main actualisée, la correction E2E et les contrôles blé/bovins.
+Les chiffres et logs ci-dessus décrivent la livraison initiale.

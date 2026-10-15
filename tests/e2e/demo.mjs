@@ -15,6 +15,33 @@ const browser = await chromium.launch({
   args: ['--no-sandbox', '--enable-unsafe-swiftshader'],
   ...(process.env.CHROMIUM_EXECUTABLE ? { executablePath: process.env.CHROMIUM_EXECUTABLE } : {}),
 });
+// Reach a named control through real Tab navigation without assuming its position.
+async function tabTo(page, target) {
+  assert.equal(await target.count(), 1, 'Expected one explicitly named control');
+  // Native date/time controls can expose several Tab stops per DOM element.
+  const tabBudget = () => page.locator('a[href], button, input, select, textarea, summary, [tabindex]').evaluateAll(controls =>
+    controls.reduce((total, el) => total + (el instanceof HTMLInputElement && ['date', 'datetime-local', 'time'].includes(el.type) ? 6 : 1), 1));
+  let budget = await tabBudget();
+  for (let step = 0; step < budget; step++) {
+    // Hydrating maps can add keyboard controls while the traversal is in progress.
+    budget = Math.max(budget, await tabBudget());
+    await page.keyboard.press('Tab');
+    if (await target.evaluate(el => el === document.activeElement)) {
+      assert.ok(await target.isVisible(), 'Keyboard target must be visible');
+      assert.equal(await target.evaluate(el => el.matches(':focus-visible')), true, 'Keyboard focus must remain visible');
+      return;
+    }
+  }
+  assert.fail(`Named control is not reachable with the keyboard: ${await target.textContent()} at ${new URL(page.url()).pathname}, budget ${budget}`);
+}
+async function useSkipLink(page) {
+  const skip = page.getByRole('link', { name: 'Aller au contenu', exact: true });
+  assert.equal(await skip.count(), 1, 'Skip link must exist');
+  assert.equal(await skip.getAttribute('href'), '#main');
+  await tabTo(page, skip);
+  await page.keyboard.press('Enter');
+  assert.equal(await page.locator('main#main').evaluate(el => el === document.activeElement), true, 'Skip link must focus main');
+}
 const reports = [];
 try {
   for (const [name, width, height] of [['desktop', 1440, 900], ['tablet', 1024, 768], ['mobile', 390, 844]]) {
@@ -51,10 +78,7 @@ try {
     reports.push({ name, width, height, durationMs: Math.round(durationMs), violations });
     await page.screenshot({ path: path.join(artifactDir, `${name}.png`), fullPage: true });
     // Collect every viewport before enforcing the accessibility gate.
-    await page.keyboard.press('Tab');
-    assert.equal(await page.locator(':focus').innerText(), 'Aller au contenu');
-    await page.keyboard.press('Enter');
-    assert.equal(await page.locator(':focus').getAttribute('id'), 'main');
+    await useSkipLink(page);
     if (name === 'mobile') {
       const opener = page.getByRole('button', { name: 'Filtres', exact: true });
       await opener.click();
@@ -73,6 +97,39 @@ try {
     await page.getByRole('link', { name: 'Ouvrir le diagnostic', exact: true }).click();
     await page.waitForURL('**/diagnostic?**');
     assert.ok((await page.locator('main').innerText()).includes('demo-fiction'));
+    // Both production spaces remain discoverable from the shared demo entry.
+    await page.goto(`${baseURL}/?mode=demo`, { waitUntil: 'networkidle' });
+    const wheat = page.getByRole('link', { name: 'Blé · données réelles', exact: true });
+    await tabTo(page, wheat);
+    await page.keyboard.press('Enter');
+    await page.waitForURL('**/?mode=wheat');
+    await page.waitForLoadState('networkidle');
+    assert.ok(await page.getByRole('heading', { name: 'Observation Map · blé tendre', exact: true }).isVisible());
+    assert.equal(await page.locator('.wheat-map circle').count(), 5);
+    await useSkipLink(page);
+    await page.getByRole('link', { name: 'Démonstration fictive', exact: true }).click();
+    await page.waitForURL('**/?mode=demo');
+    const cattle = page.getByRole('link', { name: 'Bovins · exposition thermique THI · live Météo-France', exact: true });
+    const cattleURL = new URL(await cattle.getAttribute('href'), baseURL);
+    assert.equal(cattleURL.searchParams.get('production'), 'cattle');
+    assert.equal(cattleURL.searchParams.get('mode'), 'live_meteofrance');
+    await tabTo(page, cattle);
+    await page.keyboard.press('Enter');
+    await page.waitForURL(url => url.searchParams.get('production') === 'cattle');
+    await page.getByRole('heading', { name: 'Observation Map · Bovins', exact: true }).waitFor({ state: 'visible' });
+    await page.waitForLoadState('networkidle');
+    await useSkipLink(page);
+    for (const [view, title] of [['Observation', 'Observation Map · Bovins'], ['Diagnostic', 'Scientific Diagnostic · Bovins'], ['Veille', 'Watch · Exposition thermique des bovins']]) {
+      await page.locator('header').getByRole('link', { name: view, exact: true }).click();
+      await page.waitForLoadState('networkidle');
+      assert.ok(await page.getByRole('heading', { name: title, exact: true }).isVisible());
+      assert.equal(new URL(page.url()).searchParams.get('production'), 'cattle');
+      assert.ok((await page.locator('main').innerText()).includes('microclimat'));
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+      await page.addScriptTag({ path: axePath });
+      const cattleAudit = await page.evaluate(async () => window.axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] } }));
+      reports.push({ name, production: 'cattle', view, violations: cattleAudit.violations.map(v => ({ id: v.id, impact: v.impact, count: v.nodes.length })) });
+    }
     for (const route of ['/', '/design-system']) {
       await page.goto(`${baseURL}${route}`, { waitUntil: 'networkidle' });
       for (const theme of ['light', 'dark']) {
