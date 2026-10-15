@@ -42,6 +42,21 @@ jobs:
               "product_type": "reanalysis",
               "variable": ["2m_temperature", "total_precipitation"],
               "year": "1991",
+      - name: Inspect real ERA5-Land structure
+        env:
+          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          import cdsapi
+          import xarray as xr
+
+          token = os.environ["CDSAPI_KEY"]
+
+          request = {
+              "product_type": "reanalysis",
+              "variable": ["2m_temperature", "total_precipitation"],
+              "year": "1991",
               "month": "09",
               "day": ["01", "02", "03", "04"],
               "time": [f"{h:02}:00" for h in range(24)],
