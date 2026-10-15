@@ -55,7 +55,7 @@ jobs:
           print("Required runtime bindings are present; API authorization is checked by ingestion.")
           PY
       - run: python -m pip install -r engine/requirements-dev.lock
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: work/meteofrance/raw-sources
           key: meteofrance-source-v1-${{ github.run_id }}-${{ github.run_attempt }}
