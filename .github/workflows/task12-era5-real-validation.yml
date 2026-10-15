@@ -40,13 +40,13 @@ jobs:
           CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
         run: |
           python scripts/ingest_climatology.py \
-            --source era5-land \
-            --bbox -5.0,48.2,-4.2,48.8 \
-            --start-date 1991-09-01 \
-            --end-date 1991-09-03 \
+            --bbox=-5.0,48.2,-4.2,48.8 \
+            --from 1991-09-01 \
+            --to 1991-09-03 \
             --reference-start-year 1991 \
             --reference-end-year 2020 \
-            --dry-run
+            --minimum-years 30 \
+            --dataset-version cds-snapshot-2026-10-15
 
       - name: Climate tests
         run: |
