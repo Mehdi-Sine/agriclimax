@@ -2,12 +2,15 @@
 
 ## État
 
-**Implémentation préparée et testée ; acceptation réelle ERA5-Land incomplète.**
-Aucun backfill ERA5-Land réel ni anomalie calculée à partir de données ERA5-Land
-réellement acquises n'est revendiqué. Aucune migration ou donnée Task 12 écrite
-sur DEV. L'exemple JSON livré est explicitement fictif et purement numérique.
+**Task 12 mergée dans `main` ; validation réelle ERA5-Land et persistance DEV réussies.**
 
-## Contrôles de base et Task 11
+La [PR #28](https://github.com/Mehdi-Sine/agriclimax/pull/28) a été mergée le
+15 octobre 2026, commit `ccbf4805bf07f5b3ed3590d8e9c3ca92d51a51c3`.
+Les validations GitHub Actions postérieures à la rédaction initiale ont levé
+les blocages CDS et persistance DEV décrits alors. L'exemple JSON livré reste
+explicitement fictif et purement numérique.
+
+## Contrôles initiaux de base et Task 11 (historique)
 
 Main GitHub confirmé `6c77faf4cf5d80508cbb34ce7e776d9230508f87` puis fetch Git
 réussi avec le credential helper de `gh`, sans extraction de token. Worktree neuf
@@ -21,7 +24,7 @@ SQL distant : 185 lots archive + cinq lots horaires ; aucune duplication ajouté
 Le cron quotidien est présent dans main ; activation et secrets Actions non
 attestés par cette tâche, aucun dispatch ni activation effectué.
 
-## Validation locale
+## Validation locale initiale (historique)
 
 - Python : **74 tests**, dont onze nouveaux cas climatologiques, sans skip.
 - Contrats V1 et automation : PASS ; aucun contrat partagé modifié.
@@ -54,22 +57,36 @@ Le runtime émet un warning binaire NumPy/netCDF4 et des dépréciations de shap
 NumPy 2.5 ; les lectures/écritures et valeurs sont vérifiées, aucun warning
 masqué. Une matrice de compatibilité plus large reste à établir.
 
-## Tentative réelle ERA5-Land et blocage
+## Validation réelle ERA5-Land via GitHub Actions
 
-Commande exécutée sur une petite bbox autour de Brest, 1–3 septembre 1991,
-période de référence déclarée 1991–2020/minimum 30, snapshot explicite. Sortie
-contrôlée exit 1, sans clé ni corps upstream. `CDSAPI_KEY` et `CDSAPI_URL` absentes ;
-le provider utilise une URL CDS fixe et ne requiert donc que la clé.
-L'hôte CDS et ses hôtes de téléchargement ne figurent pas dans la liste réseau
-configurée. Aucun contournement du proxy, récupération de clé dans le chat ou
-remplacement par une fixture effectué. Configuration demandée pendant le travail.
+Le [workflow Task12 ERA5 real validation, run 38743428978](https://github.com/Mehdi-Sine/agriclimax/actions/runs/38743428978)
+est vert, y compris les étapes de persistance réelle, replay/idempotence,
+publication des artefacts et tests climatologiques.
 
-Pour lever le blocage : autoriser `cds.climate.copernicus.eu` et les hôtes de
-fichiers réellement retournés ; lier `CDSAPI_KEY` comme secret ; accepter la
-licence `reanalysis-era5-land` dans le compte CDS. Confirmer format NetCDF réel,
-variables/dimensions, licence et version reçues. Ensuite seulement : acquisition,
-normalisation, test de rejeu et persistance réelle ; comparer à l'export quotidien
-Météo-France avec l'association point/station explicitement documentée.
+- Accès réel Copernicus CDS avec le secret serveur `CDSAPI_KEY` : réussi.
+- Téléchargement réel ERA5-Land et format NetCDF réel vérifiés : variables
+  `t2m`, `tp` et grille latitude/longitude.
+- Full smoke test réel sur la bbox continentale
+  `(-1.8, 48.0, -1.4, 48.3)`, du 1 au 3 septembre 1991, snapshot
+  `cds-snapshot-2026-10-15` : réussi.
+- Persistance réelle dans Supabase DEV via `--persist-supabase` : réussie.
+- Rejeu des mêmes entrées et idempotence : réussis ; le workflow vérifie
+  explicitement `changed == 0` au replay.
+- Tests climatologiques : verts.
+
+Les checks de la PR #28 avant merge sont verts :
+[Quality](https://github.com/Mehdi-Sine/agriclimax/actions/runs/38743428939),
+[Security audits](https://github.com/Mehdi-Sine/agriclimax/actions/runs/38743428937),
+[Vercel](https://vercel.com/mehdi-sines-projects/agriclimax/F8pbKZK5uaXwCsaWt8cSb52TYSSq)
+et Task12 ERA5 real validation.
+
+La tentative initiale autour de Brest s'était arrêtée faute d'accès CDS et de
+clé configurés dans son environnement. Le fichier `era5-real-attempt.log`
+conserve cette preuve historique ; il ne décrit plus l'état d'acceptation actuel.
+Les tests NetCDF synthétiques locaux ci-dessus restent distincts de la validation
+sur fichiers réellement téléchargés dans Actions.
+
+## Contexte d'outillage initial (historique)
 
 Le changelog Supabase demandé par la compétence a répondu 403 (domaine non
 accessible) ; documentation Supabase consultée via son outil `search_docs`.
@@ -78,15 +95,19 @@ pas en écrivant dans le répertoire personnel. Les premiers échecs de runtime
 (pnpm 11, caches personnels, socket Docker sans permission réseau) ont été
 résolus par pnpm 10 local, caches de travail et contexte réseau de commande.
 
-## Prochaines étapes pour achever l'acceptation
+## Limites scientifiques et suites hors smoke test
 
-1. Configurer l'accès CDS puis valider le vrai format source. Le décodeur refuse
-   actuellement ZIP et dimensions non prévues : adapter explicitement si nécessaire.
-2. Acquérir une petite série France réelle, vérifier unités/horaires/checksums,
-   puis tester SQL réel et replay avant application de la migration à DEV.
-3. Alimenter des années homologues suffisantes pour une normale (pas déduire une
-   normale 1991–2020 depuis trois jours d'une seule année). Exporter exemple réel.
-4. Valider la comparaison station/grille et harmoniser les fenêtres quotidiennes,
-   puis revue scientifique avant tout usage agronomique. Aucun résultat validé.
-5. Définir RH/ET0 si nécessaires, stockage objet durable, rétention, accès de
-   lecture borné et jointure territoriale ; aucune autre Task commencée ici.
+La période de référence déclarée reste 1991–2020 avec un minimum de 30 années.
+Le smoke test de trois jours de 1991 valide la chaîne technique réelle ; il ne
+constitue pas une normale climatique sur trente ans ni un backfill complet.
+
+- Alimenter les années homologues suffisantes avant de produire une normale et
+  un exemple climatologique réel représentatif.
+- Valider la comparaison station/grille et harmoniser les fenêtres quotidiennes,
+  puis effectuer la revue scientifique avant tout usage agronomique. La validation
+  technique ne confère pas le statut scientifique « validé » aux résultats.
+- Définir RH/ET0 si nécessaires, stockage objet durable, rétention, accès de
+  lecture borné et jointure territoriale ; aucune autre Task commencée ici.
+
+Cette mise à jour post-merge est documentaire : aucune nouvelle acquisition,
+écriture DEV, migration ou exécution manuelle de workflow n'est effectuée.

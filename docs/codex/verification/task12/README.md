@@ -26,7 +26,7 @@ comparaison descriptive et persistance privée. `ingestion/` Task 11 conserve
 les observations live. Les indicateurs climatologiques ne sont pas des résultats
 scientifiques validés ni des risques agricoles. Aucun changement web métier.
 
-## Proposition de migration (avant création/application)
+## Proposition de migration initiale (historique avant création/application)
 
 Schéma inspecté via fichiers et inventaire SQL distant : cinq tables publiques,
 huit tables privées ; stations et lots Task 11 séparés de la grille historique.
@@ -53,5 +53,13 @@ migration DOWN destructive. Application distante seulement après tests SQL loca
 
 Le détail scientifique, les commandes et prochaines étapes sont dans
 [la documentation du module](../../../../engine/src/agriclimax/climate/README.md).
-Les vérifications et blocages sont dans [VERIFICATION.md](VERIFICATION.md).
-La migration n'est pas appliquée à DEV en l'absence de validation réelle CDS.
+Les vérifications actualisées sont dans [VERIFICATION.md](VERIFICATION.md).
+Task 12 est mergée dans `main` via la PR #28, commit
+`ccbf4805bf07f5b3ed3590d8e9c3ca92d51a51c3`. L'accès CDS, le téléchargement
+ERA5-Land, le NetCDF réel (`t2m`, `tp`, latitude/longitude), le smoke test continental,
+la persistance Supabase DEV et le replay/idempotence ont été validés via GitHub
+Actions. Les tests climatologiques et les checks Quality, Security, Vercel et
+Task12 ERA5 real validation sont verts. Les sections initiales ci-dessus
+conservent le contexte historique ; le blocage CDS/DEV est levé.
+Le smoke test ne constitue pas une normale complète 1991–2020 ni une validation
+scientifique pour l'usage agronomique.
