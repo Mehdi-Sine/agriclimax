@@ -29,19 +29,6 @@ jobs:
             -r engine/requirements-climate.lock \
             -e "engine[dev,climate]"
 
-      - name: Check CDS secret
-        run: |
-          python - <<'PY'
-          import os
-          import cdsapi
-          import xarray as xr
-
-          token = os.environ["CDSAPI_KEY"]
-
-          request = {
-              "product_type": "reanalysis",
-              "variable": ["2m_temperature", "total_precipitation"],
-              "year": "1991",
       - name: Inspect real ERA5-Land structure
         env:
           CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
@@ -98,7 +85,6 @@ jobs:
 
           ds.close()
           PY
-          
       - name: Climate tests
         run: |
           python -m pytest engine/tests/climate -v
