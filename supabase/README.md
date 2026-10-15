@@ -135,3 +135,14 @@ simulation minimale de Supabase ; Auth, gateway et politiques globales ne sont p
 reproduits. `SET statement_timeout='5s'` est configuré sur les RPC ; vérifier le
 hoisting PostgREST/la limite transactionnelle sur DEV. Ce réglage interne n'est pas
 une garantie de timeout pour un appel SQL direct déjà démarré.
+
+## Extension Task 12 — références climatologiques
+
+Migration additive `20261015073507_climatology_reference.sql` : deux tables privées
+append-only `climate_references` et `climate_indicators`, deux index de lecture,
+RPC INVOKER serveur `agriclimax_persist_climate`. RLS forcée, aucun droit client,
+aucune mutation des observations Task 11 ni des résultats de risque.
+Tests synthétiques locaux transactionnels : `tests/climate.sql` ; ne pas les
+exécuter sur DEV. La migration est testée localement, **non appliquée à DEV**.
+[Inspection préalable](../docs/codex/verification/task12/README.md) et
+[méthodes/provenance](../engine/src/agriclimax/climate/README.md).
