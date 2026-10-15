@@ -29,62 +29,28 @@ jobs:
             -r engine/requirements-climate.lock \
             -e "engine[dev,climate]"
 
-      - name: Inspect real ERA5-Land structure
+      - name: ERA5-Land full real smoke test
         env:
           CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
         run: |
-          python - <<'PY'
-          import os
-          import cdsapi
-          import xarray as xr
-
-          token = os.environ["CDSAPI_KEY"]
-
-          request = {
-              "product_type": "reanalysis",
-              "variable": ["2m_temperature", "total_precipitation"],
-              "year": "1991",
-              "month": "09",
-              "day": ["01", "02", "03", "04"],
-              "time": [f"{h:02}:00" for h in range(24)],
-              "area": [48.8, -5.0, 48.2, -4.2],
-              "data_format": "netcdf",
-              "download_format": "unarchived",
-          }
-
-          client = cdsapi.Client(
-              url="https://cds.climate.copernicus.eu/api",
-              key=token,
-              quiet=True,
-              debug=False,
-              timeout=60,
-          )
-
-          target = "era5-real.nc"
-          client.retrieve("reanalysis-era5-land", request, target)
-
-          ds = xr.open_dataset(target, engine="netcdf4")
-
-          print("ERA5_REAL_FILE_OK")
-          print("dims:", dict(ds.sizes))
-          print("variables:", list(ds.data_vars))
-          print("coords:", list(ds.coords))
-
-          for name in ds.data_vars:
-              print(
-                  "var:",
-                  name,
-                  "dims=",
-                  ds[name].dims,
-                  "units=",
-                  ds[name].attrs.get("units"),
-              )
-
-          print("latitude_range:", float(ds.latitude.min()), float(ds.latitude.max()))
-          print("longitude_range:", float(ds.longitude.min()), float(ds.longitude.max()))
-
-          ds.close()
-          PY
+          python scripts/ingest_climatology.py \
+            --bbox=-5.0,48.2,-4.2,48.8 \
+            --from 1991-09-01 \
+            --to 1991-09-03 \
+            --reference-start-year 1991 \
+            --reference-end-year 2020 \
+            --minimum-years 30 \
+            --dataset-version cds-snapshot-2026-10-15
+            
+      - name: Upload ERA5 validation artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: task12-era5-real-smoke
+          path: |
+            work/era5-land/manifest.json
+            work/era5-land/normalized/
+      
       - name: Climate tests
         run: |
           python -m pytest engine/tests/climate -v
