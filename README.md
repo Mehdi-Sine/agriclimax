@@ -137,3 +137,6 @@ réduction horaire→quotidienne explicite, provenance et révisions immuables.
 [Source, méthodes, commandes et limites](engine/src/agriclimax/climate/README.md).
 L'accès CDS et le backfill réel restent à valider ;
 [état de vérification](docs/codex/verification/task12/VERIFICATION.md).
+
+Le [pipeline quotidien live](docs/ops/DAILY_LIVE.md) documente le lancement manuel,
+le cron, les contrôles, la conservation des données valides et la reprise sur échec.

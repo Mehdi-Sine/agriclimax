@@ -8,8 +8,6 @@ on:
       to:
         description: Last source daily date (inclusive)
         type: string
-  schedule:
-    - cron: '40 7 * * *'
 permissions:
   contents: read
 concurrency:
@@ -18,8 +16,8 @@ concurrency:
 jobs:
   live:
     # Environment secrets are not automatically GitHub repository secrets.
-    # Scheduling must be enabled deliberately after review/merge and configuration.
-    if: github.event_name == 'workflow_dispatch' || vars.METEOFRANCE_LIVE_ENABLED == 'true'
+    # Daily scheduling is owned by daily-live.yml; this workflow is manual only.
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
