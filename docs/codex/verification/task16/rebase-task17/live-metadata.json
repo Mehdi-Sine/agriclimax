@@ -1,0 +1,24 @@
+{
+  "verification_date": "2026-10-16",
+  "method": "read-only SQL metadata and aggregate checks; no payload export",
+  "main": "5160f9b100503350db3dbda2f0769d7793e13bbc",
+  "successful_publications": 1,
+  "latest": {
+    "publication_digest_sha256": "2b38b57e1e63ea2666da8c6f64b303127d84610dbd1a51f3343558ca0f0531ec",
+    "window_end": "2026-10-13",
+    "computed_at": "2026-10-16T13:48:14.270668Z",
+    "wheat_stations": 5,
+    "cattle_stations": 5,
+    "wheat_timestamp_matches": true,
+    "wheat_window_matches": true,
+    "paired_daily_cattle": true,
+    "wheat_explicit_non_demo": true,
+    "same_wheat_parameters": true,
+    "freshness_at_verification": "stale"
+  },
+  "reader_installed_in_production": false,
+  "exact_publication_time": "not recorded by Task17",
+  "latest_run_status": "not recorded by successful-publication table",
+  "full_payload_export": "not performed: automatic review rejected scope/destination",
+  "production_e2e_after_reader_deployment": "not performed; migration pending"
+}

@@ -1,0 +1,19 @@
+{
+  "base": "http://127.0.0.1:3000",
+  "reports": [
+    {
+      "production": "wheat",
+      "width": 390,
+      "source_disconnected": true,
+      "no_fallback": true
+    },
+    {
+      "production": "cattle",
+      "width": 390,
+      "source_disconnected": true,
+      "no_fallback": true
+    }
+  ],
+  "real_sources": false,
+  "passed": true
+}

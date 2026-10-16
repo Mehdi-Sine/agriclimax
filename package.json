@@ -17,7 +17,8 @@
     "test-e2e": "node tests/e2e/demo.mjs",
     "test-integration": "node tests/e2e/integration.mjs",
     "smoke": "python scripts/quality/smoke.py",
-    "test-e2e-live": "node tests/e2e/live-risk.mjs"
+    "test-e2e-live": "node tests/e2e/live-risk.mjs",
+    "test-e2e-daily": "node tests/e2e/daily-risk.mjs"
   },
   "engines": {
     "node": ">=20.9",

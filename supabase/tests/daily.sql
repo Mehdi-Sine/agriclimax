@@ -26,6 +26,11 @@ begin
   if not rejected or exists(select 1 from agriclimax_private.daily_snapshots where content_key=repeat('d',64))
     or (select count(*) from agriclimax_private.wheat_portfolios)<>n
     then raise exception 'Failed publication was not atomic'; end if;
+  if public.agriclimax_read_daily()->'latest'->>'content_key' <> repeat('c',64)
+    or public.agriclimax_read_daily()->'selected'->>'content_key' <> repeat('c',64)
+    or public.agriclimax_read_daily('2026-09-01','2026-09-03')->'selected'->>'content_key' <> repeat('c',64)
+    or public.agriclimax_read_daily('2026-09-02','2026-09-03')->'selected' <> 'null'::jsonb
+    then raise exception 'Successful publication lost after failed run, or wrong window substituted'; end if;
   rejected:=false;
   begin perform public.agriclimax_publish_daily(repeat('e',64),jsonb_set(p,'{cattle}','[]'));
   exception when raise_exception then rejected:=true; end;
@@ -34,7 +39,9 @@ end $$;
 reset role;
 do $$
 begin
-  if has_function_privilege('anon','public.agriclimax_publish_daily(text,jsonb)','EXECUTE')
+  if has_function_privilege('anon','public.agriclimax_read_daily(date,date)','EXECUTE')
+    or has_function_privilege('authenticated','public.agriclimax_read_daily(date,date)','EXECUTE')
+    or has_function_privilege('anon','public.agriclimax_publish_daily(text,jsonb)','EXECUTE')
     or has_function_privilege('authenticated','public.agriclimax_publish_daily(text,jsonb)','EXECUTE')
     or has_table_privilege('anon','agriclimax_private.daily_snapshots','SELECT')
     or has_table_privilege('service_role','agriclimax_private.daily_snapshots','UPDATE,DELETE')

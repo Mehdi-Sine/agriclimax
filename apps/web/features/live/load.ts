@@ -1,33 +1,35 @@
 import 'server-only';
-import { loadWheat, WheatRepository } from '../wheat/server';
+import { DailyRepository, type DailyPublication } from './daily';
 import type { WheatPortfolio } from '../wheat/model';
-import { loadCattle } from '../cattle/load';
-import { SupabaseStationWeatherRepository, type WeatherStation } from '../../lib/server/station-weather';
+import type { WeatherStation } from '../../lib/server/station-weather';
 import { liveContext } from './context';
 
 export async function loadLive(context: ReturnType<typeof liveContext>) {
   let stations: WeatherStation[] = [], portfolios: WheatPortfolio[] = [];
-  let cattle: Awaited<ReturnType<typeof loadCattle>> | null = null;
-  let failure = '', catalogueFailure = false;
-  if (!context.valid) return {stations, portfolios, cattle, failure:'Contexte invalide : production, indicateur, station et période terminée de 1 à 366 jours requis.', catalogueFailure};
-  const repository = new SupabaseStationWeatherRepository();
-  if (context.production === 'wheat') {
-    const query = new URLSearchParams({mode:'wheat', start:context.start, end:context.end});
-    // Keep all station results on the map; select a station only for detail.
-    for (const key of ['stage','fingerprint']) if (context.query.has(key)) query.set(key, context.query.get(key)!);
-    const [catalogue, results] = await Promise.allSettled([
-      repository.stations(), loadWheat(query, new WheatRepository()),
-    ]);
-    if (catalogue.status === 'fulfilled') stations = catalogue.value;
-    else catalogueFailure = true;
-    if (results.status === 'fulfilled') portfolios = results.value;
-    else failure = 'Calculs blé indisponibles ou contexte invalide. Aucun instantané ni fixture de remplacement.';
-  } else {
-    try {
-      cattle = await loadCattle(context.query, repository);
-      stations = cattle.stations;
-      if (cattle.state === 'error') failure = 'Observations indisponibles ou contexte invalide. Aucun résultat de remplacement.';
-    } catch { failure = 'Source Météo-France indisponible. Aucun résultat de remplacement.'; }
-  }
-  return {stations, portfolios, cattle, failure, catalogueFailure};
+  let cattle: {state:string; station:string; start:string; end:string; product:string; stations:WeatherStation[]; results:DailyPublication['cattle']} | null = null;
+  let publication:DailyPublication|null=null, latest:DailyPublication|null=null, failure='';
+  const catalogueFailure=false;
+  if (!context.valid) return {stations,portfolios,cattle,publication,latest,failure:'Contexte invalide : production, indicateur, station et période terminée de 1 à 366 jours requis.',catalogueFailure};
+  try {
+    const daily=await new DailyRepository().read(context.explicitPeriod?context.start:null,context.explicitPeriod?context.end:null);
+    latest=daily.latest; publication=daily.selected;
+    if (!context.explicitPeriod && latest) {
+      context.start=latest.start; context.end=latest.end;
+      context.query.set('start',context.start); context.query.set('end',context.end);
+    }
+    if(publication) {
+      stations=publication.wheat.map(p=>({id:p.station_id,name:p.station_name,latitude:p.latitude,longitude:p.longitude,altitude_m:0,metadata:{},retrieved_at:p.computed_at}));
+      // The daily pipeline publishes calendar windows with its default parameters.
+      // Explicit incompatible parameters stay absent, never replaced by a nearby result.
+      if (!context.query.get('stage') && (!context.query.has('fingerprint') || context.query.get('fingerprint')===publication.wheat[0].parameter_fingerprint)) {
+        if(context.production==='wheat') portfolios=publication.wheat;
+        else if(context.product!=='observations') {
+          const station=context.station??publication.cattle[0]?.station_id??'';
+          cattle={state:'available',station,start:context.start,end:context.end,product:context.product,stations,
+            results:publication.cattle.filter(c=>c.station_id===station)};
+        }
+      }
+    }
+  } catch { failure='Publication quotidienne indisponible. Aucun instantané ni fixture de remplacement.'; }
+  return {stations,portfolios,cattle,publication,latest,failure,catalogueFailure};
 }

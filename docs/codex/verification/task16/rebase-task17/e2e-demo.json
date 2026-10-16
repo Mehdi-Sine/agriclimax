@@ -1,0 +1,149 @@
+[
+  {
+    "name": "desktop",
+    "width": 1440,
+    "height": 900,
+    "durationMs": 1966,
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "production": "cattle",
+    "view": "Carte",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "production": "cattle",
+    "view": "Diagnostic",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "production": "cattle",
+    "view": "Veille",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "route": "/",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "route": "/",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "route": "/design-system",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "name": "desktop",
+    "route": "/design-system",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "width": 1024,
+    "height": 768,
+    "durationMs": 1904,
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "production": "cattle",
+    "view": "Carte",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "production": "cattle",
+    "view": "Diagnostic",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "production": "cattle",
+    "view": "Veille",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "route": "/",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "route": "/",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "route": "/design-system",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "name": "tablet",
+    "route": "/design-system",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "width": 390,
+    "height": 844,
+    "durationMs": 1672,
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "production": "cattle",
+    "view": "Carte",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "production": "cattle",
+    "view": "Diagnostic",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "production": "cattle",
+    "view": "Veille",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "route": "/",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "route": "/",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "route": "/design-system",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "name": "mobile",
+    "route": "/design-system",
+    "theme": "dark",
+    "violations": []
+  }
+]

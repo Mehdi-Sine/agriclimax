@@ -13,6 +13,7 @@ export function liveContext(params: URLSearchParams) {
   const indicators = production === 'cattle' ? CATTLE_INDICATORS : INDICATORS;
   const indicator = params.get('indicator') ?? (production === 'cattle' ? 'thi' : 'gdd');
   const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  const explicitPeriod = ['start','end','date'].some(key=>params.has(key));
   const start = params.get('start') ?? params.get('date') ?? yesterday;
   const end = params.get('end') ?? start;
   const station = params.get('station') || null;
@@ -29,7 +30,7 @@ export function liveContext(params: URLSearchParams) {
   if (station) query.set('station', station);
   if (production === 'cattle') query.set('product', product);
   for (const key of ['stage','fingerprint']) if (params.has(key)) query.set(key, params.get(key)!);
-  return { production, indicator, indicators, start, end, station, product, valid, query };
+  return { production, indicator, indicators, start, end, station, product, valid, query, explicitPeriod };
 }
 export function liveHref(view: LiveView, query: URLSearchParams, station?: string) {
   const next = new URLSearchParams(query);
