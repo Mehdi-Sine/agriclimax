@@ -16,7 +16,7 @@ from agriclimax.wheat.models import Parameters
 PARAMS = Parameters.model_validate_json(Path("config/wheat-mvp.json").read_bytes())
 
 
-def execute(tmp_path, source=None, repository=None, publish=None, end=DAY):
+def execute(tmp_path, source=None, repository=None, publish=None, end=DAY, clock=lambda: NOW):
     source = source or provider()[0]
     repository = repository or Mock()
     publish = publish or Mock(return_value=True)
@@ -27,11 +27,75 @@ def execute(tmp_path, source=None, repository=None, publish=None, end=DAY):
         start=DAY,
         end=end,
         now=NOW,
+        **({"clock": clock} if clock is not None else {}),
         root=tmp_path,
         parameters=PARAMS,
         cattle_rule=Path("config/cattle/thi-v1.json"),
     )
     return success, repository, publish
+
+
+@pytest.mark.parametrize("future", [False, True])
+@pytest.mark.parametrize("inject_clock", [False, True])
+def test_validation_clock_is_sampled_after_download(tmp_path, monkeypatch, future, inject_clock):
+    # Pipeline starts at T0. The real provider creates provenance at download end.
+    current = NOW
+    source = provider()[0]
+    source.clock = lambda: current + (timedelta(microseconds=1) if future else timedelta(0))
+    original_download = source.download
+    downloaded = []
+
+    def download(day):
+        nonlocal current
+        current += timedelta(seconds=3)
+        result = original_download(day)
+        assert result.retrieved_at > NOW
+        downloaded.append(result)
+        return result
+
+    def clock():
+        assert downloaded, "Validation time must be sampled after downloading"
+        return current
+
+    monkeypatch.setattr(source, "download", download)
+
+    # Exercise the default production clock too, without waiting for wall time.
+    class WallClock:
+        @staticmethod
+        def now(tz):
+            return clock()
+
+    monkeypatch.setattr(daily, "datetime", WallClock)
+    success, repo, publish = execute(tmp_path, source, clock=clock if inject_clock else None)
+    assert success is not future
+    report = json.loads((tmp_path / "logs/run.json").read_text())
+    assert report["computed_at"] == NOW.isoformat()
+    if future:
+        repo.persist.assert_not_called()
+        publish.assert_not_called()
+        assert report["substage"] == "normalize"
+        assert report["error_type"] == "ValueError"
+        with pytest.raises(ValueError, match="^future_provenance$"):
+            daily.normalize(
+                source.decode(downloaded[0].content),
+                DAY,
+                daily.Provenance(
+                    source_id=source.source_id,
+                    retrieved_at=downloaded[0].retrieved_at,
+                    published_at=None,
+                    publication_time_known=False,
+                    demo=False,
+                    checksum="synthetic",
+                ),
+                timedelta(days=2),
+                current,
+            )
+    else:
+        batch = repo.persist.call_args.args[0]
+        assert batch.provenance.retrieved_at == NOW + timedelta(seconds=3)
+        snapshot = publish.call_args.args[0]
+        assert snapshot["computed_at"] == NOW.isoformat()
+        assert snapshot["wheat"][0]["computed_at"] == NOW.isoformat().replace("+00:00", "Z")
 
 
 def test_pipeline_publication_contains_both_calculations(tmp_path):
