@@ -1,0 +1,91 @@
+{
+  "environment": "local Next.js production build to real Supabase DEV, NODE_USE_ENV_PROXY=1; proxy included; no HTTP cache",
+  "http_status": 200,
+  "rows": 3,
+  "state": "available",
+  "latency_ms": [
+    363.29,
+    370.09,
+    380.6,
+    154.25,
+    156.53
+  ],
+  "median_ms": 363.29,
+  "pagination_rows": [
+    2,
+    1
+  ],
+  "pagination_no_duplicates": true,
+  "invalid_limit_http_status": 400,
+  "persisted_values_match_netcdf_absolute_tolerance": 0.0001,
+  "response": {
+    "data": [
+      {
+        "cell_id": "era5land.48.8.2.3",
+        "latitude": 48.8,
+        "longitude": 2.3,
+        "valid_date": "2026-10-01",
+        "temperature": 17.464,
+        "precipitation": 4.14735,
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "publication_time_unknown",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction"
+        ],
+        "acquisition_key": "784c9007127c651a10211aa9b6531b437571462ded46000293f6593f7785ae40",
+        "temperature_max": 20.981,
+        "temperature_min": 12.9379
+      },
+      {
+        "cell_id": "era5land.48.8.2.4",
+        "latitude": 48.8,
+        "longitude": 2.4,
+        "valid_date": "2026-10-01",
+        "temperature": 17.5718,
+        "precipitation": 4.16652,
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "publication_time_unknown",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction"
+        ],
+        "acquisition_key": "784c9007127c651a10211aa9b6531b437571462ded46000293f6593f7785ae40",
+        "temperature_max": 21.1236,
+        "temperature_min": 12.9281
+      },
+      {
+        "cell_id": "era5land.48.9.2.3",
+        "latitude": 48.9,
+        "longitude": 2.3,
+        "valid_date": "2026-10-01",
+        "temperature": 17.4492,
+        "precipitation": 3.74818,
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "publication_time_unknown",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction"
+        ],
+        "acquisition_key": "784c9007127c651a10211aa9b6531b437571462ded46000293f6593f7785ae40",
+        "temperature_max": 20.9419,
+        "temperature_min": 12.9379
+      }
+    ],
+    "support": "era5_land_grid",
+    "next_cursor": null,
+    "interpolation": "none",
+    "source_id": "era5-land",
+    "resolution": "0.1 degree",
+    "dataset_version": "task15-france-real-20261001-v1",
+    "units": {
+      "temperature": "degC",
+      "temperature_min": "degC",
+      "temperature_max": "degC",
+      "precipitation": "mm"
+    },
+    "risk_computed": false,
+    "state": "available"
+  },
+  "limitation": "Three-row validation page, not a 1000-row or national load benchmark."
+}

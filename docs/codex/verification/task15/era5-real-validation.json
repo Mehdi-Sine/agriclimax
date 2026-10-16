@@ -1,0 +1,154 @@
+{
+  "dataset_version": "task15-france-real-20261001-v1",
+  "date": "2026-10-01",
+  "scope": "one France 1-degree tile [2,48,3,49], three native cells, one UTC day plus next accumulation day",
+  "download_complete": true,
+  "source_bytes": 49431,
+  "source_sha256": "ab681f44cf1a45fba13f5c81a1f2ebf50a1b9a26bf35ed6ee36ab8eb8ed06a5a",
+  "receipt": {
+    "checksum": "ab681f44cf1a45fba13f5c81a1f2ebf50a1b9a26bf35ed6ee36ab8eb8ed06a5a",
+    "request": {
+      "area": [
+        49,
+        2,
+        48,
+        3
+      ],
+      "data_format": "netcdf",
+      "day": [
+        "01",
+        "02"
+      ],
+      "download_format": "unarchived",
+      "month": "10",
+      "product_type": "reanalysis",
+      "time": [
+        "00:00",
+        "01:00",
+        "02:00",
+        "03:00",
+        "04:00",
+        "05:00",
+        "06:00",
+        "07:00",
+        "08:00",
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00",
+        "23:00"
+      ],
+      "variable": [
+        "2m_temperature",
+        "total_precipitation"
+      ],
+      "year": "2026"
+    },
+    "retrieved_at": "2026-10-16T08:08:31.724843+00:00"
+  },
+  "netcdf_dimensions": {
+    "valid_time": 48,
+    "latitude": 11,
+    "longitude": 11
+  },
+  "netcdf_units": {
+    "t2m": "K",
+    "tp": "m"
+  },
+  "independent_daily_reduction_verified": true,
+  "rows": [
+    {
+      "cell_id": "era5land.48.9.2.3",
+      "longitude": 2.3000000000000003,
+      "latitude": 48.9,
+      "valid_date": "2026-10-01",
+      "temperature": 17.44917449951174,
+      "temperature_min": 12.937860107421898,
+      "temperature_max": 20.941949462890648,
+      "precipitation": 3.7481808103621006,
+      "quality_flags": [
+        "24_hourly_samples_required",
+        "publication_time_unknown",
+        "tp_next_day_00_utc_accumulation",
+        "utc_daily_reduction"
+      ]
+    },
+    {
+      "cell_id": "era5land.48.8.2.3",
+      "longitude": 2.3000000000000003,
+      "latitude": 48.8,
+      "valid_date": "2026-10-01",
+      "temperature": 17.463985697428427,
+      "temperature_min": 12.937860107421898,
+      "temperature_max": 20.981011962890648,
+      "precipitation": 4.147353116422892,
+      "quality_flags": [
+        "24_hourly_samples_required",
+        "publication_time_unknown",
+        "tp_next_day_00_utc_accumulation",
+        "utc_daily_reduction"
+      ]
+    },
+    {
+      "cell_id": "era5land.48.8.2.4",
+      "longitude": 2.4000000000000004,
+      "latitude": 48.8,
+      "valid_date": "2026-10-01",
+      "temperature": 17.571814473470056,
+      "temperature_min": 12.928094482421898,
+      "temperature_max": 21.123590087890648,
+      "precipitation": 4.16651600971818,
+      "quality_flags": [
+        "24_hourly_samples_required",
+        "publication_time_unknown",
+        "tp_next_day_00_utc_accumulation",
+        "utc_daily_reduction"
+      ]
+    }
+  ],
+  "archive_sha256": "258d298d3472d4965a29ef09b921eb47deb452583df60ca85dd9db5dd538d446",
+  "persistence": [
+    {
+      "insert_changed": true,
+      "replay_changed": false,
+      "rows": 3,
+      "content_key": "784c9007127c651a10211aa9b6531b437571462ded46000293f6593f7785ae40"
+    }
+  ],
+  "backfill": {
+    "completed_tiles": 1,
+    "total_tiles": 1,
+    "acquired_tiles": 1,
+    "rows": 3,
+    "limits": {
+      "max_tiles": 1,
+      "max_rows": 3,
+      "days": 1
+    },
+    "status": "complete"
+  },
+  "checkpoint_replay": {
+    "completed_tiles": 1,
+    "total_tiles": 1,
+    "acquired_tiles": 0,
+    "rows": 0,
+    "limits": {
+      "max_tiles": 1,
+      "max_rows": 3,
+      "days": 1
+    },
+    "status": "complete"
+  },
+  "national_acquisition_verified": false,
+  "mass_historical_backfill_started": false
+}

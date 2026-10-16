@@ -74,3 +74,15 @@ describe('live station API isolated from demo and risk classification', () => {
     expect(ok.status).toBe(200); expect(await ok.json()).toMatchObject({ data: stations });
   });
 });
+
+it('serves a bounded France catalogue beyond the pilot 100-station limit', async () => {
+  credentials();
+  const stations = Array.from({ length: 101 }, (_, i) => ({ id: String(i).padStart(8, '0'),
+    name: 'SYNTHETIC', latitude: 48, longitude: 2, altitude_m: 10, metadata: {},
+    retrieved_at: provenance.retrieved_at }));
+  const transport = vi.fn<typeof fetch>().mockResolvedValue(Response.json(stations));
+  const repo = new SupabaseStationWeatherRepository(transport);
+  expect(await repo.stations()).toHaveLength(101);
+  transport.mockResolvedValue(Response.json(Array.from({ length: 201 }, () => stations[0])));
+  await expect(repo.stations()).rejects.toThrow();
+});

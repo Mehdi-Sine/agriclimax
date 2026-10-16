@@ -1,0 +1,19 @@
+{
+  "grid": "ERA5-Land CDS 0.1 degree; center-in-metropolitan-mask",
+  "cells": 6429,
+  "tiles_1_degree": 93,
+  "rows_per_day": 6429,
+  "rows_per_year_365_days": 2346585,
+  "variable_values_per_day": 25716,
+  "daily_db_bytes_per_year_estimate": [
+    938634000,
+    1525280250
+  ],
+  "hourly_two_variable_float32_bytes_per_year_uncompressed": 450544320,
+  "daily_retention_days": 30,
+  "reference_period": "1991-2020; minimum 24 complete years per calendar day",
+  "reference_rows_four_variables_366_days": 9412056,
+  "compact_reference_rows_366_days_four_variables_per_row": 2353014,
+  "reference_sql_working_set_row_budget": 50000,
+  "interpolation": "none"
+}

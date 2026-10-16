@@ -1,3 +1,14 @@
 # Verified Git blob SHA-1, not a credential: matches git hash-object of migration 0004.
 # Exact historical finding only; no path/rule-wide suppression.
 924e6a59a32b309c61069c0c994b1440eb83aa95:docs/codex/verification/task04/evidence/dev-plugin-applied.json:generic-api-key:8
+
+# Task15 real validation: SHA256(content_key(metadata)), recomputed from the
+# verified local archive/receipt; public acquisition identifier, not an API key.
+# Seven exact historical occurrences only, no path/rule-wide suppression.
+aa7522d22944c93d022257b673de38739b0ef6ad:docs/codex/verification/task15/era5-real-validation.json:generic-api-key:125
+aa7522d22944c93d022257b673de38739b0ef6ad:docs/codex/verification/task15/supabase-after-real.json:generic-api-key:21
+aa7522d22944c93d022257b673de38739b0ef6ad:docs/codex/verification/task15/supabase-after-real.json:generic-api-key:39
+aa7522d22944c93d022257b673de38739b0ef6ad:docs/codex/verification/task15/supabase-after-real.json:generic-api-key:57
+aa7522d22944c93d022257b673de38739b0ef6ad:docs/codex/verification/task15/live-http-filled.json:generic-api-key:36
+aa7522d22944c93d022257b673de38739b0ef6ad:docs/codex/verification/task15/live-http-filled.json:generic-api-key:53
+aa7522d22944c93d022257b673de38739b0ef6ad:docs/codex/verification/task15/live-http-filled.json:generic-api-key:70

@@ -1,0 +1,64 @@
+[
+  {
+    "database_bytes": 22238899,
+    "france_rows": 3,
+    "acquisitions": 1,
+    "duplicate_keys": 0,
+    "rows": [
+      {
+        "cell_id": "era5land.48.8.2.3",
+        "latitude": 48.8,
+        "longitude": 2.3,
+        "valid_date": "2026-10-01",
+        "temperature": 17.464,
+        "precipitation": 4.14735,
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "publication_time_unknown",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction"
+        ],
+        "acquisition_key": "784c9007127c651a10211aa9b6531b437571462ded46000293f6593f7785ae40",
+        "dataset_version": "task15-france-real-20261001-v1",
+        "temperature_max": 20.981,
+        "temperature_min": 12.9379
+      },
+      {
+        "cell_id": "era5land.48.8.2.4",
+        "latitude": 48.8,
+        "longitude": 2.4,
+        "valid_date": "2026-10-01",
+        "temperature": 17.5718,
+        "precipitation": 4.16652,
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "publication_time_unknown",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction"
+        ],
+        "acquisition_key": "784c9007127c651a10211aa9b6531b437571462ded46000293f6593f7785ae40",
+        "dataset_version": "task15-france-real-20261001-v1",
+        "temperature_max": 21.1236,
+        "temperature_min": 12.9281
+      },
+      {
+        "cell_id": "era5land.48.9.2.3",
+        "latitude": 48.9,
+        "longitude": 2.3,
+        "valid_date": "2026-10-01",
+        "temperature": 17.4492,
+        "precipitation": 3.74818,
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "publication_time_unknown",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction"
+        ],
+        "acquisition_key": "784c9007127c651a10211aa9b6531b437571462ded46000293f6593f7785ae40",
+        "dataset_version": "task15-france-real-20261001-v1",
+        "temperature_max": 20.9419,
+        "temperature_min": 12.9379
+      }
+    ]
+  }
+]
