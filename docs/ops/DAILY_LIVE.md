@@ -34,6 +34,12 @@ restent soumis aux RPC atomiques et à leur protection anti-effacement.
 
 ## Contrôles et conservation
 
+Le timestamp initial du run reste stable pour `computed_at` (rapport, snapshot et
+calculs blé) et pour le contrôle de la fenêtre. La normalisation utilise un nouvel
+instant UTC obtenu après chaque téléchargement, via l'horloge injectable de
+`run_daily`. Une provenance postérieure à cet instant reste refusée par
+`future_provenance`, sans tolérance ajoutée.
+
 Toutes les journées et stations sont validées avant la première écriture : TM,
 TN, TX, UM et RR doivent être utilisables. Une absence source ne remplace jamais
 la dernière donnée valide. Les champs facultatifs peuvent manquer ; le RPC station

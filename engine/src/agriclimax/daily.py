@@ -4,7 +4,7 @@ import hashlib
 import json
 import time
 from collections.abc import Callable
-from datetime import date, datetime, timedelta
+from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from typing import Protocol
 from urllib.error import HTTPError, URLError
@@ -74,7 +74,9 @@ def run_daily(
     root: Path,
     parameters: Parameters,
     cattle_rule: Path,
+    clock: Callable[[], datetime] = lambda: datetime.now(UTC),
 ) -> bool:
+    """Keep now stable for the run; sample clock after acquisition for validation."""
     if now.utcoffset() is None or not 0 <= (end - start).days <= 6 or end >= now.date():
         raise ValueError("One to seven completed UTC days required")
     report: dict[str, object] = {
@@ -123,7 +125,7 @@ def run_daily(
                     checksum=hashlib.sha256(source.content).hexdigest(),
                 ),
                 timedelta(days=2),
-                now,
+                clock(),
             )
             diagnostic["substage"] = "validate"
             validate(batch, station_ids)
