@@ -138,7 +138,16 @@ def run_daily(
         checkpoint("persisted")
         wheat = [
             calculate(
-                batches,
+                [
+                    batch.model_copy(
+                        update={
+                            "observations": tuple(
+                                row for row in batch.observations if row.cell_id == s.id
+                            )
+                        }
+                    )
+                    for batch in batches
+                ],
                 station_id=s.id,
                 station_name=s.name,
                 latitude=s.latitude,
