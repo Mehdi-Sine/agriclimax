@@ -1,6 +1,7 @@
 // Isolated integration: synthetic Task17 publication over real HTTPS to the
 // production Next server. Never evidence of production source availability.
 import assert from 'node:assert/strict';
+import {auditDiagnostic} from './diagnostic-privacy.mjs';
 import {createServer} from 'node:https';
 import {spawn,execFileSync} from 'node:child_process';
 import {readFile,mkdir,writeFile} from 'node:fs/promises';
@@ -15,6 +16,9 @@ const dir=process.env.DAILY_ARTIFACTS||'work/task16/e2e-daily';
 await mkdir(dir,{recursive:true});
 execFileSync('openssl',['req','-x509','-newkey','rsa:2048','-nodes','-keyout',`${dir}/key.pem`,'-out',`${dir}/cert.pem`,'-days','1','-subj','/CN=localhost','-addext','subjectAltName=DNS:localhost,IP:127.0.0.1'],{stdio:'ignore'});
 const publication=JSON.parse(await readFile('tests/e2e/daily-publication.synthetic.json','utf8'));
+for (const result of [...publication.payload.wheat.flatMap(p=>p.results),...publication.payload.cattle]) {
+  result.provenance[0].private_detail='diagnostic-private-provenance-canary';
+}
 let state='published';const calls=[];
 const source=createServer({key:await readFile(`${dir}/key.pem`),cert:await readFile(`${dir}/cert.pem`)},async(req,res)=>{
   let body='';for await(const chunk of req) body+=chunk;
@@ -63,6 +67,7 @@ try {
         const violations=await page.evaluate(async()=>(await window.axe.run(document.querySelector('main'),{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa']}})).violations);
         assert.deepEqual(violations.map(v=>v.id),[]);
         await page.screenshot({path:`${dir}/${production}-${label}-${width}.png`});
+        if(label==='Diagnostic') await auditDiagnostic(page,dir,`${production}-${width}`);
         if(label==='Carte') await page.getByRole('region',{name:'Traçabilité de la sélection'}).screenshot({path:`${dir}/${production}-traceability-${width}.png`});
         reports.push({production,label,width,axe:0,context_preserved:true});
       }

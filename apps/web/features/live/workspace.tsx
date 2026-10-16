@@ -1,3 +1,6 @@
+import 'server-only';
+import { diagnosticDto } from './diagnostic-dto';
+import { LiveDiagnostic } from './diagnostic';
 import Link from 'next/link';
 import { BrandLockup } from '../../components/shell/brand';
 import { ThemeToggle } from '../../components/shell/theme-toggle';
@@ -42,7 +45,7 @@ export async function LiveWorkspace({params, view}: {params:URLSearchParams; vie
     <main id="main" className="app-main live-workspace" tabIndex={-1}>
       <h1>{VIEWS[view]} · {isWheat?'Blé tendre':'Bovins'}</h1>
       <p><strong>Mode live · données réelles · statut scientifique : exploratory (exploratoire)</strong></p>
-      <LiveFilters key={context.query.toString()} action={view==='observation'?'/':`/${view}`} production={context.production} indicator={context.indicator} start={context.start} end={context.end} station={selectedId} stations={stations} product={context.product} stage={context.query.get('stage')??''} fingerprint={context.query.get('fingerprint')??''} />
+      <LiveFilters key={context.query.toString()} action={view==='observation'?'/':`/${view}`} production={context.production} indicator={context.indicator} start={context.start} end={context.end} station={selectedId} stations={stations.map(({id,name})=>({id,name}))} product={context.product} stage={context.query.get('stage')??''} fingerprint={context.query.get('fingerprint')??''} />
       {data.latest && <nav className="live-actions" aria-label="Dernière publication"><Link href={`/?mode=live_meteofrance&production=${context.production}&indicator=${context.indicator}`}>Consulter la dernière publication quotidienne réussie</Link></nav>}
       <section className="scientific-card" aria-label="Traçabilité de la sélection">
         <h2>{label} · {name || 'aucune station sélectionnée'}</h2>
@@ -83,13 +86,7 @@ export async function LiveWorkspace({params, view}: {params:URLSearchParams; vie
         <div className="live-table" tabIndex={0} role="region" aria-label="Sélection accessible des stations"><table><caption>Valeurs reçues · {label}</caption><thead><tr><th>Station</th><th>Valeur</th><th>Sélection</th></tr></thead><tbody>{stations.map(s=>{const v=stationValue(s.id);return <tr key={s.id}><th scope="row">{s.name} · {s.id}</th><td>{format(v)} {v == null ? '' : unit}</td><td><a href={liveHref('observation',context.query,s.id)}>Sélectionner {s.name}</a></td></tr>;})}</tbody></table></div>
       </section>}
       {selectedId && <nav className="live-actions" aria-label="Explorer la station">{(['diagnostic','history','watch'] as const).map(target=><a className="button button-secondary" key={target} href={liveHref(target,context.query)}>{VIEWS[target]} · {name}</a>)}</nav>}
-      {view === 'diagnostic' && <section className="scientific-card"><h2>Méthode, preuves et qualité</h2>{result ? <>
-        <p>Règle : {result.rule_id} · version {result.rule_version} · statut {result.scientific_status}. Confiance faible.</p>
-        {wheat && <><p>Couverture : {wheat.available_days}/{wheat.expected_days} jours. Paramètres : {portfolio?.parameter_fingerprint}.</p><p>Source scientifique : {wheat.scientific_sources.join(' ; ')}</p><p>Limites : {wheat.limits.join(' ; ')}</p><p>Référence ERA5-Land : {portfolio?.grid_cell ?? 'aucune cellule associée'}. Les références acquises ne constituent pas une normale nationale 1991–2020.</p></>}
-        {cattle && <><p>Formule : <code>{cattle.formula}</code> · T en °C, RH en %, THI sans dimension.</p><p>Source scientifique : <a href={cattle.scientific_source.url}>{cattle.scientific_source.title}</a> ({cattle.scientific_source.year}). {cattle.scientific_source.scope}</p><p>Seuil contextuel strictement supérieur à {metric?.threshold} THI, non universel.</p><p>Limites : {cattle.limits.join(' ; ')}. {cattle.notice}</p></>}
-        <p>Qualité : {result.quality_flags.join(' ; ') || 'aucun drapeau signalé'}.</p>
-        <details><summary>Résultat structuré et provenance source</summary><pre>{JSON.stringify(isWheat?portfolio:cattle,null,2)}</pre></details>
-      </> : <p>Diagnostic indisponible : aucun résultat reçu. Aucune méthode ou preuve inventée.</p>}</section>}
+      {view === 'diagnostic' && <LiveDiagnostic data={diagnosticDto(isWheat ? {production:'wheat', portfolio, result:wheat} : {production:'cattle', result:cattle})} />}
       {view === 'history' && <section className="scientific-card"><h2>Historique · {label}</h2>
         {isWheat ? <><p>Calcul publié pour la fenêtre sélectionnée. Changez les dates pour consulter une autre fenêtre publiée ; aucun calcul journalier n’est déduit d’un cumul.</p>{wheat && <div className="live-table"><table><caption>Historique des calculs reçus pour la sélection</caption><thead><tr><th>Période source</th><th>Valeur</th><th>Date du calcul · UTC</th><th>Fraîcheur</th></tr></thead><tbody><tr><td>{portfolio?.period.start} — {portfolio?.period.end}</td><td>{format(wheat.value)} {wheat.unit}</td><td>{portfolio?.computed_at}</td><td>{wheat.freshness}</td></tr></tbody></table></div>}{!wheat && <p>Historique absent pour cette fenêtre. Aucun point interpolé.</p>}</> : <><p>Synthèses quotidiennes publiées par le pipeline depuis les observations de la période, jours absents conservés. Les épisodes et dépassements restent des métriques de période, sans ventilation artificielle.</p>{cattle && <div className="live-table" tabIndex={0} role="region" aria-label="Série THI quotidienne"><table><caption>THI quotidien · UTC · {cattle.resolution === 'daily'?'synthétique TM + UM':'horaire complet requis pour chaque jour'}</caption><thead><tr><th>Date</th><th>THI synthétique</th><th>THI moyen horaire</th><th>THI maximum horaire</th><th>Couverture</th></tr></thead><tbody>{cattle.daily.map(d=><tr key={d.date}><td>{d.date}</td><td>{format(d.thi_synthetic)}</td><td>{format(d.thi_mean)}</td><td>{format(d.thi_max)}</td><td>{(d.coverage*100).toFixed(0)} %</td></tr>)}</tbody></table></div>}{!cattle && <p>Historique indisponible : source non reçue.</p>}</>}
       </section>}

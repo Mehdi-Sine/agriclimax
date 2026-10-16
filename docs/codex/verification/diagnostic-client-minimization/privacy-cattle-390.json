@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "html": true,
+  "rsc": true,
+  "no_raw_json": true,
+  "client_bundle_files": 19,
+  "forbidden_fields": [
+    "diagnostic-private-provenance-canary",
+    "\"provenance\"",
+    "\"series\"",
+    "\"daily\"",
+    "\"night_recovery\"",
+    "\"parameters\"",
+    "\"results\"",
+    "\"payload\""
+  ]
+}
