@@ -9,6 +9,7 @@ from urllib.error import HTTPError, URLError
 import pytest
 from ingestion.test_meteofrance import DAY, NOW, provider
 
+from agriclimax import daily
 from agriclimax.daily import publication_key, retry, run_daily
 from agriclimax.wheat.models import Parameters
 
@@ -119,3 +120,76 @@ def test_idempotence_ignores_receipt_times_but_detects_corrections():
 def test_invalid_window(tmp_path):
     with pytest.raises(ValueError):
         execute(tmp_path, end=date(2026, 9, 9))
+
+
+@pytest.mark.parametrize("substage", ["prepare", "download", "decode", "normalize", "validate"])
+@pytest.mark.parametrize("error_class", [RuntimeError, HTTPError])
+def test_ingestion_diagnostics_allowlist(tmp_path, monkeypatch, capsys, substage, error_class):
+    secret = "SYNTHETIC_PRIVATE_TOKEN"
+    message = "raw exception payload must stay private"
+    sensitive_url = "https://private.invalid/source?token=" + secret
+    error = (
+        HTTPError(sensitive_url, 403, message, {"Authorization": secret}, None)
+        if error_class is HTTPError
+        else RuntimeError(message, sensitive_url, {"Authorization": secret})
+    )
+    source = provider()[0]
+    target = source if substage in {"prepare", "download", "decode"} else daily
+    monkeypatch.setattr(target, substage, Mock(side_effect=error))
+    success, repo, publish = execute(tmp_path, source)
+    assert not success
+    repo.persist.assert_not_called()
+    publish.assert_not_called()
+    expected = {"substage": substage, "error_type": error_class.__name__}
+    if substage != "prepare":
+        expected["date"] = DAY.isoformat()
+    report_text = (tmp_path / "logs/run.json").read_text()
+    report = json.loads(report_text)
+    assert report["failed_stage"] == "ingestion"
+    assert {key: report[key] for key in expected} == expected
+    assert ("date" in report) == (substage != "prepare")
+    captured = capsys.readouterr()
+    events = [json.loads(line) for line in captured.out.splitlines()]
+    assert expected in events
+    assert not captured.err
+    for forbidden in (secret, message, sensitive_url, "Authorization", "Traceback"):
+        assert forbidden not in report_text + captured.out + captured.err
+
+
+def test_decode_envelope_error_is_attributed_to_decode(tmp_path, monkeypatch):
+    source = provider()[0]
+    monkeypatch.setattr(source, "decode", Mock(return_value=[]))
+    assert not execute(tmp_path, source)[0]
+    report = json.loads((tmp_path / "logs/run.json").read_text())
+    assert report["substage"] == "decode"
+    assert report["error_type"] == "TypeError"
+
+
+def test_later_failure_does_not_keep_ingestion_context(tmp_path):
+    assert not execute(tmp_path, repository=Mock(persist=Mock(side_effect=OSError("private"))))[0]
+    report = json.loads((tmp_path / "logs/run.json").read_text())
+    assert report["error_type"] == "OSError"
+    assert "substage" not in report
+    assert "date" not in report
+
+
+def test_diagnostics_follow_failing_day_without_stringifying_exception(tmp_path, monkeypatch, capsys):
+    class PrivateError(Exception):
+        def __str__(self):
+            raise AssertionError("Exception text must never be accessed")
+
+    source = provider()[0]
+    original_download = source.download
+
+    def download(day):
+        if day != DAY:
+            raise PrivateError("SYNTHETIC_SECRET")
+        return original_download(day)
+
+    monkeypatch.setattr(source, "download", download)
+    assert not execute(tmp_path, source, end=DAY + timedelta(days=1))[0]
+    report = json.loads((tmp_path / "logs/run.json").read_text())
+    assert report["date"] == (DAY + timedelta(days=1)).isoformat()
+    assert report["substage"] == "download"
+    assert report["error_type"] == "PrivateError"
+    assert "SYNTHETIC_SECRET" not in capsys.readouterr().out

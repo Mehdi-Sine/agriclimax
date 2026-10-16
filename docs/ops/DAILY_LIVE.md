@@ -61,8 +61,13 @@ station arrête le run et se reprend avec la même fenêtre. Limites : processus
 
 Consulter l'artifact `daily-live-<run_id>-<attempt>`, conservé 30 jours :
 `logs/run.json` contient les dates, le dernier stage et `failed_stage` ;
-`logs/console.log` contient les étapes. Aucun texte d'exception, header, URL
-serveur ou réponse HTTP brute n'est journalisé. Les sources brutes ne sont ni
+`logs/console.log` contient les étapes. En cas d’exception, `error_type` donne
+uniquement le nom de classe Python. Pour l’ingestion, `substage` distingue
+`prepare`, `download`, `decode`, `normalize` et `validate` ; `date` identifie
+la journée traitée (absente pour `prepare`). Ces mêmes champs sont émis dans
+la console, sans attribut ni texte de l’exception. Les opérations portent sur
+le lot de stations : aucun identifiant station n’est déduit de l’exception.
+Aucun texte d'exception, header, URL serveur ou réponse HTTP brute n'est journalisé. Les sources brutes ne sont ni
 uploadées ni mises en cache Actions. En cas de timeout, le dernier stage enregistré
 est le point de reprise ; le job est en échec même si le rapport est incomplet.
 

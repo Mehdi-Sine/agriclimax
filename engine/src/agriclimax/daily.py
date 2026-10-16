@@ -92,8 +92,11 @@ def run_daily(
         # Only fixed stage names and dates, never exception text or source payloads.
         print(json.dumps({"stage": stage, "from": str(start), "to": str(end)}))
 
+    diagnostic: dict[str, str] = {}
+
     try:
         checkpoint("ingestion")
+        diagnostic = {"substage": "prepare"}
         provider.prepare()
         station_ids = tuple(s.id for s in provider.stations)
         if not station_ids:
@@ -101,10 +104,13 @@ def run_daily(
         batches = []
         for offset in range((end - start).days + 1):
             day = start + timedelta(days=offset)
+            diagnostic = {"substage": "download", "date": day.isoformat()}
             source = provider.download(day)
+            diagnostic["substage"] = "decode"
             payload = provider.decode(source.content)
             if not isinstance(payload, dict):
                 raise TypeError("Invalid source envelope")
+            diagnostic["substage"] = "normalize"
             batch = normalize(
                 payload,
                 day,
@@ -119,8 +125,10 @@ def run_daily(
                 timedelta(days=2),
                 now,
             )
+            diagnostic["substage"] = "validate"
             validate(batch, station_ids)
             batches.append(batch)
+        diagnostic = {}
         checkpoint("validated")
         for batch in batches:
             # The existing atomic station RPC is idempotent after uncertain writes.
@@ -162,7 +170,11 @@ def run_daily(
         report["successful"] = True
         checkpoint("complete")
         return True
-    except Exception:  # noqa: BLE001 - safe CLI boundary, no upstream messages
+    except Exception as error:  # noqa: BLE001 - safe CLI boundary, no upstream messages
+        # Explicit allowlist: never serialize exceptions, their attributes or tracebacks.
+        failure = {**diagnostic, "error_type": type(error).__name__}
+        report.update(failure)
+        print(json.dumps(failure))
         report["failed_stage"] = report["stage"]
         checkpoint("failed")
         return False
