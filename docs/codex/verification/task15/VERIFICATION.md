@@ -91,8 +91,12 @@ n'est pas une archive durable garantie.
   vulnérabilité connue dans les lockfiles examinés.
 - Audit JS : exception existante `GHSA-vfj7-8cjw-p6xm` sur braces dans la chaîne
   ESLint seulement ; le garde vérifie zéro chemin de production et les traces du
-  build. Aucune nouvelle exception ni dépendance produit introduite.
-- Gitleaks : historique et diff livré sans fuite ; résultats expurgés. Les caches
+  build. Aucune nouvelle exception de dépendance ni dépendance produit introduite.
+- Gitleaks final : sept faux positifs `generic-api-key` sur le SHA256 public
+  d’acquisition, tous vérifiés en recalculant `content_key(metadata)` depuis
+  l’archive et les reçus. Exclusions par empreinte historique exacte dans
+  `.gitleaksignore`, sans exclusion globale de chemin ou de règle. Scan complet
+  relancé sans fuite (`final-gitleaks.log`, `final-gitleaks.json`). Les caches
   de build et outils temporaires ne sont pas des livrables.
 - Advisors Supabase conservés : alertes **préexistantes** sur PostGIS dans public,
   spatial_ref_sys sans RLS et anciennes fonctions SECURITY DEFINER exposées.
