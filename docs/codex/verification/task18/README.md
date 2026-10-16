@@ -13,5 +13,6 @@ Aucune migration, écriture DEV, acquisition météo ou nouvelle exception sécu
 
 Voir [VERIFICATION.md](VERIFICATION.md), [PERFORMANCE.md](PERFORMANCE.md),
 [SECURITY.md](SECURITY.md), [LIVE_DATA.md](LIVE_DATA.md) et [LIMITS.md](LIMITS.md).
-Les preuves réelles et synthétiques sont séparées. La preview est en attente
-à ce stade de préparation ; la tâche ne sera clôturée qu'après sa vérification.
+Les preuves réelles et synthétiques sont séparées. **Task 18 non terminée** :
+la preview est déployée mais protégée par authentification Vercel, donc les
+contrôles déployés restent bloqués. Voir [PREVIEW.md](PREVIEW.md).

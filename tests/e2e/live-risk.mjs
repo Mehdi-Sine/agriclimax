@@ -22,6 +22,9 @@ try {
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     for(const production of ['wheat','cattle']) {
       await page.goto(`${base}/?mode=live_meteofrance&production=${production}`,{waitUntil:'networkidle'});
+      await page.getByLabel('Production',{exact:true}).selectOption(production);
+      await page.getByRole('button',{name:'Afficher',exact:true}).click();await page.waitForLoadState('networkidle');
+      assert.equal(new URL(page.url()).searchParams.get('production'),production);
       assert.equal(await page.locator('main').getByRole('alert').count(),0,'daily publication must be readable');
       assert.ok(await page.locator('.live-map a').count(),'successful publication has stations');
       const start=await page.getByLabel('Début inclus',{exact:true}).inputValue();

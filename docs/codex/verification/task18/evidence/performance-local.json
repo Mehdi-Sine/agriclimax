@@ -1,5 +1,6 @@
 {
   "base": "http://127.0.0.1:3000",
+  "station": "29075001",
   "read_only": true,
   "samples": [
     {
@@ -7,7 +8,7 @@
       "view": "map",
       "sample": 1,
       "status": 200,
-      "ms": 641,
+      "ms": 328,
       "html_bytes": 57483,
       "privacy": true
     },
@@ -16,7 +17,7 @@
       "view": "map",
       "sample": 2,
       "status": 200,
-      "ms": 440,
+      "ms": 405,
       "html_bytes": 57483,
       "privacy": true
     },
@@ -25,7 +26,7 @@
       "view": "map",
       "sample": 3,
       "status": 200,
-      "ms": 420,
+      "ms": 286,
       "html_bytes": 57483,
       "privacy": true
     },
@@ -34,7 +35,7 @@
       "view": "diagnostic",
       "sample": 1,
       "status": 200,
-      "ms": 438,
+      "ms": 384,
       "html_bytes": 28281,
       "privacy": true
     },
@@ -43,7 +44,7 @@
       "view": "diagnostic",
       "sample": 2,
       "status": 200,
-      "ms": 369,
+      "ms": 398,
       "html_bytes": 28281,
       "privacy": true
     },
@@ -52,7 +53,7 @@
       "view": "diagnostic",
       "sample": 3,
       "status": 200,
-      "ms": 396,
+      "ms": 359,
       "html_bytes": 28281,
       "privacy": true
     },
@@ -61,7 +62,7 @@
       "view": "history",
       "sample": 1,
       "status": 200,
-      "ms": 252,
+      "ms": 271,
       "html_bytes": 26806,
       "privacy": true
     },
@@ -70,7 +71,7 @@
       "view": "history",
       "sample": 2,
       "status": 200,
-      "ms": 428,
+      "ms": 243,
       "html_bytes": 26806,
       "privacy": true
     },
@@ -79,7 +80,7 @@
       "view": "history",
       "sample": 3,
       "status": 200,
-      "ms": 418,
+      "ms": 395,
       "html_bytes": 26806,
       "privacy": true
     },
@@ -88,43 +89,43 @@
       "view": "watch",
       "sample": 1,
       "status": 200,
-      "ms": 254,
+      "ms": 263,
       "html_bytes": 27231,
       "privacy": true
     },
     {
       "production": "wheat",
       "view": "watch",
-      "sample": 2,
-      "status": 200,
-      "ms": 369,
-      "html_bytes": 27231,
-      "privacy": true
-    },
-    {
-      "production": "wheat",
-      "view": "watch",
-      "sample": 3,
-      "status": 200,
-      "ms": 302,
-      "html_bytes": 27231,
-      "privacy": true
-    },
-    {
-      "production": "cattle",
-      "view": "map",
-      "sample": 1,
-      "status": 200,
-      "ms": 260,
-      "html_bytes": 58070,
-      "privacy": true
-    },
-    {
-      "production": "cattle",
-      "view": "map",
       "sample": 2,
       "status": 200,
       "ms": 357,
+      "html_bytes": 27231,
+      "privacy": true
+    },
+    {
+      "production": "wheat",
+      "view": "watch",
+      "sample": 3,
+      "status": 200,
+      "ms": 376,
+      "html_bytes": 27231,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "map",
+      "sample": 1,
+      "status": 200,
+      "ms": 359,
+      "html_bytes": 58070,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "map",
+      "sample": 2,
+      "status": 200,
+      "ms": 380,
       "html_bytes": 58070,
       "privacy": true
     },
@@ -133,7 +134,7 @@
       "view": "map",
       "sample": 3,
       "status": 200,
-      "ms": 372,
+      "ms": 436,
       "html_bytes": 58070,
       "privacy": true
     },
@@ -142,7 +143,7 @@
       "view": "diagnostic",
       "sample": 1,
       "status": 200,
-      "ms": 287,
+      "ms": 279,
       "html_bytes": 28469,
       "privacy": true
     },
@@ -151,7 +152,7 @@
       "view": "diagnostic",
       "sample": 2,
       "status": 200,
-      "ms": 519,
+      "ms": 277,
       "html_bytes": 28469,
       "privacy": true
     },
@@ -160,7 +161,7 @@
       "view": "diagnostic",
       "sample": 3,
       "status": 200,
-      "ms": 410,
+      "ms": 255,
       "html_bytes": 28469,
       "privacy": true
     },
@@ -169,7 +170,7 @@
       "view": "history",
       "sample": 1,
       "status": 200,
-      "ms": 401,
+      "ms": 376,
       "html_bytes": 28549,
       "privacy": true
     },
@@ -178,7 +179,7 @@
       "view": "history",
       "sample": 2,
       "status": 200,
-      "ms": 261,
+      "ms": 313,
       "html_bytes": 28549,
       "privacy": true
     },
@@ -187,7 +188,7 @@
       "view": "history",
       "sample": 3,
       "status": 200,
-      "ms": 384,
+      "ms": 409,
       "html_bytes": 28549,
       "privacy": true
     },
@@ -196,7 +197,7 @@
       "view": "watch",
       "sample": 1,
       "status": 200,
-      "ms": 384,
+      "ms": 232,
       "html_bytes": 27503,
       "privacy": true
     },
@@ -205,7 +206,7 @@
       "view": "watch",
       "sample": 2,
       "status": 200,
-      "ms": 442,
+      "ms": 236,
       "html_bytes": 27503,
       "privacy": true
     },
@@ -214,10 +215,9 @@
       "view": "watch",
       "sample": 3,
       "status": 200,
-      "ms": 245,
+      "ms": 383,
       "html_bytes": 27503,
       "privacy": true
     }
-  ],
-  "server_log_credential_scan": true
+  ]
 }

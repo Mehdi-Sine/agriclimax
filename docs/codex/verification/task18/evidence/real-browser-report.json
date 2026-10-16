@@ -11,8 +11,8 @@
       "context_preserved": true,
       "axe": 0,
       "performance": {
-        "ttfb_ms": 96,
-        "response_ms": 561,
+        "ttfb_ms": 16,
+        "response_ms": 681,
         "decoded_bytes": 58320,
         "transfer_bytes": 19988
       }
@@ -27,8 +27,8 @@
       "context_preserved": true,
       "axe": 0,
       "performance": {
-        "ttfb_ms": 111,
-        "response_ms": 436,
+        "ttfb_ms": 13,
+        "response_ms": 431,
         "decoded_bytes": 28886,
         "transfer_bytes": 10171
       }
@@ -36,6 +36,86 @@
     {
       "production": "wheat",
       "label": "Historique",
+      "width": 1440,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0,
+      "performance": {
+        "ttfb_ms": 16,
+        "response_ms": 374,
+        "decoded_bytes": 27401,
+        "transfer_bytes": 9492
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Veille",
+      "width": 1440,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0,
+      "performance": {
+        "ttfb_ms": 22,
+        "response_ms": 404,
+        "decoded_bytes": 27877,
+        "transfer_bytes": 9477
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Carte",
+      "width": 1440,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0,
+      "performance": {
+        "ttfb_ms": 12,
+        "response_ms": 397,
+        "decoded_bytes": 58499,
+        "transfer_bytes": 20172
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Diagnostic",
+      "width": 1440,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0,
+      "performance": {
+        "ttfb_ms": 13,
+        "response_ms": 347,
+        "decoded_bytes": 28789,
+        "transfer_bytes": 10276
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Historique",
+      "width": 1440,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0,
+      "performance": {
+        "ttfb_ms": 11,
+        "response_ms": 399,
+        "decoded_bytes": 28908,
+        "transfer_bytes": 9943
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Veille",
       "width": 1440,
       "start": "2026-10-11",
       "end": "2026-10-13",
@@ -44,87 +124,7 @@
       "axe": 0,
       "performance": {
         "ttfb_ms": 15,
-        "response_ms": 766,
-        "decoded_bytes": 27401,
-        "transfer_bytes": 9492
-      }
-    },
-    {
-      "production": "wheat",
-      "label": "Veille",
-      "width": 1440,
-      "start": "2026-10-11",
-      "end": "2026-10-13",
-      "station": "29075001",
-      "context_preserved": true,
-      "axe": 0,
-      "performance": {
-        "ttfb_ms": 24,
-        "response_ms": 554,
-        "decoded_bytes": 27877,
-        "transfer_bytes": 9477
-      }
-    },
-    {
-      "production": "cattle",
-      "label": "Carte",
-      "width": 1440,
-      "start": "2026-10-11",
-      "end": "2026-10-13",
-      "station": "29075001",
-      "context_preserved": true,
-      "axe": 0,
-      "performance": {
-        "ttfb_ms": 16,
-        "response_ms": 281,
-        "decoded_bytes": 58499,
-        "transfer_bytes": 20172
-      }
-    },
-    {
-      "production": "cattle",
-      "label": "Diagnostic",
-      "width": 1440,
-      "start": "2026-10-11",
-      "end": "2026-10-13",
-      "station": "29075001",
-      "context_preserved": true,
-      "axe": 0,
-      "performance": {
-        "ttfb_ms": 23,
-        "response_ms": 309,
-        "decoded_bytes": 28789,
-        "transfer_bytes": 10276
-      }
-    },
-    {
-      "production": "cattle",
-      "label": "Historique",
-      "width": 1440,
-      "start": "2026-10-11",
-      "end": "2026-10-13",
-      "station": "29075001",
-      "context_preserved": true,
-      "axe": 0,
-      "performance": {
-        "ttfb_ms": 29,
-        "response_ms": 417,
-        "decoded_bytes": 28908,
-        "transfer_bytes": 9943
-      }
-    },
-    {
-      "production": "cattle",
-      "label": "Veille",
-      "width": 1440,
-      "start": "2026-10-11",
-      "end": "2026-10-13",
-      "station": "29075001",
-      "context_preserved": true,
-      "axe": 0,
-      "performance": {
-        "ttfb_ms": 23,
-        "response_ms": 397,
+        "response_ms": 404,
         "decoded_bytes": 27876,
         "transfer_bytes": 9645
       }
@@ -139,8 +139,8 @@
       "context_preserved": true,
       "axe": 0,
       "performance": {
-        "ttfb_ms": 63,
-        "response_ms": 417,
+        "ttfb_ms": 17,
+        "response_ms": 268,
         "decoded_bytes": 58320,
         "transfer_bytes": 19988
       }
@@ -155,8 +155,8 @@
       "context_preserved": true,
       "axe": 0,
       "performance": {
-        "ttfb_ms": 27,
-        "response_ms": 403,
+        "ttfb_ms": 15,
+        "response_ms": 367,
         "decoded_bytes": 28886,
         "transfer_bytes": 10171
       }
@@ -171,8 +171,8 @@
       "context_preserved": true,
       "axe": 0,
       "performance": {
-        "ttfb_ms": 19,
-        "response_ms": 719,
+        "ttfb_ms": 15,
+        "response_ms": 283,
         "decoded_bytes": 27401,
         "transfer_bytes": 9492
       }
@@ -180,6 +180,22 @@
     {
       "production": "wheat",
       "label": "Veille",
+      "width": 768,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0,
+      "performance": {
+        "ttfb_ms": 18,
+        "response_ms": 356,
+        "decoded_bytes": 27877,
+        "transfer_bytes": 9477
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Carte",
       "width": 768,
       "start": "2026-10-11",
       "end": "2026-10-13",
@@ -188,23 +204,7 @@
       "axe": 0,
       "performance": {
         "ttfb_ms": 28,
-        "response_ms": 441,
-        "decoded_bytes": 27877,
-        "transfer_bytes": 9477
-      }
-    },
-    {
-      "production": "cattle",
-      "label": "Carte",
-      "width": 768,
-      "start": "2026-10-11",
-      "end": "2026-10-13",
-      "station": "29075001",
-      "context_preserved": true,
-      "axe": 0,
-      "performance": {
-        "ttfb_ms": 20,
-        "response_ms": 396,
+        "response_ms": 399,
         "decoded_bytes": 58499,
         "transfer_bytes": 20172
       }
@@ -219,8 +219,8 @@
       "context_preserved": true,
       "axe": 0,
       "performance": {
-        "ttfb_ms": 13,
-        "response_ms": 572,
+        "ttfb_ms": 16,
+        "response_ms": 378,
         "decoded_bytes": 28789,
         "transfer_bytes": 10276
       }
@@ -235,8 +235,8 @@
       "context_preserved": true,
       "axe": 0,
       "performance": {
-        "ttfb_ms": 17,
-        "response_ms": 428,
+        "ttfb_ms": 18,
+        "response_ms": 401,
         "decoded_bytes": 28908,
         "transfer_bytes": 9943
       }
@@ -251,72 +251,72 @@
       "context_preserved": true,
       "axe": 0,
       "performance": {
-        "ttfb_ms": 17,
-        "response_ms": 426,
-        "decoded_bytes": 27876,
-        "transfer_bytes": 9645
-      }
-    },
-    {
-      "production": "wheat",
-      "label": "Carte",
-      "width": 390,
-      "start": "2026-10-11",
-      "end": "2026-10-13",
-      "station": "29075001",
-      "context_preserved": true,
-      "axe": 0,
-      "performance": {
-        "ttfb_ms": 31,
-        "response_ms": 420,
-        "decoded_bytes": 58320,
-        "transfer_bytes": 19988
-      }
-    },
-    {
-      "production": "wheat",
-      "label": "Diagnostic",
-      "width": 390,
-      "start": "2026-10-11",
-      "end": "2026-10-13",
-      "station": "29075001",
-      "context_preserved": true,
-      "axe": 0,
-      "performance": {
-        "ttfb_ms": 20,
-        "response_ms": 394,
-        "decoded_bytes": 28886,
-        "transfer_bytes": 10171
-      }
-    },
-    {
-      "production": "wheat",
-      "label": "Historique",
-      "width": 390,
-      "start": "2026-10-11",
-      "end": "2026-10-13",
-      "station": "29075001",
-      "context_preserved": true,
-      "axe": 0,
-      "performance": {
-        "ttfb_ms": 16,
-        "response_ms": 435,
-        "decoded_bytes": 27401,
-        "transfer_bytes": 9492
-      }
-    },
-    {
-      "production": "wheat",
-      "label": "Veille",
-      "width": 390,
-      "start": "2026-10-11",
-      "end": "2026-10-13",
-      "station": "29075001",
-      "context_preserved": true,
-      "axe": 0,
-      "performance": {
-        "ttfb_ms": 17,
+        "ttfb_ms": 18,
         "response_ms": 385,
+        "decoded_bytes": 27876,
+        "transfer_bytes": 9645
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Carte",
+      "width": 390,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0,
+      "performance": {
+        "ttfb_ms": 17,
+        "response_ms": 388,
+        "decoded_bytes": 58320,
+        "transfer_bytes": 19988
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Diagnostic",
+      "width": 390,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0,
+      "performance": {
+        "ttfb_ms": 17,
+        "response_ms": 272,
+        "decoded_bytes": 28886,
+        "transfer_bytes": 10171
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Historique",
+      "width": 390,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0,
+      "performance": {
+        "ttfb_ms": 15,
+        "response_ms": 417,
+        "decoded_bytes": 27401,
+        "transfer_bytes": 9492
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Veille",
+      "width": 390,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0,
+      "performance": {
+        "ttfb_ms": 17,
+        "response_ms": 284,
         "decoded_bytes": 27877,
         "transfer_bytes": 9477
       }
@@ -331,8 +331,8 @@
       "context_preserved": true,
       "axe": 0,
       "performance": {
-        "ttfb_ms": 28,
-        "response_ms": 421,
+        "ttfb_ms": 11,
+        "response_ms": 275,
         "decoded_bytes": 58499,
         "transfer_bytes": 20172
       }
@@ -347,8 +347,8 @@
       "context_preserved": true,
       "axe": 0,
       "performance": {
-        "ttfb_ms": 31,
-        "response_ms": 408,
+        "ttfb_ms": 17,
+        "response_ms": 234,
         "decoded_bytes": 28789,
         "transfer_bytes": 10276
       }
@@ -363,8 +363,8 @@
       "context_preserved": true,
       "axe": 0,
       "performance": {
-        "ttfb_ms": 22,
-        "response_ms": 353,
+        "ttfb_ms": 12,
+        "response_ms": 374,
         "decoded_bytes": 28908,
         "transfer_bytes": 9943
       }
@@ -379,8 +379,8 @@
       "context_preserved": true,
       "axe": 0,
       "performance": {
-        "ttfb_ms": 20,
-        "response_ms": 262,
+        "ttfb_ms": 26,
+        "response_ms": 248,
         "decoded_bytes": 27876,
         "transfer_bytes": 9645
       }

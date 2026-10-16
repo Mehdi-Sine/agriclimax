@@ -59,6 +59,9 @@ try {
     for(const production of ['wheat','cattle']) {
       state='published';
       await page.goto(`http://127.0.0.1:3016/?production=${production}`,{waitUntil:'networkidle'});
+      await page.getByLabel('Production',{exact:true}).selectOption(production);
+      await page.getByRole('button',{name:'Afficher',exact:true}).click();await page.waitForLoadState('networkidle');
+      assert.equal(new URL(page.url()).searchParams.get('production'),production);
       assert.equal(await page.getByLabel('Début inclus',{exact:true}).inputValue(),publication.payload.from);
       assert.equal(await page.getByLabel('Fin incluse',{exact:true}).inputValue(),publication.payload.to);
       await mapControls(page);
@@ -114,7 +117,7 @@ try {
           assert.ok(!text.includes(publication.content_key));
         }
       }
-      reports.push({production,width,failed_run_retains_previous:true,missing_window:true,empty:true,disconnected:true,no_fallback:true});
+      reports.push({production,width,failed_run_retains_previous:true,missing_window:true,invalid_period_no_rpc:true,unknown_station_preserved:true,insufficient_watch:true,empty:true,disconnected:true,no_fallback:true});
     }
     await page.goto('http://127.0.0.1:3016/?mode=demo',{waitUntil:'networkidle'});
     assert.ok((await page.locator('body').innerText()).includes('Démo'));

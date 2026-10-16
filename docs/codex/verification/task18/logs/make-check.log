@@ -12,18 +12,18 @@ test_preflight_reports_names_without_values_and_keeps_log (test_meteofrance_oper
 test_tee_preserves_cli_failure_and_manual_range_arguments (test_meteofrance_operations.MeteoFranceOperations.test_tee_preserves_cli_failure_and_manual_range_arguments) ... ok
 
 ----------------------------------------------------------------------
-Ran 9 tests in 0.119s
+Ran 9 tests in 0.104s
 
 OK
 node --test tests/quality/*.test.mjs
-✔ accepts only the approved exact lint chain/version within its lifetime (3.648352ms)
-✔ fails at expiry, before approval and on an unlimited extension (1.631851ms)
-✔ fails if another advisory or a broad CVE exclusion is configured (1.112711ms)
-✔ fails when the same package enters production, changes version or introducer (1.041295ms)
-✔ fails on a stale exclusion and allows complete removal after an upgrade (0.293555ms)
-✔ fails if braces is copied into any Next production server trace (0.599349ms)
-✔ logs allowlisted context and drops raw credentials/PII/errors (1.352206ms)
-✔ rejects unsafe identifiers and invalid metadata (0.449517ms)
+✔ accepts only the approved exact lint chain/version within its lifetime (2.451688ms)
+✔ fails at expiry, before approval and on an unlimited extension (1.026944ms)
+✔ fails if another advisory or a broad CVE exclusion is configured (0.845815ms)
+✔ fails when the same package enters production, changes version or introducer (4.338758ms)
+✔ fails on a stale exclusion and allows complete removal after an upgrade (0.268228ms)
+✔ fails if braces is copied into any Next production server trace (0.592709ms)
+✔ logs allowlisted context and drops raw credentials/PII/errors (1.88041ms)
+✔ rejects unsafe identifiers and invalid metadata (0.278644ms)
 ℹ tests 8
 ℹ suites 0
 ℹ pass 8
@@ -31,7 +31,7 @@ node --test tests/quality/*.test.mjs
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 133.984184
+ℹ duration_ms 121.575138
 python scripts/quality/security.py
 Source secret guard passed.
 python scripts/quality/migrations.py
@@ -71,7 +71,7 @@ tests/climate/test_climate.py: 22 warnings
     data[key] = value
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-======================= 144 passed, 23 warnings in 6.19s =======================
+======================= 144 passed, 23 warnings in 5.04s =======================
 pnpm lint
 
 > agriclimax@ lint /workspace/agriclimax
@@ -107,8 +107,8 @@ pnpm test
 
  Test Files  15 passed (15)
       Tests  203 passed (203)
-   Start at  15:11:48
-   Duration  5.00s (transform 626ms, setup 0ms, import 2.31s, tests 812ms, environment 1ms)
+   Start at  15:20:22
+   Duration  4.96s (transform 640ms, setup 0ms, import 2.32s, tests 754ms, environment 1ms)
 
 pnpm build
 
@@ -120,20 +120,20 @@ pnpm build
 > node features/observation/prepare-worker.mjs && next build
 
 ▲ Next.js 16.4.0 (Turbopack)
-✓ Running next.config.ts took 18ms
+✓ Running next.config.ts took 31ms
 - Experiments (use with caution):
   ⨯ useTypeScriptCli
 
   Creating an optimized production build ...
-✓ Compiled successfully in 212ms
+✓ Compiled successfully in 143ms
   Running TypeScript ...
-  Finished TypeScript in 4.6s ...
+  Finished TypeScript in 4.9s ...
   Collecting page data using 2 workers ...
   Generating static pages using 2 workers (0/15) ...
   Generating static pages using 2 workers (3/15) 
   Generating static pages using 2 workers (7/15) 
   Generating static pages using 2 workers (11/15) 
-✓ Generating static pages using 2 workers (15/15) in 302ms
+✓ Generating static pages using 2 workers (15/15) in 325ms
   Finalizing page optimization ...
 
 Route (app)
