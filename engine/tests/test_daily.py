@@ -257,3 +257,107 @@ def test_diagnostics_follow_failing_day_without_stringifying_exception(tmp_path,
     assert report["substage"] == "download"
     assert report["error_type"] == "PrivateError"
     assert "SYNTHETIC_SECRET" not in capsys.readouterr().out
+
+
+def test_multistation_multiday_pipeline_preserves_station_isolation(tmp_path, monkeypatch):
+    from agriclimax.cattle.station import station_exposure
+    from agriclimax.cattle.thi import load_rule
+    from agriclimax.ingestion.meteofrance import Station
+    from agriclimax.ingestion.providers import SourcePayload
+    from agriclimax.wheat.models import Window
+
+    stations = (
+        Station(
+            id="29075001",
+            name="SYNTHETIC COOL",
+            latitude=48.45,
+            longitude=-4.39,
+            altitude_m=92,
+            metadata={},
+        ),
+        Station(
+            id="31069001",
+            name="SYNTHETIC HOT",
+            latitude=43.62,
+            longitude=1.38,
+            altitude_m=150,
+            metadata={},
+        ),
+    )
+    source = Mock(source_id="meteofrance-climatology", stations=stations)
+
+    def download(day):
+        rows = []
+        offset = (day - DAY).days
+        for station, values in zip(stations, ((10, 5, 15, 70, 0), (30, 25, 35, 40, 10))):
+            for variable, value in zip(
+                ("temperature", "temperature_min", "temperature_max", "humidity", "precipitation"),
+                values,
+            ):
+                rows.append(
+                    {
+                        "cell_id": station.id,
+                        "variable": variable,
+                        "observed_at": f"{day}T00:00:00+00:00",
+                        "timezone": "UTC",
+                        "value": value + offset,
+                        "unit": "%"
+                        if variable == "humidity"
+                        else ("mm" if variable == "precipitation" else "degC"),
+                        "temporal_resolution": "daily",
+                        "source_field": variable,
+                        "source_checksum": f"synthetic-{station.id}-{day}",
+                        "quality_flags": [f"synthetic_{station.id}"],
+                    }
+                )
+        content = json.dumps({"published_at": None, "expected_count": len(rows), "rows": rows})
+        return SourcePayload(content=content.encode(), retrieved_at=NOW)
+
+    source.download.side_effect = download
+    source.decode.side_effect = json.loads
+    calculate = daily.calculate
+    wheat_calls = Mock(wraps=calculate)
+    monkeypatch.setattr(daily, "calculate", wheat_calls)
+    end = DAY + timedelta(days=2)
+    success, repo, publish = execute(tmp_path, source, end=end)
+    assert success
+    batches = [call.args[0] for call in repo.persist.call_args_list]
+    assert len(batches) == 3
+    assert all({row.cell_id for row in b.observations} == {s.id for s in stations} for b in batches)
+    assert wheat_calls.call_count == 2
+    snapshot = publish.call_args.args[0]
+    rule = load_rule(Path("config/cattle/thi-v1.json"))
+    for index, station in enumerate(stations):
+        slices = wheat_calls.call_args_list[index].args[0]
+        for original, sliced in zip(batches, slices, strict=True):
+            assert sliced.model_dump(exclude={"observations"}) == original.model_dump(
+                exclude={"observations"}
+            )
+            expected = tuple(row for row in original.observations if row.cell_id == station.id)
+            assert sliced.observations == expected
+            assert all(a is b for a, b in zip(sliced.observations, expected, strict=True))
+        results = {r["indicator"]: r for r in snapshot["wheat"][index]["results"]}
+        assert results["precipitation_sum"]["value"] == (3 if index == 0 else 33)
+        assert results["heat_days"]["value"] == (0 if index == 0 else 3)
+        assert f"synthetic_{stations[1 - index].id}" not in results["gdd"]["quality_flags"]
+        assert snapshot["cattle"][index] == station_exposure(
+            batches, rule, station=station.id, start=DAY, end=end
+        )
+        assert snapshot["cattle"][index]["value"] is not None
+        assert (
+            f"synthetic_{stations[1 - index].id}"
+            not in snapshot["cattle"][index]["source_quality_flags"]
+        )
+        with pytest.raises(ValueError, match="Mixed station"):
+            calculate(
+                batches,
+                station_id=station.id,
+                station_name=station.name,
+                latitude=station.latitude,
+                longitude=station.longitude,
+                window=Window(start=DAY, end=end),
+                parameters=PARAMS,
+                computed_at=NOW,
+            )
+    assert snapshot["cattle"][0]["value"] != snapshot["cattle"][1]["value"]
+    assert json.loads((tmp_path / "logs/run.json").read_text())["stage"] == "complete"
