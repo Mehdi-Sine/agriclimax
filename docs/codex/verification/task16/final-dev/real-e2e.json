@@ -1,0 +1,167 @@
+{
+  "base": "http://127.0.0.1:3017",
+  "reports": [
+    {
+      "production": "wheat",
+      "label": "Carte",
+      "width": 1440,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "wheat",
+      "label": "Diagnostic",
+      "width": 1440,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "wheat",
+      "label": "Historique",
+      "width": 1440,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "wheat",
+      "label": "Veille",
+      "width": 1440,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "cattle",
+      "label": "Carte",
+      "width": 1440,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "cattle",
+      "label": "Diagnostic",
+      "width": 1440,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "cattle",
+      "label": "Historique",
+      "width": 1440,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "cattle",
+      "label": "Veille",
+      "width": 1440,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "wheat",
+      "label": "Carte",
+      "width": 390,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "wheat",
+      "label": "Diagnostic",
+      "width": 390,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "wheat",
+      "label": "Historique",
+      "width": 390,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "wheat",
+      "label": "Veille",
+      "width": 390,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "cattle",
+      "label": "Carte",
+      "width": 390,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "cattle",
+      "label": "Diagnostic",
+      "width": 390,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "cattle",
+      "label": "Historique",
+      "width": 390,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    },
+    {
+      "production": "cattle",
+      "label": "Veille",
+      "width": 390,
+      "start": "2026-10-11",
+      "end": "2026-10-13",
+      "station": "29075001",
+      "context_preserved": true,
+      "axe": 0
+    }
+  ],
+  "real_sources": true,
+  "passed": true
+}

@@ -1,101 +1,79 @@
-# Task 16 — intégration des publications quotidiennes
+# Task 16 — validation réelle sur Supabase DEV
 
-Branche `codex/16-live-risk-integration`, rebasée sans conflit sur `main`
-`5160f9b` (Task 17 et correctifs des Tasks 17/#36/#37 inclus). Identité Git :
-Mehdi-Sine <mehdi.sine@acta.asso.fr>. PR #34 conservée draft, aucun merge.
+**Verdict final : parcours réels fonctionnels, validation globale BLOQUÉE par la
+minimisation du payload client du diagnostic.** Aucune correction applicative
+réalisée pendant cette reprise, conformément à la demande de validation seule.
 
-## Comportement
+Validation du 16 octobre 2026 sur `codex/16-live-risk-integration`, code applicatif
+`8cc6c61c06cdd7389ee9dd566bb190a9da50e000`. La migration
+`20261016135913_daily_live_read.sql` a été installée sur DEV par l'utilisateur
+avant ce passage. Sa présence et son exécution ont été vérifiées ; aucune
+migration distante, écriture de données, acquisition ou exécution quotidienne
+n'a été déclenchée ici. Aucun changement des règles scientifiques.
 
-Carte, diagnostic, historique et veille lisent le même snapshot quotidien Task 17
-réussi, pour le blé et les bovins. Aucun recalcul THI lors d'une lecture live,
-aucune lecture des observations brutes susceptible d'avoir été partiellement
-persistées avant un échec. Aucun recours au bundle local ou aux fixtures, y
-compris avec `WHEAT_STORAGE=snapshots`.
+## Résultats
 
-Sans période explicite, la dernière fenêtre publiée est sélectionnée. Une période
-explicite ne lit que sa fenêtre exacte ; absence de fenêtre, station, stade ou
-paramètres compatibles = absence explicite. Les séries horaires bovines ne sont
-pas publiées par Task 17 : demander le support horaire reste indisponible, sans
-substitution quotidienne. Les anciens modes explicitement démo et instantanés
-`mode=wheat` gardent leur comportement distinct.
+- **PASS** : `agriclimax_read_daily()` renvoie la dernière publication réussie,
+  avec la même publication dans `latest` et `selected` sans dates explicites.
+  Exécution interdite aux rôles anon/authenticated.
+- **PASS** : blé et bovins réels sur carte, diagnostic, historique et veille,
+  desktop 1440 et mobile 390 ; contexte URL conservé, sources/provenance,
+  fraîcheur et publication visibles ; zéro violation WCAG AA et aucun débordement.
+- **PASS** : agrégats affichés comparés aux lectures SQL bornées de DEV. À Brest,
+  22,4 mm de précipitations et 0 jour de dépassement THI pour le 11–13 octobre.
+- **PASS** : la dernière publication valide reste lisible malgré sa période
+  ancienne et porte `stale`. Les fenêtres absentes récentes ou historiques
+  restent absentes, même avec `WHEAT_STORAGE=snapshots`. Déconnexion : erreur
+  explicite et aucun marqueur de fixture.
+- **PASS** : `make check`, 144 tests Python, 198 tests web, lint, typage, build,
+  contrôles qualité/contrats, SQL public/extensions et audits de dépendances,
+  secrets, bundle, budget, migrations et workflows.
+- **FAIL** : le diagnostic transmet le résultat sélectionné complet dans un
+  `<pre>` JSON, au lieu des seuls agrégats nécessaires. Le bloc est déjà présent
+  dans la réponse/DOM, même si `<details>` est fermé. Pour le blé : dix indicateurs,
+  paramètres et provenance ; pour les bovins : résultat, série THI et provenance.
+  Constat reproduit dans les deux tailles d'écran. Aucune clé secrète ni requête
+  directe du navigateur vers Supabase détectée ; cela ne lève pas le défaut de
+  minimisation. Aucune correction faite dans cette reprise.
 
-La carte montre les valeurs publiées de l'indicateur choisi pour chaque station.
-Les quatre espaces préservent production, station, indicateur et période. Sources,
-récupérations, fraîcheur, qualité, versions et limites restent visibles. Les
-indicateurs ne sont pas des risques agronomiques complets. Aucune règle,
-configuration scientifique ou contrat scientifique modifié.
+## Publication réelle observée
 
-La fraîcheur vieillit à partir de la fin de la période source (48 h, convention
-technique existante), même si le calcul vient d'être publié. La dernière
-publication réussie et celle de la sélection sont distinguées. `computed_at` est
-la date du calcul : Task 17 n'enregistre pas l'instant exact de publication DB,
-qui est donc explicitement inconnu. L'état du dernier run n'est pas enregistré
-par cette table : l'UI l'indique inconnu, sans déduire un succès du run à partir
-de la présence d'une publication. Un run raté ne masque jamais une publication
-précédente ; celle-ci peut rester visible et ancienne. Les logs Actions restent
-la source de statut du run.
-
-## Lecture DB et déploiement
-
-Migration additive `20261016135913_daily_live_read.sql` : RPC
-`agriclimax_read_daily(date,date)`, invoker, search_path fixe, timeout 5 s,
-lecture bornée à deux snapshots (dernier réussi + sélection exacte), exécution
-réservée à `service_role`. Aucun droit anon/authenticated ajouté. Les migrations
-appliquées et le pipeline d'écriture restent inchangés. L'adaptateur serveur
-valide taille, versions, paires station, fenêtres, paramètres blé et champs THI
-consommés avant affichage. Aucun secret rendu côté client, transport sans cache.
-
-**Prérequis de déploiement : appliquer cette nouvelle migration avant d'activer
-la version web.** Aucune migration distante ni déploiement effectués dans ce
-travail. La RPC n'existe pas encore sur le projet réel ; avant installation,
-l'interface signale « Publication quotidienne indisponible », sans secours.
-
-## Vérification réelle ciblée — 16 octobre 2026
-
-Lectures SQL limitées aux métadonnées et agrégats, sans exporter les payloads :
-une publication réussie, cinq stations blé appariées aux cinq résultats THI
-quotidiens ; fin de fenêtre 2026-10-13 ; calcul 2026-10-16 13:48:14.270668 UTC
-(15:48 heure de Paris). Identifiant :
+Une publication réussie, cinq stations par production, fenêtre **11–13 octobre
+2026**, calcul du **16 octobre 2026 à 13:48:14 UTC** (15:48 heure de Paris).
+Son empreinte est
 `2b38b57e1e63ea2666da8c6f64b303127d84610dbd1a51f3343558ca0f0531ec`.
-Fenêtres et timestamps cohérents, provenance non démo confirmée par agrégats.
-Cette publication est ancienne selon sa période météo, malgré son calcul récent.
+La fraîcheur est ancienne selon la période météo, malgré le calcul récent.
+L'instant exact de publication et le statut du dernier run ne sont pas stockés
+par Task 17 : l'interface les indique inconnus.
 
-L'export du payload privé intégral a été refusé par le contrôle automatique
-(périmètre de vérification / destination non vérifiée). Il n'a pas été réalisé.
-Les contrôles ciblés ci-dessus constituent l'alternative autorisée. Les E2E
-quotidiens utilisent une publication **synthétique** de test et ne prouvent pas
-une disponibilité UI de production après déploiement de la migration.
+Une seule publication réelle existe : son maintien comme dernière valide et sa
+lecture par défaut ont été testés en réel. Aucun échec de run n'a été provoqué
+sur DEV. La conservation après échec de publication/acquisition est complétée
+par les tests SQL et E2E isolés relancés, sans présenter cette simulation comme
+un échec réellement observé sur DEV.
 
-## Reproduction et résultats
+## Preuves et reproduction
+
+Voir [le rapport détaillé](final-dev/VERIFICATION.md),
+[les E2E réels](final-dev/real-e2e.json),
+[les contrôles de fenêtres et d'agrégats](final-dev/real-boundaries.json) et
+[l'audit de minimisation client](final-dev/privacy.json).
+Les captures de traçabilité et des quatre vues sont dans `final-dev/`.
+Aucun payload privé complet, corps HTML/RSC, secret ou HAR n'a été enregistré
+dans ces preuves ; l'audit client conserve uniquement les noms de champs et
+les compteurs, pas le JSON exposé par l'application.
 
 ```sh
-pnpm install --frozen-lockfile
 PYTHONPATH=engine/src make check
+# Environnement serveur connecté à Supabase DEV ; build réalisé par make check.
+NODE_USE_ENV_PROXY=1 pnpm --filter @agriclimax/web exec next start --hostname 127.0.0.1 --port 3017
+E2E_BASE_URL=http://127.0.0.1:3017 E2E_LIVE_ARTIFACTS=work/task16-final/live node tests/e2e/live-risk.mjs
+node tests/e2e/daily-risk.mjs
 PYTHONPATH=engine/src bash supabase/tests/run-local.sh public
 PYTHONPATH=engine/src bash supabase/tests/run-local.sh extensions
-node tests/e2e/daily-risk.mjs
-# Serveur production local pour les régressions existantes :
-pnpm --filter @agriclimax/web exec next start --hostname 127.0.0.1
-CHROMIUM_EXECUTABLE=/usr/bin/chromium node tests/e2e/demo.mjs
-node tests/e2e/integration.mjs
-node tests/e2e/wheat.mjs
-E2E_DISCONNECTED_ONLY=1 node tests/e2e/live-risk.mjs
 ```
 
-- `make check` : 144 tests Python, 198 tests web, qualité, contrats, lint,
-  typecheck, build et portée d'exception d'audit.
-- SQL local jetable : public et extensions PASS. Publication/replay, rollback,
-  conservation de la dernière publication après refus, fenêtre exacte et droits.
-- Audits JS et navigateur PASS ; exception préexistante GHSA-vfj7-8cjw-p6xm
-  uniquement dans l'outillage de développement, aucun chemin production.
-- Audit Python des trois lockfiles : aucune vulnérabilité connue.
-- Ruff/mypy pipeline, actionlint, gitleaks historique, sécurité bundle/clefs client,
-  budget JS/CSS et contrôle forward-only passent.
-- E2E quotidien : source HTTPS isolée, build production, desktop 1440 et mobile
-  390 ; blé/bovins et quatre vues ; fraîcheur, provenance, sélection partagée,
-  dernière publication, absence, déconnexion et conservation après échec simulé ;
-  contrôles WCAG AA et débordement horizontal. Intégré à la CI Quality.
-
-Les preuves du nouveau passage sont dans `rebase-task17/`. Les anciens rapports
-et captures au même niveau datent de la validation Task 16 antérieure à Task 17
-et ne constituent pas une preuve de lecture du pipeline quotidien actuel.
+Les preuves `rebase-task17/` concernent le passage antérieur à l'installation de
+la RPC. La limite « migration non installée / E2E réels non exécutés » de ce
+passage précédent est levée par les preuves `final-dev/`, sans lever le nouveau
+blocage de minimisation. PR #34 maintenue draft ; aucun merge ni déploiement.
