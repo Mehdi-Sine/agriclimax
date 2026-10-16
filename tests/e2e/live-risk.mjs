@@ -1,6 +1,7 @@
 // Real read-only UI verification when a migrated live source is configured.
 // CI's disconnected mode verifies failures without substituting test data.
 import assert from 'node:assert/strict';
+import {auditDiagnostic} from './diagnostic-privacy.mjs';
 import {createRequire} from 'node:module';
 import {mkdir,writeFile} from 'node:fs/promises';
 import path from 'node:path';
@@ -39,6 +40,7 @@ try {
         await page.addScriptTag({path:axeRequire.resolve('axe-core/axe.min.js')});
         const violations=await page.evaluate(async()=>(await window.axe.run(document.querySelector('main'),{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa']}})).violations);
         assert.deepEqual(violations.map(v=>v.id),[]);
+        if(label==='Diagnostic') await auditDiagnostic(page,dir,`${production}-${width}`);
         await page.screenshot({path:`${dir}/${production}-${label}-${width}.png`});
         reports.push({production,label,width,start,end,station,context_preserved:true,axe:0});
       }
