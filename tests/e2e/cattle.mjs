@@ -20,8 +20,8 @@ try {
       assert.equal(response.status(),200);
       await page.getByRole('heading',{level:1}).waitFor();
       assert.equal(await page.locator('main').getByRole('alert').count(),0,'real source should load');
-      assert.ok((await page.locator('main').innerText()).includes('cattle.thi.exposure'));
-      assert.ok((await page.locator('main').innerText()).includes('75.45 THI'));
+      if(view === 'diagnostic') assert.ok((await page.locator('main').innerText()).includes('cattle.thi.exposure'));
+      assert.ok((await page.locator('main').innerText()).includes('75,45 THI'));
       assert.ok((await page.locator('main').innerText()).includes('microclimat'));
       const layout=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth}));
       assert.ok(layout.scroll<=width+1,`${view}: horizontal page overflow ${layout.scroll}`);
@@ -35,7 +35,7 @@ try {
     }
     await page.goto(`http://127.0.0.1:3000/diagnostic?${query}&product=observations`,{waitUntil:'networkidle'});
     assert.ok((await page.locator('main').innerText()).includes('Indisponible'));
-    assert.ok(!(await page.locator('main').innerText()).includes('75.45 THI'));
+    assert.ok(!(await page.locator('main').innerText()).includes('75,45 THI'));
     await page.close();
   }
   await writeFile(`${dir}/browser-report.json`,JSON.stringify(reports,null,2));

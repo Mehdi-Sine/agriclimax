@@ -1,0 +1,163 @@
+{
+  "base": "http://127.0.0.1:3000",
+  "reports": [
+    {
+      "production": "wheat",
+      "view": "Diagnostic",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440
+      },
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "wheat",
+      "view": "Historique",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440
+      },
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "wheat",
+      "view": "Veille",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440
+      },
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "wheat",
+      "view": "Carte",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440
+      },
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "wheat",
+      "view": "Carte",
+      "theme": "dark",
+      "width": 1440,
+      "axe_violations": 0
+    },
+    {
+      "production": "cattle",
+      "view": "Diagnostic",
+      "width": 1440,
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "cattle",
+      "view": "Historique",
+      "width": 1440,
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "cattle",
+      "view": "Veille",
+      "width": 1440,
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "wheat",
+      "view": "Diagnostic",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390
+      },
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "wheat",
+      "view": "Historique",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390
+      },
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "wheat",
+      "view": "Veille",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390
+      },
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "wheat",
+      "view": "Carte",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390
+      },
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "wheat",
+      "view": "Carte",
+      "theme": "dark",
+      "width": 390,
+      "axe_violations": 0
+    },
+    {
+      "production": "cattle",
+      "view": "Diagnostic",
+      "width": 390,
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "cattle",
+      "view": "Historique",
+      "width": 390,
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "cattle",
+      "view": "Veille",
+      "width": 390,
+      "context_preserved": true,
+      "axe_violations": 0
+    },
+    {
+      "production": "wheat",
+      "width": 390,
+      "source_disconnected": true,
+      "no_fallback": true
+    },
+    {
+      "production": "cattle",
+      "width": 390,
+      "source_disconnected": true,
+      "no_fallback": true
+    }
+  ],
+  "real_sources": true,
+  "passed": true
+}

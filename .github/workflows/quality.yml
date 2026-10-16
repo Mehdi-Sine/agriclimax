@@ -125,6 +125,7 @@ jobs:
           node tests/e2e/demo.mjs
           INTEGRATION_ARTIFACTS=work/quality/e2e/integration node tests/e2e/integration.mjs
           WHEAT_ARTIFACTS=work/quality/e2e/wheat node tests/e2e/wheat.mjs
+          E2E_DISCONNECTED_ONLY=1 E2E_UNAVAILABLE_BASE_URL=http://127.0.0.1:3000 E2E_LIVE_ARTIFACTS=work/quality/e2e/live node tests/e2e/live-risk.mjs
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:

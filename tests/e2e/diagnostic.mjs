@@ -24,7 +24,7 @@ try {
       if (new URL(route.request().url()).origin !== base) { external.push('remote-request'); await route.abort(); }
       else await route.continue();
     });
-    await page.goto(`${base}/?production=wheat_soft&indicator=tmax_days_above&date=2026-07-01&territory=demo-001&compare=2026-06-30`, { waitUntil: 'networkidle' });
+    await page.goto(`${base}/?mode=demo&production=wheat_soft&indicator=tmax_days_above&date=2026-07-01&territory=demo-001&compare=2026-06-30`, { waitUntil: 'networkidle' });
     await page.getByRole('button', { name: 'demo-001', exact: true }).click();
     await page.locator('.maplibregl-canvas').waitFor({ state: 'visible' });
     assert.ok(await page.locator('.maplibregl-canvas').isVisible());

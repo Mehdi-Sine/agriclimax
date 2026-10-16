@@ -1,4 +1,5 @@
-import { CattleWorkspace } from '../../features/cattle/workspace';
+import { LiveWorkspace } from '../../features/live/workspace';
+import { isLiveWorkspace } from '../../features/live/context';
 import { loadDiagnostic } from '../../components/diagnostic/load-diagnostic';
 import { ScientificDiagnostic } from '../../components/diagnostic/scientific-diagnostic';
 import { BrandLockup } from '../../components/shell/brand';
@@ -13,8 +14,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
     if (typeof value === 'string') params.append(key, value);
     else if (Array.isArray(value)) for (const item of value) params.append(key, item);
   }
+  if (isLiveWorkspace(params)) return await LiveWorkspace({params, view:'diagnostic'});
   if (params.get('mode') === 'wheat') return <WheatWorkspace params={params} view="diagnostic" />;
-  if (params.get('production') === 'cattle' && params.get('mode') === 'live_meteofrance') return <CattleWorkspace params={params} view="diagnostic" />;
   const data = await loadDiagnostic(params);
   const back = observationHref(params);
   const watch = sharedContext(new URL(back, 'http://localhost').searchParams);

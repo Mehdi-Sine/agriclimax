@@ -22,7 +22,7 @@ const browser = await chromium.launch({
   args: ["--no-sandbox", "--enable-unsafe-swiftshader"],
 });
 const reports = [];
-const demoURL = `${baseURL}/?production=wheat_soft&indicator=tmax_days_above&date=2026-07-01`;
+const demoURL = `${baseURL}/?mode=demo&production=wheat_soft&indicator=tmax_days_above&date=2026-07-01`;
 const fixture = JSON.parse(
   await readFile("fixtures/demo-risk.geojson.json", "utf8"),
 );
@@ -204,7 +204,7 @@ try {
       reports.push({ name, width, height, theme, violations });
     }
     // No-data explicitly differs from risk.
-    await page.goto(`${baseURL}/?production=dairy_cattle&date=2026-07-01`, {
+    await page.goto(`${baseURL}/?mode=demo&production=dairy_cattle&date=2026-07-01`, {
       waitUntil: "networkidle",
     });
     await page.locator(".observation-data-status .state-missing").waitFor();

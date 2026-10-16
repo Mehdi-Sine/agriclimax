@@ -1,4 +1,5 @@
-import { CattleWorkspace } from '../../features/cattle/workspace';
+import { LiveWorkspace } from '../../features/live/workspace';
+import { isLiveWorkspace } from '../../features/live/context';
 import 'server-only';
 import { BrandLockup } from '../../components/shell/brand';
 import { ThemeToggle } from '../../components/shell/theme-toggle';
@@ -17,9 +18,12 @@ export default async function WatchPage({ searchParams }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const params = new URLSearchParams();
-  for (const [key, value] of Object.entries(await searchParams)) if (typeof value === 'string') params.set(key, value);
+  for (const [key, value] of Object.entries(await searchParams)) {
+    if (typeof value === 'string') params.append(key, value);
+    else if (Array.isArray(value)) for (const item of value) params.append(key, item);
+  }
+  if (isLiveWorkspace(params)) return await LiveWorkspace({params, view:'watch'});
   if (params.get('mode') === 'wheat') return <WheatWorkspace params={params} view="watch" />;
-  if (params.get('production') === 'cattle' && params.get('mode') === 'live_meteofrance') return <CattleWorkspace params={params} view="watch" />;
   const filters = watchFilters(params);
   const demo = !params.has('mode') || params.get('mode') === 'demo';
   const detailed = params.get('density') === 'detailed';
