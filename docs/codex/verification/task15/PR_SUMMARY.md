@@ -13,10 +13,17 @@ extensions, benchmark 45 004 lignes (~434 octets/ligne, page JSON ~10 ms en loca
 audits et vérification HTTP. Dix stations réellement ingérées puis rejouées sans
 doublons ; DB distante ~22,1 Mo.
 
-**Blocage explicite :** CDS traite la petite requête mais son hôte de livraison
-`object-store.os-api.cci2.ecmwf.int` n'est pas autorisé dans l'environnement.
-Aucune nouvelle ligne ERA5 France acquise. La PR reste draft ; acquisition réelle
-et temps HTTP sur page grille remplie restent à vérifier après ajout de l'hôte.
+**Validation réelle du 16 octobre 2026 réussie :** téléchargement CDS complet
+(49 431 octets), SHA256 local vérifié, décodage NetCDF et recalcul indépendant
+Tmin/Tmax/Tmean/pluie pour le 1er octobre 2026. Une tuile autour de Paris,
+trois mailles seulement persistées dans Supabase DEV ; rejeu RPC `false`,
+checkpoint sans réacquisition, trois lignes/une acquisition/zéro doublon.
+`/api/climate/france` : HTTP 200 sur page réellement remplie, cinq mesures,
+médiane 363.29 ms, pagination 2 + 1 vérifiée, valeurs conformes au NetCDF.
+Mesure sur Next.js production local vers Supabase DEV, proxy inclus ; pas un SLA
+national. `make check` (116 Python / 176 web), Ruff et mypy relancés avec succès.
+Aucune nouvelle implémentation ni migration ; aucune extension nationale ou
+historique 1991–2020. La PR reste draft, sans merge.
 Miroir objet et purge ne sont pas automatisés ; les quotas arrêtent le pipeline.
 
 Deux migrations additives appliquées sur agriclimax-dev. Détails et preuves :

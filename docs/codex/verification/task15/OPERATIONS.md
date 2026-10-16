@@ -68,3 +68,35 @@ unités explicites, `interpolation=none`, absence distincte d'une valeur zéro.
 Chaque ligne référence son acquisition SHA256 ; la version de jeu est explicite.
 Le endpoint stations reste `/api/weather/stations?mode=live_meteofrance` avec
 `spatial_support=station_points`. Les secrets restent au serveur.
+
+## Validation finale exécutée le 16 octobre 2026
+
+Branche vérifiée : `codex/15-france-coverage`, implémentation existante `359574c`.
+Identité Git locale : `Mehdi-Sine <mehdi.sine@acta.asso.fr>`.
+Aucun changement de code produit ou migration pendant cette reprise.
+
+Le runner existant `coverage.backfill` a été appelé avec seulement les points
+`[(2.3,48.8),(2.4,48.8),(2.3,48.9)]`, tous vérifiés dans le masque métropolitain,
+`start=end=2026-10-01`, `max_tiles=1`, `max_rows=3`, racine
+`work/task15-real`, version `task15-france-real-20261001-v1`.
+Le provider CDS réel conserve son découpage natif : une tuile [2,48,3,49],
+48 heures incluant le lendemain pour la pluie. Le filtre réduit à trois mailles
+avant archive et écriture SQL. Le callback appelle le RPC existant avec
+`content_key(metadata)`, puis rejoue immédiatement les mêmes paramètres :
+true puis false. Une seconde invocation identique de `backfill` vérifie
+l'archive checkpoint et n'acquiert rien. Ne pas lancer la commande nationale
+par défaut pour reproduire ce petit sous-ensemble.
+
+Recalcul de contrôle directement depuis le NetCDF avec xarray/netCDF4 :
+minimum, maximum et moyenne des 24 valeurs t2m du 1er octobre, conversion
+K → °C ; tp du 2 octobre à 00:00 UTC × 1000 → mm. Tolérance absolue 0,0001
+pour les valeurs relues via HTTP (Postgres `real`). Les Tmin/Tmax sont celles
+des 24 échantillons horaires, pas des extrêmes instantanés sous-horaires.
+
+HTTP mesuré après `make check`, serveur Next.js `next start` sur 127.0.0.1:3100
+avec `NODE_USE_ENV_PROXY=1`, vers DEV réel. Cinq GET `limit=1000` retournant
+les trois lignes, puis pagination `limit=2`, continuation et limite invalide.
+Les anciens fichiers `live-http.json`, `supabase-final.json` et les logs SQL
+restent les preuves de la première session. Les résultats courants sont
+`live-http-filled.json`, `supabase-before-real.json`, `supabase-after-real.json`
+et `era5-real-validation.json`. Les nouveaux contrôles portent le préfixe `final-`.

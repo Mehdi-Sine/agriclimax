@@ -1,13 +1,14 @@
 {
-  "scope": "one 1-degree tile, one requested UTC day plus following accumulation day",
-  "cds_catalogue_http": 200,
-  "submission": "completed and yielded a NetCDF download location",
+  "status": "validated_small_real_acquisition",
+  "previous_failure": "CDS object-store host was blocked during initial Task 15 verification; resolved in this session",
   "download_host": "object-store.os-api.cci2.ecmwf.int",
-  "download_error_type": "ProxyError",
-  "download_complete": false,
-  "normalized_france_rows": 0,
-  "supabase_france_daily_rows": 0,
-  "limitation": "Download host absent from managed environment allowed hosts; request to add it is pending. No signed URL, API credential or upstream body recorded.",
+  "download_complete": true,
+  "source_bytes": 49431,
+  "source_sha256": "ab681f44cf1a45fba13f5c81a1f2ebf50a1b9a26bf35ed6ee36ab8eb8ed06a5a",
+  "normalized_france_rows": 3,
+  "supabase_france_daily_rows": 3,
+  "evidence": "era5-real-validation.json",
+  "http_evidence": "live-http-filled.json",
   "national_acquisition_verified": false,
   "mass_historical_backfill_started": false
 }

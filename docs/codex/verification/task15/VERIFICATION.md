@@ -2,9 +2,9 @@
 
 ## État de livraison
 
-**Implémentation prête pour revue ; acquisition ERA5 France encore bloquée par
-le domaine de téléchargement CDS non autorisé. Ne pas assimiler le plan de
-couverture aux données acquises.** Aucun historique national massif lancé,
+**Validation réelle du petit lot ERA5 réussie le 16 octobre 2026 : une tuile,
+une journée UTC, trois mailles persistées en DEV. Le blocage CDS est levé.
+Le plan national reste distinct des trois mailles acquises.** Aucun historique national massif lancé,
 aucun merge. Les migrations additives sont appliquées sur agriclimax-dev.
 
 `STRATEGY.md` contient l'inspection préalable, les estimations corrigées par les
@@ -21,11 +21,19 @@ petites commandes de reprise. `estimate.json` est reproductible sans réseau.
 - Deuxième acquisition du même lot dans une autre racine : même checksum,
   `changed=false` (`station-replay.log`). La base reste à 15 stations et 200 lots,
   zéro doublon de clé station/source/date (`supabase-final.json`).
-- ERA5 : petite tentative tuile/date ; catalogue CDS HTTP 200, requête traitée et
-  URL de téléchargement obtenue. Téléchargement bloqué par ProxyError sur
-  `object-store.os-api.cci2.ecmwf.int`, absent des hôtes autorisés. Demande d'ajout
-  envoyée à l'utilisateur. Aucun contournement de proxy ; aucun NetCDF nouveau
-  acquis, aucune ligne nationale ERA5 persistée. Voir `era5-diagnostic.json`.
+- ERA5 réel : téléchargement CDS terminé sur `[2,48,3,49]` pour le 1er octobre
+  2026 (2 octobre inclus pour l'accumulation pluie). NetCDF de 49 431 octets,
+  dimensions 48 heures × 11 latitudes × 11 longitudes, t2m en K et tp en m.
+  SHA256 local vérifié : `ab681f44cf1a45fba13f5c81a1f2ebf50a1b9a26bf35ed6ee36ab8eb8ed06a5a`.
+  Le SDK termine le téléchargement ; ouverture NetCDF et recalcul indépendant
+  des quatre valeurs sur les trois mailles passent. Ce SHA256 est l'empreinte
+  locale du fichier reçu, pas une somme publiée indépendamment par CDS.
+- Trois mailles natives du masque France (48.8/2.3, 48.8/2.4, 48.9/2.3) seulement
+  sont archivées et persistées sous `task15-france-real-20261001-v1`.
+  Première écriture RPC : true ; rejeu exact : false. Reprise checkpoint : zéro
+  acquisition et zéro ligne écrite. Base après rejeu : trois lignes, une
+  acquisition, zéro doublon. Voir `era5-real-validation.json`,
+  `supabase-before-real.json` et `supabase-after-real.json`.
 - Reprise/idempotence ERA5 testées avec adaptateur simulé et données de forme
   réelle : budget avant réseau, support incomplet/dupliqué refusé, checkpoint
   seulement après persistance, distinction cache/SQL, vérification SHA256 à la
@@ -56,18 +64,27 @@ acquis ; catalogue HTTP 200, 15 stations/support points ; limite 1001 HTTP 400.
 Médianes réseau observées : environ 702 ms grille vide et 613 ms catalogue
 stations, proxy inclus (trois requêtes chacune, pas un SLA). Un Node 24 local
 nécessite `NODE_USE_ENV_PROXY=1` dans cet environnement pour son fetch natif.
-La performance HTTP d'une page ERA5 **remplie** n'a pas été mesurée faute
-d'acquisition ; seule sa requête SQL est mesurée avec les supports synthétiques.
+Validation finale HTTP sur page ERA5 **remplie** (`live-http-filled.json`) :
+Next.js en build production local vers Supabase DEV réel, proxy inclus,
+`NODE_USE_ENV_PROXY=1`, cinq GET sans cache. HTTP 200, état `available`, trois
+lignes ; médiane **363.29 ms**, plage 154.25–380.6 ms.
+Valeurs relues conformes au NetCDF à 0,0001 près (stockage SQL real), unités °C/mm,
+clé d'acquisition conservée, `interpolation=none`. Pagination réelle 2 + 1 lignes,
+sans doublon ; limite 1001 refusée avec HTTP 400. Il s'agit d'une page de trois
+lignes, pas d'un benchmark HTTP de 1 000 mailles ni d'un SLA de production.
 
-Base distante après essais : environ 22,1 Mo, contre 21,9 Mo initialement.
-Aucun doublon station, aucune donnée grille synthétique. Le compte nul de
-`france_daily` ne constitue évidemment pas une validation de son ingestion réelle.
+Base DEV avant/après cette validation : 22 189 747 / 22 238 899 octets.
+Aucune donnée synthétique ni référence 1991–2020 ajoutée. Les NetCDF et archives
+restent sous `work/task15-real/`, hors Git et hors Postgres ; seuls les reçus,
+empreintes et résultats compacts sont versionnés. Le cache de cette session
+n'est pas une archive durable garantie.
 
 ## Tests et audits
 
-- `make check` : 116 tests Python, 176 tests web, gardes qualité/sécurité,
+- Relance finale `final-make-check.log` : 116 tests Python, 176 tests web, gardes qualité/sécurité,
   contrats, lint, typecheck, build et contrôle des exceptions d'audit passent.
-- Ruff et mypy strict sur climate et les quatre nouveaux scripts passent.
+- Ruff et mypy strict sur climate et les quatre scripts passent à nouveau
+  (`final-ruff.log`, `final-mypy.log`).
 - Tests SQL dans les deux emplacements de PostGIS passent ; migrations
   existantes immuables, deux migrations forward-only générées par CLI.
 - Actionlint : passe. Audit Python engine/climate et outils : aucune
@@ -90,8 +107,7 @@ est testé séparément de celui des stations.
 
 ## Restant avant exploitation nationale
 
-Autoriser le domaine de livraison CDS, rejouer une tuile réelle, vérifier ses
-valeurs/empreintes, puis tester une page carte remplie via HTTP. Configurer une
+Le petit lot réel et la page HTTP remplie sont validés. Configurer une
 racine durable ou un miroir objet privé vérifié et une routine de rétention
 avant de planifier des acquisitions régulières. Les références 1991–2020 sont
 préparables mais **non constituées nationalement** ; acquisition progressive sous
