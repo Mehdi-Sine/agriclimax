@@ -23,3 +23,12 @@
   .live-map { max-height: 380px; }
   .live-actions { display: grid; }
 }
+
+.live-mode { border-inline-start: 4px solid var(--focus); padding: var(--space-3); background: var(--surface-subtle); }
+.live-map-controls { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.live-map-controls button { min-height: 44px; }
+.live-map { touch-action: none; cursor: grab; }
+.live-map:active { cursor: grabbing; }
+.live-map a { cursor: pointer; pointer-events: bounding-box; }
+.live-map:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.live-filter-help { margin: 0; }

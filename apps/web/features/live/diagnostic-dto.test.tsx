@@ -14,7 +14,8 @@ describe('Diagnostic browser-visible allowlist',()=>{
     expect(dto).toEqual({production:'wheat',rule_id:result.rule_id,rule_version:result.rule_version,
       scientific_status:result.scientific_status,quality_flags:result.quality_flags,limits:result.limits,
       available_days:result.available_days,expected_days:result.expected_days,
-      parameter_fingerprint:portfolio.parameter_fingerprint,scientific_sources:result.scientific_sources,grid_cell:portfolio.grid_cell});
+      parameter_fingerprint:portfolio.parameter_fingerprint,scientific_sources:result.scientific_sources,grid_cell:portfolio.grid_cell,
+      threshold_label:'Base 4 °C ; moyenne quotidienne source, sans plafond supérieur.'});
     expect(JSON.stringify(dto)).not.toMatch(/provenance|retrieved_at|parameters|results|daily|series/);
   });
   it('projects cattle method and selected threshold without series or unused provenance',()=>{

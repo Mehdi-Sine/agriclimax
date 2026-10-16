@@ -1,6 +1,7 @@
 // Real read-only UI verification when a migrated live source is configured.
 // CI's disconnected mode verifies failures without substituting test data.
 import assert from 'node:assert/strict';
+import {mapControls,historyAndLatest} from './task18-journey.mjs';
 import {auditDiagnostic} from './diagnostic-privacy.mjs';
 import {createRequire} from 'node:module';
 import {mkdir,writeFile} from 'node:fs/promises';
@@ -16,7 +17,7 @@ await mkdir(dir,{recursive:true});
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE||'/usr/bin/chromium',args:['--no-sandbox','--enable-unsafe-swiftshader']});
 const reports=[];
 try {
-  for(const width of (process.env.E2E_DISCONNECTED_ONLY?[]:[1440,390])) {
+  for(const width of (process.env.E2E_DISCONNECTED_ONLY?[]:[1440,768,390])) {
     const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     for(const production of ['wheat','cattle']) {
@@ -25,6 +26,7 @@ try {
       assert.ok(await page.locator('.live-map a').count(),'successful publication has stations');
       const start=await page.getByLabel('Début inclus',{exact:true}).inputValue();
       const end=await page.getByLabel('Fin incluse',{exact:true}).inputValue();
+      await mapControls(page);
       await page.locator('.live-map a').first().click();await page.waitForLoadState('networkidle');
       const station=new URL(page.url()).searchParams.get('station');assert.ok(station);
       const metric=production==='wheat'?'precipitation_sum':'days_above';
@@ -40,9 +42,11 @@ try {
         await page.addScriptTag({path:axeRequire.resolve('axe-core/axe.min.js')});
         const violations=await page.evaluate(async()=>(await window.axe.run(document.querySelector('main'),{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa']}})).violations);
         assert.deepEqual(violations.map(v=>v.id),[]);
+        const performance=await historyAndLatest(page);
+        if(label==='Historique' && production==='cattle') assert.ok(text.includes('Anomalie THI indisponible'));
         if(label==='Diagnostic') await auditDiagnostic(page,dir,`${production}-${width}`);
         await page.screenshot({path:`${dir}/${production}-${label}-${width}.png`});
-        reports.push({production,label,width,start,end,station,context_preserved:true,axe:0});
+        reports.push({production,label,width,start,end,station,context_preserved:true,axe:0,performance});
       }
     }
     assert.deepEqual(errors,[]);await page.close();
