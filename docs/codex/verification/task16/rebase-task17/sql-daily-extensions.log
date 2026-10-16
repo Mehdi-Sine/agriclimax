@@ -1,0 +1,13 @@
+BEGIN
+SET
+INSERT 0 1
+ ?column?
+----------
+ t
+(1 row)
+
+SET
+DO
+RESET
+DO
+ROLLBACK

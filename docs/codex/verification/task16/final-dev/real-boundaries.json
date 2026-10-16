@@ -1,0 +1,255 @@
+{
+  "passed": true,
+  "real_source": true,
+  "remote_writes": false,
+  "reports": [
+    {
+      "production": "wheat",
+      "width": 1440,
+      "route": "/",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 0
+    },
+    {
+      "production": "wheat",
+      "width": 1440,
+      "route": "/diagnostic",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 1
+    },
+    {
+      "production": "wheat",
+      "width": 1440,
+      "route": "/history",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 0
+    },
+    {
+      "production": "wheat",
+      "width": 1440,
+      "route": "/watch",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 0
+    },
+    {
+      "production": "wheat",
+      "width": 1440,
+      "period": [
+        "2026-09-01",
+        "2026-09-03"
+      ],
+      "missing_stays_absent": true,
+      "no_snapshot_or_fixture_fallback": true,
+      "latest_success_metadata_preserved": true
+    },
+    {
+      "production": "wheat",
+      "width": 1440,
+      "period": [
+        "2026-10-15",
+        "2026-10-15"
+      ],
+      "missing_stays_absent": true,
+      "no_snapshot_or_fixture_fallback": true,
+      "latest_success_metadata_preserved": true
+    },
+    {
+      "production": "cattle",
+      "width": 1440,
+      "route": "/",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 0
+    },
+    {
+      "production": "cattle",
+      "width": 1440,
+      "route": "/diagnostic",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 1
+    },
+    {
+      "production": "cattle",
+      "width": 1440,
+      "route": "/history",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 0
+    },
+    {
+      "production": "cattle",
+      "width": 1440,
+      "route": "/watch",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 0
+    },
+    {
+      "production": "cattle",
+      "width": 1440,
+      "period": [
+        "2026-09-01",
+        "2026-09-03"
+      ],
+      "missing_stays_absent": true,
+      "no_snapshot_or_fixture_fallback": true,
+      "latest_success_metadata_preserved": true
+    },
+    {
+      "production": "cattle",
+      "width": 1440,
+      "period": [
+        "2026-10-15",
+        "2026-10-15"
+      ],
+      "missing_stays_absent": true,
+      "no_snapshot_or_fixture_fallback": true,
+      "latest_success_metadata_preserved": true
+    },
+    {
+      "production": "wheat",
+      "width": 390,
+      "route": "/",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 0
+    },
+    {
+      "production": "wheat",
+      "width": 390,
+      "route": "/diagnostic",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 1
+    },
+    {
+      "production": "wheat",
+      "width": 390,
+      "route": "/history",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 0
+    },
+    {
+      "production": "wheat",
+      "width": 390,
+      "route": "/watch",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 0
+    },
+    {
+      "production": "wheat",
+      "width": 390,
+      "period": [
+        "2026-09-01",
+        "2026-09-03"
+      ],
+      "missing_stays_absent": true,
+      "no_snapshot_or_fixture_fallback": true,
+      "latest_success_metadata_preserved": true
+    },
+    {
+      "production": "wheat",
+      "width": 390,
+      "period": [
+        "2026-10-15",
+        "2026-10-15"
+      ],
+      "missing_stays_absent": true,
+      "no_snapshot_or_fixture_fallback": true,
+      "latest_success_metadata_preserved": true
+    },
+    {
+      "production": "cattle",
+      "width": 390,
+      "route": "/",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 0
+    },
+    {
+      "production": "cattle",
+      "width": 390,
+      "route": "/diagnostic",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 1
+    },
+    {
+      "production": "cattle",
+      "width": 390,
+      "route": "/history",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 0
+    },
+    {
+      "production": "cattle",
+      "width": 390,
+      "route": "/watch",
+      "status": 200,
+      "aggregate_matches_dev": true,
+      "previous_valid_publication_visible": true,
+      "stale_visible": true,
+      "structured_private_records_in_dom": 0
+    },
+    {
+      "production": "cattle",
+      "width": 390,
+      "period": [
+        "2026-09-01",
+        "2026-09-03"
+      ],
+      "missing_stays_absent": true,
+      "no_snapshot_or_fixture_fallback": true,
+      "latest_success_metadata_preserved": true
+    },
+    {
+      "production": "cattle",
+      "width": 390,
+      "period": [
+        "2026-10-15",
+        "2026-10-15"
+      ],
+      "missing_stays_absent": true,
+      "no_snapshot_or_fixture_fallback": true,
+      "latest_success_metadata_preserved": true
+    }
+  ]
+}

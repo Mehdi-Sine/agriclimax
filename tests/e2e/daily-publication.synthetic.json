@@ -1,0 +1,999 @@
+{
+  "content_key": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "payload": {
+    "schema_version": "daily-1",
+    "from": "2026-09-01",
+    "to": "2026-09-03",
+    "computed_at": "2026-10-15T00:00:00Z",
+    "wheat": [
+      {
+        "schema_version": "wheat-1",
+        "station_id": "35281001",
+        "station_name": "Synthetic test station",
+        "latitude": 48.1,
+        "longitude": -1.7,
+        "spatial_support": "station_point",
+        "interpolation": "none",
+        "risk_computed": false,
+        "production": "wheat",
+        "parameters": {
+          "rule_version": "wheat-climate-1",
+          "parameter_set_id": "descriptive-example-1",
+          "gdd_base_c": 4.0,
+          "heat_threshold_c": 25.0,
+          "frost_threshold_c": 0.0,
+          "dry_threshold_mm": 1.0,
+          "spell_min_days": 3,
+          "max_grid_distance_km": 20.0,
+          "parameter_source": "Analyst-selected descriptive example; not calibrated for wheat cultivar, location or stage. Formula conventions: xclim 0.58.1 growing_degree_days, tx_days_above, tn_days_below, maximum_consecutive_dry_days."
+        },
+        "parameter_fingerprint": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+        "period": {
+          "start": "2026-09-01",
+          "end": "2026-09-03",
+          "stage": null,
+          "stage_source": null,
+          "mode": "explicit_calendar"
+        },
+        "grid_cell": null,
+        "grid_mapping_source": null,
+        "computed_at": "2026-10-15T00:00:00Z",
+        "results": [
+          {
+            "rule_id": "wheat.gdd",
+            "rule_version": "wheat-climate-1",
+            "production": "wheat",
+            "indicator": "gdd",
+            "period": {
+              "start": "2026-09-01",
+              "end": "2026-09-03",
+              "stage": null,
+              "stage_source": null,
+              "mode": "explicit_calendar"
+            },
+            "value": 18.0,
+            "unit": "degC day",
+            "threshold": {
+              "base_c": 4.0,
+              "upper_cap": null,
+              "method": "source_daily_mean"
+            },
+            "level": null,
+            "confidence": "low",
+            "freshness": "stale",
+            "data_freshness": "stale",
+            "provenance": [
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-01",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-02",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-03",
+                "issues": []
+              }
+            ],
+            "scientific_sources": [
+              "https://github.com/Ouranosinc/xclim/blob/v0.58.1/src/xclim/indices/_threshold.py"
+            ],
+            "scientific_status": "exploratory",
+            "limits": [
+              "Indicateur climatique descriptif, ni risque agronomique ni conseil de conduite.",
+              "Seuils exploratoires non universels, non calibres par variete, lieu ou stade.",
+              "Point station M\u00e9t\u00e9o-France sans interpolation ni couverture continue de la France.",
+              "Dates quotidiennes source; aucune deduction de stade ni fenetre biologique automatique.",
+              "Confiance faible: absence de validation experte pour le ble, independante de la valeur.",
+              "Sequence bornee par la fenetre demandee; aucune continuation hors fenetre deduite."
+            ],
+            "quality_flags": [],
+            "expected_days": 3,
+            "available_days": 3,
+            "sequence_count": null
+          },
+          {
+            "rule_id": "wheat.heat_days",
+            "rule_version": "wheat-climate-1",
+            "production": "wheat",
+            "indicator": "heat_days",
+            "period": {
+              "start": "2026-09-01",
+              "end": "2026-09-03",
+              "stage": null,
+              "stage_source": null,
+              "mode": "explicit_calendar"
+            },
+            "value": 3.0,
+            "unit": "day",
+            "threshold": {
+              "operator": ">",
+              "value": 25.0,
+              "unit": "degC"
+            },
+            "level": null,
+            "confidence": "low",
+            "freshness": "stale",
+            "data_freshness": "stale",
+            "provenance": [
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-01",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-02",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-03",
+                "issues": []
+              }
+            ],
+            "scientific_sources": [
+              "https://github.com/Ouranosinc/xclim/blob/v0.58.1/src/xclim/indices/_threshold.py"
+            ],
+            "scientific_status": "exploratory",
+            "limits": [
+              "Indicateur climatique descriptif, ni risque agronomique ni conseil de conduite.",
+              "Seuils exploratoires non universels, non calibres par variete, lieu ou stade.",
+              "Point station M\u00e9t\u00e9o-France sans interpolation ni couverture continue de la France.",
+              "Dates quotidiennes source; aucune deduction de stade ni fenetre biologique automatique.",
+              "Confiance faible: absence de validation experte pour le ble, independante de la valeur.",
+              "Sequence bornee par la fenetre demandee; aucune continuation hors fenetre deduite."
+            ],
+            "quality_flags": [],
+            "expected_days": 3,
+            "available_days": 3,
+            "sequence_count": null
+          },
+          {
+            "rule_id": "wheat.heat_spell_max",
+            "rule_version": "wheat-climate-1",
+            "production": "wheat",
+            "indicator": "heat_spell_max",
+            "period": {
+              "start": "2026-09-01",
+              "end": "2026-09-03",
+              "stage": null,
+              "stage_source": null,
+              "mode": "explicit_calendar"
+            },
+            "value": 3.0,
+            "unit": "day",
+            "threshold": {
+              "operator": ">",
+              "value": 25.0,
+              "unit": "degC",
+              "minimum_days": 3
+            },
+            "level": null,
+            "confidence": "low",
+            "freshness": "stale",
+            "data_freshness": "stale",
+            "provenance": [
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-01",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-02",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-03",
+                "issues": []
+              }
+            ],
+            "scientific_sources": [
+              "https://github.com/Ouranosinc/xclim/blob/v0.58.1/src/xclim/indices/_threshold.py"
+            ],
+            "scientific_status": "exploratory",
+            "limits": [
+              "Indicateur climatique descriptif, ni risque agronomique ni conseil de conduite.",
+              "Seuils exploratoires non universels, non calibres par variete, lieu ou stade.",
+              "Point station M\u00e9t\u00e9o-France sans interpolation ni couverture continue de la France.",
+              "Dates quotidiennes source; aucune deduction de stade ni fenetre biologique automatique.",
+              "Confiance faible: absence de validation experte pour le ble, independante de la valeur.",
+              "Sequence bornee par la fenetre demandee; aucune continuation hors fenetre deduite."
+            ],
+            "quality_flags": [],
+            "expected_days": 3,
+            "available_days": 3,
+            "sequence_count": 1
+          },
+          {
+            "rule_id": "wheat.frost_days",
+            "rule_version": "wheat-climate-1",
+            "production": "wheat",
+            "indicator": "frost_days",
+            "period": {
+              "start": "2026-09-01",
+              "end": "2026-09-03",
+              "stage": null,
+              "stage_source": null,
+              "mode": "explicit_calendar"
+            },
+            "value": 3.0,
+            "unit": "day",
+            "threshold": {
+              "operator": "<",
+              "value": 0.0,
+              "unit": "degC"
+            },
+            "level": null,
+            "confidence": "low",
+            "freshness": "stale",
+            "data_freshness": "stale",
+            "provenance": [
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-01",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-02",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-03",
+                "issues": []
+              }
+            ],
+            "scientific_sources": [
+              "https://github.com/Ouranosinc/xclim/blob/v0.58.1/src/xclim/indices/_threshold.py"
+            ],
+            "scientific_status": "exploratory",
+            "limits": [
+              "Indicateur climatique descriptif, ni risque agronomique ni conseil de conduite.",
+              "Seuils exploratoires non universels, non calibres par variete, lieu ou stade.",
+              "Point station M\u00e9t\u00e9o-France sans interpolation ni couverture continue de la France.",
+              "Dates quotidiennes source; aucune deduction de stade ni fenetre biologique automatique.",
+              "Confiance faible: absence de validation experte pour le ble, independante de la valeur.",
+              "Sequence bornee par la fenetre demandee; aucune continuation hors fenetre deduite."
+            ],
+            "quality_flags": [],
+            "expected_days": 3,
+            "available_days": 3,
+            "sequence_count": null
+          },
+          {
+            "rule_id": "wheat.frost_spell_max",
+            "rule_version": "wheat-climate-1",
+            "production": "wheat",
+            "indicator": "frost_spell_max",
+            "period": {
+              "start": "2026-09-01",
+              "end": "2026-09-03",
+              "stage": null,
+              "stage_source": null,
+              "mode": "explicit_calendar"
+            },
+            "value": 3.0,
+            "unit": "day",
+            "threshold": {
+              "operator": "<",
+              "value": 0.0,
+              "unit": "degC",
+              "minimum_days": 3
+            },
+            "level": null,
+            "confidence": "low",
+            "freshness": "stale",
+            "data_freshness": "stale",
+            "provenance": [
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-01",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-02",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-03",
+                "issues": []
+              }
+            ],
+            "scientific_sources": [
+              "https://github.com/Ouranosinc/xclim/blob/v0.58.1/src/xclim/indices/_threshold.py"
+            ],
+            "scientific_status": "exploratory",
+            "limits": [
+              "Indicateur climatique descriptif, ni risque agronomique ni conseil de conduite.",
+              "Seuils exploratoires non universels, non calibres par variete, lieu ou stade.",
+              "Point station M\u00e9t\u00e9o-France sans interpolation ni couverture continue de la France.",
+              "Dates quotidiennes source; aucune deduction de stade ni fenetre biologique automatique.",
+              "Confiance faible: absence de validation experte pour le ble, independante de la valeur.",
+              "Sequence bornee par la fenetre demandee; aucune continuation hors fenetre deduite."
+            ],
+            "quality_flags": [],
+            "expected_days": 3,
+            "available_days": 3,
+            "sequence_count": 1
+          },
+          {
+            "rule_id": "wheat.precipitation_sum",
+            "rule_version": "wheat-climate-1",
+            "production": "wheat",
+            "indicator": "precipitation_sum",
+            "period": {
+              "start": "2026-09-01",
+              "end": "2026-09-03",
+              "stage": null,
+              "stage_source": null,
+              "mode": "explicit_calendar"
+            },
+            "value": 0.0,
+            "unit": "mm",
+            "threshold": null,
+            "level": null,
+            "confidence": "low",
+            "freshness": "stale",
+            "data_freshness": "stale",
+            "provenance": [
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-01",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-02",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-03",
+                "issues": []
+              }
+            ],
+            "scientific_sources": [
+              "https://github.com/Ouranosinc/xclim/blob/v0.58.1/src/xclim/indices/_threshold.py"
+            ],
+            "scientific_status": "exploratory",
+            "limits": [
+              "Indicateur climatique descriptif, ni risque agronomique ni conseil de conduite.",
+              "Seuils exploratoires non universels, non calibres par variete, lieu ou stade.",
+              "Point station M\u00e9t\u00e9o-France sans interpolation ni couverture continue de la France.",
+              "Dates quotidiennes source; aucune deduction de stade ni fenetre biologique automatique.",
+              "Confiance faible: absence de validation experte pour le ble, independante de la valeur.",
+              "Sequence bornee par la fenetre demandee; aucune continuation hors fenetre deduite."
+            ],
+            "quality_flags": [],
+            "expected_days": 3,
+            "available_days": 3,
+            "sequence_count": null
+          },
+          {
+            "rule_id": "wheat.dry_days",
+            "rule_version": "wheat-climate-1",
+            "production": "wheat",
+            "indicator": "dry_days",
+            "period": {
+              "start": "2026-09-01",
+              "end": "2026-09-03",
+              "stage": null,
+              "stage_source": null,
+              "mode": "explicit_calendar"
+            },
+            "value": 3.0,
+            "unit": "day",
+            "threshold": {
+              "operator": "<",
+              "value": 1.0,
+              "unit": "mm/day"
+            },
+            "level": null,
+            "confidence": "low",
+            "freshness": "stale",
+            "data_freshness": "stale",
+            "provenance": [
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-01",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-02",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-03",
+                "issues": []
+              }
+            ],
+            "scientific_sources": [
+              "https://github.com/Ouranosinc/xclim/blob/v0.58.1/src/xclim/indices/_threshold.py"
+            ],
+            "scientific_status": "exploratory",
+            "limits": [
+              "Indicateur climatique descriptif, ni risque agronomique ni conseil de conduite.",
+              "Seuils exploratoires non universels, non calibres par variete, lieu ou stade.",
+              "Point station M\u00e9t\u00e9o-France sans interpolation ni couverture continue de la France.",
+              "Dates quotidiennes source; aucune deduction de stade ni fenetre biologique automatique.",
+              "Confiance faible: absence de validation experte pour le ble, independante de la valeur.",
+              "Sequence bornee par la fenetre demandee; aucune continuation hors fenetre deduite."
+            ],
+            "quality_flags": [],
+            "expected_days": 3,
+            "available_days": 3,
+            "sequence_count": null
+          },
+          {
+            "rule_id": "wheat.dry_spell_max",
+            "rule_version": "wheat-climate-1",
+            "production": "wheat",
+            "indicator": "dry_spell_max",
+            "period": {
+              "start": "2026-09-01",
+              "end": "2026-09-03",
+              "stage": null,
+              "stage_source": null,
+              "mode": "explicit_calendar"
+            },
+            "value": 3.0,
+            "unit": "day",
+            "threshold": {
+              "operator": "<",
+              "value": 1.0,
+              "unit": "mm/day"
+            },
+            "level": null,
+            "confidence": "low",
+            "freshness": "stale",
+            "data_freshness": "stale",
+            "provenance": [
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-01",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-02",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-03",
+                "issues": []
+              }
+            ],
+            "scientific_sources": [
+              "https://github.com/Ouranosinc/xclim/blob/v0.58.1/src/xclim/indices/_threshold.py"
+            ],
+            "scientific_status": "exploratory",
+            "limits": [
+              "Indicateur climatique descriptif, ni risque agronomique ni conseil de conduite.",
+              "Seuils exploratoires non universels, non calibres par variete, lieu ou stade.",
+              "Point station M\u00e9t\u00e9o-France sans interpolation ni couverture continue de la France.",
+              "Dates quotidiennes source; aucune deduction de stade ni fenetre biologique automatique.",
+              "Confiance faible: absence de validation experte pour le ble, independante de la valeur.",
+              "Sequence bornee par la fenetre demandee; aucune continuation hors fenetre deduite."
+            ],
+            "quality_flags": [],
+            "expected_days": 3,
+            "available_days": 3,
+            "sequence_count": 1
+          },
+          {
+            "rule_id": "wheat.temperature_anomaly",
+            "rule_version": "wheat-climate-1",
+            "production": "wheat",
+            "indicator": "temperature_anomaly",
+            "period": {
+              "start": "2026-09-01",
+              "end": "2026-09-03",
+              "stage": null,
+              "stage_source": null,
+              "mode": "explicit_calendar"
+            },
+            "value": null,
+            "unit": "degC",
+            "threshold": null,
+            "level": null,
+            "confidence": "low",
+            "freshness": "stale",
+            "data_freshness": "stale",
+            "provenance": [
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-01",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-02",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-03",
+                "issues": []
+              }
+            ],
+            "scientific_sources": [
+              "https://doi.org/10.24381/cds.e2161bac",
+              "Task12 compare_daily / calendar-day-type7-midrank-1"
+            ],
+            "scientific_status": "exploratory",
+            "limits": [
+              "Indicateur climatique descriptif, ni risque agronomique ni conseil de conduite.",
+              "Seuils exploratoires non universels, non calibres par variete, lieu ou stade.",
+              "Point station M\u00e9t\u00e9o-France sans interpolation ni couverture continue de la France.",
+              "Dates quotidiennes source; aucune deduction de stade ni fenetre biologique automatique.",
+              "Confiance faible: absence de validation experte pour le ble, independante de la valeur.",
+              "Sequence bornee par la fenetre demandee; aucune continuation hors fenetre deduite.",
+              "Comparaison descriptive station/grille non corrigee du biais; fenetres quotidiennes non harmonisees.",
+              "Minimum d'annees Task12 conserve; le smoke test 1991 ne constitue pas une normale 1991-2020."
+            ],
+            "quality_flags": [
+              "daily_windows_not_harmonized",
+              "insufficient_reference_or_current_window",
+              "not_bias_corrected",
+              "reference_grid_absent_or_too_far",
+              "station_grid_support_difference"
+            ],
+            "expected_days": 3,
+            "available_days": 0,
+            "sequence_count": null
+          },
+          {
+            "rule_id": "wheat.precipitation_anomaly",
+            "rule_version": "wheat-climate-1",
+            "production": "wheat",
+            "indicator": "precipitation_anomaly",
+            "period": {
+              "start": "2026-09-01",
+              "end": "2026-09-03",
+              "stage": null,
+              "stage_source": null,
+              "mode": "explicit_calendar"
+            },
+            "value": null,
+            "unit": "mm",
+            "threshold": null,
+            "level": null,
+            "confidence": "low",
+            "freshness": "stale",
+            "data_freshness": "stale",
+            "provenance": [
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-01",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-02",
+                "issues": []
+              },
+              {
+                "source_id": "meteofrance-climatology",
+                "retrieved_at": "2026-10-15T00:00:00Z",
+                "published_at": null,
+                "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "demo": false,
+                "normalizer_version": "1",
+                "publication_time_known": false,
+                "station_id": "35281001",
+                "valid_date": "2026-09-03",
+                "issues": []
+              }
+            ],
+            "scientific_sources": [
+              "https://doi.org/10.24381/cds.e2161bac",
+              "Task12 compare_daily / calendar-day-type7-midrank-1"
+            ],
+            "scientific_status": "exploratory",
+            "limits": [
+              "Indicateur climatique descriptif, ni risque agronomique ni conseil de conduite.",
+              "Seuils exploratoires non universels, non calibres par variete, lieu ou stade.",
+              "Point station M\u00e9t\u00e9o-France sans interpolation ni couverture continue de la France.",
+              "Dates quotidiennes source; aucune deduction de stade ni fenetre biologique automatique.",
+              "Confiance faible: absence de validation experte pour le ble, independante de la valeur.",
+              "Sequence bornee par la fenetre demandee; aucune continuation hors fenetre deduite.",
+              "Comparaison descriptive station/grille non corrigee du biais; fenetres quotidiennes non harmonisees.",
+              "Minimum d'annees Task12 conserve; le smoke test 1991 ne constitue pas une normale 1991-2020."
+            ],
+            "quality_flags": [
+              "daily_windows_not_harmonized",
+              "insufficient_reference_or_current_window",
+              "not_bias_corrected",
+              "reference_grid_absent_or_too_far",
+              "station_grid_support_difference"
+            ],
+            "expected_days": 3,
+            "available_days": 0,
+            "sequence_count": null
+          }
+        ]
+      }
+    ],
+    "cattle": [
+      {
+        "rule_id": "cattle.thi.exposure",
+        "rule_version": "1.0.0",
+        "production": "cattle",
+        "formula_id": "bohmanova-2005-thi-26-v1",
+        "formula": "(1.8*T_C+32)-(0.55-0.0055*RH_pct)*(1.8*T_C-26)",
+        "value": 81.38,
+        "unit": "THI",
+        "value_kind": "maximum_daily_synthetic",
+        "status": "available",
+        "reason": null,
+        "period": {
+          "start": "2026-09-01T00:00:00+00:00",
+          "end_exclusive": "2026-09-04T00:00:00+00:00",
+          "timezone": "UTC"
+        },
+        "resolution": "daily",
+        "level": "exposure_above_reference",
+        "thresholds": [
+          72.0
+        ],
+        "confidence": {
+          "level": "low",
+          "coverage": 1.0,
+          "reason": "no_validated_confidence_policy"
+        },
+        "freshness": "fresh",
+        "data_freshness": "fresh",
+        "provenance": [
+          {
+            "source_id": "meteofrance-climatology",
+            "retrieved_at": "2026-10-15T00:00:00Z",
+            "published_at": null,
+            "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "demo": false,
+            "normalizer_version": "1",
+            "publication_time_known": false,
+            "station_id": "35281001",
+            "valid_date": "2026-09-01",
+            "issues": []
+          },
+          {
+            "source_id": "meteofrance-climatology",
+            "retrieved_at": "2026-10-15T00:00:00Z",
+            "published_at": null,
+            "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "demo": false,
+            "normalizer_version": "1",
+            "publication_time_known": false,
+            "station_id": "35281001",
+            "valid_date": "2026-09-02",
+            "issues": []
+          },
+          {
+            "source_id": "meteofrance-climatology",
+            "retrieved_at": "2026-10-15T00:00:00Z",
+            "published_at": null,
+            "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "demo": false,
+            "normalizer_version": "1",
+            "publication_time_known": false,
+            "station_id": "35281001",
+            "valid_date": "2026-09-03",
+            "issues": []
+          }
+        ],
+        "scientific_source": {
+          "title": "National Genetic Evaluation of Milk Yield for Heat Tolerance of United States Holsteins",
+          "authors": "J. Bohmanova, I. Misztal, S. Tsuruta, H.D. Norman, T.J. Lawlor",
+          "year": 2005,
+          "url": "https://www.ars.usda.gov/ARSUserFiles/80420530/Publications/Scientific/Conferences/2005/IB_33_160_BohmanovaEtAl.pdf",
+          "consulted_at": "2026-10-15",
+          "scope": "US Holsteins, first-parity test-day milk records; threshold 72 assumed in the study, not universal; no clinical inference",
+          "licence": "not established"
+        },
+        "scientific_status": "exploratory",
+        "limits": [
+          "race",
+          "\u00e2ge",
+          "niveau de production",
+          "stade physiologique",
+          "b\u00e2timent",
+          "ventilation",
+          "ombrage",
+          "acc\u00e8s \u00e0 l\u2019eau",
+          "rayonnement",
+          "vent",
+          "microclimat"
+        ],
+        "notice": "Indicateur climatique d\u2019exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique.",
+        "quality_flags": [
+          "synthetic_daily_not_hourly_mean",
+          "source_daily_windows_not_harmonized"
+        ],
+        "series": [
+          {
+            "at": "2026-09-01T00:00:00+00:00",
+            "value": 81.38
+          },
+          {
+            "at": "2026-09-02T00:00:00+00:00",
+            "value": 81.38
+          },
+          {
+            "at": "2026-09-03T00:00:00+00:00",
+            "value": 81.38
+          }
+        ],
+        "daily": [
+          {
+            "date": "2026-09-01",
+            "coverage": 1.0,
+            "thi_mean": null,
+            "thi_max": null,
+            "thi_synthetic": 81.38
+          },
+          {
+            "date": "2026-09-02",
+            "coverage": 1.0,
+            "thi_mean": null,
+            "thi_max": null,
+            "thi_synthetic": 81.38
+          },
+          {
+            "date": "2026-09-03",
+            "coverage": 1.0,
+            "thi_mean": null,
+            "thi_max": null,
+            "thi_synthetic": 81.38
+          }
+        ],
+        "metrics": [
+          {
+            "threshold": 72.0,
+            "comparison": ">",
+            "count": 3,
+            "unit": "d",
+            "days_above": 3,
+            "episodes": 1,
+            "max_episode_duration": 3,
+            "cumulative_exposure": 28.139999999999986,
+            "exposure_unit": "THI.d",
+            "partial": false,
+            "episode_count_kind": "complete_period_episodes"
+          }
+        ],
+        "night_recovery": {
+          "status": "unavailable",
+          "reason": "hourly_data_required",
+          "nights_without_recovery": null,
+          "complete_nights": 0,
+          "threshold": 72.0,
+          "timezone": "Europe/Paris",
+          "start_hour": 22,
+          "end_hour": 6
+        },
+        "anomaly": {
+          "status": "unavailable",
+          "value": null,
+          "reason": "Task12_reference_has_no_humidity_or_homologous_THI"
+        },
+        "station_id": "35281001"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "environment": "Supabase DEV",
+  "readonly": true,
+  "metadata": [
+    {
+      "publication_digest_sha256": "2b38b57e1e63ea2666da8c6f64b303127d84610dbd1a51f3343558ca0f0531ec",
+      "source_start": "2026-10-11",
+      "source_end": "2026-10-13",
+      "computed_at": "2026-10-16T13:48:14.270668+00:00",
+      "default_selects_latest": true,
+      "wheat_stations": 5,
+      "cattle_stations": 5,
+      "anon_execute": false,
+      "authenticated_execute": false
+    }
+  ],
+  "necessary_aggregates": [
+    {
+      "station_id": "05046001",
+      "wheat_precipitation_mm": "0.0",
+      "cattle_days_above": "0",
+      "source_start": "2026-10-11",
+      "source_end": "2026-10-13"
+    },
+    {
+      "station_id": "13054001",
+      "wheat_precipitation_mm": "0.0",
+      "cattle_days_above": "0",
+      "source_start": "2026-10-11",
+      "source_end": "2026-10-13"
+    },
+    {
+      "station_id": "29075001",
+      "wheat_precipitation_mm": "22.4",
+      "cattle_days_above": "0",
+      "source_start": "2026-10-11",
+      "source_end": "2026-10-13"
+    },
+    {
+      "station_id": "31069001",
+      "wheat_precipitation_mm": "0.2",
+      "cattle_days_above": "0",
+      "source_start": "2026-10-11",
+      "source_end": "2026-10-13"
+    },
+    {
+      "station_id": "67124001",
+      "wheat_precipitation_mm": "0.0",
+      "cattle_days_above": "0",
+      "source_start": "2026-10-11",
+      "source_end": "2026-10-13"
+    }
+  ]
+}

@@ -167,13 +167,16 @@ describe('watch rendering and explicit states', () => {
     }
   });
   it('does not display fixtures in live, empty filters or unknown signal contexts', async () => {
-    const live = renderToStaticMarkup(await WatchPage({ searchParams: Promise.resolve({ mode: 'live' }) }));
-    expect(live).toContain('Source de veille indisponible');
+    const transport = vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('source unavailable'));
+    let live: string;
+    try { live = renderToStaticMarkup(await WatchPage({ searchParams: Promise.resolve({ mode: 'live' }) })); }
+    finally { transport.mockRestore(); }
+    expect(live).toContain('Veille indisponible pour cette sélection');
     expect(live).not.toContain('demo-fiction');
     expect(live).not.toContain('Signal fictif');
-    const empty = renderToStaticMarkup(await WatchPage({ searchParams: Promise.resolve({ production: 'dairy_cattle' }) }));
+    const empty = renderToStaticMarkup(await WatchPage({ searchParams: Promise.resolve({ mode: 'demo', production: 'dairy_cattle' }) }));
     expect(empty).toContain('Données absentes'); expect(empty).not.toContain('Signal fictif');
-    const unknown = renderToStaticMarkup(await WatchPage({ searchParams: Promise.resolve({ signal: 'missing' }) }));
+    const unknown = renderToStaticMarkup(await WatchPage({ searchParams: Promise.resolve({ mode: 'demo', signal: 'missing' }) }));
     expect(unknown).toContain('Données absentes');
   });
 });

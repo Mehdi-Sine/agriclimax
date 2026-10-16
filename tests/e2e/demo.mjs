@@ -60,7 +60,7 @@ try {
       } else await route.continue();
     });
     const start = performance.now();
-    const response = await page.goto(`${baseURL}/?production=wheat_soft&date=2026-07-01`, { waitUntil: 'networkidle', timeout: 30000 });
+    const response = await page.goto(`${baseURL}/?mode=demo&production=wheat_soft&date=2026-07-01`, { waitUntil: 'networkidle', timeout: 30000 });
     assert.equal(response.status(), 200);
     assert.ok((await response.body()).length < 256 * 1024, 'Demo HTML exceeds 256 KiB');
     const durationMs = performance.now() - start;
@@ -116,10 +116,10 @@ try {
     await tabTo(page, cattle);
     await page.keyboard.press('Enter');
     await page.waitForURL(url => url.searchParams.get('production') === 'cattle');
-    await page.getByRole('heading', { name: 'Observation Map · Bovins', exact: true }).waitFor({ state: 'visible' });
+    await page.getByRole('heading', { name: 'Carte · Bovins', exact: true }).waitFor({ state: 'visible' });
     await page.waitForLoadState('networkidle');
     await useSkipLink(page);
-    for (const [view, title] of [['Observation', 'Observation Map · Bovins'], ['Diagnostic', 'Scientific Diagnostic · Bovins'], ['Veille', 'Watch · Exposition thermique des bovins']]) {
+    for (const [view, title] of [['Carte', 'Carte · Bovins'], ['Diagnostic', 'Diagnostic · Bovins'], ['Veille', 'Veille · Bovins']]) {
       await page.locator('header').getByRole('link', { name: view, exact: true }).click();
       await page.waitForLoadState('networkidle');
       assert.ok(await page.getByRole('heading', { name: title, exact: true }).isVisible());
@@ -147,7 +147,7 @@ try {
         }
       }
     }
-    await page.goto(`${baseURL}/?production=dairy_cattle&date=2026-02-30&territory=%3Cscript%3E`, { waitUntil: 'networkidle' });
+    await page.goto(`${baseURL}/?mode=demo&production=dairy_cattle&date=2026-02-30&territory=%3Cscript%3E`, { waitUntil: 'networkidle' });
     assert.ok(await page.locator('[data-demo="true"]').first().isVisible(), 'Demo survives empty/invalid context');
     assert.deepEqual(failures, [], 'Browser errors');
     assert.deepEqual(external, [], 'Unexpected remote dependency in demo');
