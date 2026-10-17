@@ -1,3 +1,8 @@
+> État courant après réception de l’archive OFB/MASA :
+> [intégration des 713 contours, poids, pilote réel et stockage](OFFICIAL_PRA_INTEGRATION.md).
+> Les éléments ci-dessous décrivent les observations antérieures. La comparaison
+> INRAE/OFB est désormais reproduite ; le contrôle administratif indépendant reste ouvert.
+
 > Mise à jour du 17 octobre 2026 après réception des fichiers : voir
 > [validation PRA INRAE / Agreste](PRA_INRAE_VALIDATION.md).
 > Les 713 codes officiels concordent ; le 714e est Paris 75000.

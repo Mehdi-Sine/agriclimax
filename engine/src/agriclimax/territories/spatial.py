@@ -5,6 +5,7 @@ import json
 import math
 import re
 from dataclasses import dataclass
+from functools import lru_cache
 from typing import Any
 
 from pyproj import Transformer
@@ -39,6 +40,12 @@ class Weight:
     method: str = METHOD
 
 
+@lru_cache(maxsize=8)
+def _area_transformer(source_crs: str) -> Transformer:
+    """Reuse immutable PROJ transforms across native-cell intersections."""
+    return Transformer.from_crs(source_crs, "EPSG:3035", always_xy=True)
+
+
 def projected(geometry: dict[str, Any], source_crs: str = "EPSG:4326") -> Any:
     """Shapely's geometry API is dynamically typed; validate runtime types explicitly."""
     polygon = shape(geometry)
@@ -48,7 +55,7 @@ def projected(geometry: dict[str, Any], source_crs: str = "EPSG:4326") -> Any:
         or not polygon.is_valid
     ):
         raise ValueError("Invalid polygon: source correction/review required")
-    transformer = Transformer.from_crs(source_crs, "EPSG:3035", always_xy=True)
+    transformer = _area_transformer(source_crs)
     return transform(transformer.transform, polygon)
 
 

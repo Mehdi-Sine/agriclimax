@@ -50,6 +50,11 @@ def main() -> int:
         type=Path,
         help="Independent normalized official WGS84 departmental GeoJSON",
     )
+    p.add_argument(
+        "--provenance-manifest",
+        type=Path,
+        help="Data-only source checksums and provenance; never overrides validation fields",
+    )
     a = p.parse_args()
     if a.input.stat().st_size > 128 * 1024 * 1024:
         p.error("Source exceeds 128 MiB; use bounded official export")
@@ -99,6 +104,11 @@ def main() -> int:
         "weight_method": "total-area-epsg3035-1",
         "reference_verified_national": False,
     }
+    if a.provenance_manifest:
+        provenance = json.loads(a.provenance_manifest.read_text())
+        if not isinstance(provenance, dict):
+            p.error("Source provenance must be a JSON object")
+        manifest["source_provenance"] = provenance
     # Expected count is diagnostic, never an instruction to fabricate missing PRA.
     a.output.mkdir(parents=True, exist_ok=True)
     for name, value in [

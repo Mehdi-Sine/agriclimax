@@ -36,3 +36,9 @@ it('reads complete territorial data and rejects a false full-coverage label',asy
  expect((await readTerritories(new Request(address),fetcher)).status).toBe(status);
  }
 });
+
+it('reports a published batch with no native values as unavailable, retaining missing-source evidence',async()=>{
+ configure();const fetcher=vi.fn<typeof fetch>().mockResolvedValue(Response.json({source_id:'era5-land',source_kind:'reanalysis',method_version:'pra-native-1',data:[{...row,temperature:null,temperature_min:null,temperature_max:null,precipitation:null,coverage:[0,0,0,0],valid_counts:[0,0,0,0],expected_cells:6,status:'partial',freshness:'stale',computed_at:'2026-01-02T00:00:00Z',valid_date:'2026-01-01',batch_key:'a'.repeat(64),quality_flags:['missing_cells']}],next_cursor:null}));
+ const response=await readTerritories(new Request(base+'&action=read&dataset=test&date=2026-01-01&scope=pra&id=pra:01001'),fetcher);
+ expect(response.status).toBe(200);expect(await response.json()).toMatchObject({state:'unavailable',data:[{status:'unavailable',temperature:null,expected_cells:6,coverage:[0,0,0,0],valid_counts:[0,0,0,0],quality_flags:['missing_cells']}]});
+});

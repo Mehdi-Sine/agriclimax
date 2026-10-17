@@ -66,8 +66,8 @@ jobs:
       - run: python -m mypy --strict engine/src/agriclimax/climate scripts/backfill_france.py scripts/backfill_france_stations.py scripts/select_france_stations.py scripts/prepare_france_references.py
       - run: python -m ruff check engine/src/agriclimax/cattle engine/tests/cattle scripts/cattle_heat_stress.py
       - run: python -m mypy --strict engine/src/agriclimax/cattle scripts/cattle_heat_stress.py
-      - run: python -m ruff check engine/src/agriclimax/territories engine/tests/territories scripts/pra_reference.py scripts/pra_climate.py scripts/pra_workflow.py scripts/pra_real_pilot.py
-      - run: python -m mypy --strict engine/src/agriclimax/territories scripts/pra_reference.py scripts/pra_climate.py scripts/pra_workflow.py scripts/pra_real_pilot.py
+      - run: python -m ruff check engine/src/agriclimax/territories engine/tests/territories scripts/pra_reference.py scripts/pra_reference_sql.py scripts/pra_climate.py scripts/pra_workflow.py scripts/pra_real_pilot.py scripts/pra_ofb_prepare.py scripts/pra_compare_geometries.py scripts/pra_validate_pilot.py tests/e2e/pra_postgis_bridge.py tests/e2e/pra_stage_local.py
+      - run: python -m mypy --strict engine/src/agriclimax/territories scripts/pra_reference.py scripts/pra_reference_sql.py scripts/pra_climate.py scripts/pra_workflow.py scripts/pra_real_pilot.py
       - run: python scripts/check_contracts.py
       - run: python scripts/quality/check_automation.py
       - run: python -m pytest engine/tests --junitxml=work/quality/python.xml

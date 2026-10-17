@@ -46,7 +46,7 @@ def plan(
     tiles = {(math.floor(lon), math.floor(lat)) for lon, lat in cells}
     records = len(selected) * days
     # Explicit engineering estimates, refined against real local PostgreSQL footprint.
-    daily_bytes = records * 512
+    daily_bytes = records * 1024
     reference_bytes = (
         sum(len(json.dumps(t.geometry).encode()) for t in territories) * 2 + len(weights) * 192
     )
@@ -69,7 +69,7 @@ def plan(
         "daily_bytes_estimate": daily_bytes,
         "batch_metadata_bytes_estimate": batch_metadata_bytes,
         "diagnostic_bytes_estimate": "additional sparse results, not included; budget before enabling",
-        "estimate_basis": "512 bytes per daily row incl indexes, measured synthetic 90-day test; 16KiB batch metadata planning allowance",
+        "estimate_basis": "1024 bytes per daily row incl indexes; realistic-version/quality-flag capacity test measured about 839 bytes with null values; 16KiB batch metadata planning allowance",
         "reference_bytes_estimate": reference_bytes,
         "projected_database_bytes_estimate": total,
         "planning_limit_bytes": 500_000_000,
@@ -157,7 +157,7 @@ def run_batch(
     calculation_time = (
         datetime.fromisoformat(json.loads(output.read_text())["computed_at"])
         if output.exists()
-        else datetime.now(UTC)
+        else None
     )
     # Hard disk quota, including source receipts. No implicit deletion of scientific data.
     if sum(p.stat().st_size for p in root.rglob("*") if p.is_file()) > 448 * 1024 * 1024:
@@ -208,6 +208,10 @@ def run_batch(
         payload = json.loads(gzip.decompress(content))
         sources[f"{west},{south}"] = payload["source"]
         rows.extend(r for r in payload["rows"] if r["cell_id"] in points)
+    # Acquisition can take minutes: label the calculation after inputs arrive,
+    # while preserving the original timestamp of an immutable retry output.
+    if calculation_time is None:
+        calculation_time = datetime.now(UTC)
     days = (end - start).days + 1
     keys = {(r["cell_id"], r["valid_date"]) for r in rows}
     if len(keys) != len(rows) or len(keys) != len(weights) * days:

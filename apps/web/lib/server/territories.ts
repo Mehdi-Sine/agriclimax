@@ -75,7 +75,9 @@ export async function territoryData(params:URLSearchParams,transport:typeof fetc
         ||!(r.computed_at===null||typeof r.computed_at==='string'&&Number.isFinite(Date.parse(r.computed_at))))throw new ApiError('INVALID_RESPONSE',502);
       if(!(r.quality_flags===null||Array.isArray(r.quality_flags)&&r.quality_flags.length<=30&&r.quality_flags.every(v=>typeof v==='string'&&v.length<=100)))throw new ApiError('INVALID_RESPONSE',502);
       if(r.status==='available'&&(['temperature','temperature_min','temperature_max','precipitation'].some(k=>r[k]===null)||r.coverage===null||!Array.isArray(r.coverage)||r.coverage.some(v=>v<0.9999)||r.expected_cells===null||!Array.isArray(r.valid_counts)||r.valid_counts.some(v=>v!==r.expected_cells)))throw new ApiError('INVALID_RESPONSE',502);
-      Object.assign(projected,{coverage:r.coverage,valid_counts:r.valid_counts,expected_cells:r.expected_cells,status:r.status,
+      const noNativeValues=Array.isArray(r.valid_counts)&&r.valid_counts.every(v=>v===0)
+        &&['temperature','temperature_min','temperature_max','precipitation'].every(k=>r[k]===null);
+      Object.assign(projected,{coverage:r.coverage,valid_counts:r.valid_counts,expected_cells:r.expected_cells,status:noNativeValues?'unavailable':r.status,
         valid_date:r.valid_date,batch_key:r.batch_key,computed_at:r.computed_at,quality_flags:r.quality_flags,freshness:r.freshness,
         cattle_status:'unsupported_missing_humidity_and_grid_model_validation'});
     }

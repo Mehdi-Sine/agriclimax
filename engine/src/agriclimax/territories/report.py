@@ -70,7 +70,24 @@ def coverage_report(
         },
         "climate": {
             "pra_complete_period": len(complete),
-            "pra_with_any_data": len({p for p, _ in daily}),
+            "pra_with_batch_rows": len({p for p, _ in daily}),
+            "pra_with_any_data": len(
+                {
+                    p
+                    for (p, _), row in daily.items()
+                    if any(v > 0 for v in row.get("valid_counts", []))
+                    or any(
+                        row.get(v) is not None
+                        for v in (
+                            "temperature",
+                            "temperature_min",
+                            "temperature_max",
+                            "precipitation",
+                        )
+                    )
+                }
+            ),
+            "pra_with_any_data_semantics": "At least one valid native value or complete PRA scalar, not merely a published missing-data row",
             "pra_missing_inputs": count - len(complete) if count else None,
             "valid_pra_days": available_days,
             "expected_pra_days": count * len(dates) if count else None,

@@ -1,0 +1,97 @@
+{
+  "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
+  "geometry_valid": 713,
+  "unique_codes": 713,
+  "corsica_pra": 6,
+  "multipolygon_type_count": 713,
+  "more_than_one_component_count": 143,
+  "vertices": 617547,
+  "area_km2_epsg3035": 548320.35564856,
+  "intersections": 14541,
+  "native_cells": 6861,
+  "maximum_weight_sum_error": 1.3153922395758855e-12,
+  "min_max_cells_per_pra": [
+    1,
+    85
+  ],
+  "max_relative_surface_attribute_error": 1.34794923364785e-05,
+  "overlaps_above_one_m2": [],
+  "max_comparison_csv_error_km2": 4.969644373753468e-05,
+  "cases": [
+    {
+      "code": "05236",
+      "name": "DEVOLUY - 05",
+      "area_km2": 186.68638286299674,
+      "native_cells": 9,
+      "weight_sum": 0.9999999999999675,
+      "source_centers_outside_pra": 8,
+      "bounds": [
+        5.790619766632549,
+        44.607122157929815,
+        5.993118043226912,
+        44.7630508898955
+      ]
+    },
+    {
+      "code": "28341",
+      "name": "BEAUCE DUNOISE - 28",
+      "area_km2": 765.350436101316,
+      "native_cells": 24,
+      "weight_sum": 0.9999999999999989,
+      "source_centers_outside_pra": 15,
+      "bounds": [
+        1.213841910092216,
+        47.982278476988576,
+        1.864242408217516,
+        48.25938596077125
+      ]
+    },
+    {
+      "code": "29102",
+      "name": "PRESQU ILE DE CROZON - 29",
+      "area_km2": 121.70118115400295,
+      "native_cells": 6,
+      "weight_sum": 1.0000000000000013,
+      "source_centers_outside_pra": 6,
+      "bounds": [
+        -4.63140506998396,
+        48.16776760750719,
+        -4.362537070375678,
+        48.3419459604244
+      ]
+    },
+    {
+      "code": "2B260",
+      "name": "MONTAGNE CORSE - 2B",
+      "area_km2": 2413.776806351821,
+      "native_cells": 50,
+      "weight_sum": 0.9999999999999479,
+      "source_centers_outside_pra": 24,
+      "bounds": [
+        8.71461034962458,
+        41.9325008950693,
+        9.517405635429101,
+        42.66670734193345
+      ]
+    },
+    {
+      "code": "95332",
+      "name": "VALLEE DE LA SEINE - 95",
+      "area_km2": 11.124019267538086,
+      "native_cells": 2,
+      "weight_sum": 0.9999999999999976,
+      "source_centers_outside_pra": 2,
+      "bounds": [
+        1.643510205304092,
+        49.07184709703961,
+        1.707504073747393,
+        49.10810909293452
+      ]
+    }
+  ],
+  "independent_administrative_check": "blocked_proxy_CONNECT_403",
+  "national_geographic_coverage_certified": false,
+  "original_wfs_xml_available": false,
+  "projection_cache_pilot_weights_identical": true,
+  "safran_cells_reused": false
+}

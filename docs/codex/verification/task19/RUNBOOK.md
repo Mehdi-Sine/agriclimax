@@ -4,9 +4,11 @@ Préconditions : Python 3.12, dépendances des lockfiles dev/climate/geo,
 `PYTHONPATH=engine/src`. Licence CDS acceptée et CDSAPI_KEY configurée hors chat.
 Aucun secret dans une commande, URL, capture ou fichier versionné.
 
-## A. Référence officielle (bloquée dans l’environnement actuel)
+## A. Référence officielle — paquet fourni, contrôles administratifs en attente
 
-Télécharger un export GeoJSON complet depuis la diffusion officielle citée dans
+Le paquet `config/coverage/ofb-masa-pra-2017-snapshot-20261017/` est désormais
+préparé et importé localement. Voir [le bilan courant](OFFICIAL_PRA_INTEGRATION.md).
+Pour une nouvelle source : télécharger un export GeoJSON complet depuis la diffusion officielle citée dans
 SOURCES.md. Inspecter champs, CRS, compte et versions, puis créer un mapping JSON
 `code,name,department,department_name,region,region_name` → noms source réels.
 Les codes doivent être des chaînes avec leurs zéros ; si la source n’a qu’un code
@@ -120,3 +122,44 @@ après staging validé ; pas de bulk dans les requêtes web.
 
 PRA/département/région/France sont des scopes de lecture paginée, pas des moyennes
 administratives préfabriquées. Aucun résultat zéro n’est déduit d’une absence.
+
+## G. Rejouer le staging réel Task19, uniquement local
+
+Depuis la racine, après installation des lockfiles et avec `PYTHONPATH=engine/src` :
+
+```sh
+python scripts/pra_reference_sql.py --bundle config/coverage/ofb-masa-pra-2017-snapshot-20261017 --output work/task19/official/reference/import.sql
+bash tests/e2e/pra_local_setup.sh
+```
+
+Le setup refuse de remplacer un conteneur existant du même nom. Appliquer le SQL
+uniquement via `docker --host=unix:///var/run/docker.sock exec` dans
+`agriclimax-task19-official`, base `agriclimax_task19`, jamais une URL distante.
+Le montage du dépôt est en lecture seule dans le conteneur. Les fonctions utilisent
+le rôle `service_role` local, sans credential Supabase réel.
+
+Le pilote utilise `scripts/pra_climate.py` avec les quatre options `--pra`
+`pra:05236`, `pra:28341`, `pra:29102`, `pra:2B260`, les dates 2026-10-01/07,
+`--parameters config/wheat-mvp.json`, `--max-batches 4 --max-downloads 4`,
+`--root work/task19/official/pilot`, `--execute` et **sans** `--persist-supabase`
+ni `--national-authorized`. Les caches et enveloppes sont conservés sous ce root.
+`tests/e2e/pra_stage_local.py` importe ces enveloppes dans le seul conteneur local.
+
+Pour vérifier des caches existants sans acquisition :
+
+```sh
+python scripts/pra_validate_pilot.py --root work/task19/official/pilot --weights work/task19/official/pilot-weights.json --reference work/task19/official/pilot-reference.json --parameters config/wheat-mvp.json --output work/task19/official/pilot-evidence.json
+```
+
+Les deux fichiers pilotes se construisent par sélection des quatre IDs et de
+leurs poids depuis le paquet complet ; les 89 intersections doivent être identiques.
+Les NetCDF restent privés dans work ; aucun fichier horaire n’est importé en DB.
+
+Pour l’UI réelle locale : générer un certificat local avec SAN `IP:127.0.0.1`,
+démarrer `tests/e2e/pra_postgis_bridge.py --certificate CHEMIN_CERT --key CHEMIN_CLE`
+(port fixe 9443, trois RPC en lecture seule), puis Next sur 3019 avec
+`NEXT_PUBLIC_SUPABASE_URL=https://127.0.0.1:9443`, clé de test locale
+`SUPABASE_SECRET_KEY=task19-local-only` et `NODE_EXTRA_CA_CERTS=CHEMIN_CERT`.
+Cette chaîne est une identité de test publique, pas un secret de service réel.
+`node tests/e2e/territories-real.mjs` vérifie les valeurs et produit ses captures.
+Aucune protection TLS, privilège ou configuration Vercel n’est désactivé.

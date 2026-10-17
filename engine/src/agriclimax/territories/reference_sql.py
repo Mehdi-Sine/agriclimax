@@ -25,7 +25,7 @@ def reference_sql(
         f"do $$ begin if pg_database_size(current_database())+{budget}>375000000 then raise exception 'Reference import exceeds initial 75 percent database budget';end if;end $$;",
         "-- Insert-only: exact replay allowed; conflicting reference version fails below.",
         f"insert into agriclimax_private.geo_versions(version,source_url,source_version,source_sha256,validation) values({version},{q(manifest['source_url'])},{q(manifest['source_version'])},{q(manifest['source_sha256'])},{q(json.dumps(manifest))}::jsonb) on conflict do nothing;",
-        f"do $$ begin if (select source_sha256 from agriclimax_private.geo_versions where version={version})<>{q(manifest['source_sha256'])} or (select validation->>'normalized_sha256' from agriclimax_private.geo_versions where version={version}) is distinct from {q(manifest['normalized_sha256'])} then raise exception 'Reference revision conflict';end if;end $$;",
+        f"do $$ begin if (select source_sha256 from agriclimax_private.geo_versions where version={version})<>{q(manifest['source_sha256'])} or (select validation from agriclimax_private.geo_versions where version={version}) is distinct from {q(json.dumps(manifest))}::jsonb then raise exception 'Reference revision conflict';end if;end $$;",
     ]
     for region, name in sorted({(t.region, t.region_name) for t in territories}):
         lines.append(

@@ -1,9 +1,10 @@
 # Task 19 — PRA, agrégation ERA5 et stockage compact
 
-**NOT READY — nomenclature INRAE/Agreste réconciliée ; contours ministériels
-non comparés et géométrie sans code à expliquer. Validation nationale en attente.** Aucun 713-polygones fictif, aucune donnée synthétique utilisée
-comme preuve de couverture. Aucun merge, schéma distant ou lancement national.
+**NOT READY pour validation finale nationale — 713 contours OFB/MASA intégrés
+localement, poids calculés, pilote réel sur quatre PRA et APIs/UI locales vérifiés.
+Contrôle administratif indépendant et provenance WFS originale encore en attente.**
 
+- [Intégration officielle, pilote réel et bilan courant](OFFICIAL_PRA_INTEGRATION.md)
 - [Analyse des fichiers PRA INRAE et Agreste fournis](PRA_INRAE_VALIDATION.md)
 - [Audit avant implémentation](AUDIT.md)
 - [Sources officielles et limites d’accès](SOURCES.md)
@@ -19,3 +20,9 @@ Les logs SQL et les captures territoriales portent sur du staging synthétique /
 un état sans référentiel ; leur compte n’est pas la couverture réelle du territoire.
 Les checks du dernier commit sont consignés sur le PR draft et restent distincts
 de l’import géographique et du déploiement national autorisé.
+
+Les preuves courantes sont dans `evidence/official/`, `logs/official/` et
+`screenshots/official/`. Elles portent sur les 713 contours fournis et un pilote
+CDS réel de sept jours : deux PRA complètes, Crozon sans valeur, Corse partielle.
+Les anciens relevés décrivent les étapes antérieures et ne sont pas remplacés.
+Aucun backfill national ni déploiement Supabase Task19 effectué.

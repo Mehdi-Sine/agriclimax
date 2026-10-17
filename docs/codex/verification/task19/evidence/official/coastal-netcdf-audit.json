@@ -1,0 +1,49 @@
+{
+  "pra_id": "pra:29102",
+  "source_sha256": "58ba9ce863b608160f2b08e88d6f119f7cc7ab71087712b0253e01656182032a",
+  "native_samples": [
+    {
+      "cell_id": "era5land.48.2.-4.6",
+      "finite_samples_by_variable": {
+        "t2m": 0,
+        "tp": 0
+      }
+    },
+    {
+      "cell_id": "era5land.48.2.-4.5",
+      "finite_samples_by_variable": {
+        "t2m": 0,
+        "tp": 0
+      }
+    },
+    {
+      "cell_id": "era5land.48.2.-4.4",
+      "finite_samples_by_variable": {
+        "t2m": 0,
+        "tp": 0
+      }
+    },
+    {
+      "cell_id": "era5land.48.3.-4.6",
+      "finite_samples_by_variable": {
+        "t2m": 0,
+        "tp": 0
+      }
+    },
+    {
+      "cell_id": "era5land.48.3.-4.5",
+      "finite_samples_by_variable": {
+        "t2m": 0,
+        "tp": 0
+      }
+    },
+    {
+      "cell_id": "era5land.48.3.-4.4",
+      "finite_samples_by_variable": {
+        "t2m": 0,
+        "tp": 0
+      }
+    }
+  ],
+  "independent_raw_netcdf_check": true
+}

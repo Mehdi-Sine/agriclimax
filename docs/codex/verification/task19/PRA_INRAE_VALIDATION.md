@@ -1,3 +1,8 @@
+> État courant après réception de l’archive OFB/MASA :
+> [intégration des 713 contours, poids, pilote réel et stockage](OFFICIAL_PRA_INTEGRATION.md).
+> Les éléments ci-dessous décrivent les observations antérieures. La comparaison
+> INRAE/OFB est désormais reproduite ; le contrôle administratif indépendant reste ouvert.
+
 # Validation du fichier PRA INRAE fourni — 17 octobre 2026
 
 **NOT READY : nomenclature réconciliée, géométries ministérielles non comparées.**

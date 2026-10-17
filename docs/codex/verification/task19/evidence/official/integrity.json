@@ -1,0 +1,22 @@
+{
+  "archive_sha256": "d645285db642822e238846deb867587a25d9f32f96e72cd8219a4299fd51d716",
+  "crc_valid": true,
+  "files": {
+    "agriclimax_pra_officielles_713.geojson": {
+      "bytes": 26683378,
+      "sha256": "b8bf57b71c1608a8cda2061f541aab4081715862e6f5506d7a997f9a36f92f87"
+    },
+    "agriclimax_pra_comparaison_inrae.csv": {
+      "bytes": 35162,
+      "sha256": "05f1ae66c75645981b9c220cfe7e5855010926d5e8b62ab01e318ac10ae0e0bc"
+    },
+    "SOURCE_ET_USAGE.txt": {
+      "bytes": 477,
+      "sha256": "d7a90d2622bc56545444918c95c1d9c3419fd015fd0b98937bc7a47c3fe59efb"
+    }
+  },
+  "supplier_original_xml_sha256": "6ced4c263b48fa27fe283353d93b90d93f2b2ff86cdc9b041574a04983ca1acc",
+  "original_xml_available": false,
+  "original_xml_checksum_verified": false,
+  "external_admin_download": "proxy_CONNECT_403"
+}

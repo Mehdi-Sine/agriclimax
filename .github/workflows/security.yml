@@ -79,7 +79,9 @@ jobs:
           climate_status=$?
           work/audit/bin/pip-audit --strict --disable-pip --no-deps -r engine/requirements-geo.lock --format json --output work/audits/geo.json
           geo_status=$?
-          test "$geo_status" = 0 && test "$engine_status" = 0 && test "$tools_status" = 0 && test "$climate_status" = 0
+          work/audit/bin/pip-audit --strict --disable-pip --no-deps -r scripts/requirements-pra-audit.lock --format json --output work/audits/pra-readers.json
+          readers_status=$?
+          test "$readers_status" = 0 && test "$geo_status" = 0 && test "$engine_status" = 0 && test "$tools_status" = 0 && test "$climate_status" = 0
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:

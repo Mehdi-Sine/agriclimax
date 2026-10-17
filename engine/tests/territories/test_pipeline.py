@@ -188,3 +188,54 @@ def test_retry_across_freshness_boundary_keeps_immutable_calculation_receipt(tmp
     assert receipt["computed_at"].startswith("2026-01-03")
     assert all(d["data_freshness"] == "fresh" for d in receipt["diagnostics"])
     assert provider.acquire.call_count == 1
+
+
+def test_missing_source_rows_do_not_count_as_climate_data():
+    rows = [
+        {
+            "pra_id": "pra:01001",
+            "valid_date": "2026-01-01",
+            "status": "partial",
+            "temperature": None,
+        },
+        {
+            "pra_id": "pra:01002",
+            "valid_date": "2026-01-01",
+            "status": "partial",
+            "temperature": None,
+            "valid_counts": [49, 49, 49, 49],
+        },
+    ]
+    report = coverage_report(
+        {"imported_count": 3}, [{"daily": rows}], date(2026, 1, 1), date(2026, 1, 1), {}
+    )
+    assert report["climate"]["pra_with_batch_rows"] == 2
+    assert report["climate"]["pra_with_any_data"] == 1
+    assert report["climate"]["pra_complete_period"] == 0
+    assert report["climate"]["pra_missing_inputs"] == 3
+
+
+def test_calculation_time_is_after_slow_acquisition(tmp_path, monkeypatch):
+    from datetime import UTC, datetime
+
+    from agriclimax.territories import pipeline
+
+    t, weights, provider = support()
+    clock = [datetime(2026, 1, 2, 0, 0, tzinfo=UTC)]
+
+    class Clock(datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return clock[0]
+
+    monkeypatch.setattr(pipeline, "datetime", Clock)
+    references = provider.acquire.return_value
+
+    def acquire(*args):
+        clock[0] = datetime(2026, 1, 2, 0, 5, tzinfo=UTC)
+        return references
+
+    provider.acquire.side_effect = acquire
+    result = run_batch(provider, t, weights, date(2026, 1, 1), date(2026, 1, 1), tmp_path)
+    output = json.loads(Path(result["output"]).read_text())
+    assert datetime.fromisoformat(output["computed_at"]) >= clock[0]

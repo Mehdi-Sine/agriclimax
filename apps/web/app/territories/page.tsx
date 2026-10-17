@@ -2,6 +2,12 @@ import './territories.css';
 import Link from 'next/link';
 import {territoryData, type TerritoryPage} from '../../lib/server/territories';
 
+function coverageLabel(value:number,valid:number|null|undefined,expected:number|null|undefined) {
+  const formatter=new Intl.NumberFormat('fr-FR',{style:'percent',maximumFractionDigits:4});
+  const label=formatter.format(Math.min(value,1));
+  return valid!=null&&expected!=null&&valid<expected&&label===formatter.format(1)?'< 100 %':label;
+}
+
 export default async function Territories({searchParams}:{searchParams:Promise<Record<string,string|string[]|undefined>>}) {
   const raw=await searchParams;
   const params=new URLSearchParams();
@@ -54,7 +60,7 @@ export default async function Territories({searchParams}:{searchParams:Promise<R
         <dt>Minimum parmi les cellules (°C)</dt><dd>{selected.temperature_min??'Indisponible'}</dd>
         <dt>Maximum parmi les cellules (°C)</dt><dd>{selected.temperature_max??'Indisponible'}</dd>
         <dt>Précipitations · profondeur moyenne spatiale (mm)</dt><dd>{selected.precipitation??'Indisponible'}</dd>
-        <dt>Couverture pondérée par variable</dt><dd>{selected.coverage?.map(v=>`${(v*100).toFixed(1)} %`).join(' · ')||'Inconnue'}</dd></dl>
+        <dt>Couverture pondérée par variable</dt><dd>{selected.coverage?.map((v,index)=>coverageLabel(v,selected.valid_counts?.[index],selected.expected_cells)).join(' · ')||'Inconnue'}</dd></dl>
       <p>Ces statistiques descriptives ne constituent pas un niveau de risque agronomique. THI bovin indisponible sans humidité et validation du support grille.</p>
       <p>Référence de provenance : {selected.batch_key||'aucune publication'}.</p>
     </section>}

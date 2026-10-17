@@ -1,0 +1,58 @@
+{
+  "archive_sha256": "d645285db642822e238846deb867587a25d9f32f96e72cd8219a4299fd51d716",
+  "crc_valid": true,
+  "files": {
+    "agriclimax_pra_officielles_713.geojson": {
+      "bytes": 26683378,
+      "sha256": "b8bf57b71c1608a8cda2061f541aab4081715862e6f5506d7a997f9a36f92f87"
+    },
+    "agriclimax_pra_comparaison_inrae.csv": {
+      "bytes": 35162,
+      "sha256": "05f1ae66c75645981b9c220cfe7e5855010926d5e8b62ab01e318ac10ae0e0bc"
+    },
+    "SOURCE_ET_USAGE.txt": {
+      "bytes": 477,
+      "sha256": "d7a90d2622bc56545444918c95c1d9c3419fd015fd0b98937bc7a47c3fe59efb"
+    }
+  },
+  "supplier_original_xml_sha256": "6ced4c263b48fa27fe283353d93b90d93f2b2ff86cdc9b041574a04983ca1acc",
+  "original_xml_available": false,
+  "original_xml_checksum_verified": false,
+  "external_admin_download": "proxy_CONNECT_403",
+  "adapter": {
+    "administrative_geometry_comparison": "pending",
+    "declared_crs": "urn:ogc:def:crs:OGC:1.3:CRS84",
+    "geographic_coordinates_modified": false,
+    "inputs": {
+      "agreste_2017": {
+        "filename": "Referentiel_CommuneRA_PRA_2017.xls",
+        "sha256": "1a47ade01fa9d936da77d3d7d06eaed1f8944f535802147995f96fd39a0b5008"
+      },
+      "etalab_departments": {
+        "filename": "departements.csv",
+        "sha256": "ab2aa74b5242cfa68ccbb2a67a68c46ca7becc5bd929a9dae5ec3c3cbed417aa"
+      },
+      "etalab_regions": {
+        "filename": "regions.csv",
+        "sha256": "e3f74a92d87f8ca72f08c8b4299d38fb11323f1c9b2fea7105d09801490a7e4e"
+      },
+      "ofb_export": {
+        "filename": "agriclimax_pra_officielles_713.geojson",
+        "sha256": "b8bf57b71c1608a8cda2061f541aab4081715862e6f5506d7a997f9a36f92f87"
+      }
+    },
+    "output_crs": "EPSG:4326",
+    "reference_verified_national": false,
+    "supplier_wfs_provenance_independently_verified": false
+  },
+  "hierarchy_repository": {
+    "url": "https://github.com/datagouv/decoupage-administratif",
+    "commit": "98976e5f29e66b8449cf64eaf3e2be0b8d9e7d85"
+  },
+  "source_layer": "ref_met_petite_region_agricole_masa_pol_3857",
+  "nomenclature_year": 2017,
+  "source_geometry_publication_date": null,
+  "snapshot_received_date": "2026-10-17",
+  "administrative_geometry_independent": false,
+  "license_metadata": "Licence Ouverte 2.0 per ministerial dataset page; archive contains no licence document"
+}

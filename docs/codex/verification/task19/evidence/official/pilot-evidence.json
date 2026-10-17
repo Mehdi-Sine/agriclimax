@@ -1,0 +1,2931 @@
+{
+  "real_cds": true,
+  "synthetic": false,
+  "period_utc": [
+    "2026-10-01",
+    "2026-10-07"
+  ],
+  "native_cells": 89,
+  "native_cell_days": 623,
+  "native_variable_comparisons": 2492,
+  "maximum_source_reduction_error": 0.0,
+  "maximum_spatial_aggregate_error": 0.0,
+  "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+  "parameter_source": "Analyst-selected descriptive example; not calibrated for wheat cultivar, location or stage. Formula conventions: xclim 0.58.1 growing_degree_days, tx_days_above, tn_days_below, maximum_consecutive_dry_days.",
+  "source_files": {
+    "692c31fb4cbc130ebe484599363e5476d4958e2e3c77163867f65ed0e44dbd9b": {
+      "bytes": 93756,
+      "request": {
+        "area": [
+          43,
+          9,
+          42,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature",
+          "total_precipitation"
+        ],
+        "year": "2026"
+      },
+      "retrieved_at": "2026-10-17T21:37:06.849340+00:00"
+    },
+    "6e56d09dfc7ae1ee23eab2eb36e48abe215b8347d9c2157cef161a412851928d": {
+      "bytes": 101731,
+      "request": {
+        "area": [
+          49,
+          1,
+          48,
+          2
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature",
+          "total_precipitation"
+        ],
+        "year": "2026"
+      },
+      "retrieved_at": "2026-10-17T21:30:07.846862+00:00"
+    },
+    "58ba9ce863b608160f2b08e88d6f119f7cc7ab71087712b0253e01656182032a": {
+      "bytes": 78913,
+      "request": {
+        "area": [
+          49,
+          -5,
+          48,
+          -4
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature",
+          "total_precipitation"
+        ],
+        "year": "2026"
+      },
+      "retrieved_at": "2026-10-17T21:32:32.599904+00:00"
+    },
+    "956c855c7fcc32f04b2f914879cfeab26fbf679d8993eaab73a3f32e36378860": {
+      "bytes": 131442,
+      "request": {
+        "area": [
+          45,
+          5,
+          44,
+          6
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature",
+          "total_precipitation"
+        ],
+        "year": "2026"
+      },
+      "retrieved_at": "2026-10-17T21:27:16.090605+00:00"
+    },
+    "610fa34ed9a95c2d57801001a1b0519bbb13649da8ace23e7521cf283b93b59b": {
+      "bytes": 74251,
+      "request": {
+        "area": [
+          43,
+          8,
+          42,
+          9
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature",
+          "total_precipitation"
+        ],
+        "year": "2026"
+      },
+      "retrieved_at": "2026-10-17T21:34:12.345667+00:00"
+    },
+    "9ef2cfdc39a50ba47ef47affeeb1b9786230a424d8f3fb023cf5d80f7296c3ef": {
+      "bytes": 133181,
+      "request": {
+        "area": [
+          45,
+          6,
+          44,
+          7
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature",
+          "total_precipitation"
+        ],
+        "year": "2026"
+      },
+      "retrieved_at": "2026-10-17T21:28:33.326199+00:00"
+    },
+    "423784825474a1c672c33c4d8ae3895c5ecac0c912eb7f86ca3742d7e8da9b43": {
+      "bytes": 86470,
+      "request": {
+        "area": [
+          42,
+          9,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature",
+          "total_precipitation"
+        ],
+        "year": "2026"
+      },
+      "retrieved_at": "2026-10-17T21:35:37.712400+00:00"
+    }
+  },
+  "national_operational_validation": "not_executed",
+  "cases": [
+    {
+      "pra_id": "pra:05236",
+      "name": "DEVOLUY - 05",
+      "batch_key": "f75789a970d10d461c84d469d6688afd78498bfd6e39ca0c0a716cf3f2192b1d",
+      "computed_at": "2026-10-17T21:41:43.651621+00:00",
+      "daily": [
+        {
+          "coverage": [
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675
+          ],
+          "expected_cells": 9,
+          "pra_id": "pra:05236",
+          "precipitation": 4.814217702578058,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 12.886194552055347,
+          "temperature_max": 15.885278320312523,
+          "temperature_min": 10.769921875000023,
+          "valid_counts": [
+            9,
+            9,
+            9,
+            9
+          ],
+          "valid_date": "2026-10-01"
+        },
+        {
+          "coverage": [
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675
+          ],
+          "expected_cells": 9,
+          "pra_id": "pra:05236",
+          "precipitation": 1.5176697379032311,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 13.49463140549799,
+          "temperature_max": 17.756494140625023,
+          "temperature_min": 10.287988281250023,
+          "valid_counts": [
+            9,
+            9,
+            9,
+            9
+          ],
+          "valid_date": "2026-10-02"
+        },
+        {
+          "coverage": [
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675
+          ],
+          "expected_cells": 9,
+          "pra_id": "pra:05236",
+          "precipitation": 0.9101468217438857,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 13.257213809914523,
+          "temperature_max": 17.879541015625023,
+          "temperature_min": 7.525048828125023,
+          "valid_counts": [
+            9,
+            9,
+            9,
+            9
+          ],
+          "valid_date": "2026-10-03"
+        },
+        {
+          "coverage": [
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675
+          ],
+          "expected_cells": 9,
+          "pra_id": "pra:05236",
+          "precipitation": 0.0036503730989650143,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 12.954902212934288,
+          "temperature_max": 19.688867187500023,
+          "temperature_min": 6.388085937500023,
+          "valid_counts": [
+            9,
+            9,
+            9,
+            9
+          ],
+          "valid_date": "2026-10-04"
+        },
+        {
+          "coverage": [
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675
+          ],
+          "expected_cells": 9,
+          "pra_id": "pra:05236",
+          "precipitation": 0.44274273066882847,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 14.120094364618874,
+          "temperature_max": 18.799462890625023,
+          "temperature_min": 9.183984375000023,
+          "valid_counts": [
+            9,
+            9,
+            9,
+            9
+          ],
+          "valid_date": "2026-10-05"
+        },
+        {
+          "coverage": [
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675
+          ],
+          "expected_cells": 9,
+          "pra_id": "pra:05236",
+          "precipitation": 0.283715927991419,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 12.23803568406279,
+          "temperature_max": 17.826074218750023,
+          "temperature_min": 6.377099609375023,
+          "valid_counts": [
+            9,
+            9,
+            9,
+            9
+          ],
+          "valid_date": "2026-10-06"
+        },
+        {
+          "coverage": [
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675,
+            0.9999999999999675
+          ],
+          "expected_cells": 9,
+          "pra_id": "pra:05236",
+          "precipitation": 15.866282205252698,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 10.48060838957463,
+          "temperature_max": 13.600000000000023,
+          "temperature_min": 8.054833984375023,
+          "valid_counts": [
+            9,
+            9,
+            9,
+            9
+          ],
+          "valid_date": "2026-10-07"
+        }
+      ],
+      "diagnostics": [
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 9,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.gdd",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 61.431680418658445,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "f75789a970d10d461c84d469d6688afd78498bfd6e39ca0c0a716cf3f2192b1d",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 9,
+          "valid_weighted_coverage": 0.9999999999999675,
+          "value": 61.431680418658445
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 9,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.heat_days",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 0.0,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "f75789a970d10d461c84d469d6688afd78498bfd6e39ca0c0a716cf3f2192b1d",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 9,
+          "valid_weighted_coverage": 0.9999999999999675,
+          "value": 0.0
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 9,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.heat_spell_max",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 0.0,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "f75789a970d10d461c84d469d6688afd78498bfd6e39ca0c0a716cf3f2192b1d",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 9,
+          "valid_weighted_coverage": 0.9999999999999675,
+          "value": 0.0
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 9,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.frost_days",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 0.0,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "f75789a970d10d461c84d469d6688afd78498bfd6e39ca0c0a716cf3f2192b1d",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 9,
+          "valid_weighted_coverage": 0.9999999999999675,
+          "value": 0.0
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 9,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.frost_spell_max",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 0.0,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "f75789a970d10d461c84d469d6688afd78498bfd6e39ca0c0a716cf3f2192b1d",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 9,
+          "valid_weighted_coverage": 0.9999999999999675,
+          "value": 0.0
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 9,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.precipitation_sum",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 23.838425499237083,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "f75789a970d10d461c84d469d6688afd78498bfd6e39ca0c0a716cf3f2192b1d",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 9,
+          "valid_weighted_coverage": 0.9999999999999675,
+          "value": 23.838425499237083
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 9,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.dry_days",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 3.3873291187503174,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "f75789a970d10d461c84d469d6688afd78498bfd6e39ca0c0a716cf3f2192b1d",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 9,
+          "valid_weighted_coverage": 0.9999999999999675,
+          "value": 3.3873291187503174
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 9,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.dry_spell_max",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 3.3873291187503174,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "f75789a970d10d461c84d469d6688afd78498bfd6e39ca0c0a716cf3f2192b1d",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 9,
+          "valid_weighted_coverage": 0.9999999999999675,
+          "value": 3.3873291187503174
+        }
+      ],
+      "native_support": 9,
+      "completeness_details": [
+        {
+          "valid_date": "2026-10-01",
+          "variables": {
+            "temperature": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 12.886194552055347
+            },
+            "temperature_min": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 10.769921875000023
+            },
+            "temperature_max": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 15.885278320312523
+            },
+            "precipitation": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 4.814217702578058
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-02",
+          "variables": {
+            "temperature": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 13.49463140549799
+            },
+            "temperature_min": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 10.287988281250023
+            },
+            "temperature_max": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 17.756494140625023
+            },
+            "precipitation": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 1.5176697379032311
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-03",
+          "variables": {
+            "temperature": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 13.257213809914523
+            },
+            "temperature_min": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 7.525048828125023
+            },
+            "temperature_max": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 17.879541015625023
+            },
+            "precipitation": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 0.9101468217438857
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-04",
+          "variables": {
+            "temperature": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 12.954902212934288
+            },
+            "temperature_min": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 6.388085937500023
+            },
+            "temperature_max": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 19.688867187500023
+            },
+            "precipitation": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 0.0036503730989650143
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-05",
+          "variables": {
+            "temperature": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 14.120094364618874
+            },
+            "temperature_min": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 9.183984375000023
+            },
+            "temperature_max": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 18.799462890625023
+            },
+            "precipitation": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 0.44274273066882847
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-06",
+          "variables": {
+            "temperature": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 12.23803568406279
+            },
+            "temperature_min": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 6.377099609375023
+            },
+            "temperature_max": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 17.826074218750023
+            },
+            "precipitation": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 0.283715927991419
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-07",
+          "variables": {
+            "temperature": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 10.48060838957463
+            },
+            "temperature_min": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 8.054833984375023
+            },
+            "temperature_max": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 13.600000000000023
+            },
+            "precipitation": {
+              "valid_cells": 9,
+              "weighted_coverage": 0.9999999999999675,
+              "observed_value_not_full_pra": 15.866282205252698
+            }
+          }
+        }
+      ],
+      "cattle_status": "unsupported_missing_humidity_and_grid_model_validation",
+      "scientific_status": "exploratory",
+      "risk_computed": false
+    },
+    {
+      "pra_id": "pra:28341",
+      "name": "BEAUCE DUNOISE - 28",
+      "batch_key": "238ecf0e9f275610b800674d1eae186d852727ee4d2a17f0dd1482a0db52eab9",
+      "computed_at": "2026-10-17T21:41:43.662686+00:00",
+      "daily": [
+        {
+          "coverage": [
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989
+          ],
+          "expected_cells": 24,
+          "pra_id": "pra:28341",
+          "precipitation": 2.5179381813665613,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 16.951312962281744,
+          "temperature_max": 20.945855712890648,
+          "temperature_min": 12.219110107421898,
+          "valid_counts": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "valid_date": "2026-10-01"
+        },
+        {
+          "coverage": [
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989
+          ],
+          "expected_cells": 24,
+          "pra_id": "pra:28341",
+          "precipitation": 0.0003708755072442314,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 15.267077807531559,
+          "temperature_max": 20.376916503906273,
+          "temperature_min": 9.587487792968773,
+          "valid_counts": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "valid_date": "2026-10-02"
+        },
+        {
+          "coverage": [
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989
+          ],
+          "expected_cells": 24,
+          "pra_id": "pra:28341",
+          "precipitation": 3.404781405338621,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 16.438266900538096,
+          "temperature_max": 21.613153076171898,
+          "temperature_min": 10.977868652343773,
+          "valid_counts": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "valid_date": "2026-10-03"
+        },
+        {
+          "coverage": [
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989
+          ],
+          "expected_cells": 24,
+          "pra_id": "pra:28341",
+          "precipitation": 0.7254613371826302,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 17.547190976264098,
+          "temperature_max": 22.834008789062523,
+          "temperature_min": 12.493859863281273,
+          "valid_counts": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "valid_date": "2026-10-04"
+        },
+        {
+          "coverage": [
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989
+          ],
+          "expected_cells": 24,
+          "pra_id": "pra:28341",
+          "precipitation": 0.0,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 17.643896849782877,
+          "temperature_max": 24.205163574218773,
+          "temperature_min": 11.932519531250023,
+          "valid_counts": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "valid_date": "2026-10-05"
+        },
+        {
+          "coverage": [
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989
+          ],
+          "expected_cells": 24,
+          "pra_id": "pra:28341",
+          "precipitation": 0.0008540128468754578,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 18.01226307266196,
+          "temperature_max": 24.762048339843773,
+          "temperature_min": 11.357568359375023,
+          "valid_counts": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "valid_date": "2026-10-06"
+        },
+        {
+          "coverage": [
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989,
+            0.9999999999999989
+          ],
+          "expected_cells": 24,
+          "pra_id": "pra:28341",
+          "precipitation": 14.190708014439899,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "available",
+          "temperature": 16.158245300690968,
+          "temperature_max": 18.137017822265648,
+          "temperature_min": 12.498559570312523,
+          "valid_counts": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "valid_date": "2026-10-07"
+        }
+      ],
+      "diagnostics": [
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 24,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.gdd",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 90.0182538697513,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "238ecf0e9f275610b800674d1eae186d852727ee4d2a17f0dd1482a0db52eab9",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "value": 90.0182538697513
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 24,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.heat_days",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 0.0,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "238ecf0e9f275610b800674d1eae186d852727ee4d2a17f0dd1482a0db52eab9",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "value": 0.0
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 24,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.heat_spell_max",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 0.0,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "238ecf0e9f275610b800674d1eae186d852727ee4d2a17f0dd1482a0db52eab9",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "value": 0.0
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 24,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.frost_days",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 0.0,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "238ecf0e9f275610b800674d1eae186d852727ee4d2a17f0dd1482a0db52eab9",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "value": 0.0
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 24,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.frost_spell_max",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 0.0,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "238ecf0e9f275610b800674d1eae186d852727ee4d2a17f0dd1482a0db52eab9",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "value": 0.0
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 24,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.precipitation_sum",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 20.840113826681833,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "238ecf0e9f275610b800674d1eae186d852727ee4d2a17f0dd1482a0db52eab9",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "value": 20.840113826681833
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 24,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.dry_days",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 3.9799574562007205,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "238ecf0e9f275610b800674d1eae186d852727ee4d2a17f0dd1482a0db52eab9",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "value": 3.9799574562007205
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 24,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.dry_spell_max",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 2.97995745620072,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "238ecf0e9f275610b800674d1eae186d852727ee4d2a17f0dd1482a0db52eab9",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "available",
+          "to": "2026-10-07",
+          "valid_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "value": 2.97995745620072
+        }
+      ],
+      "native_support": 24,
+      "completeness_details": [
+        {
+          "valid_date": "2026-10-01",
+          "variables": {
+            "temperature": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 16.951312962281744
+            },
+            "temperature_min": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 12.219110107421898
+            },
+            "temperature_max": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 20.945855712890648
+            },
+            "precipitation": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 2.5179381813665613
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-02",
+          "variables": {
+            "temperature": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 15.267077807531559
+            },
+            "temperature_min": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 9.587487792968773
+            },
+            "temperature_max": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 20.376916503906273
+            },
+            "precipitation": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 0.0003708755072442314
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-03",
+          "variables": {
+            "temperature": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 16.438266900538096
+            },
+            "temperature_min": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 10.977868652343773
+            },
+            "temperature_max": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 21.613153076171898
+            },
+            "precipitation": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 3.404781405338621
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-04",
+          "variables": {
+            "temperature": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 17.547190976264098
+            },
+            "temperature_min": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 12.493859863281273
+            },
+            "temperature_max": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 22.834008789062523
+            },
+            "precipitation": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 0.7254613371826302
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-05",
+          "variables": {
+            "temperature": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 17.643896849782877
+            },
+            "temperature_min": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 11.932519531250023
+            },
+            "temperature_max": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 24.205163574218773
+            },
+            "precipitation": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 0.0
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-06",
+          "variables": {
+            "temperature": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 18.01226307266196
+            },
+            "temperature_min": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 11.357568359375023
+            },
+            "temperature_max": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 24.762048339843773
+            },
+            "precipitation": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 0.0008540128468754578
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-07",
+          "variables": {
+            "temperature": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 16.158245300690968
+            },
+            "temperature_min": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 12.498559570312523
+            },
+            "temperature_max": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 18.137017822265648
+            },
+            "precipitation": {
+              "valid_cells": 24,
+              "weighted_coverage": 0.9999999999999989,
+              "observed_value_not_full_pra": 14.190708014439899
+            }
+          }
+        }
+      ],
+      "cattle_status": "unsupported_missing_humidity_and_grid_model_validation",
+      "scientific_status": "exploratory",
+      "risk_computed": false
+    },
+    {
+      "pra_id": "pra:29102",
+      "name": "PRESQU ILE DE CROZON - 29",
+      "batch_key": "6c3b90a6613725e8bde4342a5b38366d37422cb0480ac812e2319a6606f927bf",
+      "computed_at": "2026-10-17T21:41:43.671548+00:00",
+      "daily": [
+        {
+          "coverage": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "expected_cells": 6,
+          "pra_id": "pra:29102",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "valid_date": "2026-10-01"
+        },
+        {
+          "coverage": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "expected_cells": 6,
+          "pra_id": "pra:29102",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "valid_date": "2026-10-02"
+        },
+        {
+          "coverage": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "expected_cells": 6,
+          "pra_id": "pra:29102",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "valid_date": "2026-10-03"
+        },
+        {
+          "coverage": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "expected_cells": 6,
+          "pra_id": "pra:29102",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "valid_date": "2026-10-04"
+        },
+        {
+          "coverage": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "expected_cells": 6,
+          "pra_id": "pra:29102",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "valid_date": "2026-10-05"
+        },
+        {
+          "coverage": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "expected_cells": 6,
+          "pra_id": "pra:29102",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "valid_date": "2026-10-06"
+        },
+        {
+          "coverage": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "expected_cells": 6,
+          "pra_id": "pra:29102",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "valid_date": "2026-10-07"
+        }
+      ],
+      "diagnostics": [
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 6,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.gdd",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": null,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "6c3b90a6613725e8bde4342a5b38366d37422cb0480ac812e2319a6606f927bf",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "unavailable",
+          "to": "2026-10-07",
+          "valid_cells": 0,
+          "valid_weighted_coverage": 0,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 6,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.heat_days",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": null,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "6c3b90a6613725e8bde4342a5b38366d37422cb0480ac812e2319a6606f927bf",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "unavailable",
+          "to": "2026-10-07",
+          "valid_cells": 0,
+          "valid_weighted_coverage": 0,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 6,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.heat_spell_max",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": null,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "6c3b90a6613725e8bde4342a5b38366d37422cb0480ac812e2319a6606f927bf",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "unavailable",
+          "to": "2026-10-07",
+          "valid_cells": 0,
+          "valid_weighted_coverage": 0,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 6,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.frost_days",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": null,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "6c3b90a6613725e8bde4342a5b38366d37422cb0480ac812e2319a6606f927bf",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "unavailable",
+          "to": "2026-10-07",
+          "valid_cells": 0,
+          "valid_weighted_coverage": 0,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 6,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.frost_spell_max",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": null,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "6c3b90a6613725e8bde4342a5b38366d37422cb0480ac812e2319a6606f927bf",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "unavailable",
+          "to": "2026-10-07",
+          "valid_cells": 0,
+          "valid_weighted_coverage": 0,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 6,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.precipitation_sum",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": null,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "6c3b90a6613725e8bde4342a5b38366d37422cb0480ac812e2319a6606f927bf",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "unavailable",
+          "to": "2026-10-07",
+          "valid_cells": 0,
+          "valid_weighted_coverage": 0,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 6,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.dry_days",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": null,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "6c3b90a6613725e8bde4342a5b38366d37422cb0480ac812e2319a6606f927bf",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "unavailable",
+          "to": "2026-10-07",
+          "valid_cells": 0,
+          "valid_weighted_coverage": 0,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 6,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.dry_spell_max",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": null,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "6c3b90a6613725e8bde4342a5b38366d37422cb0480ac812e2319a6606f927bf",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "unavailable",
+          "to": "2026-10-07",
+          "valid_cells": 0,
+          "valid_weighted_coverage": 0,
+          "value": null
+        }
+      ],
+      "native_support": 6,
+      "completeness_details": [
+        {
+          "valid_date": "2026-10-01",
+          "variables": {
+            "temperature": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_min": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_max": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "precipitation": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-02",
+          "variables": {
+            "temperature": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_min": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_max": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "precipitation": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-03",
+          "variables": {
+            "temperature": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_min": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_max": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "precipitation": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-04",
+          "variables": {
+            "temperature": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_min": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_max": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "precipitation": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-05",
+          "variables": {
+            "temperature": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_min": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_max": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "precipitation": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-06",
+          "variables": {
+            "temperature": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_min": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_max": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "precipitation": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-07",
+          "variables": {
+            "temperature": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_min": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "temperature_max": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            },
+            "precipitation": {
+              "valid_cells": 0,
+              "weighted_coverage": 0,
+              "observed_value_not_full_pra": null
+            }
+          }
+        }
+      ],
+      "cattle_status": "unsupported_missing_humidity_and_grid_model_validation",
+      "scientific_status": "exploratory",
+      "risk_computed": false
+    },
+    {
+      "pra_id": "pra:2B260",
+      "name": "MONTAGNE CORSE - 2B",
+      "batch_key": "303e5f51d00548025025b7dda6b7ae31b2f14f841ed13fef2b94c1b42e437300",
+      "computed_at": "2026-10-17T21:41:43.688001+00:00",
+      "daily": [
+        {
+          "coverage": [
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352
+          ],
+          "expected_cells": 50,
+          "pra_id": "pra:2B260",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            49,
+            49,
+            49,
+            49
+          ],
+          "valid_date": "2026-10-01"
+        },
+        {
+          "coverage": [
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352
+          ],
+          "expected_cells": 50,
+          "pra_id": "pra:2B260",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            49,
+            49,
+            49,
+            49
+          ],
+          "valid_date": "2026-10-02"
+        },
+        {
+          "coverage": [
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352
+          ],
+          "expected_cells": 50,
+          "pra_id": "pra:2B260",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            49,
+            49,
+            49,
+            49
+          ],
+          "valid_date": "2026-10-03"
+        },
+        {
+          "coverage": [
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352
+          ],
+          "expected_cells": 50,
+          "pra_id": "pra:2B260",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            49,
+            49,
+            49,
+            49
+          ],
+          "valid_date": "2026-10-04"
+        },
+        {
+          "coverage": [
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352
+          ],
+          "expected_cells": 50,
+          "pra_id": "pra:2B260",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            49,
+            49,
+            49,
+            49
+          ],
+          "valid_date": "2026-10-05"
+        },
+        {
+          "coverage": [
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352
+          ],
+          "expected_cells": 50,
+          "pra_id": "pra:2B260",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            49,
+            49,
+            49,
+            49
+          ],
+          "valid_date": "2026-10-06"
+        },
+        {
+          "coverage": [
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352,
+            0.9998391064170352
+          ],
+          "expected_cells": 50,
+          "pra_id": "pra:2B260",
+          "precipitation": null,
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "missing",
+            "missing_cells",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction"
+          ],
+          "status": "partial",
+          "temperature": null,
+          "temperature_max": null,
+          "temperature_min": null,
+          "valid_counts": [
+            49,
+            49,
+            49,
+            49
+          ],
+          "valid_date": "2026-10-07"
+        }
+      ],
+      "diagnostics": [
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 50,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.gdd",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 94.89743241521572,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "303e5f51d00548025025b7dda6b7ae31b2f14f841ed13fef2b94c1b42e437300",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "partial",
+          "to": "2026-10-07",
+          "valid_cells": 49,
+          "valid_weighted_coverage": 0.9998391064170352,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 50,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.heat_days",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 0.0349587953830832,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "303e5f51d00548025025b7dda6b7ae31b2f14f841ed13fef2b94c1b42e437300",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "partial",
+          "to": "2026-10-07",
+          "valid_cells": 49,
+          "valid_weighted_coverage": 0.9998391064170352,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 50,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.heat_spell_max",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 0.001715771281421124,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "303e5f51d00548025025b7dda6b7ae31b2f14f841ed13fef2b94c1b42e437300",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "partial",
+          "to": "2026-10-07",
+          "valid_cells": 49,
+          "valid_weighted_coverage": 0.9998391064170352,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 50,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.frost_days",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 0.0,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "303e5f51d00548025025b7dda6b7ae31b2f14f841ed13fef2b94c1b42e437300",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "partial",
+          "to": "2026-10-07",
+          "valid_cells": 49,
+          "valid_weighted_coverage": 0.9998391064170352,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 50,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.frost_spell_max",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 0.0,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "303e5f51d00548025025b7dda6b7ae31b2f14f841ed13fef2b94c1b42e437300",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "partial",
+          "to": "2026-10-07",
+          "valid_cells": 49,
+          "valid_weighted_coverage": 0.9998391064170352,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 50,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.precipitation_sum",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 76.92795311261953,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "303e5f51d00548025025b7dda6b7ae31b2f14f841ed13fef2b94c1b42e437300",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "partial",
+          "to": "2026-10-07",
+          "valid_cells": 49,
+          "valid_weighted_coverage": 0.9998391064170352,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 50,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.dry_days",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 1.5529358233507033,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "303e5f51d00548025025b7dda6b7ae31b2f14f841ed13fef2b94c1b42e437300",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "partial",
+          "to": "2026-10-07",
+          "valid_cells": 49,
+          "valid_weighted_coverage": 0.9998391064170352,
+          "value": null
+        },
+        {
+          "confidence": "low",
+          "data_freshness": "stale",
+          "expected_cells": 50,
+          "from": "2026-10-01",
+          "indicator_id": "wheat.dry_spell_max",
+          "method": "native-then-spatial_mean-total-area-1",
+          "observed_value": 1.5102224761268181,
+          "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+          "provenance": {
+            "batch_key": "303e5f51d00548025025b7dda6b7ae31b2f14f841ed13fef2b94c1b42e437300",
+            "dataset_version": "task19-ofb-pilot-cds-20261017",
+            "source_id": "era5-land"
+          },
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory",
+            "missing_cells"
+          ],
+          "risk_computed": false,
+          "rule_version": "wheat-climate-1",
+          "scientific_status": "exploratory",
+          "status": "partial",
+          "to": "2026-10-07",
+          "valid_cells": 49,
+          "valid_weighted_coverage": 0.9998391064170352,
+          "value": null
+        }
+      ],
+      "native_support": 50,
+      "completeness_details": [
+        {
+          "valid_date": "2026-10-01",
+          "variables": {
+            "temperature": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 18.2468769136274
+            },
+            "temperature_min": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 12.041162109375023
+            },
+            "temperature_max": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 25.837182617187523
+            },
+            "precipitation": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 5.011711777385046
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-02",
+          "variables": {
+            "temperature": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 18.13345081975196
+            },
+            "temperature_min": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 12.880029296875023
+            },
+            "temperature_max": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 24.788720703125023
+            },
+            "precipitation": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 7.7624868059716245
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-03",
+          "variables": {
+            "temperature": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 17.9867942594864
+            },
+            "temperature_min": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 12.265527343750023
+            },
+            "temperature_max": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 25.395166015625023
+            },
+            "precipitation": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 2.7780356809629367
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-04",
+          "variables": {
+            "temperature": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 17.68855138099946
+            },
+            "temperature_min": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 11.855126953125023
+            },
+            "temperature_max": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 25.018457031250023
+            },
+            "precipitation": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 0.19412257244634057
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-05",
+          "variables": {
+            "temperature": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 17.40059268868622
+            },
+            "temperature_min": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 12.433984375000023
+            },
+            "temperature_max": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 25.055078125000023
+            },
+            "precipitation": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 21.395724063256853
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-06",
+          "variables": {
+            "temperature": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 16.348171411278074
+            },
+            "temperature_min": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 11.745019531250023
+            },
+            "temperature_max": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 21.257104492187523
+            },
+            "precipitation": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 31.48950765909104
+            }
+          }
+        },
+        {
+          "valid_date": "2026-10-07",
+          "variables": {
+            "temperature": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 17.09299494138621
+            },
+            "temperature_min": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 11.142724609375023
+            },
+            "temperature_max": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 24.682519531250023
+            },
+            "precipitation": {
+              "valid_cells": 49,
+              "weighted_coverage": 0.9998391064170352,
+              "observed_value_not_full_pra": 8.296364553505688
+            }
+          }
+        }
+      ],
+      "cattle_status": "unsupported_missing_humidity_and_grid_model_validation",
+      "scientific_status": "exploratory",
+      "risk_computed": false
+    }
+  ]
+}
