@@ -239,6 +239,17 @@ Ces tests réels sont séparés des anciens E2E déconnectés, du pilote sur bo�
 non PRA et des fixtures synthétiques. Voir `evidence/official/`, `logs/official/`
 et `screenshots/official/`. Aucun NetCDF horaire ni secret n’est versionné.
 
+## Vérification des détections de secrets
+
+Gitleaks a signalé 48 occurrences des quatre `batch_key` publics des preuves.
+Chaque valeur a été recomputée comme SHA256 de l’identité canonique du lot et
+comparée aux environnements de credentials : il ne s’agit pas de clés d’accès.
+Les exceptions de `.gitleaksignore` visent uniquement les 48 empreintes exactes
+commit/fichier/règle/ligne du commit `fa37d4a` ; aucune règle ni famille de chemins
+n’est désactivée. Les futurs findings restent bloquants. Le scan historique local
+avec ces exceptions ne trouve plus de fuite. Voir la preuve
+`evidence/official/gitleaks-public-digests.json` et `logs/official/gitleaks.log`.
+
 ## Avant validation finale
 
 1. Fournir/autoriser l’accès aux contours administratifs officiels indépendants,
