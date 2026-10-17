@@ -85,6 +85,9 @@ Aucun paiement, upgrade, nouveau service objet ou cron national activé.
   concurrence 1, budget de téléchargement global ; pas d’acquisition nationale sur PR.
   Coût mensuel et quotas disponibles du compte à mesurer avant activation.
 - Vercel : une page et deux routes agrégées, pas de bulk, DTO et pagination bornés.
+  Preview du commit produit 999a8f7 : HTTP 200 sur /territories, absence de référentiel
+  explicitement affichée ; en-tête d’automatisation limité à son origine, sans suivi
+  de redirection ni valeur archivée. Voir evidence/preview.json.
   Build validé ; aucune configuration de production changée. L’interface station
   reste le comportement v0.2 ; la nouvelle sélection PRA est additive jusqu’au
   staging de référence et aux preuves réelles, pas une bascule primaire silencieuse.
@@ -115,3 +118,19 @@ Aucun paiement, upgrade, nouveau service objet ou cron national activé.
 
 Les éléments 1–4 empêchent la recommandation technique READY. Le point 5 est un
 jalon opérationnel distinct. Voir [RUNBOOK.md](RUNBOOK.md) pour la reprise exacte.
+
+## Inventaire des fichiers livrés
+
+- `engine/src/agriclimax/territories/` : spatial, agrégation, pipeline, dépôt, rapport, SQL d’import.
+- `engine/src/agriclimax/wheat/calculate.py` : extraction de noyaux purs, formules inchangées.
+- `scripts/pra_reference.py`, `pra_climate.py`, `pra_real_pilot.py`, `pra_workflow.py`.
+- `apps/web/lib/server/territories.ts`, `pra-diagnostics.ts` et leurs tests ;
+  routes `app/api/territories/`, page `app/territories/` et lien de découverte dans `app/page.tsx`.
+- `engine/tests/territories/`, `tests/e2e/territories.mjs`, tests SQL PRA/import/stockage,
+  harness SQL et compte RLS actualisé pour dix tables supplémentaires.
+- Migration versionnée, lockfile geo, option geo de pyproject, workflows qualité/sécurité
+  étendus et workflow PRA manuel ; .gitignore pour l’état transitoire CLI.
+- Fichier task, audit, sources, méthodes, schéma, coûts, runbook, rapports, logs et captures.
+
+Le diff du PR donne l’inventaire exhaustif. Aucun lockfile produit JavaScript,
+aucune migration antérieure, aucune règle de seuil ni donnée v0.2 n’est modifiée.

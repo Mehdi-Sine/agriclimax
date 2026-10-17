@@ -41,7 +41,9 @@ Les workflows bulk restent manuels/bornés, concurrency 1, timeout explicite ;
 aucun téléchargement national sur événement PR. La CI Task12 existante checkout
 une branche historique et persiste un petit test réel : comportement préexistant
 à documenter, ne pas l’étendre au national. Pas d’ingestion dans Vercel.
-Configuration environnement Vercel secrète non extraite ; build/routage existants
+Dépôt GitHub privé, plan et consommation mensuelle du compte non mesurés.
+Next config conserve useTypeScriptCli=false ; aucune autre configuration Vercel
+locale ajoutée. Configuration environnement Vercel secrète non extraite ; build/routage existants
 préservés. Aucun changement de configuration distante.
 
 ## Hypothèses scientifiques / ruptures à éviter

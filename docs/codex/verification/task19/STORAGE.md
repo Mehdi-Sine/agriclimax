@@ -47,7 +47,7 @@ Un compteur PostgreSQL n’est pas une garantie de facturation/egress côté fou
 
 ## Actions / Vercel / archivage optionnel
 
-Les limites Actions publiées ont été consultées : les enveloppes gratuites de
+Le dépôt est privé. Les limites Actions publiées ont été consultées : les enveloppes gratuites de
 minutes et d’artifacts dépendent du compte et de la visibilité du dépôt. Les
 quotas disponibles du compte n’ont pas été mesurés. Ne pas multiplier 713 jobs
 par jour : le chemin national autorisé peut traiter les PRA déjà couvertes par
