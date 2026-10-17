@@ -11,7 +11,12 @@ confondre RA, PRA, regroupement de PRA, commune ou station.
 - Diffusion OFB / droits Ministère de l’Agriculture, Licence Ouverte 2.0, d’après
   les métadonnées consultées via le navigateur le 17 octobre 2026.
 
-**Aucun fichier officiel importé à ce stade.** Le proxy d’exécution refuse
+**Mise à jour : fichiers INRAE et nomenclature Agreste 2017 fournis par l’utilisateur.**
+Voir [analyse détaillée](PRA_INRAE_VALIDATION.md) et preuves par code :
+713 PRA concordantes + Paris 75000, contours répétés par cellule SAFRAN,
+un multipolygone sans code non résolu. Aucun contour promu comme officiel validé.
+
+**État antérieur, avant réception des pièces jointes :** Le proxy d’exécution refuse
 CONNECT vers data.gouv.fr (403), et le lien OFB n’a pas pu être téléchargé par
 l’outil web. Extension de la configuration réseau demandée. Ne pas contourner
 le proxy ni substituer un fond communal simplifié ou un jeu communautaire.

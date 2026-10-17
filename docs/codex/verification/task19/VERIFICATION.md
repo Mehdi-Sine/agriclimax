@@ -1,3 +1,10 @@
+> Mise à jour du 17 octobre 2026 après réception des fichiers : voir
+> [validation PRA INRAE / Agreste](PRA_INRAE_VALIDATION.md).
+> Les 713 codes officiels concordent ; le 714e est Paris 75000.
+> Les 17 238 lignes répètent 715 contours, dont un sans code non résolu.
+> La comparaison avec les géométries ministérielles reste bloquée : NOT READY.
+> Les relevés ci-dessous précèdent cette analyse et restent des preuves séparées.
+
 # Vérification et critères d’acceptation — Task 19
 
 **Recommandation : NOT READY. NATIONAL OPERATIONAL VALIDATION PENDING.**

@@ -1,9 +1,10 @@
 # Task 19 — PRA, agrégation ERA5 et stockage compact
 
-**NOT READY — référence officielle bloquée par le proxy ; validation opérationnelle
-nationale en attente.** Aucun 713-polygones fictif, aucune donnée synthétique utilisée
+**NOT READY — nomenclature INRAE/Agreste réconciliée ; contours ministériels
+non comparés et géométrie sans code à expliquer. Validation nationale en attente.** Aucun 713-polygones fictif, aucune donnée synthétique utilisée
 comme preuve de couverture. Aucun merge, schéma distant ou lancement national.
 
+- [Analyse des fichiers PRA INRAE et Agreste fournis](PRA_INRAE_VALIDATION.md)
 - [Audit avant implémentation](AUDIT.md)
 - [Sources officielles et limites d’accès](SOURCES.md)
 - [Méthodes scientifiques](METHODOLOGY.md)
