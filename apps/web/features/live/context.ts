@@ -37,3 +37,9 @@ export function liveHref(view: LiveView, query: URLSearchParams, station?: strin
   if (station) next.set('station', station);
   return `${view === 'observation' ? '/' : `/${view}`}?${next}`;
 }
+
+export function latestHref(view:LiveView, query:URLSearchParams) {
+  const next=new URLSearchParams(query);
+  for(const key of ['start','end','date']) next.delete(key);
+  return liveHref(view,next);
+}

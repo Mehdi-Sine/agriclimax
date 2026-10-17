@@ -1,4 +1,5 @@
 import 'server-only';
+import { ApiError } from '../../lib/server/query';
 import { DailyRepository, type DailyPublication } from './daily';
 import type { WheatPortfolio } from '../wheat/model';
 import type { WeatherStation } from '../../lib/server/station-weather';
@@ -24,12 +25,14 @@ export async function loadLive(context: ReturnType<typeof liveContext>) {
       if (!context.query.get('stage') && (!context.query.has('fingerprint') || context.query.get('fingerprint')===publication.wheat[0].parameter_fingerprint)) {
         if(context.production==='wheat') portfolios=publication.wheat;
         else if(context.product!=='observations') {
-          const station=context.station??publication.cattle[0]?.station_id??'';
+          const station=context.station??'';
           cattle={state:'available',station,start:context.start,end:context.end,product:context.product,stations,
             results:publication.cattle.filter(c=>c.station_id===station)};
         }
       }
     }
-  } catch { failure='Publication quotidienne indisponible. Aucun instantané ni fixture de remplacement.'; }
+  } catch (error) { failure=error instanceof ApiError && error.code==='NOT_CONFIGURED'
+    ? 'Le service de données n’est pas configuré. Les résultats live sont temporairement indisponibles. Contactez l’équipe AgriclimaX.'
+    : 'Publication quotidienne indisponible. Aucun instantané ni fixture de remplacement.'; }
   return {stations,portfolios,cattle,publication,latest,failure,catalogueFailure};
 }

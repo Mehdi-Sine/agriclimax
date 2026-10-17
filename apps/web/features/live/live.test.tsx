@@ -2,10 +2,10 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 vi.mock('server-only',()=>({}));
 import publication from '../../../../tests/e2e/daily-publication.synthetic.json';
-import { isLiveWorkspace, liveContext, liveHref } from './context';
+import { isLiveWorkspace, liveContext, liveHref, latestHref } from './context';
 import { loadLive } from './load';
 import { LiveWorkspace } from './workspace';
-const query = 'mode=live_meteofrance&production=wheat&indicator=gdd&start=2026-09-01&end=2026-09-03';
+const query = 'mode=live_meteofrance&production=wheat&indicator=gdd&start=2026-09-01&end=2026-09-03&station=35281001';
 afterEach(()=>{vi.unstubAllGlobals();vi.unstubAllEnvs();});
 function setup(payload:unknown={latest:publication,selected:publication}) {
   vi.stubEnv('NEXT_PUBLIC_SUPABASE_URL','https://example.supabase.co');
@@ -17,13 +17,31 @@ function setup(payload:unknown={latest:publication,selected:publication}) {
   return transport;
 }
 describe('Live context and real-result boundary',()=>{
+  it('changes only the window when requesting the latest publication in the same view',()=>{
+    const params=new URLSearchParams(`${query}&stage=anthese&fingerprint=${'a'.repeat(64)}`);
+    const url=new URL(latestHref('history',params),'https://app.test');
+    expect(url.pathname).toBe('/history');
+    expect(url.searchParams.has('start')).toBe(false);
+    expect(url.searchParams.has('end')).toBe(false);
+    for(const key of ['station','production','indicator','stage','fingerprint']) expect(url.searchParams.get(key)).toBe(params.get(key));
+  });
+  it('requires a deliberate station selection and reports configuration failures without details',async()=>{
+    setup();
+    const html=renderToStaticMarkup(await LiveWorkspace({params:new URLSearchParams('production=cattle'),view:'observation'}));
+    expect(html).toContain('Aucune station n’est choisie automatiquement');
+    expect(html).not.toContain('aria-current="true"');
+    vi.stubEnv('SUPABASE_SECRET_KEY','');
+    const unavailable=renderToStaticMarkup(await LiveWorkspace({params:new URLSearchParams(query),view:'diagnostic'}));
+    expect(unavailable).toContain('n’est pas configuré');
+    expect(unavailable).not.toContain('SUPABASE_SECRET_KEY');
+  });
   it('defaults to real indicators while preserving explicit demo, snapshots and versioned risk routes',()=>{
     expect(isLiveWorkspace(new URLSearchParams())).toBe(true);
     expect(isLiveWorkspace(new URLSearchParams('mode=live_meteofrance&production=cattle'))).toBe(true);
     for(const query of ['mode=demo','mode=wheat','mode=live&rule=versioned-risk&version=1']) expect(isLiveWorkspace(new URLSearchParams(query))).toBe(false);
   });
   it('preserves station, metric, window and parameters across all views',()=>{
-    const context=liveContext(new URLSearchParams(`${query}&station=35281001&stage=anthese`));
+    const context=liveContext(new URLSearchParams(`${query}&stage=anthese`));
     for (const view of ['observation','diagnostic','history','watch'] as const) {
       const url=new URL(liveHref(view,context.query),'https://app.test');
       expect(url.searchParams.get('station')).toBe('35281001');
@@ -57,7 +75,8 @@ describe('Live context and real-result boundary',()=>{
   });
   it('keeps an explicitly selected station absent instead of selecting the first result',async()=>{
     setup();
-    const html=renderToStaticMarkup(await LiveWorkspace({params:new URLSearchParams(`${query}&station=99999999`),view:'history'}));
+    const params=new URLSearchParams(query);params.set('station','99999999');
+    const html=renderToStaticMarkup(await LiveWorkspace({params,view:'history'}));
     expect(html).toContain('Historique absent');expect(html).toContain('Aucun calcul publié');
     expect(html).not.toContain('Date du calcul');
   });
@@ -67,7 +86,7 @@ describe('Daily publication lifecycle',()=>{
   it('defaults both productions to the latest successful exact window without reading raw observations',async()=>{
     const transport=setup();
     for(const production of ['wheat','cattle']) {
-      const context=liveContext(new URLSearchParams(`production=${production}`));
+      const context=liveContext(new URLSearchParams(`production=${production}&station=35281001`));
       const data=await loadLive(context);
       expect(context.start).toBe(publication.payload.from);
       expect(context.end).toBe(publication.payload.to);

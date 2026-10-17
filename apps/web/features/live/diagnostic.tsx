@@ -5,6 +5,7 @@ export function LiveDiagnostic({data}:{data:DiagnosticDto}) {
   return <section className="scientific-card"><h2>Méthode, preuves et qualité</h2>{data ? <>
     <p>Règle : {data.rule_id} · version {data.rule_version} · statut {data.scientific_status}. Confiance faible.</p>
     {data.production==='wheat' ? <>
+      <p>Seuils et règle : {data.threshold_label}</p>
       <p>Couverture : {data.available_days}/{data.expected_days} jours. Paramètres : {data.parameter_fingerprint}.</p>
       <p>Source scientifique : {data.scientific_sources.join(' ; ')}</p>
       <p>Limites : {data.limits.join(' ; ')}</p>

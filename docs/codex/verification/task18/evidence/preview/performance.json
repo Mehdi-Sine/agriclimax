@@ -1,0 +1,223 @@
+{
+  "base": "https://agriclimax-git-codex-18-v02-integration-mehdi-sines-projects.vercel.app",
+  "station": "29075001",
+  "read_only": true,
+  "samples": [
+    {
+      "production": "wheat",
+      "view": "map",
+      "sample": 1,
+      "status": 200,
+      "ms": 720,
+      "html_bytes": 57858,
+      "privacy": true
+    },
+    {
+      "production": "wheat",
+      "view": "map",
+      "sample": 2,
+      "status": 200,
+      "ms": 528,
+      "html_bytes": 57858,
+      "privacy": true
+    },
+    {
+      "production": "wheat",
+      "view": "map",
+      "sample": 3,
+      "status": 200,
+      "ms": 507,
+      "html_bytes": 57858,
+      "privacy": true
+    },
+    {
+      "production": "wheat",
+      "view": "diagnostic",
+      "sample": 1,
+      "status": 200,
+      "ms": 725,
+      "html_bytes": 28618,
+      "privacy": true
+    },
+    {
+      "production": "wheat",
+      "view": "diagnostic",
+      "sample": 2,
+      "status": 200,
+      "ms": 426,
+      "html_bytes": 28618,
+      "privacy": true
+    },
+    {
+      "production": "wheat",
+      "view": "diagnostic",
+      "sample": 3,
+      "status": 200,
+      "ms": 643,
+      "html_bytes": 28618,
+      "privacy": true
+    },
+    {
+      "production": "wheat",
+      "view": "history",
+      "sample": 1,
+      "status": 200,
+      "ms": 646,
+      "html_bytes": 27093,
+      "privacy": true
+    },
+    {
+      "production": "wheat",
+      "view": "history",
+      "sample": 2,
+      "status": 200,
+      "ms": 307,
+      "html_bytes": 27093,
+      "privacy": true
+    },
+    {
+      "production": "wheat",
+      "view": "history",
+      "sample": 3,
+      "status": 200,
+      "ms": 241,
+      "html_bytes": 27093,
+      "privacy": true
+    },
+    {
+      "production": "wheat",
+      "view": "watch",
+      "sample": 1,
+      "status": 200,
+      "ms": 431,
+      "html_bytes": 27628,
+      "privacy": true
+    },
+    {
+      "production": "wheat",
+      "view": "watch",
+      "sample": 2,
+      "status": 200,
+      "ms": 426,
+      "html_bytes": 27628,
+      "privacy": true
+    },
+    {
+      "production": "wheat",
+      "view": "watch",
+      "sample": 3,
+      "status": 200,
+      "ms": 638,
+      "html_bytes": 27628,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "map",
+      "sample": 1,
+      "status": 200,
+      "ms": 245,
+      "html_bytes": 58465,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "map",
+      "sample": 2,
+      "status": 200,
+      "ms": 229,
+      "html_bytes": 58465,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "map",
+      "sample": 3,
+      "status": 200,
+      "ms": 422,
+      "html_bytes": 58465,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "diagnostic",
+      "sample": 1,
+      "status": 200,
+      "ms": 208,
+      "html_bytes": 28794,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "diagnostic",
+      "sample": 2,
+      "status": 200,
+      "ms": 397,
+      "html_bytes": 28794,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "diagnostic",
+      "sample": 3,
+      "status": 200,
+      "ms": 660,
+      "html_bytes": 28794,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "history",
+      "sample": 1,
+      "status": 200,
+      "ms": 648,
+      "html_bytes": 30440,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "history",
+      "sample": 2,
+      "status": 200,
+      "ms": 665,
+      "html_bytes": 30440,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "history",
+      "sample": 3,
+      "status": 200,
+      "ms": 626,
+      "html_bytes": 30440,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "watch",
+      "sample": 1,
+      "status": 200,
+      "ms": 399,
+      "html_bytes": 27888,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "watch",
+      "sample": 2,
+      "status": 200,
+      "ms": 596,
+      "html_bytes": 27888,
+      "privacy": true
+    },
+    {
+      "production": "cattle",
+      "view": "watch",
+      "sample": 3,
+      "status": 200,
+      "ms": 228,
+      "html_bytes": 27888,
+      "privacy": true
+    }
+  ]
+}

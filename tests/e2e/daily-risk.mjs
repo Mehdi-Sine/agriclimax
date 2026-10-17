@@ -1,6 +1,7 @@
 // Isolated integration: synthetic Task17 publication over real HTTPS to the
 // production Next server. Never evidence of production source availability.
 import assert from 'node:assert/strict';
+import {mapControls,historyAndLatest} from './task18-journey.mjs';
 import {auditDiagnostic} from './diagnostic-privacy.mjs';
 import {createServer} from 'node:https';
 import {spawn,execFileSync} from 'node:child_process';
@@ -27,9 +28,15 @@ const source=createServer({key:await readFile(`${dir}/key.pem`),cert:await readF
   res.setHeader('content-type','application/json');
   if(state==='disconnected'){res.writeHead(503);res.end('{}');return;}
   if(state==='empty'){res.end(JSON.stringify({latest:null,selected:null}));return;}
-  const selected=query.p_start===null || query.p_start===publication.payload.from && query.p_end===publication.payload.to?publication:null;
+  const current=structuredClone(publication);
+  if(state==='insufficient') {
+    for(const r of current.payload.wheat[0].results) {r.value=null;r.available_days=0;}
+    const c=current.payload.cattle[0];c.value=null;c.status='insufficient';c.confidence.coverage=0;
+    for(const m of c.metrics) {m.days_above=null;m.episodes=null;m.max_episode_duration=null;m.partial=true;}
+  }
+  const selected=query.p_start===null || query.p_start===publication.payload.from && query.p_end===publication.payload.to?current:null;
   // A failed acquisition does not change the successful publication table.
-  res.end(JSON.stringify({latest:publication,selected}));
+  res.end(JSON.stringify({latest:current,selected}));
 });
 await new Promise(resolve=>source.listen(0,'127.0.0.1',resolve));
 const sourcePort=source.address().port;
@@ -46,21 +53,31 @@ try {
   }
   assert.ok(ready,'Next ready');
   browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE||'/usr/bin/chromium',args:['--no-sandbox','--enable-unsafe-swiftshader']});
-  for(const width of [1440,390]) {
+  for(const width of [1440,768,390]) {
     const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     for(const production of ['wheat','cattle']) {
       state='published';
       await page.goto(`http://127.0.0.1:3016/?production=${production}`,{waitUntil:'networkidle'});
+      await page.getByLabel('Production',{exact:true}).selectOption(production);
+      await page.getByRole('button',{name:'Afficher',exact:true}).click();await page.waitForLoadState('networkidle');
+      assert.equal(new URL(page.url()).searchParams.get('production'),production);
       assert.equal(await page.getByLabel('Début inclus',{exact:true}).inputValue(),publication.payload.from);
       assert.equal(await page.getByLabel('Fin incluse',{exact:true}).inputValue(),publication.payload.to);
+      await mapControls(page);
       const marker=page.locator('.live-map a').first();await marker.click();await page.waitForLoadState('networkidle');
       const station=new URL(page.url()).searchParams.get('station');assert.ok(station);
+      const metric=production==='wheat'?'precipitation_sum':'days_above';
+      await page.getByLabel('Indicateur',{exact:true}).selectOption(metric);
+      await page.getByRole('button',{name:'Afficher',exact:true}).click();await page.waitForLoadState('networkidle');
       for(const label of ['Carte','Diagnostic','Historique','Veille']) {
         await page.locator('header nav').getByRole('link',{name:label,exact:true}).click();await page.waitForLoadState('networkidle');
         const text=await page.locator('main').innerText();
         for(const fact of ['Dernière publication quotidienne réussie',publication.payload.computed_at,'ancienne (stale)','État du dernier run quotidien : inconnu','Source : Météo-France']) assert.ok(text.includes(fact),`${production}/${label}: ${fact}`);
         assert.equal(new URL(page.url()).searchParams.get('station'),station);
+        assert.equal(new URL(page.url()).searchParams.get('indicator'),metric);
+        const performance=await historyAndLatest(page);
+        if(label==='Historique' && production==='cattle') assert.ok(text.includes('Anomalie THI indisponible'));
         assert.equal(await page.locator('main').getByRole('alert').count(),0);
         assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
         await page.addScriptTag({path:axeRequire.resolve('axe-core/axe.min.js')});
@@ -69,11 +86,25 @@ try {
         await page.screenshot({path:`${dir}/${production}-${label}-${width}.png`});
         if(label==='Diagnostic') await auditDiagnostic(page,dir,`${production}-${width}`);
         if(label==='Carte') await page.getByRole('region',{name:'Traçabilité de la sélection'}).screenshot({path:`${dir}/${production}-traceability-${width}.png`});
-        reports.push({production,label,width,axe:0,context_preserved:true});
+        reports.push({production,label,width,axe:0,context_preserved:true,performance});
       }
       state='failed-with-previous';await page.reload({waitUntil:'networkidle'});
       assert.ok((await page.locator('main').innerText()).includes(publication.payload.computed_at));
       assert.equal(await page.locator('main').getByRole('alert').count(),0);
+      state='published';
+      for(const route of ['/','/diagnostic','/history','/watch']) {
+        const before=calls.length;
+        await page.goto(`http://127.0.0.1:3016${route}?production=${production}&start=2026-02-30&end=2026-03-01`,{waitUntil:'networkidle'});
+        assert.ok((await page.locator('main').innerText()).includes('Contexte invalide'));
+        assert.equal(calls.length,before,'invalid dates must not query upstream');
+        await page.goto(`http://127.0.0.1:3016${route}?production=${production}&station=99999999`,{waitUntil:'networkidle'});
+        assert.ok((await page.locator('main').innerText()).includes('Station inconnue'));
+        assert.equal(await page.getByLabel('Station',{exact:true}).inputValue(),'99999999');
+      }
+      state='insufficient';
+      await page.goto(`http://127.0.0.1:3016/watch?production=${production}&station=${station}`,{waitUntil:'networkidle'});
+      assert.ok((await page.locator('main').innerText()).includes('Veille indisponible'));
+      state='published';
       await page.goto(`http://127.0.0.1:3016/?production=${production}&start=2026-09-02&end=2026-09-03`,{waitUntil:'networkidle'});
       assert.ok((await page.locator('main').innerText()).includes('Aucun calcul publié'));
       for(const unavailable of ['empty','disconnected']) {
@@ -86,8 +117,11 @@ try {
           assert.ok(!text.includes(publication.content_key));
         }
       }
-      reports.push({production,width,failed_run_retains_previous:true,missing_window:true,empty:true,disconnected:true,no_fallback:true});
+      reports.push({production,width,failed_run_retains_previous:true,missing_window:true,invalid_period_no_rpc:true,unknown_station_preserved:true,insufficient_watch:true,empty:true,disconnected:true,no_fallback:true});
     }
+    await page.goto('http://127.0.0.1:3016/?mode=demo',{waitUntil:'networkidle'});
+    assert.ok((await page.locator('body').innerText()).includes('Démo'));
+    assert.ok(!(await page.locator('main').innerText()).includes('Mode live · données réelles'));
     assert.deepEqual(errors,[]);await page.close();
   }
   assert.ok(calls.every(c=>c.query && Object.keys(c.query).sort().join(',')==='p_end,p_start'));

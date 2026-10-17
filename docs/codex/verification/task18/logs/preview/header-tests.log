@@ -1,0 +1,12 @@
+✔ bypass header is restricted to exact HTTPS preview origin (2.130695ms)
+✔ interception strips inherited bypass and disables redirect forwarding (0.632676ms)
+✔ request failures withhold credential-bearing tool details (1.48846ms)
+✔ local RSC canonicalization keeps default redirect handling without bypass (1.763021ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 97.284381
