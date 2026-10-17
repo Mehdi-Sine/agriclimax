@@ -1,0 +1,30 @@
+{
+  "base": "http://127.0.0.1:3000",
+  "synthetic_disconnected": true,
+  "reports": [
+    {
+      "width": 1440,
+      "axe": 0,
+      "no_overflow": true,
+      "missing_reference_explicit": true,
+      "station_route_preserved": true,
+      "official_pra_validated": 0
+    },
+    {
+      "width": 768,
+      "axe": 0,
+      "no_overflow": true,
+      "missing_reference_explicit": true,
+      "station_route_preserved": true,
+      "official_pra_validated": 0
+    },
+    {
+      "width": 390,
+      "axe": 0,
+      "no_overflow": true,
+      "missing_reference_explicit": true,
+      "station_route_preserved": true,
+      "official_pra_validated": 0
+    }
+  ]
+}

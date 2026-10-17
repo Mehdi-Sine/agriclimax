@@ -34,6 +34,7 @@ export default async function Page({
   const liveCattleHref = '/?mode=live_meteofrance&production=cattle&indicator=thi';
   return (
     <>
+      <a className="button button-secondary" href="/territories">Territoires agricoles · PRA</a>
       <a className="button button-secondary" href={liveIndicatorsHref}>Carte live · blé et bovins</a>
       <a className="button button-secondary" href={liveCattleHref}>Bovins · exposition thermique THI · live Météo-France</a>
       <ProductShell context={context} data={data} liveContext={liveContext} />

@@ -1,0 +1,15 @@
+BEGIN
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 713
+INSERT 0 1
+INSERT 0 64170
+ANALYZE
+                                                                                                                   storage_measurement
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"measurement" : "synthetic_compact_daily_storage_only", "pra" : 713, "days" : 90, "rows" : 64170, "table_and_indexes_bytes" : 29696000, "heap_bytes" : 20226048, "average_tuple_bytes" : 297.0000000000000000, "official_geometries_measured" : false}
+(1 row)
+
+DO
+ROLLBACK

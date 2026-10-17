@@ -1,0 +1,16 @@
+
+> agriclimax@ test /workspace/agriclimax
+> pnpm --filter @agriclimax/web test
+
+
+> @agriclimax/web@ test /workspace/agriclimax/apps/web
+> vitest run
+
+
+ RUN  v4.1.11 /workspace/agriclimax/apps/web
+
+
+ Test Files  17 passed (17)
+      Tests  219 passed (219)
+   Start at  19:29:55
+   Duration  9.51s (transform 1.18s, setup 0ms, import 4.28s, tests 1.45s, environment 3ms)

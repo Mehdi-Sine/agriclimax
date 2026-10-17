@@ -14,3 +14,6 @@ next-env.d.ts
 
 # Generated from the locked MapLibre v6 package before dev/build.
 apps/web/public/maps/maplibre/
+
+# Supabase CLI transient local state.
+supabase/.temp/
