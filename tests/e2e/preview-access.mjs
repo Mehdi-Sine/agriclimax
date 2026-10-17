@@ -18,6 +18,9 @@ export async function protectPreviewContext(context) {
 }
 
 export async function privateGet(request,url,headers={}) {
-  try {return await request.get(url,{headers:{...previewHeaders(url),...headers},maxRedirects:0});}
+  const bypass=previewHeaders(url);
+  // Local Next RSC canonicalization may redirect; only credential-bearing
+  // requests must disable forwarding. Local/synthetic behavior stays unchanged.
+  try {return await request.get(url,{headers:{...bypass,...headers},...(Object.keys(bypass).length ? {maxRedirects:0} : {})});}
   catch {throw new Error('Preview request failed; request details withheld to protect credentials.');}
 }

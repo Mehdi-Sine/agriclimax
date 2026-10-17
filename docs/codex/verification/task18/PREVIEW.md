@@ -53,3 +53,11 @@ node --test tests/e2e/preview-access.test.mjs
 Aucune acquisition, écriture DEV, règle, privilège ou protection modifiés.
 Voir les limites de navigateur et de mesure dans [LIMITS.md](LIMITS.md).
 Checks du commit final à relever après push ; PR maintenue en draft, aucun merge.
+
+## Compatibilité CI locale
+
+Le premier check web du commit e6fa6be a révélé une redirection RSC locale 307
+sur le serveur synthétique Next. Le helper interdit désormais le suivi seulement
+lorsqu’il transmet effectivement le credential Vercel ; les requêtes locales
+sans bypass conservent leur comportement initial. Test de régression ajouté.
+Aucun affaiblissement de la restriction d’origine ni changement produit.

@@ -21,3 +21,9 @@ test('request failures withhold credential-bearing tool details',async()=>{
  const {privateGet}=await import('./preview-access.mjs');
  await assert.rejects(privateGet({get:async()=>{throw new Error('sensitive request details');}},'https://example.com'),error=>!error.message.includes('sensitive request details'));
 });
+test('local RSC canonicalization keeps default redirect handling without bypass',async()=>{
+ const {privateGet}=await import('./preview-access.mjs');
+ let options;
+ await privateGet({get:async(_url,o)=>{options=o;return {};}},'http://127.0.0.1:3000/diagnostic',{RSC:'1'});
+ assert.deepEqual(options,{headers:{RSC:'1'}});
+});
