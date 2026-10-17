@@ -2,8 +2,10 @@
 
 **NOT READY : nomenclature réconciliée, géométries ministérielles non comparées.**
 Les contours INRAE ne sont pas promus au rang de référentiel ministériel validé.
-Aucun import SQL, aucune correspondance ERA5/PRA, aucune acquisition climatique,
-aucune migration distante et aucun backfill ne sont déclenchés par cette analyse.
+Le script d’audit ne déclenche aucun import SQL, calcul de correspondance ERA5/PRA,
+acquisition climatique, migration distante ou backfill. Les CI préexistantes
+restent distinctes : le workflow historique Task12 peut effectuer sa validation
+régionale bornée ; il ne constitue pas une validation nationale PRA.
 
 Périmètre : fichiers fournis par l’utilisateur, lus comme données ; analyse
 hors ligne, script d’audit, preuves et documentation. Aucun changement des règles
