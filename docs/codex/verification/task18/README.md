@@ -1,7 +1,7 @@
 # Task 18 — Intégration V0.2
 
 Base : `main` 6e876b2. Branche : `codex/18-v02-integration`.
-Validation du 16 octobre 2026. PR draft uniquement, aucun merge.
+Validation locale du 16 octobre et preview du 17 octobre 2026. PR draft uniquement, aucun merge.
 
 La passe conserve blé/bovins et les règles existantes. La station est choisie
 explicitement, les liens entre vues gardent indicateur/période/paramètres, et le
@@ -13,6 +13,8 @@ Aucune migration, écriture DEV, acquisition météo ou nouvelle exception sécu
 
 Voir [VERIFICATION.md](VERIFICATION.md), [PERFORMANCE.md](PERFORMANCE.md),
 [SECURITY.md](SECURITY.md), [LIVE_DATA.md](LIVE_DATA.md) et [LIMITS.md](LIMITS.md).
-Les preuves réelles et synthétiques sont séparées. **Task 18 non terminée** :
-la preview est déployée mais protégée par authentification Vercel, donc les
-contrôles déployés restent bloqués. Voir [PREVIEW.md](PREVIEW.md).
+Les preuves réelles et synthétiques sont séparées. La preview est validée :
+24 vues blé/bovins en 1440/768/390 px, confidentialité HTML/RSC/bundles déployés,
+24 mesures HTTP, source/station publiées et fraîcheur conformes à DEV.
+Voir [PREVIEW.md](PREVIEW.md) et les sous-dossiers `preview` des preuves.
+Clôture conditionnée aux checks du commit final après push ; PR reste en draft.

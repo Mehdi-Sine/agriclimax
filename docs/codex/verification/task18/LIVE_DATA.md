@@ -14,3 +14,14 @@ backfill, écriture, suppression, migration ou déclenchement GitHub Actions dai
 La préservation d'une publication après panne est testée synthétiquement ; aucune
 panne réelle n'a été provoquée. L'anomalie THI reste indisponible sans référence
 homologue incluant l'humidité. Aucune interpolation ni couverture France continue.
+
+## Observation preview du 17 octobre 2026
+
+La publication disponible a évolué depuis la preuve locale du 16 octobre :
+fenêtre 2026-10-10 → 2026-10-16 inclus, calcul 2026-10-17T11:44:38.841414+00:00.
+La preview affiche `récente (fresh)`, ce qui correspond à cette période météo.
+La lecture seule du RPC DEV confirme ces dates et les cinq stations de chaque
+production, dont 29075001. Voir `evidence/preview/publication.json`.
+Le mode live affiche Météo-France et données réelles ; le mode démo affiche
+Données fictives / fixture locale (`evidence/preview/states.json`).
+Aucune acquisition ni écriture déclenchée pendant cette reprise.

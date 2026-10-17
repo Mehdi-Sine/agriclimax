@@ -1,6 +1,6 @@
 # Matrice de vérification
 
-## Vérifié réellement
+## Vérifié réellement sur serveur local / Supabase DEV
 
 - Supabase DEV : lecture RPC privée Task 17, publication météo réelle, aucun write.
 - E2E navigateur blé et bovins, carte → diagnostic → historique → veille,
@@ -67,5 +67,5 @@ Les logs finaux sont conservés dans `logs/`, les rapports dans `evidence/`.
 
 ## Non vérifié / hors périmètre
 
-Voir [LIMITS.md](LIMITS.md). Preview : déployée mais validation bloquée par authentification (voir PREVIEW.md).
+Voir [LIMITS.md](LIMITS.md). Preview validée le 17 octobre : 24 vues réelles, confidentialité HTML/RSC et bundles déployés, 24 mesures HTTP, live/démo et fraîcheur. Voir [PREVIEW.md](PREVIEW.md) et `evidence/preview/`.
 CI : contrôles à relever sur le dernier commit après archivage final.

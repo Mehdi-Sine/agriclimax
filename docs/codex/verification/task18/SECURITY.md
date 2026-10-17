@@ -41,3 +41,12 @@ lockfiles : aucune vulnérabilité connue.
 La tentative de lecture du changelog Supabase a reçu un refus réseau 403 ; la
 documentation RLS/secure API a été consultée via MCP. Aucun changement Supabase
 n'a été implémenté. Les contrôles SQL exécutés sont exclusivement des SELECT.
+
+## Preview du 17 octobre 2026
+
+HTML/RSC diagnostic des deux productions aux trois tailles : PASS. Scripts
+applicatifs déployés chargés par chaque diagnostic : PASS. 24 réponses HTTP avec
+source et station publiées : champs privés et credentials absents. Aucun corps
+brut archivé. Scan des valeurs de secrets sur tous les artefacts : PASS.
+En-tête Vercel limité à l’origine HTTPS exacte, redirections non suivies
+avec credential ; tests de frontière réussis. Protection Vercel inchangée.

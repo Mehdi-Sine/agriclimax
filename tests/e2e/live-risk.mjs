@@ -1,6 +1,7 @@
 // Real read-only UI verification when a migrated live source is configured.
 // CI's disconnected mode verifies failures without substituting test data.
 import assert from 'node:assert/strict';
+import {protectPreviewContext} from './preview-access.mjs';
 import {mapControls,historyAndLatest} from './task18-journey.mjs';
 import {auditDiagnostic} from './diagnostic-privacy.mjs';
 import {createRequire} from 'node:module';
@@ -14,11 +15,12 @@ const axeRequire=createRequire(lintRequire.resolve('eslint-plugin-jsx-a11y'));
 const base=process.env.E2E_BASE_URL||'http://127.0.0.1:3000';
 const dir=process.env.E2E_LIVE_ARTIFACTS||'work/task16/e2e-live';
 await mkdir(dir,{recursive:true});
-const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE||'/usr/bin/chromium',args:['--no-sandbox','--enable-unsafe-swiftshader']});
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE||'/usr/bin/chromium',...(process.env.HTTPS_PROXY ? {proxy:{server:process.env.HTTPS_PROXY}} : {}),args:['--no-sandbox','--enable-unsafe-swiftshader']});
 const reports=[];
 try {
   for(const width of (process.env.E2E_DISCONNECTED_ONLY?[]:[1440,768,390])) {
     const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
+    await protectPreviewContext(page.context());
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     for(const production of ['wheat','cattle']) {
       await page.goto(`${base}/?mode=live_meteofrance&production=${production}`,{waitUntil:'networkidle'});

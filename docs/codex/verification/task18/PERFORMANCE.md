@@ -20,7 +20,21 @@ Budget JS/CSS gzip : 570843 octets sur 2097152. Le diagnostic ne transmet aucun
 payload complet Task 17, série brute, paramètres complets ou provenance détaillée.
 Les séries affichées dans Historique sont rendues sous forme de cellules, sans objet brut.
 
-Preview Vercel : non mesurée, HTTP 302 vers SSO avant l’application ; voir PREVIEW.md.
+## Preview Vercel — 17 octobre 2026
+
+Station publiée 29075001, blé et bovins, trois requêtes par vue et production.
+24 réponses HTTP 200 avec données réelles ; contrôles champs privés et credentials
+PASS. Temps client incluant accès proxy et Vercel, sans SLA ni test de charge.
+
+| Vue | Min / médiane / max (ms), 6 lectures | HTML (octets) |
+|---|---|---|
+| Carte | 229 / 464.5 / 720 | 57858–58465 |
+| Diagnostic | 208 / 534.5 / 725 | 28618–28794 |
+| Historique | 241 / 636 / 665 | 27093–30440 |
+| Veille | 228 / 428.5 / 638 | 27628–27888 |
+
+Rapport : `evidence/preview/performance.json`, séparé des mesures locales ci-dessus.
+Accès authentifié par en-tête uniquement ; voir [PREVIEW.md](PREVIEW.md).
 
 Reproduction : `E2E_BASE_URL=http://127.0.0.1:3000 E2E_STATION=29075001 node tests/e2e/live-performance.mjs`.
 Le script refuse les états sans source/station, mesure sans enregistrer les corps réels
