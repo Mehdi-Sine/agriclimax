@@ -1,0 +1,6 @@
+2026-10-18 UTC — managed environment policy revision 25, enforced, restricted.
+confluence.ecmwf.int/download/attachments/140385202/lsm_1279l4_0.1x0.1.grb_v4_unpack.nc: HTTP 403 (curl --fail, no TLS bypass).
+etalab-datasets.geo.data.gouv.fr/contours-administratifs/2026/geojson/departements-5m.geojson: HTTP 403.
+wxs.ofb.fr: not on current allowed-host list; earlier denial retained in official report.
+User selected option 2: continue with these checks explicitly blocked. No policy bypass attempted.
+Original WFS XML: absent from all supplied attachments and from the three-member official ZIP.

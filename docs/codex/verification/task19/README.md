@@ -1,3 +1,6 @@
+> État courant du 18 octobre : [audit national à deux instants, limites structurelles et budget PostgreSQL recalibré](FINAL_SCIENTIFIC_STORAGE_REVIEW.md).
+> Les résultats ci-dessous restent les preuves datées des étapes précédentes.
+
 # Task 19 — PRA, agrégation ERA5 et stockage compact
 
 **NOT READY pour validation finale nationale — 713 contours OFB/MASA intégrés

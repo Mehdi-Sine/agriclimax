@@ -1,0 +1,23 @@
+{
+  "observed_at": "2026-10-18T11:30:48.572018+00:00",
+  "origin": "https://agriclimax-git-codex-19-national-coverage-mehdi-sines-projects.vercel.app",
+  "bypass_header_only": true,
+  "redirects_followed": false,
+  "results": [
+    {
+      "path": "/territories",
+      "status": 200,
+      "not_deployed_message": true,
+      "no_source_receipts": true,
+      "no_raw_coordinates": true
+    },
+    {
+      "path": "/api/territories?reference=ofb-masa-pra-2017-snapshot-20261017&action=lookup&limit=1",
+      "status": 502,
+      "not_deployed_message": false,
+      "no_source_receipts": true,
+      "no_raw_coordinates": true
+    }
+  ],
+  "real_task19_remote_data": false
+}

@@ -1,0 +1,31 @@
+{
+  "scope": "Two instants, national spatial availability probe only; no daily aggregation or PostgreSQL import",
+  "request": {
+    "product_type": "reanalysis",
+    "variable": [
+      "2m_temperature",
+      "total_precipitation"
+    ],
+    "year": "2026",
+    "month": "10",
+    "day": [
+      "01",
+      "07"
+    ],
+    "time": [
+      "12:00"
+    ],
+    "area": [
+      52,
+      -6,
+      41,
+      10
+    ],
+    "data_format": "netcdf",
+    "download_format": "unarchived"
+  },
+  "retrieved_at": "2026-10-18T11:29:06.636345+00:00",
+  "sha256": "ea94fdb403c59a8a3a95255ee7a726c8c9c03d8d071daa55a2ff2a9cbf5bf894",
+  "bytes": 150875,
+  "structural_absence_proven": false
+}

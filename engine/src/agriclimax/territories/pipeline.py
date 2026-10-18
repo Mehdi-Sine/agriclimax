@@ -50,7 +50,7 @@ def plan(
     reference_bytes = (
         sum(len(json.dumps(t.geometry).encode()) for t in territories) * 2 + len(weights) * 192
     )
-    batch_metadata_bytes = len(selected) * math.ceil(days / 7) * 16384
+    batch_metadata_bytes = len(selected) * math.ceil(days / 7) * 4096
     total = existing_db_bytes + reference_bytes + daily_bytes + batch_metadata_bytes
     return {
         "source": "era5-land",
@@ -69,7 +69,7 @@ def plan(
         "daily_bytes_estimate": daily_bytes,
         "batch_metadata_bytes_estimate": batch_metadata_bytes,
         "diagnostic_bytes_estimate": "additional sparse results, not included; budget before enabling",
-        "estimate_basis": "1024 bytes per daily row incl indexes; realistic-version/quality-flag capacity test measured about 839 bytes with null values; 16KiB batch metadata planning allowance",
+        "estimate_basis": "1024 bytes per daily row incl indexes; realistic-version/quality-flag capacity test measured about 839 bytes with non-null synthetic values; 4KiB per batch incl indexes; 9269-envelope local capacity experiment measured 28934144 bytes total (3122 bytes/batch), with current receipt/parameter layout; future metadata growth needs remeasurement",
         "reference_bytes_estimate": reference_bytes,
         "projected_database_bytes_estimate": total,
         "planning_limit_bytes": 500_000_000,

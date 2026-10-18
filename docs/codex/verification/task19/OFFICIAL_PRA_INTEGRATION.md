@@ -1,3 +1,6 @@
+> État courant du 18 octobre : [audit national à deux instants, limites structurelles et budget PostgreSQL recalibré](FINAL_SCIENTIFIC_STORAGE_REVIEW.md).
+> Les résultats ci-dessous restent les preuves datées des étapes précédentes.
+
 # Intégration OFB/MASA et pilote PRA réel — 17 octobre 2026
 
 **Intégration locale réalisée ; validation nationale non terminée.**

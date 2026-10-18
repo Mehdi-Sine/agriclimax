@@ -1,3 +1,6 @@
+> État courant du 18 octobre : [audit national à deux instants, limites structurelles et budget PostgreSQL recalibré](FINAL_SCIENTIFIC_STORAGE_REVIEW.md).
+> Les résultats ci-dessous restent les preuves datées des étapes précédentes.
+
 > État courant après réception de l’archive OFB/MASA :
 > [intégration des 713 contours, poids, pilote réel et stockage](OFFICIAL_PRA_INTEGRATION.md).
 > Les éléments ci-dessous décrivent les observations antérieures. La comparaison
