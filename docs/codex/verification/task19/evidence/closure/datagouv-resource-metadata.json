@@ -1,0 +1,47 @@
+{
+  "title": "Petites régions agricoles (source Ministère de l'agriculture 2017)",
+  "description": "Les régions agricoles (RA) et petites régions agricoles (PRA) ont été définies à partir de 1946 pour caractériser des zones agricoles homogènes. La RA couvre un nombre entier de communes et peut s’étendre sur plusieurs départements. La France métropolitaine est découpée en 432 RA (hors Paris). La PRA est constituée par le croisement du département et de la RA. On compte 713 PRA.",
+  "created_at": "2017-01-01T00:00:00+00:00",
+  "last_modified": "2026-10-02T14:17:27.618000+00:00",
+  "temporal_coverage": null,
+  "license": "lov2",
+  "organization": {
+    "acronym": "OFB",
+    "badges": [
+      {
+        "kind": "certified"
+      },
+      {
+        "kind": "public-service"
+      }
+    ],
+    "class": "Organization",
+    "id": "5d7f937b8b4c4165718fbff1",
+    "logo": "https://udata-avatars.s3.rbx.io.cloud.ovh.net/00/43a5d806674e8782299d24db8329d0.png",
+    "logo_thumbnail": "https://udata-avatars.s3.rbx.io.cloud.ovh.net/00/43a5d806674e8782299d24db8329d0-100.png",
+    "name": "Office Français de la Biodiversité",
+    "page": "https://www.data.gouv.fr/organizations/office-francais-de-la-biodiversite",
+    "permissions": {
+      "delete": false,
+      "edit": false,
+      "harvest": false,
+      "members": false,
+      "private": false
+    },
+    "slug": "office-francais-de-la-biodiversite",
+    "uri": "https://www.data.gouv.fr/api/1/organizations/office-francais-de-la-biodiversite/"
+  },
+  "resource": {
+    "id": "16ba1df7-4f07-4715-ad53-384a0dfbcf61",
+    "title": "Petites régions agricoles",
+    "url": "https://wxs.ofb.fr/geoserver/referentiel/ows?version=2.0.0&service=WFS&request=GetFeature&typename=referentiel:ref_met_petite_region_agricole_masa_pol_3857",
+    "latest": "https://www.data.gouv.fr/api/1/datasets/r/16ba1df7-4f07-4715-ad53-384a0dfbcf61",
+    "format": "ogc:ows-c",
+    "checksum": null,
+    "created_at": "2026-07-16T00:17:01.062000+00:00",
+    "last_modified": "2026-07-16T00:17:01.062000+00:00",
+    "description": "Service de téléchargement WFS"
+  },
+  "geometry_vintage_verified": false,
+  "raw_metadata_sha256": "a9f5e9b542234fccd03093aac33e915ad49e4ede07a700a527f56e10551de9d5"
+}

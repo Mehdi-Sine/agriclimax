@@ -7,20 +7,18 @@ Les rapports historiques restent des preuves datées, pas l'état courant.
 
 ## A. TECHNICAL MERGE READINESS — NOT READY
 
-Les tests de code et de migration passent, mais deux critères de validation du
-référentiel restent ouverts :
+Les tests de code et de migration passent, mais un critère de validation du
+référentiel reste ouvert : **compatibilité administrative non établie et écarts
+non expliqués.** Le contrôle indépendant est désormais chiffré, mais le
+millésime/la précision des géométries PRA restent inconnus. Il faut qualifier les
+écarts avec un référentiel compatible, puis consigner leur acceptation ou leur
+résolution à la source.
 
-1. **XML original annoncé non accessible dans cette session.** Son SHA256 déclaré
-   `6ced4c263b48fa27fe283353d93b90d93f2b2ff86cdc9b041574a04983ca1acc`
-   n'a pas été vérifié. La nouvelle extraction officielle décrite ci-dessous ne
-   remplace pas cette vérification de la chaîne originale XML → export fourni.
-2. **Compatibilité administrative non établie et écarts non expliqués.** Le
-   contrôle indépendant est désormais chiffré, mais le millésime/la précision des
-   géométries PRA restent inconnus. Il faut qualifier les écarts avec un référentiel
-   compatible, puis consigner leur acceptation ou leur résolution à la source.
-
-Ces deux réserves concernent l'acceptation du référentiel intégré, donc le merge
-selon la Definition of Done Task19 §18.2. Elles ne sont pas des erreurs de CI.
+Cette réserve concerne l'acceptation du référentiel intégré, donc le merge selon
+la Definition of Done Task19 §18.2. Elle n'est pas une erreur de CI. La ressource
+officielle fournie en cours de contrôle a permis de vérifier sa provenance et
+de reproduire XML → GeoJSON ; la réserve initiale d'accès au XML est levée pour
+cette extraction officielle. L'identité binaire du XML historique reste inconnue.
 La date géométrique peut rester explicitement inconnue : aucune obligation
 d'inventer un millésime pour fermer un champ. Une revue peut accepter une
 provenance correctement bornée ; cette décision n'est pas prise automatiquement.
@@ -42,10 +40,18 @@ Le THI PRA reste non supporté et les diagnostics blé exploratoires.
 
 ## Provenance : vérification réellement exécutée
 
-Le WFS OFB répond désormais. Une **nouvelle extraction**, sans modification du
-paquet versionné, a été reçue à `2026-10-19T21:36:37.310Z` (23:36:37 à Paris).
+Le lien fourni par l'utilisateur,
+`https://www.data.gouv.fr/api/1/datasets/r/16ba1df7-4f07-4715-ad53-384a0dfbcf61`,
+redirige (HTTP 302) vers le WFS OFB `referentiel/ows`, couche MASA EPSG:3857.
+Le XML original du service, sans modification du paquet versionné, a été reçu à
+`2026-10-19T21:48:20.985Z` (23:48:20 à Paris), SHA256
+`7a98ce13cc9bd698cc9dce0b0df5e5a39f33e19165a807422018e96d8153ecab`.
 Il s'agit de l'horodatage de réponse WFS, pas de création des géométries.
 URL et empreintes : [source-receipts.json](evidence/closure/source-receipts.json).
+Les [métadonnées data.gouv](evidence/closure/datagouv-resource-metadata.json)
+confirment couche, CRS et Licence Ouverte 2.0 ; leur checksum de ressource est
+NULL. Les dates de création du catalogue (2017), de ressource (juillet 2026) et
+de mise à jour du catalogue (octobre 2026) ne datent pas la géométrie.
 
 Le convertisseur strict WFS2/GML3.2 inspecte le CRS déclaré EPSG:3857, les anneaux
 fermés, les géométries valides et non vides, les comptes `numberMatched` et
@@ -76,24 +82,27 @@ attributs de l'export versionné. Les codes, noms et `surf_ha` communs concorden
 paquet `...2017-snapshot-20261017` ne date pas les géométries. La réception du
 paquet du 17 octobre ne date pas non plus son extraction WFS originale.
 
-Pour le XML original, quand il sera disponible, exécuter depuis la racine :
+Pour reproduire la conversion sur les octets conservés du XML de cette ressource :
 
 ```sh
 export PYTHONPATH=engine/src
 python scripts/pra_closure_audit.py wfs \
-  --input work/original-ofb.xml \
-  --expected-sha256 6ced4c263b48fa27fe283353d93b90d93f2b2ff86cdc9b041574a04983ca1acc \
+  --input work/ofb-resource-original \
+  --expected-sha256 7a98ce13cc9bd698cc9dce0b0df5e5a39f33e19165a807422018e96d8153ecab \
   --bundle config/coverage/ofb-masa-pra-2017-snapshot-20261017 \
-  --output work/original-wfs-audit
+  --output work/resource-wfs-audit
 ```
 
-Le SHA doit correspondre aux octets du fichier original, avant conversion. Le
-script refuse une extraction tronquée ou un CRS différent ; adapter un autre
+Le SHA correspond aux octets du fichier reçu, avant conversion ; il est calculé
+localement et non comparé à un checksum publié par data.gouv (absent). Le script
+refuse une extraction tronquée ou un CRS différent ; adapter un autre
 encodage GML exige une revue explicite, pas une supposition d'axes.
-Il produit `converted.geojson` et la comparaison par code. Pour la nouvelle
-extraction seulement, utiliser le fichier sauvegardé et son propre SHA du reçu.
-Une nouvelle requête WFS peut changer d'horodatage et donc de SHA même sans
-changement géométrique. Conserver chaque XML reçu avec son reçu d'acquisition.
+Il produit `converted.geojson` et la comparaison par code. Une nouvelle requête
+WFS peut changer d'horodatage/identifiants GML et donc de SHA même sans changement
+géométrique. Le SHA historique déclaré
+`6ced4c263b48fa27fe283353d93b90d93f2b2ff86cdc9b041574a04983ca1acc` n'est donc
+pas certifié : ses octets n'ont pas été fournis. Conserver chaque XML reçu avec
+son reçu d'acquisition, sans qualifier le lien dynamique d'archive immuable.
 
 ## Contrôle administratif indépendant
 
