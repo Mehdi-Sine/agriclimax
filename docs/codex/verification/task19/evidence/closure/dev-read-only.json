@@ -1,0 +1,17 @@
+{
+  "project_name": "agriclimax-dev",
+  "read_only": true,
+  "database_bytes": 25638579,
+  "task19_tables": [],
+  "storage_objects": 0,
+  "cron_relation": null,
+  "development_branches": [],
+  "organization_plan": "free",
+  "migrations_applied_by_this_task": false,
+  "prerequisites_missing_on_dev": [
+    "daily_pipeline",
+    "daily_live_read",
+    "pra_territorial_aggregation"
+  ],
+  "migration_history_note": "Remote history versions differ from repository filenames; reconcile explicit mapping before deployment; never blind db push."
+}

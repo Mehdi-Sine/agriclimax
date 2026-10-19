@@ -1,0 +1,789 @@
+{
+  "area_crs": "EPSG:3035",
+  "compatibility_verified": false,
+  "gap_excluding_paris_km2": 1625.883363164972,
+  "gap_total_km2": 1731.2618749970923,
+  "geometry_modified": false,
+  "member": null,
+  "outside_total_km2": 1134.5665537408977,
+  "rows": [
+    {
+      "administrative_area_km2": 5784.533729303756,
+      "department": "01",
+      "gap_km2": 7.077121837258894,
+      "outside_assigned_department_km2": 7.1904306939478255,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 7411.009576545792,
+      "department": "02",
+      "gap_km2": 11.242876662355442,
+      "outside_assigned_department_km2": 11.271918583976928,
+      "paris_without_official_pra": false,
+      "pra_count": 6
+    },
+    {
+      "administrative_area_km2": 7379.6509938137,
+      "department": "03",
+      "gap_km2": 9.982650842325388,
+      "outside_assigned_department_km2": 9.40330628158151,
+      "paris_without_official_pra": false,
+      "pra_count": 5
+    },
+    {
+      "administrative_area_km2": 6993.297134925373,
+      "department": "04",
+      "gap_km2": 14.483555676184732,
+      "outside_assigned_department_km2": 16.24799632069291,
+      "paris_without_official_pra": false,
+      "pra_count": 5
+    },
+    {
+      "administrative_area_km2": 5697.790106693974,
+      "department": "05",
+      "gap_km2": 18.54099048082319,
+      "outside_assigned_department_km2": 10.94738304440818,
+      "paris_without_official_pra": false,
+      "pra_count": 10
+    },
+    {
+      "administrative_area_km2": 4294.743095787816,
+      "department": "06",
+      "gap_km2": 13.541673503142064,
+      "outside_assigned_department_km2": 11.627431528843381,
+      "paris_without_official_pra": false,
+      "pra_count": 3
+    },
+    {
+      "administrative_area_km2": 5566.605994138232,
+      "department": "07",
+      "gap_km2": 8.447049170038296,
+      "outside_assigned_department_km2": 8.221643701096093,
+      "paris_without_official_pra": false,
+      "pra_count": 7
+    },
+    {
+      "administrative_area_km2": 5246.525557343651,
+      "department": "08",
+      "gap_km2": 8.302144273539769,
+      "outside_assigned_department_km2": 7.7950740817038335,
+      "paris_without_official_pra": false,
+      "pra_count": 5
+    },
+    {
+      "administrative_area_km2": 4909.641411344804,
+      "department": "09",
+      "gap_km2": 8.981667300432392,
+      "outside_assigned_department_km2": 11.686859547857921,
+      "paris_without_official_pra": false,
+      "pra_count": 4
+    },
+    {
+      "administrative_area_km2": 6027.6693621668965,
+      "department": "10",
+      "gap_km2": 8.201651056711036,
+      "outside_assigned_department_km2": 8.243711744209074,
+      "paris_without_official_pra": false,
+      "pra_count": 10
+    },
+    {
+      "administrative_area_km2": 6343.582330448814,
+      "department": "11",
+      "gap_km2": 10.266415584184369,
+      "outside_assigned_department_km2": 11.048722379994564,
+      "paris_without_official_pra": false,
+      "pra_count": 6
+    },
+    {
+      "administrative_area_km2": 8773.401936137778,
+      "department": "12",
+      "gap_km2": 10.407881369626448,
+      "outside_assigned_department_km2": 11.288885668984689,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 5247.387527225222,
+      "department": "13",
+      "gap_km2": 405.7538910372338,
+      "outside_assigned_department_km2": 10.078256134566036,
+      "paris_without_official_pra": false,
+      "pra_count": 6
+    },
+    {
+      "administrative_area_km2": 5592.241025575113,
+      "department": "14",
+      "gap_km2": 9.367524943455876,
+      "outside_assigned_department_km2": 21.86266558557664,
+      "paris_without_official_pra": false,
+      "pra_count": 4
+    },
+    {
+      "administrative_area_km2": 5774.3228576418605,
+      "department": "15",
+      "gap_km2": 11.322059097239304,
+      "outside_assigned_department_km2": 11.449572024416963,
+      "paris_without_official_pra": false,
+      "pra_count": 10
+    },
+    {
+      "administrative_area_km2": 5973.829782261682,
+      "department": "16",
+      "gap_km2": 9.492083230043676,
+      "outside_assigned_department_km2": 10.745950795227838,
+      "paris_without_official_pra": false,
+      "pra_count": 9
+    },
+    {
+      "administrative_area_km2": 6910.8532187748115,
+      "department": "17",
+      "gap_km2": 21.81307597228695,
+      "outside_assigned_department_km2": 40.971092639908704,
+      "paris_without_official_pra": false,
+      "pra_count": 6
+    },
+    {
+      "administrative_area_km2": 7307.666441076868,
+      "department": "18",
+      "gap_km2": 10.208874115871472,
+      "outside_assigned_department_km2": 8.060527086199528,
+      "paris_without_official_pra": false,
+      "pra_count": 7
+    },
+    {
+      "administrative_area_km2": 5898.66608364036,
+      "department": "19",
+      "gap_km2": 10.51801960178767,
+      "outside_assigned_department_km2": 9.335296690914355,
+      "paris_without_official_pra": false,
+      "pra_count": 9
+    },
+    {
+      "administrative_area_km2": 8802.494043732611,
+      "department": "21",
+      "gap_km2": 12.04014349745377,
+      "outside_assigned_department_km2": 12.012566057415993,
+      "paris_without_official_pra": false,
+      "pra_count": 9
+    },
+    {
+      "administrative_area_km2": 6988.596106340065,
+      "department": "22",
+      "gap_km2": 26.750715767492913,
+      "outside_assigned_department_km2": 20.32537676739508,
+      "paris_without_official_pra": false,
+      "pra_count": 5
+    },
+    {
+      "administrative_area_km2": 5599.171518747767,
+      "department": "23",
+      "gap_km2": 9.632891907965293,
+      "outside_assigned_department_km2": 10.635946168963837,
+      "paris_without_official_pra": false,
+      "pra_count": 5
+    },
+    {
+      "administrative_area_km2": 9222.681020754946,
+      "department": "24",
+      "gap_km2": 10.797410434611464,
+      "outside_assigned_department_km2": 9.586179040727144,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 5256.518514744552,
+      "department": "25",
+      "gap_km2": 8.370826229170309,
+      "outside_assigned_department_km2": 9.252792191939715,
+      "paris_without_official_pra": false,
+      "pra_count": 4
+    },
+    {
+      "administrative_area_km2": 6558.737978500908,
+      "department": "26",
+      "gap_km2": 9.25908976092802,
+      "outside_assigned_department_km2": 9.53207532111831,
+      "paris_without_official_pra": false,
+      "pra_count": 10
+    },
+    {
+      "administrative_area_km2": 6031.223182006792,
+      "department": "27",
+      "gap_km2": 9.626299324464204,
+      "outside_assigned_department_km2": 12.250322968167726,
+      "paris_without_official_pra": false,
+      "pra_count": 13
+    },
+    {
+      "administrative_area_km2": 5931.80879172495,
+      "department": "28",
+      "gap_km2": 8.443751384272797,
+      "outside_assigned_department_km2": 8.488752489522852,
+      "paris_without_official_pra": false,
+      "pra_count": 5
+    },
+    {
+      "administrative_area_km2": 6784.7753312722,
+      "department": "29",
+      "gap_km2": 49.66724122928617,
+      "outside_assigned_department_km2": 23.721793002984175,
+      "paris_without_official_pra": false,
+      "pra_count": 9
+    },
+    {
+      "administrative_area_km2": 4017.60011899999,
+      "department": "2A",
+      "gap_km2": 15.145478697886377,
+      "outside_assigned_department_km2": 14.234743169905554,
+      "paris_without_official_pra": false,
+      "pra_count": 3
+    },
+    {
+      "administrative_area_km2": 4704.885513227944,
+      "department": "2B",
+      "gap_km2": 7.541224422681887,
+      "outside_assigned_department_km2": 10.065086533840844,
+      "paris_without_official_pra": false,
+      "pra_count": 3
+    },
+    {
+      "administrative_area_km2": 5875.870212586011,
+      "department": "30",
+      "gap_km2": 11.136451268654039,
+      "outside_assigned_department_km2": 9.967746258735309,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 6359.834513467451,
+      "department": "31",
+      "gap_km2": 16.47285108250502,
+      "outside_assigned_department_km2": 14.011469312531387,
+      "paris_without_official_pra": false,
+      "pra_count": 7
+    },
+    {
+      "administrative_area_km2": 6300.343756905347,
+      "department": "32",
+      "gap_km2": 10.164224819476201,
+      "outside_assigned_department_km2": 10.075747347289283,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 10086.130894613369,
+      "department": "33",
+      "gap_km2": 34.81829761932776,
+      "outside_assigned_department_km2": 38.70242754314699,
+      "paris_without_official_pra": false,
+      "pra_count": 26
+    },
+    {
+      "administrative_area_km2": 6232.334061500822,
+      "department": "34",
+      "gap_km2": 10.536841718574907,
+      "outside_assigned_department_km2": 7.978436742545889,
+      "paris_without_official_pra": false,
+      "pra_count": 6
+    },
+    {
+      "administrative_area_km2": 6842.16675742131,
+      "department": "35",
+      "gap_km2": 14.748784239953478,
+      "outside_assigned_department_km2": 10.937751552244231,
+      "paris_without_official_pra": false,
+      "pra_count": 7
+    },
+    {
+      "administrative_area_km2": 6898.853700078451,
+      "department": "36",
+      "gap_km2": 6.792515230591314,
+      "outside_assigned_department_km2": 8.273011944017025,
+      "paris_without_official_pra": false,
+      "pra_count": 4
+    },
+    {
+      "administrative_area_km2": 6157.740890831404,
+      "department": "37",
+      "gap_km2": 6.7452148822877875,
+      "outside_assigned_department_km2": 6.486341866001526,
+      "paris_without_official_pra": false,
+      "pra_count": 10
+    },
+    {
+      "administrative_area_km2": 7878.206461279582,
+      "department": "38",
+      "gap_km2": 10.43303490658576,
+      "outside_assigned_department_km2": 11.617239460231707,
+      "paris_without_official_pra": false,
+      "pra_count": 5
+    },
+    {
+      "administrative_area_km2": 5049.021802966863,
+      "department": "39",
+      "gap_km2": 8.836206180426817,
+      "outside_assigned_department_km2": 9.130216386029675,
+      "paris_without_official_pra": false,
+      "pra_count": 10
+    },
+    {
+      "administrative_area_km2": 9355.2776232797,
+      "department": "40",
+      "gap_km2": 10.3763217028667,
+      "outside_assigned_department_km2": 7.6179156913270925,
+      "paris_without_official_pra": false,
+      "pra_count": 13
+    },
+    {
+      "administrative_area_km2": 6422.003452601671,
+      "department": "41",
+      "gap_km2": 9.438972403327725,
+      "outside_assigned_department_km2": 9.496305397351506,
+      "paris_without_official_pra": false,
+      "pra_count": 10
+    },
+    {
+      "administrative_area_km2": 4804.651989114451,
+      "department": "42",
+      "gap_km2": 9.541316037019419,
+      "outside_assigned_department_km2": 9.912672879568296,
+      "paris_without_official_pra": false,
+      "pra_count": 10
+    },
+    {
+      "administrative_area_km2": 5003.608580788249,
+      "department": "43",
+      "gap_km2": 10.567566429514693,
+      "outside_assigned_department_km2": 10.612184571665612,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 6977.570377899268,
+      "department": "44",
+      "gap_km2": 79.47594907174408,
+      "outside_assigned_department_km2": 44.9087171709177,
+      "paris_without_official_pra": false,
+      "pra_count": 11
+    },
+    {
+      "administrative_area_km2": 6812.498115115557,
+      "department": "45",
+      "gap_km2": 8.889400167751294,
+      "outside_assigned_department_km2": 10.018660958857966,
+      "paris_without_official_pra": false,
+      "pra_count": 9
+    },
+    {
+      "administrative_area_km2": 5226.081644733605,
+      "department": "46",
+      "gap_km2": 7.914328009629465,
+      "outside_assigned_department_km2": 8.128989769734353,
+      "paris_without_official_pra": false,
+      "pra_count": 7
+    },
+    {
+      "administrative_area_km2": 5385.440373593132,
+      "department": "47",
+      "gap_km2": 8.802313045381444,
+      "outside_assigned_department_km2": 7.88895141893812,
+      "paris_without_official_pra": false,
+      "pra_count": 10
+    },
+    {
+      "administrative_area_km2": 5175.056213389128,
+      "department": "48",
+      "gap_km2": 7.581132319950038,
+      "outside_assigned_department_km2": 8.311718812482221,
+      "paris_without_official_pra": false,
+      "pra_count": 4
+    },
+    {
+      "administrative_area_km2": 7172.182284642928,
+      "department": "49",
+      "gap_km2": 10.283295820471823,
+      "outside_assigned_department_km2": 75.61864696925313,
+      "paris_without_official_pra": false,
+      "pra_count": 5
+    },
+    {
+      "administrative_area_km2": 6039.214501844522,
+      "department": "50",
+      "gap_km2": 46.36613199126922,
+      "outside_assigned_department_km2": 14.218122559207208,
+      "paris_without_official_pra": false,
+      "pra_count": 7
+    },
+    {
+      "administrative_area_km2": 8196.006907132309,
+      "department": "51",
+      "gap_km2": 9.66270906474013,
+      "outside_assigned_department_km2": 10.794796463020232,
+      "paris_without_official_pra": false,
+      "pra_count": 9
+    },
+    {
+      "administrative_area_km2": 6256.164258739243,
+      "department": "52",
+      "gap_km2": 9.658715175866291,
+      "outside_assigned_department_km2": 10.16611264707868,
+      "paris_without_official_pra": false,
+      "pra_count": 10
+    },
+    {
+      "administrative_area_km2": 5213.6440643487995,
+      "department": "53",
+      "gap_km2": 9.065037320312568,
+      "outside_assigned_department_km2": 8.549037003623651,
+      "paris_without_official_pra": false,
+      "pra_count": 4
+    },
+    {
+      "administrative_area_km2": 5285.187670029683,
+      "department": "54",
+      "gap_km2": 14.695673201707535,
+      "outside_assigned_department_km2": 13.373538190232503,
+      "paris_without_official_pra": false,
+      "pra_count": 6
+    },
+    {
+      "administrative_area_km2": 6235.103621966097,
+      "department": "55",
+      "gap_km2": 10.16012684928251,
+      "outside_assigned_department_km2": 8.53084328954707,
+      "paris_without_official_pra": false,
+      "pra_count": 4
+    },
+    {
+      "administrative_area_km2": 6870.1602576288815,
+      "department": "56",
+      "gap_km2": 62.11351839785721,
+      "outside_assigned_department_km2": 26.60337512021044,
+      "paris_without_official_pra": false,
+      "pra_count": 4
+    },
+    {
+      "administrative_area_km2": 6251.808333773662,
+      "department": "57",
+      "gap_km2": 11.593580335574389,
+      "outside_assigned_department_km2": 13.61589692272125,
+      "paris_without_official_pra": false,
+      "pra_count": 6
+    },
+    {
+      "administrative_area_km2": 6875.310028985328,
+      "department": "58",
+      "gap_km2": 10.43721780930701,
+      "outside_assigned_department_km2": 9.846204055556404,
+      "paris_without_official_pra": false,
+      "pra_count": 6
+    },
+    {
+      "administrative_area_km2": 5750.21982415994,
+      "department": "59",
+      "gap_km2": 14.747668918386033,
+      "outside_assigned_department_km2": 14.659139622331953,
+      "paris_without_official_pra": false,
+      "pra_count": 9
+    },
+    {
+      "administrative_area_km2": 5890.935061149843,
+      "department": "60",
+      "gap_km2": 13.046131124848465,
+      "outside_assigned_department_km2": 11.375664922071525,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 6145.956150146603,
+      "department": "61",
+      "gap_km2": 9.726063136838949,
+      "outside_assigned_department_km2": 11.288967512096905,
+      "paris_without_official_pra": false,
+      "pra_count": 6
+    },
+    {
+      "administrative_area_km2": 6692.184798773946,
+      "department": "62",
+      "gap_km2": 10.543364307431968,
+      "outside_assigned_department_km2": 13.348855525615484,
+      "paris_without_official_pra": false,
+      "pra_count": 11
+    },
+    {
+      "administrative_area_km2": 8015.430003229786,
+      "department": "63",
+      "gap_km2": 10.664478223088539,
+      "outside_assigned_department_km2": 10.209329211959083,
+      "paris_without_official_pra": false,
+      "pra_count": 13
+    },
+    {
+      "administrative_area_km2": 7683.283203738529,
+      "department": "64",
+      "gap_km2": 11.290739337244736,
+      "outside_assigned_department_km2": 13.400001033205582,
+      "paris_without_official_pra": false,
+      "pra_count": 11
+    },
+    {
+      "administrative_area_km2": 4519.2162861567185,
+      "department": "65",
+      "gap_km2": 8.029433136833086,
+      "outside_assigned_department_km2": 10.419661321183488,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 4137.878571393823,
+      "department": "66",
+      "gap_km2": 8.318490064192329,
+      "outside_assigned_department_km2": 9.443842549628117,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 4797.6473408716,
+      "department": "67",
+      "gap_km2": 6.987611931682567,
+      "outside_assigned_department_km2": 7.91905719452254,
+      "paris_without_official_pra": false,
+      "pra_count": 5
+    },
+    {
+      "administrative_area_km2": 3531.317775958095,
+      "department": "68",
+      "gap_km2": 4.438982767532313,
+      "outside_assigned_department_km2": 4.8598386003817,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 3259.0032837233052,
+      "department": "69",
+      "gap_km2": 55.11844386447918,
+      "outside_assigned_department_km2": 6.073166763126426,
+      "paris_without_official_pra": false,
+      "pra_count": 9
+    },
+    {
+      "administrative_area_km2": 5390.1730885669685,
+      "department": "70",
+      "gap_km2": 9.733440784190377,
+      "outside_assigned_department_km2": 9.882793870437581,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 8613.607848887394,
+      "department": "71",
+      "gap_km2": 11.992168104676905,
+      "outside_assigned_department_km2": 14.90310185759682,
+      "paris_without_official_pra": false,
+      "pra_count": 11
+    },
+    {
+      "administrative_area_km2": 6245.462199918955,
+      "department": "72",
+      "gap_km2": 8.87629447517783,
+      "outside_assigned_department_km2": 8.232320789171839,
+      "paris_without_official_pra": false,
+      "pra_count": 11
+    },
+    {
+      "administrative_area_km2": 6269.373301494906,
+      "department": "73",
+      "gap_km2": 7.7140748692288295,
+      "outside_assigned_department_km2": 9.704906952034571,
+      "paris_without_official_pra": false,
+      "pra_count": 11
+    },
+    {
+      "administrative_area_km2": 4605.816231091607,
+      "department": "74",
+      "gap_km2": 6.776866882995578,
+      "outside_assigned_department_km2": 6.189206023835321,
+      "paris_without_official_pra": false,
+      "pra_count": 16
+    },
+    {
+      "administrative_area_km2": 105.37851183212032,
+      "department": "75",
+      "gap_km2": 105.37851183212032,
+      "outside_assigned_department_km2": 0.0,
+      "paris_without_official_pra": true,
+      "pra_count": 0
+    },
+    {
+      "administrative_area_km2": 6319.0434565855885,
+      "department": "76",
+      "gap_km2": 14.146196732114722,
+      "outside_assigned_department_km2": 14.077157710143466,
+      "paris_without_official_pra": false,
+      "pra_count": 6
+    },
+    {
+      "administrative_area_km2": 5927.375801933888,
+      "department": "77",
+      "gap_km2": 8.629827864950958,
+      "outside_assigned_department_km2": 7.729806119932271,
+      "paris_without_official_pra": false,
+      "pra_count": 16
+    },
+    {
+      "administrative_area_km2": 2306.9983591916402,
+      "department": "78",
+      "gap_km2": 5.722927171377456,
+      "outside_assigned_department_km2": 4.789137347328976,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 6040.196398027023,
+      "department": "79",
+      "gap_km2": 10.121794740905873,
+      "outside_assigned_department_km2": 10.357540307767966,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 6191.313491248898,
+      "department": "80",
+      "gap_km2": 11.275987493129682,
+      "outside_assigned_department_km2": 16.480624464662963,
+      "paris_without_official_pra": false,
+      "pra_count": 5
+    },
+    {
+      "administrative_area_km2": 5782.40588650401,
+      "department": "81",
+      "gap_km2": 8.139866090726722,
+      "outside_assigned_department_km2": 8.554869442021102,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 3731.2894757923673,
+      "department": "82",
+      "gap_km2": 10.051604758017078,
+      "outside_assigned_department_km2": 9.248417591341465,
+      "paris_without_official_pra": false,
+      "pra_count": 11
+    },
+    {
+      "administrative_area_km2": 6030.087082967065,
+      "department": "83",
+      "gap_km2": 13.465435719248509,
+      "outside_assigned_department_km2": 13.78705844073284,
+      "paris_without_official_pra": false,
+      "pra_count": 5
+    },
+    {
+      "administrative_area_km2": 3577.085876998077,
+      "department": "84",
+      "gap_km2": 4.706216006759423,
+      "outside_assigned_department_km2": 5.511690680194742,
+      "paris_without_official_pra": false,
+      "pra_count": 6
+    },
+    {
+      "administrative_area_km2": 6791.687286186208,
+      "department": "85",
+      "gap_km2": 29.856735050989275,
+      "outside_assigned_department_km2": 10.677893068525927,
+      "paris_without_official_pra": false,
+      "pra_count": 8
+    },
+    {
+      "administrative_area_km2": 7038.803252075055,
+      "department": "86",
+      "gap_km2": 10.050194194824797,
+      "outside_assigned_department_km2": 9.82113502566513,
+      "paris_without_official_pra": false,
+      "pra_count": 7
+    },
+    {
+      "administrative_area_km2": 5557.92996960084,
+      "department": "87",
+      "gap_km2": 11.80137946374272,
+      "outside_assigned_department_km2": 11.682065597781675,
+      "paris_without_official_pra": false,
+      "pra_count": 3
+    },
+    {
+      "administrative_area_km2": 5897.715264585618,
+      "department": "88",
+      "gap_km2": 10.367895289806732,
+      "outside_assigned_department_km2": 10.215217397028926,
+      "paris_without_official_pra": false,
+      "pra_count": 7
+    },
+    {
+      "administrative_area_km2": 7461.611597130108,
+      "department": "89",
+      "gap_km2": 11.66844915363344,
+      "outside_assigned_department_km2": 10.173752758453622,
+      "paris_without_official_pra": false,
+      "pra_count": 9
+    },
+    {
+      "administrative_area_km2": 611.0046221620427,
+      "department": "90",
+      "gap_km2": 2.4737835607062384,
+      "outside_assigned_department_km2": 2.719946881278271,
+      "paris_without_official_pra": false,
+      "pra_count": 4
+    },
+    {
+      "administrative_area_km2": 1819.6807330614627,
+      "department": "91",
+      "gap_km2": 4.850392607649299,
+      "outside_assigned_department_km2": 5.206726841557811,
+      "paris_without_official_pra": false,
+      "pra_count": 5
+    },
+    {
+      "administrative_area_km2": 175.63382283516344,
+      "department": "92",
+      "gap_km2": 0.7492840127380896,
+      "outside_assigned_department_km2": 0.9497181717095291,
+      "paris_without_official_pra": false,
+      "pra_count": 1
+    },
+    {
+      "administrative_area_km2": 236.96370152473577,
+      "department": "93",
+      "gap_km2": 1.4656896502884373,
+      "outside_assigned_department_km2": 1.5971655748909146,
+      "paris_without_official_pra": false,
+      "pra_count": 2
+    },
+    {
+      "administrative_area_km2": 244.9023787542921,
+      "department": "94",
+      "gap_km2": 1.7236383387250975,
+      "outside_assigned_department_km2": 1.5159425729014868,
+      "paris_without_official_pra": false,
+      "pra_count": 1
+    },
+    {
+      "administrative_area_km2": 1253.0553954024615,
+      "department": "95",
+      "gap_km2": 4.077807823099162,
+      "outside_assigned_department_km2": 4.585397447624948,
+      "paris_without_official_pra": false,
+      "pra_count": 4
+    }
+  ],
+  "source": {
+    "archive_sha256": "ef306bd3ee3c8ba0f65fa19273fffc22089f5ac83abc0de5c0c2815060df5317",
+    "crs": "EPSG:4326",
+    "edition": "2018",
+    "pra_compatibility": "Unverified: PRA geometric vintage and accuracy undocumented; exploratory comparison only",
+    "precision_description": "5 m generalization class; not a positional accuracy guarantee",
+    "producer": "Etalab, derived from IGN ADMIN EXPRESS; independent of PRA export",
+    "source_url": "https://etalab-datasets.geo.data.gouv.fr/contours-administratifs/2018/geojson/departements-5m.geojson.gz"
+  },
+  "status": "measured_requires_vintage_and_precision_review"
+}

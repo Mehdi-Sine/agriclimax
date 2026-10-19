@@ -1,4 +1,6 @@
-> État courant du 18 octobre : [audit national à deux instants, limites structurelles et budget PostgreSQL recalibré](FINAL_SCIENTIFIC_STORAGE_REVIEW.md).
+> État courant du 19 octobre : [clôture technique](TECHNICAL_CLOSURE.md) et
+> [plan manuel de migration/validation](DEPLOYMENT_CLOSURE.md).
+> TECHNICAL MERGE READINESS — NOT READY ; NATIONAL OPERATIONAL READINESS — NOT READY.
 > Les résultats ci-dessous restent les preuves datées des étapes précédentes.
 
 # Task 19 — PRA, agrégation ERA5 et stockage compact

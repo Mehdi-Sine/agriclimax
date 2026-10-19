@@ -1,0 +1,26 @@
+{
+  "original_xml": {
+    "accessible": false,
+    "declared_sha256_not_verified": "6ced4c263b48fa27fe283353d93b90d93f2b2ff86cdc9b041574a04983ca1acc"
+  },
+  "fresh_wfs": {
+    "source_url": "https://wxs.ofb.fr/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=referentiel:ref_met_petite_region_agricole_masa_pol_3857&count=1000",
+    "sha256": "575eba996a143733046ac9fd00df9f0bc334bc0e34494b09808e0031edbba31c",
+    "bytes": 18504449,
+    "extraction_kind": "new server response, not supplied original",
+    "geometry_vintage": null,
+    "server_response_timestamp": "2026-10-19T21:36:37.310Z",
+    "original_chain_verified": false
+  },
+  "ecmwf_mask": {
+    "download_url": "https://confluence.ecmwf.int/download/attachments/140385202/lsm_1279l4_0.1x0.1.grb_v4_unpack.nc?api=v2",
+    "official_documentation": "https://confluence.ecmwf.int/spaces/CKB/pages/140385202/ERA5-Land+data+documentation",
+    "warning": "0.1 degree auxiliary LSM is interpolated by ECMWF, not a native categorical support bitmap; do not infer permanent weather availability."
+  },
+  "administrative_reference": {
+    "metadata_file": "admin-source.json",
+    "first_available_index_edition": "2018",
+    "requested_2017_url_status": 404,
+    "compatibility_verified": false
+  }
+}
