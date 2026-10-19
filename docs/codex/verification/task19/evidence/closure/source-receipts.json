@@ -33,6 +33,12 @@
     "server_response_timestamp": "2026-10-19T21:48:20.985Z",
     "accessible": true,
     "published_checksum": null,
-    "geometry_vintage": null
+    "geometry_vintage": null,
+    "preserved_archive": {
+      "filename": "ofb-wfs-20261019.xml.gz",
+      "compression": "gzip; decompress to recover exact XML response bytes",
+      "sha256_compressed": "407c3f6e34e00ddca76098a72aa681aa1f08a783c67a3d72237f222dc3ddecff",
+      "bytes_compressed": 8300056
+    }
   }
 }

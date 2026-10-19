@@ -86,6 +86,7 @@ Pour reproduire la conversion sur les octets conservés du XML de cette ressourc
 
 ```sh
 export PYTHONPATH=engine/src
+gzip -dc docs/codex/verification/task19/evidence/closure/ofb-wfs-20261019.xml.gz > work/ofb-resource-original
 python scripts/pra_closure_audit.py wfs \
   --input work/ofb-resource-original \
   --expected-sha256 7a98ce13cc9bd698cc9dce0b0df5e5a39f33e19165a807422018e96d8153ecab \
