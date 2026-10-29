@@ -1,7 +1,8 @@
 > État courant du 29 octobre : [revue finale et décision](FINAL_ACCEPTANCE_REVIEW_20261029.md),
 > [réconciliation daily](SUPABASE_RECONCILIATION_20261029.md), [cadrage Task19B](TASK19B_START.md).
-> NOT READY : acceptation géographique non close (trous terrestres Marseille/Lyon)
-> et nouvelle validation CI bloquée par l'infrastructure GitHub. Daily : DDL présent
+> NOT READY : acceptation géographique non close (trous terrestres Marseille/Lyon).
+> Voir les checks du SHA final dans la PR ; les runs daily récents ont subi un
+> incident de runner, tandis que les nouveaux workflows de PR démarrent. Daily : DDL présent
 > et conforme, historique incomplet ; ne pas rejouer ces migrations.
 > Les résultats ci-dessous restent les preuves datées des étapes précédentes.
 

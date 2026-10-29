@@ -1,8 +1,10 @@
 # AgriclimaX — revue finale du 29 octobre 2026
 
-**Recommandation : NOT READY.** Deux points empêchent de recommander le merge :
-acceptation de la couverture géographique non close et validation CI actuelle
-bloquée par l'infrastructure GitHub. La réconciliation daily est en revanche
+**Recommandation : NOT READY.** L'acceptation de la couverture géographique reste
+non close. La validation CI doit être examinée sur le SHA final : un incident
+d'infrastructure a empêché les runs daily récents, mais les nouveaux workflows
+de PR démarrent le 29 octobre, sans intervention de facturation de cet audit.
+La réconciliation daily est en revanche
 résolue au niveau du diagnostic : ses objets existent et correspondent à Git.
 Leur DDL ne doit pas être rejoué.
 
@@ -232,8 +234,12 @@ permet pas de départager ces deux causes ni de certifier un quota restant.
 Voir [preuve GitHub](evidence/acceptance-20261029/github-runner-block.json).
 
 Il ne s'agit pas d'une régression du code Task19 : le SHA main est celui de
-v0.2.0 et le job n'a pas exécuté le pipeline. Mais l'accès aux runners est un
-blocage de validation distante actuelle et d'exploitation quotidienne. Ne pas
+v0.2.0 et le job n'a pas exécuté le pipeline. Les workflows du nouveau commit
+20f1b50 démarrent ensuite effectivement : l'incident des runs daily ne permet
+donc pas de conclure à un blocage général et permanent des runners. Aucun
+paiement/plafond n'a été modifié par cet audit ; la cause de ce changement d'état
+n'est pas établie. L'état final de la CI est consigné dans la PR. Le succès d'une
+PR ne démontre pas à lui seul la reprise du prochain run daily. Ne pas
 réutiliser les anciens checks pour déclarer le nouveau commit validé. Ne pas
 augmenter le plafond, activer de facturation ou contourner les contrôles pour
 obtenir du vert ; l'opérateur doit traiter son compte et relancer les checks
@@ -241,9 +247,10 @@ sur le SHA exact via des ressources autorisées.
 
 ## Critères de merge et critères nationaux
 
-**Bloquants merge :** décision d'acceptation du référentiel avec qualification des
-deux trous terrestres ; validation Quality/Security actuelle sur le commit final
-après résolution du blocage de runner. Le logiciel est testé localement, mais ces
+**Blocage de merge restant :** décision d'acceptation du référentiel avec
+qualification des deux trous terrestres. Quality/Security doivent également
+réussir sur le commit final, selon les statuts actuels consignés dans la PR.
+Le logiciel est testé localement, mais ces
 deux critères ne sont pas remplacés par un budget inférieur à Free.
 
 **Non bloquants pour le code, bloquants avant exploitation nationale :** réparation

@@ -5,8 +5,9 @@ un import distant, un backfill, une purge ou un service payant. L'activation
 nationale reste NOT READY tant que ses prérequis ne sont pas levés.
 
 1. **Fermer les prérequis.** Décision géographique explicite sur Marseille/Lyon
-   et l'emprise officielle acceptée ; retrouver des runners GitHub autorisés
-   sans augmenter automatiquement les dépenses ; checks du SHA final verts.
+   et l'emprise officielle acceptée ; vérifier l'état actuel des runners et la
+   reprise du daily après les incidents récents, sans augmenter automatiquement
+   les dépenses ; checks du SHA final verts.
    Identifier la cible Supabase, sauvegarder, tester la restauration, contrôler
    le plan Free, les quotas, versions d'extensions et l'exposition Data API.
 2. **Réconcilier l'historique.** Appliquer le
