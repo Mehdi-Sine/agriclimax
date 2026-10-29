@@ -1,0 +1,5 @@
+# Native wheels, used only by offline reference preparation and batch ingestion.
+shapely==2.1.2
+pyproj==3.7.2
+certifi==2026.10.19
+types-shapely==2.1.0.20260728

@@ -44,14 +44,21 @@ for task04_migration in "$task04_root"/supabase/migrations/*.sql; do
   task04_psql -f "/repo/supabase/migrations/$(basename "$task04_migration")" \
     >>"$task04_results/migrations.log" 2>&1
 done
+PYTHONPATH="$task04_root/engine/src" "${PYTHON:-python}" "$task04_root/supabase/tests/prepare_pra_import.py" "$task04_results/pra-import.sql"
+task04_psql -f "/repo/work/task04-${task04_mode}/pra-import.sql" >"$task04_results/pra-import.log" 2>&1
+task04_psql -f "/repo/work/task04-${task04_mode}/pra-import.sql" >>"$task04_results/pra-import.log" 2>&1
 task04_psql -f /repo/supabase/tests/station_weather.sql >"$task04_results/station-weather.log" 2>&1
 task04_psql -f /repo/supabase/tests/climate.sql >"$task04_results/climate.log" 2>&1
 task04_psql -f /repo/supabase/tests/france.sql >"$task04_results/france.log" 2>&1
 task04_psql -f /repo/supabase/tests/wheat.sql >"$task04_results/wheat.log" 2>&1
 task04_psql -f /repo/supabase/tests/daily.sql >"$task04_results/daily.log" 2>&1
+task04_psql -f /repo/supabase/tests/pra.sql >"$task04_results/pra.log" 2>&1
+task04_psql -f /repo/supabase/tests/pra_storage.sql >"$task04_results/pra-storage.log" 2>&1
 task04_psql -f /repo/supabase/tests/security.sql >"$task04_results/security.log" 2>&1
 task04_psql -f /repo/supabase/tests/benchmark.sql >"$task04_results/explain.log" 2>&1
 task04_psql -qAt -f /repo/supabase/tests/contracts.sql >"$task04_results/contracts.json"
 "${PYTHON:-python}" "$task04_root/supabase/tests/check_sql_contracts.py" "$task04_results/contracts.json"
 task04_psql -f /repo/supabase/scripts/preflight.sql >"$task04_results/schema.log"
+task04_psql -f /repo/supabase/scripts/task19-preflight.sql >"$task04_results/task19-preflight.log"
+task04_psql -qAt -f /repo/supabase/scripts/task19-daily-catalog.sql >"$task04_results/task19-daily-catalog.json"
 echo "PASS: migrations, SQL permissions, publication, zoom, idempotence and contracts ($task04_mode). Logs: $task04_results"

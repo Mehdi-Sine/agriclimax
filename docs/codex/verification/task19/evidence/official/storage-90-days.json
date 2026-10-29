@@ -1,0 +1,52 @@
+{
+  "scenario": "single geometry version, single dataset revision, 90 daily UTC days, 8 wheat outputs per PRA per weekly batch, one parameter set; not national observed data",
+  "real_measurements": {
+    "dev_database_bytes": 25114291,
+    "local_baseline_bytes": 17386643,
+    "local_after_official_import_bytes": 32320659,
+    "reference_database_delta_bytes": 14934016,
+    "geometry_and_indexes_bytes": 11272192,
+    "correspondence_and_indexes_bytes": 3530752
+  },
+  "synthetic_capacity_measurements": {
+    "daily": {
+      "rows": 64170,
+      "index_bytes": 20930560,
+      "total_bytes": 53821440,
+      "avg_tuple_bytes": 485.0
+    },
+    "diagnostics": {
+      "rows": 74152,
+      "index_bytes": 19152896,
+      "total_bytes": 42016768,
+      "avg_tuple_bytes": 292.5
+    },
+    "synthetic_capacity_only": true,
+    "real_climate_values_inserted": false,
+    "temporary_tables_rolled_back": true
+  },
+  "conservative_scenario_components": {
+    "dev_database_measured_bytes": 25114291,
+    "official_reference_local_database_delta_bytes": 14934016,
+    "daily_allowance_64170_rows_1024_bytes": 65710080,
+    "batch_metadata_allowance_9269_rows_16384_bytes": 151863296,
+    "diagnostics_allowance_74152_rows_1024_bytes": 75931648,
+    "operational_logs_allowance": 1000000,
+    "existing_database_growth_reserve_not_measured": 25000000,
+    "new_schema_catalogs_and_empty_relations_allowance_not_measured": 1000000
+  },
+  "conservative_total_bytes": 360553331,
+  "total_using_synthetic_capacity_sizes_instead_of_per_row_allowances": 314749811,
+  "target_bytes": 375000000,
+  "margin_to_target_bytes": 14446669,
+  "free_db_limit_planning_bytes": 500000000,
+  "national_actual_size_verified": false,
+  "multiple_versions_or_productions_included": false,
+  "automatic_retention_enabled": false,
+  "required_before_continuous_operation": [
+    "Measure real batch metadata at national pilot scale",
+    "Validate preservation and retention before exceeding 90 days",
+    "Monitor all existing database growth",
+    "Reassess diagnostics frequency and extra parameter sets before enabling"
+  ]
+}

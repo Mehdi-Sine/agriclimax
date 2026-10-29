@@ -1,0 +1,107 @@
+[
+  {
+    "pra_id": "pra:29102",
+    "cell_id": "era5land.48.2.-4.6",
+    "longitude": -4.6,
+    "latitude": 48.2,
+    "intersection_km2": 3.3718883138557123,
+    "weight": 0.02770629078438332,
+    "method": "total-area-epsg3035-1",
+    "missing_variables": [
+      "temperature",
+      "temperature_min",
+      "temperature_max",
+      "precipitation"
+    ]
+  },
+  {
+    "pra_id": "pra:29102",
+    "cell_id": "era5land.48.2.-4.5",
+    "longitude": -4.5,
+    "latitude": 48.2,
+    "intersection_km2": 29.58510069279529,
+    "weight": 0.24309624945511246,
+    "method": "total-area-epsg3035-1",
+    "missing_variables": [
+      "temperature",
+      "temperature_min",
+      "temperature_max",
+      "precipitation"
+    ]
+  },
+  {
+    "pra_id": "pra:29102",
+    "cell_id": "era5land.48.2.-4.4",
+    "longitude": -4.4,
+    "latitude": 48.2,
+    "intersection_km2": 9.950534269506187,
+    "weight": 0.08176201886582028,
+    "method": "total-area-epsg3035-1",
+    "missing_variables": [
+      "temperature",
+      "temperature_min",
+      "temperature_max",
+      "precipitation"
+    ]
+  },
+  {
+    "pra_id": "pra:29102",
+    "cell_id": "era5land.48.3.-4.6",
+    "longitude": -4.6,
+    "latitude": 48.3,
+    "intersection_km2": 23.48588568046202,
+    "weight": 0.19297993214003872,
+    "method": "total-area-epsg3035-1",
+    "missing_variables": [
+      "temperature",
+      "temperature_min",
+      "temperature_max",
+      "precipitation"
+    ]
+  },
+  {
+    "pra_id": "pra:29102",
+    "cell_id": "era5land.48.3.-4.5",
+    "longitude": -4.5,
+    "latitude": 48.3,
+    "intersection_km2": 33.96539160683334,
+    "weight": 0.279088430241716,
+    "method": "total-area-epsg3035-1",
+    "missing_variables": [
+      "temperature",
+      "temperature_min",
+      "temperature_max",
+      "precipitation"
+    ]
+  },
+  {
+    "pra_id": "pra:29102",
+    "cell_id": "era5land.48.3.-4.4",
+    "longitude": -4.4,
+    "latitude": 48.3,
+    "intersection_km2": 21.342380590550405,
+    "weight": 0.17536707851293065,
+    "method": "total-area-epsg3035-1",
+    "missing_variables": [
+      "temperature",
+      "temperature_min",
+      "temperature_max",
+      "precipitation"
+    ]
+  },
+  {
+    "pra_id": "pra:2B260",
+    "cell_id": "era5land.41.9.9.4",
+    "longitude": 9.4,
+    "latitude": 41.9,
+    "intersection_km2": 0.3883611987257716,
+    "weight": 0.00016089358291279627,
+    "method": "total-area-epsg3035-1",
+    "missing_variables": [
+      "temperature",
+      "temperature_min",
+      "temperature_max",
+      "precipitation"
+    ]
+  }
+]

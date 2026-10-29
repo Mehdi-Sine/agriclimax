@@ -54,7 +54,7 @@ begin
   select count(*) into n from pg_class c join pg_namespace s on s.oid=c.relnamespace
     where s.nspname in ('public','agriclimax_private') and c.relkind='r'
       and c.relname <> 'spatial_ref_sys' and c.relrowsecurity and c.relforcerowsecurity;
-  if n <> 20 then raise exception 'Expected 20 RLS tables, got %', n; end if;
+  if n <> 30 then raise exception 'Expected 30 RLS tables, got %', n; end if;
   foreach t in array array['public.risk_results'::regclass, 'public.grid_cells'::regclass,
     'agriclimax_private.observations'::regclass, 'agriclimax_private.rule_versions'::regclass,
     'agriclimax_private.parameter_versions'::regclass, 'agriclimax_private.run_manifests'::regclass,

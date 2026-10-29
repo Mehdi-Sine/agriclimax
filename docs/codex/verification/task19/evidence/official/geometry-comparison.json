@@ -1,0 +1,4996 @@
+{
+  "overlaps_above_one_m2": [],
+  "inrae_comparison": [
+    {
+      "code": "01195",
+      "ofb_area_km2": 332.22473061088914,
+      "symmetric_difference_inrae_km2": 4.472166014858794,
+      "relative_pct": 1.3461267638430925,
+      "supplied_csv_difference_km2": 4.4722
+    },
+    {
+      "code": "01198",
+      "ofb_area_km2": 894.133141904887,
+      "symmetric_difference_inrae_km2": 5.549890180662496,
+      "relative_pct": 0.6207006451901391,
+      "supplied_csv_difference_km2": 5.5499
+    },
+    {
+      "code": "01201",
+      "ofb_area_km2": 442.01090462341136,
+      "symmetric_difference_inrae_km2": 4.470830087632943,
+      "relative_pct": 1.0114750656303475,
+      "supplied_csv_difference_km2": 4.4708
+    },
+    {
+      "code": "01215",
+      "ofb_area_km2": 359.64667754534787,
+      "symmetric_difference_inrae_km2": 41.048396739942355,
+      "relative_pct": 11.41353425537111,
+      "supplied_csv_difference_km2": 41.0484
+    },
+    {
+      "code": "01216",
+      "ofb_area_km2": 81.99850747015556,
+      "symmetric_difference_inrae_km2": 1.7212693915551274,
+      "relative_pct": 2.099147221894991,
+      "supplied_csv_difference_km2": 1.7213
+    },
+    {
+      "code": "01446",
+      "ofb_area_km2": 1314.3072216139867,
+      "symmetric_difference_inrae_km2": 7.297812616776213,
+      "relative_pct": 0.5552592648630814,
+      "supplied_csv_difference_km2": 7.2978
+    },
+    {
+      "code": "01449",
+      "ofb_area_km2": 960.2966787155964,
+      "symmetric_difference_inrae_km2": 49.477545826161574,
+      "relative_pct": 5.1523187492784155,
+      "supplied_csv_difference_km2": 49.4775
+    },
+    {
+      "code": "01451",
+      "ofb_area_km2": 1400.0291756761803,
+      "symmetric_difference_inrae_km2": 16.309990296830794,
+      "relative_pct": 1.1649750291063372,
+      "supplied_csv_difference_km2": 16.31
+    },
+    {
+      "code": "02034",
+      "ofb_area_km2": 2368.4520946316075,
+      "symmetric_difference_inrae_km2": 10.042565827430739,
+      "relative_pct": 0.4240138886572149,
+      "supplied_csv_difference_km2": 10.0426
+    },
+    {
+      "code": "02317",
+      "ofb_area_km2": 542.0061067982872,
+      "symmetric_difference_inrae_km2": 4.72415495421017,
+      "relative_pct": 0.8716054846902878,
+      "supplied_csv_difference_km2": 4.7242
+    },
+    {
+      "code": "02323",
+      "ofb_area_km2": 1241.9672124082124,
+      "symmetric_difference_inrae_km2": 5.175635137838877,
+      "relative_pct": 0.41672880621406766,
+      "supplied_csv_difference_km2": 5.1756
+    },
+    {
+      "code": "02328",
+      "ofb_area_km2": 1721.6586239823835,
+      "symmetric_difference_inrae_km2": 6.632336756489132,
+      "relative_pct": 0.38522949114893734,
+      "supplied_csv_difference_km2": 6.6323
+    },
+    {
+      "code": "02329",
+      "ofb_area_km2": 441.1612649559322,
+      "symmetric_difference_inrae_km2": 5.50448608195767,
+      "relative_pct": 1.2477265161771434,
+      "supplied_csv_difference_km2": 5.5045
+    },
+    {
+      "code": "02336",
+      "ofb_area_km2": 1095.793315690982,
+      "symmetric_difference_inrae_km2": 5.433524475917357,
+      "relative_pct": 0.4958530407252122,
+      "supplied_csv_difference_km2": 5.4335
+    },
+    {
+      "code": "03178",
+      "ofb_area_km2": 2738.765107690581,
+      "symmetric_difference_inrae_km2": 8.797464612798352,
+      "relative_pct": 0.3212201217291201,
+      "supplied_csv_difference_km2": 8.7975
+    },
+    {
+      "code": "03425",
+      "ofb_area_km2": 908.7838461365316,
+      "symmetric_difference_inrae_km2": 5.2280337202370895,
+      "relative_pct": 0.5752780204514829,
+      "supplied_csv_difference_km2": 5.228
+    },
+    {
+      "code": "03426",
+      "ofb_area_km2": 1338.336630255038,
+      "symmetric_difference_inrae_km2": 7.1223975109985584,
+      "relative_pct": 0.5321828118566321,
+      "supplied_csv_difference_km2": 7.1224
+    },
+    {
+      "code": "03428",
+      "ofb_area_km2": 848.278099039495,
+      "symmetric_difference_inrae_km2": 6.1326713051873565,
+      "relative_pct": 0.7229552798936313,
+      "supplied_csv_difference_km2": 6.1327
+    },
+    {
+      "code": "03429",
+      "ofb_area_km2": 1544.9079661313222,
+      "symmetric_difference_inrae_km2": 6.451075333541179,
+      "relative_pct": 0.4175702032073551,
+      "supplied_csv_difference_km2": 6.4511
+    },
+    {
+      "code": "04233",
+      "ofb_area_km2": 562.7639813899254,
+      "symmetric_difference_inrae_km2": 3.2228031390395806,
+      "relative_pct": 0.5726740242116845,
+      "supplied_csv_difference_km2": 3.2228
+    },
+    {
+      "code": "04459",
+      "ofb_area_km2": 657.665299682683,
+      "symmetric_difference_inrae_km2": 4.488212173429872,
+      "relative_pct": 0.6824462497254136,
+      "supplied_csv_difference_km2": 4.4882
+    },
+    {
+      "code": "04460",
+      "ofb_area_km2": 4404.796237585372,
+      "symmetric_difference_inrae_km2": 11.855599930935009,
+      "relative_pct": 0.26915206269414244,
+      "supplied_csv_difference_km2": 11.8556
+    },
+    {
+      "code": "04462",
+      "ofb_area_km2": 931.3636362521377,
+      "symmetric_difference_inrae_km2": 5.3089073151034905,
+      "relative_pct": 0.5700144506894049,
+      "supplied_csv_difference_km2": 5.3089
+    },
+    {
+      "code": "04466",
+      "ofb_area_km2": 438.4724206597565,
+      "symmetric_difference_inrae_km2": 4.761149073650331,
+      "relative_pct": 1.085849154773833,
+      "supplied_csv_difference_km2": 4.7611
+    },
+    {
+      "code": "05231",
+      "ofb_area_km2": 627.7729029077097,
+      "symmetric_difference_inrae_km2": 3.750560163262189,
+      "relative_pct": 0.5974390015705356,
+      "supplied_csv_difference_km2": 3.7506
+    },
+    {
+      "code": "05232",
+      "ofb_area_km2": 433.59973378556117,
+      "symmetric_difference_inrae_km2": 2.038091074157857,
+      "relative_pct": 0.4700397429592991,
+      "supplied_csv_difference_km2": 2.0381
+    },
+    {
+      "code": "05235",
+      "ofb_area_km2": 796.0713586249025,
+      "symmetric_difference_inrae_km2": 2.0338130199975244,
+      "relative_pct": 0.2554812452379446,
+      "supplied_csv_difference_km2": 2.0338
+    },
+    {
+      "code": "05236",
+      "ofb_area_km2": 186.68638286300282,
+      "symmetric_difference_inrae_km2": 1.2909098746922314,
+      "relative_pct": 0.6914858249942887,
+      "supplied_csv_difference_km2": 1.2909
+    },
+    {
+      "code": "05237",
+      "ofb_area_km2": 533.9054386392845,
+      "symmetric_difference_inrae_km2": 2.497593336818027,
+      "relative_pct": 0.4677969460628482,
+      "supplied_csv_difference_km2": 2.4976
+    },
+    {
+      "code": "05239",
+      "ofb_area_km2": 629.1339283461231,
+      "symmetric_difference_inrae_km2": 3.0815834850808326,
+      "relative_pct": 0.4898135907535215,
+      "supplied_csv_difference_km2": 3.0816
+    },
+    {
+      "code": "05457",
+      "ofb_area_km2": 1173.1735060715416,
+      "symmetric_difference_inrae_km2": 4.176107246540081,
+      "relative_pct": 0.3559667197500978,
+      "supplied_csv_difference_km2": 4.1761
+    },
+    {
+      "code": "05459",
+      "ofb_area_km2": 375.407346859185,
+      "symmetric_difference_inrae_km2": 3.5425772491038288,
+      "relative_pct": 0.9436622055328733,
+      "supplied_csv_difference_km2": 3.5426
+    },
+    {
+      "code": "05461",
+      "ofb_area_km2": 191.56177452000577,
+      "symmetric_difference_inrae_km2": 1.7856504060620964,
+      "relative_pct": 0.9321538237659266,
+      "supplied_csv_difference_km2": 1.7857
+    },
+    {
+      "code": "05463",
+      "ofb_area_km2": 742.8841266402549,
+      "symmetric_difference_inrae_km2": 5.262228958674069,
+      "relative_pct": 0.7083512448264127,
+      "supplied_csv_difference_km2": 5.2622
+    },
+    {
+      "code": "06245",
+      "ofb_area_km2": 626.4075962224464,
+      "symmetric_difference_inrae_km2": 7.800417160476639,
+      "relative_pct": 1.2452622234336057,
+      "supplied_csv_difference_km2": 7.8004
+    },
+    {
+      "code": "06249",
+      "ofb_area_km2": 576.1245171071549,
+      "symmetric_difference_inrae_km2": 10.067566772691213,
+      "relative_pct": 1.7474636946961797,
+      "supplied_csv_difference_km2": 10.0676
+    },
+    {
+      "code": "06250",
+      "ofb_area_km2": 3090.296740483913,
+      "symmetric_difference_inrae_km2": 10.628962902183304,
+      "relative_pct": 0.34394635191308204,
+      "supplied_csv_difference_km2": 10.629
+    },
+    {
+      "code": "07169",
+      "ofb_area_km2": 233.00834984564773,
+      "symmetric_difference_inrae_km2": 2.2038657849171024,
+      "relative_pct": 0.9458312486986042,
+      "supplied_csv_difference_km2": 2.2039
+    },
+    {
+      "code": "07171",
+      "ofb_area_km2": 3256.913324119059,
+      "symmetric_difference_inrae_km2": 15.27126406580019,
+      "relative_pct": 0.4688876413353989,
+      "supplied_csv_difference_km2": 15.2713
+    },
+    {
+      "code": "07422",
+      "ofb_area_km2": 1155.1573283822406,
+      "symmetric_difference_inrae_km2": 6.789473477888481,
+      "relative_pct": 0.5877531407255938,
+      "supplied_csv_difference_km2": 6.7895
+    },
+    {
+      "code": "07423",
+      "ofb_area_km2": 133.74203462820475,
+      "symmetric_difference_inrae_km2": 3.4149150258324545,
+      "relative_pct": 2.553359559188496,
+      "supplied_csv_difference_km2": 3.4149
+    },
+    {
+      "code": "07424",
+      "ofb_area_km2": 70.57164032144033,
+      "symmetric_difference_inrae_km2": 2.4230079621514706,
+      "relative_pct": 3.4334017901739746,
+      "supplied_csv_difference_km2": 2.423
+    },
+    {
+      "code": "07425",
+      "ofb_area_km2": 145.90967732881504,
+      "symmetric_difference_inrae_km2": 3.2505777837984935,
+      "relative_pct": 2.2278013654112523,
+      "supplied_csv_difference_km2": 3.2506
+    },
+    {
+      "code": "07465",
+      "ofb_area_km2": 571.0782340438607,
+      "symmetric_difference_inrae_km2": 8.662709445440491,
+      "relative_pct": 1.5169041523608773,
+      "supplied_csv_difference_km2": 8.6627
+    },
+    {
+      "code": "08021",
+      "ofb_area_km2": 1046.8167232125784,
+      "symmetric_difference_inrae_km2": 8.665278551792763,
+      "relative_pct": 0.8277741804888127,
+      "supplied_csv_difference_km2": 8.6653
+    },
+    {
+      "code": "08022",
+      "ofb_area_km2": 2124.736092709889,
+      "symmetric_difference_inrae_km2": 12.677292400193561,
+      "relative_pct": 0.5966525651675141,
+      "supplied_csv_difference_km2": 12.6773
+    },
+    {
+      "code": "08315",
+      "ofb_area_km2": 492.1068977609132,
+      "symmetric_difference_inrae_km2": 3.4030312478061866,
+      "relative_pct": 0.6915227694003033,
+      "supplied_csv_difference_km2": 3.403
+    },
+    {
+      "code": "08317",
+      "ofb_area_km2": 1329.909580048675,
+      "symmetric_difference_inrae_km2": 7.235075541069579,
+      "relative_pct": 0.5440276278636006,
+      "supplied_csv_difference_km2": 7.2351
+    },
+    {
+      "code": "08323",
+      "ofb_area_km2": 252.44919341976524,
+      "symmetric_difference_inrae_km2": 2.942533656371765,
+      "relative_pct": 1.1655943980296284,
+      "supplied_csv_difference_km2": 2.9425
+    },
+    {
+      "code": "09390",
+      "ofb_area_km2": 300.9190713344627,
+      "symmetric_difference_inrae_km2": 3.278439830281261,
+      "relative_pct": 1.0894755908100524,
+      "supplied_csv_difference_km2": 3.2784
+    },
+    {
+      "code": "09392",
+      "ofb_area_km2": 933.3170072825949,
+      "symmetric_difference_inrae_km2": 9.201065080195184,
+      "relative_pct": 0.985845646055953,
+      "supplied_csv_difference_km2": 9.2011
+    },
+    {
+      "code": "09393",
+      "ofb_area_km2": 1295.7895781747673,
+      "symmetric_difference_inrae_km2": 5.480916141357128,
+      "relative_pct": 0.4229788720077126,
+      "supplied_csv_difference_km2": 5.4809
+    },
+    {
+      "code": "09472",
+      "ofb_area_km2": 2382.320946800413,
+      "symmetric_difference_inrae_km2": 7.763179571068681,
+      "relative_pct": 0.3258662348368743,
+      "supplied_csv_difference_km2": 7.7632
+    },
+    {
+      "code": "10011",
+      "ofb_area_km2": 1350.1138140645614,
+      "symmetric_difference_inrae_km2": 7.162003852251036,
+      "relative_pct": 0.530474081343527,
+      "supplied_csv_difference_km2": 7.162
+    },
+    {
+      "code": "10013",
+      "ofb_area_km2": 598.238061909552,
+      "symmetric_difference_inrae_km2": 7.041072611039877,
+      "relative_pct": 1.1769683441011851,
+      "supplied_csv_difference_km2": 7.0411
+    },
+    {
+      "code": "10014",
+      "ofb_area_km2": 217.81014550253326,
+      "symmetric_difference_inrae_km2": 3.573227348394915,
+      "relative_pct": 1.6405238333369352,
+      "supplied_csv_difference_km2": 3.5732
+    },
+    {
+      "code": "10015",
+      "ofb_area_km2": 263.9305766624988,
+      "symmetric_difference_inrae_km2": 2.303445352271955,
+      "relative_pct": 0.8727466826314275,
+      "supplied_csv_difference_km2": 2.3034
+    },
+    {
+      "code": "10019",
+      "ofb_area_km2": 92.75497536477697,
+      "symmetric_difference_inrae_km2": 2.101476512246469,
+      "relative_pct": 2.26562133619464,
+      "supplied_csv_difference_km2": 2.1015
+    },
+    {
+      "code": "10020",
+      "ofb_area_km2": 51.78414191994387,
+      "symmetric_difference_inrae_km2": 1.1532562868264316,
+      "relative_pct": 2.2270452769292146,
+      "supplied_csv_difference_km2": 1.1533
+    },
+    {
+      "code": "10317",
+      "ofb_area_km2": 1531.822130492287,
+      "symmetric_difference_inrae_km2": 11.873212699224604,
+      "relative_pct": 0.7751038755007978,
+      "supplied_csv_difference_km2": 11.8732
+    },
+    {
+      "code": "10318",
+      "ofb_area_km2": 1159.9639175652662,
+      "symmetric_difference_inrae_km2": 13.4495099898465,
+      "relative_pct": 1.1594765825196243,
+      "supplied_csv_difference_km2": 13.4495
+    },
+    {
+      "code": "10319",
+      "ofb_area_km2": 578.6770588525039,
+      "symmetric_difference_inrae_km2": 4.169736034162855,
+      "relative_pct": 0.7205635631091535,
+      "supplied_csv_difference_km2": 4.1697
+    },
+    {
+      "code": "10335",
+      "ofb_area_km2": 182.6166005204481,
+      "symmetric_difference_inrae_km2": 2.648348340489492,
+      "relative_pct": 1.4502232179012386,
+      "supplied_csv_difference_km2": 2.6483
+    },
+    {
+      "code": "11391",
+      "ofb_area_km2": 581.3932759439335,
+      "symmetric_difference_inrae_km2": 4.931810127340291,
+      "relative_pct": 0.8482743663199656,
+      "supplied_csv_difference_km2": 4.9318
+    },
+    {
+      "code": "11392",
+      "ofb_area_km2": 1006.3949230707965,
+      "symmetric_difference_inrae_km2": 6.865124888594599,
+      "relative_pct": 0.6821501908661417,
+      "supplied_csv_difference_km2": 6.8651
+    },
+    {
+      "code": "11413",
+      "ofb_area_km2": 284.64792832719195,
+      "symmetric_difference_inrae_km2": 3.3669776867625396,
+      "relative_pct": 1.1828569090769308,
+      "supplied_csv_difference_km2": 3.367
+    },
+    {
+      "code": "11470",
+      "ofb_area_km2": 2841.3547450353453,
+      "symmetric_difference_inrae_km2": 11.69081639889672,
+      "relative_pct": 0.41145219263183874,
+      "supplied_csv_difference_km2": 11.6908
+    },
+    {
+      "code": "11471",
+      "ofb_area_km2": 519.9690642144358,
+      "symmetric_difference_inrae_km2": 3.8621982124631677,
+      "relative_pct": 0.7427746145432977,
+      "supplied_csv_difference_km2": 3.8622
+    },
+    {
+      "code": "11472",
+      "ofb_area_km2": 1110.6047006529043,
+      "symmetric_difference_inrae_km2": 4.977459089589972,
+      "relative_pct": 0.44817558278510927,
+      "supplied_csv_difference_km2": 4.9775
+    },
+    {
+      "code": "12161",
+      "ofb_area_km2": 167.13993100202416,
+      "symmetric_difference_inrae_km2": 2.944489196911639,
+      "relative_pct": 1.7616910448981695,
+      "supplied_csv_difference_km2": 2.9445
+    },
+    {
+      "code": "12162",
+      "ofb_area_km2": 625.9427938711176,
+      "symmetric_difference_inrae_km2": 6.647309736645366,
+      "relative_pct": 1.0619676113747314,
+      "supplied_csv_difference_km2": 6.6473
+    },
+    {
+      "code": "12397",
+      "ofb_area_km2": 490.38101359454856,
+      "symmetric_difference_inrae_km2": 3.109425346109706,
+      "relative_pct": 0.6340835513425092,
+      "supplied_csv_difference_km2": 3.1094
+    },
+    {
+      "code": "12407",
+      "ofb_area_km2": 1181.1378108356955,
+      "symmetric_difference_inrae_km2": 11.761084628494332,
+      "relative_pct": 0.995741946502666,
+      "supplied_csv_difference_km2": 11.7611
+    },
+    {
+      "code": "12409",
+      "ofb_area_km2": 1975.8539591590138,
+      "symmetric_difference_inrae_km2": 12.640401817153322,
+      "relative_pct": 0.6397437299735188,
+      "supplied_csv_difference_km2": 12.6404
+    },
+    {
+      "code": "12411",
+      "ofb_area_km2": 2438.991236648599,
+      "symmetric_difference_inrae_km2": 14.00623873067487,
+      "relative_pct": 0.5742635939078135,
+      "supplied_csv_difference_km2": 14.0062
+    },
+    {
+      "code": "12412",
+      "ofb_area_km2": 1218.7082722559364,
+      "symmetric_difference_inrae_km2": 6.61012500212537,
+      "relative_pct": 0.5423878012979633,
+      "supplied_csv_difference_km2": 6.6101
+    },
+    {
+      "code": "12419",
+      "ofb_area_km2": 676.1279230701444,
+      "symmetric_difference_inrae_km2": 5.791544060396375,
+      "relative_pct": 0.8565751927680015,
+      "supplied_csv_difference_km2": 5.7915
+    },
+    {
+      "code": "13244",
+      "ofb_area_km2": 1212.174932293489,
+      "symmetric_difference_inrae_km2": 5.770272100599683,
+      "relative_pct": 0.47602635121995723,
+      "supplied_csv_difference_km2": 5.7703
+    },
+    {
+      "code": "13246",
+      "ofb_area_km2": 541.7931275456237,
+      "symmetric_difference_inrae_km2": 3.647660618872866,
+      "relative_pct": 0.6732570853006438,
+      "supplied_csv_difference_km2": 3.6477
+    },
+    {
+      "code": "13466",
+      "ofb_area_km2": 370.20304425142047,
+      "symmetric_difference_inrae_km2": 3.4624583136587574,
+      "relative_pct": 0.9352862888148635,
+      "supplied_csv_difference_km2": 3.4625
+    },
+    {
+      "code": "13467",
+      "ofb_area_km2": 511.4422823143736,
+      "symmetric_difference_inrae_km2": 1.586767944933405,
+      "relative_pct": 0.3102535710878221,
+      "supplied_csv_difference_km2": 1.5868
+    },
+    {
+      "code": "13468",
+      "ofb_area_km2": 2040.6645754442245,
+      "symmetric_difference_inrae_km2": 12.535450387261298,
+      "relative_pct": 0.614282745832078,
+      "supplied_csv_difference_km2": 12.5355
+    },
+    {
+      "code": "13469",
+      "ofb_area_km2": 175.43393047344372,
+      "symmetric_difference_inrae_km2": 236.4248239952079,
+      "relative_pct": 134.76573394734302,
+      "supplied_csv_difference_km2": 236.4248
+    },
+    {
+      "code": "14085",
+      "ofb_area_km2": 778.2431571419958,
+      "symmetric_difference_inrae_km2": 5.418042623753533,
+      "relative_pct": 0.6961889191098888,
+      "supplied_csv_difference_km2": 5.418
+    },
+    {
+      "code": "14353",
+      "ofb_area_km2": 1921.9659794185877,
+      "symmetric_difference_inrae_km2": 13.19395761978804,
+      "relative_pct": 0.6864823707118548,
+      "supplied_csv_difference_km2": 13.194
+    },
+    {
+      "code": "14354",
+      "ofb_area_km2": 1596.3650299461442,
+      "symmetric_difference_inrae_km2": 25.5618705447094,
+      "relative_pct": 1.601254729663664,
+      "supplied_csv_difference_km2": 25.5619
+    },
+    {
+      "code": "14355",
+      "ofb_area_km2": 1308.1619997104713,
+      "symmetric_difference_inrae_km2": 12.350474001400741,
+      "relative_pct": 0.944108910374572,
+      "supplied_csv_difference_km2": 12.3505
+    },
+    {
+      "code": "15163",
+      "ofb_area_km2": 338.2615811856912,
+      "symmetric_difference_inrae_km2": 4.176446533854397,
+      "relative_pct": 1.2346795397854258,
+      "supplied_csv_difference_km2": 4.1764
+    },
+    {
+      "code": "15164",
+      "ofb_area_km2": 52.21742488717873,
+      "symmetric_difference_inrae_km2": 1.893092142079432,
+      "relative_pct": 3.6254031028333125,
+      "supplied_csv_difference_km2": 1.8931
+    },
+    {
+      "code": "15167",
+      "ofb_area_km2": 743.5371039924519,
+      "symmetric_difference_inrae_km2": 5.944971222138072,
+      "relative_pct": 0.7995527311571021,
+      "supplied_csv_difference_km2": 5.945
+    },
+    {
+      "code": "15409",
+      "ofb_area_km2": 1113.004904784335,
+      "symmetric_difference_inrae_km2": 7.300786246432607,
+      "relative_pct": 0.6559527469330666,
+      "supplied_csv_difference_km2": 7.3008
+    },
+    {
+      "code": "15417",
+      "ofb_area_km2": 414.36206057007445,
+      "symmetric_difference_inrae_km2": 4.332166345022632,
+      "relative_pct": 1.0455026551085513,
+      "supplied_csv_difference_km2": 4.3322
+    },
+    {
+      "code": "15418",
+      "ofb_area_km2": 537.3599843276785,
+      "symmetric_difference_inrae_km2": 6.130815514896465,
+      "relative_pct": 1.140914041555788,
+      "supplied_csv_difference_km2": 6.1308
+    },
+    {
+      "code": "15419",
+      "ofb_area_km2": 308.4053723901878,
+      "symmetric_difference_inrae_km2": 3.311891010909287,
+      "relative_pct": 1.073875913782447,
+      "supplied_csv_difference_km2": 3.3119
+    },
+    {
+      "code": "15420",
+      "ofb_area_km2": 1831.6995019491385,
+      "symmetric_difference_inrae_km2": 10.044902586244165,
+      "relative_pct": 0.5483924942685869,
+      "supplied_csv_difference_km2": 10.0449
+    },
+    {
+      "code": "15421",
+      "ofb_area_km2": 357.3976164796099,
+      "symmetric_difference_inrae_km2": 3.8675177203276525,
+      "relative_pct": 1.0821330478985722,
+      "supplied_csv_difference_km2": 3.8675
+    },
+    {
+      "code": "15433",
+      "ofb_area_km2": 78.20482000267863,
+      "symmetric_difference_inrae_km2": 1.5005548668119095,
+      "relative_pct": 1.9187498504062963,
+      "supplied_csv_difference_km2": 1.5006
+    },
+    {
+      "code": "16112",
+      "ofb_area_km2": 1308.6697474655698,
+      "symmetric_difference_inrae_km2": 10.302099293901634,
+      "relative_pct": 0.7872191829797514,
+      "supplied_csv_difference_km2": 10.3021
+    },
+    {
+      "code": "16113",
+      "ofb_area_km2": 1413.3030457815353,
+      "symmetric_difference_inrae_km2": 36.18447550099717,
+      "relative_pct": 2.560277189595081,
+      "supplied_csv_difference_km2": 36.1845
+    },
+    {
+      "code": "16367",
+      "ofb_area_km2": 17.724168928874686,
+      "symmetric_difference_inrae_km2": 0.40388927720359263,
+      "relative_pct": 2.278748745988372,
+      "supplied_csv_difference_km2": 0.4039
+    },
+    {
+      "code": "16371",
+      "ofb_area_km2": 76.84923178285494,
+      "symmetric_difference_inrae_km2": 1.6327350054210354,
+      "relative_pct": 2.124595090338038,
+      "supplied_csv_difference_km2": 1.6327
+    },
+    {
+      "code": "16372",
+      "ofb_area_km2": 42.40892920380751,
+      "symmetric_difference_inrae_km2": 1.1019288278811443,
+      "relative_pct": 2.598341548746796,
+      "supplied_csv_difference_km2": 1.1019
+    },
+    {
+      "code": "16375",
+      "ofb_area_km2": 62.56867016872743,
+      "symmetric_difference_inrae_km2": 1.1287754338347087,
+      "relative_pct": 1.804058534072671,
+      "supplied_csv_difference_km2": 1.1288
+    },
+    {
+      "code": "16377",
+      "ofb_area_km2": 1506.2935775934984,
+      "symmetric_difference_inrae_km2": 28.385986371886965,
+      "relative_pct": 1.884492292481078,
+      "supplied_csv_difference_km2": 28.386
+    },
+    {
+      "code": "16432",
+      "ofb_area_km2": 1513.5791900960767,
+      "symmetric_difference_inrae_km2": 19.3280251356094,
+      "relative_pct": 1.276974819823106,
+      "supplied_csv_difference_km2": 19.328
+    },
+    {
+      "code": "16438",
+      "ofb_area_km2": 33.68708880593765,
+      "symmetric_difference_inrae_km2": 0.9097186813739342,
+      "relative_pct": 2.7004965807956314,
+      "supplied_csv_difference_km2": 0.9097
+    },
+    {
+      "code": "17111",
+      "ofb_area_km2": 590.1102472745222,
+      "symmetric_difference_inrae_km2": 7.280221096268217,
+      "relative_pct": 1.2337052491280367,
+      "supplied_csv_difference_km2": 7.2802
+    },
+    {
+      "code": "17369",
+      "ofb_area_km2": 306.78101096264675,
+      "symmetric_difference_inrae_km2": 4.348283735195488,
+      "relative_pct": 1.4173901186227362,
+      "supplied_csv_difference_km2": 4.3483
+    },
+    {
+      "code": "17374",
+      "ofb_area_km2": 942.3064308784608,
+      "symmetric_difference_inrae_km2": 10.34509810371636,
+      "relative_pct": 1.0978486153460918,
+      "supplied_csv_difference_km2": 10.3451
+    },
+    {
+      "code": "17375",
+      "ofb_area_km2": 1701.0060758866396,
+      "symmetric_difference_inrae_km2": 9.622351935733395,
+      "relative_pct": 0.5656859238858274,
+      "supplied_csv_difference_km2": 9.6224
+    },
+    {
+      "code": "17376",
+      "ofb_area_km2": 547.2812920447199,
+      "symmetric_difference_inrae_km2": 3.958272994371528,
+      "relative_pct": 0.7232611550785636,
+      "supplied_csv_difference_km2": 3.9583
+    },
+    {
+      "code": "17377",
+      "ofb_area_km2": 2842.5261783953724,
+      "symmetric_difference_inrae_km2": 16.103619487437946,
+      "relative_pct": 0.5665249315849242,
+      "supplied_csv_difference_km2": 16.1036
+    },
+    {
+      "code": "18066",
+      "ofb_area_km2": 251.87318192783368,
+      "symmetric_difference_inrae_km2": 2.0523028101945417,
+      "relative_pct": 0.814815930178134,
+      "supplied_csv_difference_km2": 2.0523
+    },
+    {
+      "code": "18179",
+      "ofb_area_km2": 860.881557232522,
+      "symmetric_difference_inrae_km2": 4.864460840415683,
+      "relative_pct": 0.5650557616838113,
+      "supplied_csv_difference_km2": 4.8645
+    },
+    {
+      "code": "18343",
+      "ofb_area_km2": 1123.8065526246894,
+      "symmetric_difference_inrae_km2": 5.11949892329511,
+      "relative_pct": 0.4555498374109264,
+      "supplied_csv_difference_km2": 5.1195
+    },
+    {
+      "code": "18434",
+      "ofb_area_km2": 2994.3712399512906,
+      "symmetric_difference_inrae_km2": 9.797960122431581,
+      "relative_pct": 0.32721260449292067,
+      "supplied_csv_difference_km2": 9.798
+    },
+    {
+      "code": "18436",
+      "ofb_area_km2": 757.0924024695656,
+      "symmetric_difference_inrae_km2": 4.119949043447804,
+      "relative_pct": 0.5441804765189704,
+      "supplied_csv_difference_km2": 4.1199
+    },
+    {
+      "code": "18437",
+      "ofb_area_km2": 341.96470952418554,
+      "symmetric_difference_inrae_km2": 2.1080575881609085,
+      "relative_pct": 0.6164547187030174,
+      "supplied_csv_difference_km2": 2.1081
+    },
+    {
+      "code": "18439",
+      "ofb_area_km2": 975.5284503171091,
+      "symmetric_difference_inrae_km2": 4.501393978532881,
+      "relative_pct": 0.4614313377605379,
+      "supplied_csv_difference_km2": 4.5014
+    },
+    {
+      "code": "19394",
+      "ofb_area_km2": 73.09034696848012,
+      "symmetric_difference_inrae_km2": 1.2030035193258821,
+      "relative_pct": 1.6459129956581982,
+      "supplied_csv_difference_km2": 1.203
+    },
+    {
+      "code": "19403",
+      "ofb_area_km2": 39.34570814039895,
+      "symmetric_difference_inrae_km2": 1.2222674229696646,
+      "relative_pct": 3.106482207940435,
+      "supplied_csv_difference_km2": 1.2223
+    },
+    {
+      "code": "19408",
+      "ofb_area_km2": 782.1867200375377,
+      "symmetric_difference_inrae_km2": 15.162103153556426,
+      "relative_pct": 1.9384250288510123,
+      "supplied_csv_difference_km2": 15.1621
+    },
+    {
+      "code": "19409",
+      "ofb_area_km2": 398.5955572087853,
+      "symmetric_difference_inrae_km2": 4.044903070308654,
+      "relative_pct": 1.0147887996127172,
+      "supplied_csv_difference_km2": 4.0449
+    },
+    {
+      "code": "19420",
+      "ofb_area_km2": 70.0178388369596,
+      "symmetric_difference_inrae_km2": 1.643175294195645,
+      "relative_pct": 2.3467952188896737,
+      "supplied_csv_difference_km2": 1.6432
+    },
+    {
+      "code": "19421",
+      "ofb_area_km2": 14.757422860683354,
+      "symmetric_difference_inrae_km2": 0.5236658442350423,
+      "relative_pct": 3.548491150376872,
+      "supplied_csv_difference_km2": 0.5237
+    },
+    {
+      "code": "19430",
+      "ofb_area_km2": 1882.7133301178726,
+      "symmetric_difference_inrae_km2": 10.004395888280893,
+      "relative_pct": 0.5313817949998016,
+      "supplied_csv_difference_km2": 10.0044
+    },
+    {
+      "code": "19432",
+      "ofb_area_km2": 1437.9792631280532,
+      "symmetric_difference_inrae_km2": 7.653708743148696,
+      "relative_pct": 0.5322544586977905,
+      "supplied_csv_difference_km2": 7.6537
+    },
+    {
+      "code": "19433",
+      "ofb_area_km2": 1198.7971734307184,
+      "symmetric_difference_inrae_km2": 16.059728122235473,
+      "relative_pct": 1.3396534858583071,
+      "supplied_csv_difference_km2": 16.0597
+    },
+    {
+      "code": "21010",
+      "ofb_area_km2": 193.71634611708484,
+      "symmetric_difference_inrae_km2": 2.83342661692294,
+      "relative_pct": 1.46266779944857,
+      "supplied_csv_difference_km2": 2.8334
+    },
+    {
+      "code": "21204",
+      "ofb_area_km2": 575.3252957491346,
+      "symmetric_difference_inrae_km2": 6.096873671376521,
+      "relative_pct": 1.059726335070622,
+      "supplied_csv_difference_km2": 6.0969
+    },
+    {
+      "code": "21311",
+      "ofb_area_km2": 2728.683547569724,
+      "symmetric_difference_inrae_km2": 9.567314988339177,
+      "relative_pct": 0.35062017348476393,
+      "supplied_csv_difference_km2": 9.5673
+    },
+    {
+      "code": "21312",
+      "ofb_area_km2": 244.10839696096252,
+      "symmetric_difference_inrae_km2": 2.681480658183163,
+      "relative_pct": 1.0984794835271405,
+      "supplied_csv_difference_km2": 2.6815
+    },
+    {
+      "code": "21322",
+      "ofb_area_km2": 411.15205748663755,
+      "symmetric_difference_inrae_km2": 4.289015991756133,
+      "relative_pct": 1.0431702611376392,
+      "supplied_csv_difference_km2": 4.289
+    },
+    {
+      "code": "21440",
+      "ofb_area_km2": 1486.9770902654634,
+      "symmetric_difference_inrae_km2": 9.384684499391575,
+      "relative_pct": 0.6311250227611892,
+      "supplied_csv_difference_km2": 9.3847
+    },
+    {
+      "code": "21441",
+      "ofb_area_km2": 721.1600774049501,
+      "symmetric_difference_inrae_km2": 5.716482634459035,
+      "relative_pct": 0.7926787427043166,
+      "supplied_csv_difference_km2": 5.7165
+    },
+    {
+      "code": "21442",
+      "ofb_area_km2": 1957.6853304422302,
+      "symmetric_difference_inrae_km2": 18.17944041149317,
+      "relative_pct": 0.9286191263121197,
+      "supplied_csv_difference_km2": 18.1794
+    },
+    {
+      "code": "21443",
+      "ofb_area_km2": 483.6583242964269,
+      "symmetric_difference_inrae_km2": 14.08551379231309,
+      "relative_pct": 2.912286026050136,
+      "supplied_csv_difference_km2": 14.0855
+    },
+    {
+      "code": "22358",
+      "ofb_area_km2": 1438.0617817443544,
+      "symmetric_difference_inrae_km2": 70.95223859993959,
+      "relative_pct": 4.9338797192618,
+      "supplied_csv_difference_km2": 70.9522
+    },
+    {
+      "code": "22359",
+      "ofb_area_km2": 2746.4376568902912,
+      "symmetric_difference_inrae_km2": 57.96843539712681,
+      "relative_pct": 2.1106772713990067,
+      "supplied_csv_difference_km2": 57.9684
+    },
+    {
+      "code": "22360",
+      "ofb_area_km2": 1724.1056813998575,
+      "symmetric_difference_inrae_km2": 9.552897607296778,
+      "relative_pct": 0.5540784251427366,
+      "supplied_csv_difference_km2": 9.5529
+    },
+    {
+      "code": "22361",
+      "ofb_area_km2": 102.17343517082216,
+      "symmetric_difference_inrae_km2": 1.5950578260736001,
+      "relative_pct": 1.5611277269936632,
+      "supplied_csv_difference_km2": 1.5951
+    },
+    {
+      "code": "22362",
+      "ofb_area_km2": 971.3922121346392,
+      "symmetric_difference_inrae_km2": 7.450096596865353,
+      "relative_pct": 0.7669504144462647,
+      "supplied_csv_difference_km2": 7.4501
+    },
+    {
+      "code": "23428",
+      "ofb_area_km2": 780.9311850367945,
+      "symmetric_difference_inrae_km2": 5.5134055729509495,
+      "relative_pct": 0.7060040216848529,
+      "supplied_csv_difference_km2": 5.5134
+    },
+    {
+      "code": "23430",
+      "ofb_area_km2": 819.1451641141716,
+      "symmetric_difference_inrae_km2": 7.145103845447315,
+      "relative_pct": 0.8722634471234499,
+      "supplied_csv_difference_km2": 7.1451
+    },
+    {
+      "code": "23431",
+      "ofb_area_km2": 2632.762997446538,
+      "symmetric_difference_inrae_km2": 33.61080007976008,
+      "relative_pct": 1.276635994670181,
+      "supplied_csv_difference_km2": 33.6108
+    },
+    {
+      "code": "23432",
+      "ofb_area_km2": 316.1185430830754,
+      "symmetric_difference_inrae_km2": 25.24982477668126,
+      "relative_pct": 7.9874544942609225,
+      "supplied_csv_difference_km2": 25.2498
+    },
+    {
+      "code": "23437",
+      "ofb_area_km2": 1051.2166833281553,
+      "symmetric_difference_inrae_km2": 7.629386607542786,
+      "relative_pct": 0.725767268398759,
+      "supplied_csv_difference_km2": 7.6294
+    },
+    {
+      "code": "24158",
+      "ofb_area_km2": 1045.09981262362,
+      "symmetric_difference_inrae_km2": 31.183461071599698,
+      "relative_pct": 2.983778266433394,
+      "supplied_csv_difference_km2": 31.1835
+    },
+    {
+      "code": "24394",
+      "ofb_area_km2": 64.21587062277507,
+      "symmetric_difference_inrae_km2": 1.4012907088539042,
+      "relative_pct": 2.1821563661194316,
+      "supplied_csv_difference_km2": 1.4013
+    },
+    {
+      "code": "24401",
+      "ofb_area_km2": 1457.0968818738743,
+      "symmetric_difference_inrae_km2": 7.522761249935936,
+      "relative_pct": 0.5162842185388126,
+      "supplied_csv_difference_km2": 7.5228
+    },
+    {
+      "code": "24403",
+      "ofb_area_km2": 2464.4129570178816,
+      "symmetric_difference_inrae_km2": 46.68509938693222,
+      "relative_pct": 1.8943699859225127,
+      "supplied_csv_difference_km2": 46.6851
+    },
+    {
+      "code": "24404",
+      "ofb_area_km2": 2134.408030426001,
+      "symmetric_difference_inrae_km2": 8.544686963148893,
+      "relative_pct": 0.4003305291839387,
+      "supplied_csv_difference_km2": 8.5447
+    },
+    {
+      "code": "24405",
+      "ofb_area_km2": 524.4613032502908,
+      "symmetric_difference_inrae_km2": 4.18324522066626,
+      "relative_pct": 0.7976270498397234,
+      "supplied_csv_difference_km2": 4.1832
+    },
+    {
+      "code": "24406",
+      "ofb_area_km2": 471.11244546445226,
+      "symmetric_difference_inrae_km2": 14.802231191719125,
+      "relative_pct": 3.141974136795761,
+      "supplied_csv_difference_km2": 14.8022
+    },
+    {
+      "code": "24432",
+      "ofb_area_km2": 1060.6624880820789,
+      "symmetric_difference_inrae_km2": 8.550754198162362,
+      "relative_pct": 0.8061710764961706,
+      "supplied_csv_difference_km2": 8.5508
+    },
+    {
+      "code": "25447",
+      "ofb_area_km2": 1686.905895433265,
+      "symmetric_difference_inrae_km2": 16.788340754091916,
+      "relative_pct": 0.9952150146336407,
+      "supplied_csv_difference_km2": 16.7883
+    },
+    {
+      "code": "25449",
+      "ofb_area_km2": 351.1788963191337,
+      "symmetric_difference_inrae_km2": 2.86659148198077,
+      "relative_pct": 0.8162766931688731,
+      "supplied_csv_difference_km2": 2.8666
+    },
+    {
+      "code": "25450",
+      "ofb_area_km2": 1731.1634273125255,
+      "symmetric_difference_inrae_km2": 16.53007838496102,
+      "relative_pct": 0.9548537199992995,
+      "supplied_csv_difference_km2": 16.5301
+    },
+    {
+      "code": "25452",
+      "ofb_area_km2": 1488.1522616424058,
+      "symmetric_difference_inrae_km2": 8.582289768166515,
+      "relative_pct": 0.5767077730806007,
+      "supplied_csv_difference_km2": 8.5823
+    },
+    {
+      "code": "26221",
+      "ofb_area_km2": 104.53303191053305,
+      "symmetric_difference_inrae_km2": 1.2627826398391477,
+      "relative_pct": 1.208022590332909,
+      "supplied_csv_difference_km2": 1.2628
+    },
+    {
+      "code": "26234",
+      "ofb_area_km2": 1526.2933443258942,
+      "symmetric_difference_inrae_km2": 4.668630373370953,
+      "relative_pct": 0.3058802811875531,
+      "supplied_csv_difference_km2": 4.6686
+    },
+    {
+      "code": "26240",
+      "ofb_area_km2": 1511.5821005748658,
+      "symmetric_difference_inrae_km2": 6.74225293698259,
+      "relative_pct": 0.4460394797225014,
+      "supplied_csv_difference_km2": 6.7423
+    },
+    {
+      "code": "26241",
+      "ofb_area_km2": 195.22054591806938,
+      "symmetric_difference_inrae_km2": 8.624993602104212,
+      "relative_pct": 4.418076776470018,
+      "supplied_csv_difference_km2": 8.625
+    },
+    {
+      "code": "26242",
+      "ofb_area_km2": 574.5845746595282,
+      "symmetric_difference_inrae_km2": 9.940228866207184,
+      "relative_pct": 1.7299853328115005,
+      "supplied_csv_difference_km2": 9.9402
+    },
+    {
+      "code": "26243",
+      "ofb_area_km2": 502.01443350862723,
+      "symmetric_difference_inrae_km2": 3.668768396417714,
+      "relative_pct": 0.7308093456150928,
+      "supplied_csv_difference_km2": 3.6688
+    },
+    {
+      "code": "26453",
+      "ofb_area_km2": 437.93699041829984,
+      "symmetric_difference_inrae_km2": 2.703395151243064,
+      "relative_pct": 0.6173023084121964,
+      "supplied_csv_difference_km2": 2.7034
+    },
+    {
+      "code": "26461",
+      "ofb_area_km2": 87.87813193565707,
+      "symmetric_difference_inrae_km2": 1.1239445542325033,
+      "relative_pct": 1.2789809358435578,
+      "supplied_csv_difference_km2": 1.1239
+    },
+    {
+      "code": "26463",
+      "ofb_area_km2": 1217.242535709292,
+      "symmetric_difference_inrae_km2": 5.160113816297699,
+      "relative_pct": 0.42391829606010933,
+      "supplied_csv_difference_km2": 5.1601
+    },
+    {
+      "code": "26464",
+      "ofb_area_km2": 401.72527510031983,
+      "symmetric_difference_inrae_km2": 3.061709174123887,
+      "relative_pct": 0.7621400404441342,
+      "supplied_csv_difference_km2": 3.0617
+    },
+    {
+      "code": "27044",
+      "ofb_area_km2": 504.94786670233253,
+      "symmetric_difference_inrae_km2": 4.841269230607895,
+      "relative_pct": 0.9587661518851074,
+      "supplied_csv_difference_km2": 4.8413
+    },
+    {
+      "code": "27050",
+      "ofb_area_km2": 269.9859485236839,
+      "symmetric_difference_inrae_km2": 2.993112517590173,
+      "relative_pct": 1.1086178869518497,
+      "supplied_csv_difference_km2": 2.9931
+    },
+    {
+      "code": "27051",
+      "ofb_area_km2": 71.53200120045123,
+      "symmetric_difference_inrae_km2": 0.8697742592088984,
+      "relative_pct": 1.2159232855398037,
+      "supplied_csv_difference_km2": 0.8698
+    },
+    {
+      "code": "27052",
+      "ofb_area_km2": 482.0805314328978,
+      "symmetric_difference_inrae_km2": 4.8809477068634,
+      "relative_pct": 1.0124755904072,
+      "supplied_csv_difference_km2": 4.8809
+    },
+    {
+      "code": "27077",
+      "ofb_area_km2": 793.0254757106064,
+      "symmetric_difference_inrae_km2": 5.937988781568714,
+      "relative_pct": 0.7487765479725427,
+      "supplied_csv_difference_km2": 5.938
+    },
+    {
+      "code": "27078",
+      "ofb_area_km2": 708.7358729984649,
+      "symmetric_difference_inrae_km2": 5.10475661247055,
+      "relative_pct": 0.7202622030226494,
+      "supplied_csv_difference_km2": 5.1048
+    },
+    {
+      "code": "27079",
+      "ofb_area_km2": 1313.9503211215767,
+      "symmetric_difference_inrae_km2": 6.28538675792322,
+      "relative_pct": 0.47835802137161987,
+      "supplied_csv_difference_km2": 6.2854
+    },
+    {
+      "code": "27080",
+      "ofb_area_km2": 259.6841362539337,
+      "symmetric_difference_inrae_km2": 3.5613540788815063,
+      "relative_pct": 1.371417650017333,
+      "supplied_csv_difference_km2": 3.5614
+    },
+    {
+      "code": "27330",
+      "ofb_area_km2": 207.88995349065917,
+      "symmetric_difference_inrae_km2": 2.2542936353971497,
+      "relative_pct": 1.084368723714414,
+      "supplied_csv_difference_km2": 2.2543
+    },
+    {
+      "code": "27332",
+      "ofb_area_km2": 389.5078138703977,
+      "symmetric_difference_inrae_km2": 41.15929832238175,
+      "relative_pct": 10.567001959061297,
+      "supplied_csv_difference_km2": 41.1593
+    },
+    {
+      "code": "27351",
+      "ofb_area_km2": 39.07470992104039,
+      "symmetric_difference_inrae_km2": 1.00744568433022,
+      "relative_pct": 2.578255056444437,
+      "supplied_csv_difference_km2": 1.0074
+    },
+    {
+      "code": "27352",
+      "ofb_area_km2": 815.925817517547,
+      "symmetric_difference_inrae_km2": 5.008299650508622,
+      "relative_pct": 0.6138180142094738,
+      "supplied_csv_difference_km2": 5.0083
+    },
+    {
+      "code": "27353",
+      "ofb_area_km2": 177.50675690691907,
+      "symmetric_difference_inrae_km2": 4.3362241934016446,
+      "relative_pct": 2.442850215372631,
+      "supplied_csv_difference_km2": 4.3362
+    },
+    {
+      "code": "28076",
+      "ofb_area_km2": 759.4921269291904,
+      "symmetric_difference_inrae_km2": 33.810690499161886,
+      "relative_pct": 4.451749965581165,
+      "supplied_csv_difference_km2": 33.8107
+    },
+    {
+      "code": "28334",
+      "ofb_area_km2": 913.9681609386989,
+      "symmetric_difference_inrae_km2": 6.13030031832537,
+      "relative_pct": 0.6707345595090743,
+      "supplied_csv_difference_km2": 6.1303
+    },
+    {
+      "code": "28341",
+      "ofb_area_km2": 765.3504361013169,
+      "symmetric_difference_inrae_km2": 46.51018224329738,
+      "relative_pct": 6.076978603451187,
+      "supplied_csv_difference_km2": 46.5102
+    },
+    {
+      "code": "28342",
+      "ofb_area_km2": 2558.3957342271633,
+      "symmetric_difference_inrae_km2": 24.132628952461186,
+      "relative_pct": 0.943271935205565,
+      "supplied_csv_difference_km2": 24.1326
+    },
+    {
+      "code": "28351",
+      "ofb_area_km2": 934.6473346338188,
+      "symmetric_difference_inrae_km2": 7.177860672208416,
+      "relative_pct": 0.7679753000120197,
+      "supplied_csv_difference_km2": 7.1779
+    },
+    {
+      "code": "29100",
+      "ofb_area_km2": 88.33020738357354,
+      "symmetric_difference_inrae_km2": 2.1527149384379256,
+      "relative_pct": 2.437122024507166,
+      "supplied_csv_difference_km2": 2.1527
+    },
+    {
+      "code": "29101",
+      "ofb_area_km2": 94.18786802952081,
+      "symmetric_difference_inrae_km2": 2.7099579768838393,
+      "relative_pct": 2.877183689978492,
+      "supplied_csv_difference_km2": 2.71
+    },
+    {
+      "code": "29102",
+      "ofb_area_km2": 121.70118115400278,
+      "symmetric_difference_inrae_km2": 3.7782045930490837,
+      "relative_pct": 3.104492953333031,
+      "supplied_csv_difference_km2": 3.7782
+    },
+    {
+      "code": "29103",
+      "ofb_area_km2": 173.46883933801894,
+      "symmetric_difference_inrae_km2": 4.749182793323011,
+      "relative_pct": 2.7377728538719395,
+      "supplied_csv_difference_km2": 4.7492
+    },
+    {
+      "code": "29358",
+      "ofb_area_km2": 622.0491400962603,
+      "symmetric_difference_inrae_km2": 10.662650483616492,
+      "relative_pct": 1.7141170683021083,
+      "supplied_csv_difference_km2": 10.6627
+    },
+    {
+      "code": "29360",
+      "ofb_area_km2": 322.14975049020916,
+      "symmetric_difference_inrae_km2": 19.893808232136696,
+      "relative_pct": 6.175329393198246,
+      "supplied_csv_difference_km2": 19.8938
+    },
+    {
+      "code": "29361",
+      "ofb_area_km2": 1939.1148236303068,
+      "symmetric_difference_inrae_km2": 17.46477640462803,
+      "relative_pct": 0.9006571550998416,
+      "supplied_csv_difference_km2": 17.4648
+    },
+    {
+      "code": "29362",
+      "ofb_area_km2": 1363.0986911202738,
+      "symmetric_difference_inrae_km2": 29.70936352711018,
+      "relative_pct": 2.179546038789994,
+      "supplied_csv_difference_km2": 29.7094
+    },
+    {
+      "code": "29363",
+      "ofb_area_km2": 2034.7293818037665,
+      "symmetric_difference_inrae_km2": 21.1497027793807,
+      "relative_pct": 1.039435660020386,
+      "supplied_csv_difference_km2": 21.1497
+    },
+    {
+      "code": "2A258",
+      "ofb_area_km2": 525.6490793757057,
+      "symmetric_difference_inrae_km2": 11.143376189372885,
+      "relative_pct": 2.119926891645557,
+      "supplied_csv_difference_km2": 11.1434
+    },
+    {
+      "code": "2A259",
+      "ofb_area_km2": 1779.3701671359274,
+      "symmetric_difference_inrae_km2": 21.78069971813975,
+      "relative_pct": 1.2240679382187205,
+      "supplied_csv_difference_km2": 21.7807
+    },
+    {
+      "code": "2A260",
+      "ofb_area_km2": 1711.6701369603904,
+      "symmetric_difference_inrae_km2": 11.192129067924562,
+      "relative_pct": 0.6538718428423196,
+      "supplied_csv_difference_km2": 11.1921
+    },
+    {
+      "code": "2B258",
+      "ofb_area_km2": 749.9370903750482,
+      "symmetric_difference_inrae_km2": 11.916297360423936,
+      "relative_pct": 1.5889729303113307,
+      "supplied_csv_difference_km2": 11.9163
+    },
+    {
+      "code": "2B259",
+      "ofb_area_km2": 1543.6954786121219,
+      "symmetric_difference_inrae_km2": 16.20403021599278,
+      "relative_pct": 1.049690851628406,
+      "supplied_csv_difference_km2": 16.204
+    },
+    {
+      "code": "2B260",
+      "ofb_area_km2": 2413.776806351947,
+      "symmetric_difference_inrae_km2": 10.429471463831844,
+      "relative_pct": 0.4320810207632407,
+      "supplied_csv_difference_km2": 10.4295
+    },
+    {
+      "code": "30410",
+      "ofb_area_km2": 1260.5541204258766,
+      "symmetric_difference_inrae_km2": 9.505318407997084,
+      "relative_pct": 0.7540587313129978,
+      "supplied_csv_difference_km2": 9.5053
+    },
+    {
+      "code": "30411",
+      "ofb_area_km2": 204.3514779842155,
+      "symmetric_difference_inrae_km2": 1.9063800389581456,
+      "relative_pct": 0.932892709053662,
+      "supplied_csv_difference_km2": 1.9064
+    },
+    {
+      "code": "30414",
+      "ofb_area_km2": 190.8909871089703,
+      "symmetric_difference_inrae_km2": 2.8992270545242635,
+      "relative_pct": 1.5187867685283836,
+      "supplied_csv_difference_km2": 2.8992
+    },
+    {
+      "code": "30415",
+      "ofb_area_km2": 192.04055232199823,
+      "symmetric_difference_inrae_km2": 2.5160154365755947,
+      "relative_pct": 1.3101479901791477,
+      "supplied_csv_difference_km2": 2.516
+    },
+    {
+      "code": "30416",
+      "ofb_area_km2": 2318.6839199900114,
+      "symmetric_difference_inrae_km2": 8.576955555233878,
+      "relative_pct": 0.36990619899890564,
+      "supplied_csv_difference_km2": 8.577
+    },
+    {
+      "code": "30422",
+      "ofb_area_km2": 138.0242844769017,
+      "symmetric_difference_inrae_km2": 1.6658552484672022,
+      "relative_pct": 1.2069290956882175,
+      "supplied_csv_difference_km2": 1.6659
+    },
+    {
+      "code": "30465",
+      "ofb_area_km2": 572.5374290074062,
+      "symmetric_difference_inrae_km2": 3.1575133715987462,
+      "relative_pct": 0.5514946642131062,
+      "supplied_csv_difference_km2": 3.1575
+    },
+    {
+      "code": "30471",
+      "ofb_area_km2": 997.6187362607286,
+      "symmetric_difference_inrae_km2": 5.483661062400286,
+      "relative_pct": 0.5496750274512814,
+      "supplied_csv_difference_km2": 5.4837
+    },
+    {
+      "code": "31385",
+      "ofb_area_km2": 743.378876524682,
+      "symmetric_difference_inrae_km2": 5.961607235953381,
+      "relative_pct": 0.8019608068262674,
+      "supplied_csv_difference_km2": 5.9616
+    },
+    {
+      "code": "31389",
+      "ofb_area_km2": 1096.332318819531,
+      "symmetric_difference_inrae_km2": 5.419607913450654,
+      "relative_pct": 0.49433988403134754,
+      "supplied_csv_difference_km2": 5.4196
+    },
+    {
+      "code": "31390",
+      "ofb_area_km2": 1064.6957417174724,
+      "symmetric_difference_inrae_km2": 10.178129023074709,
+      "relative_pct": 0.955965974528672,
+      "supplied_csv_difference_km2": 10.1781
+    },
+    {
+      "code": "31391",
+      "ofb_area_km2": 1702.8524887759581,
+      "symmetric_difference_inrae_km2": 9.755093499154974,
+      "relative_pct": 0.5728677946829743,
+      "supplied_csv_difference_km2": 9.7551
+    },
+    {
+      "code": "31392",
+      "ofb_area_km2": 520.6999685829495,
+      "symmetric_difference_inrae_km2": 6.605719119470692,
+      "relative_pct": 1.2686229149288637,
+      "supplied_csv_difference_km2": 6.6057
+    },
+    {
+      "code": "31393",
+      "ofb_area_km2": 298.5917418851856,
+      "symmetric_difference_inrae_km2": 3.8819650247360804,
+      "relative_pct": 1.3000912216215184,
+      "supplied_csv_difference_km2": 3.882
+    },
+    {
+      "code": "31472",
+      "ofb_area_km2": 930.8219953916926,
+      "symmetric_difference_inrae_km2": 4.9963578789983,
+      "relative_pct": 0.5367683513855749,
+      "supplied_csv_difference_km2": 4.9964
+    },
+    {
+      "code": "32147",
+      "ofb_area_km2": 1533.7577298366855,
+      "symmetric_difference_inrae_km2": 7.99852991082706,
+      "relative_pct": 0.5214989144132133,
+      "supplied_csv_difference_km2": 7.9985
+    },
+    {
+      "code": "32149",
+      "ofb_area_km2": 1066.0686734958072,
+      "symmetric_difference_inrae_km2": 6.1363722513976855,
+      "relative_pct": 0.5756075948911954,
+      "supplied_csv_difference_km2": 6.1364
+    },
+    {
+      "code": "32383",
+      "ofb_area_km2": 1070.4961443882528,
+      "symmetric_difference_inrae_km2": 7.635498335245079,
+      "relative_pct": 0.7132672429762437,
+      "supplied_csv_difference_km2": 7.6355
+    },
+    {
+      "code": "32384",
+      "ofb_area_km2": 444.1081770668154,
+      "symmetric_difference_inrae_km2": 4.5912303820778995,
+      "relative_pct": 1.0338090175239343,
+      "supplied_csv_difference_km2": 4.5912
+    },
+    {
+      "code": "32385",
+      "ofb_area_km2": 830.6862995689656,
+      "symmetric_difference_inrae_km2": 5.962423741427634,
+      "relative_pct": 0.7177708052391707,
+      "supplied_csv_difference_km2": 5.9624
+    },
+    {
+      "code": "32386",
+      "ofb_area_km2": 14.206791464874396,
+      "symmetric_difference_inrae_km2": 5.372070254505683,
+      "relative_pct": 37.81339557061752,
+      "supplied_csv_difference_km2": 5.3721
+    },
+    {
+      "code": "32387",
+      "ofb_area_km2": 551.0770205796933,
+      "symmetric_difference_inrae_km2": 9.78875339548695,
+      "relative_pct": 1.776294969655945,
+      "supplied_csv_difference_km2": 9.7888
+    },
+    {
+      "code": "32388",
+      "ofb_area_km2": 789.854443032019,
+      "symmetric_difference_inrae_km2": 5.392231360698228,
+      "relative_pct": 0.6826867163016818,
+      "supplied_csv_difference_km2": 5.3922
+    },
+    {
+      "code": "33114",
+      "ofb_area_km2": 241.77578849410708,
+      "symmetric_difference_inrae_km2": 2.9537167457179248,
+      "relative_pct": 1.221675985058329,
+      "supplied_csv_difference_km2": 2.9537
+    },
+    {
+      "code": "33115",
+      "ofb_area_km2": 177.71790036340667,
+      "symmetric_difference_inrae_km2": 2.514591983829537,
+      "relative_pct": 1.4149345556567856,
+      "supplied_csv_difference_km2": 2.5146
+    },
+    {
+      "code": "33116",
+      "ofb_area_km2": 39.41744838346511,
+      "symmetric_difference_inrae_km2": 1.056018173714099,
+      "relative_pct": 2.679062742572346,
+      "supplied_csv_difference_km2": 1.056
+    },
+    {
+      "code": "33117",
+      "ofb_area_km2": 499.8439544572944,
+      "symmetric_difference_inrae_km2": 1.8946048498763388,
+      "relative_pct": 0.37903926475081734,
+      "supplied_csv_difference_km2": 1.8946
+    },
+    {
+      "code": "33118",
+      "ofb_area_km2": 446.6344068147627,
+      "symmetric_difference_inrae_km2": 3.534078529631849,
+      "relative_pct": 0.7912687593496517,
+      "supplied_csv_difference_km2": 3.5341
+    },
+    {
+      "code": "33119",
+      "ofb_area_km2": 220.97990178982337,
+      "symmetric_difference_inrae_km2": 2.9592421039581187,
+      "relative_pct": 1.3391453611798096,
+      "supplied_csv_difference_km2": 2.9592
+    },
+    {
+      "code": "33120",
+      "ofb_area_km2": 107.91143457174843,
+      "symmetric_difference_inrae_km2": 32.98712887486576,
+      "relative_pct": 30.56870572222186,
+      "supplied_csv_difference_km2": 32.9871
+    },
+    {
+      "code": "33121",
+      "ofb_area_km2": 438.6241279727593,
+      "symmetric_difference_inrae_km2": 4.715927113179064,
+      "relative_pct": 1.0751636338327348,
+      "supplied_csv_difference_km2": 4.7159
+    },
+    {
+      "code": "33122",
+      "ofb_area_km2": 239.23353319536056,
+      "symmetric_difference_inrae_km2": 3.0221538614244103,
+      "relative_pct": 1.2632651539516782,
+      "supplied_csv_difference_km2": 3.0222
+    },
+    {
+      "code": "33123",
+      "ofb_area_km2": 36.13615569090729,
+      "symmetric_difference_inrae_km2": 0.8385992189346989,
+      "relative_pct": 2.320665280799945,
+      "supplied_csv_difference_km2": 0.8386
+    },
+    {
+      "code": "33124",
+      "ofb_area_km2": 125.97316785616634,
+      "symmetric_difference_inrae_km2": 10.234275248197731,
+      "relative_pct": 8.124170743950032,
+      "supplied_csv_difference_km2": 10.2343
+    },
+    {
+      "code": "33125",
+      "ofb_area_km2": 157.13131340321013,
+      "symmetric_difference_inrae_km2": 2.121099162176792,
+      "relative_pct": 1.3498895390340822,
+      "supplied_csv_difference_km2": 2.1211
+    },
+    {
+      "code": "33126",
+      "ofb_area_km2": 265.8401267509257,
+      "symmetric_difference_inrae_km2": 2.3381845381301725,
+      "relative_pct": 0.8795453743974828,
+      "supplied_csv_difference_km2": 2.3382
+    },
+    {
+      "code": "33127",
+      "ofb_area_km2": 32.06980306270422,
+      "symmetric_difference_inrae_km2": 0.5420122947495962,
+      "relative_pct": 1.690101724946147,
+      "supplied_csv_difference_km2": 0.542
+    },
+    {
+      "code": "33128",
+      "ofb_area_km2": 278.60995270921757,
+      "symmetric_difference_inrae_km2": 10.746072268546477,
+      "relative_pct": 3.8570310084227484,
+      "supplied_csv_difference_km2": 10.7461
+    },
+    {
+      "code": "33129",
+      "ofb_area_km2": 178.62748186200147,
+      "symmetric_difference_inrae_km2": 1.7347406725425465,
+      "relative_pct": 0.9711499341869013,
+      "supplied_csv_difference_km2": 1.7347
+    },
+    {
+      "code": "33135",
+      "ofb_area_km2": 244.79767272008297,
+      "symmetric_difference_inrae_km2": 2.299150949844678,
+      "relative_pct": 0.9392045783350529,
+      "supplied_csv_difference_km2": 2.2992
+    },
+    {
+      "code": "33136",
+      "ofb_area_km2": 361.4358907383812,
+      "symmetric_difference_inrae_km2": 2.595308274552463,
+      "relative_pct": 0.7180549417077757,
+      "supplied_csv_difference_km2": 2.5953
+    },
+    {
+      "code": "33137",
+      "ofb_area_km2": 2244.188656330891,
+      "symmetric_difference_inrae_km2": 12.453756543640694,
+      "relative_pct": 0.5549335840598095,
+      "supplied_csv_difference_km2": 12.4538
+    },
+    {
+      "code": "33376",
+      "ofb_area_km2": 279.8791972056967,
+      "symmetric_difference_inrae_km2": 35.25438620128661,
+      "relative_pct": 12.59628673844468,
+      "supplied_csv_difference_km2": 35.2544
+    },
+    {
+      "code": "33378",
+      "ofb_area_km2": 2832.0990416697728,
+      "symmetric_difference_inrae_km2": 13.928287584620232,
+      "relative_pct": 0.49180086500111503,
+      "supplied_csv_difference_km2": 13.9283
+    },
+    {
+      "code": "33400",
+      "ofb_area_km2": 141.72127543194185,
+      "symmetric_difference_inrae_km2": 2.4500068681705454,
+      "relative_pct": 1.7287502251890903,
+      "supplied_csv_difference_km2": 2.45
+    },
+    {
+      "code": "33401",
+      "ofb_area_km2": 203.89828385387702,
+      "symmetric_difference_inrae_km2": 2.5819355841279483,
+      "relative_pct": 1.266286079179697,
+      "supplied_csv_difference_km2": 2.5819
+    },
+    {
+      "code": "33402",
+      "ofb_area_km2": 212.96545850502636,
+      "symmetric_difference_inrae_km2": 2.758796729522745,
+      "relative_pct": 1.295419806051615,
+      "supplied_csv_difference_km2": 2.7588
+    },
+    {
+      "code": "33405",
+      "ofb_area_km2": 36.212320415015974,
+      "symmetric_difference_inrae_km2": 0.7208058388223078,
+      "relative_pct": 1.990498898058504,
+      "supplied_csv_difference_km2": 0.7208
+    },
+    {
+      "code": "33406",
+      "ofb_area_km2": 46.290730288600464,
+      "symmetric_difference_inrae_km2": 1.1593853030030883,
+      "relative_pct": 2.5045733687390066,
+      "supplied_csv_difference_km2": 1.1594
+    },
+    {
+      "code": "34412",
+      "ofb_area_km2": 655.5027203826428,
+      "symmetric_difference_inrae_km2": 6.390499795700908,
+      "relative_pct": 0.9749005758466603,
+      "supplied_csv_difference_km2": 6.3905
+    },
+    {
+      "code": "34414",
+      "ofb_area_km2": 344.03337968449546,
+      "symmetric_difference_inrae_km2": 3.498848734531669,
+      "relative_pct": 1.0170085059014846,
+      "supplied_csv_difference_km2": 3.4988
+    },
+    {
+      "code": "34415",
+      "ofb_area_km2": 2114.633276205131,
+      "symmetric_difference_inrae_km2": 17.479675164104496,
+      "relative_pct": 0.8266055093710193,
+      "supplied_csv_difference_km2": 17.4797
+    },
+    {
+      "code": "34416",
+      "ofb_area_km2": 811.9928526591953,
+      "symmetric_difference_inrae_km2": 8.717303852499908,
+      "relative_pct": 1.0735690374553928,
+      "supplied_csv_difference_km2": 8.7173
+    },
+    {
+      "code": "34470",
+      "ofb_area_km2": 303.9221331757061,
+      "symmetric_difference_inrae_km2": 3.0837538638489903,
+      "relative_pct": 1.0146526123736384,
+      "supplied_csv_difference_km2": 3.0838
+    },
+    {
+      "code": "34471",
+      "ofb_area_km2": 1999.6912944176186,
+      "symmetric_difference_inrae_km2": 14.066062008405106,
+      "relative_pct": 0.7034116739754895,
+      "supplied_csv_difference_km2": 14.0661
+    },
+    {
+      "code": "35097",
+      "ofb_area_km2": 2371.0095509818902,
+      "symmetric_difference_inrae_km2": 8.458957471214353,
+      "relative_pct": 0.35676606480607814,
+      "supplied_csv_difference_km2": 8.459
+    },
+    {
+      "code": "35098",
+      "ofb_area_km2": 26.08656131351329,
+      "symmetric_difference_inrae_km2": 0.467790143460382,
+      "relative_pct": 1.7932227166255854,
+      "supplied_csv_difference_km2": 0.4678
+    },
+    {
+      "code": "35099",
+      "ofb_area_km2": 86.70614026328926,
+      "symmetric_difference_inrae_km2": 1.7607554106966226,
+      "relative_pct": 2.0307159393209817,
+      "supplied_csv_difference_km2": 1.7608
+    },
+    {
+      "code": "35357",
+      "ofb_area_km2": 829.7663759848315,
+      "symmetric_difference_inrae_km2": 3.8705374282630207,
+      "relative_pct": 0.46646110764239695,
+      "supplied_csv_difference_km2": 3.8705
+    },
+    {
+      "code": "35358",
+      "ofb_area_km2": 435.8070153956869,
+      "symmetric_difference_inrae_km2": 7.802755433964678,
+      "relative_pct": 1.7904152889508305,
+      "supplied_csv_difference_km2": 7.8028
+    },
+    {
+      "code": "35359",
+      "ofb_area_km2": 1271.6816778769005,
+      "symmetric_difference_inrae_km2": 8.566090819510363,
+      "relative_pct": 0.673603384284944,
+      "supplied_csv_difference_km2": 8.5661
+    },
+    {
+      "code": "35363",
+      "ofb_area_km2": 1817.2984029174613,
+      "symmetric_difference_inrae_km2": 9.337082674760039,
+      "relative_pct": 0.5137891861771539,
+      "supplied_csv_difference_km2": 9.3371
+    },
+    {
+      "code": "36434",
+      "ofb_area_km2": 1415.1971152911594,
+      "symmetric_difference_inrae_km2": 15.547947965297679,
+      "relative_pct": 1.0986418639002722,
+      "supplied_csv_difference_km2": 15.5479
+    },
+    {
+      "code": "36435",
+      "ofb_area_km2": 1746.051001909186,
+      "symmetric_difference_inrae_km2": 18.198895388669705,
+      "relative_pct": 1.0422888775167778,
+      "supplied_csv_difference_km2": 18.1989
+    },
+    {
+      "code": "36436",
+      "ofb_area_km2": 2264.9741148304356,
+      "symmetric_difference_inrae_km2": 9.185426784910458,
+      "relative_pct": 0.40554224106875114,
+      "supplied_csv_difference_km2": 9.1854
+    },
+    {
+      "code": "36438",
+      "ofb_area_km2": 1474.1119647611338,
+      "symmetric_difference_inrae_km2": 6.895887583345343,
+      "relative_pct": 0.4677994445600174,
+      "supplied_csv_difference_km2": 6.8959
+    },
+    {
+      "code": "37069",
+      "ofb_area_km2": 861.3240065296279,
+      "symmetric_difference_inrae_km2": 4.644475764873631,
+      "relative_pct": 0.5392251614565755,
+      "supplied_csv_difference_km2": 4.6445
+    },
+    {
+      "code": "37070",
+      "ofb_area_km2": 770.9881150052469,
+      "symmetric_difference_inrae_km2": 5.069367574867982,
+      "relative_pct": 0.6575156576614003,
+      "supplied_csv_difference_km2": 5.0694
+    },
+    {
+      "code": "37071",
+      "ofb_area_km2": 229.4745487158122,
+      "symmetric_difference_inrae_km2": 2.4049561524487246,
+      "relative_pct": 1.0480274025626652,
+      "supplied_csv_difference_km2": 2.405
+    },
+    {
+      "code": "37072",
+      "ofb_area_km2": 96.13065122886711,
+      "symmetric_difference_inrae_km2": 1.039158085935327,
+      "relative_pct": 1.0809851724205088,
+      "supplied_csv_difference_km2": 1.0392
+    },
+    {
+      "code": "37073",
+      "ofb_area_km2": 179.96232707983356,
+      "symmetric_difference_inrae_km2": 1.9738150117164035,
+      "relative_pct": 1.0967934476868562,
+      "supplied_csv_difference_km2": 1.9738
+    },
+    {
+      "code": "37074",
+      "ofb_area_km2": 168.11953367959364,
+      "symmetric_difference_inrae_km2": 1.7584940248501555,
+      "relative_pct": 1.0459784097435916,
+      "supplied_csv_difference_km2": 1.7585
+    },
+    {
+      "code": "37344",
+      "ofb_area_km2": 703.9953179289997,
+      "symmetric_difference_inrae_km2": 5.823178980481004,
+      "relative_pct": 0.8271616063600428,
+      "supplied_csv_difference_km2": 5.8232
+    },
+    {
+      "code": "37346",
+      "ofb_area_km2": 1328.8064284756688,
+      "symmetric_difference_inrae_km2": 8.159790299176036,
+      "relative_pct": 0.6140691468912055,
+      "supplied_csv_difference_km2": 8.1598
+    },
+    {
+      "code": "37348",
+      "ofb_area_km2": 541.1723416453091,
+      "symmetric_difference_inrae_km2": 3.592142517566309,
+      "relative_pct": 0.6637705294851604,
+      "supplied_csv_difference_km2": 3.5921
+    },
+    {
+      "code": "37435",
+      "ofb_area_km2": 1277.5087475261478,
+      "symmetric_difference_inrae_km2": 4.943137122856008,
+      "relative_pct": 0.38693567714727783,
+      "supplied_csv_difference_km2": 4.9431
+    },
+    {
+      "code": "38199",
+      "ofb_area_km2": 3032.2428109351226,
+      "symmetric_difference_inrae_km2": 9.653073356438549,
+      "relative_pct": 0.3183476376504825,
+      "supplied_csv_difference_km2": 9.6531
+    },
+    {
+      "code": "38217",
+      "ofb_area_km2": 1030.4420152124042,
+      "symmetric_difference_inrae_km2": 8.954889121213718,
+      "relative_pct": 0.8690337727900054,
+      "supplied_csv_difference_km2": 8.9549
+    },
+    {
+      "code": "38453",
+      "ofb_area_km2": 1033.2711549448309,
+      "symmetric_difference_inrae_km2": 7.009796324106296,
+      "relative_pct": 0.6784082078126499,
+      "supplied_csv_difference_km2": 7.0098
+    },
+    {
+      "code": "38457",
+      "ofb_area_km2": 2494.8805832765684,
+      "symmetric_difference_inrae_km2": 6.2843634959540005,
+      "relative_pct": 0.25189035251140723,
+      "supplied_csv_difference_km2": 6.2844
+    },
+    {
+      "code": "38465",
+      "ofb_area_km2": 288.5541014643053,
+      "symmetric_difference_inrae_km2": 3.6188815293374703,
+      "relative_pct": 1.2541431610131293,
+      "supplied_csv_difference_km2": 3.6189
+    },
+    {
+      "code": "39203",
+      "ofb_area_km2": 259.9113225888194,
+      "symmetric_difference_inrae_km2": 2.781310255673801,
+      "relative_pct": 1.0700996893751502,
+      "supplied_csv_difference_km2": 2.7813
+    },
+    {
+      "code": "39206",
+      "ofb_area_km2": 188.99446887666792,
+      "symmetric_difference_inrae_km2": 2.874900556656595,
+      "relative_pct": 1.5211559225749978,
+      "supplied_csv_difference_km2": 2.8749
+    },
+    {
+      "code": "39207",
+      "ofb_area_km2": 598.6424871644579,
+      "symmetric_difference_inrae_km2": 9.493142736830558,
+      "relative_pct": 1.5857783134965864,
+      "supplied_csv_difference_km2": 9.4931
+    },
+    {
+      "code": "39209",
+      "ofb_area_km2": 185.1195832220511,
+      "symmetric_difference_inrae_km2": 2.793978370121038,
+      "relative_pct": 1.5092829842695024,
+      "supplied_csv_difference_km2": 2.794
+    },
+    {
+      "code": "39212",
+      "ofb_area_km2": 452.6717971175381,
+      "symmetric_difference_inrae_km2": 6.553817812282328,
+      "relative_pct": 1.447807849752257,
+      "supplied_csv_difference_km2": 6.5538
+    },
+    {
+      "code": "39446",
+      "ofb_area_km2": 565.6175143795843,
+      "symmetric_difference_inrae_km2": 6.293175492289942,
+      "relative_pct": 1.1126203365878464,
+      "supplied_csv_difference_km2": 6.2932
+    },
+    {
+      "code": "39447",
+      "ofb_area_km2": 575.5183616714942,
+      "symmetric_difference_inrae_km2": 3.4453110919073144,
+      "relative_pct": 0.5986448602440764,
+      "supplied_csv_difference_km2": 3.4453
+    },
+    {
+      "code": "39449",
+      "ofb_area_km2": 559.3297107843313,
+      "symmetric_difference_inrae_km2": 2.8907432383359213,
+      "relative_pct": 0.5168227581335378,
+      "supplied_csv_difference_km2": 2.8907
+    },
+    {
+      "code": "39451",
+      "ofb_area_km2": 662.4339203454144,
+      "symmetric_difference_inrae_km2": 3.6095726500073577,
+      "relative_pct": 0.5448955041621676,
+      "supplied_csv_difference_km2": 3.6096
+    },
+    {
+      "code": "39452",
+      "ofb_area_km2": 1001.0766470221226,
+      "symmetric_difference_inrae_km2": 6.218392173301288,
+      "relative_pct": 0.6211704360299466,
+      "supplied_csv_difference_km2": 6.2184
+    },
+    {
+      "code": "40130",
+      "ofb_area_km2": 1022.128914883036,
+      "symmetric_difference_inrae_km2": 3.2688084581728005,
+      "relative_pct": 0.31980393183054173,
+      "supplied_csv_difference_km2": 3.2688
+    },
+    {
+      "code": "40131",
+      "ofb_area_km2": 695.754043048458,
+      "symmetric_difference_inrae_km2": 2.3106609327367504,
+      "relative_pct": 0.33210887609255574,
+      "supplied_csv_difference_km2": 2.3107
+    },
+    {
+      "code": "40132",
+      "ofb_area_km2": 352.8030551654123,
+      "symmetric_difference_inrae_km2": 2.796346851458137,
+      "relative_pct": 0.7926084569043954,
+      "supplied_csv_difference_km2": 2.7963
+    },
+    {
+      "code": "40133",
+      "ofb_area_km2": 572.8453042854762,
+      "symmetric_difference_inrae_km2": 6.07271557977669,
+      "relative_pct": 1.0600969466532215,
+      "supplied_csv_difference_km2": 6.0727
+    },
+    {
+      "code": "40134",
+      "ofb_area_km2": 487.51714832514955,
+      "symmetric_difference_inrae_km2": 2.9129348661306618,
+      "relative_pct": 0.5975040829103062,
+      "supplied_csv_difference_km2": 2.9129
+    },
+    {
+      "code": "40144",
+      "ofb_area_km2": 126.02030414099552,
+      "symmetric_difference_inrae_km2": 1.9995734381551502,
+      "relative_pct": 1.5867073578222475,
+      "supplied_csv_difference_km2": 1.9996
+    },
+    {
+      "code": "40145",
+      "ofb_area_km2": 175.705700911346,
+      "symmetric_difference_inrae_km2": 1.5217582998073702,
+      "relative_pct": 0.8660836227364006,
+      "supplied_csv_difference_km2": 1.5218
+    },
+    {
+      "code": "40378",
+      "ofb_area_km2": 3670.6026508278055,
+      "symmetric_difference_inrae_km2": 7.742655403585998,
+      "relative_pct": 0.2109368989269337,
+      "supplied_csv_difference_km2": 7.7427
+    },
+    {
+      "code": "40379",
+      "ofb_area_km2": 16.161774073025075,
+      "symmetric_difference_inrae_km2": 0.719320736158604,
+      "relative_pct": 4.450753567698929,
+      "supplied_csv_difference_km2": 0.7193
+    },
+    {
+      "code": "40380",
+      "ofb_area_km2": 98.09984996561155,
+      "symmetric_difference_inrae_km2": 2.5079436236288504,
+      "relative_pct": 2.556521365229405,
+      "supplied_csv_difference_km2": 2.5079
+    },
+    {
+      "code": "40382",
+      "ofb_area_km2": 1233.7274770316108,
+      "symmetric_difference_inrae_km2": 7.196184942574378,
+      "relative_pct": 0.5832880499580538,
+      "supplied_csv_difference_km2": 7.1962
+    },
+    {
+      "code": "40387",
+      "ofb_area_km2": 406.9009234710239,
+      "symmetric_difference_inrae_km2": 4.227692569953685,
+      "relative_pct": 1.0389980277974835,
+      "supplied_csv_difference_km2": 4.2277
+    },
+    {
+      "code": "40388",
+      "ofb_area_km2": 494.2520711392328,
+      "symmetric_difference_inrae_km2": 5.887067014353189,
+      "relative_pct": 1.191106190164002,
+      "supplied_csv_difference_km2": 5.8871
+    },
+    {
+      "code": "41065",
+      "ofb_area_km2": 430.3938261066269,
+      "symmetric_difference_inrae_km2": 3.508683837065181,
+      "relative_pct": 0.815226340211472,
+      "supplied_csv_difference_km2": 3.5087
+    },
+    {
+      "code": "41068",
+      "ofb_area_km2": 389.51091226522806,
+      "symmetric_difference_inrae_km2": 3.993647725211635,
+      "relative_pct": 1.0252980338821052,
+      "supplied_csv_difference_km2": 3.9936
+    },
+    {
+      "code": "41075",
+      "ofb_area_km2": 353.0870328772105,
+      "symmetric_difference_inrae_km2": 3.056130359805503,
+      "relative_pct": 0.8655459066003998,
+      "supplied_csv_difference_km2": 3.0561
+    },
+    {
+      "code": "41341",
+      "ofb_area_km2": 1245.7099583634517,
+      "symmetric_difference_inrae_km2": 5.278466727644101,
+      "relative_pct": 0.4237315991740705,
+      "supplied_csv_difference_km2": 5.2785
+    },
+    {
+      "code": "41343",
+      "ofb_area_km2": 2262.7508433721096,
+      "symmetric_difference_inrae_km2": 7.299157097136321,
+      "relative_pct": 0.3225789140026839,
+      "supplied_csv_difference_km2": 7.2992
+    },
+    {
+      "code": "41346",
+      "ofb_area_km2": 364.88773384856023,
+      "symmetric_difference_inrae_km2": 6.018294306059963,
+      "relative_pct": 1.6493550612358328,
+      "supplied_csv_difference_km2": 6.0183
+    },
+    {
+      "code": "41350",
+      "ofb_area_km2": 320.6420516704248,
+      "symmetric_difference_inrae_km2": 5.6584411126523815,
+      "relative_pct": 1.7647220890628743,
+      "supplied_csv_difference_km2": 5.6584
+    },
+    {
+      "code": "41351",
+      "ofb_area_km2": 474.6566287579375,
+      "symmetric_difference_inrae_km2": 3.6223967283300436,
+      "relative_pct": 0.7631615169494181,
+      "supplied_csv_difference_km2": 3.6224
+    },
+    {
+      "code": "41434",
+      "ofb_area_km2": 71.18633978025554,
+      "symmetric_difference_inrae_km2": 1.2304757521928336,
+      "relative_pct": 1.7285279113818437,
+      "supplied_csv_difference_km2": 1.2305
+    },
+    {
+      "code": "41435",
+      "ofb_area_km2": 509.2354585538627,
+      "symmetric_difference_inrae_km2": 3.7605525807093168,
+      "relative_pct": 0.7384702925810805,
+      "supplied_csv_difference_km2": 3.7606
+    },
+    {
+      "code": "42168",
+      "ofb_area_km2": 398.3933636962462,
+      "symmetric_difference_inrae_km2": 4.33461778923565,
+      "relative_pct": 1.0880245968506057,
+      "supplied_csv_difference_km2": 4.3346
+    },
+    {
+      "code": "42170",
+      "ofb_area_km2": 537.2226799645587,
+      "symmetric_difference_inrae_km2": 3.9886803457746733,
+      "relative_pct": 0.7424631339164258,
+      "supplied_csv_difference_km2": 3.9887
+    },
+    {
+      "code": "42189",
+      "ofb_area_km2": 394.5153834503607,
+      "symmetric_difference_inrae_km2": 3.8148661946673705,
+      "relative_pct": 0.9669752700904173,
+      "supplied_csv_difference_km2": 3.8149
+    },
+    {
+      "code": "42190",
+      "ofb_area_km2": 549.0586018114341,
+      "symmetric_difference_inrae_km2": 3.7256616099922364,
+      "relative_pct": 0.6785544562457759,
+      "supplied_csv_difference_km2": 3.7257
+    },
+    {
+      "code": "42191",
+      "ofb_area_km2": 166.2662042067044,
+      "symmetric_difference_inrae_km2": 1.5945144891245695,
+      "relative_pct": 0.9590129856710071,
+      "supplied_csv_difference_km2": 1.5945
+    },
+    {
+      "code": "42192",
+      "ofb_area_km2": 317.9361192603189,
+      "symmetric_difference_inrae_km2": 3.1296684632625453,
+      "relative_pct": 0.9843702157979867,
+      "supplied_csv_difference_km2": 3.1297
+    },
+    {
+      "code": "42193",
+      "ofb_area_km2": 805.2494585485776,
+      "symmetric_difference_inrae_km2": 5.41283138260997,
+      "relative_pct": 0.6721931104885598,
+      "supplied_csv_difference_km2": 5.4128
+    },
+    {
+      "code": "42425",
+      "ofb_area_km2": 995.8230269999798,
+      "symmetric_difference_inrae_km2": 7.602571481899703,
+      "relative_pct": 0.7634460416930947,
+      "supplied_csv_difference_km2": 7.6026
+    },
+    {
+      "code": "42445",
+      "ofb_area_km2": 605.0777352961647,
+      "symmetric_difference_inrae_km2": 8.509119528203206,
+      "relative_pct": 1.4062853467973473,
+      "supplied_csv_difference_km2": 8.5091
+    },
+    {
+      "code": "42465",
+      "ofb_area_km2": 35.48077272264992,
+      "symmetric_difference_inrae_km2": 0.7209465008992008,
+      "relative_pct": 2.0319357375183915,
+      "supplied_csv_difference_km2": 0.7209
+    },
+    {
+      "code": "43172",
+      "ofb_area_km2": 430.8862648403382,
+      "symmetric_difference_inrae_km2": 4.396496349990179,
+      "relative_pct": 1.0203380123103412,
+      "supplied_csv_difference_km2": 4.3965
+    },
+    {
+      "code": "43177",
+      "ofb_area_km2": 657.2299441623533,
+      "symmetric_difference_inrae_km2": 8.378944895456087,
+      "relative_pct": 1.2748878790261364,
+      "supplied_csv_difference_km2": 8.3789
+    },
+    {
+      "code": "43417",
+      "ofb_area_km2": 26.25656240693525,
+      "symmetric_difference_inrae_km2": 0.7375116727344904,
+      "relative_pct": 2.808866070524482,
+      "supplied_csv_difference_km2": 0.7375
+    },
+    {
+      "code": "43418",
+      "ofb_area_km2": 659.668219870644,
+      "symmetric_difference_inrae_km2": 7.572797936441703,
+      "relative_pct": 1.1479707083549777,
+      "supplied_csv_difference_km2": 7.5728
+    },
+    {
+      "code": "43423",
+      "ofb_area_km2": 454.0092911535543,
+      "symmetric_difference_inrae_km2": 4.5619588906987145,
+      "relative_pct": 1.00481619640594,
+      "supplied_csv_difference_km2": 4.562
+    },
+    {
+      "code": "43424",
+      "ofb_area_km2": 792.4365590497293,
+      "symmetric_difference_inrae_km2": 6.934124784840624,
+      "relative_pct": 0.8750384754024799,
+      "supplied_csv_difference_km2": 6.9341
+    },
+    {
+      "code": "43425",
+      "ofb_area_km2": 1850.4678891084532,
+      "symmetric_difference_inrae_km2": 12.20126810640162,
+      "relative_pct": 0.6593612447001248,
+      "supplied_csv_difference_km2": 12.2013
+    },
+    {
+      "code": "43427",
+      "ofb_area_km2": 132.69846833841908,
+      "symmetric_difference_inrae_km2": 2.3465955833311583,
+      "relative_pct": 1.7683667435758699,
+      "supplied_csv_difference_km2": 2.3466
+    },
+    {
+      "code": "44104",
+      "ofb_area_km2": 640.1661848676358,
+      "symmetric_difference_inrae_km2": 4.580671427041611,
+      "relative_pct": 0.7155441095328606,
+      "supplied_csv_difference_km2": 4.5807
+    },
+    {
+      "code": "44105",
+      "ofb_area_km2": 1218.3152290873031,
+      "symmetric_difference_inrae_km2": 5.524132529133439,
+      "relative_pct": 0.45342390846347913,
+      "supplied_csv_difference_km2": 5.5241
+    },
+    {
+      "code": "44106",
+      "ofb_area_km2": 736.7264360066631,
+      "symmetric_difference_inrae_km2": 34.52937424190513,
+      "relative_pct": 4.686865104103966,
+      "supplied_csv_difference_km2": 34.5294
+    },
+    {
+      "code": "44107",
+      "ofb_area_km2": 284.95067365312553,
+      "symmetric_difference_inrae_km2": 2.063546946132091,
+      "relative_pct": 0.7241768968913109,
+      "supplied_csv_difference_km2": 2.0635
+    },
+    {
+      "code": "44108",
+      "ofb_area_km2": 777.4013202356717,
+      "symmetric_difference_inrae_km2": 6.09356271281239,
+      "relative_pct": 0.7838374536031282,
+      "supplied_csv_difference_km2": 6.0936
+    },
+    {
+      "code": "44356",
+      "ofb_area_km2": 1401.3293471121754,
+      "symmetric_difference_inrae_km2": 70.15430348457456,
+      "relative_pct": 5.006268057480335,
+      "supplied_csv_difference_km2": 70.1543
+    },
+    {
+      "code": "44363",
+      "ofb_area_km2": 305.42093994521105,
+      "symmetric_difference_inrae_km2": 3.6660091281711287,
+      "relative_pct": 1.2003136159651555,
+      "supplied_csv_difference_km2": 3.666
+    },
+    {
+      "code": "44364",
+      "ofb_area_km2": 533.4180871804651,
+      "symmetric_difference_inrae_km2": 8.2903715537181,
+      "relative_pct": 1.554197683385512,
+      "supplied_csv_difference_km2": 8.2904
+    },
+    {
+      "code": "44365",
+      "ofb_area_km2": 212.59050600824293,
+      "symmetric_difference_inrae_km2": 2.410961296467623,
+      "relative_pct": 1.1340870021609248,
+      "supplied_csv_difference_km2": 2.411
+    },
+    {
+      "code": "44368",
+      "ofb_area_km2": 176.99101722159398,
+      "symmetric_difference_inrae_km2": 1.9038522290840028,
+      "relative_pct": 1.0756773190926219,
+      "supplied_csv_difference_km2": 1.9039
+    },
+    {
+      "code": "44373",
+      "ofb_area_km2": 655.6934046804006,
+      "symmetric_difference_inrae_km2": 5.240442971449357,
+      "relative_pct": 0.7992215468453072,
+      "supplied_csv_difference_km2": 5.2404
+    },
+    {
+      "code": "45063",
+      "ofb_area_km2": 1114.9926532519773,
+      "symmetric_difference_inrae_km2": 5.712119715557839,
+      "relative_pct": 0.5123011078950093,
+      "supplied_csv_difference_km2": 5.7121
+    },
+    {
+      "code": "45067",
+      "ofb_area_km2": 637.0615827511263,
+      "symmetric_difference_inrae_km2": 5.234364463913405,
+      "relative_pct": 0.8216418326952005,
+      "supplied_csv_difference_km2": 5.2344
+    },
+    {
+      "code": "45338",
+      "ofb_area_km2": 1217.3320906021086,
+      "symmetric_difference_inrae_km2": 6.54919953205814,
+      "relative_pct": 0.5379961296197178,
+      "supplied_csv_difference_km2": 6.5492
+    },
+    {
+      "code": "45339",
+      "ofb_area_km2": 544.7667497832443,
+      "symmetric_difference_inrae_km2": 4.484774830994301,
+      "relative_pct": 0.8232467992546783,
+      "supplied_csv_difference_km2": 4.4848
+    },
+    {
+      "code": "45340",
+      "ofb_area_km2": 630.0085929543952,
+      "symmetric_difference_inrae_km2": 3.419286150998688,
+      "relative_pct": 0.5427364307785246,
+      "supplied_csv_difference_km2": 3.4193
+    },
+    {
+      "code": "45341",
+      "ofb_area_km2": 424.4817993377145,
+      "symmetric_difference_inrae_km2": 3.1372386804375196,
+      "relative_pct": 0.7390749580623494,
+      "supplied_csv_difference_km2": 3.1372
+    },
+    {
+      "code": "45342",
+      "ofb_area_km2": 887.8943816125706,
+      "symmetric_difference_inrae_km2": 5.514885155870402,
+      "relative_pct": 0.6211195013819563,
+      "supplied_csv_difference_km2": 5.5149
+    },
+    {
+      "code": "45343",
+      "ofb_area_km2": 1063.7632779794387,
+      "symmetric_difference_inrae_km2": 5.607008574888394,
+      "relative_pct": 0.5270917591307163,
+      "supplied_csv_difference_km2": 5.607
+    },
+    {
+      "code": "45439",
+      "ofb_area_km2": 293.3262476340923,
+      "symmetric_difference_inrae_km2": 1.5955009057107092,
+      "relative_pct": 0.5439339024651504,
+      "supplied_csv_difference_km2": 1.5955
+    },
+    {
+      "code": "46159",
+      "ofb_area_km2": 558.8183431329361,
+      "symmetric_difference_inrae_km2": 4.010363196915613,
+      "relative_pct": 0.7176506008074248,
+      "supplied_csv_difference_km2": 4.0104
+    },
+    {
+      "code": "46160",
+      "ofb_area_km2": 154.99622405424657,
+      "symmetric_difference_inrae_km2": 3.488923572424696,
+      "relative_pct": 2.250973269647924,
+      "supplied_csv_difference_km2": 3.4889
+    },
+    {
+      "code": "46394",
+      "ofb_area_km2": 2133.427532488972,
+      "symmetric_difference_inrae_km2": 41.30557924498768,
+      "relative_pct": 1.9361135363617608,
+      "supplied_csv_difference_km2": 41.3056
+    },
+    {
+      "code": "46396",
+      "ofb_area_km2": 577.3764523550316,
+      "symmetric_difference_inrae_km2": 11.601990965200304,
+      "relative_pct": 2.0094326531464057,
+      "supplied_csv_difference_km2": 11.602
+    },
+    {
+      "code": "46407",
+      "ofb_area_km2": 530.8901247441399,
+      "symmetric_difference_inrae_km2": 8.247169204312952,
+      "relative_pct": 1.5534606540831095,
+      "supplied_csv_difference_km2": 8.2472
+    },
+    {
+      "code": "46408",
+      "ofb_area_km2": 575.6123688950913,
+      "symmetric_difference_inrae_km2": 25.113016542317137,
+      "relative_pct": 4.362834765090694,
+      "supplied_csv_difference_km2": 25.113
+    },
+    {
+      "code": "46409",
+      "ofb_area_km2": 695.1752608233114,
+      "symmetric_difference_inrae_km2": 6.235161636600652,
+      "relative_pct": 0.8969193796131658,
+      "supplied_csv_difference_km2": 6.2352
+    },
+    {
+      "code": "47156",
+      "ofb_area_km2": 1418.8893316405463,
+      "symmetric_difference_inrae_km2": 6.9199876250291945,
+      "relative_pct": 0.4877045355629093,
+      "supplied_csv_difference_km2": 6.92
+    },
+    {
+      "code": "47157",
+      "ofb_area_km2": 501.2777512151125,
+      "symmetric_difference_inrae_km2": 7.263787178972669,
+      "relative_pct": 1.449054373820707,
+      "supplied_csv_difference_km2": 7.2638
+    },
+    {
+      "code": "47378",
+      "ofb_area_km2": 677.4806602828874,
+      "symmetric_difference_inrae_km2": 3.8671543788044334,
+      "relative_pct": 0.5708139885778692,
+      "supplied_csv_difference_km2": 3.8672
+    },
+    {
+      "code": "47394",
+      "ofb_area_km2": 38.28191976376447,
+      "symmetric_difference_inrae_km2": 0.8654482444885208,
+      "relative_pct": 2.2607232077940504,
+      "supplied_csv_difference_km2": 0.8654
+    },
+    {
+      "code": "47398",
+      "ofb_area_km2": 464.70870717415977,
+      "symmetric_difference_inrae_km2": 4.301773139294475,
+      "relative_pct": 0.9256923902831655,
+      "supplied_csv_difference_km2": 4.3018
+    },
+    {
+      "code": "47399",
+      "ofb_area_km2": 885.7802810894862,
+      "symmetric_difference_inrae_km2": 7.0867994306526025,
+      "relative_pct": 0.80006290295106,
+      "supplied_csv_difference_km2": 7.0868
+    },
+    {
+      "code": "47400",
+      "ofb_area_km2": 986.4196221972263,
+      "symmetric_difference_inrae_km2": 13.235818925175822,
+      "relative_pct": 1.3418040991209552,
+      "supplied_csv_difference_km2": 13.2358
+    },
+    {
+      "code": "47401",
+      "ofb_area_km2": 51.52737036728236,
+      "symmetric_difference_inrae_km2": 1.3863827893765874,
+      "relative_pct": 2.6905754737619607,
+      "supplied_csv_difference_km2": 1.3864
+    },
+    {
+      "code": "47402",
+      "ofb_area_km2": 193.0441969795891,
+      "symmetric_difference_inrae_km2": 2.2953495520571687,
+      "relative_pct": 1.189027998754016,
+      "supplied_csv_difference_km2": 2.2953
+    },
+    {
+      "code": "47404",
+      "ofb_area_km2": 167.1171712566523,
+      "symmetric_difference_inrae_km2": 1.7325005466548655,
+      "relative_pct": 1.0366981044659713,
+      "supplied_csv_difference_km2": 1.7325
+    },
+    {
+      "code": "48410",
+      "ofb_area_km2": 766.6389697338522,
+      "symmetric_difference_inrae_km2": 7.1546365252743325,
+      "relative_pct": 0.933247174710953,
+      "supplied_csv_difference_km2": 7.1546
+    },
+    {
+      "code": "48411",
+      "ofb_area_km2": 1671.017216206316,
+      "symmetric_difference_inrae_km2": 7.867813529926888,
+      "relative_pct": 0.47083976476251155,
+      "supplied_csv_difference_km2": 7.8678
+    },
+    {
+      "code": "48418",
+      "ofb_area_km2": 2410.084584423511,
+      "symmetric_difference_inrae_km2": 11.344239678264703,
+      "relative_pct": 0.4706988191029914,
+      "supplied_csv_difference_km2": 11.3442
+    },
+    {
+      "code": "48419",
+      "ofb_area_km2": 328.04602951795766,
+      "symmetric_difference_inrae_km2": 3.144733422001508,
+      "relative_pct": 0.958625661960454,
+      "supplied_csv_difference_km2": 3.1447
+    },
+    {
+      "code": "49344",
+      "ofb_area_km2": 642.6655138870985,
+      "symmetric_difference_inrae_km2": 112.95369360190315,
+      "relative_pct": 17.57581372597916,
+      "supplied_csv_difference_km2": 112.9537
+    },
+    {
+      "code": "49345",
+      "ofb_area_km2": 1393.3762493610718,
+      "symmetric_difference_inrae_km2": 8.695936241835964,
+      "relative_pct": 0.6240910339776107,
+      "supplied_csv_difference_km2": 8.6959
+    },
+    {
+      "code": "49347",
+      "ofb_area_km2": 878.3267227005513,
+      "symmetric_difference_inrae_km2": 111.07673763529871,
+      "relative_pct": 12.646403071259874,
+      "supplied_csv_difference_km2": 111.0767
+    },
+    {
+      "code": "49356",
+      "ofb_area_km2": 1830.1239037479968,
+      "symmetric_difference_inrae_km2": 71.80581250800535,
+      "relative_pct": 3.923549239532408,
+      "supplied_csv_difference_km2": 71.8058
+    },
+    {
+      "code": "49373",
+      "ofb_area_km2": 2493.0252460949664,
+      "symmetric_difference_inrae_km2": 9.058165463365219,
+      "relative_pct": 0.3633403022112905,
+      "supplied_csv_difference_km2": 9.0582
+    },
+    {
+      "code": "50081",
+      "ofb_area_km2": 199.77279267926664,
+      "symmetric_difference_inrae_km2": 3.2060645023790983,
+      "relative_pct": 1.6048554256967338,
+      "supplied_csv_difference_km2": 3.2061
+    },
+    {
+      "code": "50082",
+      "ofb_area_km2": 782.1310162930951,
+      "symmetric_difference_inrae_km2": 18.060048849409707,
+      "relative_pct": 2.3090822986416257,
+      "supplied_csv_difference_km2": 18.06
+    },
+    {
+      "code": "50083",
+      "ofb_area_km2": 255.4222544657611,
+      "symmetric_difference_inrae_km2": 2.3855100791497383,
+      "relative_pct": 0.933947624939436,
+      "supplied_csv_difference_km2": 2.3855
+    },
+    {
+      "code": "50084",
+      "ofb_area_km2": 661.5270272187546,
+      "symmetric_difference_inrae_km2": 9.150721618126825,
+      "relative_pct": 1.3832725257800924,
+      "supplied_csv_difference_km2": 9.1507
+    },
+    {
+      "code": "50086",
+      "ofb_area_km2": 2332.0218149117627,
+      "symmetric_difference_inrae_km2": 34.08043587378039,
+      "relative_pct": 1.4614115380850285,
+      "supplied_csv_difference_km2": 34.0804
+    },
+    {
+      "code": "50087",
+      "ofb_area_km2": 966.9465439036933,
+      "symmetric_difference_inrae_km2": 6.9478041885968125,
+      "relative_pct": 0.7185303295617141,
+      "supplied_csv_difference_km2": 6.9478
+    },
+    {
+      "code": "50354",
+      "ofb_area_km2": 809.2450429401683,
+      "symmetric_difference_inrae_km2": 4.842375567978908,
+      "relative_pct": 0.5983818634693732,
+      "supplied_csv_difference_km2": 4.8424
+    },
+    {
+      "code": "51016",
+      "ofb_area_km2": 546.1357664605762,
+      "symmetric_difference_inrae_km2": 8.213830161459772,
+      "relative_pct": 1.5039905213848876,
+      "supplied_csv_difference_km2": 8.2138
+    },
+    {
+      "code": "51017",
+      "ofb_area_km2": 511.66979113527066,
+      "symmetric_difference_inrae_km2": 11.609310864456875,
+      "relative_pct": 2.268906835148239,
+      "supplied_csv_difference_km2": 11.6093
+    },
+    {
+      "code": "51018",
+      "ofb_area_km2": 432.7838553741608,
+      "symmetric_difference_inrae_km2": 4.654174795350774,
+      "relative_pct": 1.0754039776569377,
+      "supplied_csv_difference_km2": 4.6542
+    },
+    {
+      "code": "51315",
+      "ofb_area_km2": 312.40023279385855,
+      "symmetric_difference_inrae_km2": 3.875513434492287,
+      "relative_pct": 1.240560354207417,
+      "supplied_csv_difference_km2": 3.8755
+    },
+    {
+      "code": "51317",
+      "ofb_area_km2": 3650.1099516062945,
+      "symmetric_difference_inrae_km2": 26.656073784652534,
+      "relative_pct": 0.7302813925624916,
+      "supplied_csv_difference_km2": 26.6561
+    },
+    {
+      "code": "51318",
+      "ofb_area_km2": 755.4703675702863,
+      "symmetric_difference_inrae_km2": 9.884134481813536,
+      "relative_pct": 1.3083417836231612,
+      "supplied_csv_difference_km2": 9.8841
+    },
+    {
+      "code": "51321",
+      "ofb_area_km2": 417.8964253673192,
+      "symmetric_difference_inrae_km2": 3.8291968244813672,
+      "relative_pct": 0.9163028425322401,
+      "supplied_csv_difference_km2": 3.8292
+    },
+    {
+      "code": "51335",
+      "ofb_area_km2": 998.0368199323372,
+      "symmetric_difference_inrae_km2": 7.213816764982347,
+      "relative_pct": 0.7228006643553907,
+      "supplied_csv_difference_km2": 7.2138
+    },
+    {
+      "code": "51336",
+      "ofb_area_km2": 572.6357842904252,
+      "symmetric_difference_inrae_km2": 5.8341312905836,
+      "relative_pct": 1.0188205925364748,
+      "supplied_csv_difference_km2": 5.8341
+    },
+    {
+      "code": "52008",
+      "ofb_area_km2": 145.0561395535536,
+      "symmetric_difference_inrae_km2": 1.7312330047558362,
+      "relative_pct": 1.1934917129906648,
+      "supplied_csv_difference_km2": 1.7312
+    },
+    {
+      "code": "52009",
+      "ofb_area_km2": 253.74370239444258,
+      "symmetric_difference_inrae_km2": 2.646774699256995,
+      "relative_pct": 1.043089808448765,
+      "supplied_csv_difference_km2": 2.6468
+    },
+    {
+      "code": "52012",
+      "ofb_area_km2": 211.23104904697115,
+      "symmetric_difference_inrae_km2": 2.469733730774916,
+      "relative_pct": 1.1692096128470795,
+      "supplied_csv_difference_km2": 2.4697
+    },
+    {
+      "code": "52310",
+      "ofb_area_km2": 827.2568791687619,
+      "symmetric_difference_inrae_km2": 23.156505412115255,
+      "relative_pct": 2.7991916410998243,
+      "supplied_csv_difference_km2": 23.1565
+    },
+    {
+      "code": "52311",
+      "ofb_area_km2": 898.3899607005536,
+      "symmetric_difference_inrae_km2": 5.892421061603201,
+      "relative_pct": 0.6558867885175791,
+      "supplied_csv_difference_km2": 5.8924
+    },
+    {
+      "code": "52312",
+      "ofb_area_km2": 389.6520185169892,
+      "symmetric_difference_inrae_km2": 3.644605121189467,
+      "relative_pct": 0.9353487080756797,
+      "supplied_csv_difference_km2": 3.6446
+    },
+    {
+      "code": "52314",
+      "ofb_area_km2": 2759.478974111073,
+      "symmetric_difference_inrae_km2": 27.62591270524576,
+      "relative_pct": 1.0011278565420145,
+      "supplied_csv_difference_km2": 27.6259
+    },
+    {
+      "code": "52318",
+      "ofb_area_km2": 191.03785552160818,
+      "symmetric_difference_inrae_km2": 1.719240619151758,
+      "relative_pct": 0.8999476121931738,
+      "supplied_csv_difference_km2": 1.7192
+    },
+    {
+      "code": "52321",
+      "ofb_area_km2": 206.90173700024386,
+      "symmetric_difference_inrae_km2": 1.8392517180337524,
+      "relative_pct": 0.8889493847176279,
+      "supplied_csv_difference_km2": 1.8393
+    },
+    {
+      "code": "52322",
+      "ofb_area_km2": 373.9233401962545,
+      "symmetric_difference_inrae_km2": 3.427125467694705,
+      "relative_pct": 0.9165315719248686,
+      "supplied_csv_difference_km2": 3.4271
+    },
+    {
+      "code": "53095",
+      "ofb_area_km2": 816.1799201809561,
+      "symmetric_difference_inrae_km2": 43.89475890798162,
+      "relative_pct": 5.378073856344036,
+      "supplied_csv_difference_km2": 43.8948
+    },
+    {
+      "code": "53096",
+      "ofb_area_km2": 636.0579027019108,
+      "symmetric_difference_inrae_km2": 4.753714847500561,
+      "relative_pct": 0.7473713992558306,
+      "supplied_csv_difference_km2": 4.7537
+    },
+    {
+      "code": "53356",
+      "ofb_area_km2": 1305.9836945574032,
+      "symmetric_difference_inrae_km2": 6.851103241034751,
+      "relative_pct": 0.5245933214623009,
+      "supplied_csv_difference_km2": 6.8511
+    },
+    {
+      "code": "53357",
+      "ofb_area_km2": 2454.906546591853,
+      "symmetric_difference_inrae_km2": 47.031718444547245,
+      "relative_pct": 1.9158252076781246,
+      "supplied_csv_difference_km2": 47.0317
+    },
+    {
+      "code": "54305",
+      "ofb_area_km2": 813.1858611241497,
+      "symmetric_difference_inrae_km2": 8.97249745087536,
+      "relative_pct": 1.1033759783368298,
+      "supplied_csv_difference_km2": 8.9725
+    },
+    {
+      "code": "54306",
+      "ofb_area_km2": 2608.890084508127,
+      "symmetric_difference_inrae_km2": 13.216964298897759,
+      "relative_pct": 0.5066125390786499,
+      "supplied_csv_difference_km2": 13.217
+    },
+    {
+      "code": "54307",
+      "ofb_area_km2": 290.05396192311514,
+      "symmetric_difference_inrae_km2": 3.4840160959295163,
+      "relative_pct": 1.201161353849401,
+      "supplied_csv_difference_km2": 3.484
+    },
+    {
+      "code": "54308",
+      "ofb_area_km2": 946.3289511820394,
+      "symmetric_difference_inrae_km2": 8.016329906128464,
+      "relative_pct": 0.847097607667549,
+      "supplied_csv_difference_km2": 8.0163
+    },
+    {
+      "code": "54313",
+      "ofb_area_km2": 228.35335512848414,
+      "symmetric_difference_inrae_km2": 2.3299421713334634,
+      "relative_pct": 1.0203231610161847,
+      "supplied_csv_difference_km2": 2.3299
+    },
+    {
+      "code": "54316",
+      "ofb_area_km2": 397.0533211522881,
+      "symmetric_difference_inrae_km2": 7.599294958917033,
+      "relative_pct": 1.9139230310083104,
+      "supplied_csv_difference_km2": 7.5993
+    },
+    {
+      "code": "55308",
+      "ofb_area_km2": 441.221928058822,
+      "symmetric_difference_inrae_km2": 5.556882546212622,
+      "relative_pct": 1.259430275974815,
+      "supplied_csv_difference_km2": 5.5569
+    },
+    {
+      "code": "55314",
+      "ofb_area_km2": 3594.266354049988,
+      "symmetric_difference_inrae_km2": 11.667759311434422,
+      "relative_pct": 0.32462144321294645,
+      "supplied_csv_difference_km2": 11.6678
+    },
+    {
+      "code": "55315",
+      "ofb_area_km2": 865.2051993289152,
+      "symmetric_difference_inrae_km2": 8.3084897439363,
+      "relative_pct": 0.9602912407808771,
+      "supplied_csv_difference_km2": 8.3085
+    },
+    {
+      "code": "55316",
+      "ofb_area_km2": 1332.780856968658,
+      "symmetric_difference_inrae_km2": 9.785637482203375,
+      "relative_pct": 0.7342270434811247,
+      "supplied_csv_difference_km2": 9.7856
+    },
+    {
+      "code": "56359",
+      "ofb_area_km2": 605.667519397403,
+      "symmetric_difference_inrae_km2": 10.610290564896072,
+      "relative_pct": 1.751834170578038,
+      "supplied_csv_difference_km2": 10.6103
+    },
+    {
+      "code": "56362",
+      "ofb_area_km2": 2182.7086365698806,
+      "symmetric_difference_inrae_km2": 9.727748205761232,
+      "relative_pct": 0.4456732356659548,
+      "supplied_csv_difference_km2": 9.7277
+    },
+    {
+      "code": "56363",
+      "ofb_area_km2": 2922.850997065852,
+      "symmetric_difference_inrae_km2": 35.69388180974847,
+      "relative_pct": 1.221200870163423,
+      "supplied_csv_difference_km2": 35.6939
+    },
+    {
+      "code": "56364",
+      "ofb_area_km2": 1123.4229613181,
+      "symmetric_difference_inrae_km2": 57.37591733680061,
+      "relative_pct": 5.107240933502202,
+      "supplied_csv_difference_km2": 57.3759
+    },
+    {
+      "code": "57003",
+      "ofb_area_km2": 208.17227022275978,
+      "symmetric_difference_inrae_km2": 3.611523483924768,
+      "relative_pct": 1.7348725073037679,
+      "supplied_csv_difference_km2": 3.6115
+    },
+    {
+      "code": "57004",
+      "ofb_area_km2": 246.89496687936617,
+      "symmetric_difference_inrae_km2": 6.777233538066544,
+      "relative_pct": 2.744986511360487,
+      "supplied_csv_difference_km2": 6.7772
+    },
+    {
+      "code": "57306",
+      "ofb_area_km2": 2203.467627460991,
+      "symmetric_difference_inrae_km2": 14.662687312738802,
+      "relative_pct": 0.6654369290477984,
+      "supplied_csv_difference_km2": 14.6627
+    },
+    {
+      "code": "57307",
+      "ofb_area_km2": 735.8808649298098,
+      "symmetric_difference_inrae_km2": 5.820921339383596,
+      "relative_pct": 0.7910140916544706,
+      "supplied_csv_difference_km2": 5.8209
+    },
+    {
+      "code": "57308",
+      "ofb_area_km2": 466.73063292133753,
+      "symmetric_difference_inrae_km2": 6.987157910677636,
+      "relative_pct": 1.4970429232261784,
+      "supplied_csv_difference_km2": 6.9872
+    },
+    {
+      "code": "57473",
+      "ofb_area_km2": 2392.6842879465394,
+      "symmetric_difference_inrae_km2": 21.33031485780818,
+      "relative_pct": 0.8914805419696379,
+      "supplied_csv_difference_km2": 21.3303
+    },
+    {
+      "code": "58180",
+      "ofb_area_km2": 715.9985101299568,
+      "symmetric_difference_inrae_km2": 4.504659296292174,
+      "relative_pct": 0.6291436689546406,
+      "supplied_csv_difference_km2": 4.5047
+    },
+    {
+      "code": "58185",
+      "ofb_area_km2": 1511.8875297018342,
+      "symmetric_difference_inrae_km2": 8.264384132479359,
+      "relative_pct": 0.5466269130554449,
+      "supplied_csv_difference_km2": 8.2644
+    },
+    {
+      "code": "58188",
+      "ofb_area_km2": 2619.6108871683264,
+      "symmetric_difference_inrae_km2": 8.14297345466125,
+      "relative_pct": 0.31084667935028376,
+      "supplied_csv_difference_km2": 8.143
+    },
+    {
+      "code": "58340",
+      "ofb_area_km2": 145.51804577267126,
+      "symmetric_difference_inrae_km2": 1.4675865347065957,
+      "relative_pct": 1.0085254560106338,
+      "supplied_csv_difference_km2": 1.4676
+    },
+    {
+      "code": "58429",
+      "ofb_area_km2": 64.4542931053812,
+      "symmetric_difference_inrae_km2": 1.4327136730787473,
+      "relative_pct": 2.2228366863574087,
+      "supplied_csv_difference_km2": 1.4327
+    },
+    {
+      "code": "58443",
+      "ofb_area_km2": 1817.2497493534186,
+      "symmetric_difference_inrae_km2": 9.087814240183013,
+      "relative_pct": 0.50008614629973,
+      "supplied_csv_difference_km2": 9.0878
+    },
+    {
+      "code": "59025",
+      "ofb_area_km2": 769.3810641929568,
+      "symmetric_difference_inrae_km2": 4.513697248772632,
+      "relative_pct": 0.5866660175094484,
+      "supplied_csv_difference_km2": 4.5137
+    },
+    {
+      "code": "59026",
+      "ofb_area_km2": 643.5263629452094,
+      "symmetric_difference_inrae_km2": 4.51322618347327,
+      "relative_pct": 0.7013273182496692,
+      "supplied_csv_difference_km2": 4.5132
+    },
+    {
+      "code": "59027",
+      "ofb_area_km2": 181.83040612667114,
+      "symmetric_difference_inrae_km2": 2.4405644756928724,
+      "relative_pct": 1.342220219203969,
+      "supplied_csv_difference_km2": 2.4406
+    },
+    {
+      "code": "59028",
+      "ofb_area_km2": 716.2613455701274,
+      "symmetric_difference_inrae_km2": 4.6267188288200005,
+      "relative_pct": 0.6459540023253997,
+      "supplied_csv_difference_km2": 4.6267
+    },
+    {
+      "code": "59033",
+      "ofb_area_km2": 1191.907732914508,
+      "symmetric_difference_inrae_km2": 7.3361095544625865,
+      "relative_pct": 0.6154930748308841,
+      "supplied_csv_difference_km2": 7.3361
+    },
+    {
+      "code": "59323",
+      "ofb_area_km2": 716.0364072994398,
+      "symmetric_difference_inrae_km2": 5.73486901228801,
+      "relative_pct": 0.8009186340003716,
+      "supplied_csv_difference_km2": 5.7349
+    },
+    {
+      "code": "59324",
+      "ofb_area_km2": 334.7433308026531,
+      "symmetric_difference_inrae_km2": 4.196418152723046,
+      "relative_pct": 1.253622631602788,
+      "supplied_csv_difference_km2": 4.1964
+    },
+    {
+      "code": "59325",
+      "ofb_area_km2": 448.82606473435027,
+      "symmetric_difference_inrae_km2": 12.496405518663552,
+      "relative_pct": 2.7842423826387814,
+      "supplied_csv_difference_km2": 12.4964
+    },
+    {
+      "code": "59326",
+      "ofb_area_km2": 747.6185802779665,
+      "symmetric_difference_inrae_km2": 5.95002056088675,
+      "relative_pct": 0.7958631202925048,
+      "supplied_csv_difference_km2": 5.95
+    },
+    {
+      "code": "60041",
+      "ofb_area_km2": 472.1023399434043,
+      "symmetric_difference_inrae_km2": 11.074729660381774,
+      "relative_pct": 2.345832401870623,
+      "supplied_csv_difference_km2": 11.0747
+    },
+    {
+      "code": "60042",
+      "ofb_area_km2": 476.1019388469674,
+      "symmetric_difference_inrae_km2": 4.898476494048291,
+      "relative_pct": 1.0288713601779302,
+      "supplied_csv_difference_km2": 4.8985
+    },
+    {
+      "code": "60043",
+      "ofb_area_km2": 726.7546654898291,
+      "symmetric_difference_inrae_km2": 6.125298815933327,
+      "relative_pct": 0.8428289637198139,
+      "supplied_csv_difference_km2": 6.1253
+    },
+    {
+      "code": "60327",
+      "ofb_area_km2": 1996.9101820340104,
+      "symmetric_difference_inrae_km2": 11.493026617962013,
+      "relative_pct": 0.575540488568968,
+      "supplied_csv_difference_km2": 11.493
+    },
+    {
+      "code": "60328",
+      "ofb_area_km2": 365.73484132842475,
+      "symmetric_difference_inrae_km2": 2.737464014146176,
+      "relative_pct": 0.7484832465518295,
+      "supplied_csv_difference_km2": 2.7375
+    },
+    {
+      "code": "60329",
+      "ofb_area_km2": 1128.717801649,
+      "symmetric_difference_inrae_km2": 7.439629687138222,
+      "relative_pct": 0.659122207186712,
+      "supplied_csv_difference_km2": 7.4396
+    },
+    {
+      "code": "60330",
+      "ofb_area_km2": 305.7286178097565,
+      "symmetric_difference_inrae_km2": 4.295046325181782,
+      "relative_pct": 1.404855834547497,
+      "supplied_csv_difference_km2": 4.295
+    },
+    {
+      "code": "60331",
+      "ofb_area_km2": 417.2142078456638,
+      "symmetric_difference_inrae_km2": 11.528668060202579,
+      "relative_pct": 2.763249151972138,
+      "supplied_csv_difference_km2": 11.5287
+    },
+    {
+      "code": "61088",
+      "ofb_area_km2": 107.40286614773476,
+      "symmetric_difference_inrae_km2": 1.7363395500493135,
+      "relative_pct": 1.6166603483941893,
+      "supplied_csv_difference_km2": 1.7363
+    },
+    {
+      "code": "61351",
+      "ofb_area_km2": 1885.9517494652835,
+      "symmetric_difference_inrae_km2": 7.849377139150946,
+      "relative_pct": 0.4162024368532466,
+      "supplied_csv_difference_km2": 7.8494
+    },
+    {
+      "code": "61352",
+      "ofb_area_km2": 697.319447903287,
+      "symmetric_difference_inrae_km2": 4.82747802085167,
+      "relative_pct": 0.6922907478583912,
+      "supplied_csv_difference_km2": 4.8275
+    },
+    {
+      "code": "61353",
+      "ofb_area_km2": 300.9668273613028,
+      "symmetric_difference_inrae_km2": 3.4537536185476196,
+      "relative_pct": 1.147552920974071,
+      "supplied_csv_difference_km2": 3.4538
+    },
+    {
+      "code": "61354",
+      "ofb_area_km2": 2206.7397503681673,
+      "symmetric_difference_inrae_km2": 19.1197085183264,
+      "relative_pct": 0.8664233521481867,
+      "supplied_csv_difference_km2": 19.1197
+    },
+    {
+      "code": "61355",
+      "ofb_area_km2": 949.138413276063,
+      "symmetric_difference_inrae_km2": 15.885167488457629,
+      "relative_pct": 1.6736407742289245,
+      "supplied_csv_difference_km2": 15.8852
+    },
+    {
+      "code": "62023",
+      "ofb_area_km2": 365.68353568085297,
+      "symmetric_difference_inrae_km2": 3.491782333996768,
+      "relative_pct": 0.9548645189878577,
+      "supplied_csv_difference_km2": 3.4918
+    },
+    {
+      "code": "62024",
+      "ofb_area_km2": 206.89409716506125,
+      "symmetric_difference_inrae_km2": 3.004383221366202,
+      "relative_pct": 1.452135784700174,
+      "supplied_csv_difference_km2": 3.0044
+    },
+    {
+      "code": "62029",
+      "ofb_area_km2": 685.941194093962,
+      "symmetric_difference_inrae_km2": 4.81880943364161,
+      "relative_pct": 0.7025105759986644,
+      "supplied_csv_difference_km2": 4.8188
+    },
+    {
+      "code": "62030",
+      "ofb_area_km2": 984.3030083136046,
+      "symmetric_difference_inrae_km2": 8.000669702080547,
+      "relative_pct": 0.8128258914689295,
+      "supplied_csv_difference_km2": 8.0007
+    },
+    {
+      "code": "62031",
+      "ofb_area_km2": 301.6638811338901,
+      "symmetric_difference_inrae_km2": 2.609900271835325,
+      "relative_pct": 0.8651682999055994,
+      "supplied_csv_difference_km2": 2.6099
+    },
+    {
+      "code": "62032",
+      "ofb_area_km2": 1347.408908798856,
+      "symmetric_difference_inrae_km2": 8.457688680873945,
+      "relative_pct": 0.627700219706394,
+      "supplied_csv_difference_km2": 8.4577
+    },
+    {
+      "code": "62039",
+      "ofb_area_km2": 596.9466802258878,
+      "symmetric_difference_inrae_km2": 5.395886225009236,
+      "relative_pct": 0.9039142696911229,
+      "supplied_csv_difference_km2": 5.3959
+    },
+    {
+      "code": "62040",
+      "ofb_area_km2": 195.17853754166447,
+      "symmetric_difference_inrae_km2": 3.5060667603991993,
+      "relative_pct": 1.7963382678030184,
+      "supplied_csv_difference_km2": 3.5061
+    },
+    {
+      "code": "62324",
+      "ofb_area_km2": 174.61825475835312,
+      "symmetric_difference_inrae_km2": 2.7445810025708224,
+      "relative_pct": 1.5717606423045134,
+      "supplied_csv_difference_km2": 2.7446
+    },
+    {
+      "code": "62325",
+      "ofb_area_km2": 397.89436192413103,
+      "symmetric_difference_inrae_km2": 6.671505074577768,
+      "relative_pct": 1.6767025906865867,
+      "supplied_csv_difference_km2": 6.6715
+    },
+    {
+      "code": "62326",
+      "ofb_area_km2": 1438.4578303558922,
+      "symmetric_difference_inrae_km2": 8.66790889287859,
+      "relative_pct": 0.6025834550001401,
+      "supplied_csv_difference_km2": 8.6679
+    },
+    {
+      "code": "63165",
+      "ofb_area_km2": 485.96478141133804,
+      "symmetric_difference_inrae_km2": 7.4254000550794705,
+      "relative_pct": 1.527970819925394,
+      "supplied_csv_difference_km2": 7.4254
+    },
+    {
+      "code": "63166",
+      "ofb_area_km2": 1068.9308248377063,
+      "symmetric_difference_inrae_km2": 8.363560764331554,
+      "relative_pct": 0.7824230127895674,
+      "supplied_csv_difference_km2": 8.3636
+    },
+    {
+      "code": "63173",
+      "ofb_area_km2": 322.149195169783,
+      "symmetric_difference_inrae_km2": 3.9480155974481734,
+      "relative_pct": 1.2255239673553868,
+      "supplied_csv_difference_km2": 3.948
+    },
+    {
+      "code": "63174",
+      "ofb_area_km2": 1063.56034846072,
+      "symmetric_difference_inrae_km2": 6.888904885567807,
+      "relative_pct": 0.647721109153613,
+      "supplied_csv_difference_km2": 6.8889
+    },
+    {
+      "code": "63175",
+      "ofb_area_km2": 434.20865899773725,
+      "symmetric_difference_inrae_km2": 4.826171692933554,
+      "relative_pct": 1.111486745583004,
+      "supplied_csv_difference_km2": 4.8262
+    },
+    {
+      "code": "63176",
+      "ofb_area_km2": 798.6915816303353,
+      "symmetric_difference_inrae_km2": 7.166498993467839,
+      "relative_pct": 0.8972798960568945,
+      "supplied_csv_difference_km2": 7.1665
+    },
+    {
+      "code": "63181",
+      "ofb_area_km2": 1390.6606934997278,
+      "symmetric_difference_inrae_km2": 7.369301769605398,
+      "relative_pct": 0.5299137168434567,
+      "supplied_csv_difference_km2": 7.3693
+    },
+    {
+      "code": "63417",
+      "ofb_area_km2": 189.1776520446002,
+      "symmetric_difference_inrae_km2": 2.6008371201792375,
+      "relative_pct": 1.3748120309507113,
+      "supplied_csv_difference_km2": 2.6008
+    },
+    {
+      "code": "63421",
+      "ofb_area_km2": 161.80034438292117,
+      "symmetric_difference_inrae_km2": 3.2134566304785475,
+      "relative_pct": 1.986062911506228,
+      "supplied_csv_difference_km2": 3.2135
+    },
+    {
+      "code": "63425",
+      "ofb_area_km2": 537.8493786988155,
+      "symmetric_difference_inrae_km2": 6.779576407173534,
+      "relative_pct": 1.2604972090095052,
+      "supplied_csv_difference_km2": 6.7796
+    },
+    {
+      "code": "63426",
+      "ofb_area_km2": 729.6725644400669,
+      "symmetric_difference_inrae_km2": 4.853702954944917,
+      "relative_pct": 0.6651891809402936,
+      "supplied_csv_difference_km2": 4.8537
+    },
+    {
+      "code": "63427",
+      "ofb_area_km2": 317.4963345114587,
+      "symmetric_difference_inrae_km2": 3.242404136362322,
+      "relative_pct": 1.0212414393229163,
+      "supplied_csv_difference_km2": 3.2424
+    },
+    {
+      "code": "63428",
+      "ofb_area_km2": 514.8124961334335,
+      "symmetric_difference_inrae_km2": 5.045500707145853,
+      "relative_pct": 0.9800657025695269,
+      "supplied_csv_difference_km2": 5.0455
+    },
+    {
+      "code": "64138",
+      "ofb_area_km2": 246.5282944930461,
+      "symmetric_difference_inrae_km2": 7.055187142438399,
+      "relative_pct": 2.8618163918857626,
+      "supplied_csv_difference_km2": 7.0552
+    },
+    {
+      "code": "64139",
+      "ofb_area_km2": 1589.104422469375,
+      "symmetric_difference_inrae_km2": 7.887173445726354,
+      "relative_pct": 0.4963282043775417,
+      "supplied_csv_difference_km2": 7.8872
+    },
+    {
+      "code": "64140",
+      "ofb_area_km2": 942.7347467367662,
+      "symmetric_difference_inrae_km2": 5.651061006954826,
+      "relative_pct": 0.5994327700889056,
+      "supplied_csv_difference_km2": 5.6511
+    },
+    {
+      "code": "64141",
+      "ofb_area_km2": 793.0566301576404,
+      "symmetric_difference_inrae_km2": 8.02204035063013,
+      "relative_pct": 1.0115343653372575,
+      "supplied_csv_difference_km2": 8.022
+    },
+    {
+      "code": "64142",
+      "ofb_area_km2": 1253.4912911734218,
+      "symmetric_difference_inrae_km2": 5.9405248030386515,
+      "relative_pct": 0.4739183147796417,
+      "supplied_csv_difference_km2": 5.9405
+    },
+    {
+      "code": "64143",
+      "ofb_area_km2": 241.89161049501507,
+      "symmetric_difference_inrae_km2": 2.475006849289125,
+      "relative_pct": 1.02318837938372,
+      "supplied_csv_difference_km2": 2.475
+    },
+    {
+      "code": "64379",
+      "ofb_area_km2": 578.2030343829189,
+      "symmetric_difference_inrae_km2": 6.502260231327125,
+      "relative_pct": 1.124563491484716,
+      "supplied_csv_difference_km2": 6.5023
+    },
+    {
+      "code": "64380",
+      "ofb_area_km2": 667.791129551039,
+      "symmetric_difference_inrae_km2": 7.9785328424951265,
+      "relative_pct": 1.19476472349358,
+      "supplied_csv_difference_km2": 7.9785
+    },
+    {
+      "code": "64381",
+      "ofb_area_km2": 1059.1104454598242,
+      "symmetric_difference_inrae_km2": 7.571051967456981,
+      "relative_pct": 0.7148500895173333,
+      "supplied_csv_difference_km2": 7.5711
+    },
+    {
+      "code": "64382",
+      "ofb_area_km2": 121.83510443379676,
+      "symmetric_difference_inrae_km2": 3.29920736736814,
+      "relative_pct": 2.707928378032356,
+      "supplied_csv_difference_km2": 3.2992
+    },
+    {
+      "code": "64386",
+      "ofb_area_km2": 191.6457560816369,
+      "symmetric_difference_inrae_km2": 2.290129716878858,
+      "relative_pct": 1.1949806579089144,
+      "supplied_csv_difference_km2": 2.2901
+    },
+    {
+      "code": "65146",
+      "ofb_area_km2": 2995.8488295438697,
+      "symmetric_difference_inrae_km2": 8.254823160287078,
+      "relative_pct": 0.2755420460098419,
+      "supplied_csv_difference_km2": 8.2548
+    },
+    {
+      "code": "65148",
+      "ofb_area_km2": 427.5291695909274,
+      "symmetric_difference_inrae_km2": 3.8087823309717814,
+      "relative_pct": 0.8908824477675144,
+      "supplied_csv_difference_km2": 3.8088
+    },
+    {
+      "code": "65150",
+      "ofb_area_km2": 576.1364470209677,
+      "symmetric_difference_inrae_km2": 5.278186345527339,
+      "relative_pct": 0.9161347755066165,
+      "supplied_csv_difference_km2": 5.2782
+    },
+    {
+      "code": "65381",
+      "ofb_area_km2": 85.04064067743603,
+      "symmetric_difference_inrae_km2": 2.1774067462054223,
+      "relative_pct": 2.5604307879857697,
+      "supplied_csv_difference_km2": 2.1774
+    },
+    {
+      "code": "65383",
+      "ofb_area_km2": 87.83649705996707,
+      "symmetric_difference_inrae_km2": 1.5315278219226667,
+      "relative_pct": 1.7436121352574814,
+      "supplied_csv_difference_km2": 1.5315
+    },
+    {
+      "code": "65386",
+      "ofb_area_km2": 64.51990879368482,
+      "symmetric_difference_inrae_km2": 1.2778405488232711,
+      "relative_pct": 1.9805368183476812,
+      "supplied_csv_difference_km2": 1.2778
+    },
+    {
+      "code": "65387",
+      "ofb_area_km2": 44.70198584734168,
+      "symmetric_difference_inrae_km2": 0.9623084806528532,
+      "relative_pct": 2.152719755983904,
+      "supplied_csv_difference_km2": 0.9623
+    },
+    {
+      "code": "65389",
+      "ofb_area_km2": 239.99303580688087,
+      "symmetric_difference_inrae_km2": 2.1973302684832365,
+      "relative_pct": 0.9155808463756416,
+      "supplied_csv_difference_km2": 2.1973
+    },
+    {
+      "code": "66252",
+      "ofb_area_km2": 1146.470076251999,
+      "symmetric_difference_inrae_km2": 4.609642691625327,
+      "relative_pct": 0.40207265650535023,
+      "supplied_csv_difference_km2": 4.6096
+    },
+    {
+      "code": "66253",
+      "ofb_area_km2": 642.7043940563226,
+      "symmetric_difference_inrae_km2": 4.036850431179892,
+      "relative_pct": 0.6281037547762787,
+      "supplied_csv_difference_km2": 4.0369
+    },
+    {
+      "code": "66254",
+      "ofb_area_km2": 78.11021591079674,
+      "symmetric_difference_inrae_km2": 2.185098185849892,
+      "relative_pct": 2.797455058049402,
+      "supplied_csv_difference_km2": 2.1851
+    },
+    {
+      "code": "66255",
+      "ofb_area_km2": 949.2221807505489,
+      "symmetric_difference_inrae_km2": 3.6109124697889468,
+      "relative_pct": 0.38040751080361423,
+      "supplied_csv_difference_km2": 3.6109
+    },
+    {
+      "code": "66256",
+      "ofb_area_km2": 540.3704442464591,
+      "symmetric_difference_inrae_km2": 3.4299466329071637,
+      "relative_pct": 0.6347398658507661,
+      "supplied_csv_difference_km2": 3.4299
+    },
+    {
+      "code": "66257",
+      "ofb_area_km2": 178.30992889298577,
+      "symmetric_difference_inrae_km2": 1.540676661725354,
+      "relative_pct": 0.8640442353885994,
+      "supplied_csv_difference_km2": 1.5407
+    },
+    {
+      "code": "66470",
+      "ofb_area_km2": 378.4936632034797,
+      "symmetric_difference_inrae_km2": 2.4458523334167506,
+      "relative_pct": 0.6462069437875505,
+      "supplied_csv_difference_km2": 2.4459
+    },
+    {
+      "code": "66472",
+      "ofb_area_km2": 225.32302056666205,
+      "symmetric_difference_inrae_km2": 1.7077612358784415,
+      "relative_pct": 0.7579168926386723,
+      "supplied_csv_difference_km2": 1.7078
+    },
+    {
+      "code": "67301",
+      "ofb_area_km2": 1490.0399281410546,
+      "symmetric_difference_inrae_km2": 12.024911260516683,
+      "relative_pct": 0.8070193981659762,
+      "supplied_csv_difference_km2": 12.0249
+    },
+    {
+      "code": "67302",
+      "ofb_area_km2": 599.1463189791684,
+      "symmetric_difference_inrae_km2": 6.667381037883607,
+      "relative_pct": 1.1128134859016674,
+      "supplied_csv_difference_km2": 6.6674
+    },
+    {
+      "code": "67304",
+      "ofb_area_km2": 1116.5814856232278,
+      "symmetric_difference_inrae_km2": 11.534146089129257,
+      "relative_pct": 1.0329874028576957,
+      "supplied_csv_difference_km2": 11.5341
+    },
+    {
+      "code": "67307",
+      "ofb_area_km2": 1183.5534882434542,
+      "symmetric_difference_inrae_km2": 10.864231348913657,
+      "relative_pct": 0.9179332794699101,
+      "supplied_csv_difference_km2": 10.8642
+    },
+    {
+      "code": "67473",
+      "ofb_area_km2": 409.25756514752914,
+      "symmetric_difference_inrae_km2": 4.261874366860236,
+      "relative_pct": 1.0413672781647703,
+      "supplied_csv_difference_km2": 4.2619
+    },
+    {
+      "code": "68001",
+      "ofb_area_km2": 409.6869397035208,
+      "symmetric_difference_inrae_km2": 2.9704665155188326,
+      "relative_pct": 0.7250576544296183,
+      "supplied_csv_difference_km2": 2.9705
+    },
+    {
+      "code": "68002",
+      "ofb_area_km2": 54.48020368130551,
+      "symmetric_difference_inrae_km2": 1.1013652020974098,
+      "relative_pct": 2.0215878937239276,
+      "supplied_csv_difference_km2": 1.1014
+    },
+    {
+      "code": "68301",
+      "ofb_area_km2": 673.3010188891442,
+      "symmetric_difference_inrae_km2": 8.7426900144631,
+      "relative_pct": 1.2984816254826643,
+      "supplied_csv_difference_km2": 8.7427
+    },
+    {
+      "code": "68302",
+      "ofb_area_km2": 44.67305156881963,
+      "symmetric_difference_inrae_km2": 1.0508093163203842,
+      "relative_pct": 2.3522219311604307,
+      "supplied_csv_difference_km2": 1.0508
+    },
+    {
+      "code": "68303",
+      "ofb_area_km2": 840.4665687394325,
+      "symmetric_difference_inrae_km2": 5.845868981860235,
+      "relative_pct": 0.6955504477266856,
+      "supplied_csv_difference_km2": 5.8459
+    },
+    {
+      "code": "68304",
+      "ofb_area_km2": 456.7710023754988,
+      "symmetric_difference_inrae_km2": 5.579778170829978,
+      "relative_pct": 1.2215701394816207,
+      "supplied_csv_difference_km2": 5.5798
+    },
+    {
+      "code": "68307",
+      "ofb_area_km2": 885.4634126698525,
+      "symmetric_difference_inrae_km2": 6.149495999539363,
+      "relative_pct": 0.6944946467067883,
+      "supplied_csv_difference_km2": 6.1495
+    },
+    {
+      "code": "68450",
+      "ofb_area_km2": 166.89643416335275,
+      "symmetric_difference_inrae_km2": 1.9301784535966673,
+      "relative_pct": 1.1565126979929792,
+      "supplied_csv_difference_km2": 1.9302
+    },
+    {
+      "code": "69194",
+      "ofb_area_km2": 322.4671003367877,
+      "symmetric_difference_inrae_km2": 4.105391695180137,
+      "relative_pct": 1.27311954952689,
+      "supplied_csv_difference_km2": 4.1054
+    },
+    {
+      "code": "69195",
+      "ofb_area_km2": 37.26410826968531,
+      "symmetric_difference_inrae_km2": 1.0147761811722495,
+      "relative_pct": 2.7231999591354215,
+      "supplied_csv_difference_km2": 1.0148
+    },
+    {
+      "code": "69196",
+      "ofb_area_km2": 136.71342771528293,
+      "symmetric_difference_inrae_km2": 50.026524402861085,
+      "relative_pct": 36.592253766795665,
+      "supplied_csv_difference_km2": 50.0265
+    },
+    {
+      "code": "69197",
+      "ofb_area_km2": 145.02441471688053,
+      "symmetric_difference_inrae_km2": 15.346149273334717,
+      "relative_pct": 10.581769492601483,
+      "supplied_csv_difference_km2": 15.3461
+    },
+    {
+      "code": "69199",
+      "ofb_area_km2": 300.4387901370815,
+      "symmetric_difference_inrae_km2": 1.926975629164885,
+      "relative_pct": 0.6413870952834225,
+      "supplied_csv_difference_km2": 1.927
+    },
+    {
+      "code": "69200",
+      "ofb_area_km2": 326.46048034047675,
+      "symmetric_difference_inrae_km2": 5.413005076366375,
+      "relative_pct": 1.6580889272480905,
+      "supplied_csv_difference_km2": 5.413
+    },
+    {
+      "code": "69444",
+      "ofb_area_km2": 676.0845655729289,
+      "symmetric_difference_inrae_km2": 17.843488238584364,
+      "relative_pct": 2.63923910516481,
+      "supplied_csv_difference_km2": 17.8435
+    },
+    {
+      "code": "69445",
+      "ofb_area_km2": 1211.3275900180013,
+      "symmetric_difference_inrae_km2": 9.112840810971006,
+      "relative_pct": 0.7523019277415767,
+      "supplied_csv_difference_km2": 9.1128
+    },
+    {
+      "code": "69465",
+      "ofb_area_km2": 54.177529514840664,
+      "symmetric_difference_inrae_km2": 0.7496089615683524,
+      "relative_pct": 1.3836159903950855,
+      "supplied_csv_difference_km2": 0.7496
+    },
+    {
+      "code": "70005",
+      "ofb_area_km2": 808.3780669373667,
+      "symmetric_difference_inrae_km2": 11.359173563443298,
+      "relative_pct": 1.4051808217012658,
+      "supplied_csv_difference_km2": 11.3592
+    },
+    {
+      "code": "70006",
+      "ofb_area_km2": 364.4254349380843,
+      "symmetric_difference_inrae_km2": 3.7102731914888056,
+      "relative_pct": 1.0181158711161802,
+      "supplied_csv_difference_km2": 3.7103
+    },
+    {
+      "code": "70007",
+      "ofb_area_km2": 2745.0186509358787,
+      "symmetric_difference_inrae_km2": 15.1714482011272,
+      "relative_pct": 0.5526901682782626,
+      "supplied_csv_difference_km2": 15.1714
+    },
+    {
+      "code": "70205",
+      "ofb_area_km2": 561.0117774715544,
+      "symmetric_difference_inrae_km2": 6.711889428167462,
+      "relative_pct": 1.1963901111697752,
+      "supplied_csv_difference_km2": 6.7119
+    },
+    {
+      "code": "70307",
+      "ofb_area_km2": 243.92179271805435,
+      "symmetric_difference_inrae_km2": 2.316608597740527,
+      "relative_pct": 0.9497341635309564,
+      "supplied_csv_difference_km2": 2.3166
+    },
+    {
+      "code": "70309",
+      "ofb_area_km2": 187.98725900895312,
+      "symmetric_difference_inrae_km2": 5.930801987548206,
+      "relative_pct": 3.154895719430509,
+      "supplied_csv_difference_km2": 5.9308
+    },
+    {
+      "code": "70447",
+      "ofb_area_km2": 286.1752640949904,
+      "symmetric_difference_inrae_km2": 6.662942692752597,
+      "relative_pct": 2.3282734494274675,
+      "supplied_csv_difference_km2": 6.6629
+    },
+    {
+      "code": "70448",
+      "ofb_area_km2": 193.4041955483236,
+      "symmetric_difference_inrae_km2": 3.2995656426922135,
+      "relative_pct": 1.7060465691230522,
+      "supplied_csv_difference_km2": 3.2996
+    },
+    {
+      "code": "71183",
+      "ofb_area_km2": 400.05037823474817,
+      "symmetric_difference_inrae_km2": 2.644033277085129,
+      "relative_pct": 0.6609250786743712,
+      "supplied_csv_difference_km2": 2.644
+    },
+    {
+      "code": "71184",
+      "ofb_area_km2": 504.6050515638944,
+      "symmetric_difference_inrae_km2": 4.565958131518942,
+      "relative_pct": 0.9048577927168825,
+      "supplied_csv_difference_km2": 4.566
+    },
+    {
+      "code": "71187",
+      "ofb_area_km2": 1301.9341339991008,
+      "symmetric_difference_inrae_km2": 9.238110555050445,
+      "relative_pct": 0.7095681965626094,
+      "supplied_csv_difference_km2": 9.2381
+    },
+    {
+      "code": "71202",
+      "ofb_area_km2": 608.9067359342225,
+      "symmetric_difference_inrae_km2": 4.796807488256092,
+      "relative_pct": 0.7877737599497124,
+      "supplied_csv_difference_km2": 4.7968
+    },
+    {
+      "code": "71429",
+      "ofb_area_km2": 1067.6406133402343,
+      "symmetric_difference_inrae_km2": 7.264590277844808,
+      "relative_pct": 0.6804340512222289,
+      "supplied_csv_difference_km2": 7.2646
+    },
+    {
+      "code": "71440",
+      "ofb_area_km2": 530.3950601062365,
+      "symmetric_difference_inrae_km2": 4.570019161736422,
+      "relative_pct": 0.8616255137860939,
+      "supplied_csv_difference_km2": 4.57
+    },
+    {
+      "code": "71441",
+      "ofb_area_km2": 503.6678884492369,
+      "symmetric_difference_inrae_km2": 5.218137515380349,
+      "relative_pct": 1.0360274369379951,
+      "supplied_csv_difference_km2": 5.2181
+    },
+    {
+      "code": "71442",
+      "ofb_area_km2": 1413.4412215067493,
+      "symmetric_difference_inrae_km2": 7.654503256164381,
+      "relative_pct": 0.5415508717090172,
+      "supplied_csv_difference_km2": 7.6545
+    },
+    {
+      "code": "71443",
+      "ofb_area_km2": 508.0236625890732,
+      "symmetric_difference_inrae_km2": 5.753353902857792,
+      "relative_pct": 1.1324972292701112,
+      "supplied_csv_difference_km2": 5.7534
+    },
+    {
+      "code": "71444",
+      "ofb_area_km2": 681.9296067696604,
+      "symmetric_difference_inrae_km2": 4.364857579986758,
+      "relative_pct": 0.6400745086671539,
+      "supplied_csv_difference_km2": 4.3649
+    },
+    {
+      "code": "71446",
+      "ofb_area_km2": 1095.9244301472215,
+      "symmetric_difference_inrae_km2": 6.003126944346579,
+      "relative_pct": 0.5477683295681387,
+      "supplied_csv_difference_km2": 6.0031
+    },
+    {
+      "code": "72089",
+      "ofb_area_km2": 1937.3421113816603,
+      "symmetric_difference_inrae_km2": 10.694545744261383,
+      "relative_pct": 0.552021539274461,
+      "supplied_csv_difference_km2": 10.6945
+    },
+    {
+      "code": "72090",
+      "ofb_area_km2": 98.76626053137981,
+      "symmetric_difference_inrae_km2": 1.181798193767921,
+      "relative_pct": 1.1965606345827404,
+      "supplied_csv_difference_km2": 1.1818
+    },
+    {
+      "code": "72091",
+      "ofb_area_km2": 814.1906943242753,
+      "symmetric_difference_inrae_km2": 5.165985175322905,
+      "relative_pct": 0.6344932718262436,
+      "supplied_csv_difference_km2": 5.166
+    },
+    {
+      "code": "72092",
+      "ofb_area_km2": 496.25256050770406,
+      "symmetric_difference_inrae_km2": 5.355182600400519,
+      "relative_pct": 1.0791244270703129,
+      "supplied_csv_difference_km2": 5.3552
+    },
+    {
+      "code": "72093",
+      "ofb_area_km2": 439.4209905352827,
+      "symmetric_difference_inrae_km2": 4.342645951518461,
+      "relative_pct": 0.9882654777661954,
+      "supplied_csv_difference_km2": 4.3426
+    },
+    {
+      "code": "72094",
+      "ofb_area_km2": 186.7087960697164,
+      "symmetric_difference_inrae_km2": 2.712790775486279,
+      "relative_pct": 1.4529528509590581,
+      "supplied_csv_difference_km2": 2.7128
+    },
+    {
+      "code": "72345",
+      "ofb_area_km2": 56.61527014589348,
+      "symmetric_difference_inrae_km2": 22.96262951927301,
+      "relative_pct": 40.55907436297657,
+      "supplied_csv_difference_km2": 22.9626
+    },
+    {
+      "code": "72350",
+      "ofb_area_km2": 640.959477313493,
+      "symmetric_difference_inrae_km2": 27.715635996755143,
+      "relative_pct": 4.324085527672047,
+      "supplied_csv_difference_km2": 27.7156
+    },
+    {
+      "code": "72351",
+      "ofb_area_km2": 911.01603853241,
+      "symmetric_difference_inrae_km2": 6.888730493350045,
+      "relative_pct": 0.7561590797509294,
+      "supplied_csv_difference_km2": 6.8887
+    },
+    {
+      "code": "72354",
+      "ofb_area_km2": 336.9402099196294,
+      "symmetric_difference_inrae_km2": 31.21018569682317,
+      "relative_pct": 9.26282609732681,
+      "supplied_csv_difference_km2": 31.2102
+    },
+    {
+      "code": "72355",
+      "ofb_area_km2": 326.6058169714907,
+      "symmetric_difference_inrae_km2": 30.63873427282446,
+      "relative_pct": 9.380951802061414,
+      "supplied_csv_difference_km2": 30.6387
+    },
+    {
+      "code": "73213",
+      "ofb_area_km2": 75.97601763782636,
+      "symmetric_difference_inrae_km2": 1.6974762473754215,
+      "relative_pct": 2.2342264047942084,
+      "supplied_csv_difference_km2": 1.6975
+    },
+    {
+      "code": "73219",
+      "ofb_area_km2": 473.202476501028,
+      "symmetric_difference_inrae_km2": 4.0314566265398515,
+      "relative_pct": 0.851951717655707,
+      "supplied_csv_difference_km2": 4.0315
+    },
+    {
+      "code": "73220",
+      "ofb_area_km2": 363.5845599539489,
+      "symmetric_difference_inrae_km2": 3.995014030267239,
+      "relative_pct": 1.0987853914295045,
+      "supplied_csv_difference_km2": 3.995
+    },
+    {
+      "code": "73229",
+      "ofb_area_km2": 2094.901534597746,
+      "symmetric_difference_inrae_km2": 9.31275677004143,
+      "relative_pct": 0.4445438898315393,
+      "supplied_csv_difference_km2": 9.3128
+    },
+    {
+      "code": "73230",
+      "ofb_area_km2": 270.4939005897721,
+      "symmetric_difference_inrae_km2": 2.537260450063446,
+      "relative_pct": 0.938010226674732,
+      "supplied_csv_difference_km2": 2.5373
+    },
+    {
+      "code": "73451",
+      "ofb_area_km2": 307.45192615247123,
+      "symmetric_difference_inrae_km2": 5.225874756780379,
+      "relative_pct": 1.699737198650292,
+      "supplied_csv_difference_km2": 5.2259
+    },
+    {
+      "code": "73453",
+      "ofb_area_km2": 146.95663559352533,
+      "symmetric_difference_inrae_km2": 1.7897864627758717,
+      "relative_pct": 1.2179010873155336,
+      "supplied_csv_difference_km2": 1.7898
+    },
+    {
+      "code": "73454",
+      "ofb_area_km2": 208.3553405209193,
+      "symmetric_difference_inrae_km2": 2.4658331326845078,
+      "relative_pct": 1.1834748879100285,
+      "supplied_csv_difference_km2": 2.4658
+    },
+    {
+      "code": "73455",
+      "ofb_area_km2": 88.9590551050253,
+      "symmetric_difference_inrae_km2": 2.9508459817585635,
+      "relative_pct": 3.3170833236423056,
+      "supplied_csv_difference_km2": 2.9508
+    },
+    {
+      "code": "73456",
+      "ofb_area_km2": 349.23983581421584,
+      "symmetric_difference_inrae_km2": 2.949034946617293,
+      "relative_pct": 0.84441539715592,
+      "supplied_csv_difference_km2": 2.949
+    },
+    {
+      "code": "73458",
+      "ofb_area_km2": 1892.2428511112407,
+      "symmetric_difference_inrae_km2": 7.000578242753696,
+      "relative_pct": 0.36996193372550085,
+      "supplied_csv_difference_km2": 7.0006
+    },
+    {
+      "code": "74208",
+      "ofb_area_km2": 147.0546660270722,
+      "symmetric_difference_inrae_km2": 1.7174709805219572,
+      "relative_pct": 1.1679132848499874,
+      "supplied_csv_difference_km2": 1.7175
+    },
+    {
+      "code": "74210",
+      "ofb_area_km2": 48.380020035357774,
+      "symmetric_difference_inrae_km2": 0.906998201936329,
+      "relative_pct": 1.8747371358537341,
+      "supplied_csv_difference_km2": 0.907
+    },
+    {
+      "code": "74211",
+      "ofb_area_km2": 237.61331933800076,
+      "symmetric_difference_inrae_km2": 2.7606857954849056,
+      "relative_pct": 1.1618396658807997,
+      "supplied_csv_difference_km2": 2.7607
+    },
+    {
+      "code": "74214",
+      "ofb_area_km2": 159.09841259593648,
+      "symmetric_difference_inrae_km2": 1.8455365273324427,
+      "relative_pct": 1.1599968203451323,
+      "supplied_csv_difference_km2": 1.8455
+    },
+    {
+      "code": "74218",
+      "ofb_area_km2": 427.4961402215414,
+      "symmetric_difference_inrae_km2": 3.6702526572605305,
+      "relative_pct": 0.8585463848535557,
+      "supplied_csv_difference_km2": 3.6703
+    },
+    {
+      "code": "74222",
+      "ofb_area_km2": 262.0924551243649,
+      "symmetric_difference_inrae_km2": 4.1515711006616485,
+      "relative_pct": 1.5840101534749238,
+      "supplied_csv_difference_km2": 4.1516
+    },
+    {
+      "code": "74223",
+      "ofb_area_km2": 463.0823947074675,
+      "symmetric_difference_inrae_km2": 4.450591933064761,
+      "relative_pct": 0.9610799252854845,
+      "supplied_csv_difference_km2": 4.4506
+    },
+    {
+      "code": "74224",
+      "ofb_area_km2": 629.6231399476209,
+      "symmetric_difference_inrae_km2": 3.624950537072756,
+      "relative_pct": 0.5757333724065986,
+      "supplied_csv_difference_km2": 3.625
+    },
+    {
+      "code": "74225",
+      "ofb_area_km2": 84.16206423013507,
+      "symmetric_difference_inrae_km2": 1.7881188962487506,
+      "relative_pct": 2.1246138775295114,
+      "supplied_csv_difference_km2": 1.7881
+    },
+    {
+      "code": "74226",
+      "ofb_area_km2": 276.85741982360156,
+      "symmetric_difference_inrae_km2": 3.2787775784497075,
+      "relative_pct": 1.1842838023047262,
+      "supplied_csv_difference_km2": 3.2788
+    },
+    {
+      "code": "74227",
+      "ofb_area_km2": 516.9249774792096,
+      "symmetric_difference_inrae_km2": 3.464487166233426,
+      "relative_pct": 0.6702108269420518,
+      "supplied_csv_difference_km2": 3.4645
+    },
+    {
+      "code": "74228",
+      "ofb_area_km2": 259.59447045548706,
+      "symmetric_difference_inrae_km2": 2.4884593984443266,
+      "relative_pct": 0.9585949169402764,
+      "supplied_csv_difference_km2": 2.4885
+    },
+    {
+      "code": "74454",
+      "ofb_area_km2": 268.4570980400129,
+      "symmetric_difference_inrae_km2": 3.190533334169122,
+      "relative_pct": 1.1884704697558717,
+      "supplied_csv_difference_km2": 3.1905
+    },
+    {
+      "code": "74455",
+      "ofb_area_km2": 259.8033227886698,
+      "symmetric_difference_inrae_km2": 2.5730220149152747,
+      "relative_pct": 0.9903730203667303,
+      "supplied_csv_difference_km2": 2.573
+    },
+    {
+      "code": "74456",
+      "ofb_area_km2": 46.15463311874725,
+      "symmetric_difference_inrae_km2": 1.0828875594310465,
+      "relative_pct": 2.346216373651978,
+      "supplied_csv_difference_km2": 1.0829
+    },
+    {
+      "code": "74458",
+      "ofb_area_km2": 518.8340362992393,
+      "symmetric_difference_inrae_km2": 3.3571200058926634,
+      "relative_pct": 0.6470508430477049,
+      "supplied_csv_difference_km2": 3.3571
+    },
+    {
+      "code": "76046",
+      "ofb_area_km2": 2892.4668579650615,
+      "symmetric_difference_inrae_km2": 14.516244244986007,
+      "relative_pct": 0.5018638054576925,
+      "supplied_csv_difference_km2": 14.5162
+    },
+    {
+      "code": "76047",
+      "ofb_area_km2": 478.32498508615686,
+      "symmetric_difference_inrae_km2": 4.292790841049505,
+      "relative_pct": 0.8974632258183792,
+      "supplied_csv_difference_km2": 4.2928
+    },
+    {
+      "code": "76048",
+      "ofb_area_km2": 563.6487414485476,
+      "symmetric_difference_inrae_km2": 4.4613366738636655,
+      "relative_pct": 0.7915100923313099,
+      "supplied_csv_difference_km2": 4.4613
+    },
+    {
+      "code": "76049",
+      "ofb_area_km2": 503.46613376960903,
+      "symmetric_difference_inrae_km2": 4.910953957376137,
+      "relative_pct": 0.9754288576683962,
+      "supplied_csv_difference_km2": 4.911
+    },
+    {
+      "code": "76331",
+      "ofb_area_km2": 1191.9162896155012,
+      "symmetric_difference_inrae_km2": 6.869368586136617,
+      "relative_pct": 0.5763297847328354,
+      "supplied_csv_difference_km2": 6.8694
+    },
+    {
+      "code": "76332",
+      "ofb_area_km2": 689.1514096787342,
+      "symmetric_difference_inrae_km2": 8.345311848865553,
+      "relative_pct": 1.2109547672195775,
+      "supplied_csv_difference_km2": 8.3453
+    },
+    {
+      "code": "77045",
+      "ofb_area_km2": 47.969824221059255,
+      "symmetric_difference_inrae_km2": 1.2306696360088842,
+      "relative_pct": 2.565507912510981,
+      "supplied_csv_difference_km2": 1.2307
+    },
+    {
+      "code": "77056",
+      "ofb_area_km2": 85.86071557497038,
+      "symmetric_difference_inrae_km2": 1.695444296935442,
+      "relative_pct": 1.9746449649083615,
+      "supplied_csv_difference_km2": 1.6954
+    },
+    {
+      "code": "77057",
+      "ofb_area_km2": 413.46583113134267,
+      "symmetric_difference_inrae_km2": 3.3175964621068315,
+      "relative_pct": 0.8023870927929121,
+      "supplied_csv_difference_km2": 3.3176
+    },
+    {
+      "code": "77058",
+      "ofb_area_km2": 402.4011603093026,
+      "symmetric_difference_inrae_km2": 16.136091750607665,
+      "relative_pct": 4.0099515961148775,
+      "supplied_csv_difference_km2": 16.1361
+    },
+    {
+      "code": "77059",
+      "ofb_area_km2": 149.18794552617013,
+      "symmetric_difference_inrae_km2": 2.575603901035548,
+      "relative_pct": 1.7264155572031408,
+      "supplied_csv_difference_km2": 2.5756
+    },
+    {
+      "code": "77060",
+      "ofb_area_km2": 265.7046199428828,
+      "symmetric_difference_inrae_km2": 2.9742421050046426,
+      "relative_pct": 1.1193791457762385,
+      "supplied_csv_difference_km2": 2.9742
+    },
+    {
+      "code": "77061",
+      "ofb_area_km2": 710.2724475084765,
+      "symmetric_difference_inrae_km2": 9.79136861879605,
+      "relative_pct": 1.37853701817417,
+      "supplied_csv_difference_km2": 9.7914
+    },
+    {
+      "code": "77062",
+      "ofb_area_km2": 377.31868567157625,
+      "symmetric_difference_inrae_km2": 2.89394045269057,
+      "relative_pct": 0.7669751227771154,
+      "supplied_csv_difference_km2": 2.8939
+    },
+    {
+      "code": "77064",
+      "ofb_area_km2": 691.2707874173055,
+      "symmetric_difference_inrae_km2": 4.754008013091021,
+      "relative_pct": 0.6877200801226867,
+      "supplied_csv_difference_km2": 4.754
+    },
+    {
+      "code": "77320",
+      "ofb_area_km2": 386.43734463698826,
+      "symmetric_difference_inrae_km2": 3.3166554806518387,
+      "relative_pct": 0.8582647424429025,
+      "supplied_csv_difference_km2": 3.3167
+    },
+    {
+      "code": "77329",
+      "ofb_area_km2": 430.97913305167094,
+      "symmetric_difference_inrae_km2": 5.656971276533201,
+      "relative_pct": 1.3125858870422331,
+      "supplied_csv_difference_km2": 5.657
+    },
+    {
+      "code": "77335",
+      "ofb_area_km2": 358.6851822344908,
+      "symmetric_difference_inrae_km2": 16.125352723561996,
+      "relative_pct": 4.495684104680977,
+      "supplied_csv_difference_km2": 16.1254
+    },
+    {
+      "code": "77336",
+      "ofb_area_km2": 428.0261937833042,
+      "symmetric_difference_inrae_km2": 4.023414866434289,
+      "relative_pct": 0.9399926744836586,
+      "supplied_csv_difference_km2": 4.0234
+    },
+    {
+      "code": "77337",
+      "ofb_area_km2": 469.1362393172314,
+      "symmetric_difference_inrae_km2": 3.9532846764941834,
+      "relative_pct": 0.8426730542598223,
+      "supplied_csv_difference_km2": 3.9533
+    },
+    {
+      "code": "77338",
+      "ofb_area_km2": 361.7537095640244,
+      "symmetric_difference_inrae_km2": 3.2009503035562625,
+      "relative_pct": 0.884842427024165,
+      "supplied_csv_difference_km2": 3.201
+    },
+    {
+      "code": "77339",
+      "ofb_area_km2": 348.0059602980712,
+      "symmetric_difference_inrae_km2": 2.8883736169776735,
+      "relative_pct": 0.8299782033916164,
+      "supplied_csv_difference_km2": 2.8884
+    },
+    {
+      "code": "78053",
+      "ofb_area_km2": 514.1740964553501,
+      "symmetric_difference_inrae_km2": 4.390925337125099,
+      "relative_pct": 0.8539763802563318,
+      "supplied_csv_difference_km2": 4.3909
+    },
+    {
+      "code": "78054",
+      "ofb_area_km2": 729.0965198907771,
+      "symmetric_difference_inrae_km2": 4.807931750228601,
+      "relative_pct": 0.6594369358598581,
+      "supplied_csv_difference_km2": 4.8079
+    },
+    {
+      "code": "78055",
+      "ofb_area_km2": 33.63631030020449,
+      "symmetric_difference_inrae_km2": 1.4871985222099695,
+      "relative_pct": 4.421408022867859,
+      "supplied_csv_difference_km2": 1.4872
+    },
+    {
+      "code": "78330",
+      "ofb_area_km2": 58.750129567283764,
+      "symmetric_difference_inrae_km2": 1.4406011175988676,
+      "relative_pct": 2.4520816008567516,
+      "supplied_csv_difference_km2": 1.4406
+    },
+    {
+      "code": "78332",
+      "ofb_area_km2": 328.35267824897414,
+      "symmetric_difference_inrae_km2": 3.615585244110367,
+      "relative_pct": 1.1011285984909316,
+      "supplied_csv_difference_km2": 3.6156
+    },
+    {
+      "code": "78333",
+      "ofb_area_km2": 290.54131307968106,
+      "symmetric_difference_inrae_km2": 2.429313164427444,
+      "relative_pct": 0.8361334705475101,
+      "supplied_csv_difference_km2": 2.4293
+    },
+    {
+      "code": "78334",
+      "ofb_area_km2": 249.40113287129645,
+      "symmetric_difference_inrae_km2": 3.9032118875515662,
+      "relative_pct": 1.56503374407919,
+      "supplied_csv_difference_km2": 3.9032
+    },
+    {
+      "code": "78342",
+      "ofb_area_km2": 102.1123889540285,
+      "symmetric_difference_inrae_km2": 1.23731441435032,
+      "relative_pct": 1.2117182126718875,
+      "supplied_csv_difference_km2": 1.2373
+    },
+    {
+      "code": "79109",
+      "ofb_area_km2": 358.92391869690664,
+      "symmetric_difference_inrae_km2": 30.102218361365995,
+      "relative_pct": 8.386796419323009,
+      "supplied_csv_difference_km2": 30.1022
+    },
+    {
+      "code": "79349",
+      "ofb_area_km2": 545.770868929335,
+      "symmetric_difference_inrae_km2": 80.32449472317252,
+      "relative_pct": 14.717622228674268,
+      "supplied_csv_difference_km2": 80.3245
+    },
+    {
+      "code": "79366",
+      "ofb_area_km2": 296.5114590685301,
+      "symmetric_difference_inrae_km2": 4.1800588712655316,
+      "relative_pct": 1.4097461475508881,
+      "supplied_csv_difference_km2": 4.1801
+    },
+    {
+      "code": "79367",
+      "ofb_area_km2": 452.62349313156517,
+      "symmetric_difference_inrae_km2": 5.012006174193986,
+      "relative_pct": 1.107323470886902,
+      "supplied_csv_difference_km2": 5.012
+    },
+    {
+      "code": "79368",
+      "ofb_area_km2": 1426.451624831586,
+      "symmetric_difference_inrae_km2": 26.231914590244475,
+      "relative_pct": 1.8389627894560774,
+      "supplied_csv_difference_km2": 26.2319
+    },
+    {
+      "code": "79370",
+      "ofb_area_km2": 164.3725890929422,
+      "symmetric_difference_inrae_km2": 1.1450889257522023,
+      "relative_pct": 0.696642263817313,
+      "supplied_csv_difference_km2": 1.1451
+    },
+    {
+      "code": "79371",
+      "ofb_area_km2": 1320.259093652007,
+      "symmetric_difference_inrae_km2": 32.56630239604161,
+      "relative_pct": 2.4666599573239076,
+      "supplied_csv_difference_km2": 32.5663
+    },
+    {
+      "code": "79373",
+      "ofb_area_km2": 1475.5190961910141,
+      "symmetric_difference_inrae_km2": 100.58652970546892,
+      "relative_pct": 6.817026629145532,
+      "supplied_csv_difference_km2": 100.5865
+    },
+    {
+      "code": "80035",
+      "ofb_area_km2": 1703.5082805433142,
+      "symmetric_difference_inrae_km2": 18.510636663283442,
+      "relative_pct": 1.0866185315741284,
+      "supplied_csv_difference_km2": 18.5106
+    },
+    {
+      "code": "80036",
+      "ofb_area_km2": 1130.0452416745125,
+      "symmetric_difference_inrae_km2": 8.02341851296821,
+      "relative_pct": 0.7100086100162705,
+      "supplied_csv_difference_km2": 8.0234
+    },
+    {
+      "code": "80037",
+      "ofb_area_km2": 237.1659297502274,
+      "symmetric_difference_inrae_km2": 4.74825310605861,
+      "relative_pct": 2.0020806154826953,
+      "supplied_csv_difference_km2": 4.7483
+    },
+    {
+      "code": "80038",
+      "ofb_area_km2": 960.8592889978376,
+      "symmetric_difference_inrae_km2": 6.425330275313465,
+      "relative_pct": 0.6687066825377722,
+      "supplied_csv_difference_km2": 6.4253
+    },
+    {
+      "code": "80327",
+      "ofb_area_km2": 2164.9393872545206,
+      "symmetric_difference_inrae_km2": 20.2258474543925,
+      "relative_pct": 0.9342454376998525,
+      "supplied_csv_difference_km2": 20.2258
+    },
+    {
+      "code": "81151",
+      "ofb_area_km2": 672.9447526746558,
+      "symmetric_difference_inrae_km2": 4.144968115579246,
+      "relative_pct": 0.6159447858245188,
+      "supplied_csv_difference_km2": 4.145
+    },
+    {
+      "code": "81152",
+      "ofb_area_km2": 175.46755102920596,
+      "symmetric_difference_inrae_km2": 1.9133726709138956,
+      "relative_pct": 1.0904424548533314,
+      "supplied_csv_difference_km2": 1.9134
+    },
+    {
+      "code": "81153",
+      "ofb_area_km2": 1346.562425324361,
+      "symmetric_difference_inrae_km2": 17.684574378757926,
+      "relative_pct": 1.3133126282279897,
+      "supplied_csv_difference_km2": 17.6846
+    },
+    {
+      "code": "81391",
+      "ofb_area_km2": 559.8899787674588,
+      "symmetric_difference_inrae_km2": 4.629755598937212,
+      "relative_pct": 0.8269045302666697,
+      "supplied_csv_difference_km2": 4.6298
+    },
+    {
+      "code": "81395",
+      "ofb_area_km2": 259.3558881770199,
+      "symmetric_difference_inrae_km2": 4.006615598257646,
+      "relative_pct": 1.5448330964913293,
+      "supplied_csv_difference_km2": 4.0066
+    },
+    {
+      "code": "81409",
+      "ofb_area_km2": 1008.9277755101358,
+      "symmetric_difference_inrae_km2": 17.60855553396357,
+      "relative_pct": 1.7452741376914025,
+      "supplied_csv_difference_km2": 17.6086
+    },
+    {
+      "code": "81412",
+      "ofb_area_km2": 1060.6552441775013,
+      "symmetric_difference_inrae_km2": 6.427218695325865,
+      "relative_pct": 0.6059668050111735,
+      "supplied_csv_difference_km2": 6.4272
+    },
+    {
+      "code": "81413",
+      "ofb_area_km2": 699.0172741949261,
+      "symmetric_difference_inrae_km2": 6.2320914542202,
+      "relative_pct": 0.8915504214681732,
+      "supplied_csv_difference_km2": 6.2321
+    },
+    {
+      "code": "82154",
+      "ofb_area_km2": 125.6672668082552,
+      "symmetric_difference_inrae_km2": 1.499554037727551,
+      "relative_pct": 1.193273376443836,
+      "supplied_csv_difference_km2": 1.4996
+    },
+    {
+      "code": "82155",
+      "ofb_area_km2": 941.0277141458888,
+      "symmetric_difference_inrae_km2": 6.341256490825179,
+      "relative_pct": 0.6738650090216244,
+      "supplied_csv_difference_km2": 6.3413
+    },
+    {
+      "code": "82384",
+      "ofb_area_km2": 489.5487926065885,
+      "symmetric_difference_inrae_km2": 4.674892652435721,
+      "relative_pct": 0.9549390628755081,
+      "supplied_csv_difference_km2": 4.6749
+    },
+    {
+      "code": "82385",
+      "ofb_area_km2": 78.15040899862781,
+      "symmetric_difference_inrae_km2": 1.528828689143644,
+      "relative_pct": 1.9562644760700967,
+      "supplied_csv_difference_km2": 1.5288
+    },
+    {
+      "code": "82390",
+      "ofb_area_km2": 941.3548496341919,
+      "symmetric_difference_inrae_km2": 6.613126455086802,
+      "relative_pct": 0.70251154043097,
+      "supplied_csv_difference_km2": 6.6131
+    },
+    {
+      "code": "82391",
+      "ofb_area_km2": 197.22569202092907,
+      "symmetric_difference_inrae_km2": 3.121627373901949,
+      "relative_pct": 1.582769132112205,
+      "supplied_csv_difference_km2": 3.1216
+    },
+    {
+      "code": "82395",
+      "ofb_area_km2": 482.78100446118395,
+      "symmetric_difference_inrae_km2": 5.423979024591454,
+      "relative_pct": 1.1234864202341557,
+      "supplied_csv_difference_km2": 5.424
+    },
+    {
+      "code": "82396",
+      "ofb_area_km2": 80.98860200277626,
+      "symmetric_difference_inrae_km2": 2.5698130914593396,
+      "relative_pct": 3.173055254579215,
+      "supplied_csv_difference_km2": 2.5698
+    },
+    {
+      "code": "82397",
+      "ofb_area_km2": 131.34310423400706,
+      "symmetric_difference_inrae_km2": 2.317107493269849,
+      "relative_pct": 1.764163795871294,
+      "supplied_csv_difference_km2": 2.3171
+    },
+    {
+      "code": "82398",
+      "ofb_area_km2": 23.124813546552772,
+      "symmetric_difference_inrae_km2": 0.6066084715433265,
+      "relative_pct": 2.6231929192516836,
+      "supplied_csv_difference_km2": 0.6066
+    },
+    {
+      "code": "82399",
+      "ofb_area_km2": 239.27404016670138,
+      "symmetric_difference_inrae_km2": 3.3325581402535205,
+      "relative_pct": 1.392778814589221,
+      "supplied_csv_difference_km2": 3.3326
+    },
+    {
+      "code": "83247",
+      "ofb_area_km2": 900.7012407876384,
+      "symmetric_difference_inrae_km2": 8.200039599029529,
+      "relative_pct": 0.9104061621874552,
+      "supplied_csv_difference_km2": 8.2
+    },
+    {
+      "code": "83248",
+      "ofb_area_km2": 454.3215751457863,
+      "symmetric_difference_inrae_km2": 3.8293874601095617,
+      "relative_pct": 0.8428803890461855,
+      "supplied_csv_difference_km2": 3.8294
+    },
+    {
+      "code": "83460",
+      "ofb_area_km2": 1296.6885783630462,
+      "symmetric_difference_inrae_km2": 5.800447341601516,
+      "relative_pct": 0.44732771140192074,
+      "supplied_csv_difference_km2": 5.8004
+    },
+    {
+      "code": "83468",
+      "ofb_area_km2": 2716.991184690958,
+      "symmetric_difference_inrae_km2": 7.583909990078141,
+      "relative_pct": 0.2791289877129567,
+      "supplied_csv_difference_km2": 7.5839
+    },
+    {
+      "code": "83469",
+      "ofb_area_km2": 661.7061267011117,
+      "symmetric_difference_inrae_km2": 10.50728284185167,
+      "relative_pct": 1.5879077460314557,
+      "supplied_csv_difference_km2": 10.5073
+    },
+    {
+      "code": "84238",
+      "ofb_area_km2": 1309.8589282520536,
+      "symmetric_difference_inrae_km2": 5.346237172895246,
+      "relative_pct": 0.4081536612518688,
+      "supplied_csv_difference_km2": 5.3462
+    },
+    {
+      "code": "84462",
+      "ofb_area_km2": 274.68971524804243,
+      "symmetric_difference_inrae_km2": 1.6411594331338462,
+      "relative_pct": 0.5974593667083216,
+      "supplied_csv_difference_km2": 1.6412
+    },
+    {
+      "code": "84463",
+      "ofb_area_km2": 168.69479348803472,
+      "symmetric_difference_inrae_km2": 1.850711676763806,
+      "relative_pct": 1.0970769390669277,
+      "supplied_csv_difference_km2": 1.8507
+    },
+    {
+      "code": "84464",
+      "ofb_area_km2": 600.3436302156762,
+      "symmetric_difference_inrae_km2": 4.086137129560417,
+      "relative_pct": 0.6806330447934384,
+      "supplied_csv_difference_km2": 4.0861
+    },
+    {
+      "code": "84466",
+      "ofb_area_km2": 315.0402293255788,
+      "symmetric_difference_inrae_km2": 2.1575893395916848,
+      "relative_pct": 0.6848615315607585,
+      "supplied_csv_difference_km2": 2.1576
+    },
+    {
+      "code": "84467",
+      "ofb_area_km2": 909.2640551421323,
+      "symmetric_difference_inrae_km2": 3.5093662777185513,
+      "relative_pct": 0.3859567809672166,
+      "supplied_csv_difference_km2": 3.5094
+    },
+    {
+      "code": "85110",
+      "ofb_area_km2": 212.38720117505116,
+      "symmetric_difference_inrae_km2": 3.6041415070616147,
+      "relative_pct": 1.696967372384673,
+      "supplied_csv_difference_km2": 3.6041
+    },
+    {
+      "code": "85365",
+      "ofb_area_km2": 496.917565332005,
+      "symmetric_difference_inrae_km2": 8.43390844096753,
+      "relative_pct": 1.6972449817370798,
+      "supplied_csv_difference_km2": 8.4339
+    },
+    {
+      "code": "85366",
+      "ofb_area_km2": 303.9741479239053,
+      "symmetric_difference_inrae_km2": 6.077247311023126,
+      "relative_pct": 1.9992645271085552,
+      "supplied_csv_difference_km2": 6.0772
+    },
+    {
+      "code": "85368",
+      "ofb_area_km2": 3620.7718498755103,
+      "symmetric_difference_inrae_km2": 67.7242588253899,
+      "relative_pct": 1.8704370679339655,
+      "supplied_csv_difference_km2": 67.7243
+    },
+    {
+      "code": "85369",
+      "ofb_area_km2": 628.3157350210823,
+      "symmetric_difference_inrae_km2": 10.77004002084399,
+      "relative_pct": 1.7141127335419373,
+      "supplied_csv_difference_km2": 10.77
+    },
+    {
+      "code": "85370",
+      "ofb_area_km2": 160.03094378699467,
+      "symmetric_difference_inrae_km2": 3.065330513730126,
+      "relative_pct": 1.915461123450075,
+      "supplied_csv_difference_km2": 3.0653
+    },
+    {
+      "code": "85371",
+      "ofb_area_km2": 562.9090949199306,
+      "symmetric_difference_inrae_km2": 8.644813051485569,
+      "relative_pct": 1.5357387417439448,
+      "supplied_csv_difference_km2": 8.6448
+    },
+    {
+      "code": "85373",
+      "ofb_area_km2": 787.20190616925,
+      "symmetric_difference_inrae_km2": 57.1780159545831,
+      "relative_pct": 7.263449885789494,
+      "supplied_csv_difference_km2": 57.178
+    },
+    {
+      "code": "86182",
+      "ofb_area_km2": 490.6185462335349,
+      "symmetric_difference_inrae_km2": 6.636907730804183,
+      "relative_pct": 1.3527633192335555,
+      "supplied_csv_difference_km2": 6.6369
+    },
+    {
+      "code": "86347",
+      "ofb_area_km2": 134.0941458316397,
+      "symmetric_difference_inrae_km2": 2.139290799543516,
+      "relative_pct": 1.5953647985718011,
+      "supplied_csv_difference_km2": 2.1393
+    },
+    {
+      "code": "86348",
+      "ofb_area_km2": 1888.4696710469123,
+      "symmetric_difference_inrae_km2": 7.612699796500344,
+      "relative_pct": 0.40311475017123716,
+      "supplied_csv_difference_km2": 7.6127
+    },
+    {
+      "code": "86349",
+      "ofb_area_km2": 231.39342174517097,
+      "symmetric_difference_inrae_km2": 2.5836438462867517,
+      "relative_pct": 1.1165589007677443,
+      "supplied_csv_difference_km2": 2.5836
+    },
+    {
+      "code": "86368",
+      "ofb_area_km2": 404.16711107848704,
+      "symmetric_difference_inrae_km2": 4.239786681789658,
+      "relative_pct": 1.0490182317101786,
+      "supplied_csv_difference_km2": 4.2398
+    },
+    {
+      "code": "86372",
+      "ofb_area_km2": 800.2031263680367,
+      "symmetric_difference_inrae_km2": 5.297885802730968,
+      "relative_pct": 0.6620676211022846,
+      "supplied_csv_difference_km2": 5.2979
+    },
+    {
+      "code": "86438",
+      "ofb_area_km2": 3089.6281706021064,
+      "symmetric_difference_inrae_km2": 11.77941318712255,
+      "relative_pct": 0.3812566605653061,
+      "supplied_csv_difference_km2": 11.7794
+    },
+    {
+      "code": "87430",
+      "ofb_area_km2": 368.0413054956949,
+      "symmetric_difference_inrae_km2": 4.340892557632831,
+      "relative_pct": 1.1794579827898168,
+      "supplied_csv_difference_km2": 4.3409
+    },
+    {
+      "code": "87431",
+      "ofb_area_km2": 1385.1459315179397,
+      "symmetric_difference_inrae_km2": 12.092079693323333,
+      "relative_pct": 0.8729823636757166,
+      "supplied_csv_difference_km2": 12.0921
+    },
+    {
+      "code": "87432",
+      "ofb_area_km2": 3804.623418721252,
+      "symmetric_difference_inrae_km2": 15.8414984557033,
+      "relative_pct": 0.4163749394421718,
+      "supplied_csv_difference_km2": 15.8415
+    },
+    {
+      "code": "88305",
+      "ofb_area_km2": 74.4850256222288,
+      "symmetric_difference_inrae_km2": 2.501471768039695,
+      "relative_pct": 3.3583552494518747,
+      "supplied_csv_difference_km2": 2.5015
+    },
+    {
+      "code": "88306",
+      "ofb_area_km2": 2221.386092921495,
+      "symmetric_difference_inrae_km2": 10.868465361869012,
+      "relative_pct": 0.4892650312569103,
+      "supplied_csv_difference_km2": 10.8685
+    },
+    {
+      "code": "88307",
+      "ofb_area_km2": 2102.5020604775113,
+      "symmetric_difference_inrae_km2": 7.067587263227144,
+      "relative_pct": 0.33615126453773764,
+      "supplied_csv_difference_km2": 7.0676
+    },
+    {
+      "code": "88309",
+      "ofb_area_km2": 671.2861230708003,
+      "symmetric_difference_inrae_km2": 4.537291506462643,
+      "relative_pct": 0.6759102192827687,
+      "supplied_csv_difference_km2": 4.5373
+    },
+    {
+      "code": "88310",
+      "ofb_area_km2": 335.3923824158624,
+      "symmetric_difference_inrae_km2": 4.076533261039874,
+      "relative_pct": 1.2154519526282102,
+      "supplied_csv_difference_km2": 4.0765
+    },
+    {
+      "code": "88313",
+      "ofb_area_km2": 307.2292172950906,
+      "symmetric_difference_inrae_km2": 2.6405094080977345,
+      "relative_pct": 0.8594590811854823,
+      "supplied_csv_difference_km2": 2.6405
+    },
+    {
+      "code": "88314",
+      "ofb_area_km2": 185.28168488983553,
+      "symmetric_difference_inrae_km2": 1.7642938240639376,
+      "relative_pct": 0.9522224633875433,
+      "supplied_csv_difference_km2": 1.7643
+    },
+    {
+      "code": "89186",
+      "ofb_area_km2": 2305.0732901056913,
+      "symmetric_difference_inrae_km2": 12.298913434104314,
+      "relative_pct": 0.5335584550346505,
+      "supplied_csv_difference_km2": 12.2989
+    },
+    {
+      "code": "89317",
+      "ofb_area_km2": 306.09469880279914,
+      "symmetric_difference_inrae_km2": 2.952351497843863,
+      "relative_pct": 0.9645222571286375,
+      "supplied_csv_difference_km2": 2.9524
+    },
+    {
+      "code": "89319",
+      "ofb_area_km2": 375.35806710474264,
+      "symmetric_difference_inrae_km2": 4.856960788634304,
+      "relative_pct": 1.2939540173194097,
+      "supplied_csv_difference_km2": 4.857
+    },
+    {
+      "code": "89320",
+      "ofb_area_km2": 500.52596429907896,
+      "symmetric_difference_inrae_km2": 5.287609152645499,
+      "relative_pct": 1.056410562047486,
+      "supplied_csv_difference_km2": 5.2876
+    },
+    {
+      "code": "89322",
+      "ofb_area_km2": 1444.5857392394219,
+      "symmetric_difference_inrae_km2": 9.321982279430102,
+      "relative_pct": 0.6453048805769155,
+      "supplied_csv_difference_km2": 9.322
+    },
+    {
+      "code": "89338",
+      "ofb_area_km2": 759.7151371490239,
+      "symmetric_difference_inrae_km2": 4.435553065880048,
+      "relative_pct": 0.5838442396350436,
+      "supplied_csv_difference_km2": 4.4356
+    },
+    {
+      "code": "89340",
+      "ofb_area_km2": 1255.9533925470434,
+      "symmetric_difference_inrae_km2": 5.671183021076592,
+      "relative_pct": 0.4515440664223669,
+      "supplied_csv_difference_km2": 5.6712
+    },
+    {
+      "code": "89442",
+      "ofb_area_km2": 268.6320129553005,
+      "symmetric_difference_inrae_km2": 2.9775625485921915,
+      "relative_pct": 1.1084168695440062,
+      "supplied_csv_difference_km2": 2.9776
+    },
+    {
+      "code": "89443",
+      "ofb_area_km2": 244.17859853181668,
+      "symmetric_difference_inrae_km2": 3.9612482691899706,
+      "relative_pct": 1.622274963083555,
+      "supplied_csv_difference_km2": 3.9612
+    },
+    {
+      "code": "90303",
+      "ofb_area_km2": 232.52273489109393,
+      "symmetric_difference_inrae_km2": 2.3489002830205146,
+      "relative_pct": 1.0101809116087779,
+      "supplied_csv_difference_km2": 2.3489
+    },
+    {
+      "code": "90307",
+      "ofb_area_km2": 177.82231717794838,
+      "symmetric_difference_inrae_km2": 1.512563455959556,
+      "relative_pct": 0.8506038386879866,
+      "supplied_csv_difference_km2": 1.5126
+    },
+    {
+      "code": "90448",
+      "ofb_area_km2": 155.3385203694385,
+      "symmetric_difference_inrae_km2": 1.681931760247561,
+      "relative_pct": 1.0827525305683718,
+      "supplied_csv_difference_km2": 1.6819
+    },
+    {
+      "code": "90450",
+      "ofb_area_km2": 45.56721304413348,
+      "symmetric_difference_inrae_km2": 1.5934854621044225,
+      "relative_pct": 3.497000048172959,
+      "supplied_csv_difference_km2": 1.5935
+    },
+    {
+      "code": "91055",
+      "ofb_area_km2": 439.9873326189062,
+      "symmetric_difference_inrae_km2": 5.177949553648339,
+      "relative_pct": 1.176840597393563,
+      "supplied_csv_difference_km2": 5.1779
+    },
+    {
+      "code": "91333",
+      "ofb_area_km2": 268.5569097547292,
+      "symmetric_difference_inrae_km2": 2.9953551434190304,
+      "relative_pct": 1.1153521040120187,
+      "supplied_csv_difference_km2": 2.9954
+    },
+    {
+      "code": "91337",
+      "ofb_area_km2": 214.94576085620267,
+      "symmetric_difference_inrae_km2": 2.7336154991393884,
+      "relative_pct": 1.27176990523119,
+      "supplied_csv_difference_km2": 2.7336
+    },
+    {
+      "code": "91339",
+      "ofb_area_km2": 331.27874941880197,
+      "symmetric_difference_inrae_km2": 3.433044225614613,
+      "relative_pct": 1.0363007683522028,
+      "supplied_csv_difference_km2": 3.433
+    },
+    {
+      "code": "91342",
+      "ofb_area_km2": 565.2683146467302,
+      "symmetric_difference_inrae_km2": 5.001177698631201,
+      "relative_pct": 0.8847440355394295,
+      "supplied_csv_difference_km2": 5.0012
+    },
+    {
+      "code": "92333",
+      "ofb_area_km2": 175.834256994135,
+      "symmetric_difference_inrae_km2": 1.2597589975098555,
+      "relative_pct": 0.7164468511684132,
+      "supplied_csv_difference_km2": 1.2598
+    },
+    {
+      "code": "93329",
+      "ofb_area_km2": 32.9788720309614,
+      "symmetric_difference_inrae_km2": 0.6401313011554284,
+      "relative_pct": 1.9410345525294403,
+      "supplied_csv_difference_km2": 0.6401
+    },
+    {
+      "code": "93333",
+      "ofb_area_km2": 204.11630541837656,
+      "symmetric_difference_inrae_km2": 2.14340610147216,
+      "relative_pct": 1.0500905829540796,
+      "supplied_csv_difference_km2": 2.1434
+    },
+    {
+      "code": "94333",
+      "ofb_area_km2": 244.69468298846846,
+      "symmetric_difference_inrae_km2": 2.7936131681464365,
+      "relative_pct": 1.1416730163597748,
+      "supplied_csv_difference_km2": 2.7936
+    },
+    {
+      "code": "95329",
+      "ofb_area_km2": 288.1248750385053,
+      "symmetric_difference_inrae_km2": 2.4578101295191908,
+      "relative_pct": 0.8530364235960975,
+      "supplied_csv_difference_km2": 2.4578
+    },
+    {
+      "code": "95330",
+      "ofb_area_km2": 582.9643111681015,
+      "symmetric_difference_inrae_km2": 5.291834928508667,
+      "relative_pct": 0.907745950674969,
+      "supplied_csv_difference_km2": 5.2918
+    },
+    {
+      "code": "95332",
+      "ofb_area_km2": 11.124019267538113,
+      "symmetric_difference_inrae_km2": 0.40915270425409994,
+      "relative_pct": 3.678101362590058,
+      "supplied_csv_difference_km2": 0.4092
+    },
+    {
+      "code": "95333",
+      "ofb_area_km2": 371.34977955284194,
+      "symmetric_difference_inrae_km2": 2.921282790278965,
+      "relative_pct": 0.7866660897972273,
+      "supplied_csv_difference_km2": 2.9213
+    }
+  ]
+}

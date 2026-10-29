@@ -1,0 +1,9 @@
+{
+  "source_url": "https://etalab-datasets.geo.data.gouv.fr/contours-administratifs/2018/geojson/departements-5m.geojson.gz",
+  "producer": "Etalab, derived from IGN ADMIN EXPRESS; independent of PRA export",
+  "edition": "2018",
+  "crs": "EPSG:4326",
+  "precision_description": "5 m generalization class; not a positional accuracy guarantee",
+  "pra_compatibility": "Unverified: PRA geometric vintage and accuracy undocumented; exploratory comparison only",
+  "archive_sha256": "ef306bd3ee3c8ba0f65fa19273fffc22089f5ac83abc0de5c0c2815060df5317"
+}

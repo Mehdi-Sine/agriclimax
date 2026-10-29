@@ -1,0 +1,3394 @@
+{
+  "scope": "Two temporal instants only; no daily or diagnostic calculation",
+  "receipt": {
+    "scope": "Two instants, national spatial availability probe only; no daily aggregation or PostgreSQL import",
+    "request": {
+      "product_type": "reanalysis",
+      "variable": [
+        "2m_temperature",
+        "total_precipitation"
+      ],
+      "year": "2026",
+      "month": "10",
+      "day": [
+        "01",
+        "07"
+      ],
+      "time": [
+        "12:00"
+      ],
+      "area": [
+        52,
+        -6,
+        41,
+        10
+      ],
+      "data_format": "netcdf",
+      "download_format": "unarchived"
+    },
+    "retrieved_at": "2026-10-18T11:29:06.636345+00:00",
+    "sha256": "ea94fdb403c59a8a3a95255ee7a726c8c9c03d8d071daa55a2ff2a9cbf5bf894",
+    "bytes": 150875,
+    "structural_absence_proven": false
+  },
+  "pra_count": 713,
+  "native_cells": 6861,
+  "instants": [
+    "2026-10-01T12:00:00Z",
+    "2026-10-07T12:00:00Z"
+  ],
+  "cell_missing_any_variable_instant": 269,
+  "cell_missing_all_variables_both_instants": 269,
+  "observed_bins": {
+    "at_least_99": 654,
+    "below_90": 31,
+    "90_to_below_99": 27,
+    "zero": 1
+  },
+  "structural_classification_established": false,
+  "missing_cells": {
+    "era5land.43.7.7.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.5.7.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.5.7.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.6.7.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.7.7.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.7.7.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.8.3.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.9.3.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.0.3.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.0.3.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.1.3.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.2.3.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.3.4.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.3.4.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.3.4.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.3.4.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.4.4.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.4.4.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.4.4.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.5.4.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.5.4.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.5.4.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.2.5.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.3.5.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.3.5.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.3.5.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.3.5.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.4.5.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.4.5.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.5.5.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.4.-0.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.3.-0.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.3.-0.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.3.-0.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.4.0.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.3.-0.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.7.-1.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.9.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.0.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.0.-1.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.1.-1.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.1.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.1.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.2.-1.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.2.-1.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.2.-1.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.2.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.3.-1.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.6.-1.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.6.-1.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.8.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.9.-1.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.9.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.0.-1.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.0.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.6.-2.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.6.-2.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.6.-2.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.7.-2.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.7.-2.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.8.-2.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.9.-3.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.9.-3.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.9.-3.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.9.-3.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.3.-4.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.3.-4.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.2.-4.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.2.-4.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.2.-4.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.3.-4.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.8.-4.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.8.-4.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.0.-4.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.0.-4.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.7.-4.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.7.-4.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.7.-4.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.8.-4.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.3.-4.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.3.-4.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.4.-5.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.4.-5.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.4.-4.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.5.-5.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.5.-5.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.5.-4.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.6.-4.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.1.-4.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.2.-4.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.8.-4.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.8.-3.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.8.-3.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.8.-3.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.0.-4.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.0.-4.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.0.-4.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.0.-4.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.1.-4.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.1.-4.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.1.-4.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.1.-4.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.41.5.9.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.41.6.9.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.41.6.9.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.41.7.8.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.41.9.8.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.41.9.8.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.0.8.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.0.8.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.1.8.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.2.8.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.2.8.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.3.8.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.41.4.9.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.41.4.9.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.41.4.9.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.41.5.8.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.41.7.8.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.41.9.9.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.4.8.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.4.8.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.1.9.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.2.9.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.3.9.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.6.8.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.6.8.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.6.8.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.6.9.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.5.8.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.7.9.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.7.9.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.8.9.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.9.9.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.9.9.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.9.9.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.0.9.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.0.9.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.0.9.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.5.4.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.5.-1.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.5.-1.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.44.6.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.44.6.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.44.7.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.44.7.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.44.8.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.44.9.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.1.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.2.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.2.-1.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.4.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.45.5.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.44.5.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.44.5.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.44.7.-1.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.5.3.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.2.3.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.3.3.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.3.3.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.3.3.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.4.3.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.4.3.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.4.3.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.5.4.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.7.-1.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.44.2.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.44.0.-1.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.44.0.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.6.-1.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.2.-2.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.2.-2.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.1.-2.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.1.-2.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.3.-2.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.4.-2.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.4.-2.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.5.-2.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.0.-2.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.6.-1.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.6.-1.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.7.-1.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.3.-1.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.4.-1.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.7.-1.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.7.-1.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.5.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.6.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.6.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.7.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.7.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.5.-1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.9.-1.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.2.-1.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.2.-1.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.7.-1.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.48.7.-1.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.3.-3.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.3.-3.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.3.-3.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.3.-2.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.4.-3.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.4.-3.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.4.-3.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.4.-2.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.5.-3.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.5.-3.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.5.-2.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.5.-2.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.5.-2.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.5.-2.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.6.-3.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.6.-3.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.7.-3.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.7.-3.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.51.1.2.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.51.1.2.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.50.8.1.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.50.9.1.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.51.0.1.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.51.0.1.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.51.0.2.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.4.-1.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.4.-1.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.5.-1.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.7.3.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.4.3.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.42.5.3.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.5.0.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.7.0.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.8.0.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.8.0.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.8.0.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.49.9.0.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.50.0.1.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.50.0.1.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.50.0.1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.50.1.1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.50.2.1.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.50.2.1.6": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.50.3.1.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.1.6.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.2.6.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.3.6.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.1.6.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.4.6.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.0.5.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.0.5.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.0.6.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.0.6.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.0.6.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.0.6.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.0.6.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.1.5.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.1.5.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.43.1.6.5": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.7.-2.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.7.-2.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.7.-2.0": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.8.-2.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.9.-2.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.0.-2.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.0.-2.2": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.47.0.-2.1": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.4.-1.7": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.6.-1.9": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.6.-1.8": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.3.-1.4": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    },
+    "era5land.46.3.-1.3": {
+      "t2m": [
+        false,
+        false
+      ],
+      "tp": [
+        false,
+        false
+      ]
+    }
+  },
+  "pra_below_99_observed": [
+    {
+      "code": "06249",
+      "name": "LITTORAL NICOIS - 06",
+      "department": "06",
+      "observed_fraction_oct01": 0.8692918641207557,
+      "observed_fraction_oct07": 0.8692918641207557,
+      "minimum_observed_fraction": 0.8692918641207557,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "11470",
+      "name": "REGION VITICOLE - 11",
+      "department": "11",
+      "observed_fraction_oct01": 0.9641519659224319,
+      "observed_fraction_oct07": 0.9641519659224319,
+      "minimum_observed_fraction": 0.9641519659224319,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "11471",
+      "name": "NARBONNAIS - 11",
+      "department": "11",
+      "observed_fraction_oct01": 0.9065635341573803,
+      "observed_fraction_oct07": 0.9065635341573803,
+      "minimum_observed_fraction": 0.9065635341573803,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "13244",
+      "name": "CAMARGUE - 13",
+      "department": "13",
+      "observed_fraction_oct01": 0.7888092110691269,
+      "observed_fraction_oct07": 0.7888092110691269,
+      "minimum_observed_fraction": 0.7888092110691269,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "13468",
+      "name": "COTEAUX DE PROVENCE - 13",
+      "department": "13",
+      "observed_fraction_oct01": 0.8980667533247565,
+      "observed_fraction_oct07": 0.8980667533247565,
+      "minimum_observed_fraction": 0.8980667533247565,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "13469",
+      "name": "LITTORAL DE PROVENCE - 13",
+      "department": "13",
+      "observed_fraction_oct01": 0.9260709079747366,
+      "observed_fraction_oct07": 0.9260709079747366,
+      "minimum_observed_fraction": 0.9260709079747366,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "14353",
+      "name": "PAYS D AUGE - 14",
+      "department": "14",
+      "observed_fraction_oct01": 0.9657735546410766,
+      "observed_fraction_oct07": 0.9657735546410766,
+      "minimum_observed_fraction": 0.9657735546410766,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "14355",
+      "name": "PLAINES DE CAEN ET DE FALAISE - 14",
+      "department": "14",
+      "observed_fraction_oct01": 0.9170711457169373,
+      "observed_fraction_oct07": 0.9170711457169373,
+      "minimum_observed_fraction": 0.9170711457169373,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "17111",
+      "name": "MARAIS DE ROCHEFORT ET MARENNES - 17",
+      "department": "17",
+      "observed_fraction_oct01": 0.9599558028371323,
+      "observed_fraction_oct07": 0.9599558028371323,
+      "minimum_observed_fraction": 0.9599558028371323,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "17374",
+      "name": "AUNIS - 17",
+      "department": "17",
+      "observed_fraction_oct01": 0.8486400642338845,
+      "observed_fraction_oct07": 0.8486400642338845,
+      "minimum_observed_fraction": 0.8486400642338845,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "17377",
+      "name": "SAINTONGE VITICOLE - 17",
+      "department": "17",
+      "observed_fraction_oct01": 0.8946179944127761,
+      "observed_fraction_oct07": 0.8946179944127761,
+      "minimum_observed_fraction": 0.8946179944127761,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "22358",
+      "name": "LITTORAL BRETON NORD - 22",
+      "department": "22",
+      "observed_fraction_oct01": 0.943851224067074,
+      "observed_fraction_oct07": 0.943851224067074,
+      "minimum_observed_fraction": 0.943851224067074,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "29101",
+      "name": "ZONE DE PLOUGASTEL-DAOULAS - 29",
+      "department": "29",
+      "observed_fraction_oct01": 0.8486596116160978,
+      "observed_fraction_oct07": 0.8486596116160978,
+      "minimum_observed_fraction": 0.8486596116160978,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "29102",
+      "name": "PRESQU ILE DE CROZON - 29",
+      "department": "29",
+      "observed_fraction_oct01": 0,
+      "observed_fraction_oct07": 0,
+      "minimum_observed_fraction": 0,
+      "observed_category": "zero",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "29103",
+      "name": "ZONE LEGUMIERE DE LA PENEPLAINE SUD - 29",
+      "department": "29",
+      "observed_fraction_oct01": 0.39940706754017047,
+      "observed_fraction_oct07": 0.39940706754017047,
+      "minimum_observed_fraction": 0.39940706754017047,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "29358",
+      "name": "LITTORAL BRETON NORD - 29",
+      "department": "29",
+      "observed_fraction_oct01": 0.9459016665211627,
+      "observed_fraction_oct07": 0.9459016665211627,
+      "minimum_observed_fraction": 0.9459016665211627,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "29361",
+      "name": "PENEPLAINE BRETONNE NORD - 29",
+      "department": "29",
+      "observed_fraction_oct01": 0.9595980976205128,
+      "observed_fraction_oct07": 0.9595980976205128,
+      "minimum_observed_fraction": 0.9595980976205128,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "29362",
+      "name": "BASSIN DE CHATEAULIN - 29",
+      "department": "29",
+      "observed_fraction_oct01": 0.9291212136614772,
+      "observed_fraction_oct07": 0.9291212136614772,
+      "minimum_observed_fraction": 0.9291212136614772,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "29363",
+      "name": "PENEPLAINE BRETONNE SUD - 29",
+      "department": "29",
+      "observed_fraction_oct01": 0.8203940844044206,
+      "observed_fraction_oct07": 0.8203940844044206,
+      "minimum_observed_fraction": 0.8203940844044206,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "2A258",
+      "name": "LITTORAL CORSE - 2A",
+      "department": "2A",
+      "observed_fraction_oct01": 0.4692215787208781,
+      "observed_fraction_oct07": 0.4692215787208781,
+      "minimum_observed_fraction": 0.4692215787208781,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "2A259",
+      "name": "COTEAUX CORSES - 2A",
+      "department": "2A",
+      "observed_fraction_oct01": 0.8845635429854587,
+      "observed_fraction_oct07": 0.8845635429854587,
+      "minimum_observed_fraction": 0.8845635429854587,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "2B258",
+      "name": "LITTORAL CORSE - 2B",
+      "department": "2B",
+      "observed_fraction_oct01": 0.8523500667147054,
+      "observed_fraction_oct07": 0.8523500667147054,
+      "minimum_observed_fraction": 0.8523500667147054,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "2B259",
+      "name": "COTEAUX CORSES - 2B",
+      "department": "2B",
+      "observed_fraction_oct01": 0.7645953157328961,
+      "observed_fraction_oct07": 0.7645953157328961,
+      "minimum_observed_fraction": 0.7645953157328961,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "30471",
+      "name": "PLAINE VITICOLE - 30",
+      "department": "30",
+      "observed_fraction_oct01": 0.9151607416991552,
+      "observed_fraction_oct07": 0.9151607416991552,
+      "minimum_observed_fraction": 0.9151607416991552,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "33115",
+      "name": "BAS-MEDOC - 33",
+      "department": "33",
+      "observed_fraction_oct01": 0.6250895705887968,
+      "observed_fraction_oct07": 0.6250895705887968,
+      "minimum_observed_fraction": 0.6250895705887968,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "33137",
+      "name": "LANDES DU MEDOC - 33",
+      "department": "33",
+      "observed_fraction_oct01": 0.8385368566114515,
+      "observed_fraction_oct07": 0.8385368566114515,
+      "minimum_observed_fraction": 0.8385368566114515,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "33378",
+      "name": "GRANDES LANDES - 33",
+      "department": "33",
+      "observed_fraction_oct01": 0.9481359308824623,
+      "observed_fraction_oct07": 0.9481359308824623,
+      "minimum_observed_fraction": 0.9481359308824623,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "34471",
+      "name": "PLAINE VITICOLE - 34",
+      "department": "34",
+      "observed_fraction_oct01": 0.828298320308539,
+      "observed_fraction_oct07": 0.828298320308539,
+      "minimum_observed_fraction": 0.828298320308539,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "40130",
+      "name": "PAYS DE BORN - 40",
+      "department": "40",
+      "observed_fraction_oct01": 0.9288993259519046,
+      "observed_fraction_oct07": 0.9288993259519046,
+      "minimum_observed_fraction": 0.9288993259519046,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "40131",
+      "name": "MARENSIN - 40",
+      "department": "40",
+      "observed_fraction_oct01": 0.8692293987607427,
+      "observed_fraction_oct07": 0.8692293987607427,
+      "minimum_observed_fraction": 0.8692293987607427,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "40132",
+      "name": "MARENNE - 40",
+      "department": "40",
+      "observed_fraction_oct01": 0.9764042995653717,
+      "observed_fraction_oct07": 0.9764042995653717,
+      "minimum_observed_fraction": 0.9764042995653717,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "40144",
+      "name": "SEIGNANX - 40",
+      "department": "40",
+      "observed_fraction_oct01": 0.8889803665316505,
+      "observed_fraction_oct07": 0.8889803665316505,
+      "minimum_observed_fraction": 0.8889803665316505,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "44106",
+      "name": "ESTUAIRE DE LA LOIRE - 44",
+      "department": "44",
+      "observed_fraction_oct01": 0.9842032749295404,
+      "observed_fraction_oct07": 0.9842032749295404,
+      "minimum_observed_fraction": 0.9842032749295404,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "44108",
+      "name": "PAYS DE RETZ - 44",
+      "department": "44",
+      "observed_fraction_oct01": 0.8880962258758613,
+      "observed_fraction_oct07": 0.8880962258758613,
+      "minimum_observed_fraction": 0.8880962258758613,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "44364",
+      "name": "PRESQU'ILE GUERANDAISE ET GRANDE BRIERE - 44",
+      "department": "44",
+      "observed_fraction_oct01": 0.8437314181659112,
+      "observed_fraction_oct07": 0.8437314181659112,
+      "minimum_observed_fraction": 0.8437314181659112,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "44365",
+      "name": "MARAIS BRETON - 44",
+      "department": "44",
+      "observed_fraction_oct01": 0.8744163164905747,
+      "observed_fraction_oct07": 0.8744163164905747,
+      "minimum_observed_fraction": 0.8744163164905747,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "50081",
+      "name": "LA HAGUE - 50",
+      "department": "50",
+      "observed_fraction_oct01": 0.4392698929830878,
+      "observed_fraction_oct07": 0.4392698929830878,
+      "minimum_observed_fraction": 0.4392698929830878,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "50082",
+      "name": "BOCAGE DE VALOGNES - 50",
+      "department": "50",
+      "observed_fraction_oct01": 0.8985468114265341,
+      "observed_fraction_oct07": 0.8985468114265341,
+      "minimum_observed_fraction": 0.8985468114265341,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "50083",
+      "name": "VAL DE SAIRE - 50",
+      "department": "50",
+      "observed_fraction_oct01": 0.5290317530925099,
+      "observed_fraction_oct07": 0.5290317530925099,
+      "minimum_observed_fraction": 0.5290317530925099,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "50084",
+      "name": "COTENTIN - 50",
+      "department": "50",
+      "observed_fraction_oct01": 0.909439459848472,
+      "observed_fraction_oct07": 0.909439459848472,
+      "minimum_observed_fraction": 0.909439459848472,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "50086",
+      "name": "BOCAGE DE COUTANCES ET SAINT-LO - 50",
+      "department": "50",
+      "observed_fraction_oct01": 0.966332527574241,
+      "observed_fraction_oct07": 0.966332527574241,
+      "minimum_observed_fraction": 0.966332527574241,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "50087",
+      "name": "AVRANCHIN - 50",
+      "department": "50",
+      "observed_fraction_oct01": 0.9523685722380425,
+      "observed_fraction_oct07": 0.9523685722380425,
+      "minimum_observed_fraction": 0.9523685722380425,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "56364",
+      "name": "LITTORAL BRETON SUD - 56",
+      "department": "56",
+      "observed_fraction_oct01": 0.6672327714923467,
+      "observed_fraction_oct07": 0.6672327714923467,
+      "minimum_observed_fraction": 0.6672327714923467,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "59325",
+      "name": "FLANDRE MARITIME - 59",
+      "department": "59",
+      "observed_fraction_oct01": 0.988177403555667,
+      "observed_fraction_oct07": 0.988177403555667,
+      "minimum_observed_fraction": 0.988177403555667,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "62029",
+      "name": "BOULONNAIS - 62",
+      "department": "62",
+      "observed_fraction_oct01": 0.9205695638102344,
+      "observed_fraction_oct07": 0.9205695638102344,
+      "minimum_observed_fraction": 0.9205695638102344,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "62325",
+      "name": "WATERINGUES - 62",
+      "department": "62",
+      "observed_fraction_oct01": 0.8434556049927447,
+      "observed_fraction_oct07": 0.8434556049927447,
+      "minimum_observed_fraction": 0.8434556049927447,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "64138",
+      "name": "COTE BASQUE - 64",
+      "department": "64",
+      "observed_fraction_oct01": 0.7810293706444065,
+      "observed_fraction_oct07": 0.7810293706444065,
+      "minimum_observed_fraction": 0.7810293706444065,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "66252",
+      "name": "PLAINE DU ROUSSILON - 66",
+      "department": "66",
+      "observed_fraction_oct01": 0.8602622725532107,
+      "observed_fraction_oct07": 0.8602622725532107,
+      "minimum_observed_fraction": 0.8602622725532107,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "66254",
+      "name": "CRU BANYULS - 66",
+      "department": "66",
+      "observed_fraction_oct01": 0.9322428436688067,
+      "observed_fraction_oct07": 0.9322428436688067,
+      "minimum_observed_fraction": 0.9322428436688067,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "76046",
+      "name": "PAYS DE CAUX - 76",
+      "department": "76",
+      "observed_fraction_oct01": 0.9421832945090279,
+      "observed_fraction_oct07": 0.9421832945090279,
+      "minimum_observed_fraction": 0.9421832945090279,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "76047",
+      "name": "PETIT CAUX - 76",
+      "department": "76",
+      "observed_fraction_oct01": 0.8302416592053758,
+      "observed_fraction_oct07": 0.8302416592053758,
+      "minimum_observed_fraction": 0.8302416592053758,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "80037",
+      "name": "MARQUENTERRE - 80",
+      "department": "80",
+      "observed_fraction_oct01": 0.7778511767974388,
+      "observed_fraction_oct07": 0.7778511767974388,
+      "minimum_observed_fraction": 0.7778511767974388,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "80038",
+      "name": "VIMEU - 80",
+      "department": "80",
+      "observed_fraction_oct01": 0.9728623673490356,
+      "observed_fraction_oct07": 0.9728623673490356,
+      "minimum_observed_fraction": 0.9728623673490356,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "83247",
+      "name": "MAURES ET ESTEREL - 83",
+      "department": "83",
+      "observed_fraction_oct01": 0.9614688820896001,
+      "observed_fraction_oct07": 0.9614688820896001,
+      "minimum_observed_fraction": 0.9614688820896001,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "83248",
+      "name": "REGIONS FRUITIERES DE SOLLIES-PONT ET DE FREJUS - 83",
+      "department": "83",
+      "observed_fraction_oct01": 0.968796697627486,
+      "observed_fraction_oct07": 0.968796697627486,
+      "minimum_observed_fraction": 0.968796697627486,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "83469",
+      "name": "LITTORAL DE PROVENCE - 83",
+      "department": "83",
+      "observed_fraction_oct01": 0.7874651605721475,
+      "observed_fraction_oct07": 0.7874651605721475,
+      "minimum_observed_fraction": 0.7874651605721475,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "85365",
+      "name": "MARAIS BRETON - 85",
+      "department": "85",
+      "observed_fraction_oct01": 0.6172217036801729,
+      "observed_fraction_oct07": 0.6172217036801729,
+      "minimum_observed_fraction": 0.6172217036801729,
+      "observed_category": "below_90",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "85368",
+      "name": "BAS BOCAGE - 85",
+      "department": "85",
+      "observed_fraction_oct01": 0.9726297334555114,
+      "observed_fraction_oct07": 0.9726297334555114,
+      "minimum_observed_fraction": 0.9726297334555114,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    },
+    {
+      "code": "85369",
+      "name": "MARAIS POITEVIN DESSECHE - 85",
+      "department": "85",
+      "observed_fraction_oct01": 0.9401202467856143,
+      "observed_fraction_oct07": 0.9401202467856143,
+      "minimum_observed_fraction": 0.9401202467856143,
+      "observed_category": "90_to_below_99",
+      "structural_coverage": null,
+      "structural_status": "unknown_mask_not_verified"
+    }
+  ],
+  "interpolation": false,
+  "weight_renormalization": false
+}

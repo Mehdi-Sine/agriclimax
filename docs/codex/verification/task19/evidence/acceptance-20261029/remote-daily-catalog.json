@@ -1,0 +1,143 @@
+{
+  "table": {
+    "rls": true,
+    "force_rls": true
+  },
+  "columns": [
+    {
+      "name": "content_key",
+      "type": "text",
+      "default": null,
+      "not_null": true
+    },
+    {
+      "name": "window_end",
+      "type": "date",
+      "default": null,
+      "not_null": true
+    },
+    {
+      "name": "computed_at",
+      "type": "timestamp with time zone",
+      "default": null,
+      "not_null": true
+    },
+    {
+      "name": "payload",
+      "type": "jsonb",
+      "default": null,
+      "not_null": true
+    }
+  ],
+  "indexes": [
+    {
+      "name": "daily_snapshots_latest_idx",
+      "definition": "CREATE INDEX daily_snapshots_latest_idx ON agriclimax_private.daily_snapshots USING btree (window_end DESC, computed_at DESC, content_key)"
+    },
+    {
+      "name": "daily_snapshots_pkey",
+      "definition": "CREATE UNIQUE INDEX daily_snapshots_pkey ON agriclimax_private.daily_snapshots USING btree (content_key)"
+    }
+  ],
+  "policies": [
+    {
+      "cmd": "INSERT",
+      "qual": null,
+      "roles": [
+        "service_role"
+      ],
+      "tablename": "daily_snapshots",
+      "permissive": "PERMISSIVE",
+      "policyname": "daily_server_insert",
+      "schemaname": "agriclimax_private",
+      "with_check": "true"
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "true",
+      "roles": [
+        "service_role"
+      ],
+      "tablename": "daily_snapshots",
+      "permissive": "PERMISSIVE",
+      "policyname": "daily_server_read",
+      "schemaname": "agriclimax_private",
+      "with_check": null
+    }
+  ],
+  "functions": [
+    {
+      "body": "\r\ndeclare portfolio jsonb; n integer;\r\nbegin\r\n  if not coalesce(p_key ~ '^[a-f0-9]{64}$'\r\n    and p_payload->>'schema_version'='daily-1'\r\n    and octet_length(p_payload::text)<=8000000\r\n    and (p_payload->>'to')::date between (p_payload->>'from')::date\r\n      and (p_payload->>'from')::date+6\r\n    and (p_payload->>'to')::date < current_date\r\n    and (p_payload->>'computed_at')::timestamptz <= now()+interval '5 minutes'\r\n    and jsonb_typeof(p_payload->'wheat')='array'\r\n    and jsonb_typeof(p_payload->'cattle')='array'\r\n    and jsonb_array_length(p_payload->'wheat') between 1 and 10\r\n    and jsonb_array_length(p_payload->'wheat')=jsonb_array_length(p_payload->'cattle'),false)\r\n  then raise exception 'Invalid daily snapshot'; end if;\r\n  if exists(select 1 from jsonb_array_elements(p_payload->'wheat') w\r\n    where not coalesce(w#>>'{period,start}'=p_payload->>'from'\r\n      and w#>>'{period,end}'=p_payload->>'to'\r\n      and (select count(*) from jsonb_array_elements(p_payload->'cattle') c\r\n        where c->>'station_id'=w->>'station_id'\r\n        and c->>'production'='cattle' and c->>'rule_version' is not null\r\n        and jsonb_typeof(c->'provenance')='array'\r\n        and jsonb_typeof(c->'quality_flags')='array'\r\n        and c->>'data_freshness' in ('fresh','stale'))=1,false))\r\n    or (select count(distinct w->>'station_id') from jsonb_array_elements(p_payload->'wheat') w)\r\n       <>jsonb_array_length(p_payload->'wheat')\r\n  then raise exception 'Unpaired daily snapshot'; end if;\r\n  -- Serialize publication/replay, including concurrent runners outside Actions.\r\n  perform pg_advisory_xact_lock(170017);\r\n  insert into agriclimax_private.daily_snapshots values\r\n    (p_key,(p_payload->>'to')::date,(p_payload->>'computed_at')::timestamptz,p_payload)\r\n    on conflict(content_key) do nothing;\r\n  get diagnostics n=row_count;\r\n  if n=0 then return false; end if;\r\n  for portfolio in select value from jsonb_array_elements(p_payload->'wheat') loop\r\n    perform public.agriclimax_persist_wheat(\r\n      md5(p_key || (portfolio->>'station_id')) || md5((portfolio->>'station_id') || p_key),\r\n      portfolio);\r\n  end loop;\r\n  -- Any portfolio failure rolls back the snapshot and every portfolio in this call.\r\n  return true;\r\nend ",
+      "name": "agriclimax_publish_daily(text,jsonb)",
+      "config": [
+        "search_path=pg_catalog",
+        "statement_timeout=20s"
+      ],
+      "returns": "boolean",
+      "language": "plpgsql",
+      "arguments": "p_key text, p_payload jsonb",
+      "volatility": "v",
+      "anon_execute": false,
+      "service_execute": true,
+      "security_definer": false,
+      "authenticated_execute": false
+    },
+    {
+      "body": "\r\ndeclare latest jsonb; selected jsonb;\r\nbegin\r\n  if (p_start is null) <> (p_end is null) or\r\n    (p_start is not null and (p_end < p_start or p_end-p_start > 365 or p_end >= current_date))\r\n    then raise exception 'Invalid daily selection'; end if;\r\n  select jsonb_build_object('content_key',d.content_key,'payload',d.payload)\r\n    into latest from agriclimax_private.daily_snapshots d\r\n    order by d.window_end desc,d.computed_at desc,d.content_key limit 1;\r\n  if p_start is null then selected:=latest;\r\n  else\r\n    select jsonb_build_object('content_key',d.content_key,'payload',d.payload)\r\n      into selected from agriclimax_private.daily_snapshots d\r\n      where d.window_end=p_end and d.payload->>'from'=p_start::text\r\n      order by d.computed_at desc,d.content_key limit 1;\r\n  end if;\r\n  return jsonb_build_object('latest',latest,'selected',selected);\r\nend ",
+      "name": "agriclimax_read_daily(date,date)",
+      "config": [
+        "search_path=pg_catalog",
+        "statement_timeout=5s"
+      ],
+      "returns": "jsonb",
+      "language": "plpgsql",
+      "arguments": "p_start date DEFAULT NULL::date, p_end date DEFAULT NULL::date",
+      "volatility": "s",
+      "anon_execute": false,
+      "service_execute": true,
+      "security_definer": false,
+      "authenticated_execute": false
+    }
+  ],
+  "constraints": [
+    {
+      "name": "daily_snapshots_content_key_check",
+      "definition": "CHECK ((content_key ~ '^[a-f0-9]{64}$'::text))"
+    },
+    {
+      "name": "daily_snapshots_payload_check",
+      "definition": "CHECK ((jsonb_typeof(payload) = 'object'::text))"
+    },
+    {
+      "name": "daily_snapshots_pkey",
+      "definition": "PRIMARY KEY (content_key)"
+    }
+  ],
+  "table_privileges": [
+    {
+      "role": "anon",
+      "delete": false,
+      "insert": false,
+      "select": false,
+      "update": false,
+      "truncate": false
+    },
+    {
+      "role": "authenticated",
+      "delete": false,
+      "insert": false,
+      "select": false,
+      "update": false,
+      "truncate": false
+    },
+    {
+      "role": "service_role",
+      "delete": false,
+      "insert": true,
+      "select": true,
+      "update": false,
+      "truncate": false
+    }
+  ],
+  "dependency_persist_wheat": "agriclimax_persist_wheat(text,jsonb)"
+}

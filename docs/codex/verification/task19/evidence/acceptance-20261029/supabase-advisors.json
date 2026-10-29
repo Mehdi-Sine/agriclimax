@@ -1,0 +1,89 @@
+{
+  "scope": "current read-only Supabase advisor; existing Task04/18 exceptions remain, not a zero-advisor claim",
+  "lints": [
+    {
+      "name": "rls_disabled_in_public",
+      "level": "ERROR",
+      "count": 1,
+      "objects": [
+        {
+          "schema": "public",
+          "name": "spatial_ref_sys"
+        }
+      ]
+    },
+    {
+      "name": "extension_in_public",
+      "level": "WARN",
+      "count": 1,
+      "objects": [
+        {
+          "schema": "public",
+          "name": "postgis"
+        }
+      ]
+    },
+    {
+      "name": "anon_security_definer_function_executable",
+      "level": "WARN",
+      "count": 6,
+      "objects": [
+        {
+          "schema": "public",
+          "name": "agriclimax_map_risks"
+        },
+        {
+          "schema": "public",
+          "name": "agriclimax_risk_series"
+        },
+        {
+          "schema": "public",
+          "name": "agriclimax_territory_risks"
+        },
+        {
+          "schema": "public",
+          "name": "st_estimatedextent"
+        },
+        {
+          "schema": "public",
+          "name": "st_estimatedextent"
+        },
+        {
+          "schema": "public",
+          "name": "st_estimatedextent"
+        }
+      ]
+    },
+    {
+      "name": "authenticated_security_definer_function_executable",
+      "level": "WARN",
+      "count": 6,
+      "objects": [
+        {
+          "schema": "public",
+          "name": "agriclimax_map_risks"
+        },
+        {
+          "schema": "public",
+          "name": "agriclimax_risk_series"
+        },
+        {
+          "schema": "public",
+          "name": "agriclimax_territory_risks"
+        },
+        {
+          "schema": "public",
+          "name": "st_estimatedextent"
+        },
+        {
+          "schema": "public",
+          "name": "st_estimatedextent"
+        },
+        {
+          "schema": "public",
+          "name": "st_estimatedextent"
+        }
+      ]
+    }
+  ]
+}

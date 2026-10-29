@@ -1,0 +1,7 @@
+BEGIN
+SET
+SET
+DO
+INSERT 0 0
+psql:/repo/work/task19/official/conflict.sql:7: ERROR:  Reference revision conflict
+CONTEXT:  PL/pgSQL function inline_code_block line 1 at RAISE

@@ -1,0 +1,254 @@
+[
+  {
+    "case": "plain",
+    "source": "era5-land",
+    "source_date": "2026-10-01",
+    "weights": "total-area-epsg3035-1",
+    "support": "geographic_box_not_official_PRA",
+    "statistics": {
+      "temperature": {
+        "value": 17.008061189227305,
+        "observed_value": 17.008061189227305,
+        "valid_cells": 9,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 1,
+        "status": "available",
+        "method": "native-then-spatial_mean-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory"
+        ]
+      },
+      "temperature_min": {
+        "value": 12.549188232421898,
+        "observed_value": 12.549188232421898,
+        "valid_cells": 9,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 1,
+        "status": "available",
+        "method": "native-then-spatial_min-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory"
+        ]
+      },
+      "temperature_max": {
+        "value": 20.990747070312523,
+        "observed_value": 20.990747070312523,
+        "valid_cells": 9,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 1,
+        "status": "available",
+        "method": "native-then-spatial_max-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory"
+        ]
+      },
+      "precipitation": {
+        "value": 2.786461528282394,
+        "observed_value": 2.786461528282394,
+        "valid_cells": 9,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 1,
+        "status": "available",
+        "method": "native-then-spatial_mean-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory"
+        ]
+      }
+    },
+    "official_pra_validated": 0
+  },
+  {
+    "case": "mountain",
+    "source": "era5-land",
+    "source_date": "2026-10-01",
+    "weights": "total-area-epsg3035-1",
+    "support": "geographic_box_not_official_PRA",
+    "statistics": {
+      "temperature": {
+        "value": 8.981840872665181,
+        "observed_value": 8.981840872665181,
+        "valid_cells": 9,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 0.9999999999999778,
+        "status": "available",
+        "method": "native-then-spatial_mean-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory"
+        ]
+      },
+      "temperature_min": {
+        "value": 6.312890625000023,
+        "observed_value": 6.312890625000023,
+        "valid_cells": 9,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 0.9999999999999778,
+        "status": "available",
+        "method": "native-then-spatial_min-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory"
+        ]
+      },
+      "temperature_max": {
+        "value": 12.309899902343773,
+        "observed_value": 12.309899902343773,
+        "valid_cells": 9,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 0.9999999999999778,
+        "status": "available",
+        "method": "native-then-spatial_max-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory"
+        ]
+      },
+      "precipitation": {
+        "value": 2.869860138342929,
+        "observed_value": 2.869860138342929,
+        "valid_cells": 9,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 0.9999999999999778,
+        "status": "available",
+        "method": "native-then-spatial_mean-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory"
+        ]
+      }
+    },
+    "official_pra_validated": 0
+  },
+  {
+    "case": "coastal",
+    "source": "era5-land",
+    "source_date": "2026-10-01",
+    "weights": "total-area-epsg3035-1",
+    "support": "geographic_box_not_official_PRA",
+    "statistics": {
+      "temperature": {
+        "value": null,
+        "observed_value": 15.535183090413948,
+        "valid_cells": 7,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 0.8123629250180393,
+        "status": "partial",
+        "method": "native-then-spatial_mean-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory",
+          "missing_cells"
+        ]
+      },
+      "temperature_min": {
+        "value": null,
+        "observed_value": 12.819604492187523,
+        "valid_cells": 7,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 0.8123629250180393,
+        "status": "partial",
+        "method": "native-then-spatial_min-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory",
+          "missing_cells"
+        ]
+      },
+      "temperature_max": {
+        "value": null,
+        "observed_value": 18.178247070312523,
+        "valid_cells": 7,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 0.8123629250180393,
+        "status": "partial",
+        "method": "native-then-spatial_max-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory",
+          "missing_cells"
+        ]
+      },
+      "precipitation": {
+        "value": null,
+        "observed_value": 0.15046326105646982,
+        "valid_cells": 7,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 0.8123629250180393,
+        "status": "partial",
+        "method": "native-then-spatial_mean-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory",
+          "missing_cells"
+        ]
+      }
+    },
+    "official_pra_validated": 0
+  },
+  {
+    "case": "corsica",
+    "source": "era5-land",
+    "source_date": "2026-10-01",
+    "weights": "total-area-epsg3035-1",
+    "support": "geographic_box_not_official_PRA",
+    "statistics": {
+      "temperature": {
+        "value": 16.407092260926348,
+        "observed_value": 16.407092260926348,
+        "valid_cells": 9,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 0.9999999999998199,
+        "status": "available",
+        "method": "native-then-spatial_mean-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory"
+        ]
+      },
+      "temperature_min": {
+        "value": 12.648706054687523,
+        "observed_value": 12.648706054687523,
+        "valid_cells": 9,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 0.9999999999998199,
+        "status": "available",
+        "method": "native-then-spatial_min-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory"
+        ]
+      },
+      "temperature_max": {
+        "value": 22.040338134765648,
+        "observed_value": 22.040338134765648,
+        "valid_cells": 9,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 0.9999999999998199,
+        "status": "available",
+        "method": "native-then-spatial_max-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory"
+        ]
+      },
+      "precipitation": {
+        "value": 7.813667144018465,
+        "observed_value": 7.813667144018465,
+        "valid_cells": 9,
+        "expected_cells": 9,
+        "valid_weighted_coverage": 0.9999999999998199,
+        "status": "available",
+        "method": "native-then-spatial_mean-total-area-1",
+        "quality_flags": [
+          "total_area_not_agricultural_area",
+          "exploratory"
+        ]
+      }
+    },
+    "official_pra_validated": 0
+  }
+]

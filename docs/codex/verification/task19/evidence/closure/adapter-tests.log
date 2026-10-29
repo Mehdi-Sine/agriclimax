@@ -1,0 +1,13 @@
+........                                                                 [100%]
+=============================== warnings summary ===============================
+tests/territories/test_closure_audit.py::test_mask_contradiction_remains_unknown_and_wrong_grid_is_rejected
+  <frozen importlib._bootstrap>:488: RuntimeWarning: numpy.ndarray size changed, may indicate binary incompatibility. Expected 16 from C header, got 96 from PyObject
+
+tests/territories/test_closure_audit.py::test_mask_contradiction_remains_unknown_and_wrong_grid_is_rejected
+tests/territories/test_closure_audit.py::test_mask_contradiction_remains_unknown_and_wrong_grid_is_rejected
+  /workspace/agriclimax/work/venv/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:96: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+  As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+    data[key] = value
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 3 warnings in 0.68s

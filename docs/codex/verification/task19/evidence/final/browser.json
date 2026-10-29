@@ -1,0 +1,117 @@
+{
+  "local_real_postgis": true,
+  "production_supabase_tested": false,
+  "reference": "ofb-masa-pra-2017-snapshot-20261017",
+  "dataset": "task19-ofb-pilot-cds-20261017",
+  "lookup_count": 713,
+  "results": [
+    {
+      "pra_id": "pra:05236",
+      "width": 1440,
+      "axe": 0,
+      "no_overflow": true,
+      "real_values_match": true,
+      "stale": true,
+      "source": "era5-land"
+    },
+    {
+      "pra_id": "pra:05236",
+      "width": 768,
+      "axe": 0,
+      "no_overflow": true,
+      "real_values_match": true,
+      "stale": true,
+      "source": "era5-land"
+    },
+    {
+      "pra_id": "pra:05236",
+      "width": 390,
+      "axe": 0,
+      "no_overflow": true,
+      "real_values_match": true,
+      "stale": true,
+      "source": "era5-land"
+    },
+    {
+      "pra_id": "pra:28341",
+      "width": 1440,
+      "axe": 0,
+      "no_overflow": true,
+      "real_values_match": true,
+      "stale": true,
+      "source": "era5-land"
+    },
+    {
+      "pra_id": "pra:28341",
+      "width": 768,
+      "axe": 0,
+      "no_overflow": true,
+      "real_values_match": true,
+      "stale": true,
+      "source": "era5-land"
+    },
+    {
+      "pra_id": "pra:28341",
+      "width": 390,
+      "axe": 0,
+      "no_overflow": true,
+      "real_values_match": true,
+      "stale": true,
+      "source": "era5-land"
+    },
+    {
+      "pra_id": "pra:29102",
+      "width": 1440,
+      "axe": 0,
+      "no_overflow": true,
+      "real_values_match": true,
+      "stale": true,
+      "source": "era5-land"
+    },
+    {
+      "pra_id": "pra:29102",
+      "width": 768,
+      "axe": 0,
+      "no_overflow": true,
+      "real_values_match": true,
+      "stale": true,
+      "source": "era5-land"
+    },
+    {
+      "pra_id": "pra:29102",
+      "width": 390,
+      "axe": 0,
+      "no_overflow": true,
+      "real_values_match": true,
+      "stale": true,
+      "source": "era5-land"
+    },
+    {
+      "pra_id": "pra:2B260",
+      "width": 1440,
+      "axe": 0,
+      "no_overflow": true,
+      "real_values_match": true,
+      "stale": true,
+      "source": "era5-land"
+    },
+    {
+      "pra_id": "pra:2B260",
+      "width": 768,
+      "axe": 0,
+      "no_overflow": true,
+      "real_values_match": true,
+      "stale": true,
+      "source": "era5-land"
+    },
+    {
+      "pra_id": "pra:2B260",
+      "width": 390,
+      "axe": 0,
+      "no_overflow": true,
+      "real_values_match": true,
+      "stale": true,
+      "source": "era5-land"
+    }
+  ]
+}

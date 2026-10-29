@@ -1,0 +1,9 @@
+BEGIN
+DO
+SET
+ corsica_lookup_valid
+----------------------
+ t
+(1 row)
+
+ROLLBACK

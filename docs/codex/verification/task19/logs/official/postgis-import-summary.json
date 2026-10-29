@@ -1,0 +1,62 @@
+{
+  "local-setup.log": {
+    "sha256": "e6832cd8dee5ef3ce6fc440e65dc566179ae5deff8b2544b8d1791ba6fde1cd5",
+    "lines": 188,
+    "errors": 0,
+    "inserted_rows_statements": 0,
+    "replayed_insert_statements": 0,
+    "tail": [
+      "GRANT",
+      "REVOKE",
+      "GRANT",
+      "NOTIFY",
+      "COMMIT",
+      "17386643"
+    ]
+  },
+  "local-import.log": {
+    "sha256": "9d71cc12fb948bf00857f3ec069e91f2feb70dd5bc7f34420a46a30c85119f47",
+    "lines": 16082,
+    "errors": 0,
+    "inserted_rows_statements": 15363,
+    "replayed_insert_statements": 0,
+    "tail": [
+      "INSERT 0 1",
+      "INSERT 0 1",
+      "INSERT 0 1",
+      "INSERT 0 1",
+      "INSERT 0 1",
+      "COMMIT"
+    ]
+  },
+  "local-replay.log": {
+    "sha256": "fa532867785e719fed0da29409b3c4d55dd2f4dccb234eb350721ea29e663ebc",
+    "lines": 16082,
+    "errors": 0,
+    "inserted_rows_statements": 0,
+    "replayed_insert_statements": 15363,
+    "tail": [
+      "INSERT 0 0",
+      "INSERT 0 0",
+      "INSERT 0 0",
+      "INSERT 0 0",
+      "INSERT 0 0",
+      "COMMIT"
+    ]
+  },
+  "local-bundle-replay.log": {
+    "sha256": "fa532867785e719fed0da29409b3c4d55dd2f4dccb234eb350721ea29e663ebc",
+    "lines": 16082,
+    "errors": 0,
+    "inserted_rows_statements": 0,
+    "replayed_insert_statements": 15363,
+    "tail": [
+      "INSERT 0 0",
+      "INSERT 0 0",
+      "INSERT 0 0",
+      "INSERT 0 0",
+      "INSERT 0 0",
+      "COMMIT"
+    ]
+  }
+}

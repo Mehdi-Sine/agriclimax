@@ -1,0 +1,29 @@
+{
+  "department_archive": {
+    "url": "https://etalab-datasets.geo.data.gouv.fr/contours-administratifs/2018/geojson/departements-5m.geojson.gz",
+    "sha256": "ef306bd3ee3c8ba0f65fa19273fffc22089f5ac83abc0de5c0c2815060df5317"
+  },
+  "communes_archive": {
+    "url": "https://etalab-datasets.geo.data.gouv.fr/contours-administratifs/2018/geojson/communes-5m.geojson.gz",
+    "sha256": "8171fb7bbbe2304f0d406e8313a4582b3cbed33ce8fcdd76cd76f179a8b50713",
+    "selection": "Unmodified features selected by official codes; 13055, 69123 and 44180 used for review; other selected names are ignored by CLI."
+  },
+  "freigne_change": {
+    "url": "https://www.legifrance.gouv.fr/eli/decret/2017/12/26/INTB1732423D/jo/texte",
+    "effective_date": "2018-01-01",
+    "decree": "2017-1757",
+    "interpretation": "Department change documented, not a verified vintage for the whole PRA geometry"
+  },
+  "berre_context": {
+    "url": "https://etangdeberre.org/decouvrir/geographie/",
+    "published_area_km2": 155,
+    "interpretation": "Location/area consistent with 155.25 km2 gap; not a polygon overlay certification"
+  },
+  "lyon_context": {
+    "url": "https://domaine-public-fluvial.vnf.fr/app/uploads/2023/01/Tarifs_Domaniaux_et_Services_2023.pdf",
+    "page_1_based": 81,
+    "interpretation": "Public establishment document lists Lyon in Zone maraichere de Lyon; contextual evidence against assuming normal exclusion, not an authoritative 2017 polygon"
+  },
+  "geometry_vintage": null,
+  "generalization_not_positional_accuracy": true
+}

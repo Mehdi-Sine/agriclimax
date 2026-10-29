@@ -23,6 +23,16 @@ LIMITS = (
 )
 
 
+def gdd_sum(values: list[float], base_c: float) -> float:
+    """Shared native-support kernel; no source identity or risk interpretation."""
+    return sum(max(t - base_c, 0) for t in values)
+
+
+def threshold_days(values: list[float], condition: Callable[[float], bool]) -> float:
+    """Same existing MVP threshold count, reusable before spatial aggregation."""
+    return sum(condition(t) for t in values)
+
+
 def runs(values: list[float], predicate: Callable[[float], bool], minimum: int) -> tuple[int, int]:
     lengths: list[int] = []
     length = 0
@@ -185,7 +195,7 @@ def calculate(
         "gdd",
         "temperature",
         "degC day",
-        lambda v: sum(max(t - p.gdd_base_c, 0) for t in v),
+        lambda v: gdd_sum(v, p.gdd_base_c),
         {"base_c": p.gdd_base_c, "upper_cap": None, "method": "source_daily_mean"},
     )
 
@@ -214,7 +224,7 @@ def calculate(
     ):
 
         def count_days(v: list[float], c: Callable[[float], bool] = condition) -> float:
-            return sum(c(t) for t in v)
+            return threshold_days(v, c)
 
         add(f"{name}_days", variable, "day", count_days, threshold)
         add(
@@ -228,7 +238,7 @@ def calculate(
         )
     add("precipitation_sum", "precipitation", "mm", sum)
     dry_threshold = {"operator": "<", "value": p.dry_threshold_mm, "unit": "mm/day"}
-    add("dry_days", "precipitation", "day", lambda v: sum(dry(t) for t in v), dry_threshold)
+    add("dry_days", "precipitation", "day", lambda v: threshold_days(v, dry), dry_threshold)
     add("dry_spell_max", "precipitation", "day", lambda v: 0, dry_threshold, dry)
     for name, variable, unit in (
         ("temperature_anomaly", "temperature", "degC"),

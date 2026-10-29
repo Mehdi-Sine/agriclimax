@@ -1,0 +1,30 @@
+{
+  "area_crs": "EPSG:3035",
+  "input_sha256": {
+    "work/geography-qualification/inrae-pra.zip": "2aa7b8dba936215a6f5db9914f1fb5d9364c3730d998a511f63bf2f5db124dd1",
+    "docs/codex/verification/task19/evidence/acceptance-20261029/selected-communes-2018.json": "3653e311c9b331cdfd173171cbff2a5311377cc838126fd391b8eea84c47996f"
+  },
+  "geometries_modified": false,
+  "rows": [
+    {
+      "commune": "69123",
+      "pra": "69196",
+      "commune_area_km2": 47.98047327380084,
+      "inrae_pra_area_km2": 184.47994645141696,
+      "inrae_intersection_km2": 47.966346777828775,
+      "ofb_intersection_same_pra_km2": 0.8983741829038521,
+      "inrae_geometry_count": 1,
+      "inrae_repeated_rows": 9
+    },
+    {
+      "commune": "13055",
+      "pra": "13469",
+      "commune_area_km2": 241.8916660311038,
+      "inrae_pra_area_km2": 409.53591993053726,
+      "inrae_intersection_km2": 232.73319155533682,
+      "ofb_intersection_same_pra_km2": 0.5640020701691318,
+      "inrae_geometry_count": 1,
+      "inrae_repeated_rows": 11
+    }
+  ]
+}

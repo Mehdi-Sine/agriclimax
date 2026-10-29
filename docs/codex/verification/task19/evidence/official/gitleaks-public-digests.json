@@ -1,0 +1,15 @@
+{
+  "commit_scanned": "fa37d4abab1bfe3b3024355e71195c8639abe477",
+  "false_positive_count": 48,
+  "rule": "generic-api-key",
+  "all_detected_locations_verified_as_public_digest": true,
+  "public_batch_identity_sha256": {
+    "pra:29102": "6c3b90a6613725e8bde4342a5b38366d37422cb0480ac812e2319a6606f927bf",
+    "pra:28341": "238ecf0e9f275610b800674d1eae186d852727ee4d2a17f0dd1482a0db52eab9",
+    "pra:2B260": "303e5f51d00548025025b7dda6b7ae31b2f14f841ed13fef2b94c1b42e437300",
+    "pra:05236": "f75789a970d10d461c84d469d6688afd78498bfd6e39ca0c0a716cf3f2192b1d"
+  },
+  "recomputed_from_canonical_identity": true,
+  "credential_values_absent": true,
+  "exception_scope": "exact commit:path:rule:line fingerprints only; future findings remain blocking"
+}

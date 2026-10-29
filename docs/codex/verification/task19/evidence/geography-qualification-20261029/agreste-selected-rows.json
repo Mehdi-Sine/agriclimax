@@ -1,0 +1,153 @@
+{
+  "verified_on": "2026-10-29",
+  "url": "https://agreste.agriculture.gouv.fr/agreste-web/download/methode/Z_PRA_2017/Referentiel_CommuneRA_PRA_2017.xls",
+  "bytes": 7218688,
+  "sha256": "1a47ade01fa9d936da77d3d7d06eaed1f8944f535802147995f96fd39a0b5008",
+  "identical_to_task19_supplied_workbook": true,
+  "worksheet": "COM",
+  "headers": [
+    "CODGEO",
+    "LIBGEO",
+    "DEP",
+    "REG",
+    "EPCI",
+    "NATURE_EPCI",
+    "ARR",
+    "CV",
+    "RA_Code",
+    "PRA_Code",
+    "PRA_Lib"
+  ],
+  "geography_label": "Géographie au 01/01/2017",
+  "commune_count": 35287,
+  "selected_rows": [
+    {
+      "excel_row": 4392,
+      "values": [
+        "13055",
+        "Marseille",
+        "13",
+        "93",
+        "200054807",
+        "ME",
+        "133",
+        "1398",
+        "469",
+        "13469",
+        "LITTORAL DE PROVENCE - 13"
+      ]
+    },
+    {
+      "excel_row": 27439,
+      "values": [
+        "69123",
+        "Lyon",
+        "69",
+        "84",
+        "200046977",
+        "ME",
+        "691",
+        "69ZZ",
+        "196",
+        "69196",
+        "ZONE MARAICHERE DE LYON - 69"
+      ]
+    },
+    {
+      "excel_row": 29638,
+      "values": [
+        "75056",
+        "Paris",
+        "75",
+        "11",
+        "200054781",
+        "ME",
+        "751",
+        "75ZZ",
+        "000",
+        75000.0,
+        "PARIS"
+      ]
+    }
+  ],
+  "searched_municipal_arrondissement_codes": [
+    "13201",
+    "13202",
+    "13203",
+    "13204",
+    "13205",
+    "13206",
+    "13207",
+    "13208",
+    "13209",
+    "13210",
+    "13211",
+    "13212",
+    "13213",
+    "13214",
+    "13215",
+    "13216",
+    "69381",
+    "69382",
+    "69383",
+    "69384",
+    "69385",
+    "69386",
+    "69387",
+    "69388",
+    "69389",
+    "75101",
+    "75102",
+    "75103",
+    "75104",
+    "75105",
+    "75106",
+    "75107",
+    "75108",
+    "75109",
+    "75110",
+    "75111",
+    "75112",
+    "75113",
+    "75114",
+    "75115",
+    "75116",
+    "75117",
+    "75118",
+    "75119",
+    "75120"
+  ],
+  "municipal_arrondissement_codes_present": [],
+  "nomenclature_headers": [
+    "Département",
+    "RA_Code",
+    "RA_Libelle",
+    "PRA_Code",
+    "PRA_Libelle",
+    "RA_Code"
+  ],
+  "nomenclature_selected_rows": [
+    {
+      "excel_row": 199,
+      "values": [
+        "69",
+        "196",
+        "ZONE MARAICHERE DE LYON",
+        "69196",
+        "ZONE MARAICHERE DE LYON - 69",
+        "196"
+      ]
+    },
+    {
+      "excel_row": 701,
+      "values": [
+        "13",
+        "469",
+        "LITTORAL DE PROVENCE",
+        "13469",
+        "LITTORAL DE PROVENCE - 13",
+        "469"
+      ]
+    }
+  ]
+}

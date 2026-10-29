@@ -1,0 +1,28 @@
+{
+  "observed_at_dev": "2026-10-18T11:26:46.697434Z",
+  "scope": "One geometry/dataset revision; 713 PRA; 90 days; capacity model, not national climate acquisition",
+  "components": {
+    "dev_database_measured_bytes": 25376435,
+    "official_reference_measured_local_delta_bytes": 14934016,
+    "daily_allowance_64170_rows_1024_bytes": 65710080,
+    "batch_allowance_9269_rows_4096_bytes": 37965824,
+    "diagnostics_optional_systematic_upper_case_74152_rows_1024_bytes": 75931648,
+    "operational_logs_allowance": 1000000,
+    "existing_growth_reserve_not_measured": 25000000,
+    "schema_allowance_not_measured": 1000000
+  },
+  "conservative_with_8_weekly_diagnostics_bytes": 246918003,
+  "conservative_without_systematic_diagnostics_bytes": 170986355,
+  "target_bytes": 250000000,
+  "margin_to_250MB_bytes": 3081997,
+  "margin_to_375MB_bytes": 128081997,
+  "using_measured_capacity_relations_plus_reserves_bytes": 191755123,
+  "old_scenario_same_dev_baseline_bytes": 360815475,
+  "actual_storage_optimization_applied": false,
+  "budget_recalibration": "16KiB -> 4KiB per batch; current-schema representative 9269-row experiment; essential metadata unchanged",
+  "batch_allocation_headroom_fraction": 0.3121460928652322,
+  "metadata_normalization_experiment_gain_bytes": -40960,
+  "normalized_prototype_not_selected": true,
+  "automatic_retention_enabled": false,
+  "national_actual_footprint_verified": false
+}

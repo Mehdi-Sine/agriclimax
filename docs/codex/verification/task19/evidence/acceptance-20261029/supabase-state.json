@@ -1,0 +1,89 @@
+{
+  "captured_at": "2026-10-29T16:13:51.230287+00:00",
+  "daily_tables": [
+    {
+      "rls": true,
+      "name": "france_daily",
+      "schema": "agriclimax_private",
+      "force_rls": true
+    },
+    {
+      "rls": true,
+      "name": "daily_snapshots",
+      "schema": "agriclimax_private",
+      "force_rls": true
+    }
+  ],
+  "cron_relation": null,
+  "task19_tables": [],
+  "database_bytes": 26498739,
+  "storage_objects": 0,
+  "migration_history": [
+    {
+      "name": "0001_extensions_and_core",
+      "version": "20261010173457",
+      "statements_md5": "686d3ba27d1dc5cb711248d10c0ca69a",
+      "statement_count": 1
+    },
+    {
+      "name": "0002_watch_and_ai_provenance",
+      "version": "20261010173509",
+      "statements_md5": "adb1bfc871d535d3cebd82ed2e590b9c",
+      "statement_count": 1
+    },
+    {
+      "name": "0003_persistence_and_rls",
+      "version": "20261010173523",
+      "statements_md5": "a5d950daafe74443cbcec8ec4094addd",
+      "statement_count": 1
+    },
+    {
+      "name": "0004_bounded_read_api",
+      "version": "20261010173532",
+      "statements_md5": "d0aaa611e32c27f703cec1ba963f5e00",
+      "statement_count": 1
+    },
+    {
+      "name": "meteofrance_station_ingestion",
+      "version": "20261014135644",
+      "statements_md5": "182e1246fff5939f96f3252d2b7ed38c",
+      "statement_count": 1
+    },
+    {
+      "name": "climatology_reference",
+      "version": "20261015113754",
+      "statements_md5": "c6b9f61cc8a37595bffbce4b68f3c219",
+      "statement_count": 1
+    },
+    {
+      "name": "wheat_portfolios",
+      "version": "20261015160905",
+      "statements_md5": "4558e9e124b52e4c25cb0e4aa836e491",
+      "statement_count": 1
+    },
+    {
+      "name": "france_coverage",
+      "version": "20261015173916",
+      "statements_md5": "c1989d789fdc9bc8c8c9d1caca684a74",
+      "statement_count": 1
+    },
+    {
+      "name": "france_station_catalogue_capacity",
+      "version": "20261015174831",
+      "statements_md5": "dddf7342c232b7c469406f304f4a5a4c",
+      "statement_count": 1
+    }
+  ],
+  "daily_objects_catalog_matches_git": true,
+  "ddl_applied_by_this_audit": false,
+  "history_modified_by_this_audit": false,
+  "ddl_audit_trail_available": false,
+  "absence_of_all_intervening_ddl_certified": false,
+  "old_daily_evidence": "docs/codex/verification/task18/LIVE_DATA.md (16/17 October)",
+  "first_daily_computed_at": "2026-10-16T13:48:14.270668+00:00",
+  "last_daily_computed_at": "2026-10-25T12:44:20.231997+00:00",
+  "daily_rows": 10,
+  "task19_function_count": 0,
+  "app_rls_tables": 20,
+  "history_versions_names_unchanged_since_previous_audit": true
+}

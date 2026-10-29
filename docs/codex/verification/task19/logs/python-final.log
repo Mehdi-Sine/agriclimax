@@ -1,0 +1,33 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /workspace/agriclimax/engine
+configfile: pyproject.toml
+collected 166 items
+
+engine/tests/cattle/test_station.py ...                                  [  1%]
+engine/tests/cattle/test_thi.py ..........                               [  7%]
+engine/tests/climate/test_climate.py ...........                         [ 14%]
+engine/tests/climate/test_coverage.py ..........                         [ 20%]
+engine/tests/climate/test_reference_cache.py ...                         [ 22%]
+engine/tests/ingestion/test_ingestion.py ................                [ 31%]
+engine/tests/ingestion/test_meteofrance.py ...................           [ 43%]
+engine/tests/territories/test_aggregate.py .......                       [ 47%]
+engine/tests/territories/test_pipeline.py ......                         [ 51%]
+engine/tests/territories/test_spatial.py .........                       [ 56%]
+engine/tests/test_contracts.py ........                                  [ 61%]
+engine/tests/test_daily.py ............................                  [ 78%]
+engine/tests/test_indicators.py ..                                       [ 79%]
+engine/tests/test_science.py ..................                          [ 90%]
+engine/tests/wheat/test_wheat.py ................                        [100%]
+
+=============================== warnings summary ===============================
+tests/climate/test_climate.py::test_netcdf_day_boundary_units_and_missingness
+  <frozen importlib._bootstrap>:488: RuntimeWarning: numpy.ndarray size changed, may indicate binary incompatibility. Expected 16 from C header, got 96 from PyObject
+
+tests/climate/test_climate.py: 22 warnings
+  /workspace/.agriclimax-setup/venv/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:96: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+  As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+    data[key] = value
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+====================== 166 passed, 23 warnings in 14.73s =======================

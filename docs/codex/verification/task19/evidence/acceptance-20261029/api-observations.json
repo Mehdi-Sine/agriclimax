@@ -1,0 +1,73 @@
+{
+  "scope": "read-only network observations, not national deployment or load testing",
+  "daily_rpc": [
+    {
+      "http_status": 200,
+      "elapsed_ms": 2062.86,
+      "response_bytes": 432836,
+      "window": {
+        "from": "2026-10-18",
+        "to": "2026-10-24",
+        "computed_at": "2026-10-25T12:44:20.231997+00:00"
+      }
+    },
+    {
+      "http_status": 200,
+      "elapsed_ms": 825.19,
+      "response_bytes": 432836,
+      "window": {
+        "from": "2026-10-18",
+        "to": "2026-10-24",
+        "computed_at": "2026-10-25T12:44:20.231997+00:00"
+      }
+    },
+    {
+      "http_status": 200,
+      "elapsed_ms": 764.48,
+      "response_bytes": 432836,
+      "window": {
+        "from": "2026-10-18",
+        "to": "2026-10-24",
+        "computed_at": "2026-10-25T12:44:20.231997+00:00"
+      }
+    }
+  ],
+  "preview": [
+    {
+      "path": "/territories",
+      "status": 200,
+      "elapsed_ms": 1358.04,
+      "bytes": 10519,
+      "reference_not_deployed_explicit": true,
+      "fiction_label": true,
+      "meteo_france_label": true
+    },
+    {
+      "path": "/api/territories?action=lookup&reference=ofb-masa-pra-2017-snapshot-20261017&limit=1",
+      "status": 502,
+      "elapsed_ms": 1812.33,
+      "bytes": 32,
+      "reference_not_deployed_explicit": false,
+      "fiction_label": false,
+      "meteo_france_label": false
+    },
+    {
+      "path": "/?mode=demo",
+      "status": 200,
+      "elapsed_ms": 610.53,
+      "bytes": 19793,
+      "reference_not_deployed_explicit": false,
+      "fiction_label": true,
+      "meteo_france_label": true
+    },
+    {
+      "path": "/?mode=live_meteofrance",
+      "status": 200,
+      "elapsed_ms": 966.02,
+      "bytes": 56509,
+      "reference_not_deployed_explicit": false,
+      "fiction_label": true,
+      "meteo_france_label": true
+    }
+  ]
+}

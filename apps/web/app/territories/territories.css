@@ -1,0 +1,10 @@
+.territories-page { max-width: 72rem; margin: auto; padding: var(--space-6); overflow-wrap: anywhere; }
+.territories-page form { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: var(--space-4); align-items: end; }
+.territories-page label { display: grid; gap: var(--space-2); min-width: 0; }
+.territories-page input { min-height: 2.75rem; font: inherit; color: var(--text-primary); background: var(--surface-raised); border: 1px solid var(--control-border); border-radius: var(--radius-sm); padding: var(--space-2); width: 100%; min-width: 0; box-sizing: border-box; }
+.territories-page section { padding-block: var(--space-6); }
+.territories-page li { margin-block: var(--space-3); }
+.territories-page dt { font-weight: 600; margin-top: var(--space-3); }
+.territories-page dd { margin-inline-start: 0; }
+
+.territories-page button { min-height: 2.75rem; }

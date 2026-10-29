@@ -1,0 +1,10 @@
+
+> agriclimax@ typecheck /workspace/agriclimax
+> pnpm --filter @agriclimax/web typecheck
+
+
+> @agriclimax/web@ typecheck /workspace/agriclimax/apps/web
+> next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully

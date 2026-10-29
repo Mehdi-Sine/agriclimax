@@ -1,0 +1,391 @@
+{
+  "synthetic": true,
+  "passed": true,
+  "reports": [
+    {
+      "production": "wheat",
+      "label": "Carte",
+      "width": 1440,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 31,
+        "response_ms": 69,
+        "decoded_bytes": 50169,
+        "transfer_bytes": 18774
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Diagnostic",
+      "width": 1440,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 27,
+        "response_ms": 36,
+        "decoded_bytes": 28199,
+        "transfer_bytes": 9791
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Historique",
+      "width": 1440,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 20,
+        "response_ms": 36,
+        "decoded_bytes": 26798,
+        "transfer_bytes": 9184
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Veille",
+      "width": 1440,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 51,
+        "response_ms": 60,
+        "decoded_bytes": 27288,
+        "transfer_bytes": 8878
+      }
+    },
+    {
+      "production": "wheat",
+      "width": 1440,
+      "failed_run_retains_previous": true,
+      "missing_window": true,
+      "invalid_period_no_rpc": true,
+      "unknown_station_preserved": true,
+      "insufficient_watch": true,
+      "empty": true,
+      "disconnected": true,
+      "no_fallback": true
+    },
+    {
+      "production": "cattle",
+      "label": "Carte",
+      "width": 1440,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 17,
+        "response_ms": 29,
+        "decoded_bytes": 50322,
+        "transfer_bytes": 19012
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Diagnostic",
+      "width": 1440,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 14,
+        "response_ms": 24,
+        "decoded_bytes": 28212,
+        "transfer_bytes": 9966
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Historique",
+      "width": 1440,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 15,
+        "response_ms": 19,
+        "decoded_bytes": 28331,
+        "transfer_bytes": 9615
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Veille",
+      "width": 1440,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 24,
+        "response_ms": 31,
+        "decoded_bytes": 27193,
+        "transfer_bytes": 9298
+      }
+    },
+    {
+      "production": "cattle",
+      "width": 1440,
+      "failed_run_retains_previous": true,
+      "missing_window": true,
+      "invalid_period_no_rpc": true,
+      "unknown_station_preserved": true,
+      "insufficient_watch": true,
+      "empty": true,
+      "disconnected": true,
+      "no_fallback": true
+    },
+    {
+      "production": "wheat",
+      "label": "Carte",
+      "width": 768,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 19,
+        "response_ms": 24,
+        "decoded_bytes": 50169,
+        "transfer_bytes": 18128
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Diagnostic",
+      "width": 768,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 16,
+        "response_ms": 24,
+        "decoded_bytes": 28199,
+        "transfer_bytes": 9791
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Historique",
+      "width": 768,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 16,
+        "response_ms": 24,
+        "decoded_bytes": 26798,
+        "transfer_bytes": 9184
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Veille",
+      "width": 768,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 12,
+        "response_ms": 19,
+        "decoded_bytes": 27288,
+        "transfer_bytes": 9147
+      }
+    },
+    {
+      "production": "wheat",
+      "width": 768,
+      "failed_run_retains_previous": true,
+      "missing_window": true,
+      "invalid_period_no_rpc": true,
+      "unknown_station_preserved": true,
+      "insufficient_watch": true,
+      "empty": true,
+      "disconnected": true,
+      "no_fallback": true
+    },
+    {
+      "production": "cattle",
+      "label": "Carte",
+      "width": 768,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 21,
+        "response_ms": 28,
+        "decoded_bytes": 50322,
+        "transfer_bytes": 18346
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Diagnostic",
+      "width": 768,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 16,
+        "response_ms": 19,
+        "decoded_bytes": 28212,
+        "transfer_bytes": 9966
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Historique",
+      "width": 768,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 18,
+        "response_ms": 27,
+        "decoded_bytes": 28331,
+        "transfer_bytes": 9615
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Veille",
+      "width": 768,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 15,
+        "response_ms": 23,
+        "decoded_bytes": 27193,
+        "transfer_bytes": 9298
+      }
+    },
+    {
+      "production": "cattle",
+      "width": 768,
+      "failed_run_retains_previous": true,
+      "missing_window": true,
+      "invalid_period_no_rpc": true,
+      "unknown_station_preserved": true,
+      "insufficient_watch": true,
+      "empty": true,
+      "disconnected": true,
+      "no_fallback": true
+    },
+    {
+      "production": "wheat",
+      "label": "Carte",
+      "width": 390,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 24,
+        "response_ms": 37,
+        "decoded_bytes": 50169,
+        "transfer_bytes": 18774
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Diagnostic",
+      "width": 390,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 15,
+        "response_ms": 19,
+        "decoded_bytes": 28199,
+        "transfer_bytes": 9791
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Historique",
+      "width": 390,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 24,
+        "response_ms": 25,
+        "decoded_bytes": 26798,
+        "transfer_bytes": 8468
+      }
+    },
+    {
+      "production": "wheat",
+      "label": "Veille",
+      "width": 390,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 25,
+        "response_ms": 29,
+        "decoded_bytes": 27288,
+        "transfer_bytes": 8878
+      }
+    },
+    {
+      "production": "wheat",
+      "width": 390,
+      "failed_run_retains_previous": true,
+      "missing_window": true,
+      "invalid_period_no_rpc": true,
+      "unknown_station_preserved": true,
+      "insufficient_watch": true,
+      "empty": true,
+      "disconnected": true,
+      "no_fallback": true
+    },
+    {
+      "production": "cattle",
+      "label": "Carte",
+      "width": 390,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 13,
+        "response_ms": 24,
+        "decoded_bytes": 50322,
+        "transfer_bytes": 19012
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Diagnostic",
+      "width": 390,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 16,
+        "response_ms": 21,
+        "decoded_bytes": 28212,
+        "transfer_bytes": 9966
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Historique",
+      "width": 390,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 17,
+        "response_ms": 19,
+        "decoded_bytes": 28331,
+        "transfer_bytes": 9615
+      }
+    },
+    {
+      "production": "cattle",
+      "label": "Veille",
+      "width": 390,
+      "axe": 0,
+      "context_preserved": true,
+      "performance": {
+        "ttfb_ms": 20,
+        "response_ms": 23,
+        "decoded_bytes": 27193,
+        "transfer_bytes": 8652
+      }
+    },
+    {
+      "production": "cattle",
+      "width": 390,
+      "failed_run_retains_previous": true,
+      "missing_window": true,
+      "invalid_period_no_rpc": true,
+      "unknown_station_preserved": true,
+      "insufficient_watch": true,
+      "empty": true,
+      "disconnected": true,
+      "no_fallback": true
+    }
+  ],
+  "source_calls": 198
+}

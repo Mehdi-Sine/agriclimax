@@ -1,0 +1,310 @@
+{
+  "app_tables": [
+    {
+      "rls": true,
+      "table": "climate_indicators",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "climate_references",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "daily_snapshots",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "france_acquisitions",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "france_calendar_references",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "france_daily",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "indicator_results",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "indicators",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "observations",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "parameter_versions",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "rule_versions",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "run_manifests",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "station_weather_batches",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "weather_stations",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    },
+    {
+      "rls": true,
+      "table": "wheat_portfolios",
+      "schema": "agriclimax_private",
+      "force_rls": true,
+      "anon_insert": false,
+      "anon_select": false,
+      "auth_insert": false,
+      "auth_select": false
+    }
+  ],
+  "extensions": [
+    {
+      "name": "pgcrypto",
+      "schema": "extensions",
+      "version": "1.3"
+    },
+    {
+      "name": "postgis",
+      "schema": "public",
+      "version": "3.3.7"
+    }
+  ],
+  "app_functions": [
+    {
+      "config": [
+        "search_path=pg_catalog",
+        "statement_timeout=5s"
+      ],
+      "definer": false,
+      "identity": "agriclimax_france_map(text,date,text,integer)",
+      "definition_md5": "08d4d30a42cf0e425e575b522baa6bd0"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog, extensions, public",
+        "statement_timeout=5s"
+      ],
+      "definer": true,
+      "identity": "agriclimax_map_risks(text,text,text,text,date,double precision[],integer,integer)",
+      "definition_md5": "d479ae9f9ae4c60fd72447426b8ea143"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog",
+        "statement_timeout=10s"
+      ],
+      "definer": false,
+      "identity": "agriclimax_persist_climate(text,jsonb,text)",
+      "definition_md5": "d7581ec89b6287c9c8177464a0f3773b"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog",
+        "statement_timeout=10s"
+      ],
+      "definer": false,
+      "identity": "agriclimax_persist_france_daily(jsonb,jsonb,text)",
+      "definition_md5": "bcf39ce5f7cd062d50b0c6ce3a11623b"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog, public, extensions",
+        "statement_timeout=10s"
+      ],
+      "definer": false,
+      "identity": "agriclimax_persist_station_batch(jsonb,jsonb,text)",
+      "definition_md5": "3567fd5501c28600d1e6085818ea5ce1"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog",
+        "statement_timeout=10s"
+      ],
+      "definer": false,
+      "identity": "agriclimax_persist_wheat(text,jsonb)",
+      "definition_md5": "714402abff978c0ede8206af3531e37f"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog",
+        "statement_timeout=20s"
+      ],
+      "definer": false,
+      "identity": "agriclimax_publish_daily(text,jsonb)",
+      "definition_md5": "571f1a9e3fc1114e541a23495d696245"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog",
+        "statement_timeout=5s"
+      ],
+      "definer": false,
+      "identity": "agriclimax_read_daily(date,date)",
+      "definition_md5": "dfbe5642eb833461e1e84de4614ca1b8"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog"
+      ],
+      "definer": false,
+      "identity": "agriclimax_risk_payload(risk_results)",
+      "definition_md5": "e883cf42edf67b05302830353d39bfa4"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog, public",
+        "statement_timeout=5s"
+      ],
+      "definer": true,
+      "identity": "agriclimax_risk_series(text,text,text,text,text,date,date)",
+      "definition_md5": "4f5d1254dd812d9e5784fd0f3b638ba9"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog",
+        "statement_timeout=5s"
+      ],
+      "definer": false,
+      "identity": "agriclimax_station_weather(text,text,date,date)",
+      "definition_md5": "126289c82345d44c1fac20bd8ca1f923"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog, extensions, public",
+        "statement_timeout=5s"
+      ],
+      "definer": true,
+      "identity": "agriclimax_territory_risks(text,text,text,text,date,date,double precision[])",
+      "definition_md5": "40f5fbfcc82e9a6ceb47a7ed3f5ce1d3"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog"
+      ],
+      "definer": false,
+      "identity": "agriclimax_validate_query(text,text,text,text,date,date,double precision[])",
+      "definition_md5": "f271594e17009af078c882a9e1e4748b"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog, public, extensions",
+        "statement_timeout=5s"
+      ],
+      "definer": false,
+      "identity": "agriclimax_weather_stations()",
+      "definition_md5": "8f863de61f24ca6acfcb2d417733d9d1"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog",
+        "statement_timeout=10s"
+      ],
+      "definer": false,
+      "identity": "agriclimax_wheat_inputs(text,date,date,text,text)",
+      "definition_md5": "622a24ead30d83a4e4c36fd230b2c1f3"
+    },
+    {
+      "config": [
+        "search_path=pg_catalog",
+        "statement_timeout=10s"
+      ],
+      "definer": false,
+      "identity": "agriclimax_wheat_portfolios(date,date,text,text,text)",
+      "definition_md5": "87a9573eef438a0425656d9f695cd163"
+    }
+  ]
+}

@@ -29,7 +29,8 @@
       "ignoreGhsas": ["GHSA-vfj7-8cjw-p6xm"]
     },
     "overrides": {
-      "vitest": "4.1.11",
+      "ajv>fast-uri": "3.1.9",
+      "vitest": "4.1.12",
       "tinypool": "2.1.2"
     }
   }
