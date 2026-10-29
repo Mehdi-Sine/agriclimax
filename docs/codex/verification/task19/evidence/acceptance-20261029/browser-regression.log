@@ -1,0 +1,9 @@
+Local demo, API validation and live isolation HTTP smoke passed.
+Demo E2E, accessibility and responsive checks passed (desktop/tablet/mobile).
+PRA unavailable UI, URL filters, responsive and WCAG AA checks passed.
+30 integration/responsive/AA states passed.
+PASS: 18 responsive/theme/view audits, real station API, navigation, no inferred stage or browser remote requests
+Daily publication E2E desktop/mobile: all views, freshness, provenance, failed-run retention, absence, disconnection, no fallback, WCAG AA passed (synthetic source).
+
+Loopback proxy routing corrected in the live-boundary test; assertions unchanged. Isolated rerun:
+Live daily publication journeys / disconnected boundary passed.

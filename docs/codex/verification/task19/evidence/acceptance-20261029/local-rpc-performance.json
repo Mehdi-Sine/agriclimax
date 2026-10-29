@@ -1,0 +1,19 @@
+{
+  "scope": "disposable local PostGIS, real official geometry; no climate rows; SQL timing not remote API SLA",
+  "measurements": {
+    "lookup_100": {
+      "execution_ms": [
+        3.336,
+        4.035,
+        3.524
+      ]
+    },
+    "read_100_absent": {
+      "execution_ms": [
+        4.642,
+        3.908,
+        4.959
+      ]
+    }
+  }
+}

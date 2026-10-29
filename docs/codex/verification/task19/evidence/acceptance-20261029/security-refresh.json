@@ -1,0 +1,39 @@
+{
+  "npm": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "python": [
+    {
+      "lockfile": "engine/requirements-dev.lock",
+      "exit_code": 0,
+      "summary": "WARNING:pip_audit._cli:--no-deps is supported, but users are encouraged to fully hash their pinned dependencies\nWARNING:pip_audit._cli:Consider using a tool like `pip-compile`: https://pip-tools.readthedocs.io/en/latest/#using-hashes\nNo known vulnerabilities found"
+    },
+    {
+      "lockfile": "scripts/quality/requirements.lock",
+      "exit_code": 0,
+      "summary": "WARNING:pip_audit._cli:--no-deps is supported, but users are encouraged to fully hash their pinned dependencies\nWARNING:pip_audit._cli:Consider using a tool like `pip-compile`: https://pip-tools.readthedocs.io/en/latest/#using-hashes\nNo known vulnerabilities found"
+    },
+    {
+      "lockfile": "engine/requirements-climate.lock",
+      "exit_code": 0,
+      "summary": "WARNING:pip_audit._cli:--no-deps is supported, but users are encouraged to fully hash their pinned dependencies\nWARNING:pip_audit._cli:Consider using a tool like `pip-compile`: https://pip-tools.readthedocs.io/en/latest/#using-hashes\nNo known vulnerabilities found"
+    },
+    {
+      "lockfile": "engine/requirements-geo.lock",
+      "exit_code": 0,
+      "summary": "WARNING:pip_audit._cli:--no-deps is supported, but users are encouraged to fully hash their pinned dependencies\nWARNING:pip_audit._cli:Consider using a tool like `pip-compile`: https://pip-tools.readthedocs.io/en/latest/#using-hashes\nNo known vulnerabilities found"
+    },
+    {
+      "lockfile": "scripts/requirements-pra-audit.lock",
+      "exit_code": 0,
+      "summary": "WARNING:pip_audit._cli:--no-deps is supported, but users are encouraged to fully hash their pinned dependencies\nWARNING:pip_audit._cli:Consider using a tool like `pip-compile`: https://pip-tools.readthedocs.io/en/latest/#using-hashes\nNo known vulnerabilities found"
+    }
+  ],
+  "old_exception_unchanged": "GHSA-vfj7-8cjw-p6xm; eslint development tooling only; expires 2026-11-10",
+  "pip_check": "passed",
+  "remote_ci": "not substituted by local audit"
+}

@@ -1,5 +1,10 @@
 # Task19 — plan d'activation manuel, sans exécution de production
 
+> Plan historique du 19 octobre. La [réconciliation du 29 octobre](SUPABASE_RECONCILIATION_20261029.md)
+> remplace l'hypothèse de prérequis daily non appliqués : les objets existent et
+> sont conformes, seules les entrées d'historique manquent. Ne pas rejouer leur DDL.
+> Suivre désormais le [cadrage Task19B](TASK19B_START.md).
+
 Ce document prépare une migration. Il n'autorise pas son exécution en production.
 Ni migration distante, ni backfill national, ni service payant pendant cet audit.
 

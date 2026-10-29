@@ -1,5 +1,9 @@
 # Task 19 — clôture technique, 19 octobre 2026
 
+> Rapport historique. Voir la [revue du 29 octobre](FINAL_ACCEPTANCE_REVIEW_20261029.md)
+> pour les trous terrestres qualifiés, l'état des runners et la correction du
+> diagnostic daily : absence d'historique ne signifiait pas absence de DDL.
+
 Branche distante inchangée : `codex/19-national-coverage`, PR #40. Base auditée :
 `680630360a13a860a52c828fa6e5e72685f7efc9` (v0.2.0 préservée).
 Ce rapport remplace les conclusions de disponibilité réseau du 18 octobre.

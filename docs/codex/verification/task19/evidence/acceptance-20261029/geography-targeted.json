@@ -1,0 +1,195 @@
+{
+  "reference_modified": false,
+  "area_crs": "EPSG:3035",
+  "scope": "top five assigned gaps and top five assigned exceedances; Paris already explained",
+  "causes_not_inferred_from_boundary_bands": true,
+  "inputs": {
+    "reference.json": "51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669",
+    "departements-2018.geojson.gz": "ef306bd3ee3c8ba0f65fa19273fffc22089f5ac83abc0de5c0c2815060df5317",
+    "selected-communes-2018.json": "3653e311c9b331cdfd173171cbff2a5311377cc838126fd391b8eea84c47996f"
+  },
+  "department_reviews": [
+    {
+      "department": "13",
+      "assigned_gap_km2": 405.7538910372338,
+      "gap_covered_by_other_department_pra_km2": 4.535832187887901,
+      "truly_uncovered_by_any_pra_km2": 401.21805884934645,
+      "outside_assigned_department_km2": 10.078256134566036,
+      "gap_within_boundary_band_km2": {
+        "10": 3.0879495440826825,
+        "50": 11.221868765722164,
+        "100": 18.96109308444374,
+        "250": 38.45559370952545
+      },
+      "outside_within_boundary_band_km2": {
+        "10": 2.62075656270375,
+        "50": 7.628738770300926,
+        "100": 9.470335430277641,
+        "250": 10.075413314204638
+      }
+    },
+    {
+      "department": "17",
+      "assigned_gap_km2": 21.81307597228695,
+      "gap_covered_by_other_department_pra_km2": 7.787344565688416,
+      "truly_uncovered_by_any_pra_km2": 14.025731406598583,
+      "outside_assigned_department_km2": 40.971092639908704,
+      "gap_within_boundary_band_km2": {
+        "10": 3.3781535832832508,
+        "50": 10.357748525695426,
+        "100": 14.254791488177238,
+        "250": 18.82894625124213
+      },
+      "outside_within_boundary_band_km2": {
+        "10": 5.032587705863895,
+        "50": 15.31945822409322,
+        "100": 21.077322410647877,
+        "250": 29.28275901152894
+      }
+    },
+    {
+      "department": "29",
+      "assigned_gap_km2": 49.66724122928617,
+      "gap_covered_by_other_department_pra_km2": 3.5021715940386895,
+      "truly_uncovered_by_any_pra_km2": 46.16506963524762,
+      "outside_assigned_department_km2": 23.721793002984175,
+      "gap_within_boundary_band_km2": {
+        "10": 6.2108345664775655,
+        "50": 22.06624365782564,
+        "100": 31.763552296377124,
+        "250": 40.99939596191959
+      },
+      "outside_within_boundary_band_km2": {
+        "10": 6.253936715586108,
+        "50": 18.48934995840947,
+        "100": 22.571578853956076,
+        "250": 23.72179300298418
+      }
+    },
+    {
+      "department": "33",
+      "assigned_gap_km2": 34.81829761932776,
+      "gap_covered_by_other_department_pra_km2": 5.151532294212098,
+      "truly_uncovered_by_any_pra_km2": 29.66676532511581,
+      "outside_assigned_department_km2": 38.70242754314699,
+      "gap_within_boundary_band_km2": {
+        "10": 2.7614046401289256,
+        "50": 8.081386538554472,
+        "100": 11.030286636263956,
+        "250": 15.682280600141732
+      },
+      "outside_within_boundary_band_km2": {
+        "10": 4.817733738365397,
+        "50": 14.098263951067375,
+        "100": 18.54016131788504,
+        "250": 25.794327754334812
+      }
+    },
+    {
+      "department": "44",
+      "assigned_gap_km2": 79.47594907174408,
+      "gap_covered_by_other_department_pra_km2": 73.88572214021356,
+      "truly_uncovered_by_any_pra_km2": 5.5902269315305215,
+      "outside_assigned_department_km2": 44.9087171709177,
+      "gap_within_boundary_band_km2": {
+        "10": 2.881246977809219,
+        "50": 9.795205497855424,
+        "100": 14.16225735185595,
+        "250": 20.219354074845214
+      },
+      "outside_within_boundary_band_km2": {
+        "10": 3.2594145050952656,
+        "50": 10.498966757365922,
+        "100": 14.76810349602012,
+        "250": 21.43410295292165
+      }
+    },
+    {
+      "department": "49",
+      "assigned_gap_km2": 10.283295820471823,
+      "gap_covered_by_other_department_pra_km2": 10.283295820471823,
+      "truly_uncovered_by_any_pra_km2": 0.0,
+      "outside_assigned_department_km2": 75.61864696925313,
+      "gap_within_boundary_band_km2": {
+        "10": 2.334854557817927,
+        "50": 6.571633902713639,
+        "100": 8.52486330478704,
+        "250": 9.934896776688534
+      },
+      "outside_within_boundary_band_km2": {
+        "10": 2.881845647219857,
+        "50": 8.239384060834787,
+        "100": 10.538260883712061,
+        "250": 12.36372907424319
+      }
+    },
+    {
+      "department": "56",
+      "assigned_gap_km2": 62.11351839785721,
+      "gap_covered_by_other_department_pra_km2": 8.476231368179604,
+      "truly_uncovered_by_any_pra_km2": 53.63728702967761,
+      "outside_assigned_department_km2": 26.60337512021044,
+      "gap_within_boundary_band_km2": {
+        "10": 5.67466130415989,
+        "50": 20.760902230190325,
+        "100": 32.21563974236201,
+        "250": 47.08466935569537
+      },
+      "outside_within_boundary_band_km2": {
+        "10": 5.827848377445495,
+        "50": 18.453794613441968,
+        "100": 23.968684706946913,
+        "250": 26.46632336564655
+      }
+    },
+    {
+      "department": "69",
+      "assigned_gap_km2": 55.11844386447918,
+      "gap_covered_by_other_department_pra_km2": 7.447528911431241,
+      "truly_uncovered_by_any_pra_km2": 47.67091495304794,
+      "outside_assigned_department_km2": 6.073166763126426,
+      "gap_within_boundary_band_km2": {
+        "10": 2.2888212720794816,
+        "50": 7.179764971617997,
+        "100": 10.540407726797744,
+        "250": 17.445848002673884
+      },
+      "outside_within_boundary_band_km2": {
+        "10": 1.789858399841589,
+        "50": 4.70971321346712,
+        "100": 5.721539445658839,
+        "250": 6.072871915646386
+      }
+    }
+  ],
+  "commune_reviews": [
+    {
+      "code": "69123",
+      "name": "Lyon",
+      "area_km2": 47.98047327380084,
+      "not_covered_by_any_pra_km2": 47.035293951207336,
+      "coverage_by_pra_department_km2": {
+        "69": 0.9451793225935663
+      }
+    },
+    {
+      "code": "13055",
+      "name": "Marseille",
+      "area_km2": 241.8916660311038,
+      "not_covered_by_any_pra_km2": 240.9867681955884,
+      "coverage_by_pra_department_km2": {
+        "13": 0.9048978355145392
+      }
+    },
+    {
+      "code": "44180",
+      "name": "Vallons-de-l'Erdre",
+      "area_km2": 190.31936229714861,
+      "not_covered_by_any_pra_km2": 0.0,
+      "coverage_by_pra_department_km2": {
+        "44": 124.76747927484475,
+        "49": 65.55188302230344
+      }
+    }
+  ]
+}

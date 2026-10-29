@@ -1,0 +1,27 @@
+[
+  {
+    "lockfile": "engine/requirements-dev.lock",
+    "exit_code": 0,
+    "summary": "WARNING:pip_audit._cli:--no-deps is supported, but users are encouraged to fully hash their pinned dependencies\nWARNING:pip_audit._cli:Consider using a tool like `pip-compile`: https://pip-tools.readthedocs.io/en/latest/#using-hashes\nNo known vulnerabilities found"
+  },
+  {
+    "lockfile": "scripts/quality/requirements.lock",
+    "exit_code": 0,
+    "summary": "WARNING:pip_audit._cli:--no-deps is supported, but users are encouraged to fully hash their pinned dependencies\nWARNING:pip_audit._cli:Consider using a tool like `pip-compile`: https://pip-tools.readthedocs.io/en/latest/#using-hashes\nNo known vulnerabilities found"
+  },
+  {
+    "lockfile": "engine/requirements-climate.lock",
+    "exit_code": 0,
+    "summary": "WARNING:pip_audit._cli:--no-deps is supported, but users are encouraged to fully hash their pinned dependencies\nWARNING:pip_audit._cli:Consider using a tool like `pip-compile`: https://pip-tools.readthedocs.io/en/latest/#using-hashes\nNo known vulnerabilities found"
+  },
+  {
+    "lockfile": "engine/requirements-geo.lock",
+    "exit_code": 0,
+    "summary": "WARNING:pip_audit._cli:--no-deps is supported, but users are encouraged to fully hash their pinned dependencies\nWARNING:pip_audit._cli:Consider using a tool like `pip-compile`: https://pip-tools.readthedocs.io/en/latest/#using-hashes\nNo known vulnerabilities found"
+  },
+  {
+    "lockfile": "scripts/requirements-pra-audit.lock",
+    "exit_code": 0,
+    "summary": "WARNING:pip_audit._cli:--no-deps is supported, but users are encouraged to fully hash their pinned dependencies\nWARNING:pip_audit._cli:Consider using a tool like `pip-compile`: https://pip-tools.readthedocs.io/en/latest/#using-hashes\nNo known vulnerabilities found"
+  }
+]

@@ -1,6 +1,8 @@
-> État courant du 19 octobre : [clôture technique](TECHNICAL_CLOSURE.md) et
-> [plan manuel de migration/validation](DEPLOYMENT_CLOSURE.md).
-> TECHNICAL MERGE READINESS — NOT READY ; NATIONAL OPERATIONAL READINESS — NOT READY.
+> État courant du 29 octobre : [revue finale et décision](FINAL_ACCEPTANCE_REVIEW_20261029.md),
+> [réconciliation daily](SUPABASE_RECONCILIATION_20261029.md), [cadrage Task19B](TASK19B_START.md).
+> NOT READY : acceptation géographique non close (trous terrestres Marseille/Lyon)
+> et nouvelle validation CI bloquée par l'infrastructure GitHub. Daily : DDL présent
+> et conforme, historique incomplet ; ne pas rejouer ces migrations.
 > Les résultats ci-dessous restent les preuves datées des étapes précédentes.
 
 # Task 19 — PRA, agrégation ERA5 et stockage compact

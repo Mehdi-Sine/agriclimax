@@ -1,0 +1,79 @@
+{
+  "catalog_matches": true,
+  "different_sections": [],
+  "expected_catalog_complete": true,
+  "comparison": "exact structured equality except CRLF/LF and outer whitespace",
+  "remote_ddl_executed": false,
+  "migration_history_modified": false,
+  "history_mapping": [
+    {
+      "remote_version": "20261010173457",
+      "remote_name": "0001_extensions_and_core",
+      "git_file": "supabase/migrations/0001_extensions_and_core.sql",
+      "normalized_sql_sha256": "7659dc368fcb93549ed66a3d9701356fec38db7af8c09ef901b6adb777a92122",
+      "exact_after_line_ending_normalization": true
+    },
+    {
+      "remote_version": "20261010173509",
+      "remote_name": "0002_watch_and_ai_provenance",
+      "git_file": "supabase/migrations/0002_watch_and_ai_provenance.sql",
+      "normalized_sql_sha256": "76ab1fc370fb77dc14d33021512f0532bebcddf64da7465b7bc4d639fa88688f",
+      "exact_after_line_ending_normalization": true
+    },
+    {
+      "remote_version": "20261010173523",
+      "remote_name": "0003_persistence_and_rls",
+      "git_file": "supabase/migrations/0003_persistence_and_rls.sql",
+      "normalized_sql_sha256": "31af637fd32ea293805d25654a7c92b81c6af6e894f9f783ffd605e73facb6d2",
+      "exact_after_line_ending_normalization": true
+    },
+    {
+      "remote_version": "20261010173532",
+      "remote_name": "0004_bounded_read_api",
+      "git_file": "supabase/migrations/0004_bounded_read_api.sql",
+      "normalized_sql_sha256": "c9de6a26cc790e8bbaef4b6c7a777e31d8413cf4e2744da6d72fdc47709ebd42",
+      "exact_after_line_ending_normalization": true
+    },
+    {
+      "remote_version": "20261014135644",
+      "remote_name": "meteofrance_station_ingestion",
+      "git_file": "supabase/migrations/20261014133958_meteofrance_station_ingestion.sql",
+      "normalized_sql_sha256": "31cbe712a6253a9cad870b331069b42f2b7872cbd18ccc4e8abb29bd420e8982",
+      "exact_after_line_ending_normalization": true
+    },
+    {
+      "remote_version": "20261015113754",
+      "remote_name": "climatology_reference",
+      "git_file": "supabase/migrations/20261015073507_climatology_reference.sql",
+      "normalized_sql_sha256": "1aac70864501cb907b0a968d45bb7e7314732b12b835a351a887f2488f024a02",
+      "exact_after_line_ending_normalization": true
+    },
+    {
+      "remote_version": "20261015160905",
+      "remote_name": "wheat_portfolios",
+      "git_file": "supabase/migrations/20261015140022_wheat_portfolios.sql",
+      "normalized_sql_sha256": "97e6d6e23822cfe3377b09d3d87370acefc6b7db618a846fca6bbfab9eb0f6a5",
+      "exact_after_line_ending_normalization": true
+    },
+    {
+      "remote_version": "20261015173916",
+      "remote_name": "france_coverage",
+      "git_file": "supabase/migrations/20261015173703_france_coverage.sql",
+      "normalized_sql_sha256": "6841f5f90ce987d7cf229ee0c36e16d1914ca072653d8faae23824b8843356e5",
+      "exact_after_line_ending_normalization": true
+    },
+    {
+      "remote_version": "20261015174831",
+      "remote_name": "france_station_catalogue_capacity",
+      "git_file": "supabase/migrations/20261015174308_france_station_catalogue_capacity.sql",
+      "normalized_sql_sha256": "8b42e9583642bf265266a7fae0b7ec2c60c13ec066f5b6cc66bc533938f52356",
+      "exact_after_line_ending_normalization": true
+    }
+  ],
+  "git_files_without_history_row": [
+    "supabase/migrations/20261016095414_daily_pipeline.sql",
+    "supabase/migrations/20261016135913_daily_live_read.sql",
+    "supabase/migrations/20261017190818_pra_territorial_aggregation.sql"
+  ],
+  "history_only_does_not_prove_applied_objects": true
+}

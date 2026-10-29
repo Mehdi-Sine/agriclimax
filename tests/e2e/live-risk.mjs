@@ -15,7 +15,8 @@ const axeRequire=createRequire(lintRequire.resolve('eslint-plugin-jsx-a11y'));
 const base=process.env.E2E_BASE_URL||'http://127.0.0.1:3000';
 const dir=process.env.E2E_LIVE_ARTIFACTS||'work/task16/e2e-live';
 await mkdir(dir,{recursive:true});
-const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE||'/usr/bin/chromium',...(process.env.HTTPS_PROXY ? {proxy:{server:process.env.HTTPS_PROXY}} : {}),args:['--no-sandbox','--enable-unsafe-swiftshader']});
+// Local disconnected fixtures stay on the executor; external previews keep the proxy.
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE||'/usr/bin/chromium',...(process.env.HTTPS_PROXY ? {proxy:{server:process.env.HTTPS_PROXY,bypass:'127.0.0.1,localhost,[::1]'}} : {}),args:['--no-sandbox','--enable-unsafe-swiftshader']});
 const reports=[];
 try {
   for(const width of (process.env.E2E_DISCONNECTED_ONLY?[]:[1440,768,390])) {

@@ -60,4 +60,5 @@ task04_psql -qAt -f /repo/supabase/tests/contracts.sql >"$task04_results/contrac
 "${PYTHON:-python}" "$task04_root/supabase/tests/check_sql_contracts.py" "$task04_results/contracts.json"
 task04_psql -f /repo/supabase/scripts/preflight.sql >"$task04_results/schema.log"
 task04_psql -f /repo/supabase/scripts/task19-preflight.sql >"$task04_results/task19-preflight.log"
+task04_psql -qAt -f /repo/supabase/scripts/task19-daily-catalog.sql >"$task04_results/task19-daily-catalog.json"
 echo "PASS: migrations, SQL permissions, publication, zoom, idempotence and contracts ($task04_mode). Logs: $task04_results"
