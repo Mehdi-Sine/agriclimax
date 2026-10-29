@@ -1,0 +1,123 @@
+[
+  {
+    "file": "ofb-iso.xml",
+    "url": "https://data.ofb.fr/catalogue/Donnees-geographiques-OFB/fre/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&outputSchema=http://www.isotc211.org/2005/gmd&id=b5da2acc-cc68-4378-b0c4-f7a811209f97",
+    "status": 200,
+    "bytes": 23963,
+    "sha256": "9106cdeba7e08faed15407398306bfc939884d98e08bae37e91a1a9bb25078ae",
+    "content_type": "application/xml; charset=UTF-8",
+    "verified_on": "2026-10-29",
+    "archived_raw_response": "ofb-iso.xml.gz",
+    "readable_copy": "ofb-iso.xml",
+    "readable_copy_normalization": "CRLF to LF and trailing blank line removed only",
+    "readable_copy_sha256": "3632a803a35f5bebcdc2ca017f934cdb7ff2987a07b143a85ec92ab9cbd7a8de"
+  },
+  {
+    "file": "ofb-api.xml",
+    "url": "https://data.ofb.fr/catalogue/Donnees-geographiques-OFB/srv/api/records/b5da2acc-cc68-4378-b0c4-f7a811209f97/formatters/xml",
+    "status": 200,
+    "bytes": 17832,
+    "sha256": "8224008e559ad0a6519bee329f815e708f7a3d194f17ff681d27f8bc66b57839",
+    "content_type": "text/html;charset=utf-8",
+    "verified_on": "2026-10-29",
+    "usable_metadata": false,
+    "limitation": "HTTP 200 HTML instead of ISO XML; use CSW response"
+  },
+  {
+    "file": "datagouv.json",
+    "url": "https://www.data.gouv.fr/api/1/datasets/petites-regions-agricoles-source-ministere-de-lagriculture-2017/",
+    "status": 200,
+    "bytes": 10869,
+    "sha256": "7bfcac7a5ce24fb664d6a23a9259819cc5132743f44df5ebbf77e8c64cf563d4",
+    "content_type": "application/json",
+    "verified_on": "2026-10-29"
+  },
+  {
+    "file": "ddtm13.pdf",
+    "url": "https://www.bouches-du-rhone.gouv.fr/contenu/telechargement/44632/253377/file/petites_regions_agricoles_cle24c389%283%29.pdf",
+    "error": "HTTP Error 503: Service Unavailable",
+    "verified_on": "2026-10-29"
+  },
+  {
+    "file": "agreste.html",
+    "url": "https://agreste.agriculture.gouv.fr/agreste-web/methodon/Z_PRA_2017/methodon/",
+    "status": 200,
+    "bytes": 81503,
+    "sha256": "7389322cc02c13dec4f7489baa410dbb9433754bec22a606e20a694f5c9f818c",
+    "content_type": "text/html;charset=UTF-8",
+    "verified_on": "2026-10-29"
+  },
+  {
+    "file": "inrae-data.json",
+    "url": "https://entrepot.recherche.data.gouv.fr/api/datasets/:persistentId/?persistentId=doi:10.57745/0F1QAN",
+    "status": 200,
+    "bytes": 12531,
+    "sha256": "7bb36d11ba66744a7467c9fb5a9f50429b6e27235093cbe7f796d917d3fe711d",
+    "content_type": "application/json;charset=UTF-8",
+    "verified_on": "2026-10-29"
+  },
+  {
+    "file": "inrae-pra.zip",
+    "url": "https://entrepot.recherche.data.gouv.fr/api/access/datafile/214154",
+    "status": 200,
+    "bytes": 5911666,
+    "sha256": "2aa7b8dba936215a6f5db9914f1fb5d9364c3730d998a511f63bf2f5db124dd1",
+    "content_type": "application/zip",
+    "verified_on": "2026-10-29"
+  },
+  {
+    "file": "inrae-README.txt",
+    "url": "https://entrepot.recherche.data.gouv.fr/api/access/datafile/218632",
+    "status": 200,
+    "bytes": 927,
+    "sha256": "6fcf6429c4275a1fd91d87dd93ca1b114e1989a7e1032407913b049b26ab9a55",
+    "content_type": "text/plain",
+    "verified_on": "2026-10-29"
+  },
+  {
+    "file": "ign-geofla.pdf",
+    "url": "https://geoservices.ign.fr/sites/default/files/2021-07/DC_GEOFLA_2-2.pdf",
+    "status": 200,
+    "bytes": 1221,
+    "sha256": "f8ae1e0c31a365ac2288a23d4a0ab8b05e7eb88136682402a49589d18d87e0b4",
+    "content_type": "text/html",
+    "verified_on": "2026-10-29",
+    "usable_metadata": false,
+    "limitation": "Redirect to cartes.gouv.fr HTML; PDF not directly retrieved. Indexed official excerpt only."
+  },
+  {
+    "file": "draaf-paca.html",
+    "url": "https://draaf.paca.agriculture.gouv.fr/regions-agricoles-a1655.html",
+    "status": 200,
+    "bytes": 37195,
+    "sha256": "8596afeaa1501aa261bf0811b4753e463a819f381777f6750396f74b5da9a8f9",
+    "content_type": "text/html; charset=utf-8",
+    "verified_on": "2026-10-29"
+  },
+  {
+    "file": "insee-arm.html",
+    "url": "https://www.insee.fr/fr/metadonnees/definition/c1282",
+    "status": 200,
+    "bytes": 220905,
+    "sha256": "180a7fcef0a06b09f38472dc9bfdcf32a05546dda72bc2ecf51f1561ac920a2e",
+    "content_type": "text/html; charset=utf-8",
+    "verified_on": "2026-10-29"
+  },
+  {
+    "file": "datagouv-search.json",
+    "url": "https://www.data.gouv.fr/api/1/datasets/?q=petites%20regions%20agricoles&page_size=100",
+    "status": 200,
+    "bytes": 258660,
+    "sha256": "650dcd1cc7dc0efc40553677e28a07fd0347836de74542e09825089c72bf87b9",
+    "content_type": "application/json",
+    "verified_on": "2026-10-29"
+  },
+  {
+    "file": "Referentiel_CommuneRA_PRA_2017.xls",
+    "url": "https://agreste.agriculture.gouv.fr/agreste-web/download/methode/Z_PRA_2017/Referentiel_CommuneRA_PRA_2017.xls",
+    "status": 200,
+    "bytes": 7218688,
+    "sha256": "1a47ade01fa9d936da77d3d7d06eaed1f8944f535802147995f96fd39a0b5008",
+    "verified_on": "2026-10-29"
+  }
+]

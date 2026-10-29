@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-29",
+  "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
+  "decision": "BLOCKED",
+  "decision_scope": "Geographic acceptance of existing OFB/MASA snapshot; documentation only",
+  "artifact_fidelity_previously_verified": true,
+  "national_geographic_acceptance": false,
+  "reference_verified_national": false,
+  "official_geometry_exclusion_documentation_found": false,
+  "geometry_vintage": null,
+  "nomenclature_geography_date": "2017-01-01",
+  "dataset_citation_creation_date": "2017-01-01",
+  "dataset_citation_publication_date": "2017-01-01",
+  "citation_dates_certify_geometry_vintage": false,
+  "municipal_arrondissement_cause_confirmed": false,
+  "replacement_reference_validated": false,
+  "communes": [
+    {
+      "code": "13055",
+      "name": "Marseille",
+      "official_nomenclature_pra": "13469",
+      "official_nomenclature_label": "LITTORAL DE PROVENCE - 13",
+      "official_nomenclature_included": true,
+      "geometry_omission_cause": "undocumented"
+    },
+    {
+      "code": "69123",
+      "name": "Lyon",
+      "official_nomenclature_pra": "69196",
+      "official_nomenclature_label": "ZONE MARAICHERE DE LYON - 69",
+      "official_nomenclature_included": true,
+      "geometry_omission_cause": "undocumented"
+    }
+  ],
+  "evidence": [
+    "agreste-selected-rows.json",
+    "ofb-iso.xml",
+    "ofb-datagouv.json",
+    "inrae-dataset.json",
+    "inrae-targeted-comparison.json"
+  ],
+  "required_resolution": [
+    "Producer qualification of OFB contours versus official commune assignments for 13055 and 69123, including municipal-arrondissement handling",
+    "Documented source geometry edition and lineage or an audited suitable official replacement"
+  ],
+  "runtime_reference_modified": false,
+  "weights_modified": false,
+  "migrations_modified": false,
+  "synthetic_geometry_created": false
+}

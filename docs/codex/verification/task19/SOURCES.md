@@ -1,4 +1,11 @@
-> État courant du 18 octobre : [audit national à deux instants, limites structurelles et budget PostgreSQL recalibré](FINAL_SCIENTIFIC_STORAGE_REVIEW.md).
+> Recherche géographique complémentaire du 29 octobre :
+> [décision BLOCKED et sources producteur vérifiées](GEOGRAPHIC_ACCEPTANCE_20261029.md).
+> Le XLS Agreste et le ZIP INRAE sont désormais téléchargés directement chez leurs
+> producteurs, avec SHA256 identiques aux pièces reçues. La fiche ISO OFB est lue.
+> Marseille et Lyon ont un rattachement Agreste explicite ; aucune exclusion
+> géométrique officielle n'a été trouvée. Le millésime des contours reste inconnu.
+>
+> État du 18 octobre : [audit national à deux instants, limites structurelles et budget PostgreSQL recalibré](FINAL_SCIENTIFIC_STORAGE_REVIEW.md).
 > Les résultats ci-dessous restent les preuves datées des étapes précédentes.
 
 > État courant après réception de l’archive OFB/MASA :

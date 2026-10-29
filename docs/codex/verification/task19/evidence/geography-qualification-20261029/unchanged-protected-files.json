@@ -1,0 +1,85 @@
+{
+  "baseline_commit": "ab552fb48197b14488a8ded696e8de90a4520204",
+  "files": [
+    {
+      "sha256": "61176305468c30d8116dd3433aa5c1de3511a225e2d0cd1c0a90e67f55bd906b",
+      "path": "config/coverage/README.md"
+    },
+    {
+      "sha256": "a130d591c5e26bd6135801cb2155e738c1171b8fdc668850645f3c9a6b54e764",
+      "path": "config/coverage/france-metropolitan.geojson"
+    },
+    {
+      "sha256": "f8d7a75454a533380972bacb367ba42e57c8f9bcddf6a63160950f32d3662a81",
+      "path": "config/coverage/ofb-masa-pra-2017-snapshot-20261017/README.md"
+    },
+    {
+      "sha256": "1695de7704201fdfc932b9f4db9001b08b78a9c3e899d49309e68071642be353",
+      "path": "config/coverage/ofb-masa-pra-2017-snapshot-20261017/checksums.json"
+    },
+    {
+      "sha256": "2b570b84d9457af91ac8a065508d4cda24f40c9109302932b71f60002b582194",
+      "path": "config/coverage/ofb-masa-pra-2017-snapshot-20261017/manifest.json"
+    },
+    {
+      "sha256": "51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669",
+      "path": "config/coverage/ofb-masa-pra-2017-snapshot-20261017/reference.json"
+    },
+    {
+      "sha256": "2ba252ff9e471def240fcc7d3471104b88f1ae3ea8defd216cfa8d5d611df1e6",
+      "path": "config/coverage/ofb-masa-pra-2017-snapshot-20261017/source-properties.json"
+    },
+    {
+      "sha256": "34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb",
+      "path": "config/coverage/ofb-masa-pra-2017-snapshot-20261017/weights.json"
+    },
+    {
+      "sha256": "dea4e8fb38748547ccf6cffe7317dd8063476aa911b8e2dd6b25f3c086e20324",
+      "path": "supabase/migrations/0001_extensions_and_core.sql"
+    },
+    {
+      "sha256": "da6add0940a4239875041f5dad8dba522ae09527917c41c143aa49693c0a435f",
+      "path": "supabase/migrations/0002_watch_and_ai_provenance.sql"
+    },
+    {
+      "sha256": "4cfc80f7c0eda69057160cc4b1e187a03962b9bb4fbd4b446dabef4e95245084",
+      "path": "supabase/migrations/0003_persistence_and_rls.sql"
+    },
+    {
+      "sha256": "33e1990029ab9b38a7e90f6969ba37e55be6b7fb2761d774a6699afa73b74999",
+      "path": "supabase/migrations/0004_bounded_read_api.sql"
+    },
+    {
+      "sha256": "7247136a18b66a1508b89ce0b8fa678c3c4ac9fd741d355360edd7559872e3c1",
+      "path": "supabase/migrations/20261014133958_meteofrance_station_ingestion.sql"
+    },
+    {
+      "sha256": "a5c691f4842f079fce738a38748041419dcab44b3c4f68a9a8a8bd2807eaef53",
+      "path": "supabase/migrations/20261015073507_climatology_reference.sql"
+    },
+    {
+      "sha256": "201f3ab8c0a3c8f347a628507d972f2bbd51beab8d588865d33f864850e85971",
+      "path": "supabase/migrations/20261015140022_wheat_portfolios.sql"
+    },
+    {
+      "sha256": "06e694c85fc96ba71043fe005480f20837d656cb61b90c4d576a4a94c78d980d",
+      "path": "supabase/migrations/20261015173703_france_coverage.sql"
+    },
+    {
+      "sha256": "e21914c0ac939e85c4565ba6a8b695c7060ee100f769ac3c34f66a8937be2368",
+      "path": "supabase/migrations/20261015174308_france_station_catalogue_capacity.sql"
+    },
+    {
+      "sha256": "41e7f6fc5fd239eae8e79a5510a915cded6536e001cdfcb0843032f4cb98997b",
+      "path": "supabase/migrations/20261016095414_daily_pipeline.sql"
+    },
+    {
+      "sha256": "3fccd309bd25dbebf9bbf09fb80510d0186312e7662c11d9daa5998067195c33",
+      "path": "supabase/migrations/20261016135913_daily_live_read.sql"
+    },
+    {
+      "sha256": "c4c07c92290901b3ad0e72feb9aca9bf64f2a03e7f9137518c706b4a661aa4a6",
+      "path": "supabase/migrations/20261017190818_pra_territorial_aggregation.sql"
+    }
+  ]
+}

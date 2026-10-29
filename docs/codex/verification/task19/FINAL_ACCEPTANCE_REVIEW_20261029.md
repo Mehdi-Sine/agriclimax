@@ -1,5 +1,10 @@
 # AgriclimaX — revue finale du 29 octobre 2026
 
+> Complément limité à l'acceptation géographique :
+> **[décision BLOCKED, sources officielles et rattachements Marseille/Lyon](GEOGRAPHIC_ACCEPTANCE_20261029.md)**.
+> Agreste rattache 13055 à 13469 et 69123 à 69196 ; les omissions de la couche
+> OFB restent non qualifiées. Aucun contour, poids ou migration modifié.
+
 **Recommandation : NOT READY.** L'acceptation de la couverture géographique reste
 non close. La validation CI doit être examinée sur le SHA final : un incident
 d'infrastructure a empêché les runs daily récents, mais les nouveaux workflows
@@ -89,14 +94,17 @@ snap, clipping, réparation ou simplification n'est appliqué au référentiel.
 
 Les grandes composantes contiguës des lacunes du 13 et du 69 correspondent à
 ces communes. Elles ne sont pas expliquées par quelques mètres de généralisation,
-et le cas lyonnais n'est pas littoral. Une publication de l'établissement public
-VNF (tarifs 2023, p.81) place Lyon dans la « Zone maraîchère de Lyon » : c'est un
-indice documentaire contre une exclusion urbaine supposée normale, sans remplacer
-le référentiel communal officiel 2017 et un contour compatible.
+et le cas lyonnais n'est pas littoral. Le premier contrôle utilisait un indice
+VNF (tarifs 2023, p.81). La recherche officielle complémentaire ci-dessus apporte
+désormais une preuve plus directe : le XLS téléchargé chez Agreste rattache
+Marseille à 13469 et Lyon à 69196. Leur exclusion de la nomenclature 2017 n'est
+donc pas une explication recevable. Cela ne documente pas la méthode de production
+des contours OFB.
 
 **Fait établi : absence de couverture de ces surfaces dans le snapshot.** Cause
-exacte non établie : exclusion voulue, traitement des arrondissements municipaux
-ou défaut de production sont des hypothèses, pas des conclusions. Aucune erreur
+exacte non établie : éventuelle règle d'exclusion propre à la diffusion géométrique,
+traitement des arrondissements municipaux ou défaut de production ne sont pas
+documentés. Aucune erreur
 de notre conversion n'est démontrée (elle reproduit le XML officiel), ni géométrie
 invalide à réparer. Il reste une anomalie de couverture de la source à qualifier.
 Je ne propose donc pas de lever ce blocage d'acceptation en l'assimilant à l'eau.

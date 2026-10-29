@@ -1,4 +1,8 @@
-> État courant du 29 octobre : [revue finale et décision](FINAL_ACCEPTANCE_REVIEW_20261029.md),
+> Acceptation géographique, recherche officielle complémentaire du 29 octobre :
+> **[BLOCKED — Marseille/Lyon rattachées par Agreste, omissions OFB non qualifiées](GEOGRAPHIC_ACCEPTANCE_20261029.md)**.
+> Contours, poids, manifeste d'exécution et migrations intégralement inchangés.
+>
+> État technique du 29 octobre : [revue finale et décision](FINAL_ACCEPTANCE_REVIEW_20261029.md),
 > [réconciliation daily](SUPABASE_RECONCILIATION_20261029.md), [cadrage Task19B](TASK19B_START.md).
 > NOT READY : acceptation géographique non close (trous terrestres Marseille/Lyon).
 > Voir les checks du SHA final dans la PR ; les runs daily récents ont subi un
