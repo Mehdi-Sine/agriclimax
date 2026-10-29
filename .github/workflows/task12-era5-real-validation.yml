@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout Task 12 branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: codex/12-climatology-anomalies
 
