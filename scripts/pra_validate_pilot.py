@@ -22,12 +22,21 @@ import xarray as xr
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, required=True)
+    parser.add_argument("--sample", type=Path, help="Versioned larger pilot selection")
+    parser.add_argument("--destination", choices=["local", "supabase"])
     parser.add_argument("--weights", type=Path, required=True)
     parser.add_argument("--reference", type=Path, required=True)
     parser.add_argument("--parameters", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     a = parser.parse_args()
     weights = json.loads(a.weights.read_text())
+    sample_ids = None
+    if a.sample:
+        sample = json.loads(a.sample.read_text())
+        sample_ids = {r["id"] for r in sample["selection"]}
+        if len(sample_ids) != 73:
+            raise ValueError("Expected the versioned 73-PRA sample")
+        weights = [w for w in weights if w["pra_id"] in sample_ids]
     names = {
         f["properties"]["code"]: f["properties"]["name"]
         for f in json.loads(a.reference.read_text())["features"]
@@ -64,10 +73,12 @@ def main() -> None:
             if dataset.t2m.attrs["units"] != "K" or dataset.tp.attrs["units"] != "m":
                 raise ValueError("Unexpected source units")
             for row in payload["rows"]:
-                if (
-                    row["cell_id"] not in selected
-                    or math.floor(row["longitude"]) != west
-                    or math.floor(row["latitude"]) != south
+                if row["cell_id"] not in selected or (
+                    not a.sample
+                    and (
+                        math.floor(row["longitude"]) != west
+                        or math.floor(row["latitude"]) != south
+                    )
                 ):
                     continue
                 key = (row["cell_id"], row["valid_date"])
@@ -116,8 +127,13 @@ def main() -> None:
         json.loads(f.read_text())
         for f in sorted((a.root / "batches").glob("*/output.json"))
     ]
-    if len(outputs) != 4:
-        raise ValueError("Exactly four completed/partial pilot envelopes required")
+    if a.destination:
+        outputs = [o for o in outputs if o["identity"]["destination"] == a.destination]
+    expected_count = 73 if sample_ids is not None else 4
+    if len(outputs) != expected_count or (
+        sample_ids is not None and {o["identity"]["pra"] for o in outputs} != sample_ids
+    ):
+        raise ValueError("Missing, duplicate or out-of-sample pilot envelopes")
     cases = []
     maximum_aggregate_error = 0.0
     variables = ["temperature", "temperature_min", "temperature_max", "precipitation"]

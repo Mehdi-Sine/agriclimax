@@ -42,3 +42,35 @@ it('reports a published batch with no native values as unavailable, retaining mi
  const response=await readTerritories(new Request(base+'&action=read&dataset=test&date=2026-01-01&scope=pra&id=pra:01001'),fetcher);
  expect(response.status).toBe(200);expect(await response.json()).toMatchObject({state:'unavailable',data:[{status:'unavailable',temperature:null,expected_cells:6,coverage:[0,0,0,0],valid_counts:[0,0,0,0],quality_flags:['missing_cells']}]});
 });
+
+it('pilot pagination filters reference-only PRA and keeps the explicit 73/713 scope',async()=>{
+ configure();
+ const sample=(await import('../../../../config/pilots/pra73-v1.json')).default;
+ const selected=sample.selection.map(item=>({...row,id:item.id,official_code:item.code,name:item.name}));
+ const outside={...row,id:'pra:01000',official_code:'01000'};
+ const fetcher=vi.fn<typeof fetch>()
+  .mockResolvedValueOnce(Response.json({data:[outside,...selected.slice(0,30)].sort((a,b)=>a.id.localeCompare(b.id)),next_cursor:selected[29].id}))
+  .mockResolvedValueOnce(Response.json({data:selected.slice(30),next_cursor:null}));
+ const address=`https://app.test/api/territories?reference=${sample.reference_version}&pilot=73&limit=73`;
+ const response=await readTerritories(new Request(address),fetcher);
+ expect(response.status).toBe(200);
+ const result=await response.json();expect(result.data).toHaveLength(73);expect(result.data.map((item:{id:string})=>item.id)).toEqual(selected.map(item=>item.id));
+ expect(result.pilot).toMatchObject({selected_count:73,total_reference_count:713});expect(result.next_cursor).toBeNull();
+ expect(fetcher).toHaveBeenCalledTimes(2);
+});
+
+it.each(['&pilot=713','&pilot=73&pilot=73','&pilot=73&limit=74'])('rejects an unbounded or ambiguous pilot request %s',async suffix=>{
+ const sample=(await import('../../../../config/pilots/pra73-v1.json')).default;
+ const fetcher=vi.fn<typeof fetch>();
+ const response=await readTerritories(new Request(`https://app.test/api/territories?reference=${sample.reference_version}${suffix}`),fetcher);
+ expect(response.status).toBe(400);expect(fetcher).not.toHaveBeenCalled();
+});
+
+it('does not label a partially imported pilot complete when returned weather rows are valid',async()=>{
+ configure();const sample=(await import('../../../../config/pilots/pra73-v1.json')).default;
+ const first=sample.selection[0];
+ const full={...row,id:first.id,temperature:10,temperature_min:5,temperature_max:15,precipitation:2,coverage:[1,1,1,1],valid_counts:[1,1,1,1],expected_cells:1,status:'available',freshness:'stale',computed_at:'2026-10-29T00:00:00Z',valid_date:'2026-10-18',batch_key:'a'.repeat(64),quality_flags:[]};
+ const fetcher=vi.fn<typeof fetch>().mockResolvedValue(Response.json({source_id:'era5-land',source_kind:'reanalysis',method_version:'pra-native-1',data:[full],next_cursor:null}));
+ const response=await readTerritories(new Request(`https://app.test/api/territories?reference=${sample.reference_version}&action=read&pilot=73&limit=73&dataset=era5land-pilot73-20261012-20261018-v1&date=2026-10-18&scope=france`),fetcher);
+ expect(response.status).toBe(200);expect(await response.json()).toMatchObject({state:'partial',pilot:{selected_count:73},data:[{status:'available'}]});
+});

@@ -1,4 +1,5 @@
 import 'server-only';
+import pilotSample from '../../../../config/pilots/pra73-v1.json';
 import {ApiError} from './query';
 
 type RecordValue = Record<string, unknown>;
@@ -86,7 +87,31 @@ export async function territoryData(params:URLSearchParams,transport:typeof fetc
   if(data.some((r,i)=>i>0&&r.id<=data[i-1].id)||raw.next_cursor!==null&&raw.next_cursor!==data.at(-1)?.id)throw new ApiError('INVALID_RESPONSE',502);
   return {reference_version:reference,...(action==='read'?{dataset_version:params.get('dataset')!,units:{temperature:'degC',temperature_min:'degC',temperature_max:'degC',precipitation:'mm'}}:{}),data,next_cursor:raw.next_cursor as string|null,source_id:action==='read'?'era5-land':'official-pra-reference',source_kind:action==='read'?'reanalysis':'geographic_reference',method_version:'pra-native-1',state:action==='lookup'?(data.length?'available':'unavailable'):data.some(r=>r.status!=='unavailable')?(data.every(r=>r.status==='available')?'available':'partial'):'unavailable'};
 }
+export const PRA_PILOT={reference:pilotSample.reference_version,dataset:'era5land-pilot73-20261012-20261018-v1',start:'2026-10-12',end:'2026-10-18'} as const;
+
+export async function pilotTerritories(params:URLSearchParams,transport:typeof fetch=fetch):Promise<TerritoryPage & {pilot:{selection_version:string;selected_count:number;total_reference_count:number;coverage_claim:string;geography_reservations:string[]}}> {
+  if(params.get('pilot')!=='73'||params.getAll('pilot').length!==1||params.get('reference')!==pilotSample.reference_version)throw new ApiError('INVALID_QUERY',400);
+  const action=params.get('action')||'lookup', limit=params.get('limit')||'50', after=params.get('after')||'';
+  if(!/^\d{1,3}$/.test(limit)||Number(limit)<1||Number(limit)>73||params.getAll('limit').length>1)throw new ApiError('INVALID_QUERY',400);
+  if(action==='read'&&(params.get('scope')!=='france'||params.get('dataset')!=='era5land-pilot73-20261012-20261018-v1'||!params.get('date')||params.get('date')!<'2026-10-12'||params.get('date')!>'2026-10-18'))throw new ApiError('INVALID_QUERY',400);
+  const ids=new Set(pilotSample.selection.map(row=>row.id));
+  const expected=Math.min(Number(limit),pilotSample.selection.filter(row=>row.id>after).length);
+  const query=new URLSearchParams(params);query.delete('pilot');query.set('limit','100');
+  const data:TerritoryRow[]=[];let last:TerritoryPage|undefined;
+  for(let page=0;page<8;page++) {
+    last=await territoryData(query,transport);
+    data.push(...last.data.filter(row=>ids.has(row.id)));
+    if(!last.next_cursor||data.length>=Number(limit))break;
+    query.set('after',last.next_cursor);
+  }
+  if(!last)throw new ApiError('INVALID_RESPONSE',502);
+  const result=data.slice(0,Number(limit));
+  const more=pilotSample.selection.some(row=>row.id>(result.at(-1)?.id||after));
+  const state=action==='lookup'?(result.length?'available':'unavailable'):result.some(row=>row.status!=='unavailable')?(result.length===expected&&result.every(row=>row.status==='available')?'available':'partial'):'unavailable';
+  return {...last,data:result,next_cursor:result.length===Number(limit)&&more?result.at(-1)!.id:null,state,pilot:{selection_version:pilotSample.selection_version,selected_count:73,total_reference_count:713,coverage_claim:'Pilote de 73 PRA sélectionnées ; aucune couverture climatique nationale complète',geography_reservations:['Omissions des contours source à Marseille et Lyon : aucune couverture communale exhaustive affirmée','Millésime géométrique source inconnu']}};
+}
+
 export async function readTerritories(request:Request,transport:typeof fetch=fetch) {
-  try {return Response.json(await territoryData(new URL(request.url).searchParams,transport),{headers:{'Cache-Control':'no-store'}});}
+  try {const params=new URL(request.url).searchParams;return Response.json(await (params.has('pilot')?pilotTerritories(params,transport):territoryData(params,transport)),{headers:{'Cache-Control':'no-store'}});}
   catch(error) {const safe=error instanceof ApiError?error:new ApiError('UPSTREAM_UNAVAILABLE',502);return Response.json({error:safe.code},{status:safe.status});}
 }
