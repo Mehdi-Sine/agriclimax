@@ -1,4 +1,4 @@
-"""Prepare Task19D; national execution is disabled until separately authorized."""
+"""Bounded national DEV execution, including explicitly authorized full reacquisition."""
 
 from __future__ import annotations
 
@@ -100,6 +100,10 @@ def main() -> None:
     p.add_argument("--execute-national", action="store_true")
     a = p.parse_args()
     config = json.loads(CONFIG.read_text())
+    full = config.get("acquisition_mode") == "full_reacquisition"
+    request_cap = int(config["maximum_new_cds_requests"])
+    if config.get("concurrency") != 1 or not 1 <= request_cap <= 100:
+        p.error("Sequential execution and at most 100 CDS requests required")
     if a.phase != "plan":
         if not a.execute_national or config["execution_authorized"] is not True:
             p.error(
@@ -156,9 +160,10 @@ def main() -> None:
         "tiles": len(tiles),
         "weights": len(weights),
         "native_cells": len({w.cell_id for w in weights}),
-        "missing_source_groups": missing,
-        "cache_request_indexes_reused": 81,
-        "incremental_cds_requests": len(missing) * 3,
+        "missing_source_groups": groups if full else missing,
+        "expected_cds_requests": len(groups) * 2 if full else len(missing) * 3,
+        "cache_request_indexes_reused": 0 if full else 81,
+        "incremental_cds_requests": len(groups) * 2 if full else len(missing) * 3,
         "daily_rows_new_national_edition": 713 * 30,
         "national_batches": 713 * 5,
         "pilot_rows_retained": 73 * 30,
@@ -188,7 +193,20 @@ def main() -> None:
         print(json.dumps(plan, indent=2))
         return
     ROOT.mkdir(parents=True, exist_ok=True)
-    if a.phase == "acquire":
+    execution_plan = ROOT / "execution-plan.json"
+    identity_plan = {
+        "dataset": release.model_dump(mode="json"),
+        "mode": config.get("acquisition_mode", "reuse"),
+        "windows": [[str(s), str(e)] for s, e in ALL_WINDOWS],
+        "request_cap": request_cap,
+    }
+    if (
+        execution_plan.exists()
+        and json.loads(execution_plan.read_text()) != identity_plan
+    ):
+        raise ValueError("Immutable execution plan mismatch")
+    atomic_write(execution_plan, json.dumps(identity_plan, sort_keys=True).encode())
+    if a.phase == "acquire" and not full:
         if (
             len(list((PILOT_ROOT / "source-cache/requests").glob("*.json"))) != 54
             or len(list((OLD_ROOT / "source-cache/requests").glob("*.json"))) != 27
@@ -217,10 +235,8 @@ def main() -> None:
         atomic_write(metrics_path, json.dumps(metrics, indent=2).encode())
 
     def retrieve(request: dict[str, object], target: Path) -> None:
-        if len(metrics["requests"]) >= 9:
-            raise ValueError(
-                "Prepared nine-request incremental budget exceeded; inspect cache"
-            )
+        if len(metrics["requests"]) >= request_cap:
+            raise ValueError("Authorized CDS request budget exceeded")
         mark = time.monotonic()
         row: dict[str, Any] = {"request": request, "status": "started"}
         metrics["requests"].append(row)
@@ -237,10 +253,15 @@ def main() -> None:
 
     provider = Era5LandProvider(release, ROOT / "source-cache", retrieve=retrieve)
     if a.phase == "acquire":
-        for first, last, windows in [
-            (START, END, WINDOWS),
-            (date(2026, 10, 12), LAST, [ALL_WINDOWS[-1]]),
-        ]:
+        spans = (
+            [(START, LAST, ALL_WINDOWS)]
+            if full
+            else [
+                (START, END, WINDOWS),
+                (date(2026, 10, 12), LAST, [ALL_WINDOWS[-1]]),
+            ]
+        )
+        for first, last, windows in spans:
             for west, south in groups:
                 wanted = [
                     (x, y)
@@ -304,7 +325,16 @@ def main() -> None:
                             path.with_suffix(".sha256"),
                             hashlib.sha256(content).hexdigest().encode(),
                         )
-        boundary_equal(ROOT, ROOT, expected_groups=30)
+                print(
+                    "Verified source extent",
+                    west,
+                    south,
+                    "requests",
+                    len(metrics["requests"]),
+                    flush=True,
+                )
+        if not full:
+            boundary_equal(ROOT, ROOT, expected_groups=30)
     else:
         if a.phase in {"persist", "replay"}:
             proof = json.loads(Path("work/task19d/independent.json").read_text())

@@ -15,6 +15,18 @@ NATIONAL = runpy.run_path(str(ROOT / "scripts/pra_national_30day.py"))
 
 @pytest.mark.parametrize("phase", ["acquire", "aggregate", "persist", "replay"])
 def test_national_execution_remains_disabled_even_with_cli_flag(monkeypatch, tmp_path, phase):
+    disabled = tmp_path / "disabled.json"
+    disabled.write_text(
+        json.dumps(
+            {
+                "execution_authorized": False,
+                "maximum_new_cds_requests": 100,
+                "concurrency": 1,
+                "acquisition_mode": "full_reacquisition",
+            }
+        )
+    )
+    monkeypatch.setitem(NATIONAL["main"].__globals__, "CONFIG", disabled)
     monkeypatch.setattr(sys, "argv", ["national", "--phase", phase, "--execute-national"])
     monkeypatch.setitem(NATIONAL["main"].__globals__, "ROOT", tmp_path / "untouched")
     with pytest.raises(SystemExit) as error:
@@ -61,3 +73,61 @@ def test_cache_alias_preserves_bytes_original_identity_and_retrieval_time(tmp_pa
     path.write_bytes(b"controlled corruption")
     with pytest.raises(ValueError, match="checksum"):
         NATIONAL["alias_cache"](origin, tmp_path / "bad-bytes", original, release)
+
+
+@pytest.mark.parametrize("overrides", [{"maximum_new_cds_requests": 101}, {"concurrency": 2}])
+def test_full_reacquisition_keeps_hard_request_and_concurrency_limits(
+    monkeypatch, tmp_path, overrides
+):
+    config = {
+        "execution_authorized": True,
+        "maximum_new_cds_requests": 100,
+        "concurrency": 1,
+        "acquisition_mode": "full_reacquisition",
+    } | overrides
+    path = tmp_path / "config.json"
+    path.write_text(json.dumps(config))
+    monkeypatch.setitem(NATIONAL["main"].__globals__, "CONFIG", path)
+    monkeypatch.setattr(sys, "argv", ["national", "--phase", "plan"])
+    with pytest.raises(SystemExit) as error:
+        NATIONAL["main"]()
+    assert error.value.code == 2
+
+
+def test_fresh_acquisition_never_restores_pilot_caches(monkeypatch, tmp_path):
+    from datetime import date
+    from types import SimpleNamespace
+
+    class FreshDownloadReached(Exception):
+        pass
+
+    globals_ = NATIONAL["main"].__globals__
+    config = json.loads(globals_["CONFIG"].read_text())
+    config.update(
+        execution_authorized=True,
+        acquisition_mode="full_reacquisition",
+        maximum_new_cds_requests=100,
+        concurrency=1,
+    )
+    path = tmp_path / "config.json"
+    path.write_text(json.dumps(config))
+    monkeypatch.setitem(globals_, "CONFIG", path)
+    monkeypatch.setitem(globals_, "ROOT", tmp_path / "new-national")
+    monkeypatch.setitem(globals_, "PILOT_ROOT", tmp_path / "absent-old-c")
+    monkeypatch.setitem(globals_, "OLD_ROOT", tmp_path / "absent-old-b")
+    monkeypatch.setenv("NEXT_PUBLIC_SUPABASE_URL", "https://yyfbpecxvxglzxopsmel.supabase.co")
+    monkeypatch.setattr(sys, "argv", ["national", "--phase", "acquire", "--execute-national"])
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError("No old-cache restoration")
+
+    def acquire(bbox, start, end):
+        assert start == date(2026, 9, 19) and end == date(2026, 10, 18)
+        raise FreshDownloadReached()
+
+    monkeypatch.setitem(globals_, "alias_cache", forbidden)
+    monkeypatch.setitem(
+        globals_, "Era5LandProvider", lambda *args, **kwargs: SimpleNamespace(acquire=acquire)
+    )
+    with pytest.raises(FreshDownloadReached):
+        NATIONAL["main"]()
