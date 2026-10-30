@@ -1,0 +1,3970 @@
+{
+  "decision": "READY_FOR_713x30",
+  "base_main": "ab604cbdc252c5a64114872a7afac70e7d586d46",
+  "scope": "DEV only; 73 PRA ×30 days, national execution not performed",
+  "period_utc": [
+    "2026-09-19",
+    "2026-10-18"
+  ],
+  "components": [
+    {
+      "dataset": "era5land-pilot73-20260919-20261011-v1",
+      "from": "2026-09-19",
+      "to": "2026-10-11"
+    },
+    {
+      "dataset": "era5land-pilot73-20261012-20261018-v1",
+      "from": "2026-10-12",
+      "to": "2026-10-18"
+    }
+  ],
+  "physical_dataset": {
+    "catalogue_id": "reanalysis-era5-land",
+    "doi": "10.24381/cds.e2161bac",
+    "reference_period": {
+      "end_year": 2020,
+      "minimum_years": 24,
+      "start_year": 1991
+    },
+    "resolution": "0.1 degree CDS regular grid; native approximately 9 km",
+    "source_id": "era5-land",
+    "transformation_version": "era5-land-utc-daily-1"
+  },
+  "selection_sha256": "a0ed42122e0964828c113dda271c03965e8eb56586dcd51e540ec3bd80eb40e2",
+  "bundle_checksums": {
+    "reference.json": "51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669",
+    "weights.json": "34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb",
+    "manifest.json": "2b570b84d9457af91ac8a065508d4cda24f40c9109302932b71f60002b582194",
+    "source-properties.json": "2ba252ff9e471def240fcc7d3471104b88f1ae3ea8defd216cfa8d5d611df1e6"
+  },
+  "old_task19b_evidence_sha256": "c4ef2daa3ad41ca3f0a8284e4a6850f36fc2545d3cf6d34e464259c6d686ce7e",
+  "acquisition": {
+    "logical_requests": 54,
+    "successful": 54,
+    "failed": 0,
+    "bytes": 17419829,
+    "active_seconds": 8249.726480695,
+    "peak_parent_rss_kib": 347964,
+    "cache_verification_new_requests": 0,
+    "cache_verification_group_hits": 27,
+    "compact_tiles": 344,
+    "logical_retry_attempts": 0,
+    "sdk_retries": "opaque in existing adapter; configured max3; not certified zero",
+    "requests": [
+      {
+        "area": [
+          50,
+          -6,
+          48,
+          -4
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 122400,
+        "seconds": 115.11072821599987
+      },
+      {
+        "area": [
+          50,
+          -6,
+          48,
+          -4
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 129149,
+        "seconds": 85.167984123
+      },
+      {
+        "area": [
+          48,
+          -4,
+          46,
+          -2
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 182299,
+        "seconds": 143.99305498800004
+      },
+      {
+        "area": [
+          48,
+          -4,
+          46,
+          -2
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 188296,
+        "seconds": 164.71382513599997
+      },
+      {
+        "area": [
+          50,
+          -4,
+          48,
+          -2
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 208521,
+        "seconds": 104.07275113700007
+      },
+      {
+        "area": [
+          50,
+          -4,
+          48,
+          -2
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 222825,
+        "seconds": 138.58492399500005
+      },
+      {
+        "area": [
+          44,
+          -2,
+          42,
+          0
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 342275,
+        "seconds": 129.73267854300002
+      },
+      {
+        "area": [
+          44,
+          -2,
+          42,
+          0
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 462813,
+        "seconds": 74.04294887299989
+      },
+      {
+        "area": [
+          46,
+          -2,
+          44,
+          0
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 285662,
+        "seconds": 128.37506440900006
+      },
+      {
+        "area": [
+          46,
+          -2,
+          44,
+          0
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 338189,
+        "seconds": 77.18592307100016
+      },
+      {
+        "area": [
+          48,
+          -2,
+          46,
+          0
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 351876,
+        "seconds": 112.12348861200007
+      },
+      {
+        "area": [
+          48,
+          -2,
+          46,
+          0
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 388813,
+        "seconds": 199.08403073299996
+      },
+      {
+        "area": [
+          50,
+          -2,
+          48,
+          0
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 311489,
+        "seconds": 242.63069977199984
+      },
+      {
+        "area": [
+          50,
+          -2,
+          48,
+          0
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 325561,
+        "seconds": 304.5149921780003
+      },
+      {
+        "area": [
+          44,
+          0,
+          42,
+          2
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 345563,
+        "seconds": 101.24946636000004
+      },
+      {
+        "area": [
+          44,
+          0,
+          42,
+          2
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 495469,
+        "seconds": 126.30414454699985
+      },
+      {
+        "area": [
+          46,
+          0,
+          44,
+          2
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 312416,
+        "seconds": 206.71439356600013
+      },
+      {
+        "area": [
+          46,
+          0,
+          44,
+          2
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 433753,
+        "seconds": 95.04975932699972
+      },
+      {
+        "area": [
+          48,
+          0,
+          46,
+          2
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 314351,
+        "seconds": 88.1249792640001
+      },
+      {
+        "area": [
+          48,
+          0,
+          46,
+          2
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 399351,
+        "seconds": 73.57040041899972
+      },
+      {
+        "area": [
+          50,
+          0,
+          48,
+          2
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 350670,
+        "seconds": 186.78127983800005
+      },
+      {
+        "area": [
+          50,
+          0,
+          48,
+          2
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 383724,
+        "seconds": 72.88688484999966
+      },
+      {
+        "area": [
+          44,
+          2,
+          42,
+          4
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 324147,
+        "seconds": 93.24228167299952
+      },
+      {
+        "area": [
+          44,
+          2,
+          42,
+          4
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 420463,
+        "seconds": 80.51025103900065
+      },
+      {
+        "area": [
+          46,
+          2,
+          44,
+          4
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 327867,
+        "seconds": 103.18476490499961
+      },
+      {
+        "area": [
+          46,
+          2,
+          44,
+          4
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 460196,
+        "seconds": 235.2792294359997
+      },
+      {
+        "area": [
+          48,
+          2,
+          46,
+          4
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 294603,
+        "seconds": 109.51454737299991
+      },
+      {
+        "area": [
+          48,
+          2,
+          46,
+          4
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 401331,
+        "seconds": 205.59184845899927
+      },
+      {
+        "area": [
+          50,
+          2,
+          48,
+          4
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 316421,
+        "seconds": 105.59328338599971
+      },
+      {
+        "area": [
+          50,
+          2,
+          48,
+          4
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 386141,
+        "seconds": 76.92992144399977
+      },
+      {
+        "area": [
+          52,
+          2,
+          50,
+          4
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 282001,
+        "seconds": 95.04738656399968
+      },
+      {
+        "area": [
+          52,
+          2,
+          50,
+          4
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 307166,
+        "seconds": 72.97454413299965
+      },
+      {
+        "area": [
+          44,
+          4,
+          42,
+          6
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 180652,
+        "seconds": 127.09978240999953
+      },
+      {
+        "area": [
+          44,
+          4,
+          42,
+          6
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 217171,
+        "seconds": 91.2261706700001
+      },
+      {
+        "area": [
+          46,
+          4,
+          44,
+          6
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 315851,
+        "seconds": 145.89469859699966
+      },
+      {
+        "area": [
+          46,
+          4,
+          44,
+          6
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 461247,
+        "seconds": 68.86897421600042
+      },
+      {
+        "area": [
+          48,
+          4,
+          46,
+          6
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 291500,
+        "seconds": 204.9610047010001
+      },
+      {
+        "area": [
+          48,
+          4,
+          46,
+          6
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 410518,
+        "seconds": 95.99436796399914
+      },
+      {
+        "area": [
+          50,
+          4,
+          48,
+          6
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 291862,
+        "seconds": 93.24098207299994
+      },
+      {
+        "area": [
+          50,
+          4,
+          48,
+          6
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 411087,
+        "seconds": 266.26000732300054
+      },
+      {
+        "area": [
+          52,
+          4,
+          50,
+          6
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 353363,
+        "seconds": 222.00784117500007
+      },
+      {
+        "area": [
+          52,
+          4,
+          50,
+          6
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 416991,
+        "seconds": 160.86753048399987
+      },
+      {
+        "area": [
+          44,
+          6,
+          42,
+          8
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 168490,
+        "seconds": 176.97266143099932
+      },
+      {
+        "area": [
+          44,
+          6,
+          42,
+          8
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 203168,
+        "seconds": 169.4624241599995
+      },
+      {
+        "area": [
+          46,
+          6,
+          44,
+          8
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 381697,
+        "seconds": 88.58930576000057
+      },
+      {
+        "area": [
+          46,
+          6,
+          44,
+          8
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 506463,
+        "seconds": 81.71066485499978
+      },
+      {
+        "area": [
+          48,
+          6,
+          46,
+          8
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 319907,
+        "seconds": 130.1744317900002
+      },
+      {
+        "area": [
+          48,
+          6,
+          46,
+          8
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 477021,
+        "seconds": 83.254437607
+      },
+      {
+        "area": [
+          50,
+          6,
+          48,
+          8
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 298767,
+        "seconds": 465.38621225299994
+      },
+      {
+        "area": [
+          50,
+          6,
+          48,
+          8
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 433487,
+        "seconds": 157.79331070599983
+      },
+      {
+        "area": [
+          42,
+          8,
+          40,
+          10
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 251100,
+        "seconds": 98.34393302100034
+      },
+      {
+        "area": [
+          42,
+          8,
+          40,
+          10
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 300627,
+        "seconds": 384.3479104570015
+      },
+      {
+        "area": [
+          44,
+          8,
+          42,
+          10
+        ],
+        "month": "09",
+        "status": "downloaded",
+        "bytes": 144992,
+        "seconds": 124.54854194700056
+      },
+      {
+        "area": [
+          44,
+          8,
+          42,
+          10
+        ],
+        "month": "10",
+        "status": "downloaded",
+        "bytes": 168067,
+        "seconds": 165.54739157699987
+      }
+    ],
+    "source_files": [
+      {
+        "sha256": "da74ed5a63ca5dcb40048b88b74acc64591509296e2e5b8cedf061bb24d43332",
+        "bytes": 315851,
+        "area": [
+          46,
+          4,
+          44,
+          6
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T09:25:47.997903+00:00"
+      },
+      {
+        "sha256": "846e59d3b62f8c5f6ee82c0c1ccea0efc07ad2eda123fb95e4198d5e6e11296a",
+        "bytes": 461247,
+        "area": [
+          46,
+          4,
+          44,
+          6
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T09:26:56.872486+00:00"
+      },
+      {
+        "sha256": "0a1399ee0ed925117946778cf21b7fb3aa5bca380f3d2193c3c1cc75990d5323",
+        "bytes": 314351,
+        "area": [
+          48,
+          0,
+          46,
+          2
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T08:51:59.009805+00:00"
+      },
+      {
+        "sha256": "c590c7968aec47b45049f36c618ec114e22a2d7c6a98f912bf1177d9084bf436",
+        "bytes": 399351,
+        "area": [
+          48,
+          0,
+          46,
+          2
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T08:53:12.587961+00:00"
+      },
+      {
+        "sha256": "0d14ce8a5b6d7a050b44cd862a4edff124f01b85a0cbe31fb3d20ebb3e0951e4",
+        "bytes": 351876,
+        "area": [
+          48,
+          -2,
+          46,
+          0
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T08:28:03.669920+00:00"
+      },
+      {
+        "sha256": "0e5f539f75cfd0daf9e1497e6a96f748f59485920621185747e8fe050d2b5773",
+        "bytes": 388813,
+        "area": [
+          48,
+          -2,
+          46,
+          0
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T08:31:22.759125+00:00"
+      },
+      {
+        "sha256": "8435b9df964b19ba22e2d9b871549b7ccbfe9b344bae5ee9f0f2e7a87a16e416",
+        "bytes": 353363,
+        "area": [
+          52,
+          4,
+          50,
+          6
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T09:42:32.445092+00:00"
+      },
+      {
+        "sha256": "d9de8bb25f633eca4da066241b17be3f61d51efc07865c6fba0d087787c330ac",
+        "bytes": 416991,
+        "area": [
+          52,
+          4,
+          50,
+          6
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T09:45:13.320093+00:00"
+      },
+      {
+        "sha256": "cb8b32a883d1b615ab6d12cd2accdec3e406025bf29417b8dffc0121f5c60145",
+        "bytes": 182299,
+        "area": [
+          48,
+          -4,
+          46,
+          -2
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T08:11:20.936558+00:00"
+      },
+      {
+        "sha256": "940fa5cb5b2ebb8bf46e7a48de1e434827b515e2fbd57854c1e1c1c1f4c10501",
+        "bytes": 188296,
+        "area": [
+          48,
+          -4,
+          46,
+          -2
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T08:14:05.654446+00:00"
+      },
+      {
+        "sha256": "ba4d56ac365cd4f1a2e0dbb2603459e5bbf4360fe9c5bd52d0edfd1fe166f268",
+        "bytes": 282001,
+        "area": [
+          52,
+          2,
+          50,
+          4
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T09:17:51.902637+00:00"
+      },
+      {
+        "sha256": "356ed2fe28e9748df6d78d3c12eea912c43040a35c8045e3706553bbac32e954",
+        "bytes": 307166,
+        "area": [
+          52,
+          2,
+          50,
+          4
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T09:19:04.882557+00:00"
+      },
+      {
+        "sha256": "c761b82c6bd82f686b7ff1b9807addb9d148fa0c966f55eea28a8882452cdd9b",
+        "bytes": 342275,
+        "area": [
+          44,
+          -2,
+          42,
+          0
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T08:20:54.349746+00:00"
+      },
+      {
+        "sha256": "c8dd9e817d8473e546aa40ff9e33ffcff3618dda395e322dfad657fedb04c93b",
+        "bytes": 462813,
+        "area": [
+          44,
+          -2,
+          42,
+          0
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T08:22:08.397196+00:00"
+      },
+      {
+        "sha256": "643091718146be66ca8baeec1b8ef57e3d9592aa1d44c5caa89297ab86a552f2",
+        "bytes": 327867,
+        "area": [
+          46,
+          2,
+          44,
+          4
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T09:03:08.414939+00:00"
+      },
+      {
+        "sha256": "70f10d3ce7e8b2c3e58edc68694574112a3a189ec958d756c54886a3bc7815f9",
+        "bytes": 460196,
+        "area": [
+          46,
+          2,
+          44,
+          4
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T09:07:03.698776+00:00"
+      },
+      {
+        "sha256": "db004cfdb7b7e697b6f1341343c9558719269b83d7de443529a38fc60690636d",
+        "bytes": 312416,
+        "area": [
+          46,
+          0,
+          44,
+          2
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T08:48:37.052896+00:00"
+      },
+      {
+        "sha256": "cef37c834ddc33d956a93c2b06c4f3af20f993b44a4513d7d4ac2b2c8aabdad6",
+        "bytes": 433753,
+        "area": [
+          46,
+          0,
+          44,
+          2
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T08:50:12.108802+00:00"
+      },
+      {
+        "sha256": "4c9098a243a660061eba99dbfd62b250146f3ff889548b9cef439a2abc07ac4f",
+        "bytes": 324147,
+        "area": [
+          44,
+          2,
+          42,
+          4
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T08:59:44.576497+00:00"
+      },
+      {
+        "sha256": "417d281a340deaab5a0dca7565d01766823ca20f5d4d4a37ebc5cd5bf812cb9b",
+        "bytes": 420463,
+        "area": [
+          44,
+          2,
+          42,
+          4
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T09:01:05.091769+00:00"
+      },
+      {
+        "sha256": "f895d6034d167cbf6f5f98bc836ee85dcf723a1a8c92b3f81e55df62f924df51",
+        "bytes": 291862,
+        "area": [
+          50,
+          4,
+          48,
+          6
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T09:34:07.344621+00:00"
+      },
+      {
+        "sha256": "31f93b267910be2f8fdf7aa6a56402fd3afd243bda530c6d2a5005d7a5b2fc51",
+        "bytes": 411087,
+        "area": [
+          50,
+          4,
+          48,
+          6
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T09:38:33.610206+00:00"
+      },
+      {
+        "sha256": "c4f80bb675afd2974f2bda230c427680ca3350390ad7f4cdf7807de1bddaf4d2",
+        "bytes": 122400,
+        "area": [
+          50,
+          -6,
+          48,
+          -4
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T08:07:12.488133+00:00"
+      },
+      {
+        "sha256": "977b6bb97c6d40dabb9cf7c91b712a69d01d27c83e0e3a68f3f078cf3161c1df",
+        "bytes": 129149,
+        "area": [
+          50,
+          -6,
+          48,
+          -4
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T08:08:37.659963+00:00"
+      },
+      {
+        "sha256": "7e717f074e475b12049141f36efe9645680c34abc55d5b6be65f74ae6903815c",
+        "bytes": 319907,
+        "area": [
+          48,
+          6,
+          46,
+          8
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T09:56:58.859998+00:00"
+      },
+      {
+        "sha256": "af0f3bd82df13ec861c9ec8dc28c2462207fefce7c4a001964e7be9fcdb5b8cd",
+        "bytes": 477021,
+        "area": [
+          48,
+          6,
+          46,
+          8
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T09:58:22.122983+00:00"
+      },
+      {
+        "sha256": "4ab511b8f72f090b6466fa8b6a914948807ab4aef2c4843866f9dfe114383087",
+        "bytes": 311489,
+        "area": [
+          50,
+          -2,
+          48,
+          0
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T08:35:41.967336+00:00"
+      },
+      {
+        "sha256": "f4bbbc01c3e02da4cdeab903d773fa4bac183f66bab4fcb58620464298daf093",
+        "bytes": 325561,
+        "area": [
+          50,
+          -2,
+          48,
+          0
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T08:40:46.486366+00:00"
+      },
+      {
+        "sha256": "fbabce46e430533d493fc15c4df70997d8fb133719413c3dd986910fb99271ec",
+        "bytes": 381697,
+        "area": [
+          46,
+          6,
+          44,
+          8
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T09:53:07.224063+00:00"
+      },
+      {
+        "sha256": "5e8c163d44a4f60d11412a10bab4e330457e0e26f8a6af71c969ca702c149cdf",
+        "bytes": 506463,
+        "area": [
+          46,
+          6,
+          44,
+          8
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T09:54:28.942387+00:00"
+      },
+      {
+        "sha256": "5628478d7e3c5b01feb115622fdd3b7b95c9b7632008582556235c94a8061234",
+        "bytes": 144992,
+        "area": [
+          44,
+          8,
+          42,
+          10
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T10:19:45.070488+00:00"
+      },
+      {
+        "sha256": "ee9fdde35917980da6f9787370ea541ea34041545e74c37d3ce09e8cd0aa0b8d",
+        "bytes": 168067,
+        "area": [
+          44,
+          8,
+          42,
+          10
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T10:22:30.622884+00:00"
+      },
+      {
+        "sha256": "9a974b6bf93bacb36877808b8a94b19aff34a92d9024dd31898e78fa9c7bf5e1",
+        "bytes": 291500,
+        "area": [
+          48,
+          4,
+          46,
+          6
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T09:30:41.593515+00:00"
+      },
+      {
+        "sha256": "78d47706b9a0c57d1d467db28b839b272827f7747f79564e11075eee769a6150",
+        "bytes": 410518,
+        "area": [
+          48,
+          4,
+          46,
+          6
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T09:32:17.601442+00:00"
+      },
+      {
+        "sha256": "2362e2a634ef6d5a1cd6add647a1a98ef4c0b11c1a2ca34d6af0728dd4f1ec14",
+        "bytes": 285662,
+        "area": [
+          46,
+          -2,
+          44,
+          0
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T08:24:35.885034+00:00"
+      },
+      {
+        "sha256": "a6bd0b94109889f9b3453653b6db14025f1cc31420a3e4369cac70fc7cdd7803",
+        "bytes": 338189,
+        "area": [
+          46,
+          -2,
+          44,
+          0
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T08:25:53.075543+00:00"
+      },
+      {
+        "sha256": "63344d17e7dd2ac84bf4a4f8e73a7e34c221ca6f0e2c94709d47618fc133099a",
+        "bytes": 208521,
+        "area": [
+          50,
+          -4,
+          48,
+          -2
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T08:16:07.205725+00:00"
+      },
+      {
+        "sha256": "c77e94713b1e22356e152db63cc82c75d57574bd6337d742ffadd77b2fef92f6",
+        "bytes": 222825,
+        "area": [
+          50,
+          -4,
+          48,
+          -2
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T08:18:25.794586+00:00"
+      },
+      {
+        "sha256": "fb2e1c90bc5bb11d3f29b163b6c9e22ba07b33a7b37d0106b61fb2d3b02dd3d4",
+        "bytes": 168490,
+        "area": [
+          44,
+          6,
+          42,
+          8
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T09:48:28.005864+00:00"
+      },
+      {
+        "sha256": "82c3cecdcb2c2fbacc9dd150c1534379db32e83bae5153c42d73008b9f2e99f8",
+        "bytes": 203168,
+        "area": [
+          44,
+          6,
+          42,
+          8
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T09:51:17.473993+00:00"
+      },
+      {
+        "sha256": "bf1eaf752cafb96ac381d497c8ebee0bca6f766f62873448c646db7796e59468",
+        "bytes": 298767,
+        "area": [
+          50,
+          6,
+          48,
+          8
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T10:06:25.358790+00:00"
+      },
+      {
+        "sha256": "25b5ef60bff7835075ec3e7da7f86d8dea8503cbab3ab113de61856c91ec57be",
+        "bytes": 433487,
+        "area": [
+          50,
+          6,
+          48,
+          8
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T10:09:03.160131+00:00"
+      },
+      {
+        "sha256": "7a78277665f7549f74129114403ca38b9a59ccafdece1d18e741ddd526eb499b",
+        "bytes": 251100,
+        "area": [
+          42,
+          8,
+          40,
+          10
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T10:10:59.819115+00:00"
+      },
+      {
+        "sha256": "a225a7859efce0c4690c46d5fe036abdebb0bd2df7dbd3108aec3eb7b5bb03a2",
+        "bytes": 300627,
+        "area": [
+          42,
+          8,
+          40,
+          10
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T10:17:24.173605+00:00"
+      },
+      {
+        "sha256": "4c2441598c4610a6296da3bdd217b134deddbe4d50030e7c5821b31db981925e",
+        "bytes": 316421,
+        "area": [
+          50,
+          2,
+          48,
+          4
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T09:14:40.400145+00:00"
+      },
+      {
+        "sha256": "b2dcb77f786e58976467f554e8a79ff9bc1d84366dba8130913a89f258a8fe36",
+        "bytes": 386141,
+        "area": [
+          50,
+          2,
+          48,
+          4
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T09:15:57.335099+00:00"
+      },
+      {
+        "sha256": "3f013d1e6a1511645a7e735a41ee751ff4f22e9e2a8b3ed6da49773c62accaa6",
+        "bytes": 345563,
+        "area": [
+          44,
+          0,
+          42,
+          2
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T08:42:46.111458+00:00"
+      },
+      {
+        "sha256": "b5e668758e29315e635ad3df8d03f740a25e7462d55f7b2b38d1f9521e950743",
+        "bytes": 495469,
+        "area": [
+          44,
+          0,
+          42,
+          2
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T08:44:52.421399+00:00"
+      },
+      {
+        "sha256": "c975c49b5935cb90f5e724b91aee209ea21427b924a9fafd4bfa14890f70f711",
+        "bytes": 350670,
+        "area": [
+          50,
+          0,
+          48,
+          2
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T08:56:38.166387+00:00"
+      },
+      {
+        "sha256": "e0f26267afa583cb841cc274e18a0d8f4485563a9ac7ecc4a9a9733e8757beb3",
+        "bytes": 383724,
+        "area": [
+          50,
+          0,
+          48,
+          2
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T08:57:51.058165+00:00"
+      },
+      {
+        "sha256": "c2b0ec6337691870bd32a23777155aab9e0d9c91911c28b5deb2fc5b9604de0b",
+        "bytes": 180652,
+        "area": [
+          44,
+          4,
+          42,
+          6
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T09:21:31.212126+00:00"
+      },
+      {
+        "sha256": "09bcc7f63c827b872ee4b8b9ca9ed852940f3c694bc01bfee16e2758abaf3f0e",
+        "bytes": 217171,
+        "area": [
+          44,
+          4,
+          42,
+          6
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T09:23:02.443175+00:00"
+      },
+      {
+        "sha256": "9c475adad5aa29a2c613ac167240ef486ce2a8fd075471a2e2f2e8ef87b4948e",
+        "bytes": 294603,
+        "area": [
+          48,
+          2,
+          46,
+          4
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ],
+        "retrieved_at": "2026-10-30T09:09:11.620027+00:00"
+      },
+      {
+        "sha256": "fac1b8412d87f0e0fa859dacb71f883a9fe088c5351eef5d13f6ad1875836c28",
+        "bytes": 401331,
+        "area": [
+          48,
+          2,
+          46,
+          4
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "12"
+        ],
+        "retrieved_at": "2026-10-30T09:12:37.217939+00:00"
+      }
+    ]
+  },
+  "independent_validation": {
+    "tile_inputs_sha256": "a3c60310426685f60db79215890f4837840bc1d8ca4c131cd2751ca4759a5a5a",
+    "dataset_identity": {
+      "catalogue_id": "reanalysis-era5-land",
+      "dataset_version": "era5land-pilot73-20260919-20261011-v1",
+      "doi": "10.24381/cds.e2161bac",
+      "reference_period": {
+        "end_year": 2020,
+        "minimum_years": 24,
+        "start_year": 1991
+      },
+      "resolution": "0.1 degree CDS regular grid; native approximately 9 km",
+      "source_id": "era5-land",
+      "transformation_version": "era5-land-utc-daily-1"
+    },
+    "pra_batches": 292,
+    "pra_count": 73,
+    "windows": [
+      [
+        "2026-09-19",
+        "2026-09-25"
+      ],
+      [
+        "2026-09-26",
+        "2026-09-30"
+      ],
+      [
+        "2026-10-01",
+        "2026-10-07"
+      ],
+      [
+        "2026-10-08",
+        "2026-10-11"
+      ]
+    ],
+    "real_cds": true,
+    "synthetic": false,
+    "period_utc": [
+      "2026-09-19",
+      "2026-10-11"
+    ],
+    "native_cells": 1808,
+    "native_cell_days": 41584,
+    "native_variable_comparisons": 166336,
+    "maximum_source_reduction_error": 0.0,
+    "maximum_spatial_aggregate_error": 0.0,
+    "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+    "national_operational_validation": "not_executed"
+  },
+  "boundary": {
+    "groups": 27,
+    "hourly_field_values": 571536,
+    "exact_including_missing_masks": true,
+    "day": "2026-10-12"
+  },
+  "pra_days": 2190,
+  "states": {
+    "complete": 1680,
+    "partial": 480,
+    "unavailable": 30
+  },
+  "availability": [
+    {
+      "pra": "pra:02034",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999998661,
+        0.9999999999998661,
+        0.9999999999998661,
+        0.9999999999998661
+      ],
+      "expected_cells": 49,
+      "minimum_valid_counts": [
+        49,
+        49,
+        49,
+        49
+      ],
+      "maximum_valid_counts": [
+        49,
+        49,
+        49,
+        49
+      ]
+    },
+    {
+      "pra": "pra:04460",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999708,
+        0.9999999999999708,
+        0.9999999999999708,
+        0.9999999999999708
+      ],
+      "expected_cells": 76,
+      "minimum_valid_counts": [
+        76,
+        76,
+        76,
+        76
+      ],
+      "maximum_valid_counts": [
+        76,
+        76,
+        76,
+        76
+      ]
+    },
+    {
+      "pra": "pra:05236",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999675,
+        0.9999999999999675,
+        0.9999999999999675,
+        0.9999999999999675
+      ],
+      "expected_cells": 9,
+      "minimum_valid_counts": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "maximum_valid_counts": [
+        9,
+        9,
+        9,
+        9
+      ]
+    },
+    {
+      "pra": "pra:07171",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999757,
+        0.9999999999999757,
+        0.9999999999999757,
+        0.9999999999999757
+      ],
+      "expected_cells": 60,
+      "minimum_valid_counts": [
+        60,
+        60,
+        60,
+        60
+      ],
+      "maximum_valid_counts": [
+        60,
+        60,
+        60,
+        60
+      ]
+    },
+    {
+      "pra": "pra:08021",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999838,
+        0.9999999999999838,
+        0.9999999999999838,
+        0.9999999999999838
+      ],
+      "expected_cells": 32,
+      "minimum_valid_counts": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "maximum_valid_counts": [
+        32,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "pra": "pra:09472",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999546,
+        0.9999999999999546,
+        0.9999999999999546,
+        0.9999999999999546
+      ],
+      "expected_cells": 47,
+      "minimum_valid_counts": [
+        47,
+        47,
+        47,
+        47
+      ],
+      "maximum_valid_counts": [
+        47,
+        47,
+        47,
+        47
+      ]
+    },
+    {
+      "pra": "pra:13244",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.7888092110691269,
+        0.7888092110691269,
+        0.7888092110691269,
+        0.7888092110691269
+      ],
+      "expected_cells": 30,
+      "minimum_valid_counts": [
+        20,
+        20,
+        20,
+        20
+      ],
+      "maximum_valid_counts": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "pra": "pra:13469",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.9260709079747366,
+        0.9260709079747366,
+        0.9260709079747366,
+        0.9260709079747366
+      ],
+      "expected_cells": 8,
+      "minimum_valid_counts": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "maximum_valid_counts": [
+        7,
+        7,
+        7,
+        7
+      ]
+    },
+    {
+      "pra": "pra:15409",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999813,
+        0.9999999999999813,
+        0.9999999999999813,
+        0.9999999999999813
+      ],
+      "expected_cells": 28,
+      "minimum_valid_counts": [
+        28,
+        28,
+        28,
+        28
+      ],
+      "maximum_valid_counts": [
+        28,
+        28,
+        28,
+        28
+      ]
+    },
+    {
+      "pra": "pra:18434",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999298,
+        0.9999999999999298,
+        0.9999999999999298,
+        0.9999999999999298
+      ],
+      "expected_cells": 60,
+      "minimum_valid_counts": [
+        60,
+        60,
+        60,
+        60
+      ],
+      "maximum_valid_counts": [
+        60,
+        60,
+        60,
+        60
+      ]
+    },
+    {
+      "pra": "pra:19421",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "expected_cells": 2,
+      "minimum_valid_counts": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "maximum_valid_counts": [
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "pra": "pra:21010",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999937,
+        0.9999999999999937,
+        0.9999999999999937,
+        0.9999999999999937
+      ],
+      "expected_cells": 9,
+      "minimum_valid_counts": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "maximum_valid_counts": [
+        9,
+        9,
+        9,
+        9
+      ]
+    },
+    {
+      "pra": "pra:22358",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.943851224067074,
+        0.943851224067074,
+        0.943851224067074,
+        0.943851224067074
+      ],
+      "expected_cells": 52,
+      "minimum_valid_counts": [
+        42,
+        42,
+        42,
+        42
+      ],
+      "maximum_valid_counts": [
+        42,
+        42,
+        42,
+        42
+      ]
+    },
+    {
+      "pra": "pra:26463",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.999999999999986,
+        0.999999999999986,
+        0.999999999999986,
+        0.999999999999986
+      ],
+      "expected_cells": 28,
+      "minimum_valid_counts": [
+        28,
+        28,
+        28,
+        28
+      ],
+      "maximum_valid_counts": [
+        28,
+        28,
+        28,
+        28
+      ]
+    },
+    {
+      "pra": "pra:27330",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999991,
+        0.9999999999999991,
+        0.9999999999999991,
+        0.9999999999999991
+      ],
+      "expected_cells": 8,
+      "minimum_valid_counts": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "maximum_valid_counts": [
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "pra": "pra:27351",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected_cells": 3,
+      "minimum_valid_counts": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "maximum_valid_counts": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "pra": "pra:28341",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999989,
+        0.9999999999999989,
+        0.9999999999999989,
+        0.9999999999999989
+      ],
+      "expected_cells": 24,
+      "minimum_valid_counts": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "maximum_valid_counts": [
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    {
+      "pra": "pra:29102",
+      "states": {
+        "unavailable": 30
+      },
+      "minimum_coverage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_cells": 6,
+      "minimum_valid_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximum_valid_counts": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "pra": "pra:29358",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.9459016665211627,
+        0.9459016665211627,
+        0.9459016665211627,
+        0.9459016665211627
+      ],
+      "expected_cells": 23,
+      "minimum_valid_counts": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "maximum_valid_counts": [
+        19,
+        19,
+        19,
+        19
+      ]
+    },
+    {
+      "pra": "pra:2A258",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.4692215787208781,
+        0.4692215787208781,
+        0.4692215787208781,
+        0.4692215787208781
+      ],
+      "expected_cells": 28,
+      "minimum_valid_counts": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "maximum_valid_counts": [
+        16,
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "pra": "pra:2B259",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.7645953157328961,
+        0.7645953157328961,
+        0.7645953157328961,
+        0.7645953157328961
+      ],
+      "expected_cells": 51,
+      "minimum_valid_counts": [
+        36,
+        36,
+        36,
+        36
+      ],
+      "maximum_valid_counts": [
+        36,
+        36,
+        36,
+        36
+      ]
+    },
+    {
+      "pra": "pra:2B260",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.9998391064170352,
+        0.9998391064170352,
+        0.9998391064170352,
+        0.9998391064170352
+      ],
+      "expected_cells": 50,
+      "minimum_valid_counts": [
+        49,
+        49,
+        49,
+        49
+      ],
+      "maximum_valid_counts": [
+        49,
+        49,
+        49,
+        49
+      ]
+    },
+    {
+      "pra": "pra:30465",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999559,
+        0.9999999999999559,
+        0.9999999999999559,
+        0.9999999999999559
+      ],
+      "expected_cells": 19,
+      "minimum_valid_counts": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "maximum_valid_counts": [
+        19,
+        19,
+        19,
+        19
+      ]
+    },
+    {
+      "pra": "pra:32386",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999997,
+        0.9999999999999997,
+        0.9999999999999997,
+        0.9999999999999997
+      ],
+      "expected_cells": 2,
+      "minimum_valid_counts": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "maximum_valid_counts": [
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "pra": "pra:33115",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.6250895705887968,
+        0.6250895705887968,
+        0.6250895705887968,
+        0.6250895705887968
+      ],
+      "expected_cells": 8,
+      "minimum_valid_counts": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "maximum_valid_counts": [
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "pra": "pra:34412",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999998498,
+        0.9999999999998498,
+        0.9999999999998498,
+        0.9999999999998498
+      ],
+      "expected_cells": 22,
+      "minimum_valid_counts": [
+        22,
+        22,
+        22,
+        22
+      ],
+      "maximum_valid_counts": [
+        22,
+        22,
+        22,
+        22
+      ]
+    },
+    {
+      "pra": "pra:35098",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected_cells": 1,
+      "minimum_valid_counts": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "maximum_valid_counts": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "pra": "pra:36436",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999732,
+        0.9999999999999732,
+        0.9999999999999732,
+        0.9999999999999732
+      ],
+      "expected_cells": 48,
+      "minimum_valid_counts": [
+        48,
+        48,
+        48,
+        48
+      ],
+      "maximum_valid_counts": [
+        48,
+        48,
+        48,
+        48
+      ]
+    },
+    {
+      "pra": "pra:37074",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999951,
+        0.9999999999999951,
+        0.9999999999999951,
+        0.9999999999999951
+      ],
+      "expected_cells": 7,
+      "minimum_valid_counts": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "maximum_valid_counts": [
+        7,
+        7,
+        7,
+        7
+      ]
+    },
+    {
+      "pra": "pra:38457",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999662,
+        0.9999999999999662,
+        0.9999999999999662,
+        0.9999999999999662
+      ],
+      "expected_cells": 47,
+      "minimum_valid_counts": [
+        47,
+        47,
+        47,
+        47
+      ],
+      "maximum_valid_counts": [
+        47,
+        47,
+        47,
+        47
+      ]
+    },
+    {
+      "pra": "pra:39449",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999736,
+        0.9999999999999736,
+        0.9999999999999736,
+        0.9999999999999736
+      ],
+      "expected_cells": 17,
+      "minimum_valid_counts": [
+        17,
+        17,
+        17,
+        17
+      ],
+      "maximum_valid_counts": [
+        17,
+        17,
+        17,
+        17
+      ]
+    },
+    {
+      "pra": "pra:40378",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.999999999999972,
+        0.999999999999972,
+        0.999999999999972,
+        0.999999999999972
+      ],
+      "expected_cells": 69,
+      "minimum_valid_counts": [
+        69,
+        69,
+        69,
+        69
+      ],
+      "maximum_valid_counts": [
+        69,
+        69,
+        69,
+        69
+      ]
+    },
+    {
+      "pra": "pra:41434",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected_cells": 6,
+      "minimum_valid_counts": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "maximum_valid_counts": [
+        6,
+        6,
+        6,
+        6
+      ]
+    },
+    {
+      "pra": "pra:43417",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999912,
+        0.9999999999999912,
+        0.9999999999999912,
+        0.9999999999999912
+      ],
+      "expected_cells": 4,
+      "minimum_valid_counts": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "maximum_valid_counts": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "pra": "pra:44104",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999983,
+        0.9999999999999983,
+        0.9999999999999983,
+        0.9999999999999983
+      ],
+      "expected_cells": 16,
+      "minimum_valid_counts": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "maximum_valid_counts": [
+        16,
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "pra": "pra:44364",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.8437314181659112,
+        0.8437314181659112,
+        0.8437314181659112,
+        0.8437314181659112
+      ],
+      "expected_cells": 16,
+      "minimum_valid_counts": [
+        11,
+        11,
+        11,
+        11
+      ],
+      "maximum_valid_counts": [
+        11,
+        11,
+        11,
+        11
+      ]
+    },
+    {
+      "pra": "pra:45338",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999946,
+        0.9999999999999946,
+        0.9999999999999946,
+        0.9999999999999946
+      ],
+      "expected_cells": 33,
+      "minimum_valid_counts": [
+        33,
+        33,
+        33,
+        33
+      ],
+      "maximum_valid_counts": [
+        33,
+        33,
+        33,
+        33
+      ]
+    },
+    {
+      "pra": "pra:46409",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999676,
+        0.9999999999999676,
+        0.9999999999999676,
+        0.9999999999999676
+      ],
+      "expected_cells": 18,
+      "minimum_valid_counts": [
+        18,
+        18,
+        18,
+        18
+      ],
+      "maximum_valid_counts": [
+        18,
+        18,
+        18,
+        18
+      ]
+    },
+    {
+      "pra": "pra:47394",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999846,
+        0.9999999999999846,
+        0.9999999999999846,
+        0.9999999999999846
+      ],
+      "expected_cells": 4,
+      "minimum_valid_counts": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "maximum_valid_counts": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "pra": "pra:50081",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.4392698929830878,
+        0.4392698929830878,
+        0.4392698929830878,
+        0.4392698929830878
+      ],
+      "expected_cells": 7,
+      "minimum_valid_counts": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "maximum_valid_counts": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "pra": "pra:50354",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected_cells": 22,
+      "minimum_valid_counts": [
+        22,
+        22,
+        22,
+        22
+      ],
+      "maximum_valid_counts": [
+        22,
+        22,
+        22,
+        22
+      ]
+    },
+    {
+      "pra": "pra:51317",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999665,
+        0.9999999999999665,
+        0.9999999999999665,
+        0.9999999999999665
+      ],
+      "expected_cells": 85,
+      "minimum_valid_counts": [
+        85,
+        85,
+        85,
+        85
+      ],
+      "maximum_valid_counts": [
+        85,
+        85,
+        85,
+        85
+      ]
+    },
+    {
+      "pra": "pra:52311",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999978,
+        0.9999999999999978,
+        0.9999999999999978,
+        0.9999999999999978
+      ],
+      "expected_cells": 24,
+      "minimum_valid_counts": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "maximum_valid_counts": [
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    {
+      "pra": "pra:53357",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999727,
+        0.9999999999999727,
+        0.9999999999999727,
+        0.9999999999999727
+      ],
+      "expected_cells": 47,
+      "minimum_valid_counts": [
+        47,
+        47,
+        47,
+        47
+      ],
+      "maximum_valid_counts": [
+        47,
+        47,
+        47,
+        47
+      ]
+    },
+    {
+      "pra": "pra:56363",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.9986627181779798,
+        0.9986627181779798,
+        0.9986627181779798,
+        0.9986627181779798
+      ],
+      "expected_cells": 58,
+      "minimum_valid_counts": [
+        57,
+        57,
+        57,
+        57
+      ],
+      "maximum_valid_counts": [
+        57,
+        57,
+        57,
+        57
+      ]
+    },
+    {
+      "pra": "pra:57004",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999969,
+        0.9999999999999969,
+        0.9999999999999969,
+        0.9999999999999969
+      ],
+      "expected_cells": 14,
+      "minimum_valid_counts": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "maximum_valid_counts": [
+        14,
+        14,
+        14,
+        14
+      ]
+    },
+    {
+      "pra": "pra:58340",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999746,
+        0.9999999999999746,
+        0.9999999999999746,
+        0.9999999999999746
+      ],
+      "expected_cells": 5,
+      "minimum_valid_counts": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "maximum_valid_counts": [
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "pra": "pra:59025",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999998522,
+        0.9999999999998522,
+        0.9999999999998522,
+        0.9999999999998522
+      ],
+      "expected_cells": 21,
+      "minimum_valid_counts": [
+        21,
+        21,
+        21,
+        21
+      ],
+      "maximum_valid_counts": [
+        21,
+        21,
+        21,
+        21
+      ]
+    },
+    {
+      "pra": "pra:59325",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.988177403555667,
+        0.988177403555667,
+        0.988177403555667,
+        0.988177403555667
+      ],
+      "expected_cells": 16,
+      "minimum_valid_counts": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "maximum_valid_counts": [
+        14,
+        14,
+        14,
+        14
+      ]
+    },
+    {
+      "pra": "pra:60330",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected_cells": 12,
+      "minimum_valid_counts": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "maximum_valid_counts": [
+        12,
+        12,
+        12,
+        12
+      ]
+    },
+    {
+      "pra": "pra:62324",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999997906,
+        0.9999999999997906,
+        0.9999999999997906,
+        0.9999999999997906
+      ],
+      "expected_cells": 9,
+      "minimum_valid_counts": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "maximum_valid_counts": [
+        9,
+        9,
+        9,
+        9
+      ]
+    },
+    {
+      "pra": "pra:63426",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999997882,
+        0.9999999999997882,
+        0.9999999999997882,
+        0.9999999999997882
+      ],
+      "expected_cells": 22,
+      "minimum_valid_counts": [
+        22,
+        22,
+        22,
+        22
+      ],
+      "maximum_valid_counts": [
+        22,
+        22,
+        22,
+        22
+      ]
+    },
+    {
+      "pra": "pra:64142",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999997772,
+        0.9999999999997772,
+        0.9999999999997772,
+        0.9999999999997772
+      ],
+      "expected_cells": 23,
+      "minimum_valid_counts": [
+        23,
+        23,
+        23,
+        23
+      ],
+      "maximum_valid_counts": [
+        23,
+        23,
+        23,
+        23
+      ]
+    },
+    {
+      "pra": "pra:65146",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999998059,
+        0.9999999999998059,
+        0.9999999999998059,
+        0.9999999999998059
+      ],
+      "expected_cells": 50,
+      "minimum_valid_counts": [
+        50,
+        50,
+        50,
+        50
+      ],
+      "maximum_valid_counts": [
+        50,
+        50,
+        50,
+        50
+      ]
+    },
+    {
+      "pra": "pra:66254",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.9322428436688067,
+        0.9322428436688067,
+        0.9322428436688067,
+        0.9322428436688067
+      ],
+      "expected_cells": 5,
+      "minimum_valid_counts": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "maximum_valid_counts": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "pra": "pra:68302",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected_cells": 4,
+      "minimum_valid_counts": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "maximum_valid_counts": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "pra": "pra:68303",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999823,
+        0.9999999999999823,
+        0.9999999999999823,
+        0.9999999999999823
+      ],
+      "expected_cells": 20,
+      "minimum_valid_counts": [
+        20,
+        20,
+        20,
+        20
+      ],
+      "maximum_valid_counts": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "pra": "pra:69196",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected_cells": 7,
+      "minimum_valid_counts": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "maximum_valid_counts": [
+        7,
+        7,
+        7,
+        7
+      ]
+    },
+    {
+      "pra": "pra:70007",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999878,
+        0.9999999999999878,
+        0.9999999999999878,
+        0.9999999999999878
+      ],
+      "expected_cells": 61,
+      "minimum_valid_counts": [
+        61,
+        61,
+        61,
+        61
+      ],
+      "maximum_valid_counts": [
+        61,
+        61,
+        61,
+        61
+      ]
+    },
+    {
+      "pra": "pra:71183",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999964,
+        0.9999999999999964,
+        0.9999999999999964,
+        0.9999999999999964
+      ],
+      "expected_cells": 13,
+      "minimum_valid_counts": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "maximum_valid_counts": [
+        13,
+        13,
+        13,
+        13
+      ]
+    },
+    {
+      "pra": "pra:72345",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected_cells": 4,
+      "minimum_valid_counts": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "maximum_valid_counts": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "pra": "pra:74458",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999212,
+        0.9999999999999212,
+        0.9999999999999212,
+        0.9999999999999212
+      ],
+      "expected_cells": 13,
+      "minimum_valid_counts": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "maximum_valid_counts": [
+        13,
+        13,
+        13,
+        13
+      ]
+    },
+    {
+      "pra": "pra:76046",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.9421832945090279,
+        0.9421832945090279,
+        0.9421832945090279,
+        0.9421832945090279
+      ],
+      "expected_cells": 54,
+      "minimum_valid_counts": [
+        48,
+        48,
+        48,
+        48
+      ],
+      "maximum_valid_counts": [
+        48,
+        48,
+        48,
+        48
+      ]
+    },
+    {
+      "pra": "pra:77335",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected_cells": 14,
+      "minimum_valid_counts": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "maximum_valid_counts": [
+        14,
+        14,
+        14,
+        14
+      ]
+    },
+    {
+      "pra": "pra:78054",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected_cells": 19,
+      "minimum_valid_counts": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "maximum_valid_counts": [
+        19,
+        19,
+        19,
+        19
+      ]
+    },
+    {
+      "pra": "pra:79373",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999093,
+        0.9999999999999093,
+        0.9999999999999093,
+        0.9999999999999093
+      ],
+      "expected_cells": 32,
+      "minimum_valid_counts": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "maximum_valid_counts": [
+        32,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "pra": "pra:83248",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.968796697627486,
+        0.968796697627486,
+        0.968796697627486,
+        0.968796697627486
+      ],
+      "expected_cells": 16,
+      "minimum_valid_counts": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "maximum_valid_counts": [
+        13,
+        13,
+        13,
+        13
+      ]
+    },
+    {
+      "pra": "pra:84463",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999873,
+        0.9999999999999873,
+        0.9999999999999873,
+        0.9999999999999873
+      ],
+      "expected_cells": 7,
+      "minimum_valid_counts": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "maximum_valid_counts": [
+        7,
+        7,
+        7,
+        7
+      ]
+    },
+    {
+      "pra": "pra:85368",
+      "states": {
+        "partial": 30
+      },
+      "minimum_coverage": [
+        0.9726297334555114,
+        0.9726297334555114,
+        0.9726297334555114,
+        0.9726297334555114
+      ],
+      "expected_cells": 72,
+      "minimum_valid_counts": [
+        68,
+        68,
+        68,
+        68
+      ],
+      "maximum_valid_counts": [
+        68,
+        68,
+        68,
+        68
+      ]
+    },
+    {
+      "pra": "pra:87432",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999378,
+        0.9999999999999378,
+        0.9999999999999378,
+        0.9999999999999378
+      ],
+      "expected_cells": 67,
+      "minimum_valid_counts": [
+        67,
+        67,
+        67,
+        67
+      ],
+      "maximum_valid_counts": [
+        67,
+        67,
+        67,
+        67
+      ]
+    },
+    {
+      "pra": "pra:88307",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999807,
+        0.9999999999999807,
+        0.9999999999999807,
+        0.9999999999999807
+      ],
+      "expected_cells": 42,
+      "minimum_valid_counts": [
+        42,
+        42,
+        42,
+        42
+      ],
+      "maximum_valid_counts": [
+        42,
+        42,
+        42,
+        42
+      ]
+    },
+    {
+      "pra": "pra:90450",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected_cells": 5,
+      "minimum_valid_counts": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "maximum_valid_counts": [
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "pra": "pra:95332",
+      "states": {
+        "complete": 30
+      },
+      "minimum_coverage": [
+        0.9999999999999976,
+        0.9999999999999976,
+        0.9999999999999976,
+        0.9999999999999976
+      ],
+      "expected_cells": 2,
+      "minimum_valid_counts": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "maximum_valid_counts": [
+        2,
+        2,
+        2,
+        2
+      ]
+    }
+  ],
+  "phases": {
+    "aggregate": {
+      "seconds": 6.145356291999633,
+      "peak_rss_kib": 265312,
+      "batches": 292,
+      "median_batch_seconds": 0.018493915498766
+    },
+    "persist": {
+      "seconds": 65.70551990199965,
+      "peak_rss_kib": 271040,
+      "batches": 292,
+      "median_batch_seconds": 0.20342593449913693
+    },
+    "replay": {
+      "seconds": 68.02257838999867,
+      "peak_rss_kib": 270824,
+      "batches": 292,
+      "median_batch_seconds": 0.16913387650038203
+    }
+  },
+  "before": {
+    "daily": 511,
+    "batches": 73,
+    "relations": [
+      {
+        "heap": 286720,
+        "table": "pra_batches",
+        "total": 303104,
+        "indexes": 16384
+      },
+      {
+        "heap": 286720,
+        "table": "pra_daily",
+        "total": 458752,
+        "indexes": 172032
+      },
+      {
+        "heap": 221184,
+        "table": "pra_diagnostics",
+        "total": 385024,
+        "indexes": 163840
+      }
+    ],
+    "v020_hash": "41214a0a35ad6caa89ebbcf182de06a4",
+    "daily_hash": "5a5270800fb26f9c094adae443c1b06f",
+    "diagnostics": 584,
+    "batches_hash": "c0c414391810a88557a4cfd68cf0314a",
+    "old_week_hash": "5a5270800fb26f9c094adae443c1b06f",
+    "database_bytes": 31299251,
+    "diagnostics_hash": "0e414dbaa6b4ad40a956984b7c1e1628"
+  },
+  "after_persist": {
+    "pra": 73,
+    "daily": 2190,
+    "batches": 365,
+    "editions": [
+      {
+        "days": 511,
+        "dataset_version": "era5land-pilot73-20261012-20261018-v1"
+      },
+      {
+        "days": 1679,
+        "dataset_version": "era5land-pilot73-20260919-20261011-v1"
+      }
+    ],
+    "relations": [
+      {
+        "heap": 925696,
+        "table": "pra_batches",
+        "total": 983040,
+        "indexes": 57344
+      },
+      {
+        "heap": 1130496,
+        "table": "pra_daily",
+        "total": 1851392,
+        "indexes": 720896
+      },
+      {
+        "heap": 221184,
+        "table": "pra_diagnostics",
+        "total": 385024,
+        "indexes": 163840
+      }
+    ],
+    "v020_hash": "41214a0a35ad6caa89ebbcf182de06a4",
+    "daily_hash": "cc4a6275f87b56e69dcce2f059e8ef01",
+    "diagnostics": 584,
+    "measured_at": "2026-10-30T10:26:45.787531+00:00",
+    "batches_hash": "1609022b946b0d11b0de28b3f1f8a86c",
+    "old_week_hash": "5a5270800fb26f9c094adae443c1b06f",
+    "database_bytes": 33429171,
+    "unique_pra_days": 2190,
+    "diagnostics_hash": "0e414dbaa6b4ad40a956984b7c1e1628"
+  },
+  "after_replay": {
+    "pra": 73,
+    "daily": 2190,
+    "batches": 365,
+    "editions": [
+      {
+        "days": 511,
+        "dataset_version": "era5land-pilot73-20261012-20261018-v1"
+      },
+      {
+        "days": 1679,
+        "dataset_version": "era5land-pilot73-20260919-20261011-v1"
+      }
+    ],
+    "relations": [
+      {
+        "heap": 925696,
+        "table": "pra_batches",
+        "total": 983040,
+        "indexes": 57344
+      },
+      {
+        "heap": 1130496,
+        "table": "pra_daily",
+        "total": 1851392,
+        "indexes": 720896
+      },
+      {
+        "heap": 221184,
+        "table": "pra_diagnostics",
+        "total": 385024,
+        "indexes": 163840
+      }
+    ],
+    "v020_hash": "41214a0a35ad6caa89ebbcf182de06a4",
+    "daily_hash": "cc4a6275f87b56e69dcce2f059e8ef01",
+    "diagnostics": 584,
+    "measured_at": "2026-10-30T10:28:33.625138+00:00",
+    "batches_hash": "1609022b946b0d11b0de28b3f1f8a86c",
+    "old_week_hash": "5a5270800fb26f9c094adae443c1b06f",
+    "database_bytes": 33429171,
+    "unique_pra_days": 2190,
+    "diagnostics_hash": "0e414dbaa6b4ad40a956984b7c1e1628"
+  },
+  "idempotency_counts_and_hashes_unchanged": true,
+  "diagnostics_584_unchanged": true,
+  "old_week_unchanged": true,
+  "v020_daily_unchanged": true,
+  "storage": {
+    "before_bytes": 31299251,
+    "after_bytes": 33429171,
+    "database_delta_bytes": 2129920,
+    "table_deltas": {
+      "pra_batches": {
+        "heap": 638976,
+        "indexes": 40960,
+        "total": 679936
+      },
+      "pra_daily": {
+        "heap": 843776,
+        "indexes": 548864,
+        "total": 1392640
+      },
+      "pra_diagnostics": {
+        "heap": 0,
+        "indexes": 0,
+        "total": 0
+      }
+    },
+    "task19b_increment_forecast_bytes": 3346247,
+    "measured_daily_and_batch_increment_bytes": 2072576,
+    "forecast_fraction": 0.6193732859528899,
+    "national_forecast_bytes": 115852587,
+    "national_allowances": {
+      "daily": 1105,
+      "metadata_including_cache_lineage_reserve": 6130
+    },
+    "national_forecast_formula": "current actual DB + 21390 daily + 3565 batches + full reference reserve 14934016 + logs/growth 22000000; pilot and its 584 diagnostics retained",
+    "national_new_diagnostics": 0,
+    "automatic_purge": false
+  },
+  "http": {
+    "source": "local production-build API / remote DEV, real data",
+    "read": [
+      {
+        "pra": 1,
+        "date": "2026-09-30",
+        "milliseconds": [
+          426.470820000759,
+          182.3088019991701,
+          174.9795110008563
+        ],
+        "median_ms": 182.3088019991701,
+        "http_pages": 1,
+        "downloaded_bytes": 1090,
+        "selected_json_bytes": 782
+      },
+      {
+        "pra": 10,
+        "date": "2026-09-30",
+        "milliseconds": [
+          194.9211680002918,
+          170.53776399916387,
+          190.77214199933223
+        ],
+        "median_ms": 190.77214199933223,
+        "http_pages": 1,
+        "downloaded_bytes": 63009,
+        "selected_json_bytes": 7935
+      },
+      {
+        "pra": 73,
+        "date": "2026-09-30",
+        "milliseconds": [
+          339.9096329994791,
+          312.0283810003457,
+          339.4744470006117
+        ],
+        "median_ms": 339.4744470006117,
+        "http_pages": 2,
+        "downloaded_bytes": 73001,
+        "selected_json_bytes": 57750
+      }
+    ],
+    "map_endpoint": "/api/territories?action=read&scope=france (existing pagination; selection filtered explicitly)",
+    "map_30_dates": {
+      "seconds": 9.348528303000421,
+      "pra_days": 2190
+    },
+    "one_pra_30day_history": {
+      "milliseconds": [
+        4392.731465999532,
+        4447.5088420003885,
+        4424.940394001169
+      ],
+      "median_ms": 4424.940394001169,
+      "json_bytes": 23477,
+      "http_requests_per_sample": 30
+    },
+    "diagnostics_sparse_read": {
+      "milliseconds": 148.81848000004538,
+      "bytes": 383,
+      "rows": 0,
+      "computed": false,
+      "note": "On-demand computation measured separately from verified native cache; no new persisted diagnostics"
+    },
+    "components": [
+      {
+        "dataset": "era5land-pilot73-20260919-20261011-v1",
+        "from": "2026-09-19",
+        "to": "2026-10-11"
+      },
+      {
+        "dataset": "era5land-pilot73-20261012-20261018-v1",
+        "from": "2026-10-12",
+        "to": "2026-10-18"
+      }
+    ],
+    "checks": {
+      "http_requests": 163,
+      "downloaded_json_bytes": 2701467,
+      "scalar_comparisons": 10128,
+      "maximum_scalar_roundtrip_error": 5.026248688011492e-05
+    },
+    "scalar_check": "float4 shortest or six significant digit PostgreSQL JSON; exact NULL/counts"
+  },
+  "diagnostics_on_demand": {
+    "persisted": false,
+    "native_cache_load_seconds": 1.222648909999407,
+    "native_cell_days": 54240,
+    "timings": [
+      {
+        "pra": 1,
+        "milliseconds": [
+          4.020354999738629,
+          3.759121000257437,
+          3.536816999258008
+        ],
+        "median_ms": 3.759121000257437,
+        "json_bytes": 3468
+      },
+      {
+        "pra": 10,
+        "milliseconds": [
+          24.06272999905923,
+          23.675516998991952,
+          23.308784000619198
+        ],
+        "median_ms": 23.675516998991952,
+        "json_bytes": 34711
+      },
+      {
+        "pra": 73,
+        "milliseconds": [
+          124.70305199894938,
+          118.71258599967405,
+          118.41937499957567
+        ],
+        "median_ms": 118.71258599967405,
+        "json_bytes": 249995
+      }
+    ],
+    "example": {
+      "pra": "pra:28341",
+      "from": "2026-09-19",
+      "to": "2026-10-18",
+      "rule_version": "wheat-climate-1",
+      "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+      "data_freshness": "stale",
+      "provenance": {
+        "source_id": "era5-land",
+        "component_editions": [
+          "era5land-pilot73-20260919-20261011-v1",
+          "era5land-pilot73-20261012-20261018-v1"
+        ],
+        "batches": [
+          "2347c82b43154323e2983be31c25b78d01c3618763f43514d39992aa1521022c",
+          "89d1a72037800e7830e10cf8f9f07267c98499d1cb5a45a0206b78c9c8022a26",
+          "ab9a4c396ac8ee566a371430316c2b83338d69202ee2d0599df6195b73d8f4ea",
+          "d8f7b31223185df7394e70f1b8527d75889f2caecf0ba3d45a93755d236905e6",
+          "ea2c8d0620a622a62ac12e728a861ca7ad456b8729247ea07c83d0e5c7aa40fd"
+        ]
+      },
+      "quality_flags": [
+        "on_demand",
+        "native_before_period_and_space"
+      ],
+      "scientific_status": "exploratory",
+      "risk_computed": false,
+      "confidence": "low",
+      "indicators": {
+        "gdd": {
+          "value": 375.96721386115837,
+          "observed_value": 375.96721386115837,
+          "valid_cells": 24,
+          "expected_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "status": "available",
+          "method": "native-then-spatial_mean-total-area-1",
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "unit": "degC day"
+        },
+        "heat_days": {
+          "value": 5.0,
+          "observed_value": 5.0,
+          "valid_cells": 24,
+          "expected_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "status": "available",
+          "method": "native-then-spatial_mean-total-area-1",
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "unit": "day"
+        },
+        "heat_spell_max": {
+          "value": 2.9999999999999996,
+          "observed_value": 2.9999999999999996,
+          "valid_cells": 24,
+          "expected_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "status": "available",
+          "method": "native-then-spatial_mean-total-area-1",
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "unit": "day"
+        },
+        "frost_days": {
+          "value": 0.0,
+          "observed_value": 0.0,
+          "valid_cells": 24,
+          "expected_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "status": "available",
+          "method": "native-then-spatial_mean-total-area-1",
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "unit": "day"
+        },
+        "frost_spell_max": {
+          "value": 0.0,
+          "observed_value": 0.0,
+          "valid_cells": 24,
+          "expected_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "status": "available",
+          "method": "native-then-spatial_mean-total-area-1",
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "unit": "day"
+        },
+        "precipitation_sum": {
+          "value": 53.23214176867177,
+          "observed_value": 53.23214176867177,
+          "valid_cells": 24,
+          "expected_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "status": "available",
+          "method": "native-then-spatial_mean-total-area-1",
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "unit": "mm"
+        },
+        "dry_days": {
+          "value": 22.623618995017896,
+          "observed_value": 22.623618995017896,
+          "valid_cells": 24,
+          "expected_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "status": "available",
+          "method": "native-then-spatial_mean-total-area-1",
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "unit": "day"
+        },
+        "dry_spell_max": {
+          "value": 9.000042554470747,
+          "observed_value": 9.000042554470747,
+          "valid_cells": 24,
+          "expected_cells": 24,
+          "valid_weighted_coverage": 0.9999999999999989,
+          "status": "available",
+          "method": "native-then-spatial_mean-total-area-1",
+          "quality_flags": [
+            "total_area_not_agricultural_area",
+            "exploratory"
+          ],
+          "unit": "day"
+        }
+      }
+    }
+  },
+  "national_plan": {
+    "status": "prepared_not_executed",
+    "execution_authorized": false,
+    "requires_task19c_decision": "READY_FOR_713x30",
+    "target": "agriclimax-dev only",
+    "dataset": "era5land-national-20260919-20261018-v1",
+    "period": [
+      "2026-09-19",
+      "2026-10-18"
+    ],
+    "pra": 713,
+    "concurrency": 1,
+    "maximum_new_cds_requests": 9,
+    "diagnostics": "on_demand_only",
+    "database_stop_bytes": 375000000,
+    "cache_stop_bytes": 469762048,
+    "preserve_pilot_editions": true,
+    "reference_import_required": {
+      "pra": 713,
+      "weights": 14541,
+      "mode": "existing insert-only SQL, independently validated before execution"
+    },
+    "reference_sql_command": "PYTHONPATH=engine/src python scripts/pra_reference_sql.py --bundle config/coverage/ofb-masa-pra-2017-snapshot-20261017 --output work/task19d/reference.sql",
+    "independent_validation_command": "PYTHONPATH=engine/src python scripts/pra_validate_pilot.py --root work/task19d/real --expected-windows 5 --require-no-diagnostics --weights config/coverage/ofb-masa-pra-2017-snapshot-20261017/weights.json --reference config/coverage/ofb-masa-pra-2017-snapshot-20261017/reference.json --parameters config/wheat-mvp.json --sample work/task19d/pra713-selection.json --expected-pra 713 --destination local --output work/task19d/independent.json",
+    "stops": [
+      "checksum or lineage mismatch",
+      "missing input",
+      "wrong DEV target",
+      "reference counts not verified",
+      "incorrect full-PRA availability",
+      "database budget exceeded",
+      "quota or source failure"
+    ],
+    "rollback": "Suspend execution; retain pilot and v0.2.0, immutable checkpoints and outputs; no purge or destructive migration",
+    "source_groups": 30,
+    "tiles": 96,
+    "weights": 14541,
+    "native_cells": 6861,
+    "missing_source_groups": [
+      [
+        -6,
+        46
+      ],
+      [
+        0,
+        50
+      ],
+      [
+        8,
+        48
+      ]
+    ],
+    "cache_request_indexes_reused": 81,
+    "incremental_cds_requests": 9,
+    "daily_rows_new_national_edition": 21390,
+    "national_batches": 3565,
+    "pilot_rows_retained": 2190,
+    "no_diagnostics_generated": true,
+    "commands": [
+      "PYTHONPATH=engine/src python scripts/pra_national_30day.py --phase acquire --execute-national",
+      "PYTHONPATH=engine/src python scripts/pra_national_30day.py --phase aggregate --execute-national",
+      "PYTHONPATH=engine/src python scripts/pra_validate_pilot.py --root work/task19d/real --expected-windows 5 --require-no-diagnostics --weights config/coverage/ofb-masa-pra-2017-snapshot-20261017/weights.json --reference config/coverage/ofb-masa-pra-2017-snapshot-20261017/reference.json --parameters config/wheat-mvp.json --sample work/task19d/pra713-selection.json --expected-pra 713 --destination local --output work/task19d/independent.json",
+      "PYTHONPATH=engine/src python scripts/pra_national_30day.py --phase persist --execute-national",
+      "PYTHONPATH=engine/src python scripts/pra_national_30day.py --phase replay --execute-national"
+    ]
+  },
+  "national_sql": {
+    "generated_only": true,
+    "sha256": "71147f6708171c47c39464cbc4c329706b62f1234fa0ee22c75449f895b78bfd",
+    "bytes": 28654419
+  }
+}

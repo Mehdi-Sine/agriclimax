@@ -1,0 +1,30 @@
+{
+  "task": "19C",
+  "scope": "73 PRA only, DEV only",
+  "selection": "config/pilots/pra73-v1.json",
+  "reference": "ofb-masa-pra-2017-snapshot-20261017",
+  "method": "pra-native-1",
+  "period": ["2026-09-19", "2026-10-18"],
+  "new_component": {
+    "dataset": "era5land-pilot73-20260919-20261011-v1",
+    "period": ["2026-09-19", "2026-10-11"],
+    "root": "work/task19c/real",
+    "source_groups": 27,
+    "expected_logical_cds_requests": 54,
+    "maximum_logical_cds_requests": 60,
+    "batch_windows": [["2026-09-19", "2026-09-25"], ["2026-09-26", "2026-09-30"], ["2026-10-01", "2026-10-07"], ["2026-10-08", "2026-10-11"]]
+  },
+  "reused_component": {
+    "dataset": "era5land-pilot73-20261012-20261018-v1",
+    "period": ["2026-10-12", "2026-10-18"],
+    "root": "work/task19b/real",
+    "immutable": true
+  },
+  "composition": "Explicit lineage view only; no renamed or overwritten source edition",
+  "boundary_validation": "Exact t2m and tp comparison, including missing masks, for all 24 shared hours of October 12 on all 27 extents",
+  "new_systematic_diagnostics": false,
+  "concurrency": 1,
+  "database_stop_bytes": 375000000,
+  "cache_stop_bytes": 469762048,
+  "national_execution_authorized": false
+}

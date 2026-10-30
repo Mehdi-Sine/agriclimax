@@ -68,8 +68,8 @@ jobs:
       - run: python -m mypy --strict engine/src/agriclimax/cattle scripts/cattle_heat_stress.py
       - run: python -m ruff check engine/src/agriclimax/territories engine/tests/territories scripts/pra_reference.py scripts/pra_reference_sql.py scripts/pra_climate.py scripts/pra_workflow.py scripts/pra_real_pilot.py scripts/pra_ofb_prepare.py scripts/pra_compare_geometries.py scripts/pra_validate_pilot.py tests/e2e/pra_postgis_bridge.py tests/e2e/pra_stage_local.py
       - run: python -m ruff check scripts/pra_closure_audit.py
-      - run: python -m ruff check scripts/pra_acceptance_review.py scripts/pra_migration_reconcile.py scripts/pra_pilot_sample.py scripts/pra_pilot_run.py scripts/pra_pilot_reference.py scripts/pra_pilot_review.py
-      - run: MYPYPATH=engine/src python -m mypy --strict scripts/pra_acceptance_review.py scripts/pra_migration_reconcile.py scripts/pra_pilot_sample.py scripts/pra_pilot_run.py scripts/pra_pilot_reference.py scripts/pra_pilot_review.py
+      - run: python -m ruff check scripts/pra_acceptance_review.py scripts/pra_migration_reconcile.py scripts/pra_pilot_sample.py scripts/pra_pilot_run.py scripts/pra_pilot_reference.py scripts/pra_pilot_review.py scripts/pra_30day_run.py scripts/pra_30day_review.py scripts/pra_30day_http.py scripts/pra_national_30day.py
+      - run: MYPYPATH=engine/src python -m mypy --strict scripts/pra_acceptance_review.py scripts/pra_migration_reconcile.py scripts/pra_pilot_sample.py scripts/pra_pilot_run.py scripts/pra_pilot_reference.py scripts/pra_pilot_review.py scripts/pra_30day_run.py scripts/pra_30day_review.py scripts/pra_30day_http.py scripts/pra_national_30day.py
       - run: python -m mypy --strict engine/src/agriclimax/territories scripts/pra_reference.py scripts/pra_reference_sql.py scripts/pra_climate.py scripts/pra_workflow.py scripts/pra_real_pilot.py scripts/pra_closure_audit.py
       - run: python scripts/check_contracts.py
       - run: python scripts/quality/check_automation.py

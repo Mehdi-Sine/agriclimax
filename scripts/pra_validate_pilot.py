@@ -12,16 +12,94 @@ import hashlib
 import itertools
 import json
 import math
-from datetime import datetime
+from collections.abc import Iterator
+from contextlib import ExitStack, contextmanager
+from datetime import datetime, timedelta
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 import xarray as xr
 
 
+@contextmanager
+def source_months(
+    root: Path, source: dict[str, Any], identity: dict[str, Any]
+) -> Iterator[xr.Dataset]:
+    """Independently verify request identity, native grid, checksums and hourly continuity."""
+    receipts = source["receipts"]
+    if (
+        not receipts
+        or len(receipts) > 2
+        or source["catalogue"] != "reanalysis-era5-land"
+    ):
+        raise ValueError("One or two coherent ERA5-Land months required")
+    if sorted(r["checksum"] for r in receipts) != source["source_checksums"]:
+        raise ValueError("Source checksum manifest differs")
+    with ExitStack() as stack:
+        loaded = []
+        physical_request = None
+        for receipt in receipts:
+            request = receipt["request"]
+            physical = {
+                k: v for k, v in request.items() if k not in {"year", "month", "day"}
+            }
+            if physical_request is not None and physical != physical_request:
+                raise ValueError("Monthly request semantics differ")
+            physical_request = physical
+            if (
+                request["variable"] != ["2m_temperature", "total_precipitation"]
+                or request["time"] != [f"{h:02}:00" for h in range(24)]
+                or request["product_type"] != "reanalysis"
+            ):
+                raise ValueError("Unexpected source request semantics")
+            request_id = hashlib.sha256(
+                json.dumps(
+                    {"request": request, "dataset": identity}, sort_keys=True
+                ).encode()
+            ).hexdigest()
+            persisted = json.loads(
+                (root / "source-cache/requests" / (request_id + ".json")).read_text()
+            )
+            if persisted != receipt:
+                raise ValueError("Monthly receipt/dataset identity mismatch")
+            path = root / "source-cache/sources" / (receipt["checksum"] + ".source")
+            if hashlib.sha256(path.read_bytes()).hexdigest() != receipt["checksum"]:
+                raise ValueError("Native NetCDF checksum mismatch")
+            ds = stack.enter_context(xr.open_dataset(path))
+            if set(ds.dims) != {"valid_time", "latitude", "longitude"} or set(
+                ds.data_vars
+            ) != {"t2m", "tp"}:
+                raise ValueError("Unexpected native dimensions or fields")
+            if ds.t2m.attrs.get("units") != "K" or ds.tp.attrs.get("units") != "m":
+                raise ValueError("Unexpected source units")
+            stamps = np.array(
+                [
+                    np.datetime64(f"{request['year']}-{request['month']}-{day}T{hour}")
+                    for day in request["day"]
+                    for hour in request["time"]
+                ],
+                dtype="datetime64[ns]",
+            )
+            if not np.array_equal(ds.valid_time.values, stamps):
+                raise ValueError("Monthly hourly support differs from exact request")
+            loaded.append(ds)
+        merged = xr.concat(loaded, dim="valid_time", join="exact").sortby("valid_time")
+        times = merged.valid_time.values.astype("datetime64[ns]")
+        expected = np.arange(
+            times[0], times[-1] + np.timedelta64(1, "h"), np.timedelta64(1, "h")
+        )
+        if not np.array_equal(times, expected):
+            raise ValueError("Duplicate timestamps or silent inter-month gap")
+        yield merged
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, required=True)
+    parser.add_argument("--expected-windows", type=int, choices=[1, 4, 5], default=1)
+    parser.add_argument("--expected-pra", type=int, choices=[73, 713], default=73)
+    parser.add_argument("--require-no-diagnostics", action="store_true")
     parser.add_argument("--sample", type=Path, help="Versioned larger pilot selection")
     parser.add_argument("--destination", choices=["local", "supabase"])
     parser.add_argument("--weights", type=Path, required=True)
@@ -34,14 +112,27 @@ def main() -> None:
     if a.sample:
         sample = json.loads(a.sample.read_text())
         sample_ids = {r["id"] for r in sample["selection"]}
-        if len(sample_ids) != 73:
-            raise ValueError("Expected the versioned 73-PRA sample")
+        if len(sample_ids) != a.expected_pra:
+            raise ValueError("Expected the explicitly selected PRA count")
         weights = [w for w in weights if w["pra_id"] in sample_ids]
     names = {
         f["properties"]["code"]: f["properties"]["name"]
         for f in json.loads(a.reference.read_text())["features"]
     }
     parameters = json.loads(a.parameters.read_text())
+    outputs = [
+        json.loads(f.read_text())
+        for f in sorted((a.root / "batches").glob("*/output.json"))
+    ]
+    if a.destination:
+        outputs = [o for o in outputs if o["identity"]["destination"] == a.destination]
+    if not outputs:
+        raise ValueError("Missing pilot envelopes")
+    dataset_identity = outputs[0]["identity"]["dataset"]
+    if any(o["identity"]["dataset"] != dataset_identity for o in outputs):
+        raise ValueError("Cannot silently merge different dataset editions")
+    if a.require_no_diagnostics and any(o["diagnostics"] for o in outputs):
+        raise ValueError("No new systematic diagnostics permitted")
     selected = {w["cell_id"] for w in weights}
     rows = {}
     files = {}
@@ -56,22 +147,16 @@ def main() -> None:
             raise ValueError("Compact cache checksum mismatch")
         payload = json.loads(gzip.decompress(content))
         receipts = payload["source"]["receipts"]
-        if len(receipts) != 1:
-            raise ValueError("Pilot validation requires one source month per tile")
-        receipt = receipts[0]
-        west, south = receipt["request"]["area"][1:3]
-        checksum = receipt["checksum"]
-        source = a.root / "source-cache/sources" / (checksum + ".source")
-        if hashlib.sha256(source.read_bytes()).hexdigest() != checksum:
-            raise ValueError("Native NetCDF checksum mismatch")
-        files[checksum] = {
-            "bytes": source.stat().st_size,
-            "request": receipt["request"],
-            "retrieved_at": receipt["retrieved_at"],
-        }
-        with xr.open_dataset(source) as dataset:
-            if dataset.t2m.attrs["units"] != "K" or dataset.tp.attrs["units"] != "m":
-                raise ValueError("Unexpected source units")
+        west, south = receipts[0]["request"]["area"][1:3]
+        for receipt in receipts:
+            checksum = receipt["checksum"]
+            path = a.root / "source-cache/sources" / (checksum + ".source")
+            files[checksum] = {
+                "bytes": path.stat().st_size,
+                "request": receipt["request"],
+                "retrieved_at": receipt["retrieved_at"],
+            }
+        with source_months(a.root, payload["source"], dataset_identity) as dataset:
             for row in payload["rows"]:
                 if row["cell_id"] not in selected or (
                     not a.sample
@@ -123,13 +208,9 @@ def main() -> None:
                         )
                     comparisons += 1
                 rows[key] = row
-    outputs = [
-        json.loads(f.read_text())
-        for f in sorted((a.root / "batches").glob("*/output.json"))
-    ]
-    if a.destination:
-        outputs = [o for o in outputs if o["identity"]["destination"] == a.destination]
-    expected_count = 73 if sample_ids is not None else 4
+    expected_count = (
+        a.expected_pra if sample_ids is not None else 4
+    ) * a.expected_windows
     if len(outputs) != expected_count or (
         sample_ids is not None and {o["identity"]["pra"] for o in outputs} != sample_ids
     ):
@@ -274,13 +355,48 @@ def main() -> None:
     periods = {
         (output["identity"]["start"], output["identity"]["end"]) for output in outputs
     }
-    if len(periods) != 1:
-        raise ValueError("Pilot periods differ")
-    period = next(iter(periods))
-    expected_rows = len(selected) * len(outputs[0]["daily"])
-    if len(rows) != expected_rows:
-        raise ValueError("Incomplete native seven-day pilot support")
+    if len(periods) != a.expected_windows:
+        raise ValueError("Unexpected number of pilot windows")
+    ordered = sorted(periods)
+    for previous, current in itertools.pairwise(ordered):
+        if datetime.fromisoformat(current[0]) - datetime.fromisoformat(
+            previous[1]
+        ) != timedelta(days=1):
+            raise ValueError("Discontinuous or overlapping batch windows")
+    period = (ordered[0][0], ordered[-1][1])
+    expected_dates = {
+        str((datetime.fromisoformat(period[0]) + timedelta(days=n)).date())
+        for n in range(
+            (datetime.fromisoformat(period[1]) - datetime.fromisoformat(period[0])).days
+            + 1
+        )
+    }
+    for pid in {o["identity"]["pra"] for o in outputs}:
+        days = [
+            r["valid_date"]
+            for o in outputs
+            if o["identity"]["pra"] == pid
+            for r in o["daily"]
+        ]
+        if len(days) != len(set(days)) or set(days) != expected_dates:
+            raise ValueError("Missing or duplicate PRA date across windows")
+    if len(rows) != len(selected) * len(expected_dates):
+        raise ValueError("Incomplete native support")
     report = {
+        "tile_inputs_sha256": hashlib.sha256(
+            json.dumps(
+                [
+                    (p.name, hashlib.sha256(p.read_bytes()).hexdigest())
+                    for p in sorted((a.root / "tiles").glob("*.json.gz"))
+                ],
+                sort_keys=True,
+                allow_nan=False,
+            ).encode()
+        ).hexdigest(),
+        "dataset_identity": dataset_identity,
+        "pra_batches": len(outputs),
+        "pra_count": len({o["identity"]["pra"] for o in outputs}),
+        "windows": [list(p) for p in ordered],
         "real_cds": True,
         "synthetic": False,
         "period_utc": list(period),
