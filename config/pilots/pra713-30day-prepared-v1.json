@@ -1,0 +1,20 @@
+{
+  "status": "prepared_not_executed",
+  "execution_authorized": false,
+  "requires_task19c_decision": "READY_FOR_713x30",
+  "target": "agriclimax-dev only",
+  "dataset": "era5land-national-20260919-20261018-v1",
+  "period": ["2026-09-19", "2026-10-18"],
+  "pra": 713,
+  "concurrency": 1,
+  "maximum_new_cds_requests": 9,
+  "diagnostics": "on_demand_only",
+  "database_stop_bytes": 375000000,
+  "cache_stop_bytes": 469762048,
+  "preserve_pilot_editions": true,
+  "reference_import_required": {"pra":713,"weights":14541,"mode":"existing insert-only SQL, independently validated before execution"},
+  "reference_sql_command": "PYTHONPATH=engine/src python scripts/pra_reference_sql.py --bundle config/coverage/ofb-masa-pra-2017-snapshot-20261017 --output work/task19d/reference.sql",
+  "independent_validation_command": "PYTHONPATH=engine/src python scripts/pra_validate_pilot.py --root work/task19d/real --expected-windows 5 --require-no-diagnostics --weights config/coverage/ofb-masa-pra-2017-snapshot-20261017/weights.json --reference config/coverage/ofb-masa-pra-2017-snapshot-20261017/reference.json --parameters config/wheat-mvp.json --sample work/task19d/pra713-selection.json --expected-pra 713 --destination local --output work/task19d/independent.json",
+  "stops": ["checksum or lineage mismatch","missing input","wrong DEV target","reference counts not verified","incorrect full-PRA availability","database budget exceeded","quota or source failure"],
+  "rollback": "Suspend execution; retain pilot and v0.2.0, immutable checkpoints and outputs; no purge or destructive migration"
+}
