@@ -1,0 +1,31 @@
+{
+  "decision": "BLOCKED",
+  "base": "1952cec",
+  "target": "agriclimax-dev",
+  "dataset": "era5land-national-20260919-20261018-v1",
+  "period": [
+    "2026-09-19",
+    "2026-10-18"
+  ],
+  "reference_bundle_sha256_verified": true,
+  "dev": {
+    "territories": 113,
+    "weights": 1892,
+    "daily": 2190,
+    "batches": 365,
+    "diagnostics": 584,
+    "database_bytes": 33552051,
+    "storage_buckets": 0
+  },
+  "required_cache_receipts": 81,
+  "local_cache_receipts_found": 0,
+  "github_pra_artifacts_found": 0,
+  "github_pra_caches_found": 0,
+  "new_cds_requests": 0,
+  "downloaded_source_bytes": 0,
+  "national_persisted_rows": 0,
+  "independent_national_validation": null,
+  "replay": null,
+  "performance": null,
+  "blocker": "Verified Task19B/19C hourly source caches and receipts absent; no restore location found. National pipeline cannot execute within reuse requirement and nine-request cap."
+}
