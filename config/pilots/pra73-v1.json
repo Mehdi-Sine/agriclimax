@@ -1,0 +1,1095 @@
+{
+  "selection_version": "pra-pilot73-maximin-1",
+  "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
+  "reference_sha256": "3a32b00ce4fe44c969e46d3346b6a4676d42df95955162f0d05271764daf4b0a",
+  "quotas": {
+    "11": 3,
+    "24": 6,
+    "27": 6,
+    "28": 5,
+    "32": 5,
+    "44": 7,
+    "52": 5,
+    "53": 5,
+    "75": 7,
+    "76": 7,
+    "84": 8,
+    "93": 6,
+    "94": 3
+  },
+  "selection_count": 73,
+  "statistically_representative": false,
+  "scientific_geometry_modified": false,
+  "selection": [
+    {
+      "id": "pra:02034",
+      "code": "02034",
+      "name": "SAINT-QUENTINOIS ET LAONNOIS - 02",
+      "departments": [
+        "02"
+      ],
+      "region": "32",
+      "area_km2": 2368.4520946316075,
+      "categories": [
+        "région Hauts-de-France",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:04460",
+      "code": "04460",
+      "name": "MONTAGNE DE HAUTE-PROVENCE - 04",
+      "departments": [
+        "04"
+      ],
+      "region": "93",
+      "area_km2": 4404.796237585372,
+      "categories": [
+        "région Provence-Alpes-Côte d'Azur",
+        "massif nommé",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "plus grande PRA nationale"
+    },
+    {
+      "id": "pra:05236",
+      "code": "05236",
+      "name": "DEVOLUY - 05",
+      "departments": [
+        "05"
+      ],
+      "region": "93",
+      "area_km2": 186.68638286300282,
+      "categories": [
+        "région Provence-Alpes-Côte d'Azur",
+        "massif nommé"
+      ],
+      "selection_reason": "haute montagne Dévoluy"
+    },
+    {
+      "id": "pra:07171",
+      "code": "07171",
+      "name": "PLATEAUX DU HAUT ET MOYEN VIVARAIS - 07",
+      "departments": [
+        "07"
+      ],
+      "region": "84",
+      "area_km2": 3256.913324119059,
+      "categories": [
+        "région Auvergne-Rhône-Alpes",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:08021",
+      "code": "08021",
+      "name": "ARDENNE - 08",
+      "departments": [
+        "08"
+      ],
+      "region": "44",
+      "area_km2": 1046.8167232125784,
+      "categories": [
+        "région Grand Est"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:09472",
+      "code": "09472",
+      "name": "REGION PYRENEENNE - 09",
+      "departments": [
+        "09"
+      ],
+      "region": "76",
+      "area_km2": 2382.320946800413,
+      "categories": [
+        "région Occitanie",
+        "massif nommé",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "massif des Pyrénées et frontière"
+    },
+    {
+      "id": "pra:13244",
+      "code": "13244",
+      "name": "CAMARGUE - 13",
+      "departments": [
+        "13"
+      ],
+      "region": "93",
+      "area_km2": 1212.174932293489,
+      "categories": [
+        "région Provence-Alpes-Côte d'Azur",
+        "littoral ou interface maritime"
+      ],
+      "selection_reason": "Méditerranée et Camargue"
+    },
+    {
+      "id": "pra:13469",
+      "code": "13469",
+      "name": "LITTORAL DE PROVENCE - 13",
+      "departments": [
+        "13"
+      ],
+      "region": "93",
+      "area_km2": 175.43393047344372,
+      "categories": [
+        "région Provence-Alpes-Côte d'Azur",
+        "littoral ou interface maritime"
+      ],
+      "selection_reason": "littoral, réserve Marseille documentée"
+    },
+    {
+      "id": "pra:15409",
+      "code": "15409",
+      "name": "CHATAIGNERAIE - 15",
+      "departments": [
+        "15"
+      ],
+      "region": "84",
+      "area_km2": 1113.004904784335,
+      "categories": [
+        "région Auvergne-Rhône-Alpes"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:18434",
+      "code": "18434",
+      "name": "CHAMPAGNE BERRICHONNE - 18",
+      "departments": [
+        "18"
+      ],
+      "region": "24",
+      "area_km2": 2994.3712399512906,
+      "categories": [
+        "région Centre-Val de Loire",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:19421",
+      "code": "19421",
+      "name": "ARTENSE - 19",
+      "departments": [
+        "19"
+      ],
+      "region": "75",
+      "area_km2": 14.757422860683354,
+      "categories": [
+        "région Nouvelle-Aquitaine",
+        "petite surface (<100 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:21010",
+      "code": "21010",
+      "name": "TONNEROIS - 21",
+      "departments": [
+        "21"
+      ],
+      "region": "27",
+      "area_km2": 193.71634611708484,
+      "categories": [
+        "région Bourgogne-Franche-Comté"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:22358",
+      "code": "22358",
+      "name": "LITTORAL BRETON NORD - 22",
+      "departments": [
+        "22"
+      ],
+      "region": "53",
+      "area_km2": 1438.0617817443544,
+      "categories": [
+        "région Bretagne",
+        "littoral ou interface maritime"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:26463",
+      "code": "26463",
+      "name": "BARONNIES - 26",
+      "departments": [
+        "26"
+      ],
+      "region": "84",
+      "area_km2": 1217.242535709292,
+      "categories": [
+        "région Auvergne-Rhône-Alpes"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:27330",
+      "code": "27330",
+      "name": "VEXIN BOSSU - 27",
+      "departments": [
+        "27"
+      ],
+      "region": "28",
+      "area_km2": 207.88995349065917,
+      "categories": [
+        "région Normandie"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:27351",
+      "code": "27351",
+      "name": "PERCHE - 27",
+      "departments": [
+        "27"
+      ],
+      "region": "28",
+      "area_km2": 39.07470992104039,
+      "categories": [
+        "région Normandie",
+        "petite surface (<100 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:28341",
+      "code": "28341",
+      "name": "BEAUCE DUNOISE - 28",
+      "departments": [
+        "28"
+      ],
+      "region": "24",
+      "area_km2": 765.3504361013169,
+      "categories": [
+        "région Centre-Val de Loire"
+      ],
+      "selection_reason": "plaine céréalière Beauce"
+    },
+    {
+      "id": "pra:29102",
+      "code": "29102",
+      "name": "PRESQU ILE DE CROZON - 29",
+      "departments": [
+        "29"
+      ],
+      "region": "53",
+      "area_km2": 121.70118115400278,
+      "categories": [
+        "région Bretagne",
+        "littoral ou interface maritime"
+      ],
+      "selection_reason": "Bretagne littorale, absence observée Task19"
+    },
+    {
+      "id": "pra:29358",
+      "code": "29358",
+      "name": "LITTORAL BRETON NORD - 29",
+      "departments": [
+        "29"
+      ],
+      "region": "53",
+      "area_km2": 622.0491400962603,
+      "categories": [
+        "région Bretagne",
+        "littoral ou interface maritime"
+      ],
+      "selection_reason": "littoral breton nord"
+    },
+    {
+      "id": "pra:2A258",
+      "code": "2A258",
+      "name": "LITTORAL CORSE - 2A",
+      "departments": [
+        "2A"
+      ],
+      "region": "94",
+      "area_km2": 525.6490793757057,
+      "categories": [
+        "région Corse",
+        "littoral ou interface maritime"
+      ],
+      "selection_reason": "littoral corse potentiellement partiel"
+    },
+    {
+      "id": "pra:2B259",
+      "code": "2B259",
+      "name": "COTEAUX CORSES - 2B",
+      "departments": [
+        "2B"
+      ],
+      "region": "94",
+      "area_km2": 1543.6954786121219,
+      "categories": [
+        "région Corse"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:2B260",
+      "code": "2B260",
+      "name": "MONTAGNE CORSE - 2B",
+      "departments": [
+        "2B"
+      ],
+      "region": "94",
+      "area_km2": 2413.776806351947,
+      "categories": [
+        "région Corse",
+        "massif nommé",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "montagne corse"
+    },
+    {
+      "id": "pra:30465",
+      "code": "30465",
+      "name": "VALLEE DU RHONE - 30",
+      "departments": [
+        "30"
+      ],
+      "region": "76",
+      "area_km2": 572.5374290074062,
+      "categories": [
+        "région Occitanie"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:32386",
+      "code": "32386",
+      "name": "VIC-BIHL - 32",
+      "departments": [
+        "32"
+      ],
+      "region": "76",
+      "area_km2": 14.206791464874396,
+      "categories": [
+        "région Occitanie",
+        "petite surface (<100 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:33115",
+      "code": "33115",
+      "name": "BAS-MEDOC - 33",
+      "departments": [
+        "33"
+      ],
+      "region": "75",
+      "area_km2": 177.71790036340667,
+      "categories": [
+        "région Nouvelle-Aquitaine"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:34412",
+      "code": "34412",
+      "name": "PLATEAUX DU SOMMAIL ET DE L'ESPINOUZE - 34",
+      "departments": [
+        "34"
+      ],
+      "region": "76",
+      "area_km2": 655.5027203826428,
+      "categories": [
+        "région Occitanie"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:35098",
+      "code": "35098",
+      "name": "POLDERS DU MONT-SAINT-MICHEL - 35",
+      "departments": [
+        "35"
+      ],
+      "region": "53",
+      "area_km2": 26.08656131351329,
+      "categories": [
+        "région Bretagne",
+        "petite surface (<100 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:36436",
+      "code": "36436",
+      "name": "BOISCHAUT DU SUD - 36",
+      "departments": [
+        "36"
+      ],
+      "region": "24",
+      "area_km2": 2264.9741148304356,
+      "categories": [
+        "région Centre-Val de Loire",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:37074",
+      "code": "37074",
+      "name": "BASSIN DE SAVIGNE - 37",
+      "departments": [
+        "37"
+      ],
+      "region": "24",
+      "area_km2": 168.11953367959364,
+      "categories": [
+        "région Centre-Val de Loire"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:38457",
+      "code": "38457",
+      "name": "REGION HAUTE ALPINE - 38",
+      "departments": [
+        "38"
+      ],
+      "region": "84",
+      "area_km2": 2494.8805832765684,
+      "categories": [
+        "région Auvergne-Rhône-Alpes",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:39449",
+      "code": "39449",
+      "name": "HAUT JURA - 39",
+      "departments": [
+        "39"
+      ],
+      "region": "27",
+      "area_km2": 559.3297107843313,
+      "categories": [
+        "région Bourgogne-Franche-Comté",
+        "massif nommé"
+      ],
+      "selection_reason": "massif du Jura et frontière suisse"
+    },
+    {
+      "id": "pra:40378",
+      "code": "40378",
+      "name": "GRANDES LANDES - 40",
+      "departments": [
+        "40"
+      ],
+      "region": "75",
+      "area_km2": 3670.6026508278055,
+      "categories": [
+        "région Nouvelle-Aquitaine",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "façade Atlantique et Landes"
+    },
+    {
+      "id": "pra:41434",
+      "code": "41434",
+      "name": "CHAMPAGNE BERRICHONNE - 41",
+      "departments": [
+        "41"
+      ],
+      "region": "24",
+      "area_km2": 71.18633978025554,
+      "categories": [
+        "région Centre-Val de Loire",
+        "petite surface (<100 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:43417",
+      "code": "43417",
+      "name": "CEZALLIER - 43",
+      "departments": [
+        "43"
+      ],
+      "region": "84",
+      "area_km2": 26.25656240693525,
+      "categories": [
+        "région Auvergne-Rhône-Alpes",
+        "petite surface (<100 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:44104",
+      "code": "44104",
+      "name": "PAYS DE CHATEAUBRIANT - 44",
+      "departments": [
+        "44"
+      ],
+      "region": "52",
+      "area_km2": 640.1661848676358,
+      "categories": [
+        "région Pays de la Loire"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:44364",
+      "code": "44364",
+      "name": "PRESQU'ILE GUERANDAISE ET GRANDE BRIERE - 44",
+      "departments": [
+        "44"
+      ],
+      "region": "52",
+      "area_km2": 533.4180871804651,
+      "categories": [
+        "région Pays de la Loire"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:45338",
+      "code": "45338",
+      "name": "GATINAIS PAUVRE - 45",
+      "departments": [
+        "45"
+      ],
+      "region": "24",
+      "area_km2": 1217.3320906021086,
+      "categories": [
+        "région Centre-Val de Loire"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:46409",
+      "code": "46409",
+      "name": "SEGALA - 46",
+      "departments": [
+        "46"
+      ],
+      "region": "76",
+      "area_km2": 695.1752608233114,
+      "categories": [
+        "région Occitanie"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:47394",
+      "code": "47394",
+      "name": "CAUSSES - 47",
+      "departments": [
+        "47"
+      ],
+      "region": "75",
+      "area_km2": 38.28191976376447,
+      "categories": [
+        "région Nouvelle-Aquitaine",
+        "petite surface (<100 km²)"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:50081",
+      "code": "50081",
+      "name": "LA HAGUE - 50",
+      "departments": [
+        "50"
+      ],
+      "region": "28",
+      "area_km2": 199.77279267926664,
+      "categories": [
+        "région Normandie"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:50354",
+      "code": "50354",
+      "name": "LE MORTAINAIS - 50",
+      "departments": [
+        "50"
+      ],
+      "region": "28",
+      "area_km2": 809.2450429401683,
+      "categories": [
+        "région Normandie"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:51317",
+      "code": "51317",
+      "name": "CHAMPAGNE CRAYEUSE - 51",
+      "departments": [
+        "51"
+      ],
+      "region": "44",
+      "area_km2": 3650.1099516062945,
+      "categories": [
+        "région Grand Est",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "plaine céréalière du Grand Est"
+    },
+    {
+      "id": "pra:52311",
+      "code": "52311",
+      "name": "PLATEAU LANGROIS,MONTAGNE, - 52",
+      "departments": [
+        "52"
+      ],
+      "region": "44",
+      "area_km2": 898.3899607005536,
+      "categories": [
+        "région Grand Est",
+        "massif nommé"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:53357",
+      "code": "53357",
+      "name": "ZONE D'ELEVAGE - 53",
+      "departments": [
+        "53"
+      ],
+      "region": "52",
+      "area_km2": 2454.906546591853,
+      "categories": [
+        "région Pays de la Loire",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:56363",
+      "code": "56363",
+      "name": "REGION CENTRALE - 56",
+      "departments": [
+        "56"
+      ],
+      "region": "53",
+      "area_km2": 2922.850997065852,
+      "categories": [
+        "région Bretagne",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:57004",
+      "code": "57004",
+      "name": "VALLEE DE LA MOSELLE - 57",
+      "departments": [
+        "57"
+      ],
+      "region": "44",
+      "area_km2": 246.89496687936617,
+      "categories": [
+        "région Grand Est"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:58340",
+      "code": "58340",
+      "name": "PUISAYE - 58",
+      "departments": [
+        "58"
+      ],
+      "region": "27",
+      "area_km2": 145.51804577267126,
+      "categories": [
+        "région Bourgogne-Franche-Comté"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:59025",
+      "code": "59025",
+      "name": "FLANDRE INTERIEURE - 59",
+      "departments": [
+        "59"
+      ],
+      "region": "32",
+      "area_km2": 769.3810641929568,
+      "categories": [
+        "région Hauts-de-France"
+      ],
+      "selection_reason": "plaine intérieure du Nord"
+    },
+    {
+      "id": "pra:59325",
+      "code": "59325",
+      "name": "FLANDRE MARITIME - 59",
+      "departments": [
+        "59"
+      ],
+      "region": "32",
+      "area_km2": 448.82606473435027,
+      "categories": [
+        "région Hauts-de-France",
+        "littoral ou interface maritime"
+      ],
+      "selection_reason": "Nord et frontière maritime"
+    },
+    {
+      "id": "pra:60330",
+      "code": "60330",
+      "name": "VEXIN FRANCAIS - 60",
+      "departments": [
+        "60"
+      ],
+      "region": "32",
+      "area_km2": 305.7286178097565,
+      "categories": [
+        "région Hauts-de-France"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:62324",
+      "code": "62324",
+      "name": "PLAINE DE LA LYS - 62",
+      "departments": [
+        "62"
+      ],
+      "region": "32",
+      "area_km2": 174.61825475835312,
+      "categories": [
+        "région Hauts-de-France"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:63426",
+      "code": "63426",
+      "name": "LIMAGNE AGRICOLE - 63",
+      "departments": [
+        "63"
+      ],
+      "region": "84",
+      "area_km2": 729.6725644400669,
+      "categories": [
+        "région Auvergne-Rhône-Alpes"
+      ],
+      "selection_reason": "Massif central et Limagne"
+    },
+    {
+      "id": "pra:64142",
+      "code": "64142",
+      "name": "MONTAGNE DU BEARN - 64",
+      "departments": [
+        "64"
+      ],
+      "region": "75",
+      "area_km2": 1253.4912911734218,
+      "categories": [
+        "région Nouvelle-Aquitaine",
+        "massif nommé"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:65146",
+      "code": "65146",
+      "name": "MONTAGNE DE BIGORRE - 65",
+      "departments": [
+        "65"
+      ],
+      "region": "76",
+      "area_km2": 2995.8488295438697,
+      "categories": [
+        "région Occitanie",
+        "massif nommé",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:66254",
+      "code": "66254",
+      "name": "CRU BANYULS - 66",
+      "departments": [
+        "66"
+      ],
+      "region": "76",
+      "area_km2": 78.11021591079674,
+      "categories": [
+        "région Occitanie",
+        "petite surface (<100 km²)"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:68302",
+      "code": "68302",
+      "name": "RIED - 68",
+      "departments": [
+        "68"
+      ],
+      "region": "44",
+      "area_km2": 44.67305156881963,
+      "categories": [
+        "région Grand Est",
+        "petite surface (<100 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:68303",
+      "code": "68303",
+      "name": "SUNDGAU - 68",
+      "departments": [
+        "68"
+      ],
+      "region": "44",
+      "area_km2": 840.4665687394325,
+      "categories": [
+        "région Grand Est"
+      ],
+      "selection_reason": "frontière est Sundgau"
+    },
+    {
+      "id": "pra:69196",
+      "code": "69196",
+      "name": "ZONE MARAICHERE DE LYON - 69",
+      "departments": [
+        "69"
+      ],
+      "region": "84",
+      "area_km2": 136.71342771528293,
+      "categories": [
+        "région Auvergne-Rhône-Alpes"
+      ],
+      "selection_reason": "réserve Lyon documentée"
+    },
+    {
+      "id": "pra:70007",
+      "code": "70007",
+      "name": "REGION DES PLATEAUX - 70",
+      "departments": [
+        "70"
+      ],
+      "region": "27",
+      "area_km2": 2745.0186509358787,
+      "categories": [
+        "région Bourgogne-Franche-Comté",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:71183",
+      "code": "71183",
+      "name": "BRIONNAIS - 71",
+      "departments": [
+        "71"
+      ],
+      "region": "27",
+      "area_km2": 400.05037823474817,
+      "categories": [
+        "région Bourgogne-Franche-Comté"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:72345",
+      "code": "72345",
+      "name": "BEAUGEOIS - 72",
+      "departments": [
+        "72"
+      ],
+      "region": "52",
+      "area_km2": 56.61527014589348,
+      "categories": [
+        "région Pays de la Loire",
+        "petite surface (<100 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:74458",
+      "code": "74458",
+      "name": "GRANDES ALPES - 74",
+      "departments": [
+        "74"
+      ],
+      "region": "84",
+      "area_km2": 518.8340362992393,
+      "categories": [
+        "région Auvergne-Rhône-Alpes",
+        "massif nommé"
+      ],
+      "selection_reason": "Alpes et frontière"
+    },
+    {
+      "id": "pra:76046",
+      "code": "76046",
+      "name": "PAYS DE CAUX - 76",
+      "departments": [
+        "76"
+      ],
+      "region": "28",
+      "area_km2": 2892.4668579650615,
+      "categories": [
+        "région Normandie",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "Normandie et façade Manche"
+    },
+    {
+      "id": "pra:77335",
+      "code": "77335",
+      "name": "BRIE CHAMPENNOISE - 77",
+      "departments": [
+        "77"
+      ],
+      "region": "11",
+      "area_km2": 358.6851822344908,
+      "categories": [
+        "région Île-de-France"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:78054",
+      "code": "78054",
+      "name": "YVELINES - 78",
+      "departments": [
+        "78"
+      ],
+      "region": "11",
+      "area_km2": 729.0965198907771,
+      "categories": [
+        "région Île-de-France"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:79373",
+      "code": "79373",
+      "name": "BOCAGE - 79",
+      "departments": [
+        "79"
+      ],
+      "region": "75",
+      "area_km2": 1475.5190961910141,
+      "categories": [
+        "région Nouvelle-Aquitaine"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:83248",
+      "code": "83248",
+      "name": "REGIONS FRUITIERES DE SOLLIES-PONT ET DE FREJUS - 83",
+      "departments": [
+        "83"
+      ],
+      "region": "93",
+      "area_km2": 454.3215751457863,
+      "categories": [
+        "région Provence-Alpes-Côte d'Azur"
+      ],
+      "selection_reason": "complément maximin des centroïdes EPSG:3035 dans la région"
+    },
+    {
+      "id": "pra:84463",
+      "code": "84463",
+      "name": "BARONNIES - 84",
+      "departments": [
+        "84"
+      ],
+      "region": "93",
+      "area_km2": 168.69479348803472,
+      "categories": [
+        "région Provence-Alpes-Côte d'Azur"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:85368",
+      "code": "85368",
+      "name": "BAS BOCAGE - 85",
+      "departments": [
+        "85"
+      ],
+      "region": "52",
+      "area_km2": 3620.7718498755103,
+      "categories": [
+        "région Pays de la Loire",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:87432",
+      "code": "87432",
+      "name": "HAUT-LIMOUSIN - 87",
+      "departments": [
+        "87"
+      ],
+      "region": "75",
+      "area_km2": 3804.623418721252,
+      "categories": [
+        "région Nouvelle-Aquitaine",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:88307",
+      "code": "88307",
+      "name": "MONTAGNE VOSGIENNE - 88",
+      "departments": [
+        "88"
+      ],
+      "region": "44",
+      "area_km2": 2102.5020604775113,
+      "categories": [
+        "région Grand Est",
+        "massif nommé",
+        "grande surface (>2000 km²)"
+      ],
+      "selection_reason": "massif vosgien"
+    },
+    {
+      "id": "pra:90450",
+      "code": "90450",
+      "name": "PLATEAUX MOYENS DU JURA - 90",
+      "departments": [
+        "90"
+      ],
+      "region": "27",
+      "area_km2": 45.56721304413348,
+      "categories": [
+        "région Bourgogne-Franche-Comté",
+        "massif nommé",
+        "petite surface (<100 km²)"
+      ],
+      "selection_reason": "extrême régional de surface"
+    },
+    {
+      "id": "pra:95332",
+      "code": "95332",
+      "name": "VALLEE DE LA SEINE - 95",
+      "departments": [
+        "95"
+      ],
+      "region": "11",
+      "area_km2": 11.124019267538113,
+      "categories": [
+        "région Île-de-France",
+        "petite surface (<100 km²)"
+      ],
+      "selection_reason": "petite PRA nationale"
+    }
+  ]
+}

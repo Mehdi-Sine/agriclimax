@@ -1,0 +1,62 @@
+{
+  "status": "plan_only_not_executed",
+  "selection": "config/pilots/pra73-v1.json",
+  "target_pra": 73,
+  "start_utc": "2026-09-19",
+  "end_utc": "2026-10-18",
+  "days": 30,
+  "concurrency": 1,
+  "max_logical_cds_requests_per_invocation": 60,
+  "new_logical_cds_requests_estimate": 135,
+  "all_windows_logical_cds_requests_estimate": 162,
+  "stop_database_bytes": 375000000,
+  "warning_database_bytes": 300000000,
+  "windows": [
+    {
+      "from": "2026-09-19",
+      "to": "2026-09-25",
+      "dataset": "era5land-pilot73-20260919-20260925-v1",
+      "root": "work/task19b/extension/20260919",
+      "state": "not_executed",
+      "max_cds_requests": 40,
+      "logical_cds_requests_estimate": 27
+    },
+    {
+      "from": "2026-09-26",
+      "to": "2026-09-30",
+      "dataset": "era5land-pilot73-20260926-20260930-v1",
+      "root": "work/task19b/extension/20260926",
+      "state": "not_executed",
+      "max_cds_requests": 60,
+      "logical_cds_requests_estimate": 54
+    },
+    {
+      "from": "2026-10-01",
+      "to": "2026-10-07",
+      "dataset": "era5land-pilot73-20261001-20261007-v1",
+      "root": "work/task19b/extension/20261001",
+      "state": "not_executed",
+      "max_cds_requests": 40,
+      "logical_cds_requests_estimate": 27
+    },
+    {
+      "from": "2026-10-08",
+      "to": "2026-10-11",
+      "dataset": "era5land-pilot73-20261008-20261011-v1",
+      "root": "work/task19b/extension/20261008",
+      "state": "not_executed",
+      "max_cds_requests": 40,
+      "logical_cds_requests_estimate": 27
+    },
+    {
+      "from": "2026-10-12",
+      "to": "2026-10-18",
+      "dataset": "era5land-pilot73-20261012-20261018-v1",
+      "root": "work/task19b/real",
+      "state": "initial_pilot",
+      "max_cds_requests": 40,
+      "logical_cds_requests_estimate": 27
+    }
+  ],
+  "activation": "Separate operator decision after review; no cron or paid service"
+}

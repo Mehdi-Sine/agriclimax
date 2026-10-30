@@ -1,0 +1,4492 @@
+{
+  "migration_history_after": [
+    {
+      "version": "20261010173457",
+      "name": "0001_extensions_and_core",
+      "statements_md5": "686d3ba27d1dc5cb711248d10c0ca69a"
+    },
+    {
+      "version": "20261010173509",
+      "name": "0002_watch_and_ai_provenance",
+      "statements_md5": "adb1bfc871d535d3cebd82ed2e590b9c"
+    },
+    {
+      "version": "20261010173523",
+      "name": "0003_persistence_and_rls",
+      "statements_md5": "a5d950daafe74443cbcec8ec4094addd"
+    },
+    {
+      "version": "20261010173532",
+      "name": "0004_bounded_read_api",
+      "statements_md5": "d0aaa611e32c27f703cec1ba963f5e00"
+    },
+    {
+      "version": "20261014135644",
+      "name": "meteofrance_station_ingestion",
+      "statements_md5": "182e1246fff5939f96f3252d2b7ed38c"
+    },
+    {
+      "version": "20261015113754",
+      "name": "climatology_reference",
+      "statements_md5": "c6b9f61cc8a37595bffbce4b68f3c219"
+    },
+    {
+      "version": "20261015160905",
+      "name": "wheat_portfolios",
+      "statements_md5": "4558e9e124b52e4c25cb0e4aa836e491"
+    },
+    {
+      "version": "20261015173916",
+      "name": "france_coverage",
+      "statements_md5": "c1989d789fdc9bc8c8c9d1caca684a74"
+    },
+    {
+      "version": "20261015174831",
+      "name": "france_station_catalogue_capacity",
+      "statements_md5": "dddf7342c232b7c469406f304f4a5a4c"
+    },
+    {
+      "version": "20261016095414",
+      "name": "daily_pipeline",
+      "statements_md5": "b29b11e1f8b5382400fef1e48e02dead"
+    },
+    {
+      "version": "20261016135913",
+      "name": "daily_live_read",
+      "statements_md5": "49c4d8a02f173e7f38edbdd044a2e9ed"
+    },
+    {
+      "version": "20261029220551",
+      "name": "pra_territorial_aggregation",
+      "statements_md5": "deb39083cde093919451ff2f7e8d64c8"
+    }
+  ],
+  "daily_catalogue_unchanged": true,
+  "base_main": "ee92399c94156cf89d0ad6316c84c9af5e4b4a5e",
+  "project": "agriclimax-dev",
+  "period_utc": [
+    "2026-10-12",
+    "2026-10-18"
+  ],
+  "reference_validation": {
+    "geometry_exact_wkb": 73,
+    "maximum_area_roundtrip_difference_km2": 5.002220859751105e-12,
+    "weights": 1892,
+    "weights_exact_digest": true
+  },
+  "acquisition": {
+    "phase": "acquire",
+    "requests": [
+      {
+        "area": [
+          50,
+          -6,
+          48,
+          -4
+        ],
+        "started_index": 1,
+        "status": "downloaded",
+        "bytes": 93791,
+        "seconds": 89.70511856099984
+      },
+      {
+        "area": [
+          48,
+          -4,
+          46,
+          -2
+        ],
+        "started_index": 2,
+        "status": "downloaded",
+        "bytes": 134913,
+        "seconds": 63.99523587600197
+      },
+      {
+        "area": [
+          50,
+          -4,
+          48,
+          -2
+        ],
+        "started_index": 3,
+        "status": "downloaded",
+        "bytes": 163244,
+        "seconds": 61.314433925999765
+      },
+      {
+        "area": [
+          44,
+          -2,
+          42,
+          0
+        ],
+        "started_index": 4,
+        "status": "downloaded",
+        "bytes": 289058,
+        "seconds": 62.19450694199986
+      },
+      {
+        "area": [
+          46,
+          -2,
+          44,
+          0
+        ],
+        "started_index": 5,
+        "status": "downloaded",
+        "bytes": 224427,
+        "seconds": 63.755280793000566
+      },
+      {
+        "area": [
+          48,
+          -2,
+          46,
+          0
+        ],
+        "started_index": 6,
+        "status": "downloaded",
+        "bytes": 267327,
+        "seconds": 69.91780158199981
+      },
+      {
+        "area": [
+          50,
+          -2,
+          48,
+          0
+        ],
+        "started_index": 7,
+        "status": "downloaded",
+        "bytes": 236264,
+        "seconds": 68.31003615400186
+      },
+      {
+        "area": [
+          44,
+          0,
+          42,
+          2
+        ],
+        "started_index": 8,
+        "status": "downloaded",
+        "bytes": 315852,
+        "seconds": 61.439710334001575
+      },
+      {
+        "area": [
+          46,
+          0,
+          44,
+          2
+        ],
+        "started_index": 9,
+        "status": "downloaded",
+        "bytes": 289909,
+        "seconds": 65.69088303399985
+      },
+      {
+        "area": [
+          48,
+          0,
+          46,
+          2
+        ],
+        "started_index": 10,
+        "status": "downloaded",
+        "bytes": 277711,
+        "seconds": 133.256310509998
+      },
+      {
+        "area": [
+          50,
+          0,
+          48,
+          2
+        ],
+        "started_index": 11,
+        "status": "downloaded",
+        "bytes": 272233,
+        "seconds": 64.16045306200249
+      },
+      {
+        "area": [
+          44,
+          2,
+          42,
+          4
+        ],
+        "started_index": 12,
+        "status": "downloaded",
+        "bytes": 262659,
+        "seconds": 67.88363376300185
+      },
+      {
+        "area": [
+          46,
+          2,
+          44,
+          4
+        ],
+        "started_index": 13,
+        "status": "downloaded",
+        "bytes": 299359,
+        "seconds": 84.06159622200357
+      },
+      {
+        "area": [
+          48,
+          2,
+          46,
+          4
+        ],
+        "started_index": 14,
+        "status": "downloaded",
+        "bytes": 289647,
+        "seconds": 65.53668295199896
+      },
+      {
+        "area": [
+          50,
+          2,
+          48,
+          4
+        ],
+        "started_index": 15,
+        "status": "downloaded",
+        "bytes": 261187,
+        "seconds": 52.23689595099859
+      },
+      {
+        "area": [
+          52,
+          2,
+          50,
+          4
+        ],
+        "started_index": 16,
+        "status": "downloaded",
+        "bytes": 226365,
+        "seconds": 104.79261124099867
+      },
+      {
+        "area": [
+          44,
+          4,
+          42,
+          6
+        ],
+        "started_index": 17,
+        "status": "downloaded",
+        "bytes": 138037,
+        "seconds": 56.7688874839987
+      },
+      {
+        "area": [
+          46,
+          4,
+          44,
+          6
+        ],
+        "started_index": 18,
+        "status": "downloaded",
+        "bytes": 282923,
+        "seconds": 84.91763544300193
+      },
+      {
+        "area": [
+          48,
+          4,
+          46,
+          6
+        ],
+        "started_index": 19,
+        "status": "downloaded",
+        "bytes": 295015,
+        "seconds": 63.085524504000205
+      },
+      {
+        "area": [
+          50,
+          4,
+          48,
+          6
+        ],
+        "started_index": 20,
+        "status": "downloaded",
+        "bytes": 279571,
+        "seconds": 44.58167101200161
+      },
+      {
+        "area": [
+          52,
+          4,
+          50,
+          6
+        ],
+        "started_index": 21,
+        "status": "downloaded",
+        "bytes": 287930,
+        "seconds": 53.48640311000054
+      },
+      {
+        "area": [
+          44,
+          6,
+          42,
+          8
+        ],
+        "started_index": 22,
+        "status": "downloaded",
+        "bytes": 137411,
+        "seconds": 76.2790694739997
+      },
+      {
+        "area": [
+          46,
+          6,
+          44,
+          8
+        ],
+        "started_index": 23,
+        "status": "downloaded",
+        "bytes": 284073,
+        "seconds": 51.7475344830018
+      },
+      {
+        "area": [
+          48,
+          6,
+          46,
+          8
+        ],
+        "started_index": 24,
+        "status": "downloaded",
+        "bytes": 299229,
+        "seconds": 68.99250003899942
+      },
+      {
+        "area": [
+          50,
+          6,
+          48,
+          8
+        ],
+        "started_index": 25,
+        "status": "downloaded",
+        "bytes": 295827,
+        "seconds": 52.54245415400146
+      },
+      {
+        "area": [
+          42,
+          8,
+          40,
+          10
+        ],
+        "started_index": 26,
+        "status": "downloaded",
+        "bytes": 188771,
+        "seconds": 174.78975965399877
+      },
+      {
+        "area": [
+          44,
+          8,
+          42,
+          10
+        ],
+        "started_index": 27,
+        "status": "downloaded",
+        "bytes": 114942,
+        "seconds": 63.68776858400088
+      }
+    ],
+    "groups": [
+      {
+        "west": -6,
+        "south": 48,
+        "status": "verified",
+        "seconds": 5.265998490001948,
+        "tiles": 1
+      },
+      {
+        "west": -4,
+        "south": 46,
+        "status": "verified",
+        "seconds": 69.34796080500018,
+        "tiles": 2
+      },
+      {
+        "west": -4,
+        "south": 48,
+        "status": "verified",
+        "seconds": 68.37447956799951,
+        "tiles": 2
+      },
+      {
+        "west": -2,
+        "south": 42,
+        "status": "verified",
+        "seconds": 67.84357517999888,
+        "tiles": 3
+      },
+      {
+        "west": -2,
+        "south": 44,
+        "status": "verified",
+        "seconds": 68.97324880700035,
+        "tiles": 4
+      },
+      {
+        "west": -2,
+        "south": 46,
+        "status": "verified",
+        "seconds": 77.33897235800032,
+        "tiles": 4
+      },
+      {
+        "west": -2,
+        "south": 48,
+        "status": "verified",
+        "seconds": 74.23789845799911,
+        "tiles": 3
+      },
+      {
+        "west": 0,
+        "south": 42,
+        "status": "verified",
+        "seconds": 66.63043174400082,
+        "tiles": 4
+      },
+      {
+        "west": 0,
+        "south": 44,
+        "status": "verified",
+        "seconds": 71.21625036499972,
+        "tiles": 4
+      },
+      {
+        "west": 0,
+        "south": 46,
+        "status": "verified",
+        "seconds": 138.83555560999957,
+        "tiles": 4
+      },
+      {
+        "west": 0,
+        "south": 48,
+        "status": "verified",
+        "seconds": 69.59149369000079,
+        "tiles": 4
+      },
+      {
+        "west": 2,
+        "south": 42,
+        "status": "verified",
+        "seconds": 74.84922944900245,
+        "tiles": 4
+      },
+      {
+        "west": 2,
+        "south": 44,
+        "status": "verified",
+        "seconds": 89.55678878300023,
+        "tiles": 4
+      },
+      {
+        "west": 2,
+        "south": 46,
+        "status": "verified",
+        "seconds": 70.89949186100057,
+        "tiles": 4
+      },
+      {
+        "west": 2,
+        "south": 48,
+        "status": "verified",
+        "seconds": 57.629152830999374,
+        "tiles": 4
+      },
+      {
+        "west": 2,
+        "south": 50,
+        "status": "verified",
+        "seconds": 111.34205052499965,
+        "tiles": 3
+      },
+      {
+        "west": 4,
+        "south": 42,
+        "status": "verified",
+        "seconds": 61.90687557600177,
+        "tiles": 2
+      },
+      {
+        "west": 4,
+        "south": 44,
+        "status": "verified",
+        "seconds": 90.96032528700016,
+        "tiles": 4
+      },
+      {
+        "west": 4,
+        "south": 46,
+        "status": "verified",
+        "seconds": 68.73251204799817,
+        "tiles": 4
+      },
+      {
+        "west": 4,
+        "south": 48,
+        "status": "verified",
+        "seconds": 51.6526752259997,
+        "tiles": 4
+      },
+      {
+        "west": 4,
+        "south": 50,
+        "status": "verified",
+        "seconds": 58.800875798999186,
+        "tiles": 1
+      },
+      {
+        "west": 6,
+        "south": 42,
+        "status": "verified",
+        "seconds": 81.54033742500178,
+        "tiles": 1
+      },
+      {
+        "west": 6,
+        "south": 44,
+        "status": "verified",
+        "seconds": 57.01712444200166,
+        "tiles": 4
+      },
+      {
+        "west": 6,
+        "south": 46,
+        "status": "verified",
+        "seconds": 74.46311779199823,
+        "tiles": 4
+      },
+      {
+        "west": 6,
+        "south": 48,
+        "status": "verified",
+        "seconds": 57.88621126599901,
+        "tiles": 3
+      },
+      {
+        "west": 8,
+        "south": 40,
+        "status": "verified",
+        "seconds": 180.0322056240002,
+        "tiles": 2
+      },
+      {
+        "west": 8,
+        "south": 42,
+        "status": "verified",
+        "seconds": 68.94335737899746,
+        "tiles": 3
+      }
+    ],
+    "pra": [],
+    "elapsed_seconds": 2123.628970607995,
+    "peak_rss_kib": 260976,
+    "resume_count": 1
+  },
+  "cache_replay_new_cds_requests": 0,
+  "phases": {
+    "aggregate": {
+      "phase": "aggregate",
+      "elapsed_seconds": 0.9027809549988888,
+      "peak_rss_kib": 265076,
+      "pra": [
+        {
+          "pra": "pra:02034",
+          "seconds": 0.015766013999382267,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:04460",
+          "seconds": 0.01668093500120449,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:05236",
+          "seconds": 0.00826280500041321,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:07171",
+          "seconds": 0.015781448000780074,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:08021",
+          "seconds": 0.03328207999948063,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:09472",
+          "seconds": 0.02038480700139189,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:13244",
+          "seconds": 0.006750841999746626,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:13469",
+          "seconds": 0.006352462001814274,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:15409",
+          "seconds": 0.010181432000536006,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:18434",
+          "seconds": 0.01714903300307924,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:19421",
+          "seconds": 0.005693525999959093,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:21010",
+          "seconds": 0.008516839996445924,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:22358",
+          "seconds": 0.01499964600225212,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:26463",
+          "seconds": 0.008854048002831405,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:27330",
+          "seconds": 0.007970303999172756,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:27351",
+          "seconds": 0.006149955999717349,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:28341",
+          "seconds": 0.008042923000175506,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:29102",
+          "seconds": 0.005643189997499576,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:29358",
+          "seconds": 0.009559684000123525,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:2A258",
+          "seconds": 0.011129342998174252,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:2B259",
+          "seconds": 0.015312629999243654,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:2B260",
+          "seconds": 0.01262507199862739,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:30465",
+          "seconds": 0.009500333999312716,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:32386",
+          "seconds": 0.009635868002078496,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:33115",
+          "seconds": 0.00842663300136337,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:34412",
+          "seconds": 0.010539923998294398,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:35098",
+          "seconds": 0.007080970997776603,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:36436",
+          "seconds": 0.012256093999894802,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:37074",
+          "seconds": 0.006742360001226189,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:38457",
+          "seconds": 0.01694609600235708,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:39449",
+          "seconds": 0.009764883001480484,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:40378",
+          "seconds": 0.019278616997326026,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:41434",
+          "seconds": 0.006959125999856042,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:43417",
+          "seconds": 0.0067097309984092135,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:44104",
+          "seconds": 0.00709511199966073,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:44364",
+          "seconds": 0.006874408998555737,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:45338",
+          "seconds": 0.016570528998272493,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:46409",
+          "seconds": 0.01594303099773242,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:47394",
+          "seconds": 0.010843441999895731,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:50081",
+          "seconds": 0.00638901699858252,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:50354",
+          "seconds": 0.011299510002572788,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:51317",
+          "seconds": 0.022836248001112835,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:52311",
+          "seconds": 0.014121760999842081,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:53357",
+          "seconds": 0.01420050099841319,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:56363",
+          "seconds": 0.018936822001705877,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:57004",
+          "seconds": 0.00820474799911608,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:58340",
+          "seconds": 0.007183665002230555,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:59025",
+          "seconds": 0.01043914099864196,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:59325",
+          "seconds": 0.00958107599944924,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:60330",
+          "seconds": 0.009675719000370009,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:62324",
+          "seconds": 0.0074561170004017185,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:63426",
+          "seconds": 0.011189103999640793,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:64142",
+          "seconds": 0.010655398000380956,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:65146",
+          "seconds": 0.017844761998276226,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:66254",
+          "seconds": 0.006231508999917423,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:68302",
+          "seconds": 0.007463169000402559,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:68303",
+          "seconds": 0.008269114001450362,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:69196",
+          "seconds": 0.011056754003220703,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:70007",
+          "seconds": 0.01713953800208401,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:71183",
+          "seconds": 0.009321754001575755,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:72345",
+          "seconds": 0.0077832720016886014,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:74458",
+          "seconds": 0.015565671001240844,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:76046",
+          "seconds": 0.014259329000196885,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:77335",
+          "seconds": 0.008489307001582347,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:78054",
+          "seconds": 0.011582168001041282,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:79373",
+          "seconds": 0.012700556002528174,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:83248",
+          "seconds": 0.009809601000597468,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:84463",
+          "seconds": 0.007966368000779767,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:85368",
+          "seconds": 0.017085366998799145,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:87432",
+          "seconds": 0.019753104003029875,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:88307",
+          "seconds": 0.015399790998344542,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:90450",
+          "seconds": 0.010572643001069082,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:95332",
+          "seconds": 0.00781917499989504,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        }
+      ]
+    },
+    "persist": {
+      "phase": "persist",
+      "elapsed_seconds": 20.5294653810015,
+      "peak_rss_kib": 265036,
+      "pra": [
+        {
+          "pra": "pra:02034",
+          "seconds": 1.4257772419987305,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:04460",
+          "seconds": 0.513962092998554,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:05236",
+          "seconds": 0.5012661740001931,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:07171",
+          "seconds": 0.43999670300036087,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:08021",
+          "seconds": 0.2585849809984211,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:09472",
+          "seconds": 0.4939021660029539,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:13244",
+          "seconds": 0.4547191669989843,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:13469",
+          "seconds": 0.21629553900129395,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:15409",
+          "seconds": 0.2278745460025675,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:18434",
+          "seconds": 0.5014329149998957,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:19421",
+          "seconds": 0.44417210100073135,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:21010",
+          "seconds": 0.23518220500045572,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:22358",
+          "seconds": 0.22248034999938682,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:26463",
+          "seconds": 0.40953596899998956,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:27330",
+          "seconds": 0.39175778800199623,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:27351",
+          "seconds": 0.2285083390015643,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:28341",
+          "seconds": 0.2597450930006744,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:29102",
+          "seconds": 0.3865027310021105,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:29358",
+          "seconds": 0.1781824379977479,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:2A258",
+          "seconds": 0.19569218900142005,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:2B259",
+          "seconds": 0.40223957399939536,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:2B260",
+          "seconds": 0.1820642160018906,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:30465",
+          "seconds": 0.2268605640019814,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:32386",
+          "seconds": 0.19095057899903622,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:33115",
+          "seconds": 0.18577402899973094,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:34412",
+          "seconds": 0.2041178100007528,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:35098",
+          "seconds": 0.20271791200138978,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:36436",
+          "seconds": 0.21417608699994162,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:37074",
+          "seconds": 0.4734668130004138,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:38457",
+          "seconds": 0.1999792280003021,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:39449",
+          "seconds": 0.20973247299843933,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:40378",
+          "seconds": 0.19820752300074673,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:41434",
+          "seconds": 0.41726771899993764,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:43417",
+          "seconds": 0.21083536399964942,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:44104",
+          "seconds": 0.17359315599969705,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:44364",
+          "seconds": 0.21136477600157377,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:45338",
+          "seconds": 0.23507852299735532,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:46409",
+          "seconds": 0.4159070210007485,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:47394",
+          "seconds": 0.20410058400011621,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:50081",
+          "seconds": 0.1808130040008109,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:50354",
+          "seconds": 0.20658025299781002,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:51317",
+          "seconds": 0.22430860799795482,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:52311",
+          "seconds": 0.23980319800102734,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:53357",
+          "seconds": 0.40057473799970467,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:56363",
+          "seconds": 0.19265328099936596,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:57004",
+          "seconds": 0.19162740699903225,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:58340",
+          "seconds": 0.3020224559986673,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:59025",
+          "seconds": 0.401631479999196,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:59325",
+          "seconds": 0.2070912090021011,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:60330",
+          "seconds": 0.17683730499993544,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:62324",
+          "seconds": 0.18007304800266866,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:63426",
+          "seconds": 0.21035016700261622,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:64142",
+          "seconds": 0.19740456699946662,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:65146",
+          "seconds": 0.24537017699913122,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:66254",
+          "seconds": 0.2174025980020815,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:68302",
+          "seconds": 0.2331644830010191,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:68303",
+          "seconds": 0.17446239899800275,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:69196",
+          "seconds": 0.2257743219997792,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:70007",
+          "seconds": 0.2058629259990994,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:71183",
+          "seconds": 0.20726360400294652,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:72345",
+          "seconds": 0.412973428999976,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:74458",
+          "seconds": 0.23179121499924804,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:76046",
+          "seconds": 0.1828837860011845,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:77335",
+          "seconds": 0.20204702000046382,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:78054",
+          "seconds": 0.1834250330030045,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:79373",
+          "seconds": 0.1908099989996117,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:83248",
+          "seconds": 0.1923513190013182,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:84463",
+          "seconds": 0.20784203999937745,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:85368",
+          "seconds": 0.20049435300097684,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:87432",
+          "seconds": 0.25620628300021053,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:88307",
+          "seconds": 0.20637995799916098,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:90450",
+          "seconds": 0.19423748299959698,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:95332",
+          "seconds": 0.21084555700144847,
+          "status": "completed",
+          "rows": 7,
+          "downloaded_tiles": 0
+        }
+      ]
+    },
+    "replay": {
+      "phase": "replay",
+      "elapsed_seconds": 18.976733129999047,
+      "peak_rss_kib": 264848,
+      "pra": [
+        {
+          "pra": "pra:02034",
+          "seconds": 0.32706408800004283,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:04460",
+          "seconds": 0.22729353699833155,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:05236",
+          "seconds": 0.2003969170000346,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:07171",
+          "seconds": 0.23973894899972947,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:08021",
+          "seconds": 0.2362490439991234,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:09472",
+          "seconds": 0.23243178800112219,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:13244",
+          "seconds": 0.35953670899834833,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:13469",
+          "seconds": 0.43222692200288293,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:15409",
+          "seconds": 0.18032058600147138,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:18434",
+          "seconds": 0.2099711449991446,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:19421",
+          "seconds": 0.199801918999583,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:21010",
+          "seconds": 0.18053953200069373,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:22358",
+          "seconds": 0.5899217410005804,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:26463",
+          "seconds": 0.18656244999874616,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:27330",
+          "seconds": 0.3781907840020722,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:27351",
+          "seconds": 0.36471118299959926,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:28341",
+          "seconds": 0.22303894300057436,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:29102",
+          "seconds": 0.5933261860009225,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:29358",
+          "seconds": 0.517996893999225,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:2A258",
+          "seconds": 0.4327391639999405,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:2B259",
+          "seconds": 0.3834234360001574,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:2B260",
+          "seconds": 0.4211107630035258,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:30465",
+          "seconds": 0.1884742969996296,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:32386",
+          "seconds": 0.1681366330012679,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:33115",
+          "seconds": 0.37923918700107606,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:34412",
+          "seconds": 0.17441119800059823,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:35098",
+          "seconds": 0.17043443500006106,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:36436",
+          "seconds": 0.1914104449970182,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:37074",
+          "seconds": 0.17215876800037222,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:38457",
+          "seconds": 0.19408397300139768,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:39449",
+          "seconds": 0.18075119000059203,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:40378",
+          "seconds": 0.17661962900092476,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:41434",
+          "seconds": 0.18859130300188554,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:43417",
+          "seconds": 0.19795703500130912,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:44104",
+          "seconds": 0.198808598001051,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:44364",
+          "seconds": 0.3999927270015178,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:45338",
+          "seconds": 0.24214457999914885,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:46409",
+          "seconds": 0.19126468299873522,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:47394",
+          "seconds": 0.1705511039981502,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:50081",
+          "seconds": 0.4622201499987568,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:50354",
+          "seconds": 0.1745129500013718,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:51317",
+          "seconds": 0.1720522780015017,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:52311",
+          "seconds": 0.1901443289971212,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:53357",
+          "seconds": 0.16037039599905256,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:56363",
+          "seconds": 0.6515120680014661,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:57004",
+          "seconds": 0.17693934599810746,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:58340",
+          "seconds": 0.1641372530029912,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:59025",
+          "seconds": 0.17569919399829814,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:59325",
+          "seconds": 0.5190319670000463,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:60330",
+          "seconds": 0.16958825200345018,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:62324",
+          "seconds": 0.16419450999819674,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:63426",
+          "seconds": 0.1864475680013129,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:64142",
+          "seconds": 0.21372554399931687,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:65146",
+          "seconds": 0.20239360199775547,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:66254",
+          "seconds": 0.3613319690011849,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:68302",
+          "seconds": 0.16874673599886592,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:68303",
+          "seconds": 0.21773377199860988,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:69196",
+          "seconds": 0.15663804599898867,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:70007",
+          "seconds": 0.1745364750022418,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:71183",
+          "seconds": 0.1963244440012204,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:72345",
+          "seconds": 0.18992117199741188,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:74458",
+          "seconds": 0.1597684449989174,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:76046",
+          "seconds": 0.3554293909983244,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:77335",
+          "seconds": 0.19700164000096265,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:78054",
+          "seconds": 0.2000894429984328,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:79373",
+          "seconds": 0.19313397600126336,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:83248",
+          "seconds": 0.5404422080027871,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:84463",
+          "seconds": 0.19937788900278974,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:85368",
+          "seconds": 0.3803300750005292,
+          "status": "partial",
+          "rows": 7,
+          "downloaded_tiles": 0
+        },
+        {
+          "pra": "pra:87432",
+          "seconds": 0.15813838300164207,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:88307",
+          "seconds": 0.16890325600252254,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:90450",
+          "seconds": 0.1667231500032358,
+          "status": "replayed",
+          "rows": 7
+        },
+        {
+          "pra": "pra:95332",
+          "seconds": 0.18011794500125689,
+          "status": "replayed",
+          "rows": 7
+        }
+      ]
+    }
+  },
+  "independent_validation": {
+    "real_cds": true,
+    "synthetic": false,
+    "period_utc": [
+      "2026-10-12",
+      "2026-10-18"
+    ],
+    "native_cells": 1808,
+    "native_cell_days": 12656,
+    "native_variable_comparisons": 50624,
+    "maximum_source_reduction_error": 0.0,
+    "maximum_spatial_aggregate_error": 0.0,
+    "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+    "parameter_source": "Analyst-selected descriptive example; not calibrated for wheat cultivar, location or stage. Formula conventions: xclim 0.58.1 growing_degree_days, tx_days_above, tn_days_below, maximum_consecutive_dry_days.",
+    "source_files": {
+      "f34e25192605e8ce13b8e32505008186d9b0e1b7ffe8b2994228578b69882e04": {
+        "bytes": 277711,
+        "request": {
+          "area": [
+            48,
+            0,
+            46,
+            2
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:21:24.390455+00:00"
+      },
+      "ec2007a4fde3222137fd9e5bc6547e016a58e32004477c732c2c9097c872519f": {
+        "bytes": 272233,
+        "request": {
+          "area": [
+            50,
+            0,
+            48,
+            2
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:22:34.131716+00:00"
+      },
+      "a2e0d261c37f775bda392e8bed8a497967c4d07b765cf799eb0138bfc813d136": {
+        "bytes": 299229,
+        "request": {
+          "area": [
+            48,
+            6,
+            46,
+            8
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:38:23.473445+00:00"
+      },
+      "226980283fcc157287335faf5b334119bebbaf822ee9f1c3f264f53eef35bb21": {
+        "bytes": 226365,
+        "request": {
+          "area": [
+            52,
+            2,
+            50,
+            4
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:29:17.299754+00:00"
+      },
+      "b796055ee7f818b9685fdca9010008255b674698cfcc280c075f0c2b7ed574b0": {
+        "bytes": 236264,
+        "request": {
+          "area": [
+            50,
+            -2,
+            48,
+            0
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:16:47.355416+00:00"
+      },
+      "2756b71e07d887e4551abf00a4862d36d5882b2cfd96aedf7cb8acc396e70ad6": {
+        "bytes": 267327,
+        "request": {
+          "area": [
+            48,
+            -2,
+            46,
+            0
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:15:31.622301+00:00"
+      },
+      "3bb660151b53ab0299069d07377f60fddb1548154f2cb237d45c278255682a47": {
+        "bytes": 295827,
+        "request": {
+          "area": [
+            50,
+            6,
+            48,
+            8
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:39:21.491391+00:00"
+      },
+      "761d73258acb772bce8eb6a055946a72186a12e644b8e5c60b67fb9f83cd5ae9": {
+        "bytes": 284073,
+        "request": {
+          "area": [
+            46,
+            6,
+            44,
+            8
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:37:09.208955+00:00"
+      },
+      "eb31be546b66e918a926b378fecc2804249c8d521fe62ae0b3fcbc97854f8bca": {
+        "bytes": 299359,
+        "request": {
+          "area": [
+            46,
+            2,
+            44,
+            4
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:25:18.480803+00:00"
+      },
+      "844d80c67f82d2a0161c592cc1b4f5e879b93ef0c78762b2790d26c8102056ef": {
+        "bytes": 134913,
+        "request": {
+          "area": [
+            48,
+            -4,
+            46,
+            -2
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:10:51.155225+00:00"
+      },
+      "d0a2790ce6063ccf59cf09bad02108ab70f769ae3158676476920ba2bc6fc1aa": {
+        "bytes": 262659,
+        "request": {
+          "area": [
+            44,
+            2,
+            42,
+            4
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:23:47.450458+00:00"
+      },
+      "19ad07d05453135b5e1d4a88720b011ae71749c0c92eebb0b37de8f9d766d394": {
+        "bytes": 279571,
+        "request": {
+          "area": [
+            50,
+            4,
+            48,
+            6
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:33:50.041860+00:00"
+      },
+      "1619d74b5b7df0a5e4dbf12092ac61752f07b2341a53f62f99de8b4a2597cd58": {
+        "bytes": 289909,
+        "request": {
+          "area": [
+            46,
+            0,
+            44,
+            2
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:19:05.609068+00:00"
+      },
+      "46958aea64f7d295e124dd627b2963714e5120bc79d90a15304183e192573517": {
+        "bytes": 224427,
+        "request": {
+          "area": [
+            46,
+            -2,
+            44,
+            0
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:14:16.485077+00:00"
+      },
+      "49a9320a2e1ac50eaf3dea36e2fbbbba196e4f81b0e4dc7ffce9679691b2e30e": {
+        "bytes": 137411,
+        "request": {
+          "area": [
+            44,
+            6,
+            42,
+            8
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:36:12.201988+00:00"
+      },
+      "f7afa17523579125dd28194be76d7c39a963e38516b0df175b2364a02a2bb774": {
+        "bytes": 315852,
+        "request": {
+          "area": [
+            44,
+            0,
+            42,
+            2
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:17:54.727583+00:00"
+      },
+      "3b7fd226ed20d5953dbad08d39dd0f2900ee27f0aa3844374fcea2065630a463": {
+        "bytes": 114942,
+        "request": {
+          "area": [
+            44,
+            8,
+            42,
+            10
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:43:30.559378+00:00"
+      },
+      "3347f136fdc20e6e1b6ede9560227df278857839c0012be61309afc2980b8c88": {
+        "bytes": 138037,
+        "request": {
+          "area": [
+            44,
+            4,
+            42,
+            6
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:30:20.620163+00:00"
+      },
+      "ac85765b2ab3a85288fba2381457db0ac45e7fd7ed29998320216d168fc345ff": {
+        "bytes": 261187,
+        "request": {
+          "area": [
+            50,
+            2,
+            48,
+            4
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:27:27.112702+00:00"
+      },
+      "204da084a79953c44336288cc493f8eef8730ee0457ba4428dd4d20564840a86": {
+        "bytes": 163244,
+        "request": {
+          "area": [
+            50,
+            -4,
+            48,
+            -2
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:11:57.823994+00:00"
+      },
+      "8fa70b4570aac6bc1158f6c3c4991f925473a902c51b54fd1192d9187c73bf66": {
+        "bytes": 282923,
+        "request": {
+          "area": [
+            46,
+            4,
+            44,
+            6
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:31:50.678891+00:00"
+      },
+      "13d3952b76d48da536d3ce6f4b09488d4852192b16cabe6711a2d20d49580c64": {
+        "bytes": 287930,
+        "request": {
+          "area": [
+            52,
+            4,
+            50,
+            6
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:34:50.600115+00:00"
+      },
+      "a6002dcad4a88d0a0a571f3f6323fce5407e7d1785afe20328eb0e5bc48cc239": {
+        "bytes": 188771,
+        "request": {
+          "area": [
+            42,
+            8,
+            40,
+            10
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:42:21.626800+00:00"
+      },
+      "5bcab594aa5fe2e61162fa72649891158aec1705ca374bf3afa56d17011b5167": {
+        "bytes": 289647,
+        "request": {
+          "area": [
+            48,
+            2,
+            46,
+            4
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:26:29.511099+00:00"
+      },
+      "a4ef824baf4303f5345525e5e46cf40b5a295fe04203f0f71d4b6515e20b8cec": {
+        "bytes": 295015,
+        "request": {
+          "area": [
+            48,
+            4,
+            46,
+            6
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:32:59.810223+00:00"
+      },
+      "0a1dd38371a193cf6b2bc26dc69d1e86d668df200c683fec7ab33e180e9578cb": {
+        "bytes": 289058,
+        "request": {
+          "area": [
+            44,
+            -2,
+            42,
+            0
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:13:07.080146+00:00"
+      },
+      "631c7b4293565a9bc385f52908e37c0f4ad8f01db641e6216b168e483ca4f0e5": {
+        "bytes": 93791,
+        "request": {
+          "area": [
+            50,
+            -6,
+            48,
+            -4
+          ],
+          "data_format": "netcdf",
+          "day": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "download_format": "unarchived",
+          "month": "10",
+          "product_type": "reanalysis",
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "variable": [
+            "2m_temperature",
+            "total_precipitation"
+          ],
+          "year": "2026"
+        },
+        "retrieved_at": "2026-10-29T22:06:55.665420+00:00"
+      }
+    },
+    "national_operational_validation": "not_executed"
+  },
+  "remote_validation": {
+    "rows": 511,
+    "daily_scalar_comparisons": 2044,
+    "maximum_float4_roundtrip_error": 4.999999997679083e-05,
+    "diagnostic_comparisons": 584,
+    "diagnostic_rpc_median_ms": 174.81003300054,
+    "diagnostic_rpc_max_ms": 383.1886719999602,
+    "read_rpc_requests": [
+      {
+        "date": "2026-10-12",
+        "ms": 159.27990899945144,
+        "bytes": 67329
+      },
+      {
+        "date": "2026-10-12",
+        "ms": 204.7250579998945,
+        "bytes": 10419
+      },
+      {
+        "date": "2026-10-13",
+        "ms": 425.4629740025848,
+        "bytes": 67277
+      },
+      {
+        "date": "2026-10-13",
+        "ms": 250.3954829990107,
+        "bytes": 10407
+      },
+      {
+        "date": "2026-10-14",
+        "ms": 226.47620200223173,
+        "bytes": 67346
+      },
+      {
+        "date": "2026-10-14",
+        "ms": 188.19997500031604,
+        "bytes": 10420
+      },
+      {
+        "date": "2026-10-15",
+        "ms": 193.47548699806794,
+        "bytes": 67308
+      },
+      {
+        "date": "2026-10-15",
+        "ms": 172.57791299925884,
+        "bytes": 10407
+      },
+      {
+        "date": "2026-10-16",
+        "ms": 180.76041899985285,
+        "bytes": 67280
+      },
+      {
+        "date": "2026-10-16",
+        "ms": 159.51912899981835,
+        "bytes": 10407
+      },
+      {
+        "date": "2026-10-17",
+        "ms": 186.54888200035202,
+        "bytes": 67296
+      },
+      {
+        "date": "2026-10-17",
+        "ms": 202.76733899663668,
+        "bytes": 10422
+      },
+      {
+        "date": "2026-10-18",
+        "ms": 167.1874969979399,
+        "bytes": 67272
+      },
+      {
+        "date": "2026-10-18",
+        "ms": 180.0444790023903,
+        "bytes": 10409
+      }
+    ],
+    "output_sha256": {
+      "736661f290a2f2f14fb3c30fbd82a3d42fde049a7ba7861c6c376a4c02393e46": "ef674468de37f6dc1795e6c9720d53cfb54515da03a75709fef1f77d37017f16",
+      "d41051e7b565efd3d026dd0b8513ed2549047c146092db24e2b3671c762c7135": "ecfbcadfaa552c05274ad5687692b86a857cb69179057ce756c1dac4cba147e3",
+      "2347c82b43154323e2983be31c25b78d01c3618763f43514d39992aa1521022c": "958a18052df819b2366d7891494b6fa4a219bca6b781149f41ed465c1694a1ed",
+      "61a791a99de6ab918fcff09ba5b93600df933bb07dcaee9c3b4856eea9af6ea4": "6d088794ef6e76c0d7db3e1e1900ee613ab7369adf1ad8966734359bc9d8bc63",
+      "57be20fb7dfbb4affa3419f4efaf367f74b9dacd620a140af77b40bf7c6d9967": "8b47971b1216406935844dab1b16dd902ceeef57beca586d2d4411bd8050a78e",
+      "669a55370cbca0e595c140f590a11c2a838fcf6a5bcc7e65b718af01bc826d87": "ebbb91395756387679f04571f74e4c067cf26493055e4b8b80048c4537bd8894",
+      "a422e8aeff14776b3e316de4d5618efe198cd93ed2120903b8a61414b86d460f": "30c48e112519c4ab5e632819f326b0a68f32762dd1a5b1ef614506afb9676754",
+      "35fcf9567b9cd0f4dd35e84345a60b081c95ff563983e94fb62de77c6afb71f3": "ecdd1478a5607a800348f5d765c8776e29c5d5f9bf4123e4cece67283b5cb563",
+      "6f95ee65c11412dd79eb2891d8d44d0c42981804436934af7baab3b0a4b589c4": "8ca8a450d2d4d7e290628e2ae92ef16fb95019d3b68978d6484893bd3b49e6c0",
+      "52b4eeab5649e1726eaed42ea1bd86e32d8db59e000df66515543ba5bb0a2fcd": "2381dc6bf6ed109995e6f4cb6714d2b9b08ea79723b21c933c8b4a420f1f3883",
+      "648b7100ed238058941c30453ffd61072e9b372464e6b5e41e22d04e5c835202": "9611419a7df0bb3969d5c50fc5bab42eefa900d0c3cdf87d38f8633260eb92eb",
+      "bb18e3f88fef4cb9e086e9a121d7af185035f817e21dec7c8f264e468ebeb559": "e6b7035a53b8cf8a48cb403e14287b3a52111f97d6f763f2c407ee5767c027ba",
+      "7da05ff89ddb9571e94ef6edc81765026f3f647bf47021d97986c1bdfa69780e": "5355789d0372e6153866248be32d1339b24099e171dad657266a39a2a855db71",
+      "4ae3407a026068a231741487953ef48df41fc8234865cf3b52ab151917787c9b": "808a4e73a402ca8c28042e06228cf63fefa252cfd728597e328ca00a0d9401b1",
+      "d7d7de673f7874b595e6b95ba37d0521c3eb85c1e55848028f0e1d8913a7803e": "53532a2a38180768af4db39af8951fbfef35e1166ca4651c6dcb503d57edf7f9",
+      "72dac319dcfedf54d5283f11a936a2d8438641b6491c4bca29b1440268058822": "12976eee27e642f32692d6e596d34bbb985b06e1f3e5c94b069915ddb187b064",
+      "3a32af0aa9331572e7205fa1a1279dd8f6c06fc955af704c2a86f40531ee8d84": "393207bf485b43a3e3b3dca1c91faa1de8bdde494f09d0d6e0a9811034c3a975",
+      "b92eb86e3928b0ec4c71b17a92e0b29602dc29a2582a3c575fc1d7c1943a5777": "4a5878912efd6c8c9c6319705056e535477d9fc4dfe931625cd9659f0c4a4381",
+      "3dc4a7b3f4fd545fdc38a4e487c25529119690aee78a36dc734a43bf77e6d054": "bfbccb605c8e8379114b6014faa27f620f3a749f5c3ef725378c25d8b14108c3",
+      "4cf291d7f7bd5d02e8f970d6f852a146e4aabeeb61d109fe823e6bdd31b6dc07": "aeed3e58ca7b8b1b09d53661b2fddc79c4e519e7f57eb98d17d3801becae4ed3",
+      "0139f4acf157f5a402c614a0b2c78871e47c1c1aef9340468b6279e44a502516": "9d25bd469b9f8d12337fe078ca3b7a770fa20dcda93272818d73095d71a4f09a",
+      "44d0f26ec9b56b4f2120f00988e522439db17b35924da64104016a4e05f75c35": "ed482afd8be8f8c7a71a83c13aa0969a93460683b66b187926b8f1d3a55da922",
+      "c48e97a65f128062beec7e78b309bcc598ca3331120b0823e40ef3205581299b": "1ca5b69539c6517508f5bad9a76f4e0eb57f5df91505a5dfefa77c6d2acc4189",
+      "5a676e225660d4ed9cd05f57ae1ad4f99a1f1ecf7833c7f534c5abcb0b148585": "6136db66490b10893c0ba8ebd4b4dbc9397900707a03c597d5d593bc5f1b4151",
+      "aa9d91913c4f29b0c4778f93cf363797ea41b5e759e083fdb7741cde89b2f5d6": "d299b2b1e484ceec29e660cf3ee41b0eda47394eb6f77cb2845cc86ee84527c0",
+      "577bdf7f2da14f9083f5572f5d1e712f8580ba5402065a56d20819de54fd688c": "a2acf39b022127c03f97f8e628ab6a0146ef2d9caeffd9571ff757845138e8f8",
+      "26e8ce9871cfe9014413ab17ce975c41d7b1fea8cdf0947e56ad310e2d22c874": "67ac2e0e450a52b422d4102cdec11f8c232334f55695416e2b181a19c0e87c21",
+      "27f0e396f4fc755878f121a6853d06ecd573ef06148dcdf53756d127c1de4ef1": "24e2c28f8aa38d37f8114f2e3c0e62f4ed52df7b69d6fb342745aa451554ef36",
+      "bd7ca8aaaf19ba3b94664944600b2f8253811eb128274a3ebba143e3276e8cc8": "4210da6ba3ab7781cd7e5e521d24e11836cf562e0e25aa27623a7884fc73101e",
+      "a231e60338e0abbc5287d208585fc93c9ec24b82651726d4cb12e9f82517c9cf": "5518b1181a01257a86b4b2fd10ff9d58853142185bc85f653218dcb376c3cce4",
+      "8a1fe4a55dda3b7348803d4883b8349c4e4533464bcb49ab90719e0af5b63577": "af2c0b8572bd76728d69f5c14d6772038c8956c63791195735aa1b5e29fe2da7",
+      "3c91198033110eedaef7b6b7f89f0804803c24b54fcfbf34bac0887666acbccd": "c96784a283008556b2507eaaf92d1b7fa852feb9d39fc90dcffc7f47be51e6e0",
+      "6755147c99c6b4bf012a03c75cd7af308c702f4100ae2a2af6fcda2b672d3eb5": "69fb0f7eecb537b61b275b689d77543f8e77f8317d0ce2817227d21540de4a63",
+      "f2ca39782721e7aa96f6b901150b27d0fbd183f684fccf2f5732800fce472041": "45b56e1640d2b149b24821258a65a04df2eb0b51081359e7af22930c672806af",
+      "f4000c01b7258430a43e5915a4b557ce4bbff86ea2fe08b45d624c84bd205ab5": "2af06e9f83d5515dbc486abd22623259f73fdcabbba75048fb8e5472e8e25b98",
+      "f0025fe646c1cf302fd199bd51468004255cdc4c5d45a5fef1e23502383e35f8": "1b17597aef195d390fdfb945dec08b03ceb21cb73d3d8c516b1e0409fb5b756a",
+      "55c00181b29f725734a98433e5385d0a72b314e112a2b9cf769e9d2d8588b7f0": "b332cd09503fa477054964598aa27943fcd443c36ee6800eed3f6ba8ab361a0e",
+      "3404a6ea99fe191804a95956f97f60edee154059b9345d74ce2e6965e6ad15b5": "8b66f7eb6d3c6b82883a4e9c32a5c47bc4ba70be27bfdb6fefcd7c82af1f554b",
+      "d411fb7ae817ed2d64304e155e586e4de998c2467257f7b860273337314a4cd0": "5fcaccd0989378e0254799bbaa6f286dcea98686c4cfee9863d725bd026983ac",
+      "3f4973fad9f1ab27712d629d1a46596675f9f7c0dfccecd6c3f200abe47f7871": "fb2cf44973b2c27c78ff3c6c587ddb6ea7923a0786651edb60e8c9871660a2c7",
+      "f4c5b9353a8857d569472f33a0b217e5f69f3d7d5c5314b4ec2cc6ae4a675bf8": "5b818f64f399d67d6d748cec6ef06b3f97b7d0b72a8d948ad3d3af87ee2680ba",
+      "0031389a8f5cc6a8a46e11b6d576f70402f0fa029b75a8aadace7c20519ad74f": "0b59e9701979c4516154d71f90f5b2b648e0bb492064397c7fc7333187966078",
+      "f863ca824205f744945176dd778f7ddeddc8cf847486af1cd57f5ea8dd85d02a": "f5915d144d9073ebac6df0e23dba8aabe44ab0c71b3a70e109a36fb9a873b495",
+      "42bbfc6b151b56c645c9252f56e43058e3e4a1bb4f4d1caa7914eedc9e0bf8b2": "f80feb2aa3fccf4c01fb886e4911f70b4f0ce585e666ab456fc9ae39cf754970",
+      "372b09e89cad7288131a698b5d379b3f13ca9b144fa4a00adefc15aa862ca341": "240393ed66edf418a9a3c75f2a94d467c8fe76e71b6ead2777418e268518df58",
+      "bb68cc26755c3d5bd54d37c32a5c9096882b6e2c23d873f1481dc001ae75dbeb": "ae434a2cf8765a7924eed97b15b1dceee929ccad5c09099e359fd2a12db96a34",
+      "af23493c115de206510b36c5e1c4d2dcb5904e732088208eef842d193ebc0b99": "b1e64d74d6ae251cd1ad0dad4e56d940ef4ec1af5d7c1badfc8720bf285e3ee9",
+      "f08ca5a805e66c8cb32966a998547abe4ac4400bcaff83500b3986a225c222f3": "c4942c37dca2bc0d36b5fa3ff74c2ec65a03f7210a5bd6443e578735c7be105e",
+      "72cb5a65a35efe05398a8850b43c54fd742b1b8cbfb96df258849c6843a26f9d": "e6635919e9bbbb0a4ce65f0d595338ecbf7e99fb46dd9255b782dc0c9d63d654",
+      "e492b67a350b940f871a63db099adc4a28be33ceae21fbe4eecbd593c400c4b8": "1b757b83753154f55873562fca6f823806cc9c9ba2d2a791ea5ec6f4229f4560",
+      "1e5f482b86692dbac8c3f2dcc0f70d03847a1f68f20043320e8a791a34f20a94": "b003b30d3c467961c3925ba8c5796e3d6652d4e2d0973555a638229d2683d237",
+      "e5f60e430dc6eefd715d42e374cdb35557207d6fd1c74b52b6b955857b5cf950": "869cd226981ef82ab8c627f0e80a525c2e0ca4b7f157b6405e81ce0ec88d98e3",
+      "fbf4a9589e257bd34097eebd615bd5393abed854a16fe58120c4d41e226a1ceb": "31140075b0f6a3d73862b511f236316a57b79a9f08657c99f983ffedfc7845da",
+      "678877e2e6894d86bce842b1750bf8b8475aeaebd8cf2ad005ad013f08fd859e": "db9e0d45075e4eed57e93fbbc61a878ad953db238a4e53e3f4147b843007e8cf",
+      "21dc9a25a62a3c19ab6de51865324447e15a09ef130574ccb08607b5ea3c6cbb": "d3376ac6e32572c01af7a83ccb61397af64c0ff681265a84433539ccbfd6a318",
+      "83faaefcbc13d8b10103b567279dd4a2ad6b905ba3483d4a96688291c6ac089a": "19081fa7d1d825280c7061ef3f412557cd78fe8ba9bf32c4d8d452c14677086b",
+      "6325791a67ffd296b07efcaf26df1cc21778b52740a335cc41f095c7b7517090": "e371590c2e846e0f51d7429cc6ef3a74d7cc3c407751c90480da45fab8fbe517",
+      "669e9ea4ddf80b9fd5c60edd11ee83bfabc8afb198a3d81346ce1e65a640e4ce": "b2c31f14ae13cacb63efc87fc63a874a31704105160c79531a238e09d4d58d8c",
+      "135d6f7f33a6ef664669f652c28fa22704f17a6440da4ad0d979dcff3a07e03c": "fd0d827fb8295a2850b03345c2fbc3156bded3c36c822ff7ef2faeba178e4caa",
+      "9894bacc3ec96930e84cd9680af9c9e0107cf17b1d205848f7fc50c7d15a3432": "a35608bdabf76e033758e913c73f87c8efc9aa8dbb78d4b6c9385584a4de9a67",
+      "55253f26b4e2e3402e55403c5ca828056e85533d11d2d22f8629b229444021c8": "82bbb6ee2fcf95e97b723aec7a1b8b86d6b8037ffb9cfb7d12689e0c881dce15",
+      "029fa94366ecbff190d94260896d23199c32cb8ae9d965ef2b0039c09936cc62": "562881453383cfc384e56f187d921ca3a7021a2ea16fda2e43caaf287eba319c",
+      "ec0cbfccd17c67b6a56d865511c66ad09296d521b2366de5c2ed7024f648b773": "7b7d0c12750f5af86fe322bfed7ccebbd4edad215e00941e97fed643dbf8abc5",
+      "044feec4288adfd3403bfec539fca7135375948d1c04143f0d876c095de6e5ea": "0b145f105130d6fb4b9cf2ee458f43b96d2b3fd92a0afe40027395615698441b",
+      "5b590b820cbfb7b88a323e47c14b2db844c6c7984689d944b9d1275f75a3dbf7": "2f89709d042deb4538fe6dd392e2a3b4b0707045a6e2bd36437d0ef30211e158",
+      "077670fe8988288600e9a88e2ed2b7651e3aed1ec9a9209c2e0da199f9f9c75c": "c4f796eb8c1085faa4ca8d78478c596659d765cce86272ada373c192467b7145",
+      "1e489704de33c646b61489b02e40761248de2095eacaf68fef5f8c2215a366b3": "bd472adb031f4ab60fa38654e10661a7357a77062c5d0262b921856fb2e91614",
+      "29361d7f731a880a1c4a4ad8deb9ca0638997c968f0464c6a1d65e37e7612372": "abef5d61a4d52932a7048bb1c8ea30add41ee8d08c9fa8014f23e439f79a1d42",
+      "64e549e21f826f4818a46c440ed4f01e197fdd16df72ebaef880ba5dc439d56d": "0c5c4051097dddacce313923843a9fd6d338a86e7965254e2830af5c3dc56671",
+      "93b2c06b1e29e99a66b84eb70da1fd1c2fde91552da7206c46cd270e7e51f40b": "56253e42815db692a6cfc30657917a7ee2d1b7f83dda07d6be763d6869c1a304",
+      "f5468b3e6eda13526775a5a963b8a139b5c2d8d67487a6f3e2d14fe46b25f8b1": "5eee048177e1cf25c0e58a0bba20ac5413343c6126361695545fc1f29b0e47bd",
+      "3ab5898c695ab001d4fe95c52fe94ae68c2182c72fdd57ea2d87cbf74338f14e": "02f6991aa9bfd759ce888c8d5181e2a9f093e1ab9e436e0449f353364d1b7bd8",
+      "90e809f004d3de971182507231a206ad690fb986a8eee868418df85ec006814e": "af687a9fa092f4eea82adbdab62032a7ef242aeeb77fd4480f5534df24939a52"
+    }
+  },
+  "db_before_climate": {
+    "daily": 0,
+    "hashes": {
+      "v020": "41214a0a35ad6caa89ebbcf182de06a4",
+      "daily": "d41d8cd98f00b204e9800998ecf8427e",
+      "batches": "d41d8cd98f00b204e9800998ecf8427e",
+      "diagnostics": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "batches": 0,
+    "relations": [
+      {
+        "heap": 32768,
+        "table": "geo_versions",
+        "total": 49152,
+        "indexes": 16384
+      },
+      {
+        "heap": 16384,
+        "table": "pra_regions",
+        "total": 32768,
+        "indexes": 16384
+      },
+      {
+        "heap": 16384,
+        "table": "pra_departments",
+        "total": 32768,
+        "indexes": 16384
+      },
+      {
+        "heap": 1957888,
+        "table": "pra_territories",
+        "total": 2015232,
+        "indexes": 57344
+      },
+      {
+        "heap": 327680,
+        "table": "pra_grid_weights",
+        "total": 516096,
+        "indexes": 188416
+      },
+      {
+        "heap": 8192,
+        "table": "pra_batches",
+        "total": 16384,
+        "indexes": 8192
+      },
+      {
+        "heap": 8192,
+        "table": "pra_daily",
+        "total": 24576,
+        "indexes": 16384
+      },
+      {
+        "heap": 16384,
+        "table": "pra_indicator_definitions",
+        "total": 32768,
+        "indexes": 16384
+      },
+      {
+        "heap": 8192,
+        "table": "pra_diagnostics",
+        "total": 16384,
+        "indexes": 8192
+      },
+      {
+        "heap": 8192,
+        "table": "pra_reference_statistics",
+        "total": 16384,
+        "indexes": 8192
+      }
+    ],
+    "diagnostics": 0,
+    "database_bytes": 30078643,
+    "daily_snapshots": 10
+  },
+  "db_after_persist": {
+    "daily": 511,
+    "hashes": {
+      "v020": "41214a0a35ad6caa89ebbcf182de06a4",
+      "daily": "5a5270800fb26f9c094adae443c1b06f",
+      "batches": "c0c414391810a88557a4cfd68cf0314a",
+      "diagnostics": "0e414dbaa6b4ad40a956984b7c1e1628"
+    },
+    "batches": 73,
+    "relations": [
+      {
+        "heap": 32768,
+        "table": "geo_versions",
+        "total": 49152,
+        "indexes": 16384
+      },
+      {
+        "heap": 16384,
+        "table": "pra_regions",
+        "total": 32768,
+        "indexes": 16384
+      },
+      {
+        "heap": 16384,
+        "table": "pra_departments",
+        "total": 32768,
+        "indexes": 16384
+      },
+      {
+        "heap": 1957888,
+        "table": "pra_territories",
+        "total": 2015232,
+        "indexes": 57344
+      },
+      {
+        "heap": 327680,
+        "table": "pra_grid_weights",
+        "total": 516096,
+        "indexes": 188416
+      },
+      {
+        "heap": 286720,
+        "table": "pra_batches",
+        "total": 303104,
+        "indexes": 16384
+      },
+      {
+        "heap": 286720,
+        "table": "pra_daily",
+        "total": 458752,
+        "indexes": 172032
+      },
+      {
+        "heap": 16384,
+        "table": "pra_indicator_definitions",
+        "total": 32768,
+        "indexes": 16384
+      },
+      {
+        "heap": 221184,
+        "table": "pra_diagnostics",
+        "total": 385024,
+        "indexes": 163840
+      },
+      {
+        "heap": 8192,
+        "table": "pra_reference_statistics",
+        "total": 16384,
+        "indexes": 8192
+      }
+    ],
+    "diagnostics": 584,
+    "database_bytes": 31176371,
+    "daily_snapshots": 10
+  },
+  "db_after_replay": {
+    "daily": 511,
+    "hashes": {
+      "v020": "41214a0a35ad6caa89ebbcf182de06a4",
+      "daily": "5a5270800fb26f9c094adae443c1b06f",
+      "batches": "c0c414391810a88557a4cfd68cf0314a",
+      "diagnostics": "0e414dbaa6b4ad40a956984b7c1e1628"
+    },
+    "batches": 73,
+    "relations": [
+      {
+        "heap": 32768,
+        "table": "geo_versions",
+        "total": 49152,
+        "indexes": 16384
+      },
+      {
+        "heap": 16384,
+        "table": "pra_regions",
+        "total": 32768,
+        "indexes": 16384
+      },
+      {
+        "heap": 16384,
+        "table": "pra_departments",
+        "total": 32768,
+        "indexes": 16384
+      },
+      {
+        "heap": 1957888,
+        "table": "pra_territories",
+        "total": 2015232,
+        "indexes": 57344
+      },
+      {
+        "heap": 327680,
+        "table": "pra_grid_weights",
+        "total": 516096,
+        "indexes": 188416
+      },
+      {
+        "heap": 286720,
+        "table": "pra_batches",
+        "total": 303104,
+        "indexes": 16384
+      },
+      {
+        "heap": 286720,
+        "table": "pra_daily",
+        "total": 458752,
+        "indexes": 172032
+      },
+      {
+        "heap": 16384,
+        "table": "pra_indicator_definitions",
+        "total": 32768,
+        "indexes": 16384
+      },
+      {
+        "heap": 221184,
+        "table": "pra_diagnostics",
+        "total": 385024,
+        "indexes": 163840
+      },
+      {
+        "heap": 8192,
+        "table": "pra_reference_statistics",
+        "total": 16384,
+        "indexes": 8192
+      }
+    ],
+    "diagnostics": 584,
+    "database_bytes": 31176371,
+    "daily_snapshots": 10
+  },
+  "replay_counts_hashes_unchanged": true,
+  "v020_daily_unchanged": true,
+  "row_measurements": {
+    "datasets": [
+      "era5land-pilot73-20261012-20261018-v1"
+    ],
+    "interval": [
+      "2026-10-12",
+      "2026-10-18"
+    ],
+    "climate_pra": 73,
+    "definitions": 8,
+    "metadata_avg_bytes": 2181.890410958904,
+    "metadata_max_bytes": 2500,
+    "null_daily_scalars": 119,
+    "reference_statistics": 0,
+    "daily_avg_tuple_bytes": 474.5890410958904,
+    "diagnostic_avg_tuple_bytes": 297.43150684931504
+  },
+  "storage": {
+    "measured_table_deltas": {
+      "pra_daily": {
+        "heap": 278528,
+        "indexes": 155648,
+        "total": 434176
+      },
+      "pra_batches": {
+        "heap": 278528,
+        "indexes": 8192,
+        "total": 286720
+      },
+      "pra_diagnostics": {
+        "heap": 212992,
+        "indexes": 155648,
+        "total": 368640
+      }
+    },
+    "measured_database_delta": 1097728,
+    "planning_allowances_bytes_including_indexes": {
+      "pra_daily": 1105,
+      "pra_batches": 5106,
+      "pra_diagnostics": 1024
+    },
+    "base_components": {
+      "pre_task19_dev_database": 27055795,
+      "full_reference_measured_task19_local": 14934016,
+      "logs_reserve": 2000000,
+      "other_app_growth_reserve": 20000000
+    },
+    "scenarios": [
+      {
+        "pra": 73,
+        "days": 30,
+        "batches": 365,
+        "daily_bytes": 2419950,
+        "metadata_bytes": 1863690,
+        "diagnostics_full_bytes": 2990080,
+        "base_full_reference_and_reserves_bytes": 63989811,
+        "full_diagnostics_total_bytes": 71263531,
+        "retained_pilot_diagnostics_bytes": 368640,
+        "no_systematic_diagnostics_total_bytes": 68642091
+      },
+      {
+        "pra": 713,
+        "days": 30,
+        "batches": 3565,
+        "daily_bytes": 23635950,
+        "metadata_bytes": 18202890,
+        "diagnostics_full_bytes": 29204480,
+        "base_full_reference_and_reserves_bytes": 63989811,
+        "full_diagnostics_total_bytes": 135033131,
+        "retained_pilot_diagnostics_bytes": 368640,
+        "no_systematic_diagnostics_total_bytes": 106197291
+      },
+      {
+        "pra": 713,
+        "days": 90,
+        "batches": 9269,
+        "daily_bytes": 70907850,
+        "metadata_bytes": 47327514,
+        "diagnostics_full_bytes": 75931648,
+        "base_full_reference_and_reserves_bytes": 63989811,
+        "full_diagnostics_total_bytes": 258156823,
+        "retained_pilot_diagnostics_bytes": 368640,
+        "no_systematic_diagnostics_total_bytes": 182593815
+      }
+    ],
+    "retention_automatic": false
+  },
+  "http": {
+    "http": [
+      {
+        "rows": 1,
+        "milliseconds": [
+          462.58059299725574,
+          233.4362779984076,
+          207.7179099978821
+        ],
+        "median_ms": 233.4362779984076,
+        "json_bytes": 1481,
+        "python_serialize_median_ms": 0.0070404985308414325,
+        "http_status": 200,
+        "state": "available"
+      },
+      {
+        "rows": 10,
+        "milliseconds": [
+          201.2717950019578,
+          206.51300399913453,
+          153.52998500020476
+        ],
+        "median_ms": 201.2717950019578,
+        "json_bytes": 8171,
+        "python_serialize_median_ms": 0.0375319996237522,
+        "http_status": 200,
+        "state": "partial"
+      },
+      {
+        "rows": 73,
+        "milliseconds": [
+          365.1299749981263,
+          375.01647300086915,
+          345.52180799801135
+        ],
+        "median_ms": 365.1299749981263,
+        "json_bytes": 54874,
+        "python_serialize_median_ms": 0.2573825004219543,
+        "http_status": 200,
+        "state": "partial"
+      }
+    ],
+    "date_queries": 7,
+    "pagination_rows": 73,
+    "pagination_pages": 8,
+    "diagnostic_http": {
+      "median_ms": 183.91790700115962,
+      "milliseconds": [
+        183.91790700115962,
+        195.60008799817297,
+        150.50158700250904
+      ],
+      "json_bytes": 6473,
+      "status": 200
+    }
+  },
+  "browser": {
+    "results": [
+      {
+        "surface": "review-map",
+        "width": 1440,
+        "paths": 73,
+        "cards": 73,
+        "render_ms": 358.27983000000006,
+        "aa_violations": 0
+      },
+      {
+        "surface": "pilot-app",
+        "width": 1440,
+        "navigation_through_audit_ms": 1626.5082199999997,
+        "aa_violations": 0
+      },
+      {
+        "surface": "review-map",
+        "width": 768,
+        "paths": 73,
+        "cards": 73,
+        "render_ms": 153.82688099999996,
+        "aa_violations": 0
+      },
+      {
+        "surface": "pilot-app",
+        "width": 768,
+        "navigation_through_audit_ms": 1287.7995369999999,
+        "aa_violations": 0
+      },
+      {
+        "surface": "review-map",
+        "width": 390,
+        "paths": 73,
+        "cards": 73,
+        "render_ms": 167.91697900000054,
+        "aa_violations": 0
+      },
+      {
+        "surface": "pilot-app",
+        "width": 390,
+        "navigation_through_audit_ms": 1334.222318,
+        "aa_violations": 0
+      }
+    ],
+    "coastal_unavailable_explicit": true
+  },
+  "security": {
+    "privileges": [
+      {
+        "relname": "spatial_ref_sys",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "anon_select": true,
+        "anon_insert": true,
+        "authenticated_insert": true,
+        "service_delete": true
+      },
+      {
+        "relname": "geo_versions",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "anon_select": false,
+        "anon_insert": false,
+        "authenticated_insert": false,
+        "service_delete": false
+      },
+      {
+        "relname": "pra_regions",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "anon_select": false,
+        "anon_insert": false,
+        "authenticated_insert": false,
+        "service_delete": false
+      },
+      {
+        "relname": "pra_departments",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "anon_select": false,
+        "anon_insert": false,
+        "authenticated_insert": false,
+        "service_delete": false
+      },
+      {
+        "relname": "pra_territories",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "anon_select": false,
+        "anon_insert": false,
+        "authenticated_insert": false,
+        "service_delete": false
+      },
+      {
+        "relname": "pra_grid_weights",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "anon_select": false,
+        "anon_insert": false,
+        "authenticated_insert": false,
+        "service_delete": false
+      },
+      {
+        "relname": "pra_batches",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "anon_select": false,
+        "anon_insert": false,
+        "authenticated_insert": false,
+        "service_delete": false
+      },
+      {
+        "relname": "pra_daily",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "anon_select": false,
+        "anon_insert": false,
+        "authenticated_insert": false,
+        "service_delete": false
+      },
+      {
+        "relname": "pra_indicator_definitions",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "anon_select": false,
+        "anon_insert": false,
+        "authenticated_insert": false,
+        "service_delete": false
+      },
+      {
+        "relname": "pra_diagnostics",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "anon_select": false,
+        "anon_insert": false,
+        "authenticated_insert": false,
+        "service_delete": false
+      },
+      {
+        "relname": "pra_reference_statistics",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "anon_select": false,
+        "anon_insert": false,
+        "authenticated_insert": false,
+        "service_delete": false
+      }
+    ],
+    "advisors": {
+      "security": [
+        {
+          "name": "rls_disabled_in_public",
+          "level": "ERROR",
+          "count": 1,
+          "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0013_rls_disabled_in_public"
+        },
+        {
+          "name": "extension_in_public",
+          "level": "WARN",
+          "count": 1,
+          "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0014_extension_in_public"
+        },
+        {
+          "name": "anon_security_definer_function_executable",
+          "level": "WARN",
+          "count": 6,
+          "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable"
+        },
+        {
+          "name": "authenticated_security_definer_function_executable",
+          "level": "WARN",
+          "count": 6,
+          "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"
+        }
+      ],
+      "performance": [
+        {
+          "name": "unindexed_foreign_keys",
+          "level": "INFO",
+          "count": 14,
+          "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys"
+        },
+        {
+          "name": "unused_index",
+          "level": "INFO",
+          "count": 13,
+          "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index"
+        }
+      ]
+    }
+  },
+  "single_variable_date_query_plan": [
+    {
+      "QUERY PLAN": [
+        {
+          "Plan": {
+            "Node Type": "Limit",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 0.27,
+            "Total Cost": 8.46,
+            "Plan Rows": 73,
+            "Plan Width": 18,
+            "Actual Startup Time": 0.043,
+            "Actual Total Time": 0.181,
+            "Actual Rows": 73,
+            "Actual Loops": 1,
+            "Shared Hit Blocks": 34,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Index Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "pra_daily_date_idx",
+                "Relation Name": "pra_daily",
+                "Alias": "pra_daily",
+                "Startup Cost": 0.27,
+                "Total Cost": 57.56,
+                "Plan Rows": 511,
+                "Plan Width": 18,
+                "Actual Startup Time": 0.042,
+                "Actual Total Time": 0.173,
+                "Actual Rows": 73,
+                "Actual Loops": 1,
+                "Index Cond": "((reference_version = 'ofb-masa-pra-2017-snapshot-20261017'::text) AND (dataset_version = 'era5land-pilot73-20261012-20261018-v1'::text) AND (valid_date >= '2026-10-12'::date) AND (valid_date <= '2026-10-18'::date))",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 34,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              }
+            ]
+          },
+          "Planning": {
+            "Shared Hit Blocks": 133,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0
+          },
+          "Planning Time": 0.436,
+          "Triggers": [],
+          "Execution Time": 0.244
+        }
+      ]
+    }
+  ],
+  "free_limits": {
+    "database": {
+      "url": "https://supabase.com/docs/guides/platform/manage-your-usage/database-size",
+      "matches": [
+        "efore you reach the limit. Read-only mode depends on disk usage . The 500 MB database size quota does not trigger it. The database size quota is a billing quota for your organization. For more inf"
+      ]
+    },
+    "egress": {
+      "url": "https://supabase.com/docs/guides/platform/manage-your-usage/egress",
+      "matches": [
+        "n&#x27;s quota. Plan Egress Quota (Uncached / Cached) Over-Usage per month (Uncached / Cached) Free 5 GB / 5 GB - Pro 250 GB / 250 GB $ 0.09 per GB / $ 0.03 per GB Team 250 GB / 250 GB $ 0.09 per GB / $ 0.03 per GB Enterprise Custom Custom Billing exampl",
+        "s quota. Plan Egress Quota (Uncached / Cached) Over-Usage per month (Uncached / Cached) Free 5 GB / 5 GB - Pro 250 GB / 250 GB $ 0.09 per GB / $ 0.03 per GB Team 250 GB / 250 GB $ 0.09 per GB / $ 0.03 per GB Enterprise Custom Custom Billing examples # Wi",
+        ",null,{\\\"children\\\":[[\\\"$\\\",\\\"td\\\",null,{\\\"children\\\":\\\"Free\\\"}],[\\\"$\\\",\\\"td\\\",null,{\\\"children\\\":\\\"5 GB / 5 GB\\\"}],[\\\"$\\\",\\\"td\\\",null,{\\\"children\\\":\\\"-\\\"}]]}],[\\\"$\\\",\\\"tr\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"td\\\",null,{\\\"children\\\":\\\"Pro\\\"}],[\\\"$\\\",\\\"td\\\",nul",
+        "\\\"children\\\":[[\\\"$\\\",\\\"td\\\",null,{\\\"children\\\":\\\"Free\\\"}],[\\\"$\\\",\\\"td\\\",null,{\\\"children\\\":\\\"5 GB / 5 GB\\\"}],[\\\"$\\\",\\\"td\\\",null,{\\\"children\\\":\\\"-\\\"}]]}],[\\\"$\\\",\\\"tr\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"td\\\",null,{\\\"children\\\":\\\"Pro\\\"}],[\\\"$\\\",\\\"td\\\",null,{\\\"ch"
+      ]
+    },
+    "storage": {
+      "url": "https://supabase.com/docs/guides/platform/manage-your-usage/storage-size",
+      "matches": [
+        "s in your buckets. How charges are calculated # Storage size is charged by Gigabyte-Hours (GB-Hrs). 1 GB-Hr represents the use of 1 GB of storage for 1 hour. For example, storing 10 GB of data for 5 hours results in 50 GB-Hrs (10 GB × 5 hours). Because u",
+        " are calculated # Storage size is charged by Gigabyte-Hours (GB-Hrs). 1 GB-Hr represents the use of 1 GB of storage for 1 hour. For example, storing 10 GB of data for 5 hours results in 50 GB-Hrs (10 GB × 5 hours). Because usage is measured in GB-Hrs, yo",
+        " size apply. Line Item Units Costs Pro Plan 1 $ 25 Compute Hours Small 730 hours $ 15 Storage Size 85 GB $ 0 Subtotal $ 40 Compute Credits - $ 10 Total $ 30 Exceeding quota # The organization&#x27;s Storage size usage exceeds the quota by 188 GB, incurri",
+        "d\\\"}],\\\"\\\\n\\\",[\\\"$\\\",\\\"p\\\",null,{\\\"children\\\":\\\"Storage size is charged by Gigabyte-Hours (GB-Hrs). 1 GB-Hr represents the use of 1 GB of storage for 1 hour.\\\\nFor example, storing 10 GB of data for 5 hours results in 50 GB-Hrs (10 GB × 5 hours).\\\"}],\\\"\\",
+        "l,{\\\"children\\\":\\\"Storage size is charged by Gigabyte-Hours (GB-Hrs). 1 GB-Hr represents the use of 1 GB of storage for 1 hour.\\\\nFor example, storing 10 GB of data for 5 hours results in 50 GB-Hrs (10 GB × 5 hours).\\\"}],\\\"\\\\n\\\",[\\\"$\\\",\\\"p\\\",null,{\\\"chil",
+        "children\\\":[[\\\"$\\\",\\\"td\\\",null,{\\\"children\\\":\\\"Storage Size\\\"}],[\\\"$\\\",\\\"td\\\",null,{\\\"children\\\":\\\"85 GB\\\"}],[\\\"$\\\",\\\"td\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"span\\\",null,{\\\"translate\\\":\\\"no\\\",\\\"children\\\":[\\\"$$\\\",\\\"0\\\"]}]}]]}],[\\\"$\\\",\\\"tr\\\",null,{\\\"children\\\":["
+      ]
+    },
+    "pricing": {
+      "url": "https://supabase.com/pricing",
+      "matches": [
+        " Get started with: Unlimited API requests 50,000 monthly active users 500 MB database size Shared CPU • 500 MB RAM 5 GB egress 5 GB cached egress 1 GB file storage Community support Free projects ",
+        "equests 50,000 monthly active users 500 MB database size Shared CPU • 500 MB RAM 5 GB egress 5 GB cached egress 1 GB file storage Community support Free projects are paused after 1 week of inactiv",
+        " database size Shared CPU • 500 MB RAM 5 GB egress 5 GB cached egress 1 GB file storage Community support Free projects are paused after 1 week of inactivity. Limit of 2 active projects. Pro Most Pop",
+        "ncluded in free Unlimited API requests Included in free Database size 500 MB database size per project included Advanced disk config Not included in free Automatic backups Not included in free Poi",
+        "Included in Included in Included in Database size About Database size 500 MB database size per project included 8 GB disk size per project included then $0.125 per GB 8 GB disk size per project in"
+      ]
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import './territories.css';
 import Link from 'next/link';
-import {territoryData, type TerritoryPage} from '../../lib/server/territories';
+import {territoryData, pilotTerritories, PRA_PILOT, type TerritoryPage} from '../../lib/server/territories';
 
 function coverageLabel(value:number,valid:number|null|undefined,expected:number|null|undefined) {
   const formatter=new Intl.NumberFormat('fr-FR',{style:'percent',maximumFractionDigits:4});
@@ -12,11 +12,12 @@ export default async function Territories({searchParams}:{searchParams:Promise<R
   const raw=await searchParams;
   const params=new URLSearchParams();
   for(const [k,v] of Object.entries(raw))if(typeof v==='string')params.set(k,v);
-  const reference=params.get('reference')||process.env.PRA_REFERENCE_VERSION||'';
-  const dataset=params.get('dataset')||process.env.PRA_DATASET_VERSION||'';
+  const isPilot=params.get('pilot')==='73';
+  const reference=params.get('reference')||(isPilot?PRA_PILOT.reference:process.env.PRA_REFERENCE_VERSION)||'';
+  const dataset=params.get('dataset')||(isPilot?PRA_PILOT.dataset:process.env.PRA_DATASET_VERSION)||'';
   const department=params.get('department')||'';
   const query=params.get('q')||'';
-  const date=params.get('date')||'';
+  const date=params.get('date')||(isPilot?PRA_PILOT.end:'');
   let lookup:TerritoryPage|null=null,climate:TerritoryPage|null=null;
   let state=reference?'':'Référentiel PRA non déployé : la couverture géographique et climatique reste à valider.';
   if(reference) {
@@ -24,17 +25,20 @@ export default async function Territories({searchParams}:{searchParams:Promise<R
       const filters=new URLSearchParams({action:'lookup',reference,q:query,limit:'50'});
       if(department)filters.set('department',department);
       if(params.get('after'))filters.set('after',params.get('after')!);
-      lookup=await territoryData(filters);
+      if(isPilot)filters.set('pilot','73');
+      lookup=await (isPilot?pilotTerritories(filters):territoryData(filters));
       if(dataset&&date&&params.get('pra'))climate=await territoryData(new URLSearchParams({action:'read',reference,dataset,date,scope:'pra',id:params.get('pra')!}));
     } catch {state='Données territoriales indisponibles pour cette sélection. Aucune donnée de démonstration ne remplace une publication réelle.';}
   }
   const selected=climate?.data[0];
   return <main id="main" className="territories-page">
     <h1>Territoires agricoles · PRA</h1>
+    {isPilot&&<p role="status">Pilote de 73 PRA sélectionnées sur 713 · aucune couverture climatique nationale complète. Réserves Marseille/Lyon conservées, sans contours modifiés.</p>}
     <p>France métropolitaine et Corse · réanalyse ERA5-Land à la résolution source 0,1°.
       Une PRA est un territoire de synthèse, pas une précision météorologique locale.</p>
     <p><Link href="/?mode=live_meteofrance&production=wheat">Carte et diagnostic live · stations Météo-France</Link></p>
     <form method="get">
+      {isPilot&&<input type="hidden" name="pilot" value="73"/>}
       {reference&&<input type="hidden" name="reference" value={reference}/>}
       <label>Département <input name="department" defaultValue={department} maxLength={2} placeholder="01, 2A…"/></label>{' '}
       <label>Rechercher une PRA <input name="q" defaultValue={query} maxLength={100}/></label>{' '}
@@ -49,9 +53,10 @@ export default async function Territories({searchParams}:{searchParams:Promise<R
       {!lookup.data.length&&<p>Aucune PRA disponible pour ce filtre.</p>}
       <ul>{lookup.data.map(row=>{
         const link=new URLSearchParams({reference,department,q:query,dataset,date,pra:row.id});
+        if(isPilot)link.set('pilot','73');
         return <li key={row.id}><Link href={`/territories?${link}`}>{row.name} · {row.official_code}</Link> — {row.department_name}, {row.region_name} · {row.area_km2.toFixed(1)} km²</li>;
       })}</ul>
-      {lookup.next_cursor&&<Link href={`/territories?${new URLSearchParams({reference,department,q:query,dataset,date,after:lookup.next_cursor})}`}>PRA suivantes</Link>}
+      {lookup.next_cursor&&<Link href={`/territories?${new URLSearchParams({reference,department,q:query,dataset,date,after:lookup.next_cursor,...(isPilot?{pilot:'73'}:{})})}`}>PRA suivantes</Link>}
     </section>}
     {selected&&<section aria-label="Diagnostic territorial"><h2>{selected.name} · {date}</h2>
       <p>Source : ERA5-Land · réanalyse · méthode {climate?.method_version} · poids de surface totale, sans masque agricole.</p>
