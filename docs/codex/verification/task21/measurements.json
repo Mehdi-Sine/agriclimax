@@ -1,0 +1,53 @@
+{
+  "acquisition_wall_seconds_including_queue": 5261.350536,
+  "aggregate_table_index_and_metadata_bytes": 13041664,
+  "annual_executed": false,
+  "annual_projected_total_database_bytes_including_50pct_margin_and_30MB_reserve": 358620964,
+  "annual_request_count": 92,
+  "annual_source_download_bytes_estimate": 6897929961,
+  "annual_source_field_count": 273951,
+  "annual_source_wall_hours_estimate_at_pilot_rate": 13.17892108009414,
+  "api_read_30days_median_ms": 289.1951980000158,
+  "api_read_30days_samples_ms": [
+    817.0206200002212,
+    323.6449750002066,
+    252.69782499981375,
+    289.1951980000158,
+    251.39061199934076
+  ],
+  "available_normal_and_anomaly_values": 79980,
+  "complete_pra": 645,
+  "database_bytes": 88757939,
+  "decision": "READY_FOR_NATIONAL_CLIMATOLOGY",
+  "delivery_output_directory": "/codex path unavailable on read-only cloud root; evidence remains in repository",
+  "external_paid_storage_provisioned": false,
+  "hourly_postgres": false,
+  "missing_normal_and_anomaly_values": 8432,
+  "national_daily_reduction_seconds": 88.47398064699973,
+  "national_normal_and_anomaly_seconds": 19.922607892000087,
+  "national_peak_rss_bytes": 2457661440,
+  "national_pra": 713,
+  "normal_rows": 88412,
+  "partial_pra": 68,
+  "pilot_daily_reduction_seconds": 42.72183422999933,
+  "pilot_normal_and_anomaly_seconds": 1.2531499030001214,
+  "pilot_peak_rss_bytes": 861118464,
+  "pilot_pra": 73,
+  "pilot_source_field_count": 30380,
+  "projected_incremental_supabase_storage_cost": 0,
+  "raw_source_storage": "workspace cache, outside Supabase",
+  "reference_years": [
+    1991,
+    2020
+  ],
+  "rolling_source_cache_limit_bytes": 2147483648,
+  "source_bytes": 764951076,
+  "source_seconds_reported_sum_is_not_wall_clock": true,
+  "sql_read_30days_ms": 11.479,
+  "supabase_plan": "free",
+  "thi": false,
+  "useful_current_period_utc": [
+    "2026-09-19",
+    "2026-10-18"
+  ]
+}

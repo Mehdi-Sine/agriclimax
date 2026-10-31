@@ -1,0 +1,2489 @@
+{
+  "expected_values": 262800,
+  "history_sha256": "be82846a1e682e5e42999e26660da5f7d4f3e1fb70c90b9168414ad001371b06",
+  "independent_first_day": [
+    {
+      "pra": "pra:02034",
+      "value": 14.536415571806225,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:02034",
+      "value": 19.096385048267557,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:02034",
+      "value": 16.635157826556515,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:02034",
+      "value": 0.23735338557363694,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:04460",
+      "value": 9.392579821635866,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:04460",
+      "value": 21.562182804207602,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:04460",
+      "value": 15.718062166086527,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:04460",
+      "value": 0.009841208322016981,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:05236",
+      "value": 9.304858984768126,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:05236",
+      "value": 21.54389258925118,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:05236",
+      "value": 15.821882699445954,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:05236",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:07171",
+      "value": 11.787247610519957,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:07171",
+      "value": 23.83805727754813,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:07171",
+      "value": 17.820339819973764,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:07171",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:08021",
+      "value": 12.79180166564805,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:08021",
+      "value": 19.101196335415395,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:08021",
+      "value": 15.854813679594395,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:08021",
+      "value": 0.27935486406505305,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:09472",
+      "value": 9.561204911754086,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:09472",
+      "value": 21.42755462937466,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:09472",
+      "value": 15.764141886759345,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:09472",
+      "value": 0.059108882278668604,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:13244",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:13244",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:13244",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:13244",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:13469",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:13469",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:13469",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:13469",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:15409",
+      "value": 10.07887624995005,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:15409",
+      "value": 23.627052252835217,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:15409",
+      "value": 17.534560689186275,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:15409",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:18434",
+      "value": 11.847424356085764,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:18434",
+      "value": 25.11241176630481,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:18434",
+      "value": 18.874551249019706,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:18434",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:19421",
+      "value": 9.13813424592821,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:19421",
+      "value": 23.954078239691192,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:19421",
+      "value": 17.094898117390986,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:19421",
+      "value": 0.00043511380454219767,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:21010",
+      "value": 11.47146833423094,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:21010",
+      "value": 22.64244082596452,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:21010",
+      "value": 16.832559301286434,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:21010",
+      "value": 0.00043511380454219767,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:22358",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:22358",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:22358",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:22358",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:26463",
+      "value": 12.948624301720487,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:26463",
+      "value": 25.344866365832388,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:26463",
+      "value": 19.249603382110486,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:26463",
+      "value": 0.00043511380454219756,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:27330",
+      "value": 14.2114690682871,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:27330",
+      "value": 20.22396881425815,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:27330",
+      "value": 16.69841471642231,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:27330",
+      "value": 0.41480706187248195,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:27351",
+      "value": 12.826055328865609,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:27351",
+      "value": 20.43605894181767,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:27351",
+      "value": 16.48868214045084,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:27351",
+      "value": 0.050040685687630274,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:28341",
+      "value": 14.761627558842198,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:28341",
+      "value": 21.121119230126002,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:28341",
+      "value": 17.780539631493152,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:28341",
+      "value": 0.8041254567984604,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:29102",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:29102",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:29102",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:29102",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:29358",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:29358",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:29358",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:29358",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:2A258",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:2A258",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:2A258",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:2A258",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:2B259",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:2B259",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:2B259",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:2B259",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:2B260",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:2B260",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:2B260",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:2B260",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:30465",
+      "value": 17.19308380337682,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:30465",
+      "value": 29.221821805596452,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:30465",
+      "value": 22.81977620604238,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:30465",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:32386",
+      "value": 15.22777000840551,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:32386",
+      "value": 26.97951005105678,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:32386",
+      "value": 21.344050471091855,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:32386",
+      "value": 0.0016170566215921763,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:33115",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:33115",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:33115",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:33115",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:34412",
+      "value": 13.633648990963577,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:34412",
+      "value": 25.81752996185347,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:34412",
+      "value": 19.539744230547278,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:34412",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:35098",
+      "value": 13.126123046875023,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:35098",
+      "value": 18.873681640625023,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:35098",
+      "value": 15.936273193359398,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:35098",
+      "value": 0.002804398491207394,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:36436",
+      "value": 12.791854186750259,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:36436",
+      "value": 24.599661491760834,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:36436",
+      "value": 19.07429369134409,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:36436",
+      "value": 0.00043511380454219767,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:37074",
+      "value": 15.910280423968162,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:37074",
+      "value": 21.73215611830056,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:37074",
+      "value": 18.737941809298007,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:37074",
+      "value": 0.4208339710719013,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:38457",
+      "value": 7.906847641639546,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:38457",
+      "value": 21.162339716960552,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:38457",
+      "value": 14.931397037759014,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:38457",
+      "value": 0.06275599892588785,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:39449",
+      "value": 10.961488530941013,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:39449",
+      "value": 21.20420594829327,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:39449",
+      "value": 16.4746927445245,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:39449",
+      "value": 0.00127832682010985,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:40378",
+      "value": 15.879749588597539,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:40378",
+      "value": 28.007562711408653,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:40378",
+      "value": 21.740042566270215,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:40378",
+      "value": 0.000830873693915564,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:41434",
+      "value": 11.926535850618043,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:41434",
+      "value": 25.302129794423784,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:41434",
+      "value": 18.803708019935474,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:41434",
+      "value": 0.00043511380454219767,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:43417",
+      "value": 8.47009176142784,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:43417",
+      "value": 23.148574079384126,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:43417",
+      "value": 16.225432164818734,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:43417",
+      "value": 0.00043511380454219756,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:44104",
+      "value": 14.660989372267704,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:44104",
+      "value": 20.899682342930536,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:44104",
+      "value": 17.458232888429315,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:44104",
+      "value": 0.02952738563135487,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:44364",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:44364",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:44364",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:44364",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:45338",
+      "value": 12.10061649400733,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:45338",
+      "value": 22.815553937767298,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:45338",
+      "value": 17.617757915870197,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:45338",
+      "value": 0.07947364843631996,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:46409",
+      "value": 10.916883594254738,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:46409",
+      "value": 24.441399134441408,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:46409",
+      "value": 18.416317865828816,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:46409",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:47394",
+      "value": 13.865301470126893,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:47394",
+      "value": 26.132011778636077,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:47394",
+      "value": 20.0299545086303,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:47394",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:50081",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:50081",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:50081",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:50081",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:50354",
+      "value": 12.458665947434431,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:50354",
+      "value": 19.917272700656866,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:50354",
+      "value": 15.7825887804117,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:50354",
+      "value": 0.006828572916197602,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:51317",
+      "value": 13.26393006338662,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:51317",
+      "value": 20.855825704817065,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:51317",
+      "value": 16.95770297230101,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:51317",
+      "value": 0.44231067723930706,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:52311",
+      "value": 10.480311941183801,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:52311",
+      "value": 22.460652111736557,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:52311",
+      "value": 16.48929056172903,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:52311",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:53357",
+      "value": 13.999777882279291,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:53357",
+      "value": 20.697126552124306,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:53357",
+      "value": 16.958246294883217,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:53357",
+      "value": 0.04424797176642466,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:56363",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:56363",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:56363",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:56363",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:57004",
+      "value": 10.649730112321404,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:57004",
+      "value": 21.575215171385818,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:57004",
+      "value": 16.337791783777153,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:57004",
+      "value": 0.08520513835074493,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:58340",
+      "value": 11.405435244829942,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:58340",
+      "value": 23.834941137900334,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:58340",
+      "value": 18.037215831942863,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:58340",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:59025",
+      "value": 12.673850939620493,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:59025",
+      "value": 17.92168759433726,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:59025",
+      "value": 15.628015503978826,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:59025",
+      "value": 0.35569035508924474,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:59325",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:59325",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:59325",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:59325",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:60330",
+      "value": 14.391231411662869,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:60330",
+      "value": 20.015373589402365,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:60330",
+      "value": 16.767610691330027,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:60330",
+      "value": 0.6449169162739964,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:62324",
+      "value": 12.938975359663841,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:62324",
+      "value": 18.763305084832037,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:62324",
+      "value": 15.998533917896562,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:62324",
+      "value": 0.7955981218544773,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:63426",
+      "value": 9.593691142297677,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:63426",
+      "value": 24.008238387562884,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:63426",
+      "value": 17.69509423870809,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:63426",
+      "value": 0.00043511380454219756,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:64142",
+      "value": 11.222454208857492,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:64142",
+      "value": 22.05354140145866,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:64142",
+      "value": 16.564469468023052,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:64142",
+      "value": 0.12391444172615308,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:65146",
+      "value": 10.338642308269986,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:65146",
+      "value": 21.5927991401828,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:65146",
+      "value": 15.772834700156757,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:65146",
+      "value": 0.2220417384060651,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:66254",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:66254",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:66254",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:66254",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:68302",
+      "value": 12.246606109852886,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:68302",
+      "value": 23.717952347378468,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:68302",
+      "value": 17.500063348712374,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:68302",
+      "value": 0.00043511380454219756,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:68303",
+      "value": 12.642487083261056,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:68303",
+      "value": 23.904108243122817,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:68303",
+      "value": 18.0391548966665,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:68303",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:69196",
+      "value": 11.640367065689288,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:69196",
+      "value": 23.522400467449884,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:69196",
+      "value": 17.994606218006357,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:69196",
+      "value": 0.00043511380454219756,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:70007",
+      "value": 10.421520607885734,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:70007",
+      "value": 23.390321463081378,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:70007",
+      "value": 16.942556187584174,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:70007",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:71183",
+      "value": 13.294118466776233,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:71183",
+      "value": 23.181889861378284,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:71183",
+      "value": 18.25384837959166,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:71183",
+      "value": 0.00043511380454219767,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:72345",
+      "value": 16.360174484508388,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:72345",
+      "value": 21.681071640348367,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:72345",
+      "value": 18.867262830311272,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:72345",
+      "value": 0.5970967164798923,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:74458",
+      "value": 4.82549476544431,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:74458",
+      "value": 17.53434145080449,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:74458",
+      "value": 11.184879644533991,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:74458",
+      "value": 0.000499934767107729,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:76046",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:76046",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:76046",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:76046",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:77335",
+      "value": 13.414833295171514,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:77335",
+      "value": 20.6266055402316,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:77335",
+      "value": 16.889529408261332,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:77335",
+      "value": 0.12974022716287903,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:78054",
+      "value": 14.416606053052625,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:78054",
+      "value": 20.79023856969473,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:78054",
+      "value": 17.259627050861848,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:78054",
+      "value": 0.20253726900464228,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:79373",
+      "value": 15.591986846254578,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:79373",
+      "value": 21.225792943857893,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:79373",
+      "value": 18.364225040272665,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:79373",
+      "value": 0.2692405040663794,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:83248",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:83248",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:83248",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:83248",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:84463",
+      "value": 13.445525013170794,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:84463",
+      "value": 26.33930535543246,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:84463",
+      "value": 20.054473816570084,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:84463",
+      "value": 0.00043511380454219767,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:85368",
+      "value": null,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:85368",
+      "value": null,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:85368",
+      "value": null,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:85368",
+      "value": null,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:87432",
+      "value": 11.824501133491875,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:87432",
+      "value": 24.067452043765055,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:87432",
+      "value": 18.180558415855508,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:87432",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:88307",
+      "value": 11.033724139302596,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:88307",
+      "value": 21.744419141293598,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:88307",
+      "value": 16.076574838378832,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:88307",
+      "value": 0.0004351138045421976,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:90450",
+      "value": 12.586383601290795,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:90450",
+      "value": 22.77244333973813,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:90450",
+      "value": 17.838863288286657,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:90450",
+      "value": 0.00043511380454219756,
+      "variable": "precipitation"
+    },
+    {
+      "pra": "pra:95332",
+      "value": 14.50945700727761,
+      "variable": "temperature_min"
+    },
+    {
+      "pra": "pra:95332",
+      "value": 20.495570566682613,
+      "variable": "temperature_max"
+    },
+    {
+      "pra": "pra:95332",
+      "value": 16.910097169669164,
+      "variable": "temperature"
+    },
+    {
+      "pra": "pra:95332",
+      "value": 0.35763772264620886,
+      "variable": "precipitation"
+    }
+  ],
+  "peak_rss_kib": 840936,
+  "seconds": 42.72183422999933,
+  "source_bytes": 764951076,
+  "source_receipts": [
+    {
+      "bytes": 74731523,
+      "elapsed_seconds": 480.953402992,
+      "job_id": "75fd9f1e-a129-4171-a6e7-a530a9ad2583",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30"
+        ],
+        "download_format": "unarchived",
+        "month": "09",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature",
+          "total_precipitation"
+        ],
+        "year": [
+          "1991",
+          "1992",
+          "1993",
+          "1994",
+          "1995"
+        ]
+      },
+      "retrieved_at": "2026-10-31T11:35:29.413194+00:00",
+      "seconds": 480.953402992,
+      "sha256": "c2d122d348033c7f79a4793f473cdcb1fbbf616fda7f8d232ecc5e6aa40aaa06",
+      "status": "downloaded"
+    },
+    {
+      "bytes": 106961476,
+      "job_id": "b7dd5773-7438-42b9-b603-227720b48032",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature",
+          "total_precipitation"
+        ],
+        "year": [
+          "1991",
+          "1992",
+          "1993",
+          "1994",
+          "1995"
+        ]
+      },
+      "retrieved_at": "2026-10-31T11:44:07.502208+00:00",
+      "seconds": 724.768441701,
+      "sha256": "0159b82a2739f0bd85e05ddefe5e8a008236ad7d187ee058a1ecd9f9edfe7ef3"
+    },
+    {
+      "bytes": 68726044,
+      "job_id": "661f2f2b-80df-4e40-821e-546954f2504c",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30"
+        ],
+        "download_format": "unarchived",
+        "month": "09",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature",
+          "total_precipitation"
+        ],
+        "year": [
+          "1996",
+          "1997",
+          "1998",
+          "1999",
+          "2000"
+        ]
+      },
+      "retrieved_at": "2026-10-31T11:50:00.844551+00:00",
+      "seconds": 272.034427691,
+      "sha256": "bc68fcee5692ac004836a1641a8a18263e0e95d9e17feb69b2e69cd6a5b1aced"
+    },
+    {
+      "bytes": 110526066,
+      "job_id": "d61f713c-b7ca-4193-af57-77a21c2b4504",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature",
+          "total_precipitation"
+        ],
+        "year": [
+          "1996",
+          "1997",
+          "1998",
+          "1999",
+          "2000"
+        ]
+      },
+      "retrieved_at": "2026-10-31T12:03:13.324825+00:00",
+      "seconds": 1143.6711399555206,
+      "session_seconds": 611.4790169189998,
+      "sha256": "19dc22d9c63ebff920036514f4b46af9d34c7d4b3ee1286b288d2802c45e3afb"
+    },
+    {
+      "bytes": 6532669,
+      "job_id": "55845e49-0f12-4491-90fd-3a6db42f59ff",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30"
+        ],
+        "download_format": "unarchived",
+        "month": "09",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00"
+        ],
+        "variable": [
+          "total_precipitation"
+        ],
+        "year": [
+          "2001",
+          "2002",
+          "2003",
+          "2004",
+          "2005",
+          "2006",
+          "2007",
+          "2008",
+          "2009",
+          "2010",
+          "2011",
+          "2012",
+          "2013",
+          "2014",
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020"
+        ]
+      },
+      "retrieved_at": "2026-10-31T12:03:25.154502+00:00",
+      "seconds": 790.1845226287842,
+      "session_seconds": 623.1874445659998,
+      "sha256": "9f9ff7529575594e27f58e154a7e4e9f45d33104c4dd840770ce4e78021a2775"
+    },
+    {
+      "bytes": 11806387,
+      "job_id": "510995e4-aba1-41db-a885-222f13295498",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00"
+        ],
+        "variable": [
+          "total_precipitation"
+        ],
+        "year": [
+          "2001",
+          "2002",
+          "2003",
+          "2004",
+          "2005",
+          "2006",
+          "2007",
+          "2008",
+          "2009",
+          "2010",
+          "2011",
+          "2012",
+          "2013",
+          "2014",
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020"
+        ]
+      },
+      "retrieved_at": "2026-10-31T12:04:57.960707+00:00",
+      "seconds": 713.4437215328217,
+      "session_seconds": 715.8950267849998,
+      "sha256": "ab9352c13e8104de76d0c35a4c6644a8010ca8711bfee84381def184dcaf0627"
+    },
+    {
+      "bytes": 39171498,
+      "job_id": "39e739bf-d437-41a9-ab39-e7fa15e87a42",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30"
+        ],
+        "download_format": "unarchived",
+        "month": "09",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature"
+        ],
+        "year": [
+          "2001",
+          "2002",
+          "2003",
+          "2004",
+          "2005"
+        ]
+      },
+      "retrieved_at": "2026-10-31T12:03:55.629039+00:00",
+      "seconds": 651.4667730331421,
+      "session_seconds": 653.5072272269999,
+      "sha256": "befa7578bde1d26b3be7f33741c384543ee2b8a04ed7503c2e3e71586b148560"
+    },
+    {
+      "bytes": 57165868,
+      "job_id": "adf1754a-cce6-4c94-8c87-df9c1efe5c35",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature"
+        ],
+        "year": [
+          "2001",
+          "2002",
+          "2003",
+          "2004",
+          "2005"
+        ]
+      },
+      "retrieved_at": "2026-10-31T12:19:46.995088+00:00",
+      "seconds": 989.8879368305206,
+      "session_seconds": 993.6612933460001,
+      "sha256": "8f349515c42ef9dfe8d09f8803082ae3d65744516204fb26dda118c949a398da"
+    },
+    {
+      "bytes": 40074562,
+      "job_id": "08c77777-4412-439b-ab66-fbdd2f7af2df",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30"
+        ],
+        "download_format": "unarchived",
+        "month": "09",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature"
+        ],
+        "year": [
+          "2006",
+          "2007",
+          "2008",
+          "2009",
+          "2010"
+        ]
+      },
+      "retrieved_at": "2026-10-31T12:24:44.287153+00:00",
+      "seconds": 1273.7031693458557,
+      "session_seconds": 1279.1260892569999,
+      "sha256": "3b2b4c145c8349a5947894df1b91de96655a009b5774852e8814712236bf3440"
+    },
+    {
+      "bytes": 55612029,
+      "job_id": "09c80788-1210-47c8-891e-89e74e2ea23e",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature"
+        ],
+        "year": [
+          "2006",
+          "2007",
+          "2008",
+          "2009",
+          "2010"
+        ]
+      },
+      "retrieved_at": "2026-10-31T12:29:19.587368+00:00",
+      "seconds": 1521.605586051941,
+      "session_seconds": 1523.9528868799998,
+      "sha256": "96eb59cec3334840a2cf72a955b727a3d27e788a939567a091dcd8ed8d1c6efc"
+    },
+    {
+      "bytes": 40051177,
+      "job_id": "1eaf59b6-8bad-49e4-930c-6e12740cdc08",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30"
+        ],
+        "download_format": "unarchived",
+        "month": "09",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature"
+        ],
+        "year": [
+          "2011",
+          "2012",
+          "2013",
+          "2014",
+          "2015"
+        ]
+      },
+      "retrieved_at": "2026-10-31T12:32:17.664497+00:00",
+      "seconds": 1638.0581851005554,
+      "session_seconds": 1639.6984601570002,
+      "sha256": "de855623d033a09a8fe57b28216a1c9c7630344edd8774088263c271977ed9d9"
+    },
+    {
+      "bytes": 55755230,
+      "job_id": "83b47837-e208-4499-9077-7c0606414dbb",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature"
+        ],
+        "year": [
+          "2011",
+          "2012",
+          "2013",
+          "2014",
+          "2015"
+        ]
+      },
+      "retrieved_at": "2026-10-31T12:47:07.186731+00:00",
+      "seconds": 1638.8248329162598,
+      "session_seconds": 1640.1824460740004,
+      "sha256": "a82f8e8c3b894e25724d5a5cad7e6d6827659fb690ab312965304e21242e2a62"
+    },
+    {
+      "bytes": 39203089,
+      "job_id": "1d50c3c8-5e4e-43fa-b812-31b9f543d55a",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30"
+        ],
+        "download_format": "unarchived",
+        "month": "09",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature"
+        ],
+        "year": [
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020"
+        ]
+      },
+      "retrieved_at": "2026-10-31T12:49:33.381856+00:00",
+      "seconds": 1487.236379146576,
+      "session_seconds": 1489.088001136,
+      "sha256": "b062f49d77dcde99ae5e2409e9c78d2a5b55d0241b5db0a4e41eb26ac3c35d86"
+    },
+    {
+      "bytes": 58633458,
+      "job_id": "79bc0294-d08d-42df-898b-c939ac69fcb7",
+      "request": {
+        "area": [
+          52,
+          -6,
+          41,
+          10
+        ],
+        "data_format": "netcdf",
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "download_format": "unarchived",
+        "month": "10",
+        "product_type": "reanalysis",
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "variable": [
+          "2m_temperature"
+        ],
+        "year": [
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020"
+        ]
+      },
+      "retrieved_at": "2026-10-31T12:54:16.881603+00:00",
+      "seconds": 1496.196623802185,
+      "session_seconds": 1497.288727266,
+      "sha256": "e12dd90b6c3e49c22b635417bfd9ec29372b9820b45308f94ca4bd65f673a722"
+    }
+  ],
+  "source_seconds_reported_sum_not_wall_clock": 14822.035142728162,
+  "valid_values": 201600
+}

@@ -1,0 +1,5 @@
+begin;
+create index pra_climatology_releases_reference_idx on agriclimax_private.pra_climatology_releases(reference_version);
+create index pra_climatology_support_geo_idx on agriclimax_private.pra_climatology_support(reference_version,pra_id);
+create index pra_climatology_support_release_reference_idx on agriclimax_private.pra_climatology_support(release_id,reference_version);
+commit;

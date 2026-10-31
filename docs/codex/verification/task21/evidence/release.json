@@ -1,0 +1,38 @@
+{
+  "provenance": {
+    "data_freshness": "historical_reference",
+    "native_daily_transformation": "era5-land-utc-daily-1",
+    "periods": {
+      "09-19/10-18": {
+        "days": 30,
+        "precipitation": "sum",
+        "temperature": "mean"
+      },
+      "daily": "UTC"
+    },
+    "precision": "float32 SQL aggregates; float64 historical PRA cache outside Supabase",
+    "quality_flags": [
+      "hourly_sampled_extrema",
+      "tp_roundoff_tolerance_1e-6_mm",
+      "total_PRA_area_not_agricultural_area",
+      "not_station_observations",
+      "exploratory_percentiles"
+    ],
+    "reference_end_year": 2020,
+    "reference_start_year": 1991,
+    "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
+    "rule_version": "pra-climatology-1991-2020-1",
+    "scientific_status": "exploratory",
+    "source_id": "era5-land",
+    "source_kind": "reanalysis",
+    "source_manifest_sha256": "479b2159dcce2b978285df1f0f150d3159e6a22f5599083bb76b123b7c1ed450",
+    "timezone": "UTC",
+    "variable_order": [
+      "temperature_min",
+      "temperature_max",
+      "temperature",
+      "precipitation"
+    ]
+  },
+  "version": "era5land-pra1991-2020-0919-1018-v1-479b2159dcce2b97"
+}

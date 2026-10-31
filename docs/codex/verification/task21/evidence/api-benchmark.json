@@ -1,0 +1,22 @@
+{
+  "api_percentile_not_fabricated": true,
+  "days": 30,
+  "immutable_collision_rejected": true,
+  "json_bytes": 81004,
+  "median_ms": 289.1951980000158,
+  "milliseconds": [
+    817.0206200002212,
+    323.6449750002066,
+    252.69782499981375,
+    289.1951980000158,
+    251.39061199934076
+  ],
+  "missing_current_pra": "pra:06245",
+  "missing_reference_all_null": true,
+  "pra": "pra:28341",
+  "rows": 120,
+  "scalar_checks": 600,
+  "status": "passed",
+  "unbounded_read_rejected": true,
+  "unknown_release_rejected": true
+}
