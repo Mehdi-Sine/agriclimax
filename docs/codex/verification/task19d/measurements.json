@@ -1,0 +1,2254 @@
+{
+  "decision": "READY_FOR_NATIONAL_DEV",
+  "project": "agriclimax-dev",
+  "dataset": "era5land-national-20260919-20261018-v1",
+  "period_utc": [
+    "2026-09-19",
+    "2026-10-18"
+  ],
+  "pra": 713,
+  "national_pra_days": 21390,
+  "pra_states": {
+    "complete": 645,
+    "partial": 67,
+    "unavailable": 1
+  },
+  "day_states": {
+    "complete": 19350,
+    "partial": 2010,
+    "unavailable": 30
+  },
+  "availability_csv_sha256": "714ed7f9a6ee345ecd446ab8bd669841620ee36be6f6fec809a3ab7533541b78",
+  "before": {
+    "daily": 2190,
+    "batches": 365,
+    "weights": 14541,
+    "relations": [
+      {
+        "heap": 925696,
+        "table": "pra_batches",
+        "total": 983040,
+        "indexes": 57344
+      },
+      {
+        "heap": 1130496,
+        "table": "pra_daily",
+        "total": 1851392,
+        "indexes": 720896
+      },
+      {
+        "heap": 221184,
+        "table": "pra_diagnostics",
+        "total": 385024,
+        "indexes": 163840
+      }
+    ],
+    "v020_hash": "41214a0a35ad6caa89ebbcf182de06a4",
+    "batch_hash": "1609022b946b0d11b0de28b3f1f8a86c",
+    "pilot_hash": "cc4a6275f87b56e69dcce2f059e8ef01",
+    "diagnostics": 584,
+    "measured_at": "2026-10-30T21:50:13.530723+00:00",
+    "territories": 713,
+    "national_pra": 0,
+    "national_days": 0,
+    "national_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "database_bytes": 47027891,
+    "diagnostics_hash": "f495989ecab4061366d09c81338924c7",
+    "national_unique_days": 0
+  },
+  "after_persist": {
+    "daily": 23580,
+    "batches": 3930,
+    "weights": 14541,
+    "relations": [
+      {
+        "heap": 9207808,
+        "table": "pra_batches",
+        "total": 9699328,
+        "indexes": 491520
+      },
+      {
+        "heap": 12083200,
+        "table": "pra_daily",
+        "total": 21127168,
+        "indexes": 9043968
+      },
+      {
+        "heap": 221184,
+        "table": "pra_diagnostics",
+        "total": 385024,
+        "indexes": 163840
+      }
+    ],
+    "v020_hash": "41214a0a35ad6caa89ebbcf182de06a4",
+    "batch_hash": "ef4bc25186a49413635924c3190c48c0",
+    "pilot_hash": "cc4a6275f87b56e69dcce2f059e8ef01",
+    "diagnostics": 584,
+    "measured_at": "2026-10-30T23:41:30.494536+00:00",
+    "territories": 713,
+    "national_pra": 713,
+    "national_days": 21390,
+    "national_hash": "d7a6ce063541887420190d35d9eef1a7",
+    "database_bytes": 75069107,
+    "diagnostics_hash": "f495989ecab4061366d09c81338924c7",
+    "national_unique_days": 21390
+  },
+  "after_replay": {
+    "daily": 23580,
+    "batches": 3930,
+    "weights": 14541,
+    "relations": [
+      {
+        "heap": 9207808,
+        "table": "pra_batches",
+        "total": 9699328,
+        "indexes": 491520
+      },
+      {
+        "heap": 12083200,
+        "table": "pra_daily",
+        "total": 21127168,
+        "indexes": 9043968
+      },
+      {
+        "heap": 221184,
+        "table": "pra_diagnostics",
+        "total": 385024,
+        "indexes": 163840
+      }
+    ],
+    "v020_hash": "41214a0a35ad6caa89ebbcf182de06a4",
+    "batch_hash": "ef4bc25186a49413635924c3190c48c0",
+    "pilot_hash": "cc4a6275f87b56e69dcce2f059e8ef01",
+    "diagnostics": 584,
+    "measured_at": "2026-10-30T23:55:41.326471+00:00",
+    "territories": 713,
+    "national_pra": 713,
+    "national_days": 21390,
+    "national_hash": "d7a6ce063541887420190d35d9eef1a7",
+    "database_bytes": 75069107,
+    "diagnostics_hash": "f495989ecab4061366d09c81338924c7",
+    "national_unique_days": 21390
+  },
+  "idempotence_counts_and_hashes_unchanged": true,
+  "pilot_and_v020_unchanged": true,
+  "new_systematic_diagnostics": 0,
+  "acquisition": {
+    "mode": "full_reacquisition_no_old_cache_restore",
+    "concurrency": 1,
+    "request_cap": 100,
+    "logical_requests": 60,
+    "successful": 60,
+    "failed": 0,
+    "netcdf_payload_bytes": 24309997,
+    "elapsed_seconds": 4716.231027389999,
+    "parent_peak_rss_kib": 499760,
+    "sdk_http_retries": "opaque in existing adapter; configured max3, not certified zero",
+    "requests": [
+      {
+        "status": "downloaded",
+        "bytes": 76757,
+        "seconds": 8.394954833999975,
+        "area": [
+          48,
+          -6,
+          46,
+          -4
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 106232,
+        "seconds": 111.799823591,
+        "area": [
+          48,
+          -6,
+          46,
+          -4
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 122400,
+        "seconds": 9.746903060000022,
+        "area": [
+          50,
+          -6,
+          48,
+          -4
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 184299,
+        "seconds": 162.93581624,
+        "area": [
+          50,
+          -6,
+          48,
+          -4
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 182299,
+        "seconds": 3.7763944619999847,
+        "area": [
+          48,
+          -4,
+          46,
+          -2
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 275796,
+        "seconds": 138.596425275,
+        "area": [
+          48,
+          -4,
+          46,
+          -2
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 208521,
+        "seconds": 4.530023690999997,
+        "area": [
+          50,
+          -4,
+          48,
+          -2
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 334522,
+        "seconds": 105.90547496900001,
+        "area": [
+          50,
+          -4,
+          48,
+          -2
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 342275,
+        "seconds": 10.218715221000025,
+        "area": [
+          44,
+          -2,
+          42,
+          0
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 688429,
+        "seconds": 104.41594370600001,
+        "area": [
+          44,
+          -2,
+          42,
+          0
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 285662,
+        "seconds": 4.030536311999867,
+        "area": [
+          46,
+          -2,
+          44,
+          0
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 500182,
+        "seconds": 110.95575917499991,
+        "area": [
+          46,
+          -2,
+          44,
+          0
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 351876,
+        "seconds": 5.032878566999898,
+        "area": [
+          48,
+          -2,
+          46,
+          0
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 582266,
+        "seconds": 114.71029701399993,
+        "area": [
+          48,
+          -2,
+          46,
+          0
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 311489,
+        "seconds": 4.530552960000023,
+        "area": [
+          50,
+          -2,
+          48,
+          0
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 498073,
+        "seconds": 189.07627937899997,
+        "area": [
+          50,
+          -2,
+          48,
+          0
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 345563,
+        "seconds": 4.682002840999985,
+        "area": [
+          44,
+          0,
+          42,
+          2
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 745234,
+        "seconds": 144.85634040499986,
+        "area": [
+          44,
+          0,
+          42,
+          2
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 312416,
+        "seconds": 4.5299407040001824,
+        "area": [
+          46,
+          0,
+          44,
+          2
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 655198,
+        "seconds": 93.737754064,
+        "area": [
+          46,
+          0,
+          44,
+          2
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 314351,
+        "seconds": 4.7351364710000325,
+        "area": [
+          48,
+          0,
+          46,
+          2
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 610464,
+        "seconds": 144.43857048500013,
+        "area": [
+          48,
+          0,
+          46,
+          2
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 350670,
+        "seconds": 5.236146237999947,
+        "area": [
+          50,
+          0,
+          48,
+          2
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 588194,
+        "seconds": 183.96118867199993,
+        "area": [
+          50,
+          0,
+          48,
+          2
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 277433,
+        "seconds": 5.737806199000261,
+        "area": [
+          52,
+          0,
+          50,
+          2
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 458647,
+        "seconds": 85.3132127230001,
+        "area": [
+          52,
+          0,
+          50,
+          2
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 324147,
+        "seconds": 4.131356504999985,
+        "area": [
+          44,
+          2,
+          42,
+          4
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 625812,
+        "seconds": 82.3090423030003,
+        "area": [
+          44,
+          2,
+          42,
+          4
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 327867,
+        "seconds": 5.383887217000392,
+        "area": [
+          46,
+          2,
+          44,
+          4
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 706446,
+        "seconds": 95.84125795699993,
+        "area": [
+          46,
+          2,
+          44,
+          4
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 294603,
+        "seconds": 4.128791934999754,
+        "area": [
+          48,
+          2,
+          46,
+          4
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 637555,
+        "seconds": 125.93630462300007,
+        "area": [
+          48,
+          2,
+          46,
+          4
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 316421,
+        "seconds": 6.750529026000095,
+        "area": [
+          50,
+          2,
+          48,
+          4
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 593985,
+        "seconds": 116.73646346300029,
+        "area": [
+          50,
+          2,
+          48,
+          4
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 282001,
+        "seconds": 6.639053962000162,
+        "area": [
+          52,
+          2,
+          50,
+          4
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 479904,
+        "seconds": 105.961184839,
+        "area": [
+          52,
+          2,
+          50,
+          4
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 180652,
+        "seconds": 3.580352382000001,
+        "area": [
+          44,
+          4,
+          42,
+          6
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 314278,
+        "seconds": 119.12396077199992,
+        "area": [
+          44,
+          4,
+          42,
+          6
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 315851,
+        "seconds": 5.282731981999859,
+        "area": [
+          46,
+          4,
+          44,
+          6
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 695530,
+        "seconds": 95.80471140000009,
+        "area": [
+          46,
+          4,
+          44,
+          6
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 291500,
+        "seconds": 4.482081848999769,
+        "area": [
+          48,
+          4,
+          46,
+          6
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 655333,
+        "seconds": 169.48429798000006,
+        "area": [
+          48,
+          4,
+          46,
+          6
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 291862,
+        "seconds": 3.7784659300000385,
+        "area": [
+          50,
+          4,
+          48,
+          6
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 635352,
+        "seconds": 104.86212869300016,
+        "area": [
+          50,
+          4,
+          48,
+          6
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 353363,
+        "seconds": 8.596684184999958,
+        "area": [
+          52,
+          4,
+          50,
+          6
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 645557,
+        "seconds": 95.22841396000013,
+        "area": [
+          52,
+          4,
+          50,
+          6
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 168490,
+        "seconds": 3.629449381000086,
+        "area": [
+          44,
+          6,
+          42,
+          8
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 297022,
+        "seconds": 108.5495238059998,
+        "area": [
+          44,
+          6,
+          42,
+          8
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 381697,
+        "seconds": 6.8402231850000135,
+        "area": [
+          46,
+          6,
+          44,
+          8
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 727823,
+        "seconds": 341.0123701289999,
+        "area": [
+          46,
+          6,
+          44,
+          8
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 319907,
+        "seconds": 4.13234457300041,
+        "area": [
+          48,
+          6,
+          46,
+          8
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 720501,
+        "seconds": 132.61537244600004,
+        "area": [
+          48,
+          6,
+          46,
+          8
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 298767,
+        "seconds": 4.0798980580002535,
+        "area": [
+          50,
+          6,
+          48,
+          8
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 670706,
+        "seconds": 94.4340272089994,
+        "area": [
+          50,
+          6,
+          48,
+          8
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 251100,
+        "seconds": 4.229418521000298,
+        "area": [
+          42,
+          8,
+          40,
+          10
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 439483,
+        "seconds": 132.40370267400067,
+        "area": [
+          42,
+          8,
+          40,
+          10
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 144992,
+        "seconds": 6.3389196119996996,
+        "area": [
+          44,
+          8,
+          42,
+          10
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 242657,
+        "seconds": 131.16035889400064,
+        "area": [
+          44,
+          8,
+          42,
+          10
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 299503,
+        "seconds": 8.048424149000311,
+        "area": [
+          50,
+          8,
+          48,
+          10
+        ],
+        "month": "09",
+        "days": [
+          "19",
+          "30"
+        ]
+      },
+      {
+        "status": "downloaded",
+        "bytes": 670082,
+        "seconds": 134.1748748029995,
+        "area": [
+          50,
+          8,
+          48,
+          10
+        ],
+        "month": "10",
+        "days": [
+          "01",
+          "19"
+        ]
+      }
+    ],
+    "shared_request_parameters": {
+      "product_type": "reanalysis",
+      "variable": [
+        "2m_temperature",
+        "total_precipitation"
+      ],
+      "year": "2026",
+      "time": [
+        "00:00",
+        "01:00",
+        "02:00",
+        "03:00",
+        "04:00",
+        "05:00",
+        "06:00",
+        "07:00",
+        "08:00",
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00",
+        "23:00"
+      ],
+      "data_format": "netcdf",
+      "download_format": "unarchived"
+    }
+  },
+  "independent": {
+    "tile_inputs_sha256": "6104b27cf7e433e496db7cea6de21ebf96b47dd883c6cb8cf235b9d4d507db25",
+    "dataset_identity": {
+      "catalogue_id": "reanalysis-era5-land",
+      "dataset_version": "era5land-national-20260919-20261018-v1",
+      "doi": "10.24381/cds.e2161bac",
+      "reference_period": {
+        "end_year": 2020,
+        "minimum_years": 24,
+        "start_year": 1991
+      },
+      "resolution": "0.1 degree CDS regular grid; native approximately 9 km",
+      "source_id": "era5-land",
+      "transformation_version": "era5-land-utc-daily-1"
+    },
+    "pra_batches": 3565,
+    "pra_count": 713,
+    "windows": [
+      [
+        "2026-09-19",
+        "2026-09-25"
+      ],
+      [
+        "2026-09-26",
+        "2026-09-30"
+      ],
+      [
+        "2026-10-01",
+        "2026-10-07"
+      ],
+      [
+        "2026-10-08",
+        "2026-10-11"
+      ],
+      [
+        "2026-10-12",
+        "2026-10-18"
+      ]
+    ],
+    "real_cds": true,
+    "synthetic": false,
+    "period_utc": [
+      "2026-09-19",
+      "2026-10-18"
+    ],
+    "native_cells": 6861,
+    "native_cell_days": 205830,
+    "native_variable_comparisons": 823320,
+    "maximum_source_reduction_error": 0.0,
+    "maximum_spatial_aggregate_error": 0.0,
+    "parameters_sha256": "b4022e1cbf13f719941b2af800667dfb50329d940a5fa72f26309a0e5da219ef",
+    "national_operational_validation": "not_executed"
+  },
+  "source_archives": [
+    {
+      "sha256": "0a1399ee0ed925117946778cf21b7fb3aa5bca380f3d2193c3c1cc75990d5323",
+      "bytes": 314351,
+      "area": [
+        48,
+        0,
+        46,
+        2
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:15:13.541637+00:00"
+    },
+    {
+      "sha256": "88ac3add22eb99dda5d54ec636e46cd7e3791f60ab3fb291a73eae5f54c2bd95",
+      "bytes": 610464,
+      "area": [
+        48,
+        0,
+        46,
+        2
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:17:37.989963+00:00"
+    },
+    {
+      "sha256": "4aef07cf5d1005128fbf18037b71f48c9598989f14a5ab580ea5069db830d1c6",
+      "bytes": 299503,
+      "area": [
+        50,
+        8,
+        48,
+        10
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T23:05:08.817059+00:00"
+    },
+    {
+      "sha256": "ae0d32a39ae5d210e671f8f187260154b32c36b4d570bf932f1465290093b0c4",
+      "bytes": 670082,
+      "area": [
+        50,
+        8,
+        48,
+        10
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T23:07:23.005210+00:00"
+    },
+    {
+      "sha256": "c2b0ec6337691870bd32a23777155aab9e0d9c91911c28b5deb2fc5b9604de0b",
+      "bytes": 180652,
+      "area": [
+        44,
+        4,
+        42,
+        6
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:34:38.418905+00:00"
+    },
+    {
+      "sha256": "0152b5dbbeaef43891c7d0525fbac43df99c06a55edb95507f0549512240382b",
+      "bytes": 314278,
+      "area": [
+        44,
+        4,
+        42,
+        6
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:36:37.551102+00:00"
+    },
+    {
+      "sha256": "cb8b32a883d1b615ab6d12cd2accdec3e406025bf29417b8dffc0121f5c60145",
+      "bytes": 182299,
+      "area": [
+        48,
+        -4,
+        46,
+        -2
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T21:54:48.263453+00:00"
+    },
+    {
+      "sha256": "7de435a63bcd4c4ba7fc619c515814ea3d87b2ff85262706b310daa064dfdd59",
+      "bytes": 275796,
+      "area": [
+        48,
+        -4,
+        46,
+        -2
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T21:57:06.864335+00:00"
+    },
+    {
+      "sha256": "db004cfdb7b7e697b6f1341343c9558719269b83d7de443529a38fc60690636d",
+      "bytes": 312416,
+      "area": [
+        46,
+        0,
+        44,
+        2
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:13:12.670044+00:00"
+    },
+    {
+      "sha256": "8b58821ca21ea2b57aabaf859c398cf4c1bef307515bce8bc3884211e3bd2f62",
+      "bytes": 655198,
+      "area": [
+        46,
+        0,
+        44,
+        2
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:14:46.414506+00:00"
+    },
+    {
+      "sha256": "4c2441598c4610a6296da3bdd217b134deddbe4d50030e7c5821b31db981925e",
+      "bytes": 316421,
+      "area": [
+        50,
+        2,
+        48,
+        4
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:30:02.384153+00:00"
+    },
+    {
+      "sha256": "ac69aa0f3ad2019437baecaa523c341fb40a765bb3f31642b539b34923b8424c",
+      "bytes": 593985,
+      "area": [
+        50,
+        2,
+        48,
+        4
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:31:59.128479+00:00"
+    },
+    {
+      "sha256": "fbabce46e430533d493fc15c4df70997d8fb133719413c3dd986910fb99271ec",
+      "bytes": 381697,
+      "area": [
+        46,
+        6,
+        44,
+        8
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:49:00.548932+00:00"
+    },
+    {
+      "sha256": "4ba3d8e2dd0135e70083c53a249889354f575d59376a1d594990629bd9b57935",
+      "bytes": 727823,
+      "area": [
+        46,
+        6,
+        44,
+        8
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:54:41.569630+00:00"
+    },
+    {
+      "sha256": "643091718146be66ca8baeec1b8ef57e3d9592aa1d44c5caa89297ab86a552f2",
+      "bytes": 327867,
+      "area": [
+        46,
+        2,
+        44,
+        4
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:25:24.124201+00:00"
+    },
+    {
+      "sha256": "11bf05b8318b0d5ae8a8255304512e691f49f553d7dc32c1ec5e2d26a9992e80",
+      "bytes": 706446,
+      "area": [
+        46,
+        2,
+        44,
+        4
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:26:59.975056+00:00"
+    },
+    {
+      "sha256": "a214c923798f985e18b91a0068cba8f5212fac2f3cb4e081d2adcb40cdb9a964",
+      "bytes": 76757,
+      "area": [
+        48,
+        -6,
+        46,
+        -4
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T21:49:15.481513+00:00"
+    },
+    {
+      "sha256": "fbff03aff4b68169437ea5c7cd1cba686526a2f1591008eb4e4fa70a4a06c866",
+      "bytes": 106232,
+      "area": [
+        48,
+        -6,
+        46,
+        -4
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T21:51:07.286756+00:00"
+    },
+    {
+      "sha256": "bf1eaf752cafb96ac381d497c8ebee0bca6f766f62873448c646db7796e59468",
+      "bytes": 298767,
+      "area": [
+        50,
+        6,
+        48,
+        8
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:57:46.421296+00:00"
+    },
+    {
+      "sha256": "460ff37e63e33fd3942167bee268bf4f98a99d2a003caff5a4f87acc045d803e",
+      "bytes": 670706,
+      "area": [
+        50,
+        6,
+        48,
+        8
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:59:20.863886+00:00"
+    },
+    {
+      "sha256": "fb2e1c90bc5bb11d3f29b163b6c9e22ba07b33a7b37d0106b61fb2d3b02dd3d4",
+      "bytes": 168490,
+      "area": [
+        44,
+        6,
+        42,
+        8
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:46:42.058584+00:00"
+    },
+    {
+      "sha256": "08c5b184043818ab4650b398d339f04d393637b156a222e968925ed201c30bb9",
+      "bytes": 297022,
+      "area": [
+        44,
+        6,
+        42,
+        8
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:48:30.613921+00:00"
+    },
+    {
+      "sha256": "c975c49b5935cb90f5e724b91aee209ea21427b924a9fafd4bfa14890f70f711",
+      "bytes": 350670,
+      "area": [
+        50,
+        0,
+        48,
+        2
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:18:07.382950+00:00"
+    },
+    {
+      "sha256": "0afa16c2c8c6e364659159255442bf3f1512c9ce9d93ad3b8bbba43c9ffad3a1",
+      "bytes": 588194,
+      "area": [
+        50,
+        0,
+        48,
+        2
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:21:11.354195+00:00"
+    },
+    {
+      "sha256": "9a974b6bf93bacb36877808b8a94b19aff34a92d9024dd31898e78fa9c7bf5e1",
+      "bytes": 291500,
+      "area": [
+        48,
+        4,
+        46,
+        6
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:39:11.206363+00:00"
+    },
+    {
+      "sha256": "de5bf744a3a034e1146899182f659a7761319ad462e3a843ce82e3bd8b7a5547",
+      "bytes": 655333,
+      "area": [
+        48,
+        4,
+        46,
+        6
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:42:00.700913+00:00"
+    },
+    {
+      "sha256": "3f013d1e6a1511645a7e735a41ee751ff4f22e9e2a8b3ed6da49773c62accaa6",
+      "bytes": 345563,
+      "area": [
+        44,
+        0,
+        42,
+        2
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:10:20.741132+00:00"
+    },
+    {
+      "sha256": "cd7fcc4d71ba9fb7c5b0f1ace9358e2805c4bae95c4dc18f373c438eb598a891",
+      "bytes": 745234,
+      "area": [
+        44,
+        0,
+        42,
+        2
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:12:45.623180+00:00"
+    },
+    {
+      "sha256": "f895d6034d167cbf6f5f98bc836ee85dcf723a1a8c92b3f81e55df62f924df51",
+      "bytes": 291862,
+      "area": [
+        50,
+        4,
+        48,
+        6
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:42:26.431599+00:00"
+    },
+    {
+      "sha256": "bcf04281efe0da6b291b73b947c693f94e2b84fec8dd2263bae0128f4dd88326",
+      "bytes": 635352,
+      "area": [
+        50,
+        4,
+        48,
+        6
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:44:11.302400+00:00"
+    },
+    {
+      "sha256": "0d14ce8a5b6d7a050b44cd862a4edff124f01b85a0cbe31fb3d20ebb3e0951e4",
+      "bytes": 351876,
+      "area": [
+        48,
+        -2,
+        46,
+        0
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:04:24.085744+00:00"
+    },
+    {
+      "sha256": "b613e4eab156e9a0b5012f70f72555d9842929b8a975b00ac4c8645717a79a11",
+      "bytes": 582266,
+      "area": [
+        48,
+        -2,
+        46,
+        0
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:06:18.800662+00:00"
+    },
+    {
+      "sha256": "7e717f074e475b12049141f36efe9645680c34abc55d5b6be65f74ae6903815c",
+      "bytes": 319907,
+      "area": [
+        48,
+        6,
+        46,
+        8
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:55:08.526685+00:00"
+    },
+    {
+      "sha256": "298c4c977e13af5e75a0fc2c3c2b8845b6001b483983305379e89a3487ea6c67",
+      "bytes": 720501,
+      "area": [
+        48,
+        6,
+        46,
+        8
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:57:21.149371+00:00"
+    },
+    {
+      "sha256": "da74ed5a63ca5dcb40048b88b74acc64591509296e2e5b8cedf061bb24d43332",
+      "bytes": 315851,
+      "area": [
+        46,
+        4,
+        44,
+        6
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:37:07.944280+00:00"
+    },
+    {
+      "sha256": "da1dda38f4382b0a70c602dd29c7784e83501e23796db47ca198a3233e0485f4",
+      "bytes": 695530,
+      "area": [
+        46,
+        4,
+        44,
+        6
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:38:43.755727+00:00"
+    },
+    {
+      "sha256": "c761b82c6bd82f686b7ff1b9807addb9d148fa0c966f55eea28a8882452cdd9b",
+      "bytes": 342275,
+      "area": [
+        44,
+        -2,
+        42,
+        0
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T21:59:54.352912+00:00"
+    },
+    {
+      "sha256": "becb30b9cc9a7863d84a2ce465c6e9deaa66122ed2ada8d9075dcfc6f5087cdf",
+      "bytes": 688429,
+      "area": [
+        44,
+        -2,
+        42,
+        0
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:01:38.774214+00:00"
+    },
+    {
+      "sha256": "9c475adad5aa29a2c613ac167240ef486ce2a8fd075471a2e2f2e8ef87b4948e",
+      "bytes": 294603,
+      "area": [
+        48,
+        2,
+        46,
+        4
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:27:27.413546+00:00"
+    },
+    {
+      "sha256": "a6563becf65c6a161b691e50533568a84cfdc36131ebf9908350280566331816",
+      "bytes": 637555,
+      "area": [
+        48,
+        2,
+        46,
+        4
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:29:33.364641+00:00"
+    },
+    {
+      "sha256": "2362e2a634ef6d5a1cd6add647a1a98ef4c0b11c1a2ca34d6af0728dd4f1ec14",
+      "bytes": 285662,
+      "area": [
+        46,
+        -2,
+        44,
+        0
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:02:06.377142+00:00"
+    },
+    {
+      "sha256": "a722a632be81278350931b2174d67b7d5a4b8925db3884ac9ac03005035716b2",
+      "bytes": 500182,
+      "area": [
+        46,
+        -2,
+        44,
+        0
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:03:57.339192+00:00"
+    },
+    {
+      "sha256": "c4f80bb675afd2974f2bda230c427680ca3350390ad7f4cdf7807de1bddaf4d2",
+      "bytes": 122400,
+      "area": [
+        50,
+        -6,
+        48,
+        -4
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T21:51:37.666079+00:00"
+    },
+    {
+      "sha256": "03398f4682ba7c887782690f5e2ea505f566dc3fd4fb3614da49b2d43900747a",
+      "bytes": 184299,
+      "area": [
+        50,
+        -6,
+        48,
+        -4
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T21:54:20.606028+00:00"
+    },
+    {
+      "sha256": "63344d17e7dd2ac84bf4a4f8e73a7e34c221ca6f0e2c94709d47618fc133099a",
+      "bytes": 208521,
+      "area": [
+        50,
+        -4,
+        48,
+        -2
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T21:57:36.239046+00:00"
+    },
+    {
+      "sha256": "e546c780bae262862448c2594382c399e2694214ccfb570d2596a73cbc559199",
+      "bytes": 334522,
+      "area": [
+        50,
+        -4,
+        48,
+        -2
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T21:59:22.148962+00:00"
+    },
+    {
+      "sha256": "4ab511b8f72f090b6466fa8b6a914948807ab4aef2c4843866f9dfe114383087",
+      "bytes": 311489,
+      "area": [
+        50,
+        -2,
+        48,
+        0
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:06:45.305683+00:00"
+    },
+    {
+      "sha256": "3053eb60c2ff3e02e255ab5577cbef316e5cceb5133572d8194e7d83c54cccb0",
+      "bytes": 498073,
+      "area": [
+        50,
+        -2,
+        48,
+        0
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:09:54.386880+00:00"
+    },
+    {
+      "sha256": "5628478d7e3c5b01feb115622fdd3b7b95c9b7632008582556235c94a8061234",
+      "bytes": 144992,
+      "area": [
+        44,
+        8,
+        42,
+        10
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T23:02:28.376904+00:00"
+    },
+    {
+      "sha256": "2270826973ecedb8a9c60dc0068ea4348bf629f1f6bbcfe701bd0dc529e7e026",
+      "bytes": 242657,
+      "area": [
+        44,
+        8,
+        42,
+        10
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T23:04:39.543248+00:00"
+    },
+    {
+      "sha256": "d74106bcbe1b4c986bb252959bcaec3df0fb278490db60a0e397fd5765fa4def",
+      "bytes": 277433,
+      "area": [
+        52,
+        0,
+        50,
+        2
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:21:39.885494+00:00"
+    },
+    {
+      "sha256": "9431c70dd4291d4cd99f02979e0b7d45e4350b8558f5ca6e167026b9ad4709cf",
+      "bytes": 458647,
+      "area": [
+        52,
+        0,
+        50,
+        2
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:23:05.207366+00:00"
+    },
+    {
+      "sha256": "ba4d56ac365cd4f1a2e0dbb2603459e5bbf4360fe9c5bd52d0edfd1fe166f268",
+      "bytes": 282001,
+      "area": [
+        52,
+        2,
+        50,
+        4
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:32:27.172685+00:00"
+    },
+    {
+      "sha256": "aa6c527fa1038f9934c6af9837ac060f6c56027dc6094fc8d6a880acbb4dcfcf",
+      "bytes": 479904,
+      "area": [
+        52,
+        2,
+        50,
+        4
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:34:13.140380+00:00"
+    },
+    {
+      "sha256": "4c9098a243a660061eba99dbfd62b250146f3ff889548b9cef439a2abc07ac4f",
+      "bytes": 324147,
+      "area": [
+        44,
+        2,
+        42,
+        4
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:23:33.836370+00:00"
+    },
+    {
+      "sha256": "c24f953c6cd10a132188dbcd95e3fd9fc4e2e63b8e27d043a6c82fc25197b3e2",
+      "bytes": 625812,
+      "area": [
+        44,
+        2,
+        42,
+        4
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:24:56.152401+00:00"
+    },
+    {
+      "sha256": "7a78277665f7549f74129114403ca38b9a59ccafdece1d18e741ddd526eb499b",
+      "bytes": 251100,
+      "area": [
+        42,
+        8,
+        40,
+        10
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:59:45.583047+00:00"
+    },
+    {
+      "sha256": "f66981d09f9b2b341674f0491b6aad202b7e323a18e7b1104f1cb80f2aeada0e",
+      "bytes": 439483,
+      "area": [
+        42,
+        8,
+        40,
+        10
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T23:01:57.994589+00:00"
+    },
+    {
+      "sha256": "8435b9df964b19ba22e2d9b871549b7ccbfe9b344bae5ee9f0f2e7a87a16e416",
+      "bytes": 353363,
+      "area": [
+        52,
+        4,
+        50,
+        6
+      ],
+      "month": "09",
+      "days": [
+        "19",
+        "30"
+      ],
+      "retrieved_at": "2026-10-30T22:44:41.866299+00:00"
+    },
+    {
+      "sha256": "cc1a5c4acf101366fc31b193cdbd52ec7f7cb90074adea647d3465e67f3427b0",
+      "bytes": 645557,
+      "area": [
+        52,
+        4,
+        50,
+        6
+      ],
+      "month": "10",
+      "days": [
+        "01",
+        "19"
+      ],
+      "retrieved_at": "2026-10-30T22:46:17.101167+00:00"
+    }
+  ],
+  "cache_verify_new_requests": 0,
+  "phases": {
+    "aggregate": {
+      "phase": "aggregate",
+      "elapsed_seconds": 302.79468692200044,
+      "peak_rss_kib": 306980,
+      "batches": 3565
+    },
+    "persist": {
+      "phase": "persist",
+      "elapsed_seconds": 1462.9870613100002,
+      "peak_rss_kib": 373548,
+      "batches": 3565
+    },
+    "replay": {
+      "phase": "replay",
+      "elapsed_seconds": 831.6663026939996,
+      "peak_rss_kib": 373092,
+      "batches": 3565
+    }
+  },
+  "storage_delta_bytes": 28041216,
+  "relation_deltas": {
+    "pra_batches": {
+      "heap": 8282112,
+      "indexes": 434176,
+      "total": 8716288
+    },
+    "pra_daily": {
+      "heap": 10952704,
+      "indexes": 8323072,
+      "total": 19275776
+    },
+    "pra_diagnostics": {
+      "heap": 0,
+      "indexes": 0,
+      "total": 0
+    }
+  },
+  "http": {
+    "environment": "Local production-build HTTP -> remote DEV, real data",
+    "read": [
+      {
+        "pra": 1,
+        "milliseconds": [
+          505.88943000002473,
+          188.25822600047104,
+          194.86080100068648
+        ],
+        "median_ms": 194.86080100068648,
+        "http_pages": 1,
+        "json_bytes": 1091
+      },
+      {
+        "pra": 10,
+        "milliseconds": [
+          209.8667590007608,
+          177.26579800000763,
+          208.76511999995273
+        ],
+        "median_ms": 208.76511999995273,
+        "http_pages": 1,
+        "json_bytes": 7740
+      },
+      {
+        "pra": 713,
+        "milliseconds": [
+          1922.9362000005494,
+          1442.2090050002225,
+          1386.887896999724
+        ],
+        "median_ms": 1442.2090050002225,
+        "http_pages": 8,
+        "json_bytes": 527897
+      }
+    ],
+    "corpus_pra_days": 21390,
+    "corpus_read_seconds": 42.84403299400037,
+    "one_pra_30day_history_ms": [
+      4813.750896999409,
+      5101.20319500038,
+      4706.109497000398
+    ],
+    "history_median_ms": 4813.750896999409,
+    "http_requests": 360,
+    "received_bytes": 17565038,
+    "scalar_comparisons": 94608,
+    "maximum_float4_roundtrip_error": 5.0814044932678826e-05,
+    "sla": false
+  },
+  "mutations": "Existing bounded insert-only DEV RPC; no migration, privileges or geometry/weight changes",
+  "paid_services_activated": false,
+  "merged": false
+}
