@@ -54,6 +54,7 @@ task04_psql -f /repo/supabase/tests/wheat.sql >"$task04_results/wheat.log" 2>&1
 task04_psql -f /repo/supabase/tests/daily.sql >"$task04_results/daily.log" 2>&1
 task04_psql -f /repo/supabase/tests/pra.sql >"$task04_results/pra.log" 2>&1
 task04_psql -f /repo/supabase/tests/pra_storage.sql >"$task04_results/pra-storage.log" 2>&1
+task04_psql -f /repo/supabase/tests/postgis_access.sql >"$task04_results/postgis-access.log" 2>&1
 task04_psql -f /repo/supabase/tests/security.sql >"$task04_results/security.log" 2>&1
 task04_psql -f /repo/supabase/tests/benchmark.sql >"$task04_results/explain.log" 2>&1
 task04_psql -qAt -f /repo/supabase/tests/contracts.sql >"$task04_results/contracts.json"
