@@ -1,0 +1,242 @@
+{
+  "decision": "READY_FOR_V0.3",
+  "scope": "Functional national application validated against real agriclimax-dev; public activation remains explicit, disabled by default",
+  "base_main": "77496b7d9782131d27f28ebbba2cc6ae38a0a01d",
+  "period_utc": [
+    "2026-09-19",
+    "2026-10-18"
+  ],
+  "dataset": "era5land-national-20260919-20261018-v1",
+  "reference": "ofb-masa-pra-2017-snapshot-20261017",
+  "browser": {
+    "real_dev": true,
+    "viewports": [
+      {
+        "width": 1440,
+        "axe": 0,
+        "no_overflow": true,
+        "contours": 713
+      },
+      {
+        "width": 768,
+        "axe": 0,
+        "no_overflow": true,
+        "contours": 713
+      },
+      {
+        "width": 390,
+        "axe": 0,
+        "no_overflow": true,
+        "contours": 713
+      }
+    ],
+    "cases": [
+      {
+        "pra": "pra:28341",
+        "status": "available",
+        "selection_history_ms": 2732,
+        "rows": 30,
+        "nulls_preserved": true,
+        "rendered_hover_and_click": true
+      },
+      {
+        "pra": "pra:06245",
+        "status": "partial",
+        "selection_history_ms": 2460,
+        "rows": 30,
+        "nulls_preserved": true,
+        "rendered_hover_and_click": true
+      },
+      {
+        "pra": "pra:29102",
+        "status": "unavailable",
+        "selection_history_ms": 2028,
+        "rows": 30,
+        "nulls_preserved": true,
+        "rendered_hover_and_click": true
+      }
+    ],
+    "errors": [],
+    "initial_ready_ms": 4178,
+    "day_states": {
+      "available": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    "map_changes_selection_without_list": true,
+    "same_date_reselection_preserves_data": true,
+    "date_change_ms": 1376,
+    "geometry": [
+      {
+        "transfer_size": 9658798,
+        "decoded_bytes": 23818871,
+        "encoded_bytes": 9658498,
+        "duration_ms": 1426.699999999255
+      }
+    ],
+    "geometry_repeat_transfer_bytes": 9658798,
+    "geometry_requested_once_per_workspace": true,
+    "missing_date_explicit": true,
+    "simulated_network_failure_explicit": true,
+    "retry_recovers": true,
+    "no_demo_fallback": true
+  },
+  "read_performance": {
+    "environment": "production build local -> real Supabase DEV; no mocks",
+    "samples": [
+      {
+        "action": "day",
+        "rows": 713,
+        "milliseconds": [
+          1766.4610149999999,
+          1510.906962,
+          1298.3056460000003
+        ],
+        "median_ms": 1510.906962,
+        "json_bytes": 525688
+      },
+      {
+        "action": "history",
+        "rows": 30,
+        "milliseconds": [
+          2567.710828,
+          1326.998611000001,
+          1295.7337669999997
+        ],
+        "median_ms": 1326.998611000001,
+        "json_bytes": 22247
+      }
+    ]
+  },
+  "security": {
+    "pra": 713,
+    "pra_rpc": [
+      {
+        "anon": false,
+        "definer": false,
+        "settings": [
+          "search_path=pg_catalog",
+          "statement_timeout=5s"
+        ],
+        "signature": "agriclimax_pra_diagnostics(text,text,text,date,date,text)",
+        "authenticated": false
+      },
+      {
+        "anon": false,
+        "definer": false,
+        "settings": [
+          "search_path=pg_catalog",
+          "statement_timeout=5s"
+        ],
+        "signature": "agriclimax_pra_lookup(text,text,text,text,text,integer)",
+        "authenticated": false
+      },
+      {
+        "anon": false,
+        "definer": false,
+        "settings": [
+          "search_path=pg_catalog",
+          "statement_timeout=15s"
+        ],
+        "signature": "agriclimax_persist_pra(text,text,jsonb)",
+        "authenticated": false
+      },
+      {
+        "anon": false,
+        "definer": false,
+        "settings": [
+          "search_path=pg_catalog",
+          "statement_timeout=5s"
+        ],
+        "signature": "agriclimax_pra_read(text,text,date,text,text,text,integer)",
+        "authenticated": false
+      }
+    ],
+    "pra_days": 21390,
+    "checked_at": "2026-10-31T10:29:11.482263+00:00",
+    "diagnostics": 584,
+    "spatial_ref_sys": {
+      "rls": false,
+      "owner": "supabase_admin",
+      "anon_insert": true,
+      "anon_select": true,
+      "authenticated_select": true
+    },
+    "pra_private_tables": [
+      {
+        "rls": true,
+        "anon": false,
+        "table": "pra_batches",
+        "authenticated": false
+      },
+      {
+        "rls": true,
+        "anon": false,
+        "table": "pra_daily",
+        "authenticated": false
+      },
+      {
+        "rls": true,
+        "anon": false,
+        "table": "pra_departments",
+        "authenticated": false
+      },
+      {
+        "rls": true,
+        "anon": false,
+        "table": "pra_diagnostics",
+        "authenticated": false
+      },
+      {
+        "rls": true,
+        "anon": false,
+        "table": "pra_grid_weights",
+        "authenticated": false
+      },
+      {
+        "rls": true,
+        "anon": false,
+        "table": "pra_indicator_definitions",
+        "authenticated": false
+      },
+      {
+        "rls": true,
+        "anon": false,
+        "table": "pra_reference_statistics",
+        "authenticated": false
+      },
+      {
+        "rls": true,
+        "anon": false,
+        "table": "pra_regions",
+        "authenticated": false
+      },
+      {
+        "rls": true,
+        "anon": false,
+        "table": "pra_territories",
+        "authenticated": false
+      }
+    ]
+  },
+  "postgis_reservation": {
+    "accepted_by_user": "2026-10-31 explicit instruction: do not block Task20 for unavailable extension-owner access",
+    "prepared_migration": "20261031101938_postgis_public_access.sql",
+    "applied_to_dev": false,
+    "privilege_escalation": false,
+    "public_activation_default": false
+  },
+  "checks": {
+    "python_tests": 235,
+    "web_tests": 237,
+    "make_check": "pass",
+    "sql_public": "pass",
+    "sql_extensions": "pass",
+    "ci": "See final commit checks in draft PR"
+  },
+  "remote_writes": 0,
+  "new_diagnostics": 0,
+  "scientific_engine_changed": false,
+  "contours_or_weights_changed": false,
+  "paid_services_activated": false
+}

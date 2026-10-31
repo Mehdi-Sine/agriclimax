@@ -19,3 +19,10 @@ for (const filename of ["maplibre-gl-worker.mjs", "maplibre-gl-shared.mjs"]) {
 }
 
 await copyFile(resolve(packageRoot, "LICENSE.txt"), resolve(destination, "LICENSE.txt"));
+
+// Public cartographic view: identical source coordinates, no simplification.
+const {readFile,writeFile}=await import('node:fs/promises');
+const bundle=resolve(dirname(fileURLToPath(import.meta.url)),'../../../../config/coverage/ofb-masa-pra-2017-snapshot-20261017/reference.json');
+const reference=JSON.parse(await readFile(bundle,'utf8'));
+if(reference.features.length!==713)throw new Error('Expected 713 official PRA');
+await writeFile(resolve(destination,'../pra-national.geojson'),JSON.stringify({type:'FeatureCollection',features:reference.features.map(f=>({...f,id:`pra:${f.properties.code}`}))}));

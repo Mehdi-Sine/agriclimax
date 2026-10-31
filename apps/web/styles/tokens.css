@@ -55,3 +55,10 @@
   --shadow: 0 12px 36px #00000030;
   color-scheme: dark;
 }
+
+/* Availability is distinct from scientific risk levels. */
+:root {
+  --national-complete: #66a98e;
+  --national-partial: #e7c75c;
+  --national-unavailable: #8a969b;
+}

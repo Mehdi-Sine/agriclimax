@@ -1,0 +1,200 @@
+.national-page {
+  max-width: 1500px;
+  margin: auto;
+  padding: var(--space-6);
+  color: var(--text-primary);
+}
+.national-page h1 {
+  font-family: var(--font-heading);
+  margin-bottom: var(--space-2);
+}
+.national-page header nav,
+.national-page nav,
+.national-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: end;
+}
+.national-edition {
+  margin-left: var(--space-4);
+  color: var(--text-muted);
+}
+.national-notice {
+  background: var(--surface-subtle);
+  padding: var(--space-4);
+  border-left: 4px solid var(--brand-secondary);
+}
+.national-page label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.national-page input,
+.national-page select,
+.national-page button {
+  font: inherit;
+  color: var(--text-primary);
+  background: var(--surface-raised);
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+  max-width: 100%;
+  min-height: 44px;
+}
+.national-page button {
+  cursor: pointer;
+}
+.national-page button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.national-page :focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.national-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: var(--space-6);
+}
+.national-map {
+  height: 570px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.national-search,
+.national-panel {
+  min-width: 0;
+  background: var(--surface-raised);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.national-search select {
+  width: 100%;
+  margin-bottom: var(--space-2);
+}
+.national-search select option {
+  padding: var(--space-2);
+}
+.national-legend {
+  display: flex;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+.national-legend li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.national-dot {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--text-primary);
+  border-radius: 50%;
+}
+.national-dot.complete {
+  background: var(--national-complete);
+}
+.national-dot.partial {
+  background: var(--national-partial);
+}
+.national-dot.unavailable {
+  background: var(--national-unavailable);
+}
+.national-help,
+.national-hover {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.national-hover {
+  min-height: 2.5em;
+}
+.national-panel {
+  margin-top: var(--space-6);
+  scroll-margin-top: var(--space-4);
+  overflow-wrap: anywhere;
+}
+.national-values {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+.national-values dd {
+  margin: var(--space-2) 0;
+}
+.national-values dt {
+  font-weight: 600;
+}
+.national-table {
+  overflow-x: auto;
+}
+.national-table table {
+  border-collapse: collapse;
+  min-width: 800px;
+  width: 100%;
+}
+.national-table th,
+.national-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.national-table caption {
+  text-align: left;
+  padding: var(--space-4) 0;
+}
+.national-chart {
+  margin: var(--space-4) 0;
+  color: var(--brand-secondary);
+}
+.national-chart svg {
+  width: 100%;
+  max-height: 200px;
+}
+.national-chart figcaption {
+  color: var(--text-muted);
+}
+@media (max-width: 900px) {
+  .national-grid {
+    grid-template-columns: 1fr;
+  }
+  .national-map {
+    height: 450px;
+  }
+  .national-search select {
+    height: 180px;
+  }
+}
+@media (max-width: 500px) {
+  .national-page {
+    padding: var(--space-4);
+  }
+  .national-map {
+    height: 360px;
+  }
+  .national-controls {
+    gap: var(--space-2);
+  }
+  .national-controls label {
+    width: 100%;
+  }
+  .national-values {
+    grid-template-columns: 1fr;
+  }
+  .national-edition {
+    display: block;
+    margin: var(--space-2) 0;
+  }
+}
+
+.national-table th:first-child,
+.national-table td:nth-child(2) {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}

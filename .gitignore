@@ -17,3 +17,6 @@ apps/web/public/maps/maplibre/
 
 # Supabase CLI transient local state.
 supabase/.temp/
+
+# Generated from the versioned official PRA reference at build time.
+apps/web/public/maps/pra-national.geojson
