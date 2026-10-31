@@ -53,6 +53,7 @@ task04_psql -f /repo/supabase/tests/france.sql >"$task04_results/france.log" 2>&
 task04_psql -f /repo/supabase/tests/wheat.sql >"$task04_results/wheat.log" 2>&1
 task04_psql -f /repo/supabase/tests/daily.sql >"$task04_results/daily.log" 2>&1
 task04_psql -f /repo/supabase/tests/pra.sql >"$task04_results/pra.log" 2>&1
+task04_psql -f /repo/supabase/tests/pra_climatology.sql >"$task04_results/pra-climatology.log" 2>&1
 task04_psql -f /repo/supabase/tests/pra_storage.sql >"$task04_results/pra-storage.log" 2>&1
 task04_psql -f /repo/supabase/tests/postgis_access.sql >"$task04_results/postgis-access.log" 2>&1
 task04_psql -f /repo/supabase/tests/security.sql >"$task04_results/security.log" 2>&1
