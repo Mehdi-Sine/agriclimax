@@ -12,14 +12,14 @@ Données nationales inchangées : **713 PRA / 21 390 journées / 645 complete, 6
 
 - `make check` : **235 tests Python, 237 tests web**, lint/types/build et gardes réussis ; dernières vérifications web après ajustement du cache réussies.
 - Migrations, contrats, RLS et requêtes v0.2 sur PostGIS jetable dans les schémas **public et extensions** : réussis, avec test ciblé du correctif PostGIS.
-- Navigateur réel → DEV, sans mocks pour les données : PRA complète **28341**, partielle **06245**, **Crozon 29102 unavailable**, 30 lignes d’historique chacune ; survol et clic des polygones effectivement rendus.
+- Navigateur réel → DEV, sans mocks pour les données : PRA complète **28341**, partielle **06245**, **Crozon 29102 unavailable**, 30 lignes d’historique chacune ; survol et clic des polygones effectivement rendus, changement de sélection par la carte indépendamment de la liste.
 - Date vide, erreur réseau simulée explicitement, reprise et resélection de la même PRA/date : états explicites, aucune fausse réussite.
 - **1440, 768 et 390 px** : zéro débordement, zéro violation axe WCAG AA, zéro erreur JavaScript. Viewports émulés sur Chromium, sans prétendre tester tous les appareils physiques.
 - Captures inspectées : [desktop](national-1440.png), [mobile](national-390.png). Mesures : [measurements.json](measurements.json). CI/Vercel du SHA final consignés dans la PR.
 
 ## Performance et coût de lecture
 
-Carte et données prêtes en **3.69 s** sur la machine de test, changement de date en **1.36 s**. Trois mesures HTTP : médiane nationale **1.51 s**, historique sélectionné **1.33 s**. Aucun SLA Vercel déduit.
+Carte et données prêtes en **4.18 s** sur la machine de test, changement de date en **1.38 s**. Trois mesures HTTP : médiane nationale **1.51 s**, historique sélectionné **1.33 s**. Aucun SLA Vercel déduit.
 
 Le client reçoit **713 journées pour la date affichée** (525688 octets JSON) puis **30 lignes pour la PRA sélectionnée** (22247 octets), pas les 21 390 journées. Lecture nationale : huit RPC paginées bornées ; historique : 30 lectures bornées, concurrence quatre. Les valeurs sont projetées/validées côté serveur avec les règles Task19 existantes. Pas de nouveau privilège de données ni de cache climatique implicite.
 

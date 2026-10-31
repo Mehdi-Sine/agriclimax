@@ -34,7 +34,7 @@
       {
         "pra": "pra:28341",
         "status": "available",
-        "selection_history_ms": 2107,
+        "selection_history_ms": 2732,
         "rows": 30,
         "nulls_preserved": true,
         "rendered_hover_and_click": true
@@ -42,7 +42,7 @@
       {
         "pra": "pra:06245",
         "status": "partial",
-        "selection_history_ms": 1462,
+        "selection_history_ms": 2460,
         "rows": 30,
         "nulls_preserved": true,
         "rendered_hover_and_click": true
@@ -50,27 +50,28 @@
       {
         "pra": "pra:29102",
         "status": "unavailable",
-        "selection_history_ms": 2004,
+        "selection_history_ms": 2028,
         "rows": 30,
         "nulls_preserved": true,
         "rendered_hover_and_click": true
       }
     ],
     "errors": [],
-    "initial_ready_ms": 3691,
+    "initial_ready_ms": 4178,
     "day_states": {
       "available": 645,
       "partial": 67,
       "unavailable": 1
     },
+    "map_changes_selection_without_list": true,
     "same_date_reselection_preserves_data": true,
-    "date_change_ms": 1361,
+    "date_change_ms": 1376,
     "geometry": [
       {
         "transfer_size": 9658798,
         "decoded_bytes": 23818871,
         "encoded_bytes": 9658498,
-        "duration_ms": 1307.3999999985099
+        "duration_ms": 1426.699999999255
       }
     ],
     "geometry_repeat_transfer_bytes": 9658798,

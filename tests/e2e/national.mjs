@@ -114,6 +114,36 @@ try {
       rendered_hover_and_click: true,
     });
   }
+  // Verify selection changes through the map itself, independently of the list.
+  await page
+    .getByRole('button', { name: 'Vue nationale · 713 PRA', exact: true })
+    .click();
+  await page.getByLabel('Rechercher une PRA', { exact: true }).fill('');
+  const mapBox = await page.locator('.national-map').boundingBox();
+  await page.mouse.move(
+    mapBox.x + mapBox.width * 0.5,
+    mapBox.y + mapBox.height * 0.5,
+  );
+  const pointer = await page.locator('.national-hover').innerText();
+  const target = pointer.match(
+    / · ([0-9AB]{5}) · (?:complete|partial|unavailable)$/,
+  );
+  assert.ok(target, 'Expected a real rendered PRA at national map center');
+  assert.notEqual(target[1], '29102');
+  await page.mouse.click(
+    mapBox.x + mapBox.width * 0.5,
+    mapBox.y + mapBox.height * 0.5,
+  );
+  await page.waitForFunction(
+    (id) => document.querySelector('select[aria-label="PRA"]').value === id,
+    `pra:${target[1]}`,
+  );
+  await page
+    .locator('#pra-history tbody tr')
+    .last()
+    .waitFor({ timeout: 60000 });
+  assert.equal(new URL(page.url()).searchParams.get('pra'), `pra:${target[1]}`);
+  report.map_changes_selection_without_list = true;
   await page.getByLabel('Rechercher une PRA', { exact: true }).fill('28341');
   await page.getByLabel('PRA', { exact: true }).selectOption(full.id);
   await page
@@ -143,6 +173,9 @@ try {
     .click();
   for (const width of [1440, 768, 390]) {
     await page.setViewportSize({ width, height: 1000 });
+    await page
+      .getByRole('button', { name: 'Vue nationale · 713 PRA', exact: true })
+      .click();
     await page
       .getByLabel('Variable', { exact: true })
       .selectOption('precipitation');
