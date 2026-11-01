@@ -31,5 +31,12 @@
   },
   "python_tests_passed": 246,
   "web_tests_passed": 237,
-  "thi": false
+  "thi": false,
+  "status_checked_at": "2026-11-01T13:56:31.534539+00:00",
+  "completed_checkpoints": 51,
+  "expected_checkpoints": 92,
+  "database_bytes_last_verified": 89331379,
+  "task21_checksum_preserved": true,
+  "acquisition_failures": 0,
+  "live_database_capacity_guard": true
 }

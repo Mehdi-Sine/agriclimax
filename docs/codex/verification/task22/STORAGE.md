@@ -46,6 +46,8 @@ service_role seulement, fonctions SECURITY INVOKER, search_path pg_catalog,
 timeouts, limites de lots et de dates, collision immuable rejetée. Aucun nouveau
 droit PUBLIC/anon/authenticated. Les avertissements historiques PostGIS et
 anciennes RPC existaient avant Task22 ; aucune modification de ces objets.
+Une seconde migration forward-only ajoute le garde réel par lot : taille de base
++ 1 Mo de marge pour le lot doit rester sous 375 Mo, sinon l'import s'arrête.
 
 NetCDF, checkpoints PRA, manifest et cache restent sous `work/task22`, hors
 PostgreSQL et Supabase Storage. Spool brut limité à 2 Gio, trois acquisitions,

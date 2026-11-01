@@ -21,6 +21,8 @@ def persist() -> None:
         raise ValueError("Annual completeness and measured budget required")
     if manifest["normal_cache_sha256"] != core.checksum(ROOT / "normal-cache.npz"):
         raise ValueError("Annual cache checksum mismatch")
+    if manifest["task21_export_sha256"] != core.checksum(ROOT / "task21-export.json"):
+        raise ValueError("Immutable Task21 export checksum mismatch")
     core.LABEL = "national"
     _, expected_ids = core.verify_bundle()
     with np.load(ROOT / "normal-cache.npz", allow_pickle=False) as cache:
@@ -72,6 +74,9 @@ def persist() -> None:
         "precision": "float32 normals as Task21; no derived anomalies persisted",
         "task21_reused_scalars": manifest["reused_task21_scalars"],
         "task21_export_sha256": manifest["task21_export_sha256"],
+        "task21_reference_release": json.loads(
+            (ROOT / "task21-export.json").read_text()
+        )[0]["payload"]["release"]["version"],
     }
     version = (
         "era5land-pra1991-2020-annual-compact-v1-"
