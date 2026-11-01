@@ -36,7 +36,8 @@ Projection : 260 245 lignes pour 365 jours, **260 958** pour les 366 positions
 calendaires ; **26,284852 Mo** supplémentaires. Base totale projetée :
 **159,414592 Mo**, en conservant Task21, avec 50 % de marge sur l'ajout,
 30 Mo de réserve et 1 Mo de métadonnées. L'ancien modèle est écarté.
-Voir `storage-budget.json` et le script de mesure reproductible.
+La même mesure est confirmée octet pour octet par PostgreSQL 17 natif
+(`native-budget.json`). Voir `storage-budget.json` et le script reproductible.
 
 ## Sécurité et reprise
 
