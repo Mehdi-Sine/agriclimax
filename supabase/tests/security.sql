@@ -47,22 +47,44 @@ end $$;
 reset role;
 
 do $$
-declare t regclass; n integer; response jsonb;
+declare t regclass; f regprocedure; n integer; response jsonb;
 begin
   if not exists(select 1 from pg_extension where extname='postgis') then raise exception 'PostGIS missing'; end if;
   if not exists(select 1 from pg_indexes where indexname='grid_cells_geom_gix' and indexdef like '%gist%') then raise exception 'GiST missing'; end if;
   select count(*) into n from pg_class c join pg_namespace s on s.oid=c.relnamespace
     where s.nspname in ('public','agriclimax_private') and c.relkind='r'
       and c.relname <> 'spatial_ref_sys' and c.relrowsecurity and c.relforcerowsecurity;
-  if n <> 30 then raise exception 'Expected 30 RLS tables, got %', n; end if;
+  if n <> 33 then raise exception 'Expected 33 RLS tables, got %', n; end if;
   foreach t in array array['public.risk_results'::regclass, 'public.grid_cells'::regclass,
     'agriclimax_private.observations'::regclass, 'agriclimax_private.rule_versions'::regclass,
     'agriclimax_private.parameter_versions'::regclass, 'agriclimax_private.run_manifests'::regclass,
     'agriclimax_private.weather_stations'::regclass,
-    'agriclimax_private.station_weather_batches'::regclass] loop
+    'agriclimax_private.station_weather_batches'::regclass,
+    'agriclimax_private.pra_climatology_releases'::regclass,
+    'agriclimax_private.pra_climatology_support'::regclass,
+    'agriclimax_private.pra_climatology_normals'::regclass] loop
     if has_table_privilege('anon', t, 'SELECT,INSERT,UPDATE,DELETE')
       or has_table_privilege('authenticated', t, 'SELECT,INSERT,UPDATE,DELETE') then
       raise exception 'Client table privilege leak: %', t;
+    end if;
+  end loop;
+  foreach t in array array['agriclimax_private.pra_climatology_releases'::regclass,
+    'agriclimax_private.pra_climatology_support'::regclass,
+    'agriclimax_private.pra_climatology_normals'::regclass] loop
+    if not (select relrowsecurity and relforcerowsecurity from pg_class where oid=t)
+      or not has_table_privilege('service_role',t,'SELECT,INSERT')
+      or has_table_privilege('service_role',t,'UPDATE,DELETE') then
+      raise exception 'Climatology table not protected/append-only: %', t;
+    end if;
+  end loop;
+  foreach f in array array[
+    'public.agriclimax_persist_pra_climatology(text,text,jsonb,jsonb)'::regprocedure,
+    'public.agriclimax_pra_climatology_read(text,text,text,date,date)'::regprocedure] loop
+    if has_function_privilege('anon',f,'EXECUTE')
+      or has_function_privilege('authenticated',f,'EXECUTE')
+      or not has_function_privilege('service_role',f,'EXECUTE')
+      or (select prosecdef from pg_proc where oid=f) then
+      raise exception 'Climatology RPC not server-only SECURITY INVOKER: %', f;
     end if;
   end loop;
   if (select rolbypassrls from pg_roles where rolname='agriclimax_api_reader')
