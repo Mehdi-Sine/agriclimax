@@ -1,0 +1,19 @@
+{
+  "engine": "PGlite PostgreSQL 17 local WASM",
+  "source": "actual immutable Task21 daily aggregates",
+  "rows": 21390,
+  "heap_bytes": 1449984,
+  "index_bytes": 671744,
+  "total_bytes": 2154496,
+  "bytes_per_pra_day": 100.72445067788686,
+  "annual_rows_365": 260245,
+  "annual_rows_366": 260958,
+  "annual_bytes": 26284852,
+  "database_baseline": 88987315,
+  "margin": 0.5,
+  "growth_reserve": 30000000,
+  "metadata_reserve": 1000000,
+  "projected_total_database_bytes": 159414592,
+  "ceiling": 375000000,
+  "validated": true
+}
