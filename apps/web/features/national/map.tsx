@@ -3,8 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 import type { Map as LibreMap, ExpressionSpecification } from 'maplibre-gl';
 import type { FeatureCollection, Geometry } from 'geojson';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { availability } from './model';
+import { anomalyBand, availability, type ClimateContextRow } from './model';
 import type { TerritoryRow } from '../../lib/server/territories';
+
 export type PraProperties = {
   code: string;
   name: string;
@@ -12,26 +13,38 @@ export type PraProperties = {
   region_name: string;
 };
 export type PraCollection = FeatureCollection<Geometry, PraProperties>;
+
 export default function NationalMap({
   collection,
   rows,
+  contextRows,
+  mode,
   selected,
   onSelect,
 }: {
   collection: PraCollection;
   rows: TerritoryRow[] | null;
+  contextRows: ClimateContextRow[] | null;
+  mode: 'availability' | 'anomaly';
   selected: string;
   onSelect: (id: string) => void;
 }) {
   const container = useRef<HTMLDivElement>(null),
     map = useRef<LibreMap | null>(null),
-    select = useRef(onSelect);
+    select = useRef(onSelect),
+    modeRef = useRef(mode);
   const [ready, setReady] = useState(false),
     [failed, setFailed] = useState(false),
     [hover, setHover] = useState('');
+
   useEffect(() => {
     select.current = onSelect;
   }, [onSelect]);
+
+  useEffect(() => {
+    modeRef.current = mode;
+  }, [mode]);
+
   useEffect(() => {
     let disposed = false;
     async function setup() {
@@ -41,15 +54,21 @@ export default function NationalMap({
         lib.setWorkerUrl('/maps/maplibre/maplibre-gl-worker.mjs');
         const css = getComputedStyle(document.documentElement),
           color = (token: string) => css.getPropertyValue(token).trim();
-        const stateColor: ExpressionSpecification = [
+        const fill: ExpressionSpecification = [
           'match',
-          ['coalesce', ['feature-state', 'availability'], 'absent'],
+          ['coalesce', ['feature-state', 'display'], 'missing'],
           'complete',
           color('--national-complete'),
           'partial',
           color('--national-partial'),
           'unavailable',
           color('--national-unavailable'),
+          'above',
+          color('--national-anomaly-above'),
+          'near',
+          color('--national-anomaly-near'),
+          'below',
+          color('--national-anomaly-below'),
           color('--surface-subtle'),
         ];
         const m = new lib.Map({
@@ -94,7 +113,7 @@ export default function NationalMap({
             id: 'pra-fill',
             type: 'fill',
             source: 'pra',
-            paint: { 'fill-color': stateColor, 'fill-opacity': 0.8 },
+            paint: { 'fill-color': fill, 'fill-opacity': 0.8 },
           });
           m.addLayer({
             id: 'pra-outline',
@@ -117,10 +136,14 @@ export default function NationalMap({
           m.on('mousemove', 'pra-fill', (e) => {
             m.getCanvas().style.cursor = 'pointer';
             const f = e.features?.[0],
-              p = f?.properties;
+              p = f?.properties,
+              display = f?.state?.display || 'missing',
+              anomaly = f?.state?.anomaly;
             setHover(
               p
-                ? `${p.name} · ${p.code} · ${f?.state?.availability || 'absent'}`
+                ? modeRef.current === 'anomaly' && typeof anomaly === 'number'
+                  ? `${p.name} · ${p.code} · anomalie ${anomaly > 0 ? '+' : ''}${anomaly.toFixed(2)}`
+                  : `${p.name} · ${p.code} · ${display}`
                 : '',
             );
           });
@@ -142,18 +165,28 @@ export default function NationalMap({
       map.current = null;
     };
   }, [collection]);
+
   useEffect(() => {
     if (!ready || !map.current) return;
     const byId = new Map(rows?.map((r) => [r.id, r]));
-    for (const f of collection.features)
+    const contextById = new Map(contextRows?.map((r) => [r.pra_id, r]));
+    for (const f of collection.features) {
+      const id = String(f.id);
+      const climate = contextById.get(id);
       map.current.setFeatureState(
         { source: 'pra', id: f.properties.code },
         {
-          availability: availability(byId.get(String(f.id))),
+          display:
+            mode === 'anomaly'
+              ? anomalyBand(climate?.anomaly)
+              : availability(byId.get(id)),
+          anomaly: climate?.anomaly ?? null,
           selected: f.id === selected,
         },
       );
-  }, [ready, rows, selected, collection]);
+    }
+  }, [ready, rows, contextRows, mode, selected, collection]);
+
   useEffect(() => {
     if (!ready || !map.current || !selected) return;
     const geometry = collection.features.find(
@@ -176,7 +209,7 @@ export default function NationalMap({
       { padding: 45, maxZoom: 10, duration: 0 },
     );
   }, [ready, selected, collection]);
-  // Source coordinates are immutable; date changes update feature-state only.
+
   return (
     <section aria-label="Carte des 713 PRA" className="national-map-wrap">
       <button
@@ -198,6 +231,7 @@ export default function NationalMap({
         className="national-map"
         data-ready={ready}
         data-feature-count={collection.features.length}
+        data-mode={mode}
       />
       {!ready && !failed && <p role="status">Chargement des 713 contours…</p>}
       {failed && (
