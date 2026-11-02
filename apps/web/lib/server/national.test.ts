@@ -122,3 +122,61 @@ it('network failures never expose credentials or a fallback dataset', async () =
   expect(r.status).toBe(502);
   expect(await r.json()).toEqual({ error: 'UPSTREAM_UNAVAILABLE' });
 });
+
+
+it('serves bounded national anomaly context without exposing credentials', async () => {
+  configure();
+  let call = 0;
+  const f = vi.fn<typeof fetch>().mockImplementation(async (_url, options) => {
+    const q = JSON.parse(String(options?.body));
+    call++;
+    const start = call === 1 ? 1 : call === 2 ? 101 : call === 3 ? 201 : call === 4 ? 301 : call === 5 ? 401 : call === 6 ? 501 : call === 7 ? 601 : 701;
+    const count = call < 8 ? 100 : 13;
+    return Response.json({
+      status: 'available',
+      data: Array.from({ length: count }, (_, i) => ({
+        pra_id: `pra:${String(start + i).padStart(5, '0')}`,
+        current_status: 'available',
+        current_value: 12,
+        normal_1991_2020: 10,
+        anomaly: 2,
+        sample_years: 30,
+        expected_years: 30,
+        reference_coverage: 1,
+        current_coverage: 1,
+        status: 'available',
+        normal_status: 'available',
+      })),
+      next_cursor: call < 8 ? `pra:${String(start + count - 1).padStart(5, '0')}` : null,
+    });
+  });
+  const response = await readNational(
+    new Request(
+      'https://test/api/national?action=context-day&date=2026-10-18&variable=temperature',
+    ),
+    f,
+  );
+  expect(response.status).toBe(200);
+  const raw = await response.json();
+  expect(raw.data).toHaveLength(713);
+  expect(raw.data[0].anomaly).toBe(2);
+  expect(raw.reference_period).toEqual([1991, 2020]);
+  expect(JSON.stringify(raw)).not.toContain('synthetic-private-key');
+});
+
+it('rejects unbounded or unknown context selectors before calling Supabase', async () => {
+  configure();
+  const f = vi.fn<typeof fetch>();
+  for (const query of [
+    '?action=context-day&date=2026-10-18&variable=humidity',
+    '?action=context-history&pra=station:1',
+    '?action=context-day&date=2026-10-19&variable=temperature',
+  ]) {
+    const response = await readNational(
+      new Request(`https://test/api/national${query}`),
+      f,
+    );
+    expect(response.status).toBe(400);
+  }
+  expect(f).not.toHaveBeenCalled();
+});
