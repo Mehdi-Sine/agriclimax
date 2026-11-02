@@ -1,0 +1,7 @@
+{
+  "version": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+  "reason": "Task21 export had legacy six-significant-digit JSON serialization; superseded by exact binary copy",
+  "affected_scalars": 75543,
+  "retained_private_for_immutability": true,
+  "extra_storage_bytes_approx": 25903104
+}

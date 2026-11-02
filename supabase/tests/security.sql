@@ -54,7 +54,7 @@ begin
   select count(*) into n from pg_class c join pg_namespace s on s.oid=c.relnamespace
     where s.nspname in ('public','agriclimax_private') and c.relkind='r'
       and c.relname <> 'spatial_ref_sys' and c.relrowsecurity and c.relforcerowsecurity;
-  if n <> 33 then raise exception 'Expected 33 RLS tables, got %', n; end if;
+  if n <> 34 then raise exception 'Expected 34 RLS tables, got %', n; end if;
   foreach t in array array['public.risk_results'::regclass, 'public.grid_cells'::regclass,
     'agriclimax_private.observations'::regclass, 'agriclimax_private.rule_versions'::regclass,
     'agriclimax_private.parameter_versions'::regclass, 'agriclimax_private.run_manifests'::regclass,
@@ -62,7 +62,8 @@ begin
     'agriclimax_private.station_weather_batches'::regclass,
     'agriclimax_private.pra_climatology_releases'::regclass,
     'agriclimax_private.pra_climatology_support'::regclass,
-    'agriclimax_private.pra_climatology_normals'::regclass] loop
+    'agriclimax_private.pra_climatology_normals'::regclass,
+    'agriclimax_private.pra_climatology_daily'::regclass] loop
     if has_table_privilege('anon', t, 'SELECT,INSERT,UPDATE,DELETE')
       or has_table_privilege('authenticated', t, 'SELECT,INSERT,UPDATE,DELETE') then
       raise exception 'Client table privilege leak: %', t;
@@ -70,7 +71,8 @@ begin
   end loop;
   foreach t in array array['agriclimax_private.pra_climatology_releases'::regclass,
     'agriclimax_private.pra_climatology_support'::regclass,
-    'agriclimax_private.pra_climatology_normals'::regclass] loop
+    'agriclimax_private.pra_climatology_normals'::regclass,
+    'agriclimax_private.pra_climatology_daily'::regclass] loop
     if not (select relrowsecurity and relforcerowsecurity from pg_class where oid=t)
       or not has_table_privilege('service_role',t,'SELECT,INSERT')
       or has_table_privilege('service_role',t,'UPDATE,DELETE') then
@@ -79,7 +81,9 @@ begin
   end loop;
   foreach f in array array[
     'public.agriclimax_persist_pra_climatology(text,text,jsonb,jsonb)'::regprocedure,
-    'public.agriclimax_pra_climatology_read(text,text,text,date,date)'::regprocedure] loop
+    'public.agriclimax_pra_climatology_read(text,text,text,date,date)'::regprocedure,
+    'public.agriclimax_persist_pra_climatology_daily(text,text,jsonb,jsonb)'::regprocedure,
+    'public.agriclimax_pra_climatology_daily_read(text,text,text,date,date)'::regprocedure] loop
     if has_function_privilege('anon',f,'EXECUTE')
       or has_function_privilege('authenticated',f,'EXECUTE')
       or not has_function_privilege('service_role',f,'EXECUTE')
