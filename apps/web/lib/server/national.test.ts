@@ -62,7 +62,6 @@ it('cannot pass partial national pagination off as all 713', async () => {
 it('reads precisely one PRA across both months and preserves unavailable NULLs', async () => {
   configure();
   const f = vi.fn<typeof fetch>().mockImplementation(async (_url, options) => {
-    const q = JSON.parse(String(options?.body));
     return Response.json({
       source_id: 'era5-land',
       source_kind: 'reanalysis',
