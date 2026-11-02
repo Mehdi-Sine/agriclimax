@@ -2,8 +2,11 @@
 
 import calendar
 import runpy
+import struct
 from datetime import date, timedelta
 from pathlib import Path
+
+import pytest
 
 
 def test_plan_acquires_exactly_remaining_gregorian_days(monkeypatch):
@@ -37,3 +40,16 @@ def test_plan_acquires_exactly_remaining_gregorian_days(monkeypatch):
     assert actual == expected
     assert sum(d.month == 2 and d.day == 29 and v == 0 for d, v in actual) == 8
     assert (date(2020, 12, 31), 3) in actual
+
+
+def test_reused_normals_require_binary_precision(monkeypatch):
+    scripts = Path(__file__).resolve().parents[3] / "scripts"
+    monkeypatch.syspath_prepend(str(scripts))
+    functions = runpy.run_path(str(scripts / "pra_climatology_compact.py"))
+    original = struct.unpack("!f", struct.pack("!f", 11.7900638580322265625))[0]
+    binary = {"rows": [["pra:01001", "09-19", 0, struct.pack("!f", original).hex(), 30]]}
+    functions["verify_task21_binary"]({"rows": [["pra:01001", "09-19", 0, original, 30]]}, binary)
+    with pytest.raises(ValueError, match="lost original float32 precision"):
+        functions["verify_task21_binary"](
+            {"rows": [["pra:01001", "09-19", 0, 11.7901, 30]]}, binary
+        )

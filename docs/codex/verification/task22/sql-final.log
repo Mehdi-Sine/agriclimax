@@ -3,5 +3,6 @@ PASS migration 20261031131609_pra_climatology_fk_indexes.sql
 PASS migration 20261101063357_pra_climatology_daily_compact.sql
 PASS migration 20261101070230_pra_climatology_daily_capacity_guard.sql
 PASS migration 20261102062532_pra_climatology_daily_json_precision.sql
+PASS migration 20261102064147_pra_climatology_superseded_release_guard.sql
 PASS tests pra_climatology.sql
 PASS tests pra_climatology_daily.sql

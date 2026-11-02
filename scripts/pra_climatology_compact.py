@@ -5,6 +5,7 @@ from __future__ import annotations
 import calendar
 import concurrent.futures
 import json
+import struct
 import time
 from datetime import date, timedelta
 from pathlib import Path
@@ -18,6 +19,24 @@ from pra_climatology_annual import reduce_file, save_npz, support
 ROOT = Path("work/task22")
 EVIDENCE = Path("docs/codex/verification/task22")
 METHOD = "pra-compact-daily-1"
+
+
+def verify_task21_binary(exported: dict[str, Any], binary: dict[str, Any]) -> None:
+    """Reject a rounded JSON export before reusing immutable float32 normals."""
+    if len(exported["rows"]) != len(binary["rows"]):
+        raise ValueError("Task21 binary export row count mismatch")
+    for row, original in zip(exported["rows"], binary["rows"]):
+        if row[:3] != original[:3] or row[4] != original[4]:
+            raise ValueError("Task21 binary export key/count mismatch")
+        expected = (
+            None
+            if original[3] is None
+            else struct.unpack("!f", bytes.fromhex(original[3]))[0]
+        )
+        if (row[3] is None) != (expected is None) or (
+            expected is not None and np.float32(row[3]) != expected
+        ):
+            raise ValueError("Task21 JSON export lost original float32 precision")
 
 
 def reused_days() -> set[int]:
@@ -53,6 +72,10 @@ def execute() -> None:
     ):
         raise ValueError("Measured compact storage budget required")
     exported = json.loads((ROOT / "task21-export.json").read_text())[0]["payload"]
+    verify_task21_binary(
+        exported,
+        json.loads((ROOT / "task21-binary-export.json").read_text())[0]["payload"],
+    )
     if (ROOT / "manifest.json").exists():
         manifest = json.loads((ROOT / "manifest.json").read_text())
         if (
@@ -198,6 +221,7 @@ def execute() -> None:
             "available_scalars": int(np.isfinite(normals).sum()),
             "reused_task21_scalars": len(seen),
             "task21_export_sha256": core.checksum(ROOT / "task21-export.json"),
+            "task21_export_precision": "float4send binary decoded; no decimal truncation",
             "normal_cache_sha256": core.checksum(ROOT / "normal-cache.npz"),
             "sources": sorted(metadata, key=lambda s: core.identity(s["request"])),
             "seconds": time.monotonic() - mark,

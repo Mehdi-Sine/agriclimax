@@ -2,13 +2,13 @@
   "examples": [
     {
       "end": "2026-10-18",
-      "milliseconds": 308.96434600003886,
+      "milliseconds": 328.78293199996733,
       "pra_id": "pra:28341",
       "response": {
         "current_dataset": "era5land-national-20260919-20261018-v1",
         "data": [
           {
-            "anomaly": 0.3975639343261719,
+            "anomaly": 0.3975496292114258,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -37,7 +37,7 @@
             "date": "2026-09-19",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 11.3925,
+            "normal_1991_2020": 11.392514,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -46,7 +46,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 4.2161102294921875,
+            "anomaly": 4.216062545776367,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -75,7 +75,7 @@
             "date": "2026-09-19",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 20.0283,
+            "normal_1991_2020": 20.028347,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -84,7 +84,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 2.2588634490966797,
+            "anomaly": 2.2588882446289062,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -113,7 +113,7 @@
             "date": "2026-09-19",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 15.5343,
+            "normal_1991_2020": 15.534275,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -122,7 +122,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -2.9228509530657902,
+            "anomaly": -2.9228521451586857,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -151,7 +151,7 @@
             "date": "2026-09-19",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 2.92457,
+            "normal_1991_2020": 2.9245713,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -160,7 +160,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 0.9409494400024414,
+            "anomaly": 0.9409675598144531,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -189,7 +189,7 @@
             "date": "2026-09-20",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.9497,
+            "normal_1991_2020": 10.949682,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -198,7 +198,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 3.601837158203125,
+            "anomaly": 3.601839065551758,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -227,7 +227,7 @@
             "date": "2026-09-20",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 20.3966,
+            "normal_1991_2020": 20.396599,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -236,7 +236,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 2.5251903533935547,
+            "anomaly": 2.525178909301758,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -265,7 +265,7 @@
             "date": "2026-09-20",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 15.5886,
+            "normal_1991_2020": 15.588612,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -274,7 +274,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.2332319729030132,
+            "anomaly": -1.2332274429500103,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -303,7 +303,7 @@
             "date": "2026-09-20",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.27876,
+            "normal_1991_2020": 1.2787554,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -312,7 +312,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 2.0084362030029297,
+            "anomaly": 2.0083866119384766,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -341,7 +341,7 @@
             "date": "2026-09-21",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.6255,
+            "normal_1991_2020": 10.625549,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -350,7 +350,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 2.5760059356689453,
+            "anomaly": 2.5759963989257812,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -379,7 +379,7 @@
             "date": "2026-09-21",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 20.7967,
+            "normal_1991_2020": 20.79671,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -388,7 +388,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 2.057511329650879,
+            "anomaly": 2.0575027465820312,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -417,7 +417,7 @@
             "date": "2026-09-21",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 15.758,
+            "normal_1991_2020": 15.758009,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -426,7 +426,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.487210939754732,
+            "anomaly": -1.4872152312891558,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -455,7 +455,7 @@
             "date": "2026-09-21",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.48828,
+            "normal_1991_2020": 1.4882843,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -464,7 +464,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 0.47741222381591797,
+            "anomaly": 0.4774169921875,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -493,7 +493,7 @@
             "date": "2026-09-22",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 11.1127,
+            "normal_1991_2020": 11.112696,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -502,7 +502,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 4.509057998657227,
+            "anomaly": 4.509101867675781,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -531,7 +531,7 @@
             "date": "2026-09-22",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 19.8573,
+            "normal_1991_2020": 19.857256,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -540,7 +540,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 2.3272523880004883,
+            "anomaly": 2.3272485733032227,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -569,7 +569,7 @@
             "date": "2026-09-22",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 15.4735,
+            "normal_1991_2020": 15.473504,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -578,7 +578,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.7667984971776605,
+            "anomaly": -1.7667952785268426,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -607,7 +607,7 @@
             "date": "2026-09-22",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.76808,
+            "normal_1991_2020": 1.7680768,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -616,7 +616,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": -0.26531982421875,
+            "anomaly": -0.2653007507324219,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -645,7 +645,7 @@
             "date": "2026-09-23",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 11.3724,
+            "normal_1991_2020": 11.372381,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -654,7 +654,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 6.126777648925781,
+            "anomaly": 6.126825332641602,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -683,7 +683,7 @@
             "date": "2026-09-23",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 20.3575,
+            "normal_1991_2020": 20.357452,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -692,7 +692,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 3.3289499282836914,
+            "anomaly": 3.328920364379883,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -721,7 +721,7 @@
             "date": "2026-09-23",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 15.6907,
+            "normal_1991_2020": 15.690729,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -730,7 +730,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.6539338827424217,
+            "anomaly": -1.6539341211610008,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -759,7 +759,7 @@
             "date": "2026-09-23",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.65436,
+            "normal_1991_2020": 1.6543603,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -768,7 +768,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 1.5733613967895508,
+            "anomaly": 1.5733251571655273,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -797,7 +797,7 @@
             "date": "2026-09-24",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.9064,
+            "normal_1991_2020": 10.906436,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -844,7 +844,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 3.8412160873413086,
+            "anomaly": 3.8412275314331055,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -873,7 +873,7 @@
             "date": "2026-09-24",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 14.9551,
+            "normal_1991_2020": 14.955089,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -882,7 +882,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.978060007095337,
+            "anomaly": -1.9780631065368652,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -911,7 +911,7 @@
             "date": "2026-09-24",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.97806,
+            "normal_1991_2020": 1.9780631,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -920,7 +920,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 1.8752870559692383,
+            "anomaly": 1.8752822875976562,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -949,7 +949,7 @@
             "date": "2026-09-25",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.5659,
+            "normal_1991_2020": 10.565905,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -958,7 +958,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 9.699821472167969,
+            "anomaly": 9.699785232543945,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -987,7 +987,7 @@
             "date": "2026-09-25",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 18.866,
+            "normal_1991_2020": 18.866035,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -996,7 +996,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 5.9284868240356445,
+            "anomaly": 5.928509712219238,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -1025,7 +1025,7 @@
             "date": "2026-09-25",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 14.5551,
+            "normal_1991_2020": 14.555078,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1034,7 +1034,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.6585584888234735,
+            "anomaly": -1.6585543164983392,
             "calendar_years": 30,
             "current_batch_key": "a84af2c3ef145fe7e102c23386c49a28effc5c01df7ace5a64d879200a3448b7",
             "current_coverage": [
@@ -1063,7 +1063,7 @@
             "date": "2026-09-25",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.65984,
+            "normal_1991_2020": 1.6598358,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1072,7 +1072,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 3.59783935546875,
+            "anomaly": 3.597813606262207,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1101,7 +1101,7 @@
             "date": "2026-09-26",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.2969,
+            "normal_1991_2020": 10.296926,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1110,7 +1110,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 4.7086029052734375,
+            "anomaly": 4.708599090576172,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1139,7 +1139,7 @@
             "date": "2026-09-26",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 19.2194,
+            "normal_1991_2020": 19.219404,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1148,7 +1148,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 3.950559616088867,
+            "anomaly": 3.950575828552246,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1177,7 +1177,7 @@
             "date": "2026-09-26",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 14.5993,
+            "normal_1991_2020": 14.599284,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1186,7 +1186,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.4475193656980991,
+            "anomaly": -1.4475171007215977,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1215,7 +1215,7 @@
             "date": "2026-09-26",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.45378,
+            "normal_1991_2020": 1.4537778,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1224,7 +1224,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 1.1930961608886719,
+            "anomaly": 1.1931066513061523,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1253,7 +1253,7 @@
             "date": "2026-09-27",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.6154,
+            "normal_1991_2020": 10.61539,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1262,7 +1262,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 8.047199249267578,
+            "anomaly": 8.047159194946289,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1291,7 +1291,7 @@
             "date": "2026-09-27",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 19.2851,
+            "normal_1991_2020": 19.285141,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1300,7 +1300,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 4.606882095336914,
+            "anomaly": 4.606846809387207,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1329,7 +1329,7 @@
             "date": "2026-09-27",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 14.8456,
+            "normal_1991_2020": 14.845635,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1338,7 +1338,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.6633148982655257,
+            "anomaly": -1.6633178784977645,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1367,7 +1367,7 @@
             "date": "2026-09-27",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.66582,
+            "normal_1991_2020": 1.665823,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1376,7 +1376,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 4.961474418640137,
+            "anomaly": 4.961478233337402,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1405,7 +1405,7 @@
             "date": "2026-09-28",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.887,
+            "normal_1991_2020": 10.886996,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1414,7 +1414,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 5.276941299438477,
+            "anomaly": 5.276922225952148,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1443,7 +1443,7 @@
             "date": "2026-09-28",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 19.2016,
+            "normal_1991_2020": 19.201618,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1452,7 +1452,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 4.578826904296875,
+            "anomaly": 4.57880973815918,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1481,7 +1481,7 @@
             "date": "2026-09-28",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 14.8437,
+            "normal_1991_2020": 14.843718,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1490,7 +1490,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": 0.4165377616882324,
+            "anomaly": 0.41653525829315186,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1519,7 +1519,7 @@
             "date": "2026-09-28",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.96738,
+            "normal_1991_2020": 1.9673826,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1528,7 +1528,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 5.459550857543945,
+            "anomaly": 5.45952033996582,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1557,7 +1557,7 @@
             "date": "2026-09-29",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.93,
+            "normal_1991_2020": 10.930031,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1566,7 +1566,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 9.204740524291992,
+            "anomaly": 9.204753875732422,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1595,7 +1595,7 @@
             "date": "2026-09-29",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 19.2998,
+            "normal_1991_2020": 19.299788,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1604,7 +1604,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 7.3177995681762695,
+            "anomaly": 7.317776679992676,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1633,7 +1633,7 @@
             "date": "2026-09-29",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 14.8828,
+            "normal_1991_2020": 14.882823,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1642,7 +1642,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -2.0138387493789196,
+            "anomaly": -2.013837557286024,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1671,7 +1671,7 @@
             "date": "2026-09-29",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 2.03134,
+            "normal_1991_2020": 2.0313387,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1680,7 +1680,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 6.649019241333008,
+            "anomaly": 6.648983001708984,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1709,7 +1709,7 @@
             "date": "2026-09-30",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.1455,
+            "normal_1991_2020": 10.145536,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1718,7 +1718,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 3.2923431396484375,
+            "anomaly": 3.2923641204833984,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1747,7 +1747,7 @@
             "date": "2026-09-30",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 19.2559,
+            "normal_1991_2020": 19.255878,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1756,7 +1756,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 5.736019134521484,
+            "anomaly": 5.736048698425293,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1785,7 +1785,7 @@
             "date": "2026-09-30",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 14.6283,
+            "normal_1991_2020": 14.62827,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1794,7 +1794,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": 21.851662278175354,
+            "anomaly": 21.85165786743164,
             "calendar_years": 30,
             "current_batch_key": "d47afc2409162c5d6a8c83fa63292b83f770ab538a98df1c316c8100620d0a6b",
             "current_coverage": [
@@ -1823,7 +1823,7 @@
             "date": "2026-09-30",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.80693,
+            "normal_1991_2020": 1.8069344,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1832,7 +1832,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 0.9817409515380859,
+            "anomaly": 0.9817399978637695,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -1861,7 +1861,7 @@
             "date": "2026-10-01",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 11.2374,
+            "normal_1991_2020": 11.237401,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1870,7 +1870,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 2.515026092529297,
+            "anomaly": 2.514995574951172,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -1899,7 +1899,7 @@
             "date": "2026-10-01",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 18.4308,
+            "normal_1991_2020": 18.43083,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1908,7 +1908,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 2.211315155029297,
+            "anomaly": 2.2113571166992188,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -1937,7 +1937,7 @@
             "date": "2026-10-01",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 14.74,
+            "normal_1991_2020": 14.739958,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1946,7 +1946,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -0.9486119747161865,
+            "anomaly": -0.9486117362976074,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -1975,7 +1975,7 @@
             "date": "2026-10-01",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 3.46655,
+            "normal_1991_2020": 3.4665499,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -1984,7 +1984,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": -1.5723724365234375,
+            "anomaly": -1.5723791122436523,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2013,7 +2013,7 @@
             "date": "2026-10-02",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 11.1598,
+            "normal_1991_2020": 11.159806,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2022,7 +2022,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 2.1267166137695312,
+            "anomaly": 2.126737594604492,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2051,7 +2051,7 @@
             "date": "2026-10-02",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 18.2502,
+            "normal_1991_2020": 18.25018,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2060,7 +2060,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 0.6994724273681641,
+            "anomaly": 0.6994514465332031,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2089,7 +2089,7 @@
             "date": "2026-10-02",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 14.5676,
+            "normal_1991_2020": 14.567621,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2098,7 +2098,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -2.943939074379159,
+            "anomaly": -2.9439393127977382,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2127,7 +2127,7 @@
             "date": "2026-10-02",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 2.94431,
+            "normal_1991_2020": 2.9443102,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2136,7 +2136,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 0.6276302337646484,
+            "anomaly": 0.6276750564575195,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2165,7 +2165,7 @@
             "date": "2026-10-03",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.3503,
+            "normal_1991_2020": 10.350255,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2174,7 +2174,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 4.035322189331055,
+            "anomaly": 4.035280227661133,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2203,7 +2203,7 @@
             "date": "2026-10-03",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 17.5778,
+            "normal_1991_2020": 17.577843,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2212,7 +2212,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 2.575568199157715,
+            "anomaly": 2.575593948364258,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2241,7 +2241,7 @@
             "date": "2026-10-03",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 13.8627,
+            "normal_1991_2020": 13.862675,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2250,7 +2250,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": 0.7693812847137451,
+            "anomaly": 0.7693815231323242,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2279,7 +2279,7 @@
             "date": "2026-10-03",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 2.6354,
+            "normal_1991_2020": 2.6353998,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2288,7 +2288,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 2.320021629333496,
+            "anomaly": 2.320058822631836,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2317,7 +2317,7 @@
             "date": "2026-10-04",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.1739,
+            "normal_1991_2020": 10.173862,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2326,7 +2326,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 5.332309722900391,
+            "anomaly": 5.33233642578125,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2355,7 +2355,7 @@
             "date": "2026-10-04",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 17.5017,
+            "normal_1991_2020": 17.501673,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2364,7 +2364,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 3.8239030838012695,
+            "anomaly": 3.8239450454711914,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2393,7 +2393,7 @@
             "date": "2026-10-04",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 13.7233,
+            "normal_1991_2020": 13.723258,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2402,7 +2402,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.5362685918807983,
+            "anomaly": -1.5362693071365356,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2431,7 +2431,7 @@
             "date": "2026-10-04",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 2.26173,
+            "normal_1991_2020": 2.2617307,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2440,7 +2440,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 2.0251502990722656,
+            "anomaly": 2.0251541137695312,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2469,7 +2469,7 @@
             "date": "2026-10-05",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 9.90737,
+            "normal_1991_2020": 9.907366,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2478,7 +2478,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 7.176403045654297,
+            "anomaly": 7.176410675048828,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2507,7 +2507,7 @@
             "date": "2026-10-05",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 17.0287,
+            "normal_1991_2020": 17.028692,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2516,7 +2516,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 4.268695831298828,
+            "anomaly": 4.268706321716309,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2545,7 +2545,7 @@
             "date": "2026-10-05",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 13.3752,
+            "normal_1991_2020": 13.37519,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2554,7 +2554,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.7591700553894043,
+            "anomaly": -1.7591729164123535,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2583,7 +2583,7 @@
             "date": "2026-10-05",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.75917,
+            "normal_1991_2020": 1.7591729,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2592,7 +2592,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 1.1749687194824219,
+            "anomaly": 1.174947738647461,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2621,7 +2621,7 @@
             "date": "2026-10-06",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.1826,
+            "normal_1991_2020": 10.182621,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2630,7 +2630,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 7.696687698364258,
+            "anomaly": 7.696678161621094,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2659,7 +2659,7 @@
             "date": "2026-10-06",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 17.0653,
+            "normal_1991_2020": 17.06531,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2668,7 +2668,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 4.641352653503418,
+            "anomaly": 4.64139461517334,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2697,7 +2697,7 @@
             "date": "2026-10-06",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 13.3709,
+            "normal_1991_2020": 13.370858,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2706,7 +2706,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -2.31588602316333,
+            "anomaly": -2.315886261581909,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2735,7 +2735,7 @@
             "date": "2026-10-06",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 2.31674,
+            "normal_1991_2020": 2.3167403,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2744,7 +2744,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 2.878459930419922,
+            "anomaly": 2.87845516204834,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2773,7 +2773,7 @@
             "date": "2026-10-07",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 9.6201,
+            "normal_1991_2020": 9.620105,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2782,7 +2782,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 1.6360187530517578,
+            "anomaly": 1.6360530853271484,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2811,7 +2811,7 @@
             "date": "2026-10-07",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 16.501,
+            "normal_1991_2020": 16.500965,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2820,7 +2820,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 3.2771472930908203,
+            "anomaly": 3.2771129608154297,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2849,7 +2849,7 @@
             "date": "2026-10-07",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 12.8811,
+            "normal_1991_2020": 12.881134,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2858,7 +2858,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": 12.760748147964478,
+            "anomaly": 12.760750770568848,
             "calendar_years": 30,
             "current_batch_key": "265548f10fda5deb2bd8a7e23909aa44b0ba1189548a1267b82945d8b582c184",
             "current_coverage": [
@@ -2887,7 +2887,7 @@
             "date": "2026-10-07",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.42996,
+            "normal_1991_2020": 1.4299574,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2896,7 +2896,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": -2.9724440574645996,
+            "anomaly": -2.9724459648132324,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -2925,7 +2925,7 @@
             "date": "2026-10-08",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 9.78448,
+            "normal_1991_2020": 9.784482,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2934,7 +2934,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": -1.7060127258300781,
+            "anomaly": -1.7060565948486328,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -2963,7 +2963,7 @@
             "date": "2026-10-08",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 17.2805,
+            "normal_1991_2020": 17.280544,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -2972,7 +2972,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": -1.323817253112793,
+            "anomaly": -1.3237857818603516,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3001,7 +3001,7 @@
             "date": "2026-10-08",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 13.3385,
+            "normal_1991_2020": 13.338469,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3010,7 +3010,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.9696369767189026,
+            "anomaly": -1.9696350693702698,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3039,7 +3039,7 @@
             "date": "2026-10-08",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 2.62335,
+            "normal_1991_2020": 2.623348,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3048,7 +3048,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": -3.6769957542419434,
+            "anomaly": -3.6769652366638184,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3077,7 +3077,7 @@
             "date": "2026-10-09",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.381,
+            "normal_1991_2020": 10.380969,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3086,7 +3086,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 0.053974151611328125,
+            "anomaly": 0.053981781005859375,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3115,7 +3115,7 @@
             "date": "2026-10-09",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 17.5351,
+            "normal_1991_2020": 17.535093,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3124,7 +3124,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": -1.077280044555664,
+            "anomaly": -1.0773248672485352,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3153,7 +3153,7 @@
             "date": "2026-10-09",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 13.7282,
+            "normal_1991_2020": 13.728245,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3162,7 +3162,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.1362369060516357,
+            "anomaly": -1.1362338066101074,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3191,7 +3191,7 @@
             "date": "2026-10-09",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 2.6288,
+            "normal_1991_2020": 2.6287968,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3200,7 +3200,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": -0.022508621215820312,
+            "anomaly": -0.02247333526611328,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3229,7 +3229,7 @@
             "date": "2026-10-10",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.0312,
+            "normal_1991_2020": 10.031165,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3238,7 +3238,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": -0.8830718994140625,
+            "anomaly": -0.8831043243408203,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3267,7 +3267,7 @@
             "date": "2026-10-10",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 17.8809,
+            "normal_1991_2020": 17.880932,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3276,7 +3276,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": -0.060321807861328125,
+            "anomaly": -0.06035900115966797,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3305,7 +3305,7 @@
             "date": "2026-10-10",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 13.7361,
+            "normal_1991_2020": 13.736137,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3314,7 +3314,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -0.8487921953201294,
+            "anomaly": -0.8487937450408936,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3343,7 +3343,7 @@
             "date": "2026-10-10",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.35796,
+            "normal_1991_2020": 1.3579615,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3352,7 +3352,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": -1.072697639465332,
+            "anomaly": -1.0726556777954102,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3381,7 +3381,7 @@
             "date": "2026-10-11",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 10.2247,
+            "normal_1991_2020": 10.224658,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3390,7 +3390,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": -1.7559661865234375,
+            "anomaly": -1.7560081481933594,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3419,7 +3419,7 @@
             "date": "2026-10-11",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 17.7801,
+            "normal_1991_2020": 17.780142,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3428,7 +3428,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": -1.500711441040039,
+            "anomaly": -1.5007038116455078,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3457,7 +3457,7 @@
             "date": "2026-10-11",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 13.595,
+            "normal_1991_2020": 13.594993,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3466,7 +3466,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -2.5785194784402847,
+            "anomaly": -2.5785232931375504,
             "calendar_years": 30,
             "current_batch_key": "b764af77edaea4476039a2fbc5de87711b8c3b12864aec08ff992cc4f420b1e2",
             "current_coverage": [
@@ -3495,7 +3495,7 @@
             "date": "2026-10-11",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 2.70867,
+            "normal_1991_2020": 2.7086737,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3504,7 +3504,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": -0.8654928207397461,
+            "anomaly": -0.8654918670654297,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -3533,7 +3533,7 @@
             "date": "2026-10-12",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 9.73771,
+            "normal_1991_2020": 9.737709,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3542,7 +3542,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 1.8719463348388672,
+            "anomaly": 1.8719444274902344,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -3571,7 +3571,7 @@
             "date": "2026-10-12",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 17.4949,
+            "normal_1991_2020": 17.494902,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3580,7 +3580,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 1.0546903610229492,
+            "anomaly": 1.0546627044677734,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -3609,7 +3609,7 @@
             "date": "2026-10-12",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 13.4444,
+            "normal_1991_2020": 13.4444275,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3618,7 +3618,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -0.7775756567716599,
+            "anomaly": -0.777576133608818,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -3647,7 +3647,7 @@
             "date": "2026-10-12",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.01963,
+            "normal_1991_2020": 1.0196304,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3656,7 +3656,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 3.681229591369629,
+            "anomaly": 3.6812257766723633,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -3685,7 +3685,7 @@
             "date": "2026-10-13",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 9.41755,
+            "normal_1991_2020": 9.417554,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3694,7 +3694,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 5.039716720581055,
+            "anomaly": 5.039754867553711,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -3723,7 +3723,7 @@
             "date": "2026-10-13",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 17.244,
+            "normal_1991_2020": 17.243961,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3732,7 +3732,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 5.20665168762207,
+            "anomaly": 5.20667839050293,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -3761,7 +3761,7 @@
             "date": "2026-10-13",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 13.1154,
+            "normal_1991_2020": 13.115374,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3808,7 +3808,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": -1.1134471893310547,
+            "anomaly": -1.1134443283081055,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -3837,7 +3837,7 @@
             "date": "2026-10-14",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 9.27375,
+            "normal_1991_2020": 9.273747,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3846,7 +3846,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 2.438882827758789,
+            "anomaly": 2.438871383666992,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -3875,7 +3875,7 @@
             "date": "2026-10-14",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 16.6707,
+            "normal_1991_2020": 16.670712,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3884,7 +3884,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 1.0457658767700195,
+            "anomaly": 1.0458145141601562,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -3913,7 +3913,7 @@
             "date": "2026-10-14",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 12.7602,
+            "normal_1991_2020": 12.760151,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3922,7 +3922,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -3.296271223574877,
+            "anomaly": -3.2962733693420887,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -3951,7 +3951,7 @@
             "date": "2026-10-14",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 3.31214,
+            "normal_1991_2020": 3.3121421,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -3998,7 +3998,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 6.0901899337768555,
+            "anomaly": 6.090142250061035,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4027,7 +4027,7 @@
             "date": "2026-10-15",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 15.8553,
+            "normal_1991_2020": 15.855348,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4036,7 +4036,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 3.093998908996582,
+            "anomaly": 3.093997001647949,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4065,7 +4065,7 @@
             "date": "2026-10-15",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 12.2356,
+            "normal_1991_2020": 12.235602,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4074,7 +4074,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.890617061406374,
+            "anomaly": -1.8906128890812397,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4103,7 +4103,7 @@
             "date": "2026-10-15",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.89242,
+            "normal_1991_2020": 1.8924159,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4112,7 +4112,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": 2.5868301391601562,
+            "anomaly": 2.586833953857422,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4141,7 +4141,7 @@
             "date": "2026-10-16",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 8.69945,
+            "normal_1991_2020": 8.699446,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4150,7 +4150,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": 4.28900146484375,
+            "anomaly": 4.28898811340332,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4179,7 +4179,7 @@
             "date": "2026-10-16",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 16.1224,
+            "normal_1991_2020": 16.122414,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4188,7 +4188,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": 2.661593437194824,
+            "anomaly": 2.661618232727051,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4217,7 +4217,7 @@
             "date": "2026-10-16",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 12.197,
+            "normal_1991_2020": 12.196975,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4226,7 +4226,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -1.8305419087409973,
+            "anomaly": -1.8305397629737854,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4255,7 +4255,7 @@
             "date": "2026-10-16",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 2.69062,
+            "normal_1991_2020": 2.6906178,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4264,7 +4264,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": -0.16235685348510742,
+            "anomaly": -0.1623539924621582,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4293,7 +4293,7 @@
             "date": "2026-10-17",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 8.12161,
+            "normal_1991_2020": 8.121607,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4302,7 +4302,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": -0.1002511978149414,
+            "anomaly": -0.10023880004882812,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4331,7 +4331,7 @@
             "date": "2026-10-17",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 15.5545,
+            "normal_1991_2020": 15.554487,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4340,7 +4340,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": -0.06956100463867188,
+            "anomaly": -0.06954669952392578,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4369,7 +4369,7 @@
             "date": "2026-10-17",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 11.6636,
+            "normal_1991_2020": 11.663586,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4378,7 +4378,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -0.9972523730248213,
+            "anomaly": -0.9972552340477705,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4407,7 +4407,7 @@
             "date": "2026-10-17",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 1.01647,
+            "normal_1991_2020": 1.0164728,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4416,7 +4416,7 @@
             "variable": "precipitation"
           },
           {
-            "anomaly": -2.5272092819213867,
+            "anomaly": -2.5272068977355957,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4445,7 +4445,7 @@
             "date": "2026-10-18",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 7.95155,
+            "normal_1991_2020": 7.9515476,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4454,7 +4454,7 @@
             "variable": "temperature_min"
           },
           {
-            "anomaly": -2.0871829986572266,
+            "anomaly": -2.087155342102051,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4483,7 +4483,7 @@
             "date": "2026-10-18",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 15.2672,
+            "normal_1991_2020": 15.267173,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4492,7 +4492,7 @@
             "variable": "temperature_max"
           },
           {
-            "anomaly": -2.094308853149414,
+            "anomaly": -2.0943069458007812,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4521,7 +4521,7 @@
             "date": "2026-10-18",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 11.3857,
+            "normal_1991_2020": 11.385698,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4530,7 +4530,7 @@
             "variable": "temperature"
           },
           {
-            "anomaly": -0.8321990966796875,
+            "anomaly": -0.8321959972381592,
             "calendar_years": 30,
             "current_batch_key": "20a4614f887b5a63523a8c8ee6fe42c141a2586c787376026d933c5c96022be3",
             "current_coverage": [
@@ -4559,7 +4559,7 @@
             "date": "2026-10-18",
             "expected_cells": 24,
             "expected_years": 30,
-            "normal_1991_2020": 2.02084,
+            "normal_1991_2020": 2.0208368,
             "normal_status": "available",
             "reference_coverage": 1,
             "sample_years": 30,
@@ -4595,8 +4595,10 @@
           "rule_version": "pra-climatology-1991-2020-1",
           "source_id": "era5-land",
           "source_kind": "reanalysis",
-          "source_manifest_sha256": "7a8092f86b8168e977d67cbe0d0e094c031ba96bef0264aa703f8fb678f72285",
-          "task21_export_sha256": "b25f1713577326b79c8c826e78bf6f950b2dc634791a454720ba7a8df2def32f",
+          "source_manifest_sha256": "9babc3b9b96830d20365b27986aed90fcf7e7e5a524ede3801a0a54bab108ca9",
+          "supersedes_reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+          "task21_export_precision": "float4send binary decoded; no decimal truncation",
+          "task21_export_sha256": "8cc04045eae060dac96cea89301bede65ccca71c434b564b930db36b81924184",
           "task21_reference_release": "era5land-pra1991-2020-0919-1018-v1-479b2159dcce2b97",
           "task21_reused_scalars": 85560,
           "temporal_coverage": "sample_years / 30; spatial support must be complete for each year",
@@ -4626,7 +4628,7 @@
           1991,
           2020
         ],
-        "reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+        "reference_release": "era5land-pra1991-2020-annual-compact-v1-9babc3b9b96830d2",
         "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
         "risk_computed": false,
         "rule_version": "pra-climatology-1991-2020-1",
@@ -4639,7 +4641,7 @@
     },
     {
       "end": "2024-03-01",
-      "milliseconds": 230.28755400002865,
+      "milliseconds": 208.58114300017405,
       "pra_id": "pra:28341",
       "response": {
         "current_dataset": "era5land-national-20260919-20261018-v1",
@@ -4840,8 +4842,10 @@
           "rule_version": "pra-climatology-1991-2020-1",
           "source_id": "era5-land",
           "source_kind": "reanalysis",
-          "source_manifest_sha256": "7a8092f86b8168e977d67cbe0d0e094c031ba96bef0264aa703f8fb678f72285",
-          "task21_export_sha256": "b25f1713577326b79c8c826e78bf6f950b2dc634791a454720ba7a8df2def32f",
+          "source_manifest_sha256": "9babc3b9b96830d20365b27986aed90fcf7e7e5a524ede3801a0a54bab108ca9",
+          "supersedes_reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+          "task21_export_precision": "float4send binary decoded; no decimal truncation",
+          "task21_export_sha256": "8cc04045eae060dac96cea89301bede65ccca71c434b564b930db36b81924184",
           "task21_reference_release": "era5land-pra1991-2020-0919-1018-v1-479b2159dcce2b97",
           "task21_reused_scalars": 85560,
           "temporal_coverage": "sample_years / 30; spatial support must be complete for each year",
@@ -4871,7 +4875,7 @@
           1991,
           2020
         ],
-        "reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+        "reference_release": "era5land-pra1991-2020-annual-compact-v1-9babc3b9b96830d2",
         "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
         "risk_computed": false,
         "rule_version": "pra-climatology-1991-2020-1",
@@ -4884,7 +4888,7 @@
     },
     {
       "end": "2026-01-01",
-      "milliseconds": 197.46207800000093,
+      "milliseconds": 207.64589800000977,
       "pra_id": "pra:28341",
       "response": {
         "current_dataset": "era5land-national-20260919-20261018-v1",
@@ -5001,8 +5005,10 @@
           "rule_version": "pra-climatology-1991-2020-1",
           "source_id": "era5-land",
           "source_kind": "reanalysis",
-          "source_manifest_sha256": "7a8092f86b8168e977d67cbe0d0e094c031ba96bef0264aa703f8fb678f72285",
-          "task21_export_sha256": "b25f1713577326b79c8c826e78bf6f950b2dc634791a454720ba7a8df2def32f",
+          "source_manifest_sha256": "9babc3b9b96830d20365b27986aed90fcf7e7e5a524ede3801a0a54bab108ca9",
+          "supersedes_reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+          "task21_export_precision": "float4send binary decoded; no decimal truncation",
+          "task21_export_sha256": "8cc04045eae060dac96cea89301bede65ccca71c434b564b930db36b81924184",
           "task21_reference_release": "era5land-pra1991-2020-0919-1018-v1-479b2159dcce2b97",
           "task21_reused_scalars": 85560,
           "temporal_coverage": "sample_years / 30; spatial support must be complete for each year",
@@ -5032,7 +5038,7 @@
           1991,
           2020
         ],
-        "reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+        "reference_release": "era5land-pra1991-2020-annual-compact-v1-9babc3b9b96830d2",
         "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
         "risk_computed": false,
         "rule_version": "pra-climatology-1991-2020-1",
@@ -5045,7 +5051,7 @@
     },
     {
       "end": "2026-10-18",
-      "milliseconds": 259.55904500000315,
+      "milliseconds": 244.98000200014758,
       "pra_id": "pra:06245",
       "response": {
         "current_dataset": "era5land-national-20260919-20261018-v1",
@@ -9878,8 +9884,10 @@
           "rule_version": "pra-climatology-1991-2020-1",
           "source_id": "era5-land",
           "source_kind": "reanalysis",
-          "source_manifest_sha256": "7a8092f86b8168e977d67cbe0d0e094c031ba96bef0264aa703f8fb678f72285",
-          "task21_export_sha256": "b25f1713577326b79c8c826e78bf6f950b2dc634791a454720ba7a8df2def32f",
+          "source_manifest_sha256": "9babc3b9b96830d20365b27986aed90fcf7e7e5a524ede3801a0a54bab108ca9",
+          "supersedes_reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+          "task21_export_precision": "float4send binary decoded; no decimal truncation",
+          "task21_export_sha256": "8cc04045eae060dac96cea89301bede65ccca71c434b564b930db36b81924184",
           "task21_reference_release": "era5land-pra1991-2020-0919-1018-v1-479b2159dcce2b97",
           "task21_reused_scalars": 85560,
           "temporal_coverage": "sample_years / 30; spatial support must be complete for each year",
@@ -9909,7 +9917,7 @@
           1991,
           2020
         ],
-        "reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+        "reference_release": "era5land-pra1991-2020-annual-compact-v1-9babc3b9b96830d2",
         "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
         "risk_computed": false,
         "rule_version": "pra-climatology-1991-2020-1",
@@ -9922,7 +9930,7 @@
     },
     {
       "end": "2024-03-01",
-      "milliseconds": 200.9545210000283,
+      "milliseconds": 186.9981849999931,
       "pra_id": "pra:06245",
       "response": {
         "current_dataset": "era5land-national-20260919-20261018-v1",
@@ -10123,8 +10131,10 @@
           "rule_version": "pra-climatology-1991-2020-1",
           "source_id": "era5-land",
           "source_kind": "reanalysis",
-          "source_manifest_sha256": "7a8092f86b8168e977d67cbe0d0e094c031ba96bef0264aa703f8fb678f72285",
-          "task21_export_sha256": "b25f1713577326b79c8c826e78bf6f950b2dc634791a454720ba7a8df2def32f",
+          "source_manifest_sha256": "9babc3b9b96830d20365b27986aed90fcf7e7e5a524ede3801a0a54bab108ca9",
+          "supersedes_reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+          "task21_export_precision": "float4send binary decoded; no decimal truncation",
+          "task21_export_sha256": "8cc04045eae060dac96cea89301bede65ccca71c434b564b930db36b81924184",
           "task21_reference_release": "era5land-pra1991-2020-0919-1018-v1-479b2159dcce2b97",
           "task21_reused_scalars": 85560,
           "temporal_coverage": "sample_years / 30; spatial support must be complete for each year",
@@ -10154,7 +10164,7 @@
           1991,
           2020
         ],
-        "reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+        "reference_release": "era5land-pra1991-2020-annual-compact-v1-9babc3b9b96830d2",
         "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
         "risk_computed": false,
         "rule_version": "pra-climatology-1991-2020-1",
@@ -10167,7 +10177,7 @@
     },
     {
       "end": "2026-01-01",
-      "milliseconds": 208.8138830000048,
+      "milliseconds": 221.15090599982068,
       "pra_id": "pra:06245",
       "response": {
         "current_dataset": "era5land-national-20260919-20261018-v1",
@@ -10284,8 +10294,10 @@
           "rule_version": "pra-climatology-1991-2020-1",
           "source_id": "era5-land",
           "source_kind": "reanalysis",
-          "source_manifest_sha256": "7a8092f86b8168e977d67cbe0d0e094c031ba96bef0264aa703f8fb678f72285",
-          "task21_export_sha256": "b25f1713577326b79c8c826e78bf6f950b2dc634791a454720ba7a8df2def32f",
+          "source_manifest_sha256": "9babc3b9b96830d20365b27986aed90fcf7e7e5a524ede3801a0a54bab108ca9",
+          "supersedes_reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+          "task21_export_precision": "float4send binary decoded; no decimal truncation",
+          "task21_export_sha256": "8cc04045eae060dac96cea89301bede65ccca71c434b564b930db36b81924184",
           "task21_reference_release": "era5land-pra1991-2020-0919-1018-v1-479b2159dcce2b97",
           "task21_reused_scalars": 85560,
           "temporal_coverage": "sample_years / 30; spatial support must be complete for each year",
@@ -10315,7 +10327,7 @@
           1991,
           2020
         ],
-        "reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+        "reference_release": "era5land-pra1991-2020-annual-compact-v1-9babc3b9b96830d2",
         "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
         "risk_computed": false,
         "rule_version": "pra-climatology-1991-2020-1",
@@ -10328,7 +10340,7 @@
     },
     {
       "end": "2026-10-18",
-      "milliseconds": 229.75812099997484,
+      "milliseconds": 213.79921300012938,
       "pra_id": "pra:29102",
       "response": {
         "current_dataset": "era5land-national-20260919-20261018-v1",
@@ -15161,8 +15173,10 @@
           "rule_version": "pra-climatology-1991-2020-1",
           "source_id": "era5-land",
           "source_kind": "reanalysis",
-          "source_manifest_sha256": "7a8092f86b8168e977d67cbe0d0e094c031ba96bef0264aa703f8fb678f72285",
-          "task21_export_sha256": "b25f1713577326b79c8c826e78bf6f950b2dc634791a454720ba7a8df2def32f",
+          "source_manifest_sha256": "9babc3b9b96830d20365b27986aed90fcf7e7e5a524ede3801a0a54bab108ca9",
+          "supersedes_reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+          "task21_export_precision": "float4send binary decoded; no decimal truncation",
+          "task21_export_sha256": "8cc04045eae060dac96cea89301bede65ccca71c434b564b930db36b81924184",
           "task21_reference_release": "era5land-pra1991-2020-0919-1018-v1-479b2159dcce2b97",
           "task21_reused_scalars": 85560,
           "temporal_coverage": "sample_years / 30; spatial support must be complete for each year",
@@ -15192,7 +15206,7 @@
           1991,
           2020
         ],
-        "reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+        "reference_release": "era5land-pra1991-2020-annual-compact-v1-9babc3b9b96830d2",
         "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
         "risk_computed": false,
         "rule_version": "pra-climatology-1991-2020-1",
@@ -15205,7 +15219,7 @@
     },
     {
       "end": "2024-03-01",
-      "milliseconds": 284.3298129999994,
+      "milliseconds": 229.7656549999374,
       "pra_id": "pra:29102",
       "response": {
         "current_dataset": "era5land-national-20260919-20261018-v1",
@@ -15406,8 +15420,10 @@
           "rule_version": "pra-climatology-1991-2020-1",
           "source_id": "era5-land",
           "source_kind": "reanalysis",
-          "source_manifest_sha256": "7a8092f86b8168e977d67cbe0d0e094c031ba96bef0264aa703f8fb678f72285",
-          "task21_export_sha256": "b25f1713577326b79c8c826e78bf6f950b2dc634791a454720ba7a8df2def32f",
+          "source_manifest_sha256": "9babc3b9b96830d20365b27986aed90fcf7e7e5a524ede3801a0a54bab108ca9",
+          "supersedes_reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+          "task21_export_precision": "float4send binary decoded; no decimal truncation",
+          "task21_export_sha256": "8cc04045eae060dac96cea89301bede65ccca71c434b564b930db36b81924184",
           "task21_reference_release": "era5land-pra1991-2020-0919-1018-v1-479b2159dcce2b97",
           "task21_reused_scalars": 85560,
           "temporal_coverage": "sample_years / 30; spatial support must be complete for each year",
@@ -15437,7 +15453,7 @@
           1991,
           2020
         ],
-        "reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+        "reference_release": "era5land-pra1991-2020-annual-compact-v1-9babc3b9b96830d2",
         "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
         "risk_computed": false,
         "rule_version": "pra-climatology-1991-2020-1",
@@ -15450,7 +15466,7 @@
     },
     {
       "end": "2026-01-01",
-      "milliseconds": 191.36643699999922,
+      "milliseconds": 202.15608400008023,
       "pra_id": "pra:29102",
       "response": {
         "current_dataset": "era5land-national-20260919-20261018-v1",
@@ -15567,8 +15583,10 @@
           "rule_version": "pra-climatology-1991-2020-1",
           "source_id": "era5-land",
           "source_kind": "reanalysis",
-          "source_manifest_sha256": "7a8092f86b8168e977d67cbe0d0e094c031ba96bef0264aa703f8fb678f72285",
-          "task21_export_sha256": "b25f1713577326b79c8c826e78bf6f950b2dc634791a454720ba7a8df2def32f",
+          "source_manifest_sha256": "9babc3b9b96830d20365b27986aed90fcf7e7e5a524ede3801a0a54bab108ca9",
+          "supersedes_reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+          "task21_export_precision": "float4send binary decoded; no decimal truncation",
+          "task21_export_sha256": "8cc04045eae060dac96cea89301bede65ccca71c434b564b930db36b81924184",
           "task21_reference_release": "era5land-pra1991-2020-0919-1018-v1-479b2159dcce2b97",
           "task21_reused_scalars": 85560,
           "temporal_coverage": "sample_years / 30; spatial support must be complete for each year",
@@ -15598,7 +15616,7 @@
           1991,
           2020
         ],
-        "reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+        "reference_release": "era5land-pra1991-2020-annual-compact-v1-9babc3b9b96830d2",
         "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
         "risk_computed": false,
         "rule_version": "pra-climatology-1991-2020-1",

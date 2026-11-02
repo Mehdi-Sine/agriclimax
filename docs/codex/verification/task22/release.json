@@ -26,8 +26,10 @@
     "rule_version": "pra-climatology-1991-2020-1",
     "source_id": "era5-land",
     "source_kind": "reanalysis",
-    "source_manifest_sha256": "7a8092f86b8168e977d67cbe0d0e094c031ba96bef0264aa703f8fb678f72285",
-    "task21_export_sha256": "b25f1713577326b79c8c826e78bf6f950b2dc634791a454720ba7a8df2def32f",
+    "source_manifest_sha256": "9babc3b9b96830d20365b27986aed90fcf7e7e5a524ede3801a0a54bab108ca9",
+    "supersedes_reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+    "task21_export_precision": "float4send binary decoded; no decimal truncation",
+    "task21_export_sha256": "8cc04045eae060dac96cea89301bede65ccca71c434b564b930db36b81924184",
     "task21_reference_release": "era5land-pra1991-2020-0919-1018-v1-479b2159dcce2b97",
     "task21_reused_scalars": 85560,
     "temporal_coverage": "sample_years / 30; spatial support must be complete for each year",
@@ -44,5 +46,5 @@
       "precipitation"
     ]
   },
-  "version": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9"
+  "version": "era5land-pra1991-2020-annual-compact-v1-9babc3b9b96830d2"
 }

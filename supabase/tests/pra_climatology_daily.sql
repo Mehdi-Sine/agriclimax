@@ -65,6 +65,14 @@ do $$ declare response jsonb; actual real; begin
  or abs((response#>>'{data,0,anomaly}')::double precision
    -(actual::double precision-5::double precision))>1e-12
  then raise exception 'JSON real precision lost or anomaly disagrees with returned values';end if;
+ perform public.agriclimax_persist_pra_climatology_daily('task22-new-synthetic','synthetic-import',
+  jsonb_build_object('source_id','era5-land','rule_version','pra-climatology-1991-2020-1',
+   'method','pra-compact-daily-1','source_manifest_sha256',repeat('d',64),
+   'supersedes_reference_release','task22-synthetic'),
+  '[{"pra_id":"pra:01001","day":1,"tmin":5,"tmax":15,"tmean":10,"rain":0,"nmin":30,"nmax":30,"nmean":30,"nrain":30}]');
+ response:=public.agriclimax_pra_climatology_daily_read('task22-synthetic','task22-synthetic','pra:01001','2026-01-01','2026-01-01');
+ if response->>'status'<>'superseded_reference_release' or response->'data'<>'[]'::jsonb
+ then raise exception 'Superseded precision release remained readable';end if;
 end $$;
 reset role;
 do $$ declare role_name text; begin

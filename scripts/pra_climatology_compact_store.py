@@ -9,7 +9,7 @@ import time
 import numpy as np
 import pra_climatology as core
 from agriclimax.climate.pra_normals import RULE_VERSION
-from pra_climatology_compact import EVIDENCE, METHOD, ROOT
+from pra_climatology_compact import EVIDENCE, METHOD, ROOT, verify_task21_binary
 from pra_climatology_store import rpc
 
 
@@ -23,6 +23,10 @@ def persist() -> None:
         raise ValueError("Annual cache checksum mismatch")
     if manifest["task21_export_sha256"] != core.checksum(ROOT / "task21-export.json"):
         raise ValueError("Immutable Task21 export checksum mismatch")
+    verify_task21_binary(
+        json.loads((ROOT / "task21-export.json").read_text())[0]["payload"],
+        json.loads((ROOT / "task21-binary-export.json").read_text())[0]["payload"],
+    )
     core.LABEL = "national"
     _, expected_ids = core.verify_bundle()
     with np.load(ROOT / "normal-cache.npz", allow_pickle=False) as cache:
@@ -77,6 +81,10 @@ def persist() -> None:
         "task21_reference_release": json.loads(
             (ROOT / "task21-export.json").read_text()
         )[0]["payload"]["release"]["version"],
+        "task21_export_precision": manifest.get(
+            "task21_export_precision", "legacy JSON"
+        ),
+        "supersedes_reference_release": manifest.get("supersedes_reference_release"),
     }
     version = (
         "era5land-pra1991-2020-annual-compact-v1-"

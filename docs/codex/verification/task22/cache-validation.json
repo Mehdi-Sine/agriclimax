@@ -2,9 +2,9 @@
   "status": "passed",
   "checkpoints_present_valid": 92,
   "reacquired_on_resume": 0,
-  "normal_cache_sha256": "99696ee0c7c255b2f86d096f6927b3c0d43f949544c885c32ae1cd829b07122d",
+  "normal_cache_sha256": "74941d9cd5c8fffa5e7dc2ee59181cf7959d4a75137afcddda8ece221d50bf9a",
   "expected_stored_rows": 260958,
-  "expected_binary_row_digest_md5": "7cc56df6ebed3707a31d7ff9bdd790b7",
+  "expected_binary_row_digest_md5": "bbaad7cd1befa069e65120b0c0a15190",
   "available_scalars": 941700,
   "missing_scalars": 102132,
   "source_download_bytes": 6565122630,
@@ -470,5 +470,6 @@
       "sha256": "1b48dc8d353f2749fa3e17e2d7b1a96b16eebd6857d5647971d074f24de4baf0",
       "bytes": 966861
     }
-  ]
+  ],
+  "task21_export_precision": "float4send binary decoded; no decimal truncation"
 }

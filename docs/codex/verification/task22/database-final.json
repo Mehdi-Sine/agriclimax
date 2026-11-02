@@ -5,13 +5,14 @@
       "rls": true,
       "days": 366,
       "rows": 260958,
+      "release": "era5land-pra1991-2020-annual-compact-v1-9babc3b9b96830d2",
       "anon_rpc": false,
       "anon_read": false,
-      "heap_bytes": 17620992,
-      "index_bytes": 8241152,
+      "heap_bytes": 35233792,
+      "index_bytes": 16457728,
       "task21_rows": 88412,
-      "total_bytes": 25903104,
-      "database_bytes": 115488435,
+      "total_bytes": 51740672,
+      "database_bytes": 141694643,
       "json_precision": [
         "search_path=pg_catalog",
         "statement_timeout=5s",
@@ -22,7 +23,8 @@
       "authenticated_rpc": false,
       "available_scalars": 941700,
       "authenticated_read": false,
-      "incomplete_calendar_pra": 0
+      "incomplete_calendar_pra": 0,
+      "physical_rows_including_superseded": 521916
     }
   }
 ]

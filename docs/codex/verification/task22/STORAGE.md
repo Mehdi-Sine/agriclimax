@@ -57,11 +57,20 @@ proviennent des agrégats SQL publiés, sans recalcul ni nouvel achat de stockag
 
 ## Mesure finale réelle
 
-Après import et replay : **115 488 435 octets de base totale (115,49 Mo)**.
-La table annuelle représente **17 620 992 octets de heap**, son index primaire
-**8 241 152**, total avec pages auxiliaires **25 903 104 octets**.
-Les 260 958 lignes et 1 043 832 couples (normale, compte) correspondent au cache binaire ;
-aucune anomalie persistée. Le résultat est inférieur à la projection de
-159,4 Mo incluant marges et réserves. Les caches sont restés hors Supabase.
-Une migration finale fixe uniquement la précision de sortie JSON de la RPC
-pour préserver les valeurs float32 et permettre de reproduire l'anomalie lue.
+**141 694 643 octets de base totale (141,69 Mo)**. Table annuelle avec deux
+versions conservées : **35 233 792 octets de heap**, **16 457 728 d'index**,
+**51 740 672 octets** avec pages auxiliaires. Version active : 260 958 lignes ;
+version remplacée privée : 260 958 lignes, refusées à la lecture API.
+
+La première copie avait subi l'arrondi JSON de Task21. Pour respecter les
+imports immuables, elle n'a pas été écrasée ; une version corrigée reprend les
+float32 binaires exacts. Avant cet ajout, le budget majoré avec 50 % de marge,
+30 Mo de réserve et 1 Mo de métadonnées projetait 185,92 Mo, sous 200 Mo.
+Le total réel inclut donc environ 26 Mo de traçabilité de la version remplacée.
+Aucune donnée Task21 n'a été modifiée ni supprimée. Les 85 560 scalaires copiés
+sont identiques directement en SQL ; aucune anomalie persistée.
+
+`task22-task21-binary-export.sql` fournit l'export exact. Les valeurs hexadécimales
+se décodent par `struct.unpack('!f', bytes.fromhex(value))[0]` ; les NULL restent
+NULL. Le pipeline et l'import vérifient l'équivalence binaire avant réutilisation.
+La RPC fixe sa précision JSON et refuse toute version explicitement remplacée.

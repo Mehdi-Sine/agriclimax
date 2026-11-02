@@ -3,7 +3,7 @@
   "days": 366,
   "leap_day": "8 real years; normal NULL under unchanged 30-year completeness rule",
   "method": "pra-compact-daily-1",
-  "normal_cache_sha256": "99696ee0c7c255b2f86d096f6927b3c0d43f949544c885c32ae1cd829b07122d",
+  "normal_cache_sha256": "74941d9cd5c8fffa5e7dc2ee59181cf7959d4a75137afcddda8ece221d50bf9a",
   "normal_rows": 260958,
   "pra": 713,
   "reference_years": [
@@ -15846,5 +15846,7 @@
       }
     }
   ],
-  "task21_export_sha256": "b25f1713577326b79c8c826e78bf6f950b2dc634791a454720ba7a8df2def32f"
+  "supersedes_reference_release": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9",
+  "task21_export_precision": "float4send binary decoded; no decimal truncation",
+  "task21_export_sha256": "8cc04045eae060dac96cea89301bede65ccca71c434b564b930db36b81924184"
 }
