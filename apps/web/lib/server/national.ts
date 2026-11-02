@@ -1,7 +1,203 @@
 import 'server-only';
-import { NATIONAL, DAYS } from '../../features/national/model';
+import {
+  NATIONAL,
+  DAYS,
+  VARIABLES,
+  type ClimateContextRow,
+  type ClimateVariable,
+} from '../../features/national/model';
 import { territoryData, type TerritoryRow } from './territories';
 import { ApiError } from './query';
+
+type JsonRecord = Record<string, unknown>;
+
+function isRecord(value: unknown): value is JsonRecord {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function validNumber(value: unknown): value is number | null {
+  return value === null || (typeof value === 'number' && Number.isFinite(value));
+}
+
+async function supabaseRpc(
+  name: string,
+  body: JsonRecord,
+  transport: typeof fetch,
+): Promise<unknown> {
+  const base = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const secret = process.env.SUPABASE_SECRET_KEY;
+  if (!base || !secret) throw new ApiError('NOT_CONFIGURED', 503);
+  let url: URL;
+  try {
+    url = new URL(base);
+    if (
+      url.protocol !== 'https:' ||
+      url.username ||
+      url.password ||
+      url.pathname !== '/' ||
+      url.search ||
+      url.hash
+    )
+      throw new Error();
+    url.pathname = `/rest/v1/rpc/${name}`;
+  } catch {
+    throw new ApiError('NOT_CONFIGURED', 503);
+  }
+  try {
+    const response = await transport(url, {
+      method: 'POST',
+      cache: 'no-store',
+      redirect: 'error',
+      signal: AbortSignal.timeout(8000),
+      headers: {
+        apikey: secret,
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new ApiError('UPSTREAM_UNAVAILABLE', 502);
+    const text = await response.text();
+    if (text.length > 600_000) throw new ApiError('INVALID_RESPONSE', 502);
+    return JSON.parse(text) as unknown;
+  } catch (error) {
+    if (error instanceof ApiError) throw error;
+    throw new ApiError('UPSTREAM_UNAVAILABLE', 502);
+  }
+}
+
+function parseContextRow(raw: unknown): ClimateContextRow {
+  if (!isRecord(raw)) throw new ApiError('INVALID_RESPONSE', 502);
+  if (
+    !validNumber(raw.current_value) ||
+    !validNumber(raw.normal_1991_2020) ||
+    !validNumber(raw.anomaly) ||
+    !(raw.sample_years === null ||
+      (typeof raw.sample_years === 'number' &&
+        Number.isInteger(raw.sample_years))) ||
+    !(typeof raw.expected_years === 'number' &&
+      Number.isInteger(raw.expected_years)) ||
+    !(raw.reference_coverage === null ||
+      (typeof raw.reference_coverage === 'number' &&
+        raw.reference_coverage >= 0 &&
+        raw.reference_coverage <= 1)) ||
+    !(raw.current_coverage === null ||
+      (typeof raw.current_coverage === 'number' &&
+        raw.current_coverage >= 0 &&
+        raw.current_coverage <= 1.0001)) ||
+    !['available', 'missing_current', 'missing_reference'].includes(
+      String(raw.status),
+    ) ||
+    typeof raw.normal_status !== 'string'
+  )
+    throw new ApiError('INVALID_RESPONSE', 502);
+  const variable = raw.variable;
+  if (
+    variable !== undefined &&
+    !VARIABLES.some((v) => v.key === variable)
+  )
+    throw new ApiError('INVALID_RESPONSE', 502);
+  return {
+    ...(typeof raw.pra_id === 'string' ? { pra_id: raw.pra_id } : {}),
+    ...(typeof raw.date === 'string' ? { date: raw.date } : {}),
+    ...(variable ? { variable: variable as ClimateVariable } : {}),
+    current_status:
+      raw.current_status === null || typeof raw.current_status === 'string'
+        ? (raw.current_status as string | null)
+        : null,
+    current_value: raw.current_value,
+    normal_1991_2020: raw.normal_1991_2020,
+    anomaly: raw.anomaly,
+    sample_years: raw.sample_years as number | null,
+    expected_years: raw.expected_years as number,
+    reference_coverage: raw.reference_coverage as number | null,
+    current_coverage: raw.current_coverage as number | null,
+    status: raw.status as ClimateContextRow['status'],
+    normal_status: raw.normal_status,
+  };
+}
+
+async function nationalContextDay(
+  date: string,
+  variable: ClimateVariable,
+  transport: typeof fetch,
+) {
+  const data: ClimateContextRow[] = [];
+  let after = '';
+  for (let page = 0; page < 8; page++) {
+    const raw = await supabaseRpc(
+      'agriclimax_pra_climatology_day_read',
+      {
+        p_release: NATIONAL.climatology,
+        p_dataset: NATIONAL.dataset,
+        p_date: date,
+        p_variable: variable,
+        p_after: after,
+        p_limit: 100,
+      },
+      transport,
+    );
+    if (
+      !isRecord(raw) ||
+      raw.status !== 'available' ||
+      !Array.isArray(raw.data) ||
+      !(raw.next_cursor === null || typeof raw.next_cursor === 'string')
+    )
+      throw new ApiError('INVALID_RESPONSE', 502);
+    const rows = raw.data.map(parseContextRow);
+    if (
+      rows.some(
+        (row) =>
+          !row.pra_id ||
+          !/^pra:[0-9AB]{4,8}$/.test(row.pra_id) ||
+          row.variable !== undefined,
+      )
+    )
+      throw new ApiError('INVALID_RESPONSE', 502);
+    data.push(...rows);
+    after = raw.next_cursor || '';
+    if (!after) break;
+  }
+  if (
+    after ||
+    data.length !== 713 ||
+    new Set(data.map((r) => r.pra_id)).size !== 713
+  )
+    throw new ApiError('INVALID_RESPONSE', 502);
+  return data;
+}
+
+async function nationalContextHistory(
+  pra: string,
+  transport: typeof fetch,
+) {
+  const raw = await supabaseRpc(
+    'agriclimax_pra_climatology_daily_read',
+    {
+      p_release: NATIONAL.climatology,
+      p_dataset: NATIONAL.dataset,
+      p_pra: pra,
+      p_start: NATIONAL.start,
+      p_end: NATIONAL.end,
+    },
+    transport,
+  );
+  if (!isRecord(raw) || raw.status !== 'available' || !Array.isArray(raw.data))
+    throw new ApiError('INVALID_RESPONSE', 502);
+  const data = raw.data.map(parseContextRow);
+  if (data.length !== DAYS.length * VARIABLES.length)
+    throw new ApiError('INVALID_RESPONSE', 502);
+  for (const row of data) {
+    if (
+      !row.date ||
+      !DAYS.includes(row.date) ||
+      !row.variable ||
+      !VARIABLES.some((v) => v.key === row.variable)
+    )
+      throw new ApiError('INVALID_RESPONSE', 502);
+  }
+  return data;
+}
 
 export async function nationalData(
   params: URLSearchParams,
@@ -9,19 +205,71 @@ export async function nationalData(
 ) {
   if (process.env.PRA_NATIONAL_ENABLED !== '1')
     throw new ApiError('NOT_CONFIGURED', 503);
-  const action = params.get('action') || 'day',
-    date = params.get('date') || '',
-    pra = params.get('pra') || '';
-  const allowed = action === 'day' ? ['action', 'date'] : ['action', 'pra'];
+
+  const action = params.get('action') || 'day';
+  const date = params.get('date') || '';
+  const pra = params.get('pra') || '';
+  const variable = params.get('variable') || '';
+
+  const allowed =
+    action === 'day'
+      ? ['action', 'date']
+      : action === 'history'
+        ? ['action', 'pra']
+        : action === 'context-day'
+          ? ['action', 'date', 'variable']
+          : ['action', 'pra'];
+
   if (
-    !['day', 'history'].includes(action) ||
+    !['day', 'history', 'context-day', 'context-history'].includes(action) ||
     [...params.keys()].some(
-      (k) => !allowed.includes(k) || params.getAll(k).length !== 1,
+      (key) => !allowed.includes(key) || params.getAll(key).length !== 1,
     ) ||
-    (action === 'day' && !DAYS.includes(date)) ||
-    (action === 'history' && !/^pra:[0-9AB]{4,8}$/.test(pra))
+    ((action === 'day' || action === 'context-day') &&
+      !DAYS.includes(date)) ||
+    ((action === 'history' || action === 'context-history') &&
+      !/^pra:[0-9AB]{4,8}$/.test(pra)) ||
+    (action === 'context-day' &&
+      !VARIABLES.some((v) => v.key === variable))
   )
     throw new ApiError('INVALID_QUERY', 400);
+
+  if (action === 'context-day') {
+    const data = await nationalContextDay(
+      date,
+      variable as ClimateVariable,
+      transport,
+    );
+    return {
+      reference_version: NATIONAL.reference,
+      dataset_version: NATIONAL.dataset,
+      climatology_release: NATIONAL.climatology,
+      reference_period: [1991, 2020],
+      source_id: 'era5-land',
+      source_kind: 'reanalysis',
+      scientific_status: 'exploratory',
+      period: [date, date],
+      variable,
+      data,
+    };
+  }
+
+  if (action === 'context-history') {
+    const data = await nationalContextHistory(pra, transport);
+    return {
+      reference_version: NATIONAL.reference,
+      dataset_version: NATIONAL.dataset,
+      climatology_release: NATIONAL.climatology,
+      reference_period: [1991, 2020],
+      source_id: 'era5-land',
+      source_kind: 'reanalysis',
+      scientific_status: 'exploratory',
+      period: [NATIONAL.start, NATIONAL.end],
+      pra,
+      data,
+    };
+  }
+
   const base = {
     action: 'read',
     reference: NATIONAL.reference,
@@ -52,7 +300,6 @@ export async function nationalData(
     )
       throw new ApiError('INVALID_RESPONSE', 502);
   } else {
-    // Bound the selected-PRA history to 30 dates, four concurrent read-only requests.
     for (let i = 0; i < DAYS.length; i += 4) {
       const pages = await Promise.all(
         DAYS.slice(i, i + 4).map((day) =>
@@ -89,6 +336,7 @@ export async function nationalData(
     data,
   };
 }
+
 export async function readNational(
   request: Request,
   transport: typeof fetch = fetch,

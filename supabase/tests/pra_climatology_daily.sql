@@ -29,6 +29,13 @@ do $$ declare meta jsonb; rows jsonb; response jsonb; begin
  or response#>>'{data,4,sample_years}'<>'29' or response#>'{data,4,normal_1991_2020}'<>'null'::jsonb
  or response#>>'{data,5,normal_1991_2020}'<>'15'
  then raise exception 'Leap day, calendar mapping or partial values failed';end if;
+ response:=public.agriclimax_pra_climatology_day_read('task22-synthetic','task22-synthetic','2026-01-01','temperature','','100');
+ if response->>'status'<>'available' or jsonb_array_length(response->'data')<>1
+ or response#>>'{data,0,pra_id}'<>'pra:01001'
+ or response#>>'{data,0,current_value}'<>'16'
+ or response#>>'{data,0,normal_1991_2020}'<>'10'
+ or response#>>'{data,0,anomaly}'<>'6'
+ then raise exception 'National day climatology read failed';end if;
  response:=public.agriclimax_pra_climatology_daily_read('task22-synthetic','task22-synthetic','pra:01001','2026-01-02','2026-01-02');
  if exists(select 1 from jsonb_array_elements(response->'data') j where j->'current_value'<>'null'::jsonb
  or j->'normal_1991_2020'<>'null'::jsonb or j->'anomaly'<>'null'::jsonb)
@@ -80,6 +87,7 @@ do $$ declare role_name text; begin
  if has_table_privilege(role_name,'agriclimax_private.pra_climatology_daily','select')
  or has_function_privilege(role_name,'public.agriclimax_pra_climatology_daily_read(text,text,text,date,date)','execute')
  or has_function_privilege(role_name,'public.agriclimax_persist_pra_climatology_daily(text,text,jsonb,jsonb)','execute')
+ or has_function_privilege(role_name,'public.agriclimax_pra_climatology_day_read(text,text,date,text,text,integer)','execute')
  then raise exception 'Public daily climatology privilege';end if;
  end loop;
  if not exists(select 1 from pg_class where oid='agriclimax_private.pra_climatology_daily'::regclass
