@@ -72,8 +72,11 @@ function parseContextRow(raw: unknown): ClimateContextRow {
     !validNumber(raw.current_value) ||
     !validNumber(raw.normal_1991_2020) ||
     !validNumber(raw.anomaly) ||
-    !(raw.sample_years === null || Number.isInteger(raw.sample_years)) ||
-    !Number.isInteger(raw.expected_years) ||
+    !(raw.sample_years === null ||
+      (typeof raw.sample_years === 'number' &&
+        Number.isInteger(raw.sample_years))) ||
+    !(typeof raw.expected_years === 'number' &&
+      Number.isInteger(raw.expected_years)) ||
     !(raw.reference_coverage === null ||
       (typeof raw.reference_coverage === 'number' &&
         raw.reference_coverage >= 0 &&
