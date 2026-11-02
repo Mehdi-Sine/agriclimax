@@ -112,7 +112,6 @@ export function NationalWorkspace({
   useEffect(() => {
     const controller = new AbortController();
     if (!DAYS.includes(date)) return () => controller.abort();
-    setContextDay(emptyContext);
     read<{ data: ClimateContextRow[] }>(
       `/api/national?${new URLSearchParams({
         action: 'context-day',
@@ -135,8 +134,6 @@ export function NationalWorkspace({
   useEffect(() => {
     if (!selected) return;
     const controller = new AbortController();
-    setHistory(emptyTerritory);
-    setContextHistory(emptyContext);
     void Promise.all([
       read<{ data: TerritoryRow[] }>(
         `/api/national?${new URLSearchParams({
@@ -298,9 +295,10 @@ export function NationalWorkspace({
           <select
             aria-label="Variable"
             value={variable}
-            onChange={(event) =>
-              setVariable(event.target.value as ClimateVariable)
-            }
+            onChange={(event) => {
+              setVariable(event.target.value as ClimateVariable);
+              setContextDay(emptyContext);
+            }}
           >
             {VARIABLES.map((item) => (
               <option key={item.key} value={item.key}>
