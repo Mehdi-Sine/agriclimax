@@ -60,7 +60,7 @@ proviennent des agrégats SQL publiés, sans recalcul ni nouvel achat de stockag
 Après import et replay : **115 488 435 octets de base totale (115,49 Mo)**.
 La table annuelle représente **17 620 992 octets de heap**, son index primaire
 **8 241 152**, total avec pages auxiliaires **25 903 104 octets**.
-Les 260 958 lignes et 1 043 832 scalaires/comptes correspondent au cache binaire ;
+Les 260 958 lignes et 1 043 832 couples (normale, compte) correspondent au cache binaire ;
 aucune anomalie persistée. Le résultat est inférieur à la projection de
 159,4 Mo incluant marges et réserves. Les caches sont restés hors Supabase.
 Une migration finale fixe uniquement la précision de sortie JSON de la RPC

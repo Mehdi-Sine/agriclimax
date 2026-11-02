@@ -45,6 +45,8 @@ Validation : 246 tests Python et 237 web lors de l'implémentation ; 35 tests
 climate, lint/types, gardes migrations et SQL Task21/Task22 rejoués à la clôture.
 RLS forcée et droits serveur uniquement, garde de base réelle à 375 Mo par lot.
 Les avertissements historiques PostGIS/anciennes RPC restent inchangés.
+Gitleaks ne détecte aucune fuite après vérification des identifiants SHA256 et
+exceptions limitées aux occurrences historiques exactes, sans exclusion générale.
 
 Preuves : measurements.json, database-final.json, stored-digest.json,
 cache-validation.json, annual-manifest.json, import.json, replay.json et
