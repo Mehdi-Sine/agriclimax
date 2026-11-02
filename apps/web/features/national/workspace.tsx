@@ -2,27 +2,54 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import NationalMap, { type PraCollection } from './map';
-import { NATIONAL, DAYS, VARIABLES, availability, valueLabel } from './model';
+import {
+  NATIONAL,
+  DAYS,
+  VARIABLES,
+  availability,
+  anomalyBand,
+  anomalyLabel,
+  valueLabel,
+  type ClimateContextRow,
+  type ClimateVariable,
+} from './model';
 import type { TerritoryRow } from '../../lib/server/territories';
 import './national.css';
 
 type Load<T> = { state: 'loading' | 'error' | 'ready'; data: T | null };
+
 async function read<T>(
   url: string,
   signal: AbortSignal,
   cache: RequestCache = 'no-store',
 ): Promise<T> {
-  const r = await fetch(url, { signal, cache });
-  if (!r.ok) throw new Error('unavailable');
-  return r.json() as Promise<T>;
+  const response = await fetch(url, { signal, cache });
+  if (!response.ok) throw new Error('unavailable');
+  return response.json() as Promise<T>;
 }
-const empty: Load<TerritoryRow[]> = { state: 'loading', data: null };
+
+const emptyTerritory: Load<TerritoryRow[]> = {
+  state: 'loading',
+  data: null,
+};
+const emptyContext: Load<ClimateContextRow[]> = {
+  state: 'loading',
+  data: null,
+};
+
 function coverage(row: TerritoryRow, index: number) {
   const n = row.coverage?.[index];
   return n == null
     ? 'Inconnue'
-    : `${n < 1 && n > 0.9999 ? '< 100' : new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 4 }).format(n * 100)} % · ${row.valid_counts?.[index] ?? '?'} / ${row.expected_cells ?? '?'} cellules`;
+    : `${
+        n < 1 && n > 0.9999
+          ? '< 100'
+          : new Intl.NumberFormat('fr-FR', {
+              maximumFractionDigits: 4,
+            }).format(n * 100)
+      } % · ${row.valid_counts?.[index] ?? '?'} / ${row.expected_cells ?? '?'} cellules`;
 }
+
 export function NationalWorkspace({
   initialDate,
   initialPra,
@@ -35,18 +62,22 @@ export function NationalWorkspace({
     ),
     [selected, setSelected] = useState(initialPra || ''),
     [query, setQuery] = useState(''),
-    [variable, setVariable] =
-      useState<(typeof VARIABLES)[number]['key']>('temperature');
+    [variable, setVariable] = useState<ClimateVariable>('temperature'),
+    [mapMode, setMapMode] = useState<'availability' | 'anomaly'>('availability');
+
   const [collection, setCollection] = useState<PraCollection | null>(null),
     [geometryError, setGeometryError] = useState(false),
-    [day, setDay] = useState(empty),
-    [history, setHistory] = useState(empty),
+    [day, setDay] = useState(emptyTerritory),
+    [contextDay, setContextDay] = useState(emptyContext),
+    [history, setHistory] = useState(emptyTerritory),
+    [contextHistory, setContextHistory] = useState(emptyContext),
     [retry, setRetry] = useState(0);
+
   useEffect(() => {
-    const c = new AbortController();
+    const controller = new AbortController();
     read<PraCollection>(
       `/maps/pra-national.geojson?reference=${NATIONAL.reference}`,
-      c.signal,
+      controller.signal,
       'force-cache',
     )
       .then((value) => {
@@ -55,50 +86,101 @@ export function NationalWorkspace({
         setCollection(value);
       })
       .catch(() => {
-        if (!c.signal.aborted) setGeometryError(true);
+        if (!controller.signal.aborted) setGeometryError(true);
       });
-    return () => c.abort();
+    return () => controller.abort();
   }, []);
+
   useEffect(() => {
-    const c = new AbortController();
-    if (!DAYS.includes(date)) return () => c.abort();
+    const controller = new AbortController();
+    if (!DAYS.includes(date)) return () => controller.abort();
     read<{ data: TerritoryRow[] }>(
       `/api/national?${new URLSearchParams({ action: 'day', date })}`,
-      c.signal,
+      controller.signal,
     )
       .then((value) => {
-        if (!c.signal.aborted) setDay({ state: 'ready', data: value.data });
+        if (!controller.signal.aborted)
+          setDay({ state: 'ready', data: value.data });
       })
       .catch(() => {
-        if (!c.signal.aborted) setDay({ state: 'error', data: null });
+        if (!controller.signal.aborted)
+          setDay({ state: 'error', data: null });
       });
-    return () => c.abort();
+    return () => controller.abort();
   }, [date, retry]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    if (!DAYS.includes(date)) return () => controller.abort();
+    setContextDay(emptyContext);
+    read<{ data: ClimateContextRow[] }>(
+      `/api/national?${new URLSearchParams({
+        action: 'context-day',
+        date,
+        variable,
+      })}`,
+      controller.signal,
+    )
+      .then((value) => {
+        if (!controller.signal.aborted)
+          setContextDay({ state: 'ready', data: value.data });
+      })
+      .catch(() => {
+        if (!controller.signal.aborted)
+          setContextDay({ state: 'error', data: null });
+      });
+    return () => controller.abort();
+  }, [date, variable, retry]);
+
   useEffect(() => {
     if (!selected) return;
-    const c = new AbortController();
-    read<{ data: TerritoryRow[] }>(
-      `/api/national?${new URLSearchParams({ action: 'history', pra: selected })}`,
-      c.signal,
-    )
-      .then((value) => {
-        if (!c.signal.aborted) setHistory({ state: 'ready', data: value.data });
+    const controller = new AbortController();
+    setHistory(emptyTerritory);
+    setContextHistory(emptyContext);
+    void Promise.all([
+      read<{ data: TerritoryRow[] }>(
+        `/api/national?${new URLSearchParams({
+          action: 'history',
+          pra: selected,
+        })}`,
+        controller.signal,
+      ),
+      read<{ data: ClimateContextRow[] }>(
+        `/api/national?${new URLSearchParams({
+          action: 'context-history',
+          pra: selected,
+        })}`,
+        controller.signal,
+      ),
+    ])
+      .then(([observed, context]) => {
+        if (!controller.signal.aborted) {
+          setHistory({ state: 'ready', data: observed.data });
+          setContextHistory({ state: 'ready', data: context.data });
+        }
       })
       .catch(() => {
-        if (!c.signal.aborted) setHistory({ state: 'error', data: null });
+        if (!controller.signal.aborted) {
+          setHistory({ state: 'error', data: null });
+          setContextHistory({ state: 'error', data: null });
+        }
       });
-    return () => c.abort();
+    return () => controller.abort();
   }, [selected, retry]);
+
   const valid = DAYS.includes(date),
-    rows = valid && day.state === 'ready' ? day.data : null;
+    rows = valid && day.state === 'ready' ? day.data : null,
+    contextRows =
+      valid && contextDay.state === 'ready' ? contextDay.data : null;
+
   const byId = useMemo(
     () => new Map(rows?.map((row) => [row.id, row])),
     [rows],
   );
   const matches = useMemo(
     () =>
-      collection?.features.filter((f) =>
-        `${f.properties.name} ${f.properties.code} ${f.properties.department_name}`
+      collection?.features.filter((feature) =>
+        `${feature.properties.name} ${feature.properties.code} ${feature.properties.department_name}`
           .normalize('NFD')
           .replace(/\p{Diacritic}/gu, '')
           .toLowerCase()
@@ -111,43 +193,66 @@ export function NationalWorkspace({
       ) || [],
     [collection, query],
   );
+
   const feature = collection?.features.find((f) => f.id === selected),
     current = byId.get(selected),
     definition = VARIABLES.find((v) => v.key === variable)!;
+
+  const selectedContext = useMemo(() => {
+    const currentRows =
+      contextHistory.state === 'ready' && contextHistory.data
+        ? contextHistory.data.filter((row) => row.date === date)
+        : [];
+    return new Map(
+      currentRows
+        .filter((row) => row.variable)
+        .map((row) => [row.variable!, row]),
+    );
+  }, [contextHistory, date]);
+
   const counts = rows?.reduce(
-    (acc, r) => {
-      acc[availability(r)]++;
+    (acc, row) => {
+      acc[availability(row)]++;
       return acc;
     },
     { complete: 0, partial: 0, unavailable: 0, absent: 0 },
   );
+
   function choose(id: string) {
     if (id !== selected) {
       setSelected(id);
-      setHistory(empty);
+      setHistory(emptyTerritory);
+      setContextHistory(emptyContext);
     }
-    const p = new URLSearchParams({ date, pra: id });
-    window.history.replaceState(null, '', `/territories?${p}`);
+    const params = new URLSearchParams({ date, pra: id });
+    window.history.replaceState(null, '', `/territories?${params}`);
   }
+
   function changeDate(value: string) {
     if (value !== date) {
       setDate(value);
-      setDay(empty);
+      setDay(emptyTerritory);
+      setContextDay(emptyContext);
     }
     window.history.replaceState(
       null,
       '',
-      `/territories?${new URLSearchParams({ date: value, ...(selected ? { pra: selected } : {}) })}`,
+      `/territories?${new URLSearchParams({
+        date: value,
+        ...(selected ? { pra: selected } : {}),
+      })}`,
     );
   }
+
   return (
     <main id="main" className="national-page">
       <header>
         <Link href="/">AgriclimaX</Link>
-        <span className="national-edition">V0.3 · national DEV</span>
+        <span className="national-edition">V0.4 · contexte climatique DEV</span>
         <h1>Climat des territoires agricoles</h1>
         <p>
-          713 PRA · France métropolitaine et Corse · ERA5-Land, réanalyse 0,1°
+          713 PRA · ERA5-Land · observations récentes mises en perspective avec
+          la normale 1991–2020.
         </p>
         <nav aria-label="Sources">
           <Link href="/?mode=live_meteofrance&production=wheat">
@@ -156,20 +261,22 @@ export function NationalWorkspace({
           <Link href="/?mode=demo">Démonstration · données fictives</Link>
         </nav>
       </header>
+
       <p className="national-notice">
-        Archive réelle du 19 septembre au 18 octobre 2026 UTC · fraîcheur
-        historique (stale), pas une prévision. Couverture partielle sur certains
-        territoires.
+        Archive réelle du 19 septembre au 18 octobre 2026 UTC · normale
+        climatique 1991–2020. Les anomalies sont calculées côté serveur comme
+        valeur observée − normale ; aucune interpolation des données manquantes.
       </p>
+
       <div className="national-controls">
         <label>
-          Date UTC{' '}
+          Date UTC
           <input
             type="date"
             value={date}
             min={NATIONAL.start}
             max={NATIONAL.end}
-            onChange={(e) => changeDate(e.target.value)}
+            onChange={(event) => changeDate(event.target.value)}
           />
         </label>
         <button
@@ -187,20 +294,36 @@ export function NationalWorkspace({
           Jour suivant
         </button>
         <label>
-          Variable{' '}
+          Variable
           <select
             aria-label="Variable"
             value={variable}
-            onChange={(e) => setVariable(e.target.value as typeof variable)}
+            onChange={(event) =>
+              setVariable(event.target.value as ClimateVariable)
+            }
           >
-            {VARIABLES.map((v) => (
-              <option key={v.key} value={v.key}>
-                {v.label} ({v.unit})
+            {VARIABLES.map((item) => (
+              <option key={item.key} value={item.key}>
+                {item.label} ({item.unit})
               </option>
             ))}
           </select>
         </label>
+        <label>
+          Mode carte
+          <select
+            aria-label="Mode carte"
+            value={mapMode}
+            onChange={(event) =>
+              setMapMode(event.target.value as 'availability' | 'anomaly')
+            }
+          >
+            <option value="availability">Disponibilité</option>
+            <option value="anomaly">Anomalie 1991–2020</option>
+          </select>
+        </label>
       </div>
+
       {!valid && (
         <p role="alert">
           {date
@@ -214,12 +337,14 @@ export function NationalWorkspace({
       )}
       {valid && day.state === 'error' && (
         <p role="alert">
-          Erreur réseau ou données nationales indisponibles. Aucune démo de
-          remplacement.{' '}
+          Erreur réseau ou données nationales indisponibles. Aucun fallback
+          démo.{' '}
           <button
             onClick={() => {
-              setDay(empty);
-              setHistory(empty);
+              setDay(emptyTerritory);
+              setContextDay(emptyContext);
+              setHistory(emptyTerritory);
+              setContextHistory(emptyContext);
               setRetry(retry + 1);
             }}
           >
@@ -227,26 +352,59 @@ export function NationalWorkspace({
           </button>
         </p>
       )}
-      <ul className="national-legend" aria-label="Disponibilité des PRA">
-        {(['complete', 'partial', 'unavailable'] as const).map((s) => (
-          <li key={s}>
-            <span className={`national-dot ${s}`} />
-            {s}
-            {counts ? ` · ${counts[s]}` : ''}
-          </li>
-        ))}
-      </ul>
-      <p className="national-help">
-        Les couleurs indiquent la disponibilité, pas un risque : complete =
-        support entier ; partial = support incomplet ; unavailable = aucune
-        valeur native. Une valeur incomplète reste NULL.
-      </p>
+      {mapMode === 'anomaly' && contextDay.state === 'error' && (
+        <p role="alert">
+          Contexte climatique indisponible : la carte d’anomalie ne peut pas
+          être calculée. Les observations restent accessibles.
+        </p>
+      )}
+
+      {mapMode === 'availability' ? (
+        <>
+          <ul className="national-legend" aria-label="Disponibilité des PRA">
+            {(['complete', 'partial', 'unavailable'] as const).map((state) => (
+              <li key={state}>
+                <span className={`national-dot ${state}`} />
+                {state}
+                {counts ? ` · ${counts[state]}` : ''}
+              </li>
+            ))}
+          </ul>
+          <p className="national-help">
+            Les couleurs indiquent la disponibilité, pas un risque.
+          </p>
+        </>
+      ) : (
+        <>
+          <ul className="national-legend" aria-label="Anomalie climatique">
+            <li>
+              <span className="national-dot anomaly-below" /> en dessous de la
+              normale (&lt; −1 {definition.unit})
+            </li>
+            <li>
+              <span className="national-dot anomaly-near" /> proche de la
+              normale (±1 {definition.unit})
+            </li>
+            <li>
+              <span className="national-dot anomaly-above" /> au-dessus de la
+              normale (&gt; +1 {definition.unit})
+            </li>
+          </ul>
+          <p className="national-help">
+            Mode exploratoire : seuil visuel simple de ±1 {definition.unit}.
+            Une référence ou observation absente reste sans classe.
+          </p>
+        </>
+      )}
+
       <div className="national-grid">
         <div>
           {collection && (
             <NationalMap
               collection={collection}
               rows={rows}
+              contextRows={contextRows}
+              mode={mapMode}
               selected={selected}
               onSelect={choose}
             />
@@ -257,46 +415,41 @@ export function NationalWorkspace({
             </p>
           )}
         </div>
-        <section
-          className="national-search"
-          aria-label="Navigation territoriale"
-        >
+
+        <section className="national-search" aria-label="Navigation territoriale">
           <h2>Choisir une PRA</h2>
           <label>
-            Rechercher une PRA{' '}
+            Rechercher une PRA
             <input
               type="search"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(event) => setQuery(event.target.value)}
               placeholder="Nom, code, département"
               maxLength={100}
             />
           </label>
           <label>
-            PRA{' '}
+            PRA
             <select
               aria-label="PRA"
               size={8}
               value={selected}
-              onChange={(e) => choose(e.target.value)}
+              onChange={(event) => choose(event.target.value)}
             >
               <option value="" disabled>
                 Choisir un territoire
               </option>
-              {matches.map((f) => (
-                <option key={String(f.id)} value={String(f.id)}>
-                  {f.properties.name} · {f.properties.code} ·{' '}
+              {matches.map((item) => (
+                <option key={String(item.id)} value={String(item.id)}>
+                  {item.properties.name} · {item.properties.code} ·{' '}
                   {rows
-                    ? availability(byId.get(String(f.id)))
+                    ? availability(byId.get(String(item.id)))
                     : 'données non chargées'}
                 </option>
               ))}
             </select>
           </label>
-          <p>
-            {matches.length} PRA dans la recherche · 713 contours conservés sur
-            la carte.
-          </p>
+          <p>{matches.length} PRA dans la recherche · 713 contours.</p>
           {feature && (
             <>
               <h3>
@@ -307,26 +460,22 @@ export function NationalWorkspace({
                 {feature.properties.region_name}
               </p>
               <nav aria-label="PRA sélectionnée">
-                <a href="#pra-diagnostic">Diagnostic descriptif</a>
+                <a href="#pra-diagnostic">Diagnostic climatique</a>
                 <a href="#pra-history">Historique 30 jours</a>
-                <a
-                  href={`/territories?${new URLSearchParams({ date, pra: selected })}`}
-                >
-                  Lien direct
-                </a>
               </nav>
             </>
           )}
         </section>
       </div>
+
       {selected && (
         <section
           id="pra-diagnostic"
           className="national-panel"
-          aria-label="Diagnostic descriptif"
+          aria-label="Diagnostic climatique"
         >
           <h2>
-            Diagnostic descriptif · {feature?.properties.name || selected}
+            Diagnostic climatique · {feature?.properties.name || selected}
           </h2>
           {current ? (
             <>
@@ -335,47 +484,54 @@ export function NationalWorkspace({
                 ERA5-Land · fraîcheur : {current.freshness}
               </p>
               <dl className="national-values">
-                {VARIABLES.map((v, i) => (
-                  <div key={v.key}>
-                    <dt>
-                      {v.label} ({v.unit})
-                    </dt>
-                    <dd>{valueLabel(current[v.key])}</dd>
-                    <dd>Couverture : {coverage(current, i)}</dd>
-                  </div>
-                ))}
+                {VARIABLES.map((item, index) => {
+                  const climate = selectedContext.get(item.key);
+                  return (
+                    <div key={item.key}>
+                      <dt>
+                        {item.label} ({item.unit})
+                      </dt>
+                      <dd>Observé : {valueLabel(current[item.key])}</dd>
+                      <dd>
+                        Normale 1991–2020 :{' '}
+                        {valueLabel(climate?.normal_1991_2020)}
+                      </dd>
+                      <dd>
+                        Anomalie : {anomalyLabel(climate?.anomaly, item.unit)} ·{' '}
+                        {anomalyBand(climate?.anomaly)}
+                      </dd>
+                      <dd>Couverture actuelle : {coverage(current, index)}</dd>
+                      <dd>
+                        Référence :{' '}
+                        {climate?.sample_years == null
+                          ? 'indisponible'
+                          : `${climate.sample_years}/${climate.expected_years} années`}
+                      </dd>
+                    </div>
+                  );
+                })}
               </dl>
               <details>
                 <summary>Provenance et qualité</summary>
+                <p>Observation : ERA5-Land, méthode pra-native-1.</p>
                 <p>
-                  Méthode : pra-native-1 · poids de surface totale, sans masque
-                  agricole.
+                  Référence : ERA5-Land 1991–2020, édition{' '}
+                  {NATIONAL.climatology}.
                 </p>
-                <p>
-                  Calcul : {current.computed_at || 'inconnu'} · publication
-                  source : non documentée.
-                </p>
-                <p>Édition : {NATIONAL.dataset}</p>
                 <p>Référentiel : {NATIONAL.reference}</p>
-                <p>Lot : {current.batch_key || 'absent'}</p>
-                <p>
-                  Qualité :{' '}
-                  {current.quality_flags?.join(', ') || 'non documentée'}
-                </p>
+                <p>Lot observation : {current.batch_key || 'absent'}</p>
               </details>
             </>
           ) : (
-            <p>
-              Aucune valeur affichée : sélection, date ou lecture à vérifier.
-            </p>
+            <p>Aucune valeur affichée pour la PRA/date sélectionnée.</p>
           )}
           <p>
-            Statistiques descriptives, sans climatologie, anomalie ni nouveau
-            risque agronomique. THI bovin non calculable sur ces données sans
-            humidité et validation du support grille.
+            Contexte climatique exploratoire. L’anomalie est NULL si
+            l’observation ou la normale est absente. THI bovin non calculé.
           </p>
         </section>
       )}
+
       {selected && (
         <section
           id="pra-history"
@@ -385,15 +541,18 @@ export function NationalWorkspace({
           <h2>
             Historique · {definition.label} ({definition.unit})
           </h2>
-          {history.state === 'loading' && (
-            <p role="status">Chargement des 30 jours de la PRA sélectionnée…</p>
+          {(history.state === 'loading' ||
+            contextHistory.state === 'loading') && (
+            <p role="status">Chargement des observations et normales…</p>
           )}
-          {history.state === 'error' && (
+          {(history.state === 'error' || contextHistory.state === 'error') && (
             <p role="alert">
-              Historique indisponible. Aucun résultat de remplacement.{' '}
+              Historique ou référence indisponible. Aucun résultat de
+              remplacement.{' '}
               <button
                 onClick={() => {
-                  setHistory(empty);
+                  setHistory(emptyTerritory);
+                  setContextHistory(emptyContext);
                   setRetry(retry + 1);
                 }}
               >
@@ -401,122 +560,166 @@ export function NationalWorkspace({
               </button>
             </p>
           )}
-          {history.state === 'ready' && history.data && (
-            <>
-              <HistoryChart rows={history.data} variable={variable} />
-              <div className="national-table">
-                <table>
-                  <caption>
-                    30 jours UTC · ERA5-Land · historique stale · NULL conservés
-                  </caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">Date UTC</th>
-                      <th scope="col">État</th>
-                      {VARIABLES.map((v) => (
-                        <th key={v.key} scope="col">
-                          {v.label} ({v.unit})
-                        </th>
-                      ))}
-                      <th scope="col">Couverture de la variable</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {history.data.map((r) => (
-                      <tr key={r.valid_date}>
-                        <th scope="row">
-                          <button onClick={() => changeDate(r.valid_date!)}>
-                            {r.valid_date}
-                          </button>
-                        </th>
-                        <td>{availability(r)}</td>
-                        {VARIABLES.map((v) => (
-                          <td key={v.key}>{valueLabel(r[v.key])}</td>
-                        ))}
-                        <td>
-                          {coverage(
-                            r,
-                            VARIABLES.findIndex((v) => v.key === variable),
-                          )}
-                        </td>
+          {history.state === 'ready' &&
+            history.data &&
+            contextHistory.state === 'ready' &&
+            contextHistory.data && (
+              <>
+                <HistoryChart
+                  rows={history.data}
+                  context={contextHistory.data}
+                  variable={variable}
+                />
+                <div className="national-table">
+                  <table>
+                    <caption>
+                      Observé vs normale 1991–2020 · NULL conservés
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">Date UTC</th>
+                        <th scope="col">État</th>
+                        <th scope="col">Observé</th>
+                        <th scope="col">Normale</th>
+                        <th scope="col">Anomalie</th>
+                        <th scope="col">Référence</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </>
-          )}
+                    </thead>
+                    <tbody>
+                      {history.data.map((row) => {
+                        const climate = contextHistory.data!.find(
+                          (item) =>
+                            item.date === row.valid_date &&
+                            item.variable === variable,
+                        );
+                        return (
+                          <tr key={row.valid_date}>
+                            <th scope="row">
+                              <button onClick={() => changeDate(row.valid_date!)}>
+                                {row.valid_date}
+                              </button>
+                            </th>
+                            <td>{availability(row)}</td>
+                            <td>{valueLabel(row[variable])}</td>
+                            <td>
+                              {valueLabel(climate?.normal_1991_2020)}
+                            </td>
+                            <td>
+                              {anomalyLabel(
+                                climate?.anomaly,
+                                definition.unit,
+                              )}
+                            </td>
+                            <td>
+                              {climate?.sample_years == null
+                                ? climate?.normal_status || 'indisponible'
+                                : `${climate.sample_years}/${climate.expected_years}`}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </>
+            )}
         </section>
       )}
+
       <footer>
         <p>
-          Référentiel OFB/MASA accepté avec son périmètre documenté : PRA, pas
-          couverture communale exhaustive. Réserves géographiques inchangées.
-          Aucun fallback vers Météo-France ou la démo.
+          Référentiel OFB/MASA avec réserves géographiques documentées. Aucun
+          fallback vers Météo-France ou la démo.
         </p>
       </footer>
     </main>
   );
 }
+
 function HistoryChart({
   rows,
+  context,
   variable,
 }: {
   rows: TerritoryRow[];
-  variable: (typeof VARIABLES)[number]['key'];
+  context: ClimateContextRow[];
+  variable: ClimateVariable;
 }) {
-  const values = rows.flatMap((r) =>
-    r[variable] == null ? [] : [r[variable]!],
+  const normals = new Map(
+    context
+      .filter((item) => item.variable === variable && item.date)
+      .map((item) => [item.date!, item.normal_1991_2020]),
   );
+  const values = rows.flatMap((row) => {
+    const normal = row.valid_date ? normals.get(row.valid_date) : null;
+    return [
+      ...(row[variable] == null ? [] : [row[variable]!]),
+      ...(normal == null ? [] : [normal]),
+    ];
+  });
   if (!values.length)
-    return (
-      <p>Aucune valeur disponible pour cette variable sur les 30 jours.</p>
-    );
+    return <p>Aucune valeur ni normale disponible sur les 30 jours.</p>;
+
   const low = Math.min(...values),
     high = Math.max(...values),
     span = high - low || 1;
-  const paths: string[] = [];
-  let segment = '';
-  rows.forEach((r, i) => {
-    const v = r[variable];
-    if (v == null) {
-      if (segment) paths.push(segment);
-      segment = '';
-    } else
-      segment += `${segment ? ' L' : 'M'} ${20 + i * 20} ${130 - ((v - low) / span) * 110}`;
-  });
-  if (segment) paths.push(segment);
+
+  const pathFor = (kind: 'observed' | 'normal') => {
+    const paths: string[] = [];
+    let segment = '';
+    rows.forEach((row, index) => {
+      const value =
+        kind === 'observed'
+          ? row[variable]
+          : row.valid_date
+            ? normals.get(row.valid_date)
+            : null;
+      if (value == null) {
+        if (segment) paths.push(segment);
+        segment = '';
+      } else {
+        segment += `${segment ? ' L' : 'M'} ${20 + index * 20} ${
+          130 - ((value - low) / span) * 110
+        }`;
+      }
+    });
+    if (segment) paths.push(segment);
+    return paths;
+  };
+
+  const observedPaths = pathFor('observed'),
+    normalPaths = pathFor('normal');
+
   return (
     <figure className="national-chart">
       <svg
         viewBox="0 0 620 155"
         role="img"
-        aria-label="Évolution des valeurs disponibles sur 30 jours ; détail dans le tableau. Les lacunes interrompent la courbe."
+        aria-label="Comparaison des valeurs observées et de la normale 1991–2020 sur 30 jours."
       >
-        {paths.map((d, i) => (
+        {normalPaths.map((path, index) => (
           <path
-            key={i}
-            d={d}
+            key={`n-${index}`}
+            className="normal-line"
+            d={path}
             fill="none"
-            stroke="currentColor"
+            strokeWidth="2"
+            strokeDasharray="6 4"
+          />
+        ))}
+        {observedPaths.map((path, index) => (
+          <path
+            key={`o-${index}`}
+            className="observed-line"
+            d={path}
+            fill="none"
             strokeWidth="2"
           />
         ))}
-        {rows.map((r, i) =>
-          r[variable] == null ? null : (
-            <circle
-              key={i}
-              cx={20 + i * 20}
-              cy={130 - ((r[variable]! - low) / span) * 110}
-              r="3"
-              fill="currentColor"
-            />
-          ),
-        )}
       </svg>
       <figcaption>
-        {NATIONAL.start} → {NATIONAL.end} · min. {valueLabel(low)} / max.{' '}
-        {valueLabel(high)} · aucune interpolation des lacunes.
+        Trait plein : observé · pointillé : normale 1991–2020 · min.{' '}
+        {valueLabel(low)} / max. {valueLabel(high)}.
       </figcaption>
     </figure>
   );
