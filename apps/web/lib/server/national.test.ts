@@ -61,7 +61,9 @@ it('cannot pass partial national pagination off as all 713', async () => {
 });
 it('reads precisely one PRA across both months and preserves unavailable NULLs', async () => {
   configure();
-  const f = vi.fn<typeof fetch>().mockImplementation(async (_url, options) => {
+  const f = vi.fn<typeof fetch>().mockImplementation(async (url, options) => {
+    void url;
+    const q = JSON.parse(String(options?.body));
     return Response.json({
       source_id: 'era5-land',
       source_kind: 'reanalysis',
@@ -126,8 +128,7 @@ it('network failures never expose credentials or a fallback dataset', async () =
 it('serves bounded national anomaly context without exposing credentials', async () => {
   configure();
   let call = 0;
-  const f = vi.fn<typeof fetch>().mockImplementation(async (_url, options) => {
-    const q = JSON.parse(String(options?.body));
+  const f = vi.fn<typeof fetch>().mockImplementation(async () => {
     call++;
     const start = call === 1 ? 1 : call === 2 ? 101 : call === 3 ? 201 : call === 4 ? 301 : call === 5 ? 401 : call === 6 ? 501 : call === 7 ? 601 : 701;
     const count = call < 8 ? 100 : 13;
