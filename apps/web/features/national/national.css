@@ -107,6 +107,21 @@
 .national-dot.unavailable {
   background: var(--national-unavailable);
 }
+.national-dot.anomaly-below,
+:root {
+  --national-anomaly-below: #4f7fb8;
+  --national-anomaly-near: #d9d4c7;
+  --national-anomaly-above: #c86b4a;
+}
+.national-dot.anomaly-below {
+  background: var(--national-anomaly-below);
+}
+.national-dot.anomaly-near {
+  background: var(--national-anomaly-near);
+}
+.national-dot.anomaly-above {
+  background: var(--national-anomaly-above);
+}
 .national-help,
 .national-hover {
   color: var(--text-muted);
@@ -124,6 +139,11 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-4);
+}
+.national-values > div {
+  padding: var(--space-3);
+  background: var(--surface-subtle);
+  border-radius: var(--radius-sm);
 }
 .national-values dd {
   margin: var(--space-2) 0;
@@ -151,11 +171,16 @@
 }
 .national-chart {
   margin: var(--space-4) 0;
-  color: var(--brand-secondary);
 }
 .national-chart svg {
   width: 100%;
   max-height: 200px;
+}
+.national-chart .observed-line {
+  stroke: var(--brand-secondary);
+}
+.national-chart .normal-line {
+  stroke: var(--text-muted);
 }
 .national-chart figcaption {
   color: var(--text-muted);
@@ -192,7 +217,6 @@
     margin: var(--space-2) 0;
   }
 }
-
 .national-table th:first-child,
 .national-table td:nth-child(2) {
   white-space: nowrap;
