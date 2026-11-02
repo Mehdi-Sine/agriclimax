@@ -1,0 +1,48 @@
+{
+  "provenance": {
+    "current_coverage_order": [
+      "temperature",
+      "temperature_min",
+      "temperature_max",
+      "precipitation"
+    ],
+    "data_freshness": "historical_reference",
+    "leap_day": "8 real years; normal NULL under unchanged 30-year completeness rule",
+    "method": "pra-compact-daily-1",
+    "precision": "float32 normals as Task21; no derived anomalies persisted",
+    "quality_flags": [
+      "hourly_sampled_extrema",
+      "total_PRA_area_not_agricultural_area",
+      "full_spatial_support_required",
+      "30_year_completeness_required",
+      "no_interpolation",
+      "no_seasonal_smoothing"
+    ],
+    "reference_period": [
+      1991,
+      2020
+    ],
+    "reference_version": "ofb-masa-pra-2017-snapshot-20261017",
+    "rule_version": "pra-climatology-1991-2020-1",
+    "source_id": "era5-land",
+    "source_kind": "reanalysis",
+    "source_manifest_sha256": "7a8092f86b8168e977d67cbe0d0e094c031ba96bef0264aa703f8fb678f72285",
+    "task21_export_sha256": "b25f1713577326b79c8c826e78bf6f950b2dc634791a454720ba7a8df2def32f",
+    "task21_reference_release": "era5land-pra1991-2020-0919-1018-v1-479b2159dcce2b97",
+    "task21_reused_scalars": 85560,
+    "temporal_coverage": "sample_years / 30; spatial support must be complete for each year",
+    "units": [
+      "degC",
+      "degC",
+      "degC",
+      "mm"
+    ],
+    "variable_order": [
+      "temperature_min",
+      "temperature_max",
+      "temperature",
+      "precipitation"
+    ]
+  },
+  "version": "era5land-pra1991-2020-annual-compact-v1-7a8092f86b8168e9"
+}

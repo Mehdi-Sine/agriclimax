@@ -1,10 +1,20 @@
 # Décision Task22
 
-Calcul annuel lancé ; décision finale en attente de sa réalisation et des
-contrôles d'import/replay/API. Le stockage est compatible : projection totale
-159,4 Mo contre 358,62 Mo pour le modèle scalaire préparé en Task21.
+**READY_FOR_FULL_CLIMATOLOGY**
 
-Aucun blocage scientifique, corruption, nouveau constat de sécurité ou échec
-d'acquisition établi. L'attente CDS ne constitue pas un BLOCKED.
-READY_FOR_FULL_CLIMATOLOGY sera prononcé seulement après calcul et stockage
-annuels effectivement vérifiés. Aucun merge demandé ni effectué.
+Climatologie annuelle 1991–2020 effectivement calculée et stockée sur
+agriclimax-dev : **713 PRA, 366 jours calendaires, 260 958 lignes**.
+92 checkpoints vérifiés, valeurs/comptes SQL identiques au cache, import intégral
+puis replay à **zéro insertion**. API réelle validée sur trois PRA et plusieurs
+dates ; anomalies calculées côté serveur, NULL et qualité explicites.
+
+Base totale réelle : **115,49 Mo**, dont **25,90 Mo** pour la table annuelle et
+son index, largement sous le budget compact et le garde d'arrêt de 375 Mo.
+Task21 et données actuelles conservées, empreintes inchangées. 29 février explicite :
+compte réel de huit années, normale NULL sous la règle Task21 à 30 années.
+Migration additive forward-only, RLS forcée, aucune nouvelle exposition publique.
+
+Aucun blocage scientifique, corruption, nouvelle exposition de sécurité,
+impossibilité d'acquisition ou incompatibilité de stockage constaté.
+Les avertissements historiques PostGIS restent documentés sans être introduits
+par cette tâche. Aucun THI, aucune interpolation. **PR draft #51, aucun merge.**

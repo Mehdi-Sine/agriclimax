@@ -53,6 +53,20 @@ do $$ declare meta jsonb; rows jsonb; response jsonb; begin
  then raise exception 'Unknown release not explicit';end if;
 end $$;
 reset role;
+-- Serialization must preserve real values even under a legacy caller configuration.
+update agriclimax_private.pra_daily set temperature_min=11.7900638580322265625
+ where dataset_version='task22-synthetic';
+set local extra_float_digits=0;
+set local role service_role;
+do $$ declare response jsonb; actual real; begin
+ response:=public.agriclimax_pra_climatology_daily_read('task22-synthetic','task22-synthetic','pra:01001','2026-01-01','2026-01-01');
+ actual:=(response#>>'{data,0,current_value}')::real;
+ if actual<>11.7900638580322265625::real
+ or abs((response#>>'{data,0,anomaly}')::double precision
+   -(actual::double precision-5::double precision))>1e-12
+ then raise exception 'JSON real precision lost or anomaly disagrees with returned values';end if;
+end $$;
+reset role;
 do $$ declare role_name text; begin
  foreach role_name in array array['anon','authenticated'] loop
  if has_table_privilege(role_name,'agriclimax_private.pra_climatology_daily','select')
