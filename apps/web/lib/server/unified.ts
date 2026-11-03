@@ -1,0 +1,40 @@
+import 'server-only';
+import { nationalData } from './national';
+import { ApiError } from './query';
+import { DAYS, NATIONAL, type ClimateContextRow, type ClimateVariable } from '../../features/national/model';
+import { aggregate, INDICATORS } from '../../features/unified/model';
+
+// At most 60 map days retained, five minutes; no failed requests cached.
+const cache = new Map<string, { expires: number; promise: Promise<ClimateContextRow[]> }>();
+function day(date: string, variable: ClimateVariable, transport: typeof fetch) {
+  const key=`${date}:${variable}`;
+  const hit=cache.get(key);
+  if(transport===fetch&&hit&&hit.expires>Date.now()) return hit.promise;
+  const promise=nationalData(new URLSearchParams({action:'context-day',date,variable}),transport).then(r=>r.data as ClimateContextRow[]);
+  if(transport===fetch) {
+    if(cache.size>=60) cache.delete(cache.keys().next().value!);
+    cache.set(key,{expires:Date.now()+300000,promise});
+    void promise.catch(()=>{if(cache.get(key)?.promise===promise)cache.delete(key);});
+  }
+  return promise;
+}
+export async function unifiedData(params: URLSearchParams, transport: typeof fetch=fetch) {
+  const allowed=['start','end','indicator','threshold'];
+  const start=params.get('start')??'',end=params.get('end')??'',id=params.get('indicator')??'';
+  const definition=INDICATORS.find(i=>i.id===id);
+  const threshold=Number(params.get('threshold')??definition?.parameter??25);
+  if([...params.keys()].some(k=>!allowed.includes(k)||params.getAll(k).length!==1)||!DAYS.includes(start)||!DAYS.includes(end)||start>end||!definition||!Number.isFinite(threshold)||threshold< -30||threshold>60) throw new ApiError('INVALID_QUERY',400);
+  if(process.env.PRA_NATIONAL_ENABLED!=='1')throw new ApiError('NOT_CONFIGURED',503);
+  const dates=DAYS.filter(d=>d>=start&&d<=end);
+  const grouped=new Map<string,ClimateContextRow[]>();
+  // Two dates in flight: bounded 16 RPCs at most; no raw annual series sent to client.
+  for(let i=0;i<dates.length;i+=2) {
+    const pages=await Promise.all(dates.slice(i,i+2).map(date=>day(date,definition.variable,transport)));
+    for(const rows of pages)for(const row of rows){const list=grouped.get(row.pra_id!)??[];list.push(row);grouped.set(row.pra_id!,list);}
+  }
+  return {period:[start,end],indicator:id,threshold,source_id:'era5-land',dataset_version:NATIONAL.dataset,data:[...grouped.values()].map(rows=>aggregate(rows,definition,dates.length,threshold))};
+}
+export async function readUnified(request:Request) {
+  try{return Response.json(await unifiedData(new URL(request.url).searchParams),{headers:{'Cache-Control':'private, max-age=60'}});}
+  catch(e){const safe=e instanceof ApiError?e:new ApiError('UPSTREAM_UNAVAILABLE',502);return Response.json({error:safe.code},{status:safe.status,headers:{'Cache-Control':'no-store'}});}
+}
