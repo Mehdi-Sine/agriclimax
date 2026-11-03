@@ -1,0 +1,2153 @@
+{
+  "realDataVerified": false,
+  "mocked": false,
+  "viewports": [
+    {
+      "space": "climat",
+      "size": "desktop",
+      "width": 1440,
+      "height": 900,
+      "mapReadyMs": 11090,
+      "resources": [
+        {
+          "path": "/maps/pra-national.geojson",
+          "encodedBytes": 9658498,
+          "decodedBytes": 23818871,
+          "durationMs": 2904
+        },
+        {
+          "path": "/api/unified",
+          "encodedBytes": 32,
+          "decodedBytes": 32,
+          "durationMs": 212
+        },
+        {
+          "path": "/api/national",
+          "encodedBytes": 32,
+          "decodedBytes": 32,
+          "durationMs": 5187
+        },
+        {
+          "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "encodedBytes": 144769,
+          "decodedBytes": 508314,
+          "durationMs": -238
+        }
+      ],
+      "screenshot": "climat-desktop.png",
+      "source": "Source momentanément inaccessible. Aucune donnée de remplacement. Réessayer"
+    },
+    {
+      "space": "productions",
+      "size": "desktop",
+      "width": 1440,
+      "height": 900,
+      "mapReadyMs": 9175,
+      "resources": [
+        {
+          "path": "/maps/pra-national.geojson",
+          "encodedBytes": 9658498,
+          "decodedBytes": 23818871,
+          "durationMs": 3015
+        },
+        {
+          "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "encodedBytes": 144769,
+          "decodedBytes": 508314,
+          "durationMs": -2345
+        }
+      ],
+      "screenshot": "productions-desktop.png",
+      "source": "Agriculture non connectée"
+    },
+    {
+      "space": "analyse",
+      "size": "desktop",
+      "width": 1440,
+      "height": 900,
+      "mapReadyMs": 7623,
+      "resources": [
+        {
+          "path": "/maps/pra-national.geojson",
+          "encodedBytes": 9658498,
+          "decodedBytes": 23818871,
+          "durationMs": 2939
+        },
+        {
+          "path": "/api/unified",
+          "encodedBytes": 32,
+          "decodedBytes": 32,
+          "durationMs": 105
+        },
+        {
+          "path": "/api/national",
+          "encodedBytes": 32,
+          "decodedBytes": 32,
+          "durationMs": 1483
+        },
+        {
+          "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "encodedBytes": 144769,
+          "decodedBytes": 508314,
+          "durationMs": -1357
+        }
+      ],
+      "screenshot": "analyse-desktop.png",
+      "source": "Source momentanément inaccessible. Aucune donnée de remplacement. Réessayer"
+    },
+    {
+      "space": "climat",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "mapReadyMs": 4980,
+      "resources": [
+        {
+          "path": "/maps/pra-national.geojson",
+          "encodedBytes": 9658498,
+          "decodedBytes": 23818871,
+          "durationMs": 1618
+        },
+        {
+          "path": "/api/unified",
+          "encodedBytes": 32,
+          "decodedBytes": 32,
+          "durationMs": 97
+        },
+        {
+          "path": "/api/national",
+          "encodedBytes": 32,
+          "decodedBytes": 32,
+          "durationMs": 44
+        },
+        {
+          "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "encodedBytes": 144769,
+          "decodedBytes": 508314,
+          "durationMs": -1047
+        }
+      ],
+      "screenshot": "climat-tablet.png",
+      "source": "Source momentanément inaccessible. Aucune donnée de remplacement. Réessayer"
+    },
+    {
+      "space": "productions",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "mapReadyMs": 4479,
+      "resources": [
+        {
+          "path": "/maps/pra-national.geojson",
+          "encodedBytes": 9658498,
+          "decodedBytes": 23818871,
+          "durationMs": 1641
+        },
+        {
+          "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "encodedBytes": 144769,
+          "decodedBytes": 508314,
+          "durationMs": -960
+        }
+      ],
+      "screenshot": "productions-tablet.png",
+      "source": "Agriculture non connectée"
+    },
+    {
+      "space": "analyse",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "mapReadyMs": 8732,
+      "resources": [
+        {
+          "path": "/maps/pra-national.geojson",
+          "encodedBytes": 9658498,
+          "decodedBytes": 23818871,
+          "durationMs": 1454
+        },
+        {
+          "path": "/api/unified",
+          "encodedBytes": 32,
+          "decodedBytes": 32,
+          "durationMs": 5060
+        },
+        {
+          "path": "/api/national",
+          "encodedBytes": 32,
+          "decodedBytes": 32,
+          "durationMs": 8039
+        },
+        {
+          "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "encodedBytes": 144769,
+          "decodedBytes": 508314,
+          "durationMs": -814
+        }
+      ],
+      "screenshot": "analyse-tablet.png",
+      "source": "Source momentanément inaccessible. Aucune donnée de remplacement. Réessayer"
+    },
+    {
+      "space": "climat",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "mapReadyMs": 5802,
+      "resources": [
+        {
+          "path": "/maps/pra-national.geojson",
+          "encodedBytes": 9658498,
+          "decodedBytes": 23818871,
+          "durationMs": 2150
+        },
+        {
+          "path": "/api/unified",
+          "encodedBytes": 32,
+          "decodedBytes": 32,
+          "durationMs": 1098
+        },
+        {
+          "path": "/api/national",
+          "encodedBytes": 32,
+          "decodedBytes": 32,
+          "durationMs": 2340
+        },
+        {
+          "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "encodedBytes": 144769,
+          "decodedBytes": 508314,
+          "durationMs": -1080
+        }
+      ],
+      "screenshot": "climat-mobile.png",
+      "source": "Source momentanément inaccessible. Aucune donnée de remplacement. Réessayer"
+    },
+    {
+      "space": "productions",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "mapReadyMs": 4121,
+      "resources": [
+        {
+          "path": "/maps/pra-national.geojson",
+          "encodedBytes": 9658498,
+          "decodedBytes": 23818871,
+          "durationMs": 1502
+        },
+        {
+          "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "encodedBytes": 144769,
+          "decodedBytes": 508314,
+          "durationMs": -803
+        }
+      ],
+      "screenshot": "productions-mobile.png",
+      "source": "Agriculture non connectée"
+    },
+    {
+      "space": "analyse",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "mapReadyMs": 4208,
+      "resources": [
+        {
+          "path": "/maps/pra-national.geojson",
+          "encodedBytes": 9658498,
+          "decodedBytes": 23818871,
+          "durationMs": 1518
+        },
+        {
+          "path": "/api/unified",
+          "encodedBytes": 32,
+          "decodedBytes": 32,
+          "durationMs": 53
+        },
+        {
+          "path": "/api/national",
+          "encodedBytes": 32,
+          "decodedBytes": 32,
+          "durationMs": 3431
+        },
+        {
+          "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "encodedBytes": 144769,
+          "decodedBytes": 508314,
+          "durationMs": -762
+        }
+      ],
+      "screenshot": "analyse-mobile.png",
+      "source": "Source momentanément inaccessible. Aucune donnée de remplacement. Réessayer"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 14700
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/_next/static/chunks/20rai6p7d_vts.css",
+      "status": 200,
+      "bytes": 9049
+    },
+    {
+      "path": "/_next/static/chunks/0eh3hg0a099nx.css",
+      "status": 200,
+      "bytes": 82962
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/_next/static/chunks/1kgvd40s9d-ct.js",
+      "status": 200,
+      "bytes": 248
+    },
+    {
+      "path": "/_next/static/chunks/1htmzmlohzpk0.js",
+      "status": 200,
+      "bytes": 37098
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 48256
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 24836
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/api/unified",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 6025
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 6029
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/maps/pra-national.geojson",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/_next/static/chunks/1d28regbhx1rl.js",
+      "status": 200,
+      "bytes": 560
+    },
+    {
+      "path": "/_next/static/chunks/3wh7ext_wgoe1.js",
+      "status": 200,
+      "bytes": 1066268
+    },
+    {
+      "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+      "status": 200,
+      "bytes": 508314
+    },
+    {
+      "path": "/api/national",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 10279
+    },
+    {
+      "path": "/_next/static/chunks/0eh3hg0a099nx.css",
+      "status": 200,
+      "bytes": 82962
+    },
+    {
+      "path": "/_next/static/chunks/20rai6p7d_vts.css",
+      "status": 200,
+      "bytes": 9049
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/_next/static/chunks/1kgvd40s9d-ct.js",
+      "status": 200,
+      "bytes": 248
+    },
+    {
+      "path": "/_next/static/chunks/1htmzmlohzpk0.js",
+      "status": 200,
+      "bytes": 37098
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 6025
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 6029
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/maps/pra-national.geojson",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/_next/static/chunks/1d28regbhx1rl.js",
+      "status": 200,
+      "bytes": 560
+    },
+    {
+      "path": "/_next/static/chunks/3wh7ext_wgoe1.js",
+      "status": 200,
+      "bytes": 1066268
+    },
+    {
+      "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+      "status": 200,
+      "bytes": 508314
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/_next/static/chunks/0eh3hg0a099nx.css",
+      "status": 200,
+      "bytes": 82962
+    },
+    {
+      "path": "/_next/static/chunks/20rai6p7d_vts.css",
+      "status": 200,
+      "bytes": 9049
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 10271
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/_next/static/chunks/1kgvd40s9d-ct.js",
+      "status": 200,
+      "bytes": 248
+    },
+    {
+      "path": "/_next/static/chunks/1htmzmlohzpk0.js",
+      "status": 200,
+      "bytes": 37098
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/api/unified",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 6029
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 6025
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 1268
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/api/national",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/maps/pra-national.geojson",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/_next/static/chunks/1d28regbhx1rl.js",
+      "status": 200,
+      "bytes": 560
+    },
+    {
+      "path": "/_next/static/chunks/3wh7ext_wgoe1.js",
+      "status": 200,
+      "bytes": 1066268
+    },
+    {
+      "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+      "status": 200,
+      "bytes": 508314
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/_next/static/chunks/0eh3hg0a099nx.css",
+      "status": 200,
+      "bytes": 82962
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 14700
+    },
+    {
+      "path": "/_next/static/chunks/20rai6p7d_vts.css",
+      "status": 200,
+      "bytes": 9049
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/_next/static/chunks/1kgvd40s9d-ct.js",
+      "status": 200,
+      "bytes": 248
+    },
+    {
+      "path": "/_next/static/chunks/1htmzmlohzpk0.js",
+      "status": 200,
+      "bytes": 37098
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/api/national",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 6025
+    },
+    {
+      "path": "/api/unified",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 6029
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/maps/pra-national.geojson",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/_next/static/chunks/1d28regbhx1rl.js",
+      "status": 200,
+      "bytes": 560
+    },
+    {
+      "path": "/_next/static/chunks/3wh7ext_wgoe1.js",
+      "status": 200,
+      "bytes": 1066268
+    },
+    {
+      "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+      "status": 200,
+      "bytes": 508314
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/_next/static/chunks/0eh3hg0a099nx.css",
+      "status": 200,
+      "bytes": 82962
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 10279
+    },
+    {
+      "path": "/_next/static/chunks/20rai6p7d_vts.css",
+      "status": 200,
+      "bytes": 9049
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/_next/static/chunks/1kgvd40s9d-ct.js",
+      "status": 200,
+      "bytes": 248
+    },
+    {
+      "path": "/_next/static/chunks/1htmzmlohzpk0.js",
+      "status": 200,
+      "bytes": 37098
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 6029
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 6025
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/maps/pra-national.geojson",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/_next/static/chunks/1d28regbhx1rl.js",
+      "status": 200,
+      "bytes": 560
+    },
+    {
+      "path": "/_next/static/chunks/3wh7ext_wgoe1.js",
+      "status": 200,
+      "bytes": 1066268
+    },
+    {
+      "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+      "status": 200,
+      "bytes": 508314
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/_next/static/chunks/0eh3hg0a099nx.css",
+      "status": 200,
+      "bytes": 82962
+    },
+    {
+      "path": "/_next/static/chunks/20rai6p7d_vts.css",
+      "status": 200,
+      "bytes": 9049
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 10271
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/_next/static/chunks/1kgvd40s9d-ct.js",
+      "status": 200,
+      "bytes": 248
+    },
+    {
+      "path": "/_next/static/chunks/1htmzmlohzpk0.js",
+      "status": 200,
+      "bytes": 37098
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 6029
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 6025
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/maps/pra-national.geojson",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/_next/static/chunks/1d28regbhx1rl.js",
+      "status": 200,
+      "bytes": 560
+    },
+    {
+      "path": "/_next/static/chunks/3wh7ext_wgoe1.js",
+      "status": 200,
+      "bytes": 1066268
+    },
+    {
+      "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+      "status": 200,
+      "bytes": 508314
+    },
+    {
+      "path": "/api/unified",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/api/national",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 14700
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/_next/static/chunks/0eh3hg0a099nx.css",
+      "status": 200,
+      "bytes": 82962
+    },
+    {
+      "path": "/_next/static/chunks/20rai6p7d_vts.css",
+      "status": 200,
+      "bytes": 9049
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/_next/static/chunks/1kgvd40s9d-ct.js",
+      "status": 200,
+      "bytes": 248
+    },
+    {
+      "path": "/_next/static/chunks/1htmzmlohzpk0.js",
+      "status": 200,
+      "bytes": 37098
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 6029
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 6025
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/api/unified",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/maps/pra-national.geojson",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/api/national",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/_next/static/chunks/1d28regbhx1rl.js",
+      "status": 200,
+      "bytes": 560
+    },
+    {
+      "path": "/_next/static/chunks/3wh7ext_wgoe1.js",
+      "status": 200,
+      "bytes": 1066268
+    },
+    {
+      "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+      "status": 200,
+      "bytes": 508314
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/_next/static/chunks/0eh3hg0a099nx.css",
+      "status": 200,
+      "bytes": 82962
+    },
+    {
+      "path": "/_next/static/chunks/20rai6p7d_vts.css",
+      "status": 200,
+      "bytes": 9049
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 10279
+    },
+    {
+      "path": "/_next/static/chunks/1kgvd40s9d-ct.js",
+      "status": 200,
+      "bytes": 248
+    },
+    {
+      "path": "/_next/static/chunks/1htmzmlohzpk0.js",
+      "status": 200,
+      "bytes": 37098
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 6029
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 6025
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/maps/pra-national.geojson",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/_next/static/chunks/1d28regbhx1rl.js",
+      "status": 200,
+      "bytes": 560
+    },
+    {
+      "path": "/_next/static/chunks/3wh7ext_wgoe1.js",
+      "status": 200,
+      "bytes": 1066268
+    },
+    {
+      "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+      "status": 200,
+      "bytes": 508314
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/_next/static/chunks/0eh3hg0a099nx.css",
+      "status": 200,
+      "bytes": 82962
+    },
+    {
+      "path": "/_next/static/chunks/20rai6p7d_vts.css",
+      "status": 200,
+      "bytes": 9049
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 10271
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/_next/static/chunks/1kgvd40s9d-ct.js",
+      "status": 200,
+      "bytes": 248
+    },
+    {
+      "path": "/_next/static/chunks/1htmzmlohzpk0.js",
+      "status": 200,
+      "bytes": 37098
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/api/unified",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 6029
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 6025
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/maps/pra-national.geojson",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/_next/static/chunks/1d28regbhx1rl.js",
+      "status": 200,
+      "bytes": 560
+    },
+    {
+      "path": "/_next/static/chunks/3wh7ext_wgoe1.js",
+      "status": 200,
+      "bytes": 1066268
+    },
+    {
+      "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+      "status": 200,
+      "bytes": 508314
+    },
+    {
+      "path": "/api/national",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/_next/static/chunks/0eh3hg0a099nx.css",
+      "status": 200,
+      "bytes": 82962
+    },
+    {
+      "path": "/_next/static/chunks/20rai6p7d_vts.css",
+      "status": 200,
+      "bytes": 9049
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 14700
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/_next/static/chunks/1kgvd40s9d-ct.js",
+      "status": 200,
+      "bytes": 248
+    },
+    {
+      "path": "/_next/static/chunks/1htmzmlohzpk0.js",
+      "status": 200,
+      "bytes": 37098
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 6029
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 6025
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/api/unified",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/maps/pra-national.geojson",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/_next/static/chunks/1d28regbhx1rl.js",
+      "status": 200,
+      "bytes": 560
+    },
+    {
+      "path": "/_next/static/chunks/3wh7ext_wgoe1.js",
+      "status": 200,
+      "bytes": 1066268
+    },
+    {
+      "path": "/api/national",
+      "status": 502,
+      "bytes": 32
+    },
+    {
+      "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+      "status": 200,
+      "bytes": 508314
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/_next/static/chunks/0eh3hg0a099nx.css",
+      "status": 200,
+      "bytes": 82962
+    },
+    {
+      "path": "/_next/static/chunks/20rai6p7d_vts.css",
+      "status": 200,
+      "bytes": 9049
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 10279
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/_next/static/chunks/1kgvd40s9d-ct.js",
+      "status": 200,
+      "bytes": 248
+    },
+    {
+      "path": "/_next/static/chunks/1htmzmlohzpk0.js",
+      "status": 200,
+      "bytes": 37098
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 6029
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 6025
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/maps/pra-national.geojson",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/_next/static/chunks/1d28regbhx1rl.js",
+      "status": 200,
+      "bytes": 560
+    },
+    {
+      "path": "/_next/static/chunks/3wh7ext_wgoe1.js",
+      "status": 200,
+      "bytes": 1066268
+    },
+    {
+      "path": "/maps/maplibre/maplibre-gl-worker.mjs",
+      "status": 200,
+      "bytes": 508314
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/_next/static/chunks/2kltq11cfifc0.css",
+      "status": 200,
+      "bytes": 806
+    },
+    {
+      "path": "/territories",
+      "status": 200,
+      "bytes": 8069
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 14700
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/_next/static/chunks/0eh3hg0a099nx.css",
+      "status": 200,
+      "bytes": 82962
+    },
+    {
+      "path": "/_next/static/chunks/20rai6p7d_vts.css",
+      "status": 200,
+      "bytes": 9049
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/_next/static/chunks/1kgvd40s9d-ct.js",
+      "status": 200,
+      "bytes": 248
+    },
+    {
+      "path": "/_next/static/chunks/1htmzmlohzpk0.js",
+      "status": 200,
+      "bytes": 37098
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/_next/static/chunks/3wv-vdmdcbhp9.css",
+      "status": 200,
+      "bytes": 15235
+    },
+    {
+      "path": "/_next/static/chunks/0eh3hg0a099nx.css",
+      "status": 200,
+      "bytes": 82962
+    },
+    {
+      "path": "/_next/static/chunks/20rai6p7d_vts.css",
+      "status": 200,
+      "bytes": 9049
+    },
+    {
+      "path": "/_next/static/chunks/3yq6a5sej70y4.js",
+      "status": 200,
+      "bytes": 5361
+    },
+    {
+      "path": "/_next/static/chunks/3cb23-tidve3v.js",
+      "status": 200,
+      "bytes": 28865
+    },
+    {
+      "path": "/_next/static/chunks/3p_rlkpvj-3s3.js",
+      "status": 200,
+      "bytes": 229815
+    },
+    {
+      "path": "/_next/static/chunks/2vablug33lid0.js",
+      "status": 200,
+      "bytes": 168368
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "status": 200,
+      "bytes": 10030
+    },
+    {
+      "path": "/_next/static/chunks/03qbaodyxvbui.js",
+      "status": 200,
+      "bytes": 13824
+    },
+    {
+      "path": "/_next/static/chunks/1kgvd40s9d-ct.js",
+      "status": 200,
+      "bytes": 248
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 14660
+    },
+    {
+      "path": "/_next/static/chunks/1htmzmlohzpk0.js",
+      "status": 200,
+      "bytes": 37098
+    },
+    {
+      "path": "/fonts/manrope-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/fonts/inter-latin-wght-normal.woff2",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "path": "/brand/favicon.svg",
+      "status": 200,
+      "bytes": 506
+    },
+    {
+      "path": "/productions",
+      "status": 200,
+      "bytes": 378
+    },
+    {
+      "path": "/analyse",
+      "status": 200,
+      "bytes": 374
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 1268
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 1314
+    }
+  ]
+}
