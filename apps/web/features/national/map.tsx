@@ -4,6 +4,7 @@ import type { Map as LibreMap, ExpressionSpecification } from 'maplibre-gl';
 import type { FeatureCollection, Geometry } from 'geojson';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { anomalyBand, availability, type ClimateContextRow } from './model';
+import type { TerritorialValue } from '../unified/model';
 import type { TerritoryRow } from '../../lib/server/territories';
 
 export type PraProperties = {
@@ -21,6 +22,7 @@ export default function NationalMap({
   mode,
   selected,
   onSelect,
+  quantitative,
 }: {
   collection: PraCollection;
   rows: TerritoryRow[] | null;
@@ -28,11 +30,13 @@ export default function NationalMap({
   mode: 'availability' | 'anomaly';
   selected: string;
   onSelect: (id: string) => void;
+  quantitative?: { values: TerritorialValue[]; field: 'value' | 'normal' | 'anomaly'; unit: string; bounds: number[]; colors: string[] };
 }) {
   const container = useRef<HTMLDivElement>(null),
     map = useRef<LibreMap | null>(null),
     select = useRef(onSelect),
-    modeRef = useRef(mode);
+    modeRef = useRef(mode),
+    quantRef = useRef(quantitative);
   const [ready, setReady] = useState(false),
     [failed, setFailed] = useState(false),
     [hover, setHover] = useState('');
@@ -43,7 +47,8 @@ export default function NationalMap({
 
   useEffect(() => {
     modeRef.current = mode;
-  }, [mode]);
+    quantRef.current = quantitative;
+  }, [mode, quantitative]);
 
   useEffect(() => {
     let disposed = false;
@@ -95,6 +100,9 @@ export default function NationalMap({
           },
         });
         map.current = m;
+        const observer = new ResizeObserver(() => m.resize());
+        observer.observe(container.current);
+        m.on('remove', () => observer.disconnect());
         m.addControl(new lib.NavigationControl({ showCompass: false }));
         m.addControl(
           new lib.AttributionControl({
@@ -113,7 +121,7 @@ export default function NationalMap({
             id: 'pra-fill',
             type: 'fill',
             source: 'pra',
-            paint: { 'fill-color': fill, 'fill-opacity': 0.8 },
+            paint: { 'fill-color': ['coalesce', ['feature-state', 'color'], fill], 'fill-opacity': 0.9 },
           });
           m.addLayer({
             id: 'pra-outline',
@@ -125,7 +133,7 @@ export default function NationalMap({
                 'case',
                 ['boolean', ['feature-state', 'selected'], false],
                 3,
-                0.5,
+                ['case', ['boolean', ['feature-state', 'partial'], false], 1.6, 0.5],
               ],
             },
           });
@@ -140,7 +148,9 @@ export default function NationalMap({
               display = f?.state?.display || 'missing',
               anomaly = f?.state?.anomaly;
             setHover(
-              p
+              p && quantRef.current
+                ? `${p.name} · ${p.code} · ${typeof f?.state?.value === 'number' ? new Intl.NumberFormat('fr-FR', {maximumFractionDigits:2}).format(f.state.value) + ' ' + quantRef.current.unit : 'Indisponible'} · ${f?.state?.quality || 'indisponible'}`
+                : p
                 ? modeRef.current === 'anomaly' && typeof anomaly === 'number'
                   ? `${p.name} · ${p.code} · anomalie ${anomaly > 0 ? '+' : ''}${anomaly.toFixed(2)}`
                   : `${p.name} · ${p.code} · ${display}`
@@ -153,7 +163,7 @@ export default function NationalMap({
           });
           setReady(true);
         });
-        m.on('error', () => setFailed(true));
+        m.on('error', (event) => { console.error('PRA map diagnostic', event.error.message); setFailed(true); });
       } catch {
         if (!disposed) setFailed(true);
       }
@@ -169,10 +179,16 @@ export default function NationalMap({
   useEffect(() => {
     if (!ready || !map.current) return;
     const byId = new Map(rows?.map((r) => [r.id, r]));
+    const quantitativeById = new Map(quantitative?.values.map(r=>[r.territoryId,r]));
+    const css = getComputedStyle(document.documentElement);
     const contextById = new Map(contextRows?.map((r) => [r.pra_id, r]));
     for (const f of collection.features) {
       const id = String(f.id);
       const climate = contextById.get(id);
+      const q = quantitativeById.get(id);
+      const value = q && quantitative ? q[quantitative.field] : null;
+      const band = value == null || !quantitative ? -1 : quantitative.bounds.findIndex(b=>value<=b);
+      const ink = quantitative ? (band<0 ? quantitative.colors.at(-1)! : quantitative.colors[band]) : null;
       map.current.setFeatureState(
         { source: 'pra', id: f.properties.code },
         {
@@ -180,15 +196,19 @@ export default function NationalMap({
             mode === 'anomaly'
               ? anomalyBand(climate?.anomaly)
               : availability(byId.get(id)),
+          color: quantitative ? (value == null ? css.getPropertyValue('--national-unavailable').trim() : ink) : null,
+          value: value ?? null,
+          quality: q?.status ?? 'unavailable',
+          partial: q?.status === 'partial',
           anomaly: climate?.anomaly ?? null,
           selected: f.id === selected,
         },
       );
     }
-  }, [ready, rows, contextRows, mode, selected, collection]);
+  }, [ready, rows, contextRows, mode, selected, collection, quantitative]);
 
   useEffect(() => {
-    if (!ready || !map.current || !selected) return;
+    if (!ready || !map.current || !selected || quantitative) return;
     const geometry = collection.features.find(
       (f) => f.id === selected,
     )?.geometry;
@@ -208,7 +228,7 @@ export default function NationalMap({
       ],
       { padding: 45, maxZoom: 10, duration: 0 },
     );
-  }, [ready, selected, collection]);
+  }, [ready, selected, collection, quantitative]);
 
   return (
     <section aria-label="Carte des 713 PRA" className="national-map-wrap">
@@ -236,13 +256,13 @@ export default function NationalMap({
       {!ready && !failed && <p role="status">Chargement des 713 contours…</p>}
       {failed && (
         <p role="alert">
-          Carte indisponible. La recherche et la liste permettent toujours de
+          Carte indisponible. La recherche permet toujours de
           sélectionner une PRA.
         </p>
       )}
       <p className="national-hover" aria-live="polite">
         {hover ||
-          'Sélectionnez un contour ou utilisez la recherche et la liste.'}
+          'Survolez un territoire pour lire sa valeur. Cliquez pour ouvrir sa fiche.'}
       </p>
     </section>
   );
