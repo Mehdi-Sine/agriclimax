@@ -30,12 +30,12 @@ export function parseState(params: URLSearchParams, space: Space): { state: Unif
   const indicator=params.get('indicateur') ?? (space==='analyse'?'hot':'temperature');
   const def=INDICATORS.find(i=>i.id===indicator);
   if(!def) errors.push('Indicateur inconnu.');
-  if(space==='analyse' && !RULES.some(r=>r.indicator===indicator)) errors.push('Indicateur non proposé pour cette production.');
   const mode=params.get('mode') ?? 'value';
   if(!['value','normal','anomaly'].includes(mode)||(!def?.reference&&mode!=='value')) errors.push('Lecture non disponible pour cet indicateur.');
   const threshold=Number(params.get('seuil') ?? def?.parameter ?? 25);
   if(!Number.isFinite(threshold)||threshold< -30||threshold>60) errors.push('Seuil attendu entre −30 et 60 °C.');
   const production=params.get('production') ?? 'wheat', variable=params.get('variable') ?? 'area';
+  if(space==='analyse' && !RULES.some(r=>r.production===production&&r.indicator===indicator)) errors.push('Indicateur non proposé pour cette production.');
   if(!AGRICULTURE.some(p=>p.id===production&&p.variables.some(v=>v.id===variable))) errors.push('Production ou variable agricole inconnue.');
   for(const key of params.keys()) if(params.getAll(key).length>1) errors.push('Paramètre répété : '+key);
   if(params.has('periode')&&!['jour','periode'].includes(params.get('periode')!)) errors.push('Type de période invalide.');

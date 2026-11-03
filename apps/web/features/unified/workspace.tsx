@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import NationalMap, { type PraCollection } from '../national/map';
 import { DAYS, NATIONAL, type ClimateContextRow } from '../national/model';
-import { AGRICULTURE, INDICATORS, RULES, parseState, type Space, type TerritorialValue } from './model';
+import { AGRICULTURE, INDICATORS, RULES, parseState, type Space, type TerritorialValue, type ProductionDefinition } from './model';
 import './unified.css';
 
 function valueLabel(value: number | null | undefined): string { return value == null ? 'Indisponible' : new Intl.NumberFormat('fr-FR', {maximumFractionDigits:2}).format(value); }
@@ -33,6 +33,7 @@ export function UnifiedWorkspace() {
   const space:Space=pathname==='/productions'?'productions':pathname==='/analyse'?'analyse':'climat';
   const {state,errors}=parseState(new URLSearchParams(search.toString()),space);
   const def=INDICATORS.find(i=>i.id===state.indicator)!;
+  const production=AGRICULTURE.find(p=>p.id===state.production)??AGRICULTURE[0];
   const [query,setQuery]=useState(''),[filtersOpen,setFiltersOpen]=useState(false);
   const geometry=useResource<PraCollection>(`/maps/pra-national.geojson?reference=${NATIONAL.reference}`,true);
   const collection=geometry.data?.type==='FeatureCollection'&&geometry.data.features.length===713?geometry.data:null;
@@ -74,7 +75,7 @@ export function UnifiedWorkspace() {
     if(path==='/analyse'&&!RULES.some(r=>r.indicator===state.indicator)){p.set('indicateur','hot');p.set('mode','value');p.set('periode','periode');}
     return `${path}?${p}`;
   }
-  const title=space==='productions'?AGRICULTURE[0].variables.find(v=>v.id===state.variable)!.label:def.label;
+  const title=space==='productions'?production.variables.find(v=>v.id===state.variable)!.label:def.label;
   return <div className="unified-product">
     <a className="skip-link" href="#main">Aller à la carte et aux filtres</a>
     <header className="unified-header">
@@ -84,18 +85,18 @@ export function UnifiedWorkspace() {
     </header>
     <main id="main" className="unified-main">
       <div className="unified-heading"><div><p className="eyebrow">EXPLORER LES TERRITOIRES · FRANCE MÉTROPOLITAINE ET CORSE</p><h1>{TITLES[space]}</h1><p>{DESCRIPTIONS[space]}</p></div><span className="scale-badge">713 PRA · contours officiels</span></div>
-      <button className="filters-toggle" aria-expanded={filtersOpen} aria-controls="map-filters" onClick={()=>setFiltersOpen(!filtersOpen)}>Filtres · {space==='productions'?'Blé tendre':def.label} {filtersOpen?'−':'+'}</button>
+      <button className="filters-toggle" aria-expanded={filtersOpen} aria-controls="map-filters" onClick={()=>setFiltersOpen(!filtersOpen)}>Filtres · {space==='productions'?production.label:def.label} {filtersOpen?'−':'+'}</button>
       <section id="map-filters" className={`unified-filters ${filtersOpen?'filters-open':''}`} aria-label="Filtres de la carte">
         {space!=='climat'&&<label>Production<select value={state.production} onChange={e=>change({production:e.target.value})}>{AGRICULTURE.map(p=><option key={p.id} value={p.id}>{p.label}</option>)}</select></label>}
         {space==='productions'?<>
-          <label>Variable agricole<select value={state.variable} onChange={e=>change({variable:e.target.value})}>{AGRICULTURE[0].variables.map(v=><option key={v.id} value={v.id}>{v.label} ({v.unit})</option>)}</select></label>
+          <label>Variable agricole<select value={state.variable} onChange={e=>change({variable:e.target.value})}>{production.variables.map(v=><option key={v.id} value={v.id}>{v.label} ({v.unit})</option>)}</select></label>
           <label>Millésime<select disabled aria-label="Millésime"><option>À connecter · SAA annuelle</option></select></label>
           <label>Échelle de la source<select disabled><option>Département · données à connecter</option></select></label>
         </>:<>
           <label>Lecture temporelle<select value={state.period?'periode':'jour'} onChange={e=>change({periode:e.target.value})}><option value="jour">Jour</option><option value="periode">Période</option></select></label>
           {state.period&&<label>Début · UTC<input type="date" value={state.start} min={NATIONAL.start} max={NATIONAL.end} onChange={e=>change({start:e.target.value})}/></label>}
           <label>{state.period?'Fin':'Date'} · UTC<input type="date" value={state.date} min={NATIONAL.start} max={NATIONAL.end} onChange={e=>change({date:e.target.value})}/></label>
-          <label>{space==='analyse'?'Aléa descriptif':'Indicateur'}<select value={state.indicator} onChange={e=>change({indicateur:e.target.value,mode:'value',seuil:String(INDICATORS.find(d=>d.id===e.target.value)?.parameter??25)})}>{space==='climat'?<>{['meteo','agrometeo'].map(f=><optgroup key={f} label={f==='meteo'?'Météo / climatologie':'Agrométéo simple'}>{INDICATORS.filter(d=>d.family===f).map(d=><option key={d.id} value={d.id}>{d.label}</option>)}</optgroup>)}</>:RULES.map(r=><option key={r.id} value={r.indicator}>{r.label}</option>)}</select></label>
+          <label>{space==='analyse'?'Aléa descriptif':'Indicateur'}<select value={state.indicator} onChange={e=>change({indicateur:e.target.value,mode:'value',seuil:String(INDICATORS.find(d=>d.id===e.target.value)?.parameter??25)})}>{space==='climat'?<>{['meteo','agrometeo'].map(f=><optgroup key={f} label={f==='meteo'?'Météo / climatologie':'Agrométéo simple'}>{INDICATORS.filter(d=>d.family===f).map(d=><option key={d.id} value={d.id}>{d.label}</option>)}</optgroup>)}</>:RULES.filter(r=>r.production===state.production).map(r=><option key={r.id} value={r.indicator}>{r.label}</option>)}</select></label>
           {['above','gdd'].includes(def.operator)&&<label>{def.operator==='gdd'?'Base':'Seuil Tmax'} · °C<input type="number" min="-30" max="60" value={state.threshold} onChange={e=>change({seuil:e.target.value})}/></label>}
           <label>Lecture<select value={state.mode} onChange={e=>change({mode:e.target.value})}><option value="value">Valeur</option>{def.reference&&<><option value="normal">Normale 1991–2020</option><option value="anomaly">Anomalie</option></>}</select></label>
         </>}
@@ -114,24 +115,24 @@ export function UnifiedWorkspace() {
         </section>
         <aside className="unified-panel" aria-label="Fiche territoire">
           {feature?<><div className="panel-top"><span className="eyebrow">PETITE RÉGION AGRICOLE · {feature.properties.code}</span><button aria-label="Fermer la fiche PRA" onClick={()=>change({pra:''})}>×</button></div><h2>{feature.properties.name}</h2><p>{feature.properties.department_name} · {feature.properties.region_name}</p>
-          {space==='productions'?<AgriculturePanel variable={state.variable}/>:<>
+          {space==='productions'?<AgriculturePanel production={production} variable={state.variable}/>:<>
             <span className="status-pill">{source.error?'Source inaccessible':current?STATUS[current.status]:'Chargement…'}</span>
             {space==='analyse'&&<h3>A. Aléa climatique</h3>}
             <div className="unified-value"><small>{def.label}{['above','gdd'].includes(def.operator)?` · ${state.threshold} °C`:''}</small><strong>{valueLabel(current?.[state.mode])} <em>{current?.[state.mode]!=null?def.unit:''}</em></strong></div>
             <dl className="unified-comparison"><div><dt>Normale 1991–2020</dt><dd>{def.reference?`${valueLabel(current?.normal)} ${current?.normal!=null?def.unit:''}`:'Non applicable'}</dd></div><div><dt>Anomalie</dt><dd>{def.reference?`${valueLabel(current?.anomaly)} ${current?.anomaly!=null?def.unit:''}`:'Non calculable'}</dd></div></dl>
             <p className="coverage-line">{current?`${current.observedDays}/${current.expectedDays} jours renseignés · couverture spatiale ${current.coverage==null?'inconnue':valueLabel(current.coverage*100)+' %'}`:'Valeur non disponible pour cette sélection.'}</p>
             {current?.status==='partial'&&<p>Résultat partiel : somme ou moyenne des seuls jours renseignés, sans extrapolation.</p>}
-            {space==='analyse'&&<><h3>B. Production concernée</h3><p>Blé tendre · exposition agricole non encore quantifiée à la PRA.</p><h3>C. Lecture agroclimatique</h3><p>{current?.value==null?'Données insuffisantes pour décrire cet aléa.':`${valueLabel(current.value)} ${def.unit} · ${def.label.toLowerCase()}${def.operator==='above'?` ${state.threshold} °C`:''}, sur ${current.observedDays} jours renseignés.`} Aucun impact sur le rendement ni niveau de vulnérabilité déduit. Le stade de la culture n’est pas renseigné.</p></>}
+            {space==='analyse'&&<><h3>B. Production concernée</h3><p>{production.label} · exposition agricole non encore quantifiée à la PRA.</p><h3>C. Lecture agroclimatique</h3><p>{current?.value==null?'Données insuffisantes pour décrire cet aléa.':`${valueLabel(current.value)} ${def.unit} · ${def.label.toLowerCase()}${def.operator==='above'?` ${state.threshold} °C`:''}, sur ${current.observedDays} jours renseignés.`} Aucun impact sur le rendement ni niveau de vulnérabilité déduit. Le stade de la culture n’est pas renseigné.</p></>}
             <h3>{def.variable==='temperature_max'?'Tmax':def.variable==='temperature_min'?'Tmin':def.variable==='precipitation'?'Pluie':'Température moyenne'} · évolution quotidienne</h3>{!def.reference&&<p>Série climatique d’origine, avant calcul de l’indice.</p>}{history.error?<p role="alert">Historique indisponible. {history.error}</p>:history.data?<History rows={history.data.data.filter(r=>r.variable===def.variable)} unit={def.variable==='precipitation'?'mm':'°C'}/>:<p role="status">Chargement de l’historique…</p>}
             <details><summary>Détails et méthode</summary><p>{def.method}</p><p>Référence homologue exigée pour une anomalie ; aucune anomalie de jours au seuil ou degrés-jours. Réanalyse exploratoire, pas une mesure en station. Températures extrêmes : extrema des cellules, pas température au centre de PRA.</p><p>Règle {def.version} · {NATIONAL.dataset} · normale {NATIONAL.climatology}. Fraîcheur : archive septembre–octobre 2026.</p></details>
-          </>}</>:<><div className="panel-illustration" aria-hidden="true">◎</div><h2>Chaque territoire a son histoire</h2><p>Sélectionnez une PRA sur la carte ou recherchez son nom pour ouvrir sa fiche.</p><p>La sélection vous accompagne dans les trois espaces.</p>{space==='productions'&&<AgriculturePanel variable={state.variable}/>}</>}
+          </>}</>:<><div className="panel-illustration" aria-hidden="true">◎</div><h2>Chaque territoire a son histoire</h2><p>Sélectionnez une PRA sur la carte ou recherchez son nom pour ouvrir sa fiche.</p><p>La sélection vous accompagne dans les trois espaces.</p>{space==='productions'&&<AgriculturePanel production={production} variable={state.variable}/>}</>}
         </aside>
       </div>
       <details id="sources" className="unified-method"><summary>Sources, méthodes et limites</summary><p>Contours OFB / MASA · {NATIONAL.reference} · géométrie source inchangée, réserves PostGIS de l’issue #49 conservées. ERA5-Land est une réanalyse et non une observation stationnelle. Normales quotidiennes 1991–2020. Archive disponible du 19/09 au 18/10/2026 ; aucune journée postérieure inventée.</p><p>Pour les périodes : moyenne des températures, somme des pluies, compte de jours au seuil strict. Les jours absents restent absents ; résultats partiels signalés. Les anomalies exigent les mêmes jours observés et une référence complète. Le 29 février conserve l’état de référence insuffisante.</p><p>Agreste SAA : source départementale annuelle à qualifier ; aucune statistique départementale répartie artificiellement entre PRA. Aucun niveau de risque, sensibilité ou impact agricole estimé.</p><p><Link href="/stations?mode=live_meteofrance&production=wheat">Stations Météo-France</Link> · <Link href="/stations?mode=live_meteofrance&production=cattle&indicator=thi">THI bovin stationnel</Link> · <Link href="/demo">Démonstration fictive séparée</Link></p></details>
     </main>
   </div>;
 }
-function AgriculturePanel({variable}:{variable:string}) {return <section className="agriculture-empty"><span className="eyebrow">AGRESTE / SSP · SOURCE ANNUELLE</span><h3>Données agricoles à connecter</h3><p>{AGRICULTURE[0].variables.find(v=>v.id===variable)?.label} du blé tendre : aucun millésime ni chiffre qualifié dans cet environnement.</p><p>Maille attendue : département. La carte affiche les PRA comme repères climatiques, sans couleur agricole et sans attribution départementale implicite.</p><a href={AGRICULTURE[0].source.sourceId} target="_blank" rel="noreferrer">Sources et millésimes · SAA ↗</a></section>;}
+function AgriculturePanel({production,variable}:{production:ProductionDefinition;variable:string}) {return <section className="agriculture-empty"><span className="eyebrow">AGRESTE / SSP · SOURCE ANNUELLE</span><h3>Données agricoles à connecter</h3><p>{production.variables.find(v=>v.id===variable)?.label} · {production.label} : aucun millésime ni chiffre qualifié dans cet environnement.</p><p>Maille attendue : département. La carte affiche les PRA comme repères climatiques, sans couleur agricole et sans attribution départementale implicite.</p><a href={production.source.sourceId} target="_blank" rel="noreferrer">Sources et millésimes · SAA ↗</a></section>;}
 function History({rows,unit}:{rows:ClimateContextRow[];unit:string}) {
   const numbers=rows.flatMap(r=>[r.current_value,r.normal_1991_2020].filter((v):v is number=>v!==null));
   if(!numbers.length)return <p>Aucune valeur ni normale disponible.</p>;
