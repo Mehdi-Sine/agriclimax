@@ -18,7 +18,7 @@ function day(date: string, variable: ClimateVariable, transport: typeof fetch) {
   }
   return promise;
 }
-export async function unifiedData(params: URLSearchParams, transport: typeof fetch=fetch) {
+export async function unifiedData(params: URLSearchParams, transport: typeof fetch=fetch, signal?: AbortSignal) {
   const allowed=['start','end','indicator','threshold'];
   const start=params.get('start')??'',end=params.get('end')??'',id=params.get('indicator')??'';
   const definition=INDICATORS.find(i=>i.id===id);
@@ -27,14 +27,15 @@ export async function unifiedData(params: URLSearchParams, transport: typeof fet
   if(process.env.PRA_NATIONAL_ENABLED!=='1')throw new ApiError('NOT_CONFIGURED',503);
   const dates=DAYS.filter(d=>d>=start&&d<=end);
   const grouped=new Map<string,ClimateContextRow[]>();
-  // Two dates in flight: bounded 16 RPCs at most; no raw annual series sent to client.
-  for(let i=0;i<dates.length;i+=2) {
-    const pages=await Promise.all(dates.slice(i,i+2).map(date=>day(date,definition.variable,transport)));
+  // Four dates in flight (four paginated RPC requests concurrently); no annual series sent to client.
+  for(let i=0;i<dates.length;i+=4) {
+    if(signal?.aborted) throw new ApiError('UPSTREAM_UNAVAILABLE',503);
+    const pages=await Promise.all(dates.slice(i,i+4).map(date=>day(date,definition.variable,transport)));
     for(const rows of pages)for(const row of rows){const list=grouped.get(row.pra_id!)??[];list.push(row);grouped.set(row.pra_id!,list);}
   }
   return {period:[start,end],indicator:id,threshold,source_id:'era5-land',dataset_version:NATIONAL.dataset,data:[...grouped.values()].map(rows=>aggregate(rows,definition,dates.length,threshold))};
 }
 export async function readUnified(request:Request) {
-  try{return Response.json(await unifiedData(new URL(request.url).searchParams),{headers:{'Cache-Control':'private, max-age=60'}});}
+  try{return Response.json(await unifiedData(new URL(request.url).searchParams, fetch, request.signal),{headers:{'Cache-Control':'private, max-age=60'}});}
   catch(e){const safe=e instanceof ApiError?e:new ApiError('UPSTREAM_UNAVAILABLE',502);return Response.json({error:safe.code},{status:safe.status,headers:{'Cache-Control':'no-store'}});}
 }

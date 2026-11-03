@@ -38,6 +38,7 @@ export default function NationalMap({
     modeRef = useRef(mode),
     quantRef = useRef(quantitative);
   const [ready, setReady] = useState(false),
+    [rendered, setRendered] = useState(false),
     [failed, setFailed] = useState(false),
     [hover, setHover] = useState('');
 
@@ -163,7 +164,8 @@ export default function NationalMap({
           });
           setReady(true);
         });
-        m.on('error', (event) => { console.error('PRA map diagnostic', event.error.message); setFailed(true); });
+        m.on('idle', () => { if (m.getSource('pra') && m.isSourceLoaded('pra')) setRendered(true); });
+        m.on('error', () => setFailed(true));
       } catch {
         if (!disposed) setFailed(true);
       }
@@ -198,7 +200,7 @@ export default function NationalMap({
               : availability(byId.get(id)),
           color: quantitative ? (value == null ? css.getPropertyValue('--national-unavailable').trim() : ink) : null,
           value: value ?? null,
-          quality: q?.status ?? 'unavailable',
+          quality: q ? ({ available: 'Disponible', partial: 'Partiel', unavailable: 'Indisponible', not_applicable: 'Non applicable', source_error: 'Erreur source' }[q.status]) : 'Indisponible',
           partial: q?.status === 'partial',
           anomaly: climate?.anomaly ?? null,
           selected: f.id === selected,
@@ -249,7 +251,7 @@ export default function NationalMap({
       <div
         ref={container}
         className="national-map"
-        data-ready={ready}
+        data-ready={ready && rendered}
         data-feature-count={collection.features.length}
         data-mode={mode}
       />
