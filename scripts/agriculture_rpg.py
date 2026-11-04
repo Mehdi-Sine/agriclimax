@@ -13,8 +13,8 @@ import sqlite3
 import subprocess
 import urllib.request
 import xml.etree.ElementTree as ET
-from collections import defaultdict
-from concurrent.futures import ThreadPoolExecutor
+from collections import defaultdict, deque
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -105,7 +105,55 @@ def download(url: str, path: Path, expected_bytes: int | None = None) -> None:
     temporary.replace(path)
 
 
-def process_region(region: str, cache: Path, allocator: PraAllocator, reference_sha: str) -> dict:
+_WORKER_DB: sqlite3.Connection | None = None
+_WORKER_ALLOCATOR: PraAllocator | None = None
+
+
+def init_overlay_worker(gpkg: str, reference: str) -> None:
+    global _WORKER_DB, _WORKER_ALLOCATOR
+    _WORKER_DB = sqlite3.connect(f"file:{gpkg}?mode=ro&immutable=1", uri=True)
+    _WORKER_ALLOCATOR = PraAllocator(json.loads(Path(reference).read_text())["features"])
+
+
+def overlay_batch(batch: list[tuple]) -> tuple[dict, dict, int]:
+    if _WORKER_DB is None or _WORKER_ALLOCATOR is None:
+        raise RuntimeError("Overlay worker not initialized")
+    aggregates = defaultdict(float)
+    groups = defaultdict(lambda: defaultdict(float))
+    invalid = 0
+    neighbour_sql = """select p.geom from rtree_RPG_Parcelles_geom r join RPG_Parcelles p on p.fid=r.id
+       where r.minx<=? and r.maxx>=? and r.miny<=? and r.maxy>=? and p.fid<?"""
+    for fid, group, declared, blob in batch:
+        geometry = gpkg_geometry(blob)
+        minx, miny, maxx, maxy = geometry.bounds
+        neighbours = [gpkg_geometry(b[0]) for b in _WORKER_DB.execute(neighbour_sql, (maxx, minx, maxy, miny, fid))]
+        result = _WORKER_ALLOCATOR.allocate(geometry, 2154, neighbours)
+        invalid += result.invalid_geometry
+        group = str(group)
+        for code, area in result.hectares.items():
+            aggregates[(code, group)] += area
+        g = groups[group]
+        for key, value in (("source_geometry_ha", result.source_ha), ("accepted_ha", result.accepted_ha), ("outside_pra_ha", result.outside_ha), ("excluded_overlap_ha", result.overlap_ha), ("allocated_ha", sum(result.hectares.values())), ("declared_ha", declared or 0)):
+            g[key] += value
+        g["parcels"] += 1
+    return dict(aggregates), {g: dict(v) for g, v in groups.items()}, invalid
+
+
+def bounded_overlay(batches, gpkg: Path, workers: int):
+    # A bounded queue avoids Executor.map eagerly buffering a whole national
+    # delivery. Each result is merged in source order, independent of scheduling.
+    with ProcessPoolExecutor(max_workers=workers, initializer=init_overlay_worker,
+                             initargs=(str(gpkg), str(REFERENCE))) as pool:
+        pending = deque()
+        for batch in batches:
+            pending.append(pool.submit(overlay_batch, batch))
+            if len(pending) >= workers * 2:
+                yield pending.popleft().result()
+        while pending:
+            yield pending.popleft().result()
+
+
+def process_region(region: str, cache: Path, allocator: PraAllocator, reference_sha: str, workers: int = 2) -> dict:
     checkpoint = cache / f"R{region}-complete.json"
     if checkpoint.exists():
         data = json.loads(checkpoint.read_text())
@@ -120,7 +168,12 @@ def process_region(region: str, cache: Path, allocator: PraAllocator, reference_
             if source is None:
                 source = restore(cache, region)
             with sqlite3.connect(f'file:{source}?mode=ro', uri=True) as source_db:
-                identities.executemany('insert or replace into parcel_identity_v2 values (?,?,?)', ((str(identifier), record_fingerprint(blob, culture, group, declared), region) for identifier, blob, culture, group, declared in source_db.execute('select id_parcel,geom,code_cultu,code_group,surf_parc from RPG_Parcelles')))
+                for identifier, blob, culture, group, declared in source_db.execute('select id_parcel,geom,code_cultu,code_group,surf_parc from RPG_Parcelles'):
+                    fingerprint = record_fingerprint(blob, culture, group, declared)
+                    prior = identities.execute('select fingerprint from parcel_identity_v2 where id=?', (str(identifier),)).fetchone()
+                    if prior is not None and prior[0] != fingerprint:
+                        raise ValueError('Conflicting source identity while rebuilding a checkpoint')
+                    identities.execute('insert or ignore into parcel_identity_v2 values (?,?,?)', (str(identifier), fingerprint, region))
             identities.commit()
         identities.close()
         return data
@@ -137,7 +190,9 @@ def process_region(region: str, cache: Path, allocator: PraAllocator, reference_
     url = link.attrib["href"]
     expected = int(link.attrib["{https://data.geopf.fr/annexes/ressources/xsd/gpf_dl.xsd}length"])
     archive = cache / f"R{region}.7z"
-    if shutil.disk_usage(cache).free < expected * 2 + 256 * 1024 * 1024:
+    existing_layer = next((cache / f'R{region}-extract').rglob('RPG_Parcelles.gpkg'), None)
+    required = (0 if archive.exists() else expected) + (0 if existing_layer else expected) + 256 * 1024 * 1024
+    if shutil.disk_usage(cache).free < required:
         raise ValueError("Insufficient disk for bounded regional extraction; keep checkpoints")
     print(json.dumps({"region": region, "step": "download", "bytes": expected}), flush=True)
     # Accept the inspected initial acquisition filename when it is byte-complete.
@@ -173,41 +228,44 @@ def process_region(region: str, cache: Path, allocator: PraAllocator, reference_
     count = 0
     invalid = 0
     duplicates = 0
-    # Source GeoPackage RTree supplies earlier neighbouring geometries, avoiding a
-    # second full geometry store or a national in-memory spatial index.
-    neighbour_sql = """select p.geom from rtree_RPG_Parcelles_geom r join RPG_Parcelles p on p.fid=r.id
-       where r.minx<=? and r.maxx>=? and r.miny<=? and r.maxy>=? and p.fid<?"""
-    for fid, parcel_id, culture, group, declared, blob in rows:
-        count += 1
-        geometry = gpkg_geometry(blob)
-        if not isinstance(parcel_id, str) or not parcel_id.strip():
-            raise ValueError("Missing parcel identifier")
-        fingerprint = record_fingerprint(blob, culture, group, declared)
-        prior = identities.execute('select fingerprint from parcel_identity_v2 where id=? and region<>?', (parcel_id, region)).fetchone()
-        if prior:
-            if prior[0] != fingerprint:
-                raise ValueError("Conflicting parcel ID across regional deliveries")
-            duplicates += 1
-            continue
-        if parcel_id in ids:
-            if ids[parcel_id] != fingerprint:
-                raise ValueError("Conflicting duplicate parcel ID")
-            duplicates += 1
-            continue
-        ids[parcel_id] = fingerprint
-        minx, miny, maxx, maxy = geometry.bounds
-        neighbours = [gpkg_geometry(b[0]) for b in db.execute(neighbour_sql, (maxx, minx, maxy, miny, fid))]
-        result = allocator.allocate(geometry, 2154, neighbours)
-        invalid += result.invalid_geometry
-        group = str(group)
-        for code, area in result.hectares.items():
-            aggregates[(code, group)] += area
-        g = groups[group]
-        for key, value in (("source_geometry_ha", result.source_ha), ("accepted_ha", result.accepted_ha), ("outside_pra_ha", result.outside_ha), ("excluded_overlap_ha", result.overlap_ha), ("allocated_ha", sum(result.hectares.values())), ("declared_ha", declared or 0)):
-            g[key] += value
-        g["parcels"] += 1
-        if count % 10000 == 0:
-            print(json.dumps({"region": region, "parcels": count}), flush=True)
+    def batches():
+        nonlocal count, duplicates
+        batch = []
+        for fid, parcel_id, culture, group, declared, blob in rows:
+            count += 1
+            if not isinstance(parcel_id, str) or not parcel_id.strip():
+                raise ValueError("Missing parcel identifier")
+            fingerprint = record_fingerprint(blob, culture, group, declared)
+            prior = identities.execute('select fingerprint from parcel_identity_v2 where id=? and region<>?', (parcel_id, region)).fetchone()
+            if prior:
+                if prior[0] != fingerprint:
+                    raise ValueError("Conflicting parcel ID across regional deliveries")
+                duplicates += 1
+                continue
+            if parcel_id in ids:
+                if ids[parcel_id] != fingerprint:
+                    raise ValueError("Conflicting duplicate parcel ID")
+                duplicates += 1
+                continue
+            ids[parcel_id] = fingerprint
+            batch.append((fid, group, declared, blob))
+            if len(batch) == 1000:
+                yield batch
+                batch = []
+        if batch:
+            yield batch
+
+    processed = 0
+    for batch_aggregates, batch_groups, batch_invalid in bounded_overlay(batches(), gpkg, workers):
+        invalid += batch_invalid
+        for key, area in batch_aggregates.items():
+            aggregates[key] += area
+        for group, metrics in batch_groups.items():
+            for key, value in metrics.items():
+                groups[group][key] += value
+            processed += int(metrics['parcels'])
+        if processed % 10000 == 0:
+            print(json.dumps({"region": region, "parcels": processed}), flush=True)
     db.close()
     identities.executemany('insert or replace into parcel_identity_v2 values (?,?,?)', ((identifier, fingerprint, region) for identifier, fingerprint in ids.items()))
     identities.commit()
@@ -237,6 +295,7 @@ def main() -> int:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--cache", type=Path, default=Path("work/task25"))
     p.add_argument("--regions", nargs="+", default=REGIONS, choices=REGIONS)
+    p.add_argument("--workers", type=int, choices=(1, 2), default=2, help="Bounded independent geometry workers, deterministic 1000-parcel batches")
     p.add_argument("--compact-cache", action="store_true", help="Retain verified byte-identical Parcelles XZ, evict redundant delivery/working copies only after completed checkpoints")
     args = p.parse_args()
     features = json.loads(REFERENCE.read_text())["features"]
@@ -244,7 +303,7 @@ def main() -> int:
         raise ValueError("Expected official 713-PRA snapshot")
     allocator = PraAllocator(features)
     for region in args.regions:
-        process_region(region, args.cache, allocator, digest(REFERENCE))
+        process_region(region, args.cache, allocator, digest(REFERENCE), args.workers)
         if args.compact_cache:
             compact(args.cache, region, evict=True)
     return 0

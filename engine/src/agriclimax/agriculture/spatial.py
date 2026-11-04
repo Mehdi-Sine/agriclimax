@@ -7,7 +7,7 @@ from collections.abc import Sequence
 from dataclasses import dataclass
 
 from pyproj import Transformer
-from shapely import Geometry, make_valid, transform
+from shapely import Geometry, contains, make_valid, prepare, transform
 from shapely.geometry import shape
 from shapely.ops import unary_union
 from shapely.strtree import STRtree
@@ -47,9 +47,13 @@ class PraAllocator:
         if len(self.codes) != len(set(self.codes)):
             raise ValueError("Duplicate PRA code")
         self.repaired_pra_codes = [self.codes[i] for i, f in enumerate(features) if not shape(f["geometry"]).is_valid]
-        self.geometries = [project(shape(f["geometry"]), 4326) for f in features]
-        self.tree = STRtree(self.geometries)
         self.transformers: dict[int, Transformer] = {}
+        self.geometries = [self.projected(shape(f["geometry"]), 4326) for f in features]
+        # Preparing the fixed PRA polygons makes exact containment cheap. Most
+        # parcels are wholly interior; only boundary parcels require an overlay.
+        for geometry in self.geometries:
+            prepare(geometry)
+        self.tree = STRtree(self.geometries)
 
     def projected(self, geometry: Geometry, source_crs: int) -> Geometry:
         if source_crs not in self.transformers:
@@ -60,12 +64,13 @@ class PraAllocator:
         original = self.projected(geometry, source_crs)
         accepted = original
         # Deterministic first-feature ownership. Record excluded overlaps; never inflate totals.
-        overlaps = [self.projected(g, source_crs) for g in preceding if polygonal(geometry).intersects(polygonal(g))]
+        native = polygonal(geometry)
+        overlaps = [self.projected(g, source_crs) for g in preceding if native.intersects(polygonal(g))]
         if overlaps:
             accepted = original.difference(unary_union(overlaps))
         areas = {}
-        for index in self.tree.query(accepted, predicate="intersects"):
-            area = accepted.intersection(self.geometries[index]).area / 10000
+        for index in self.tree.query(accepted):
+            area = (accepted.area if contains(self.geometries[index], accepted) else accepted.intersection(self.geometries[index]).area) / 10000
             if area > 0:
                 areas[self.codes[index]] = area
         total = sum(areas.values())

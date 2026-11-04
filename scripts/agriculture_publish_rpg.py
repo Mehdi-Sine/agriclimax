@@ -16,6 +16,9 @@ def main() -> None:
     checkpoints = [json.loads(p.read_text()) for p in sorted(cache.glob('R*-complete.json'))]
     if not checkpoints:
         raise ValueError('No completed official RPG delivery')
+    for cp in checkpoints:
+        if not all(g['declared_area_check'] and abs(g['conservation_residual_ha']) <= .001 for g in cp['groups'].values()):
+            raise ValueError('Regional declared-area/conservation control failed')
     digest = hashlib.sha256(json.dumps(checkpoints, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
     nomenclature = json.loads((cache / 'rpg-codes.json').read_text())
     labels = defaultdict(set)

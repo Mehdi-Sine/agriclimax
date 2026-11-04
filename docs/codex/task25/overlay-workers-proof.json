@@ -1,0 +1,14 @@
+{
+  "source": "IGN RPG2025 R75 original layer",
+  "parcels": 10000,
+  "workers": [
+    1,
+    2
+  ],
+  "deterministic_aggregate_equality": true,
+  "invalid_geometries": 0,
+  "serial_seconds": 8.497552488999645,
+  "parallel_seconds": 8.49777898100001,
+  "measurement_context": "Concurrent regional ingestion and browser QA on two-vCPU worker; not an isolated throughput benchmark",
+  "containment_fast_path_5000_parcels_max_difference_ha": 6.394884621840902e-14
+}
