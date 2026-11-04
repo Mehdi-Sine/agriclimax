@@ -14,8 +14,8 @@ const report=[];
 try {
  for(const width of [1440,768,390]) {
   const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
-  await page.goto(`${base}/territories`,{waitUntil:'networkidle'});
-  assert.ok((await page.locator('main').innerText()).includes('Référentiel PRA non déployé'));
+  await page.goto(`${base}/territories?reference=missing-version`,{waitUntil:'networkidle'});
+  assert.ok((await page.locator('main').innerText()).includes('Données territoriales indisponibles'));
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   await page.getByLabel('Département',{exact:true}).fill('2A');
   await page.getByLabel('Rechercher une PRA',{exact:true}).fill('Corse');

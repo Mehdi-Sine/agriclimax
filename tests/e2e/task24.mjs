@@ -1,13 +1,13 @@
 // Synthetic API transport is confined to this test. No mocked screenshots are produced.
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
-import {readFileSync,writeFileSync} from 'node:fs';
+import {readFileSync,writeFileSync,existsSync} from 'node:fs';
 const {chromium}=createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE_PATH||'playwright');
 const base=process.env.TASK24_BASE_URL||'http://127.0.0.1:3020';
 assert.ok(['127.0.0.1','localhost'].includes(new URL(base).hostname));
 const reference=JSON.parse(readFileSync('config/coverage/ofb-masa-pra-2017-snapshot-20261017/reference.json','utf8'));
 const fixture=reference.features.map((f,i)=>({territoryId:`pra:${f.properties.code}`,value:f.properties.code==='29102'?null:12+i%5,normal:f.properties.code==='29102'?null:10,anomaly:f.properties.code==='29102'?null:2+i%5,coverage:f.properties.code==='29102'?0:1,observedDays:f.properties.code==='29102'?0:1,expectedDays:1,status:f.properties.code==='29102'?'unavailable':f.properties.code==='01451'?'partial':'available',dataScale:'pra',datasetVersion:'synthetic-test-only',freshness:'synthetic-test-only',rule_version:'synthetic-test-only',provenance:'synthetic-test-only',quality_flags:[]}));
-const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE||'/usr/bin/chromium',args:['--no-sandbox','--enable-unsafe-swiftshader']});
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),args:['--no-sandbox','--enable-unsafe-swiftshader']});
 const report={syntheticTransport:true,cases:[],errors:[]};
 try{
 const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce',locale:'fr-FR'});

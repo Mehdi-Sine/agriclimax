@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import type { AppContext } from "../../lib/domain";
-import { parseContext, serializeContext } from "../../lib/url-state";
+import { parseContext, serializeContext, observationPath } from "../../lib/url-state";
 import type { ShellData } from "../../lib/shell-data";
 import riskFixture from "../../../../fixtures/contracts/risk-result.json";
 import watchFixture from "../../../../fixtures/contracts/watch-signal.json";
@@ -92,7 +92,7 @@ export function ProductShell({
     }
     setSpace(next);
     if (next !== "observation") params.set("view", next);
-    router.push(`/?${params}`, { scroll: false });
+    router.push(`${observationPath(data.mode)}?${params}`, { scroll: false });
   }
   function update(field: keyof AppContext, value: string) {
     const next = parseContext(
@@ -100,7 +100,7 @@ export function ProductShell({
     );
     const params = withLiveContext(serializeContext(next));
     if (space !== "observation") params.set("view", space);
-    router.push(`/?${params}`, { scroll: false });
+    router.push(`${observationPath(data.mode)}?${params}`, { scroll: false });
   }
   const filters = (
     <div className="filters">
@@ -143,7 +143,7 @@ export function ProductShell({
         onClick={() => {
           const params = withLiveContext(new URLSearchParams());
           if (space !== "observation") params.set("view", space);
-          router.push(`/?${params}`);
+          router.push(`${observationPath(data.mode)}?${params}`);
         }}
       >
         Réinitialiser

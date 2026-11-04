@@ -42,3 +42,11 @@ Dans un environnement normalement équipé : `pnpm install --frozen-lockfile`, p
 Restent : publication de cette branche et d’une unique PR draft ; CI complète sur versions verrouillées et dépendances scientifiques ; lecture réelle DEV (PRA complète/Crozon, normales, historique, agrégation 30 jours et latence RPC) ; Preview Vercel desktop/mobile. Agreste SAA doit encore être téléchargé et qualifié avant connexion d’une couche départementale. Aucun lien PR ou Preview n’a été créé. Le contrat SQL est vérifié contre la migration versionnée, sans exécution SQL distante. L’exposition agricole reste non quantifiée et THI reste stationnel.
 
 Exports : `work/task24-export/task24.bundle`, `task24.patch` et `agriclimax-task24-local.zip`. Le dossier `/codex/.../output` prescrit par l’interface n’est pas accessible en écriture dans l’exécuteur sélectionné ; les artefacts sont donc conservés dans le workspace, avec sommes de contrôle, sans prétendre à un lien d’attachement disponible.
+
+## Publication GitHub — 4 novembre 2026
+
+Branche publiée, PR draft #53 : https://github.com/Mehdi-Sine/agriclimax/pull/53. Preview Vercel automatique déclenchée ; HTTP 200 et titre AgriclimaX confirmés avec l’accès automatisé existant. Aucun déploiement manuel ni merge.
+
+La première CI sur les cinq commits a validé installation gelée, lint, typecheck, tests TS, build, audit des dépendances, sécurité, contrats Python et SQL (public/extensions). Le workflow ERA5 historique a également réussi (il cible sa propre branche Task12, ce n’est pas une validation des données PRA Task24). Le job navigateur a révélé que les redirections rendues côté page ne satisfaisaient pas le smoke HTTP et que des liens internes de caméra/publication supposaient encore `/`.
+
+Correctif CI sur la même branche : redirections HTTP explicites conservant les paramètres vers `/demo` et `/stations`, URL internes de ces workspaces sur leurs chemins canoniques, tests historiques adaptés au lecteur territorial explicitement versionné et au nouvel emplacement stationnel. Le smoke HTTP conserve son test de l’ancienne URL et vérifie donc sa compatibilité. Le parcours Task24 simulé est ajouté à Quality, sans retirer les tests historiques ni changer les règles scientifiques ou les sources.
