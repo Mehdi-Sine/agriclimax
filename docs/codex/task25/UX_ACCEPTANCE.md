@@ -11,3 +11,5 @@ Le RPG colore des PRA par des intersections réelles ; les lots manquants resten
 Analyse : A. aléa climatique inchangé ; B. contexte agricole blé RPG2025 ; C. lecture descriptive avec année agricole et période climatique explicites. Un aléa reste consultable si le RPG manque, et les données agricoles ne dépendent pas des 68 PRA climatiques indisponibles. Aucun stade, dommage ou hectare touché n'est inféré.
 
 La recette réelle est exécutée à 1440, 768 et 390px ; captures dans `screenshots/` et résultats dans `browser-real.json`. Les preuves simulées de Task24 ne sont pas réutilisées comme preuve Task25.
+
+La recette distante réelle passe également : `preview/browser-real.json` et `preview/screenshots/`. Transport : navigateur → passerelle localhost en lecture seule → Preview Vercel HTTPS vérifiée par les CA système. Le navigateur Chromium ne reçoit aucune fixture ; aucun contournement TLS ni changement du magasin NSS personnel. Cette passerelle de recette n’est pas une fonctionnalité ni un déploiement produit.

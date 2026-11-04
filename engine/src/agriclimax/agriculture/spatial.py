@@ -1,6 +1,8 @@
 """Area-based RPG allocation; working geometries only, official PRA snapshot untouched."""
 from __future__ import annotations
 
+import hashlib
+import json
 from collections.abc import Sequence
 from dataclasses import dataclass
 
@@ -9,6 +11,11 @@ from shapely import Geometry, make_valid, transform
 from shapely.geometry import shape
 from shapely.ops import unary_union
 from shapely.strtree import STRtree
+
+
+def record_fingerprint(blob: bytes, culture: str | None, group: int | None, declared: float | None) -> bytes:
+    attributes = json.dumps([culture, group, declared], separators=(",", ":"), allow_nan=False).encode()
+    return hashlib.sha256(blob + attributes).digest()
 
 
 def polygonal(geometry: Geometry) -> Geometry:

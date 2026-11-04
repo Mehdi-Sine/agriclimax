@@ -10,15 +10,22 @@ import hashlib
 import json
 import shutil
 import sqlite3
+import subprocess
 import urllib.request
 import xml.etree.ElementTree as ET
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 from pathlib import Path
 
 import py7zr
-from agriclimax.agriculture.spatial import PraAllocator, gpkg_geometry
+from agriclimax.agriculture.spatial import (
+    PraAllocator,
+    gpkg_geometry,
+    record_fingerprint,
+)
 from agriclimax.ingestion.storage import atomic_write
+from agriculture_cache import compact, restore
 
 REGIONS = ["11", "24", "27", "28", "32", "44", "52", "53", "75", "76", "84", "93", "94"]
 BASE = "https://data.geopf.fr/telechargement"
@@ -41,6 +48,46 @@ def download(url: str, path: Path, expected_bytes: int | None = None) -> None:
         return
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".part")
+    if expected_bytes is not None:
+        # Bounded ranges survive proxy truncation without restarting a 1–2GB
+        # delivery. A chunk is appended only after exact Content-Range/size checks;
+        # the publisher checksum is checked before any parcel extraction.
+        chunk_bytes = 16 * 1024 * 1024
+        offset = temporary.stat().st_size if temporary.exists() else 0
+        if offset > expected_bytes:
+            raise ValueError("Oversized partial source archive")
+
+        def fetch(start: int) -> Path:
+            end = min(start + chunk_bytes, expected_bytes) - 1
+            chunk = path.with_suffix(f".chunk-{start}")
+            headers_path = path.with_suffix(f".headers-{start}")
+            subprocess.run(["curl", "--fail", "--location", "--silent", "--show-error",
+                            "--connect-timeout", "30", "--max-time", "180", "--retry", "3",
+                            "--range", f"{start}-{end}", "--max-filesize", str(end-start+1),
+                            "--dump-header", str(headers_path), "--output", str(chunk), url], check=True)
+            headers = headers_path.read_text().lower().splitlines()
+            expected_range = f"content-range: bytes {start}-{end}/{expected_bytes}"
+            statuses = [line.split()[1] for line in headers if line.startswith("http/")]
+            if not statuses or statuses[-1] != "206" or expected_range not in [line.strip() for line in headers] or chunk.stat().st_size != end-start+1:
+                raise ValueError("Invalid bounded source range")
+            return chunk
+
+        while offset < expected_bytes:
+            starts = list(range(offset, min(offset + chunk_bytes * 4, expected_bytes), chunk_bytes))
+            with ThreadPoolExecutor(max_workers=4) as workers:
+                chunks = list(workers.map(fetch, starts))
+            with temporary.open("ab") as output:
+                for chunk in chunks:
+                    with chunk.open("rb") as stream:
+                        shutil.copyfileobj(stream, output)
+                    # Only the verified duplicate chunk is removed after appending.
+                    chunk.unlink()
+                    offset = output.tell()
+            print(json.dumps({"downloaded_bytes": offset, "expected_bytes": expected_bytes}), flush=True)
+        if temporary.stat().st_size != expected_bytes:
+            raise ValueError("Truncated source archive")
+        temporary.replace(path)
+        return
     # Partial HTTP data is never promoted. Reuse complete cache, restart failed requests.
     offset = temporary.stat().st_size if temporary.exists() and expected_bytes else 0
     headers = {"User-Agent": "AgriclimaX/Task25 official-data-ingestion"}
@@ -67,11 +114,13 @@ def process_region(region: str, cache: Path, allocator: PraAllocator, reference_
         # Rebuild compact identity indexes from retained inputs when resuming an
         # earlier checkpoint, without redoing the costly scientific overlay.
         identities = sqlite3.connect(cache / 'parcel-identities.sqlite')
-        identities.execute('create table if not exists parcel_identity (id text primary key, fingerprint text not null, region text not null)')
-        if not identities.execute('select 1 from parcel_identity where region=? limit 1', (region,)).fetchone():
-            source = next((cache / f'R{region}-extract').rglob('RPG_Parcelles.gpkg'))
+        identities.execute('create table if not exists parcel_identity_v2 (id text primary key, fingerprint blob not null, region text not null)')
+        if not identities.execute('select 1 from parcel_identity_v2 where region=? limit 1', (region,)).fetchone():
+            source = next((cache / f'R{region}-extract').rglob('RPG_Parcelles.gpkg'), None)
+            if source is None:
+                source = restore(cache, region)
             with sqlite3.connect(f'file:{source}?mode=ro', uri=True) as source_db:
-                identities.executemany('insert or replace into parcel_identity values (?,?,?)', ((str(identifier), hashlib.sha256(blob).hexdigest(), region) for identifier, blob in source_db.execute('select id_parcel,geom from RPG_Parcelles')))
+                identities.executemany('insert or replace into parcel_identity_v2 values (?,?,?)', ((str(identifier), record_fingerprint(blob, culture, group, declared), region) for identifier, blob, culture, group, declared in source_db.execute('select id_parcel,geom,code_cultu,code_group,surf_parc from RPG_Parcelles')))
             identities.commit()
         identities.close()
         return data
@@ -97,6 +146,11 @@ def process_region(region: str, cache: Path, allocator: PraAllocator, reference_
         initial.rename(archive)
     download(url, archive, expected)
     sha = digest(archive)
+    publisher_checksum = entry.findtext("a:content", namespaces=ns)
+    if publisher_checksum and len(publisher_checksum) == 32:
+        with archive.open("rb") as stream:
+            if hashlib.file_digest(stream, "md5").hexdigest() != publisher_checksum:
+                raise ValueError("Official regional delivery checksum mismatch")
     directory = cache / f"R{region}-extract"
     with py7zr.SevenZipFile(archive) as zipped:
         members = [p for p in zipped.getnames() if p.endswith("/RPG_Parcelles.gpkg")]
@@ -112,10 +166,10 @@ def process_region(region: str, cache: Path, allocator: PraAllocator, reference_
         raise ValueError(f"Unexpected RPG CRS/schema: {metadata}")
     rows = db.execute("select fid,id_parcel,code_cultu,code_group,surf_parc,geom from RPG_Parcelles order by fid")
     identities = sqlite3.connect(cache / 'parcel-identities.sqlite')
-    identities.execute('create table if not exists parcel_identity (id text primary key, fingerprint text not null, region text not null)')
+    identities.execute('create table if not exists parcel_identity_v2 (id text primary key, fingerprint blob not null, region text not null)')
     aggregates = defaultdict(float)
     groups = defaultdict(lambda: defaultdict(float))
-    ids: dict[str, str] = {}
+    ids: dict[str, bytes] = {}
     count = 0
     invalid = 0
     duplicates = 0
@@ -126,8 +180,10 @@ def process_region(region: str, cache: Path, allocator: PraAllocator, reference_
     for fid, parcel_id, culture, group, declared, blob in rows:
         count += 1
         geometry = gpkg_geometry(blob)
-        fingerprint = hashlib.sha256(blob).hexdigest()
-        prior = identities.execute('select fingerprint from parcel_identity where id=? and region<>?', (parcel_id, region)).fetchone()
+        if not isinstance(parcel_id, str) or not parcel_id.strip():
+            raise ValueError("Missing parcel identifier")
+        fingerprint = record_fingerprint(blob, culture, group, declared)
+        prior = identities.execute('select fingerprint from parcel_identity_v2 where id=? and region<>?', (parcel_id, region)).fetchone()
         if prior:
             if prior[0] != fingerprint:
                 raise ValueError("Conflicting parcel ID across regional deliveries")
@@ -153,7 +209,7 @@ def process_region(region: str, cache: Path, allocator: PraAllocator, reference_
         if count % 10000 == 0:
             print(json.dumps({"region": region, "parcels": count}), flush=True)
     db.close()
-    identities.executemany('insert or replace into parcel_identity values (?,?,?)', ((identifier, fingerprint, region) for identifier, fingerprint in ids.items()))
+    identities.executemany('insert or replace into parcel_identity_v2 values (?,?,?)', ((identifier, fingerprint, region) for identifier, fingerprint in ids.items()))
     identities.commit()
     identities.close()
     for g in groups.values():
@@ -173,8 +229,7 @@ def process_region(region: str, cache: Path, allocator: PraAllocator, reference_
             "quality_flags": ["cross_region_distinct_id_overlap_not_checked"],
             "parcel_id_digest": hashlib.sha256("\n".join(sorted(ids)).encode()).hexdigest()}
     save(checkpoint, data)
-    # Retain source archive and extracted input as acquisition evidence. The next
-    # region checks available disk before starting; no automatic cache deletion.
+    # Keep the source until optional verified lossless compaction in main().
     return data
 
 
@@ -182,6 +237,7 @@ def main() -> int:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--cache", type=Path, default=Path("work/task25"))
     p.add_argument("--regions", nargs="+", default=REGIONS, choices=REGIONS)
+    p.add_argument("--compact-cache", action="store_true", help="Retain verified byte-identical Parcelles XZ, evict redundant delivery/working copies only after completed checkpoints")
     args = p.parse_args()
     features = json.loads(REFERENCE.read_text())["features"]
     if len(features) != 713:
@@ -189,6 +245,8 @@ def main() -> int:
     allocator = PraAllocator(features)
     for region in args.regions:
         process_region(region, args.cache, allocator, digest(REFERENCE))
+        if args.compact_cache:
+            compact(args.cache, region, evict=True)
     return 0
 
 

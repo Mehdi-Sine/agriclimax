@@ -1,5 +1,5 @@
 {
-  "base": "http://127.0.0.1:3023",
+  "base": "http://127.0.0.1:3024",
   "mocked": false,
   "realDataVerified": true,
   "viewports": [
@@ -106,7 +106,7 @@
     "seineEtMarne2025": 117468,
     "corsica2A2025": 2,
     "rpgPra": "pra:77336",
-    "rpgAreaHa": 11657.827427775499,
+    "rpgAreaHa": 11657.8274277755,
     "rpgRegions": [
       "11",
       "24",
@@ -122,5 +122,6 @@
     "Same canvas and PRA context across all three spaces",
     "Native 2010 value, URL and reload",
     "Historical wheat and station THI routes remain accessible"
-  ]
+  ],
+  "transportRetries": []
 }

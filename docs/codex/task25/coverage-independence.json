@@ -1,0 +1,66 @@
+{
+  "mocked": false,
+  "climate_rows": 713,
+  "independent_coverage_cases": [
+    {
+      "pra": "pra:2A258",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 15597.020452110677,
+      "wheat_ha": 0.0,
+      "agriculture_status": "partial"
+    },
+    {
+      "pra": "pra:2A259",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 53287.16538561989,
+      "wheat_ha": 0.0,
+      "agriculture_status": "partial"
+    },
+    {
+      "pra": "pra:2A260",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 47531.81867114797,
+      "wheat_ha": 0.0,
+      "agriculture_status": "partial"
+    },
+    {
+      "pra": "pra:2B258",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 31940.409674081373,
+      "wheat_ha": 38.052057124806716,
+      "agriculture_status": "partial"
+    },
+    {
+      "pra": "pra:2B259",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 57185.00824064478,
+      "wheat_ha": 0.0,
+      "agriculture_status": "partial"
+    },
+    {
+      "pra": "pra:2B260",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 100414.12327888145,
+      "wheat_ha": 0.0,
+      "agriculture_status": "partial"
+    }
+  ]
+}

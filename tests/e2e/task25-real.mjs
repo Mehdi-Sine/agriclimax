@@ -50,7 +50,7 @@ try {
  for(const [size,width,height] of [['desktop',1440,1000],['tablet',768,1000],['mobile',390,844]]){
   await page.setViewportSize({width,height});
   for(const [space,url,count] of recipes){
-   await page.goto(base+url,{waitUntil:'networkidle'});
+   await page.goto(base+url,{waitUntil:'domcontentloaded'});
    await page.locator(`.national-map[data-ready="true"][data-feature-count="${count}"]`).waitFor({timeout:60000});
    if(space==='saa-departement')await page.locator('.unified-value strong').filter({hasText:fmt(117468)}).waitFor();
    if(space==='rpg')await page.locator('.unified-value strong').filter({hasText:fmt(agriculturalPra.values[0])}).waitFor();
@@ -69,27 +69,27 @@ try {
  }
  await page.setViewportSize({width:1440,height:1000});
  const regional=catalog.indicators.find(i=>i.sheet==='EFV'&&i.variable==='EFF'&&i.scale==='region');assert.ok(regional);
- await page.goto(`${base}/productions?agri_production=${regional.production}&territoire=reg%3A53`,{waitUntil:'networkidle'});
+ await page.goto(`${base}/productions?agri_production=${regional.production}&territoire=reg%3A53`,{waitUntil:'domcontentloaded'});
  await page.locator('.national-map[data-ready="true"][data-feature-count="13"]').waitFor();
  assert.equal(await page.getByRole('combobox',{name:'Maille publiée'}).locator('option').count(),1);
  assert.match(await page.locator('.unified-map-title').innerText(),/milliers de têtes/);
  await page.screenshot({path:`${destination}/screenshots/saa-region-desktop.png`,fullPage:true});
  report.cases.push('Regional-only poultry remains regional, source unit preserved');
- await page.goto(base+recipes[0][1],{waitUntil:'networkidle'});await page.locator('.national-map[data-ready="true"]').waitFor();
+ await page.goto(base+recipes[0][1],{waitUntil:'domcontentloaded'});await page.locator('.national-map[data-ready="true"]').waitFor();
  const original=await page.locator('.maplibregl-canvas').elementHandle();
  for(const label of ['Productions agricoles','Analyse agroclimato','Climat']){
   await page.getByRole('link',{name:label,exact:true}).click();
-  await page.waitForLoadState('networkidle');
+  await page.locator('[aria-label="Espaces produit"] a[aria-current="page"]').filter({hasText:label}).waitFor();
   assert.equal(new URL(page.url()).searchParams.get('pra'),pra);
   assert.equal(await original.evaluate(node=>node===document.querySelector('.maplibregl-canvas')),true);
  }
  report.cases.push('Same canvas and PRA context across all three spaces');
- await page.goto(base+'/productions?agri_production=saa-cop-03&territoire=dep%3A77&annee=2010',{waitUntil:'networkidle'});
+ await page.goto(base+'/productions?agri_production=saa-cop-03&territoire=dep%3A77&annee=2010',{waitUntil:'domcontentloaded'});
  await page.locator('.unified-value strong').filter({hasText:fmt(s77.values[0])}).waitFor();
- await page.reload({waitUntil:'networkidle'});assert.equal(new URL(page.url()).searchParams.get('annee'),'2010');
+ await page.reload({waitUntil:'domcontentloaded'});assert.equal(new URL(page.url()).searchParams.get('annee'),'2010');
  report.cases.push('Native 2010 value, URL and reload');
  for(const path of ['/stations?mode=live_meteofrance&production=wheat','/stations?mode=live_meteofrance&production=cattle&indicator=thi']){
-  const response=await page.goto(base+path,{waitUntil:'networkidle'});assert.equal(response.status(),200);
+  const response=await page.goto(base+path,{waitUntil:'domcontentloaded'});assert.equal(response.status(),200);
  }
  report.cases.push('Historical wheat and station THI routes remain accessible');
  assert.deepEqual(report.errors,[]);report.realDataVerified=true;

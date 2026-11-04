@@ -1,0 +1,23 @@
+[
+  {
+    "region": "11",
+    "original_bytes": 72732672,
+    "compressed_bytes": 37353780,
+    "original_and_decompressed_sha256": "1ea2d18c23798150faef77ce10027d4088ac9184c8305bd704ff0c701cfb0536",
+    "identical": true
+  },
+  {
+    "region": "24",
+    "original_bytes": 337084416,
+    "compressed_bytes": 173146939,
+    "original_and_decompressed_sha256": "8c0114d3064c048bcd61100d9e9d6ea0650028676c09cd64bbdbc05f724aebf8",
+    "identical": true
+  },
+  {
+    "region": "94",
+    "original_bytes": 44765184,
+    "compressed_bytes": 23472686,
+    "original_and_decompressed_sha256": "b800602707ef73f3453f5fdbe73a4e3660d8e4ceb3a1b937f9e75ba3b202951c",
+    "identical": true
+  }
+]

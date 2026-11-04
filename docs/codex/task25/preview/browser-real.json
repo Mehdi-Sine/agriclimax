@@ -1,0 +1,130 @@
+{
+  "base": "http://127.0.0.1:3030",
+  "mocked": false,
+  "realDataVerified": true,
+  "viewports": [
+    {
+      "space": "climat",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "featureCount": 713,
+      "screenshot": "screenshots/climat-desktop.png"
+    },
+    {
+      "space": "saa-departement",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "featureCount": 96,
+      "screenshot": "screenshots/saa-departement-desktop.png"
+    },
+    {
+      "space": "rpg",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "featureCount": 713,
+      "screenshot": "screenshots/rpg-desktop.png"
+    },
+    {
+      "space": "analyse",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "featureCount": 713,
+      "screenshot": "screenshots/analyse-desktop.png"
+    },
+    {
+      "space": "climat",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "featureCount": 713,
+      "screenshot": "screenshots/climat-tablet.png"
+    },
+    {
+      "space": "saa-departement",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "featureCount": 96,
+      "screenshot": "screenshots/saa-departement-tablet.png"
+    },
+    {
+      "space": "rpg",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "featureCount": 713,
+      "screenshot": "screenshots/rpg-tablet.png"
+    },
+    {
+      "space": "analyse",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "featureCount": 713,
+      "screenshot": "screenshots/analyse-tablet.png"
+    },
+    {
+      "space": "climat",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "featureCount": 713,
+      "screenshot": "screenshots/climat-mobile.png"
+    },
+    {
+      "space": "saa-departement",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "featureCount": 96,
+      "screenshot": "screenshots/saa-departement-mobile.png"
+    },
+    {
+      "space": "rpg",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "featureCount": 713,
+      "screenshot": "screenshots/rpg-mobile.png"
+    },
+    {
+      "space": "analyse",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "featureCount": 713,
+      "screenshot": "screenshots/analyse-mobile.png"
+    }
+  ],
+  "apiProofs": {
+    "saaSha": "46e2ea9493ae34fac5d343e6cef51ac08a455d970ce78611c5d3b2365650d76f",
+    "wheatFrance2025": 4494355,
+    "seineEtMarne2025": 117468,
+    "corsica2A2025": 2,
+    "rpgPra": "pra:77336",
+    "rpgAreaHa": 11657.8274277755,
+    "rpgRegions": [
+      "11",
+      "24",
+      "94"
+    ],
+    "rpgCoverage": "partial",
+    "climateRows": 713,
+    "climateUnavailable": 68
+  },
+  "errors": [],
+  "cases": [
+    "Regional-only poultry remains regional, source unit preserved",
+    "Same canvas and PRA context across all three spaces",
+    "Native 2010 value, URL and reload",
+    "Historical wheat and station THI routes remain accessible"
+  ],
+  "transportRetries": [],
+  "upstream": "https://agriclimax-ncnis8ebz-mehdi-sines-projects.vercel.app",
+  "validated_commit": "d73f919ff77fc2da06f35e8bd079546bdc14503a",
+  "transport": "Read-only loopback gateway; HTTPS upstream uses normal system CA verification. Browser localhost HTTP transport, no TLS bypass, no mocks, no home trust-store changes."
+}

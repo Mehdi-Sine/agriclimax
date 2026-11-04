@@ -2,8 +2,9 @@
   "commit": "d73f919ff77fc2da06f35e8bd079546bdc14503a",
   "local": {
     "python": {
-      "passed": 252,
-      "command": "PYTHONPATH=engine/src python -m pytest engine/tests -q"
+      "passed": 256,
+      "command": "PYTHONPATH=engine/src python -m pytest engine/tests -q",
+      "additional_range_tests_passed": 4
     },
     "typescript": {
       "passed": 253,
@@ -14,16 +15,17 @@
     "lint": "passed",
     "build": "passed",
     "frozen_lockfile_install": "passed (pnpm10; existing lockfile unchanged)",
-    "scientific_geometry_tests": 5,
+    "scientific_geometry_tests": 6,
     "contracts": "passed",
     "source_secret_guard": "passed",
     "client_secret_guard": "passed",
     "forward_only_migration_guard": "passed",
     "bundle_budget": "passed",
-    "server_import_index": "passed"
+    "server_import_index": "passed",
+    "acquisition_safety_tests": 7
   },
   "browser_local": {
-    "base": "http://127.0.0.1:3023",
+    "base": "http://127.0.0.1:3024",
     "mocked": false,
     "realDataVerified": true,
     "viewports": [
@@ -130,7 +132,7 @@
       "seineEtMarne2025": 117468,
       "corsica2A2025": 2,
       "rpgPra": "pra:77336",
-      "rpgAreaHa": 11657.827427775499,
+      "rpgAreaHa": 11657.8274277755,
       "rpgRegions": [
         "11",
         "24",
@@ -146,14 +148,17 @@
       "Same canvas and PRA context across all three spaces",
       "Native 2010 value, URL and reload",
       "Historical wheat and station THI routes remain accessible"
-    ]
+    ],
+    "transportRetries": [],
+    "tested_web_code_commit": "d73f919ff77fc2da06f35e8bd079546bdc14503a"
   },
   "preview": {
     "api_probe_passed": true,
     "url": "https://agriclimax-ncnis8ebz-mehdi-sines-projects.vercel.app",
     "validated_commit": "d73f919ff77fc2da06f35e8bd079546bdc14503a",
-    "browser_passed": false,
-    "browser_blocker": "Chromium legacy NSS store does not trust the environment proxy CA; approval requested for local public certificate import. TLS verification remains enabled."
+    "browser_passed": true,
+    "browser_evidence": "preview/browser-real.json",
+    "transport": "Read-only loopback gateway; HTTPS upstream uses normal system CA verification. Browser localhost HTTP transport, no TLS bypass, no mocks, no home trust-store changes."
   },
   "source_status": {
     "saa": "national native series, metro+Corsica maps",
@@ -179,6 +184,10 @@
     "py7zr": "1.1.3",
     "pyppmd": "1.3.1",
     "official_archive_extraction_identical": true,
-    "ci_recheck": "pending"
+    "ci_recheck": "passed (fe8e7b4 python-dependencies)"
+  },
+  "coverage_independence": {
+    "real_cases": 6,
+    "proof": "coverage-independence.json"
   }
 }

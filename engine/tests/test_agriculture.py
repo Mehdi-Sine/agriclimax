@@ -5,7 +5,7 @@ from shapely.geometry import Polygon, box, mapping
 from shapely.ops import transform
 
 from agriclimax.agriculture.saa import geography, statistical_value
-from agriclimax.agriculture.spatial import PraAllocator
+from agriclimax.agriculture.spatial import PraAllocator, record_fingerprint
 
 
 def pra(code, geometry):
@@ -59,3 +59,11 @@ def test_statistical_zero_suppression_absence_and_source_anomaly():
         statistical_value("new undocumented convention")
     assert geography("02A - Corse-du-Sud", "departement") == ("2A", "Corse-du-Sud")
     assert geography("971 - Guadeloupe", "region") == ("01", "Guadeloupe")
+
+
+def test_duplicate_identity_includes_crop_and_declared_area_not_only_geometry():
+    geometry = box(2, 46, 2.01, 46.01).wkb
+    original = record_fingerprint(geometry, "BTH", 1, 12.0)
+    assert original == record_fingerprint(geometry, "BTH", 1, 12.0)
+    assert original != record_fingerprint(geometry, "CZH", 5, 12.0)
+    assert original != record_fingerprint(geometry, "BTH", 1, 14.0)
