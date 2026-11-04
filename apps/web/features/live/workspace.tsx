@@ -47,7 +47,7 @@ export async function LiveWorkspace({params, view}: {params:URLSearchParams; vie
     <main id="main" className="app-main live-workspace" tabIndex={-1}>
       <h1>{VIEWS[view]} · {isWheat?'Blé tendre':'Bovins'}</h1>
       <p className="live-mode"><strong>Mode live · données réelles · statut scientifique : exploratory (exploratoire)</strong></p>
-      <LiveFilters key={context.query.toString()} action={view==='observation'?'/':`/${view}`} production={context.production} indicator={context.indicator} start={context.start} end={context.end} station={selectedId} stations={stations.map(({id,name})=>({id,name}))} product={context.product} stage={context.query.get('stage')??''} fingerprint={context.query.get('fingerprint')??''} />
+      <LiveFilters key={context.query.toString()} action={view==='observation'?'/stations':`/${view}`} production={context.production} indicator={context.indicator} start={context.start} end={context.end} station={selectedId} stations={stations.map(({id,name})=>({id,name}))} product={context.product} stage={context.query.get('stage')??''} fingerprint={context.query.get('fingerprint')??''} />
       {data.latest && <nav className="live-actions" aria-label="Dernière publication"><a href={latestHref(view,context.query)}>Consulter la dernière publication quotidienne réussie (changer la période)</a></nav>}
       <section className="scientific-card" aria-label="Traçabilité de la sélection">
         <h2>{label} · {name || 'aucune station sélectionnée'}</h2>

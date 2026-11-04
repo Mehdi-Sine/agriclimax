@@ -102,13 +102,13 @@ try {
     const wheat = page.getByRole('link', { name: 'Blé · données réelles', exact: true });
     await tabTo(page, wheat);
     await page.keyboard.press('Enter');
-    await page.waitForURL('**/?mode=wheat');
+    await page.waitForURL('**/stations?mode=wheat');
     await page.waitForLoadState('networkidle');
-    assert.ok(await page.getByRole('heading', { name: 'Observation Map · blé tendre', exact: true }).isVisible());
+    await page.getByRole('heading', { name: 'Observation Map · blé tendre', exact: true }).waitFor({state:'visible'});
     assert.equal(await page.locator('.wheat-map circle').count(), 5);
     await useSkipLink(page);
     await page.getByRole('link', { name: 'Démonstration fictive', exact: true }).click();
-    await page.waitForURL('**/?mode=demo');
+    await page.waitForURL('**/demo?mode=demo');
     const cattle = page.getByRole('link', { name: 'Bovins · exposition thermique THI · live Météo-France', exact: true });
     const cattleURL = new URL(await cattle.getAttribute('href'), baseURL);
     assert.equal(cattleURL.searchParams.get('production'), 'cattle');
@@ -130,7 +130,7 @@ try {
       const cattleAudit = await page.evaluate(async () => window.axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] } }));
       reports.push({ name, production: 'cattle', view, violations: cattleAudit.violations.map(v => ({ id: v.id, impact: v.impact, count: v.nodes.length })) });
     }
-    for (const route of ['/', '/design-system']) {
+    for (const route of ['/demo?mode=demo', '/design-system']) {
       await page.goto(`${baseURL}${route}`, { waitUntil: 'networkidle' });
       for (const theme of ['light', 'dark']) {
         if ((await page.locator('html').getAttribute('data-theme') || 'light') !== theme) {

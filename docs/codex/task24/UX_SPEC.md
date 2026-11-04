@@ -1,0 +1,17 @@
+# UX — produit unifié
+
+Trois espaces seulement : Climat (`/`), Productions agricoles (`/productions`), Analyse agroclimato (`/analyse`). Un layout App Router persistant garde le même canvas MapLibre et les contours en mémoire pendant la navigation. Les routes historiques stationnelles restent dans `/stations`, la démo dans `/demo`, accessibles dans Sources. Les liens historiques `/?mode=…` sont redirigés ; `/territories?pra=…&date=…` restaure le contexte dans l’accueil. Les sélections de pilotes explicitement versionnés conservent leur ancien lecteur.
+
+Le contexte partageable vit dans l’URL : PRA, date, début, jour/période, indicateur, lecture, seuil, production et variable agricole. Les sélecteurs créent des entrées d’historique ; retour, rechargement et liens profonds relisent les paramètres. Une sélection inconnue ou une combinaison absurde provoque une erreur visible. En entrant dans Analyse depuis un indicateur climatique non admissible, l’interface choisit les jours chauds, lecture valeur, période, tout en conservant la PRA et les dates.
+
+Carte quantitative commune : 713 contours officiels inchangés ; survol avec valeur/unité/état, clic, contour de sélection, zoom et France entière. La sélection ne remplace pas la vue France par un zoom automatique. Recherche progressive par nom, code et département ; huit résultats maximum, aucune liste permanente. La fiche occupe environ 30 % du bureau, passe sous la carte en tablette/mobile, et peut être fermée. Les filtres se replient sur mobile avec commande accessible. Aucun carrousel horizontal.
+
+La légende utilise cinq classes quantitatives aux bornes calculées sur les valeurs réellement affichées ; anomalie symétrique autour de zéro, pluie séquentielle bleue. Gris = donnée absente, bordure renforcée = partiel. Les couleurs sont des tokens indépendants des anciennes feuilles CSS. Une erreur source n’active jamais une fixture. L’archive et sa dernière journée sont visibles en permanence dans Climat/Analyse. Le rendu cartographique attend que la source soit chargée avant d’annoncer la carte prête.
+
+Climat : jour ou période bornée au 19/09–18/10/2026, presets dernier jour / 7 / 30 jours, températures, pluie, gel, jours chauds et degrés-jours. Normale/anomalie proposées seulement avec une définition homologue. La fiche lit exactement le même DTO que la carte. Série quotidienne originale observé/référence accessible en SVG et tableau ; trous conservés. Les extrema représentent les cellules ERA5, jamais une station au centre de PRA.
+
+Productions : registre de productions/variables et provenance, premier parcours blé tendre. Le millésime et l’échelle de données sont explicitement indisponibles tant que SAA n’est pas qualifiée. La carte PRA reste un repère de navigation, sans couleur agricole ni attribution de statistique départementale. Aucun faux choix d’année ni bouton de rafraîchissement décoratif.
+
+Analyse : règles descriptives blé tendre extensibles, réutilisant les mêmes définitions et agrégateur. Fiche A aléa / B exposition non quantifiée / C lecture conditionnelle. Aucun stade, impact, score de risque ou surface agricole fabriqués. THI reste exclusivement stationnel.
+
+Accessibilité : contrôles d’au moins 44 px, focus visible et lien d’évitement, libellés français, recherche et tableau utilisables au clavier, mouvement réduit respecté. Les captures réelles sont prises sans interception réseau ; les tests de données simulées sont séparés et ne produisent pas de captures de livraison.

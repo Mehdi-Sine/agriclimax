@@ -58,7 +58,7 @@ try {
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     for(const production of ['wheat','cattle']) {
       state='published';
-      await page.goto(`http://127.0.0.1:3016/?production=${production}`,{waitUntil:'networkidle'});
+      await page.goto(`http://127.0.0.1:3016/stations?production=${production}`,{waitUntil:'networkidle'});
       await page.getByLabel('Production',{exact:true}).selectOption(production);
       await page.getByRole('button',{name:'Afficher',exact:true}).click();await page.waitForLoadState('networkidle');
       assert.equal(new URL(page.url()).searchParams.get('production'),production);
@@ -92,7 +92,7 @@ try {
       assert.ok((await page.locator('main').innerText()).includes(publication.payload.computed_at));
       assert.equal(await page.locator('main').getByRole('alert').count(),0);
       state='published';
-      for(const route of ['/','/diagnostic','/history','/watch']) {
+      for(const route of ['/stations','/diagnostic','/history','/watch']) {
         const before=calls.length;
         await page.goto(`http://127.0.0.1:3016${route}?production=${production}&start=2026-02-30&end=2026-03-01`,{waitUntil:'networkidle'});
         assert.ok((await page.locator('main').innerText()).includes('Contexte invalide'));
@@ -105,11 +105,11 @@ try {
       await page.goto(`http://127.0.0.1:3016/watch?production=${production}&station=${station}`,{waitUntil:'networkidle'});
       assert.ok((await page.locator('main').innerText()).includes('Veille indisponible'));
       state='published';
-      await page.goto(`http://127.0.0.1:3016/?production=${production}&start=2026-09-02&end=2026-09-03`,{waitUntil:'networkidle'});
+      await page.goto(`http://127.0.0.1:3016/stations?production=${production}&start=2026-09-02&end=2026-09-03`,{waitUntil:'networkidle'});
       assert.ok((await page.locator('main').innerText()).includes('Aucun calcul publié'));
       for(const unavailable of ['empty','disconnected']) {
         state=unavailable;
-        for(const route of ['/','/diagnostic','/history','/watch']) {
+        for(const route of ['/stations','/diagnostic','/history','/watch']) {
           await page.goto(`http://127.0.0.1:3016${route}?production=${production}`,{waitUntil:'networkidle'});
           assert.equal(await page.locator('.live-map circle').count(),0);
           const text=await page.locator('main').innerText();

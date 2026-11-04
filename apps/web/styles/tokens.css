@@ -62,3 +62,10 @@
   --national-partial: #e7c75c;
   --national-unavailable: #8a969b;
 }
+
+/* Shared map tokens: available independently of the legacy national workspace. */
+:root {
+  --national-anomaly-below: #4f7fb8;
+  --national-anomaly-near: #d9d4c7;
+  --national-anomaly-above: #c86b4a;
+}

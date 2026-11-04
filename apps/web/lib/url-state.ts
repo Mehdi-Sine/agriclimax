@@ -37,3 +37,8 @@ export function serializeContext(context: AppContext): URLSearchParams {
   }
   return canonical;
 }
+
+/** Canonical home for the historical station/demo workspaces. */
+export function observationPath(mode: string | null): '/demo' | '/stations' {
+  return mode === 'demo' ? '/demo' : '/stations';
+}

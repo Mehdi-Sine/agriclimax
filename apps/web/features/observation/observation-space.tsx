@@ -1,4 +1,5 @@
 "use client";
+import { observationPath } from '../../lib/url-state';
 import dynamic from "next/dynamic";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -188,8 +189,8 @@ export function ObservationSpace({ initialData }: { initialData: ShellData }) {
     // Router transitions are asynchronous. A pending moveend must merge with the
     // newest selection immediately, rather than overwrite it with the last render.
     latest.current = new URLSearchParams(next);
-    if (replace) window.history.replaceState(null, "", `/?${next}`);
-    else router.push(`/?${next}`, { scroll: false });
+    if (replace) window.history.replaceState(null, "", `${observationPath(next.get("mode"))}?${next}`);
+    else router.push(`${observationPath(next.get("mode"))}?${next}`, { scroll: false });
   }
   function select(id: string) {
     const next = new URLSearchParams(latest.current);
@@ -206,7 +207,7 @@ export function ObservationSpace({ initialData }: { initialData: ShellData }) {
       const current = new URLSearchParams(window.location.search);
       // A production-space navigation can change the URL before the old map
       // unmounts. Its pending camera update must not restore the previous space.
-      if (window.location.pathname !== "/" || current.get("mode") !== latest.current.get("mode")
+      if (window.location.pathname !== observationPath(latest.current.get("mode")) || current.get("mode") !== latest.current.get("mode")
         || current.get("production") !== latest.current.get("production")) return;
       const next = viewportParams(latest.current, v);
       if (next.toString() !== current.toString()) update(next, true);

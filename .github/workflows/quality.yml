@@ -131,6 +131,7 @@ jobs:
           done
           test "$ready" = 1
           python scripts/quality/smoke.py
+          TASK24_BASE_URL=http://127.0.0.1:3000 node tests/e2e/task24.mjs
           node tests/e2e/demo.mjs
           node tests/e2e/territories.mjs
           INTEGRATION_ARTIFACTS=work/quality/e2e/integration node tests/e2e/integration.mjs

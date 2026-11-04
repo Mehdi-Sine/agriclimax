@@ -35,7 +35,7 @@ export function liveContext(params: URLSearchParams) {
 export function liveHref(view: LiveView, query: URLSearchParams, station?: string) {
   const next = new URLSearchParams(query);
   if (station) next.set('station', station);
-  return `${view === 'observation' ? '/' : `/${view}`}?${next}`;
+  return `${view === 'observation' ? '/stations' : `/${view}`}?${next}`;
 }
 
 export function latestHref(view:LiveView, query:URLSearchParams) {

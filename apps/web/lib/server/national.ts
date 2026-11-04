@@ -66,7 +66,14 @@ async function supabaseRpc(
   }
 }
 
-function parseContextRow(raw: unknown): ClimateContextRow {
+export function parseContextRow(raw: unknown): ClimateContextRow {
+  if (!isRecord(raw)) throw new ApiError('INVALID_RESPONSE', 502);
+  const index = ['temperature_min', 'temperature_max', 'temperature', 'precipitation'].indexOf(String(raw.variable));
+  const coverage = raw.current_coverage;
+  if (Array.isArray(coverage)) {
+    if (index < 0 || coverage.length !== 4 || !coverage.every(v => v === null || typeof v === 'number' && Number.isFinite(v) && v >= 0 && v <= 1.0001)) throw new ApiError('INVALID_RESPONSE', 502);
+    raw = { ...raw, current_coverage: coverage[index] };
+  }
   if (!isRecord(raw)) throw new ApiError('INVALID_RESPONSE', 502);
   if (
     !validNumber(raw.current_value) ||
@@ -187,6 +194,7 @@ async function nationalContextHistory(
   const data = raw.data.map(parseContextRow);
   if (data.length !== DAYS.length * VARIABLES.length)
     throw new ApiError('INVALID_RESPONSE', 502);
+  if (new Set(data.map(r => `${r.date}:${r.variable}`)).size !== data.length) throw new ApiError('INVALID_RESPONSE', 502);
   for (const row of data) {
     if (
       !row.date ||

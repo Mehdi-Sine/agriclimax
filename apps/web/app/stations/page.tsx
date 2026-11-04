@@ -1,10 +1,10 @@
-import { LiveWorkspace } from '../features/live/workspace';
-import { isLiveWorkspace } from '../features/live/context';
-import { loadShellData } from "../components/shell/load-shell-data";
-import { parseContext } from "../lib/url-state";
-import { ProductShell } from "../components/shell/product-shell";
+import { LiveWorkspace } from '../../features/live/workspace';
+import { isLiveWorkspace } from '../../features/live/context';
+import { loadShellData } from "../../components/shell/load-shell-data";
+import { parseContext } from "../../lib/url-state";
+import { ProductShell } from "../../components/shell/product-shell";
 import { redirect } from "next/navigation";
-import { WheatWorkspace } from "../features/wheat/workspace";
+import { WheatWorkspace } from "../../features/wheat/workspace";
 
 export default async function Page({
   searchParams,
@@ -21,6 +21,7 @@ export default async function Page({
     params.delete("view");
     redirect(`/watch?${params}`);
   }
+  if (!params.has('mode')) params.set('mode','live_meteofrance');
   if (isLiveWorkspace(params)) return await LiveWorkspace({params, view:'observation'});
   if (params.get('mode') === 'wheat') return <WheatWorkspace params={params} view="observation" />;
   const context = parseContext(params);
