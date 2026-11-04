@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import type { Map as LibreMap, ExpressionSpecification } from 'maplibre-gl';
+import type { Map as LibreMap, GeoJSONSource, ExpressionSpecification } from 'maplibre-gl';
 import type { FeatureCollection, Geometry } from 'geojson';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { anomalyBand, availability, type ClimateContextRow } from './model';
@@ -39,7 +39,9 @@ export default function NationalMap({
     map = useRef<LibreMap | null>(null),
     select = useRef(onSelect),
     modeRef = useRef(mode),
-    quantRef = useRef(quantitative);
+    quantRef = useRef(quantitative),
+    collectionRef = useRef(collection),
+    geographyRef = useRef(geography);
   const [ready, setReady] = useState(false),
     [rendered, setRendered] = useState(false),
     [failed, setFailed] = useState(false),
@@ -52,7 +54,9 @@ export default function NationalMap({
   useEffect(() => {
     modeRef.current = mode;
     quantRef.current = quantitative;
-  }, [mode, quantitative]);
+    collectionRef.current = collection;
+    geographyRef.current = geography;
+  }, [mode, quantitative, collection, geography]);
 
   useEffect(() => {
     let disposed = false;
@@ -111,14 +115,14 @@ export default function NationalMap({
         m.addControl(
           new lib.AttributionControl({
             compact: true,
-            customAttribution: geography.attribution,
+            customAttribution: 'PRA · OFB / MASA ; départements et régions · Etalab 2025 · Licence Ouverte',
           }),
         );
         m.on('load', () => {
           if (disposed) return;
           m.addSource('pra', {
             type: 'geojson',
-            data: collection,
+            data: collectionRef.current,
             promoteId: 'code',
           });
           m.addLayer({
@@ -143,7 +147,7 @@ export default function NationalMap({
           });
           m.on('click', 'pra-fill', (e) => {
             const code = e.features?.[0]?.properties?.code;
-            if (typeof code === 'string') select.current(`${geography.prefix}${code}`);
+            if (typeof code === 'string') select.current(`${geographyRef.current.prefix}${code}`);
           });
           m.on('mousemove', 'pra-fill', (e) => {
             m.getCanvas().style.cursor = 'pointer';
@@ -179,7 +183,14 @@ export default function NationalMap({
       map.current?.remove();
       map.current = null;
     };
-  }, [collection, geography.prefix, geography.attribution]);
+  }, []);
+
+  // Keep the same MapLibre canvas across spaces/scales; replace only GeoJSON data.
+  useEffect(() => {
+    if (!ready || !map.current) return;
+    map.current.removeFeatureState({ source: 'pra' });
+    (map.current.getSource('pra') as GeoJSONSource).setData(collection);
+  }, [ready, collection]);
 
   useEffect(() => {
     if (!ready || !map.current) return;

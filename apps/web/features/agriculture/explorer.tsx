@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import NationalMap, { type PraCollection } from '../national/map';
+import { type PraCollection } from '../national/map';
 import { agriculturalValue, type AgriculturalDataset, type AgriculturalCatalog, type PraAgriculturalContext } from './model';
 
 export function useAgriculturalData<T>(url: string | null) {
@@ -22,9 +22,9 @@ export function useAgriculturalData<T>(url: string | null) {
 const fmt = (v: number | null | undefined) => v == null ? 'Indisponible' : new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 2 }).format(v);
 const TOKENS = ['--map-rain-1', '--map-rain-2', '--map-rain-3', '--map-rain-4', '--map-rain-5'];
 const GROUPS: Record<string, string> = { COP: 'Céréales, oléagineux et protéagineux', FOU: 'Fourrages et prairies', EFA: 'Bovins, porcins, ovins et caprins', EFV: 'Volailles', LAI: 'Productions laitières', VIG: 'Vignoble', RPG: 'Déclarations PAC · RPG 2025' };
-export function AgriculturalExplorer() {
+export function useAgriculturalExplorer(enabled: boolean) {
   const search = useSearchParams();
-  const manifest = useAgriculturalData<AgriculturalCatalog>('/api/agriculture?action=catalog');
+  const manifest = useAgriculturalData<AgriculturalCatalog>(enabled ? '/api/agriculture?action=catalog' : null);
   const indicators = manifest.data?.indicators ?? [];
   const requestedProduction = search.get('agri_production') ?? 'saa-cop-03';
   const production = indicators.find(i => i.production === requestedProduction)?.production ?? indicators[0]?.production;
@@ -73,15 +73,16 @@ export function AgriculturalExplorer() {
     window.history.pushState(null, '', `/productions?${next}`);
   }
   function select(id: string) {
+    if (!geometry.data?.features.some(f => f.id === id)) return;
     change({ territoire: id, ...(id.startsWith('pra:') ? { pra: id } : {}) });
     setQuery('');
   }
   const prefix = indicator?.scale === 'pra' ? 'pra:' : indicator?.scale === 'departement' ? 'dep:' : 'reg:';
   const scaleLabel = indicator?.scale === 'pra' ? 'PRA' : indicator?.scale === 'departement' ? 'département' : 'région';
   const label = indicator ? `${indicator.label} · ${indicator.variable_label}` : 'Productions agricoles';
-  return <>
+  const filters = <>
     <section className="unified-filters filters-open" aria-label="Filtres agricoles">
-      <label>Production<select value={production ?? ''} disabled={!indicators.length} onChange={e => change({ agri_production: e.target.value, agri_variable: '', echelle: '', territoire: '' })}>
+      <label>Production<select value={production ?? ''} disabled={!indicators.length} onChange={e => change({ agri_production: e.target.value, agri_variable: '', annee: '', echelle: '', territoire: '' })}>
         {Object.entries(GROUPS).map(([sheet, title]) => <optgroup key={sheet} label={title}>{indicators.filter((i, n, all) => i.sheet === sheet && all.findIndex(j => j.production === i.production) === n).map(i => <option key={i.production} value={i.production}>{i.label}</option>)}</optgroup>)}
       </select></label>
       <label>Variable<select value={indicator?.variable ?? ''} disabled={!indicator} onChange={e => change({ agri_variable: e.target.value })}>{productionIndicators.filter((i, n, all) => all.findIndex(j => j.variable === i.variable) === n).map(i => <option key={i.variable} value={i.variable}>{i.variable_label} ({i.unit})</option>)}</select></label>
@@ -93,28 +94,29 @@ export function AgriculturalExplorer() {
     {(manifest.error || dataset.error || geometry.error) && <p role="alert">{manifest.error ?? dataset.error ?? geometry.error} Aucune valeur de remplacement.</p>}
     {!!manifest.data?.source_errors.length && <p role="status">Une source agricole est indisponible ({manifest.data.source_errors.map(s => s.startsWith('saa') ? 'SAA' : 'RPG').join(', ')}). Les autres sources restent consultables.</p>}
     <div className="unified-search"><label htmlFor="agriculture-search">Rechercher un {scaleLabel}</label><input id="agriculture-search" type="search" value={query} maxLength={100} onChange={e => setQuery(e.target.value)} placeholder="Nom ou code géographique…" />{query && <div className="unified-results">{matches.map(f => <button key={String(f.id)} onClick={() => select(String(f.id))}>{f.properties.name} · {f.properties.code}</button>)}{!matches.length && <p>Aucun résultat.</p>}</div>}</div>
-    <div className={`unified-grid ${feature ? 'has-selection' : ''}`}>
-      <section className="unified-map-card" aria-label="Carte agricole nationale">
-        <div className="unified-map-title"><strong>{label} · {indicator?.unit}</strong><span>{year} · {scaleLabel} · {indicator?.source_id}</span></div>
-        {geometry.data && <NationalMap collection={geometry.data} rows={null} contextRows={null} mode="availability" selected={selected} onSelect={select} geography={{ prefix, label: `${geometry.data.features.length} ${scaleLabel}s`, attribution: indicator?.scale === 'pra' ? 'PRA · OFB / MASA · géométries source inchangées' : 'Etalab · contours administratifs 2025, 100 m · Licence Ouverte 2.0' }} quantitative={{ values, field: 'value', unit: indicator?.unit ?? '', bounds, colors: palette.length ? palette : TOKENS.map(() => 'transparent') }} />}
-        {!geometry.data && !geometry.error && <p role="status">Chargement des contours…</p>}
+  </>;
+  const mapTitle = <>        <div className="unified-map-title"><strong>{label} · {indicator?.unit}</strong><span>{year} · {scaleLabel} · {indicator?.source_id}</span></div></>;
+  const mapState = <>        {!geometry.data && !geometry.error && <p role="status">Chargement des contours…</p>}
         {!dataset.data && !dataset.error && !invalid && <p role="status">Chargement des statistiques officielles…</p>}
-        <div className="unified-legend" aria-label="Légende agricole">{numbers.length > 0 && <><div className="legend-ramp">{bounds.map((b, i) => <span key={i} style={{ background: `var(${TOKENS[i]})` }}><small>{i === 0 ? `${fmt(low)} – ` : '≤ '}{fmt(b)}</small></span>)}</div><p>{indicator?.unit} · bornes calculées sur les valeurs affichées</p></>}<span className="missing-key" /> Gris : donnée indisponible, jamais un zéro déduit. Gris atténué : secret statistique. Bordure renforcée : partiel. <p>{numbers.length} territoires renseignés sur cette carte ; métropole et Corse.</p></div>
-      </section>
-      <aside className="unified-panel" aria-label="Fiche agricole">
-        {feature ? <><div className="panel-top"><span className="eyebrow">{scaleLabel} · {feature.properties.code}</span><button aria-label="Fermer la fiche agricole" onClick={() => change({ territoire: '' })}>×</button></div><h2>{feature.properties.name}</h2>
+</>;
+  const legend = <>        <div className="unified-legend" aria-label="Légende agricole">{numbers.length > 0 && <><div className="legend-ramp">{bounds.map((b, i) => <span key={i} style={{ background: `var(${TOKENS[i]})` }}><small>{i === 0 ? `${fmt(low)} – ` : '≤ '}{fmt(b)}</small></span>)}</div><p>{indicator?.unit} · bornes calculées sur les valeurs affichées</p></>}<span className="missing-key" /> Gris : donnée indisponible, jamais un zéro déduit. Gris atténué : secret statistique. Bordure renforcée : partiel. <p>{numbers.length} territoires renseignés sur cette carte ; métropole et Corse.</p></div></>;
+  const panel = <>        {feature ? <><div className="panel-top"><span className="eyebrow">{scaleLabel} · {feature.properties.code}</span><button aria-label="Fermer la fiche agricole" onClick={() => change({ territoire: '' })}>×</button></div><h2>{feature.properties.name}</h2>
           <div className="unified-value"><small>{label} · {year}</small><strong>{currentValue.status === 'suppressed' ? 'Secret statistique' : fmt(currentValue.value)} <em>{currentValue.value !== null ? indicator?.unit : ''}</em></strong></div>
           {indicator?.scale !== 'pra' && <p>Valeur pour {scaleLabel === 'département' ? 'le département' : 'la région'} {feature.properties.code} — non disponible à la PRA. Une PRA sélectionnée ailleurs reste un contexte de navigation.</p>}
           {current && indicator?.scale !== 'pra' && <><p>Statut qualité SSP : {current.quality_code} (code source, sans conversion en niveau de risque).</p><AnnualHistory dataset={dataset.data!} code={current.code} /></>}
           {indicator?.scale === 'pra' && <><p>{currentValue.status === 'partial' ? 'Surface partielle : seuls les lots régionaux acquis sont comptés.' : 'Surface géométrique des déclarations PAC.'} Une absence de déclaration connue ne signifie pas absence d’agriculture.</p>{profile.data?.data && <><p>Total des surfaces RPG dans les lots acquis : {fmt(profile.data.data.total_rpg_ha)} ha. Part de la culture sélectionnée : {fmt(currentValue.value === null ? null : currentValue.value / profile.data.data.total_rpg_ha * 100)} % dans ces déclarations.</p><h3>Principales cultures déclarées · 2025</h3><ul>{profile.data.distribution.filter(r => r.area_ha !== null && r.area_ha > 0).sort((a, b) => b.area_ha! - a.area_ha!).slice(0, 8).map(r => <li key={r.id}>{r.label} : {fmt(r.area_ha)} ha</li>)}</ul></>}{profile.error && <p role="alert">Répartition agricole indisponible.</p>}<p>Un seul millésime RPG chargé ; aucun historique interannuel.</p></>}
           <details><summary>Source, statut et méthode</summary><p>{indicator?.unit_note}</p>{indicator?.scale !== 'pra' && <><p>{year === 2025 ? 'Données SAA 2025 provisoires, arrêtées au 30/03/2026.' : 'Série historique révisée ; statut définitif non déduit.'}</p><p>Les années 2010–2019 ont été rétropolées après mise en cohérence avec le recensement 2020. Aucune actualisation mensuelle.</p></>}{sourceMetadata?.quality_flags?.includes('cross_region_distinct_id_overlap_not_checked') && <p>Limite de contrôle : les recouvrements entre parcelles d’identifiants distincts provenant de régions différentes ne sont pas vérifiés. Les recouvrements au sein de chaque lot sont exclus et mesurés.</p>}<p>Empreinte source : {indicator?.sha256}</p><p>Règle : {sourceMetadata?.rule_version} · acquisition {sourceMetadata?.acquired_at} · licence {sourceMetadata?.license}</p></details>
         </> : <><h2>Les productions dans leur territoire</h2><p>Sélectionnez un {scaleLabel} sur la carte ou recherchez son nom. La fiche restitue la maille publiée, sans répartir les statistiques SAA entre PRA.</p><p>{manifest.data?.indicators.length ?? '…'} indicateurs effectivement alimentés.</p></>}
-        <p><a href={indicator?.source_id.startsWith('rpg') ? 'https://www.data.gouv.fr/datasets/rpg' : 'https://agreste.agriculture.gouv.fr/agreste-web/disaron/SAA-SeriesLongues/detail/'} target="_blank" rel="noreferrer">Source officielle et millésimes ↗</a></p>
-      </aside>
-    </div>
-    <details id="sources" className="unified-method"><summary>Sources, méthodes et limites</summary><p>Agreste / SSP · SAA, diffusion du 10 juillet 2026. Licence Ouverte. Millésime 2025 provisoire ; statistiques arrêtées au 30 mars 2026. Les unités et statuts qualité sont ceux des fichiers officiels. Les valeurs absentes restent absentes ; aucune valeur départementale attribuée à une PRA.</p><p>Contours administratifs Etalab 2025, simplifiés à 100 m par le producteur ; carte de France métropolitaine et Corse. Le référentiel des 713 PRA reste inchangé dans les espaces Climat et Analyse. La SAA et les déclarations PAC RPG mesurent des concepts différents.</p></details>
-  </>;
+        <p><a href={indicator?.source_id.startsWith('rpg') ? 'https://www.data.gouv.fr/datasets/rpg' : 'https://agreste.agriculture.gouv.fr/agreste-web/disaron/SAA-SeriesLongues/detail/'} target="_blank" rel="noreferrer">Source officielle et millésimes ↗</a></p></>;
+  const method = <>    <details id="sources" className="unified-method"><summary>Sources, méthodes et limites</summary><p>Agreste / SSP · SAA, diffusion du 10 juillet 2026. Licence Ouverte. Millésime 2025 provisoire ; statistiques arrêtées au 30 mars 2026. Les unités et statuts qualité sont ceux des fichiers officiels. Les valeurs absentes restent absentes ; aucune valeur départementale attribuée à une PRA.</p><p>Contours administratifs Etalab 2025, simplifiés à 100 m par le producteur ; carte de France métropolitaine et Corse. Le référentiel des 713 PRA reste inchangé dans les espaces Climat et Analyse. La SAA et les déclarations PAC RPG mesurent des concepts différents.</p></details></>;
+  const mapProps = {
+    selected, onSelect: select,
+    geography: { prefix, label: `${geometry.data?.features.length ?? 0} ${scaleLabel}s`, attribution: indicator?.scale === 'pra' ? 'PRA · OFB / MASA · géométries source inchangées' : 'Etalab · contours administratifs 2025, 100 m · Licence Ouverte 2.0' },
+    quantitative: { values, field: 'value' as const, unit: indicator?.unit ?? '', bounds, colors: palette.length ? palette : TOKENS.map(() => 'transparent') },
+  };
+  return { filters, mapTitle, mapState, legend, panel, method, mapProps, collection: geometry.data, hasSelection: !!feature };
 }
+
 function AnnualHistory({ dataset, code }: { dataset: AgriculturalDataset; code: string }) {
   const row = dataset.rows.find(r => r.code === code)!;
   const numbers = row.values.filter((v): v is number => v !== null);
