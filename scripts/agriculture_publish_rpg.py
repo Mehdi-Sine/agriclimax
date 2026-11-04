@@ -28,6 +28,19 @@ def main() -> None:
         for code, group, area in cp['aggregates']:
             sums[(code, group)] += area
             totals[code] += area
+    cross_path = cache / 'cross-region-complete.json'
+    cross = json.loads(cross_path.read_text()) if cross_path.exists() else None
+    expected_provenance = hashlib.sha256(json.dumps([(cp['region'], cp['archive_sha256']) for cp in checkpoints]).encode()).hexdigest()
+    cross_checked = cross is not None and cross.get('source_provenance_sha256') == expected_provenance
+    if cross_checked:
+        for code, group, correction in cross['corrections']:
+            if correction > sums[(code, group)] + 0.0001:
+                raise ValueError('Cross-region correction exceeds acquired area')
+            sums[(code, group)] = max(0, sums[(code, group)] - correction)
+        totals = defaultdict(float)
+        for (code, _group), area in sums.items():
+            totals[code] += area
+    quality_flags = [] if cross_checked else ['cross_region_distinct_id_overlap_not_checked']
     full = {cp['region'] for cp in checkpoints} == set(REGIONS)
     indicators = []
     for group, names in sorted(labels.items(), key=lambda pair: int(pair[0])):
@@ -61,7 +74,8 @@ def main() -> None:
                 'completed_regions': [cp['region'] for cp in checkpoints],
                 'missing_regions': sorted(set(REGIONS) - {cp['region'] for cp in checkpoints}),
                 'no_known_parcels': [f['properties']['code'] for f in reference['features'] if totals[f['properties']['code']] == 0],
-                'quality_flags': ['cross_region_distinct_id_overlap_not_checked'],
+                'quality_flags': quality_flags,
+                'cross_region_audit': {key: value for key, value in cross.items() if key not in ('corrections', 'group_exclusions')} if cross_checked else None,
                 'nomenclature': {'url': 'https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=LANDUSE.AGRICULTURE2025:codes_cultures&OUTPUTFORMAT=application/json&COUNT=1000', 'sha256': hashlib.sha256((cache / 'rpg-codes.json').read_bytes()).hexdigest(), 'rows': len(nomenclature['features'])},
                 'documentation': {'url': 'https://data.geopf.fr/annexes/ressources/documentation/DC_DL_RPG_4.0.pdf', 'sha256': hashlib.sha256((cache / 'rpg4-doc.pdf').read_bytes()).hexdigest() if (cache / 'rpg4-doc.pdf').exists() else None},
                 'ambiguous_group_labels': {g: sorted(v) for g, v in labels.items() if len(v) > 1}}
@@ -71,7 +85,7 @@ def main() -> None:
                      'status': 'available' if full else 'partial'} for code, total in totals.items() if total > 0}
     atomic_write(destination / 'rpg-wheat-context.json', json.dumps({'year': 2025, 'manifest': manifest, 'pra': context}, ensure_ascii=False, separators=(',', ':'), allow_nan=False).encode())
     # Compact public evidence has no parcel geometry/identifier.
-    atomic_write(Path('docs/codex/task25/rpg-import.json'), json.dumps({'manifest': manifest, 'checkpoints': checkpoints}, ensure_ascii=False, separators=(',', ':'), allow_nan=False).encode())
+    atomic_write(Path('docs/codex/task25/rpg-import.json'), json.dumps({'manifest': manifest, 'checkpoints': checkpoints, 'cross_region_audit': cross if cross_checked else None}, ensure_ascii=False, separators=(',', ':'), allow_nan=False).encode())
     print(json.dumps({'regions': len(checkpoints), 'indicators': len(indicators), 'known_pra': len(context), 'national': full}))
 
 

@@ -20,4 +20,4 @@ git switch codex/25-national-agriculture-data
 
 Le checkout de départ Task24 a été vérifié par les empreintes exactes de l'arbre et du commit signé. L'historique complet de ses parents a ensuite été récupéré. Aucun nouveau socle parallèle n'a été créé.
 
-Le point restant pour la recette visuelle distante est la confiance du certificat proxy dans le magasin Chromium du worker. Les certificats publics du système sont déjà approuvés pour les requêtes HTTP ; Chromium utilise un magasin NSS personnel différent. La vérification TLS n'a pas été désactivée. Aucune modification du dossier personnel n'est effectuée sans accord explicite.
+La recette visuelle distante est passée via une passerelle locale en lecture seule vers la Preview, TLS amont vérifié normalement ; aucune modification du magasin de confiance personnel. Voir `preview/browser-real.json`.

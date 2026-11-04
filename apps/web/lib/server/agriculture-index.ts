@@ -9,6 +9,7 @@ export const loadWheatContext = async (): Promise<WheatAgriculturalContext | nul
 export const datasets: Record<string, () => Promise<AgriculturalDataset>> = {
   'rpg-group-1-surf-pra': async () => (await import('../../data/agriculture/rpg-group-1-surf-pra.json')).default as unknown as AgriculturalDataset,
   'rpg-group-11-surf-pra': async () => (await import('../../data/agriculture/rpg-group-11-surf-pra.json')).default as unknown as AgriculturalDataset,
+  'rpg-group-14-surf-pra': async () => (await import('../../data/agriculture/rpg-group-14-surf-pra.json')).default as unknown as AgriculturalDataset,
   'rpg-group-15-surf-pra': async () => (await import('../../data/agriculture/rpg-group-15-surf-pra.json')).default as unknown as AgriculturalDataset,
   'rpg-group-16-surf-pra': async () => (await import('../../data/agriculture/rpg-group-16-surf-pra.json')).default as unknown as AgriculturalDataset,
   'rpg-group-17-surf-pra': async () => (await import('../../data/agriculture/rpg-group-17-surf-pra.json')).default as unknown as AgriculturalDataset,

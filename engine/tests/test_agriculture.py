@@ -67,3 +67,16 @@ def test_duplicate_identity_includes_crop_and_declared_area_not_only_geometry():
     assert original == record_fingerprint(geometry, "BTH", 1, 12.0)
     assert original != record_fingerprint(geometry, "CZH", 5, 12.0)
     assert original != record_fingerprint(geometry, "BTH", 1, 14.0)
+
+
+def test_three_deliveries_union_exclusion_does_not_subtract_shared_overlap_twice():
+    # One metre coordinate system: region2 and region3 overlap both each other
+    # and region1. Preceding raw union equals preceding ownership union.
+    allocator = PraAllocator([{'properties': {'code': 'test'}, 'geometry': box(-5, -5, 5, 5).__geo_interface__}])
+    allocator.geometries = [box(0, 0, 100, 100)]
+    from shapely.strtree import STRtree
+    allocator.tree = STRtree(allocator.geometries)
+    parcels = [box(0, 0, 60, 100), box(40, 0, 80, 100), box(50, 0, 100, 100)]
+    values = [allocator.allocate(parcel, 3035, parcels[:i]) for i, parcel in enumerate(parcels)]
+    assert sum(sum(result.hectares.values()) for result in values) == pytest.approx(1.0)
+    assert [result.overlap_ha for result in values] == pytest.approx([0, .2, .3])
