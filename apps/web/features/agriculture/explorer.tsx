@@ -29,8 +29,8 @@ export function useAgriculturalExplorer(enabled: boolean) {
   const requestedProduction = search.get('agri_production') ?? 'saa-cop-03';
   const production = indicators.find(i => i.production === requestedProduction)?.production ?? indicators[0]?.production;
   const productionIndicators = indicators.filter(i => i.production === production);
-  const scale = search.get('echelle') ?? (production?.startsWith('rpg-') ? 'pra' : 'departement');
   const variable = search.get('agri_variable') ?? 'SURF';
+  const scale = search.get('echelle') ?? productionIndicators.find(i => i.variable === variable)?.scale ?? (production?.startsWith('rpg-') ? 'pra' : 'departement');
   const indicator = productionIndicators.find(i => i.scale === scale && i.variable === variable)
     ?? productionIndicators.find(i => i.scale === scale) ?? productionIndicators[0];
   const sourceMetadata = manifest.data?.sources.find(s => s.source_id === indicator?.source_id);
@@ -85,7 +85,7 @@ export function useAgriculturalExplorer(enabled: boolean) {
       <label>Production<select value={production ?? ''} disabled={!indicators.length} onChange={e => change({ agri_production: e.target.value, agri_variable: '', annee: '', echelle: '', territoire: '' })}>
         {Object.entries(GROUPS).map(([sheet, title]) => <optgroup key={sheet} label={title}>{indicators.filter((i, n, all) => i.sheet === sheet && all.findIndex(j => j.production === i.production) === n).map(i => <option key={i.production} value={i.production}>{i.label}</option>)}</optgroup>)}
       </select></label>
-      <label>Variable<select value={indicator?.variable ?? ''} disabled={!indicator} onChange={e => change({ agri_variable: e.target.value })}>{productionIndicators.filter((i, n, all) => all.findIndex(j => j.variable === i.variable) === n).map(i => <option key={i.variable} value={i.variable}>{i.variable_label} ({i.unit})</option>)}</select></label>
+      <label>Variable<select value={indicator?.variable ?? ''} disabled={!indicator} onChange={e => change({ agri_variable: e.target.value, echelle: '', territoire: '' })}>{productionIndicators.filter((i, n, all) => all.findIndex(j => j.variable === i.variable) === n).map(i => <option key={i.variable} value={i.variable}>{i.variable_label} ({i.unit})</option>)}</select></label>
       <label>Année<select value={year} disabled={!indicator} onChange={e => change({ annee: e.target.value })}>{[...(indicator?.years ?? [])].reverse().map(y => <option key={y}>{y}</option>)}</select></label>
       <label>Maille publiée<select value={indicator?.scale ?? ''} disabled={!indicator} onChange={e => change({ echelle: e.target.value, territoire: '' })}>{[...new Set(productionIndicators.filter(i => i.variable === indicator?.variable).map(i => i.scale))].map(s => <option key={s} value={s}>{s === 'departement' ? 'Département' : s === 'region' ? 'Région' : 'PRA'}</option>)}</select></label>
     </section>
@@ -100,7 +100,7 @@ export function useAgriculturalExplorer(enabled: boolean) {
         {!dataset.data && !dataset.error && !invalid && <p role="status">Chargement des statistiques officielles…</p>}
 </>;
   const legend = <>        <div className="unified-legend" aria-label="Légende agricole">{numbers.length > 0 && <><div className="legend-ramp">{bounds.map((b, i) => <span key={i} style={{ background: `var(${TOKENS[i]})` }}><small>{i === 0 ? `${fmt(low)} – ` : '≤ '}{fmt(b)}</small></span>)}</div><p>{indicator?.unit} · bornes calculées sur les valeurs affichées</p></>}<span className="missing-key" /> Gris : donnée indisponible, jamais un zéro déduit. Gris atténué : secret statistique. Bordure renforcée : partiel. <p>{numbers.length} territoires renseignés sur cette carte ; métropole et Corse.</p></div></>;
-  const panel = <>        {feature ? <><div className="panel-top"><span className="eyebrow">{scaleLabel} · {feature.properties.code}</span><button aria-label="Fermer la fiche agricole" onClick={() => change({ territoire: '' })}>×</button></div><h2>{feature.properties.name}</h2>
+  const panel = <>        {feature ? <><div className="panel-top"><span className="eyebrow">{scaleLabel} · {feature.properties.code}</span><button aria-label="Fermer la fiche agricole" onClick={() => change({ territoire: '', ...(indicator?.scale === 'pra' ? { pra: '' } : {}) })}>×</button></div><h2>{feature.properties.name}</h2>
           <div className="unified-value"><small>{label} · {year}</small><strong>{currentValue.status === 'suppressed' ? 'Secret statistique' : fmt(currentValue.value)} <em>{currentValue.value !== null ? indicator?.unit : ''}</em></strong></div>
           {indicator?.scale !== 'pra' && <p>Valeur pour {scaleLabel === 'département' ? 'le département' : 'la région'} {feature.properties.code} — non disponible à la PRA. Une PRA sélectionnée ailleurs reste un contexte de navigation.</p>}
           {current && indicator?.scale !== 'pra' && <><p>Statut qualité SSP : {current.quality_code} (code source, sans conversion en niveau de risque).</p><AnnualHistory dataset={dataset.data!} code={current.code} /></>}

@@ -84,6 +84,13 @@ try {
   assert.equal(await original.evaluate(node=>node===document.querySelector('.maplibregl-canvas')),true);
  }
  report.cases.push('Same canvas and PRA context across all three spaces');
+ await page.goto(base+recipes[2][1],{waitUntil:'domcontentloaded'});
+ await page.getByRole('button',{name:'Fermer la fiche agricole'}).waitFor();
+ await page.getByRole('button',{name:'Fermer la fiche agricole'}).click();
+ await page.locator('.unified-panel').waitFor({state:'hidden'});
+ assert.equal(new URL(page.url()).searchParams.has('pra'),false);
+ assert.equal(new URL(page.url()).searchParams.has('territoire'),false);
+ report.cases.push('Closing RPG panel clears both shared and agricultural selection');
  await page.goto(base+'/productions?agri_production=saa-cop-03&territoire=dep%3A77&annee=2010',{waitUntil:'domcontentloaded'});
  await page.locator('.unified-value strong').filter({hasText:fmt(s77.values[0])}).waitFor();
  await page.reload({waitUntil:'domcontentloaded'});assert.equal(new URL(page.url()).searchParams.get('annee'),'2010');
