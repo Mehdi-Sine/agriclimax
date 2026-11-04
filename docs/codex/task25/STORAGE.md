@@ -2,7 +2,7 @@
 
 Choix : agrégats publics compacts, versionnés dans `apps/web/data/agriculture/`, lus côté serveur. Les parcelles, GeoPackages, archives et index d'identités restent dans `work/task25/` (ignoré par Git), jamais dans Postgres ou Supabase Storage. Un index généré d’imports serveur statiques assure le tracing Next/Vercel, indépendamment du répertoire de lancement du runtime. Aucun fichier agricole n’est importé par un composant client. Aucune clé Supabase n'est utilisée par la nouvelle API agricole.
 
-SAA : 7 080 120 octets d'archive officielle ; environ 11,65Mo de fichiers JSON de restitution (mesure exacte dans `saa-import.json`). Les séries sont partitionnées par indicateur/maille ; une requête ne renvoie pas toute la base. Le RPG ajoute des agrégats pour les 713 PRA et des métadonnées de lots seulement. Les empreintes/statuts restent séparés des valeurs.
+SAA : 7 080 120 octets d'archive officielle ; environ 12,12Mo de fichiers JSON de restitution (mesure exacte dans `saa-import.json`). Les séries sont partitionnées par indicateur/maille ; une requête ne renvoie pas toute la base. Le RPG ajoute des agrégats pour les 713 PRA et des métadonnées de lots seulement. Ensemble agricole publié : **14 392 469 octets**, 520 fichiers JSON (`storage-measures.json`) ; ajout PostgreSQL nul. Les empreintes/statuts restent séparés des valeurs.
 
 Ajout de stockage PostgreSQL/Supabase Storage : **0 octet écrit par cette Task**. Aucun changement de schéma, migration, RLS/grant ou droit `spatial_ref_sys`. Le volume global DB avant/après n'est pas mesuré : la connexion disponible est l'API REST, pas une session SQL d'administration. Il serait incorrect d'inventer une mesure de table/index. Les données climatiques DEV restent lues par le serveur existant.
 
