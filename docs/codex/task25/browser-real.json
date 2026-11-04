@@ -1,5 +1,5 @@
 {
-  "base": "http://127.0.0.1:3024",
+  "base": "http://127.0.0.1:3025",
   "mocked": false,
   "realDataVerified": true,
   "viewports": [
@@ -110,6 +110,7 @@
     "rpgRegions": [
       "11",
       "24",
+      "27",
       "94"
     ],
     "rpgCoverage": "partial",
@@ -120,6 +121,7 @@
   "cases": [
     "Regional-only poultry remains regional, source unit preserved",
     "Same canvas and PRA context across all three spaces",
+    "Closing RPG panel clears both shared and agricultural selection",
     "Native 2010 value, URL and reload",
     "Historical wheat and station THI routes remain accessible"
   ],

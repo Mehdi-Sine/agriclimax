@@ -1,10 +1,9 @@
 {
-  "commit": "d73f919ff77fc2da06f35e8bd079546bdc14503a",
+  "commit": "7bc462f",
   "local": {
     "python": {
-      "passed": 256,
-      "command": "PYTHONPATH=engine/src python -m pytest engine/tests -q",
-      "additional_range_tests_passed": 4
+      "passed": 261,
+      "command": "PYTHONPATH=engine/src python -m pytest engine/tests -q"
     },
     "typescript": {
       "passed": 253,
@@ -15,7 +14,7 @@
     "lint": "passed",
     "build": "passed",
     "frozen_lockfile_install": "passed (pnpm10; existing lockfile unchanged)",
-    "scientific_geometry_tests": 6,
+    "scientific_geometry_tests": 7,
     "contracts": "passed",
     "source_secret_guard": "passed",
     "client_secret_guard": "passed",
@@ -25,7 +24,7 @@
     "acquisition_safety_tests": 7
   },
   "browser_local": {
-    "base": "http://127.0.0.1:3024",
+    "base": "http://127.0.0.1:3025",
     "mocked": false,
     "realDataVerified": true,
     "viewports": [
@@ -136,6 +135,7 @@
       "rpgRegions": [
         "11",
         "24",
+        "27",
         "94"
       ],
       "rpgCoverage": "partial",
@@ -146,11 +146,12 @@
     "cases": [
       "Regional-only poultry remains regional, source unit preserved",
       "Same canvas and PRA context across all three spaces",
+      "Closing RPG panel clears both shared and agricultural selection",
       "Native 2010 value, URL and reload",
       "Historical wheat and station THI routes remain accessible"
     ],
     "transportRetries": [],
-    "tested_web_code_commit": "d73f919ff77fc2da06f35e8bd079546bdc14503a"
+    "tested_web_code_commit": "7bc462f"
   },
   "preview": {
     "api_probe_passed": true,
@@ -166,10 +167,11 @@
       "regions": [
         "11",
         "24",
+        "27",
         "94"
       ],
-      "known_pra": 123,
-      "processed_parcels": 737006,
+      "known_pra": 201,
+      "processed_parcels": 1360364,
       "national": false
     }
   },

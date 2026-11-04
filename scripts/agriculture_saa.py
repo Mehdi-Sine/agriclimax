@@ -77,7 +77,7 @@ def main() -> int:
         "indicators": len(catalog), "series": sum(len(records[k]) for k in catalog),
         "values": sum(sum(v is not None for v in r["values"]) for k in catalog for r in records[k]),
         "samples": samples, "national_controls": controls,
-        "artifact_bytes": sum(p.stat().st_size for p in args.output.glob("*.json")),
+        "artifact_bytes": sum(p.stat().st_size for p in args.output.glob("saa-*.json")),
     }, ensure_ascii=False, separators=(",", ":"), allow_nan=False).encode())
     print(json.dumps({"indicators": len(catalog), "sha256": sha}))
     return 0

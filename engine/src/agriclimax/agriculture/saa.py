@@ -103,7 +103,7 @@ def read_release(content: bytes) -> Iterator[dict[str, Any]]:
                                 "production": f"saa-{sheet_name.lower()}-{label.split(' - ', 1)[0]}",
                                 "label": label.split(" - ", 1)[1],
                                 "sheet": sheet_name, "variable": variable,
-                                "variable_label": VARIABLES[variable][0], "unit": unit,
+                                "variable_label": "Production fourragère" if sheet_name == "FOU" and variable == "PROD" else VARIABLES[variable][0], "unit": unit,
                                 "scale": effective_scale, "code": code, "name": name,
                                 "values": list(values), "statuses": list(statuses),
                                 "quality_code": str(cells["STATUT_QUALITE"]),
