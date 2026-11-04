@@ -6,6 +6,8 @@ import NationalMap, { type PraCollection } from '../national/map';
 import { DAYS, NATIONAL, type ClimateContextRow } from '../national/model';
 import { AGRICULTURE, INDICATORS, RULES, parseState, type Space, type TerritorialValue, type ProductionDefinition } from './model';
 import './unified.css';
+import { AgriculturalExplorer } from '../agriculture/explorer';
+import { WheatContext } from '../agriculture/wheat-context';
 
 function valueLabel(value: number | null | undefined): string { return value == null ? 'Indisponible' : new Intl.NumberFormat('fr-FR', {maximumFractionDigits:2}).format(value); }
 
@@ -76,15 +78,7 @@ export function UnifiedWorkspace() {
     return `${path}?${p}`;
   }
   const title=space==='productions'?production.variables.find(v=>v.id===state.variable)!.label:def.label;
-  return <div className="unified-product">
-    <a className="skip-link" href="#main">Aller à la carte et aux filtres</a>
-    <header className="unified-header">
-      <Link className="unified-brand" href="/" aria-label="AgriclimaX, accueil">Agriclima<span>X</span></Link>
-      <nav aria-label="Espaces produit">{([['/','Climat','climat'],['/productions','Productions agricoles','productions'],['/analyse','Analyse agroclimato','analyse']] as const).map(([path,label,key])=><Link key={key} href={spaceHref(path)} aria-current={space===key?'page':undefined}>{label}</Link>)}</nav>
-      <a className="unified-help" href="#sources">ⓘ Aide et sources</a>
-    </header>
-    <main id="main" className="unified-main">
-      <div className="unified-heading"><div><p className="eyebrow">EXPLORER LES TERRITOIRES · FRANCE MÉTROPOLITAINE ET CORSE</p><h1>{TITLES[space]}</h1><p>{DESCRIPTIONS[space]}</p></div><span className="scale-badge">713 PRA · contours officiels</span></div>
+  const climateBody = <>
       <button className="filters-toggle" aria-expanded={filtersOpen} aria-controls="map-filters" onClick={()=>setFiltersOpen(!filtersOpen)}>Filtres · {space==='productions'?production.label:def.label} {filtersOpen?'−':'+'}</button>
       <section id="map-filters" className={`unified-filters ${filtersOpen?'filters-open':''}`} aria-label="Filtres de la carte">
         {space!=='climat'&&<label>Production<select value={state.production} onChange={e=>change({production:e.target.value})}>{AGRICULTURE.map(p=><option key={p.id} value={p.id}>{p.label}</option>)}</select></label>}
@@ -122,13 +116,24 @@ export function UnifiedWorkspace() {
             <dl className="unified-comparison"><div><dt>Normale 1991–2020</dt><dd>{def.reference?`${valueLabel(current?.normal)} ${current?.normal!=null?def.unit:''}`:'Non applicable'}</dd></div><div><dt>Anomalie</dt><dd>{def.reference?`${valueLabel(current?.anomaly)} ${current?.anomaly!=null?def.unit:''}`:'Non calculable'}</dd></div></dl>
             <p className="coverage-line">{current?`${current.observedDays}/${current.expectedDays} jours renseignés · couverture spatiale ${current.coverage==null?'inconnue':valueLabel(current.coverage*100)+' %'}`:'Valeur non disponible pour cette sélection.'}</p>
             {current?.status==='partial'&&<p>Résultat partiel : somme ou moyenne des seuls jours renseignés, sans extrapolation.</p>}
-            {space==='analyse'&&<><h3>B. Production concernée</h3><p>{production.label} · exposition agricole non encore quantifiée à la PRA.</p><h3>C. Lecture agroclimatique</h3><p>{current?.value==null?'Données insuffisantes pour décrire cet aléa.':`${valueLabel(current.value)} ${def.unit} · ${def.label.toLowerCase()}${def.operator==='above'?` ${state.threshold} °C`:''}, sur ${current.observedDays} jours renseignés.`} Aucun impact sur le rendement ni niveau de vulnérabilité déduit. Le stade de la culture n’est pas renseigné.</p></>}
+            {space==='analyse'&&<WheatContext pra={state.pra} climate={current} indicator={def} start={state.period ? state.start : state.date} end={state.date} threshold={state.threshold} />}
             <h3>{def.variable==='temperature_max'?'Tmax':def.variable==='temperature_min'?'Tmin':def.variable==='precipitation'?'Pluie':'Température moyenne'} · évolution quotidienne</h3>{!def.reference&&<p>Série climatique d’origine, avant calcul de l’indice.</p>}{history.error?<p role="alert">Historique indisponible. {history.error}</p>:history.data?<History rows={history.data.data.filter(r=>r.variable===def.variable)} unit={def.variable==='precipitation'?'mm':'°C'}/>:<p role="status">Chargement de l’historique…</p>}
             <details><summary>Détails et méthode</summary><p>{def.method}</p><p>Référence homologue exigée pour une anomalie ; aucune anomalie de jours au seuil ou degrés-jours. Réanalyse exploratoire, pas une mesure en station. Températures extrêmes : extrema des cellules, pas température au centre de PRA.</p><p>Règle {def.version} · {NATIONAL.dataset} · normale {NATIONAL.climatology}. Fraîcheur : archive septembre–octobre 2026.</p></details>
           </>}</>:<><div className="panel-illustration" aria-hidden="true">◎</div><h2>Chaque territoire a son histoire</h2><p>Sélectionnez une PRA sur la carte ou recherchez son nom pour ouvrir sa fiche.</p><p>La sélection vous accompagne dans les trois espaces.</p>{space==='productions'&&<AgriculturePanel production={production} variable={state.variable}/>}</>}
         </aside>
       </div>
-      <details id="sources" className="unified-method"><summary>Sources, méthodes et limites</summary><p>Contours OFB / MASA · {NATIONAL.reference} · géométrie source inchangée, réserves PostGIS de l’issue #49 conservées. ERA5-Land est une réanalyse et non une observation stationnelle. Normales quotidiennes 1991–2020. Archive disponible du 19/09 au 18/10/2026 ; aucune journée postérieure inventée.</p><p>Pour les périodes : moyenne des températures, somme des pluies, compte de jours au seuil strict. Les jours absents restent absents ; résultats partiels signalés. Les anomalies exigent les mêmes jours observés et une référence complète. Le 29 février conserve l’état de référence insuffisante.</p><p>Agreste SAA : source départementale annuelle à qualifier ; aucune statistique départementale répartie artificiellement entre PRA. Aucun niveau de risque, sensibilité ou impact agricole estimé.</p><p><Link href="/stations?mode=live_meteofrance&production=wheat">Stations Météo-France</Link> · <Link href="/stations?mode=live_meteofrance&production=cattle&indicator=thi">THI bovin stationnel</Link> · <Link href="/demo">Démonstration fictive séparée</Link></p></details>
+      <details id="sources" className="unified-method"><summary>Sources, méthodes et limites</summary><p>Contours OFB / MASA · {NATIONAL.reference} · géométrie source inchangée, réserves PostGIS de l’issue #49 conservées. ERA5-Land est une réanalyse et non une observation stationnelle. Normales quotidiennes 1991–2020. Archive disponible du 19/09 au 18/10/2026 ; aucune journée postérieure inventée.</p><p>Pour les périodes : moyenne des températures, somme des pluies, compte de jours au seuil strict. Les jours absents restent absents ; résultats partiels signalés. Les anomalies exigent les mêmes jours observés et une référence complète. Le 29 février conserve l’état de référence insuffisante.</p><p>Agreste SAA : séries annuelles départementales et régionales, dans l’espace Productions ; aucune statistique départementale répartie artificiellement entre PRA. Aucun niveau de risque, sensibilité ou impact agricole estimé.</p><p><Link href="/stations?mode=live_meteofrance&production=wheat">Stations Météo-France</Link> · <Link href="/stations?mode=live_meteofrance&production=cattle&indicator=thi">THI bovin stationnel</Link> · <Link href="/demo">Démonstration fictive séparée</Link></p></details>
+  </>;
+  return <div className="unified-product">
+    <a className="skip-link" href="#main">Aller à la carte et aux filtres</a>
+    <header className="unified-header">
+      <Link className="unified-brand" href="/" aria-label="AgriclimaX, accueil">Agriclima<span>X</span></Link>
+      <nav aria-label="Espaces produit">{([['/','Climat','climat'],['/productions','Productions agricoles','productions'],['/analyse','Analyse agroclimato','analyse']] as const).map(([path,label,key])=><Link key={key} href={spaceHref(path)} aria-current={space===key?'page':undefined}>{label}</Link>)}</nav>
+      <a className="unified-help" href="#sources">ⓘ Aide et sources</a>
+    </header>
+    <main id="main" className="unified-main">
+      <div className="unified-heading"><div><p className="eyebrow">EXPLORER LES TERRITOIRES · FRANCE MÉTROPOLITAINE ET CORSE</p><h1>{TITLES[space]}</h1><p>{DESCRIPTIONS[space]}</p></div><span className="scale-badge">713 PRA · contours officiels</span></div>
+      {space === 'productions' ? <AgriculturalExplorer /> : climateBody}
     </main>
   </div>;
 }
