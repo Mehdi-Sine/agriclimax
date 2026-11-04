@@ -36,7 +36,7 @@ Installer les locks `requirements-dev.lock`, `requirements-geo.lock`, `requireme
 1. `python scripts/agriculture_saa.py --download` acquiert/rejoue la version qualifiée (32 Mio maximum). Les changements de colonnes/date/statut doivent être revus, puis versionnés ; aucune sélection automatique d'une édition non qualifiée.
 2. Acquérir la nomenclature WFS2025 dans `work/task25/rpg-codes.json`, conserver la documentation et le manifeste des livraisons.
 3. `python scripts/agriculture_rpg.py` parcourt les 13 régions. `--regions 94` permet une reprise explicite de lot. Les archives, GeoPackages et identités de contrôle restent dans `work/`, jamais dans Git/Postgres/Storage.
-4. `python scripts/agriculture_publish_rpg.py` publie seulement les checkpoints terminés. Un nouvel ensemble de lots impose de republier les agrégats et de refaire la recette avant Preview.
+4. `python scripts/agriculture_publish_rpg.py` publie seulement les checkpoints terminés. Exécuter ensuite `python scripts/agriculture_server_index.py` pour enregistrer les imports serveur statiques tracés par Next/Vercel. Un nouvel ensemble de lots impose de republier les agrégats et de refaire la recette avant Preview.
 5. `python scripts/agriculture_geography.py` prépare les deux couches administratives depuis les fichiers acquis, sans toucher aux PRA.
 
 Le workflow `agriculture-annual.yml`, manuel ou deux fois par an, vérifie seulement les catalogues (2 Mio/source, délais bornés). Il n'importe pas de nouveau millésime et ne déclenche pas un téléchargement RPG massif. Une publication reste un commit revu dans la PR, jamais un changement automatique de production.

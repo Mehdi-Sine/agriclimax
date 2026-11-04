@@ -8,13 +8,21 @@ const origin=new URL(base);
 assert.ok(['127.0.0.1','localhost'].includes(origin.hostname)||/^agriclimax-[a-z0-9-]+\.vercel\.app$/.test(origin.hostname));
 const destination=process.env.TASK25_ARTIFACTS||'docs/codex/task25';
 await mkdir(`${destination}/screenshots`,{recursive:true});
-const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE||'/usr/bin/chromium',args:['--no-sandbox','--enable-unsafe-swiftshader']});
-const report={base,mocked:false,realDataVerified:false,viewports:[],apiProofs:{},errors:[],cases:[]};
+const proxy=process.env.HTTPS_PROXY ? {server:process.env.HTTPS_PROXY,bypass:'127.0.0.1,localhost'} : undefined;
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE||'/usr/bin/chromium',proxy,args:['--no-sandbox','--enable-unsafe-swiftshader']});
+const report={base,mocked:false,realDataVerified:false,viewports:[],apiProofs:{},errors:[],cases:[],transportRetries:[]};
 try {
  const headers=origin.hostname.endsWith('.vercel.app')&&process.env.VERCEL_AUTOMATION_BYPASS_SECRET?{'x-vercel-protection-bypass':process.env.VERCEL_AUTOMATION_BYPASS_SECRET}:{};
  const page=await browser.newPage({viewport:{width:1440,height:1000},locale:'fr-FR',reducedMotion:'reduce',extraHTTPHeaders:headers});
  page.on('pageerror',e=>report.errors.push(e.message));
- async function api(query){const r=await page.request.get(`${base}/api/agriculture?${query}`);assert.equal(r.status(),200);return r.json();}
+ async function api(query){
+  for(let attempt=0;attempt<3;attempt++){
+   const r=await page.request.get(`${base}/api/agriculture?${query}`);
+   if([502,503].includes(r.status())&&attempt<2){report.transportRetries.push({query,status:r.status()});await new Promise(resolve=>setTimeout(resolve,500));continue;}
+   assert.equal(r.status(),200,`Agricultural API ${query}`);return r.json();
+  }
+  throw new Error('Unreachable retry state');
+ }
  const catalog=await api('action=catalog');assert.ok(catalog.indicators.length>=496);
  const saa=await api('action=dataset&indicator=saa-cop-03-surf-departement');
  const s77=saa.rows.find(r=>r.code==='77');assert.equal(s77.values.at(-1),117468);
@@ -87,4 +95,9 @@ try {
  assert.deepEqual(report.errors,[]);report.realDataVerified=true;
  await writeFile(`${destination}/browser-real.json`,JSON.stringify(report,null,2));
  console.log(JSON.stringify(report));
+} catch(error) {
+ const secret=process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
+ const message=error instanceof Error?error.stack??error.message:String(error);
+ console.error(secret?message.replaceAll(secret,'[REDACTED]'):message);
+ process.exitCode=1;
 } finally {await browser.close();}

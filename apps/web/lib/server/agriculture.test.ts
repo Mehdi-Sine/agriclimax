@@ -21,3 +21,10 @@ it('keeps agricultural coverage independent of climate activation and rejects un
   }
   vi.unstubAllEnvs();
 });
+it('loads server artifacts independently of the runtime working directory', async () => {
+  const cwd = vi.spyOn(process, 'cwd').mockReturnValue('/runtime-without-source-files');
+  try {
+    const response = await readAgriculture(new Request('https://test/api/agriculture?action=dataset&indicator=saa-cop-03-surf-departement'));
+    expect(response.status).toBe(200);
+  } finally { cwd.mockRestore(); }
+});

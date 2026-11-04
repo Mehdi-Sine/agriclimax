@@ -1,7 +1,6 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  outputFileTracingIncludes: { '/api/agriculture': ['./data/agriculture/*.json'] },
   async redirects() {
     return [
       { source: '/', has: [{ type: 'query' as const, key: 'view', value: 'watch' }], destination: '/watch', permanent: false },

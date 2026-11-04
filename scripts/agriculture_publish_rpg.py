@@ -50,6 +50,7 @@ def main() -> None:
         atomic_write(destination / f"{indicator['id']}.json", json.dumps({'indicator': indicator, 'rows': rows}, ensure_ascii=False, separators=(',', ':'), allow_nan=False).encode())
         indicators.append(indicator)
     manifest = {'schema_version': 'agriculture-1', 'rule_version': 'rpg-area-1', 'source_id': 'rpg-2025',
+                'source_version': '4.0',
                 'provider': 'IGN / ASP', 'url': 'https://www.data.gouv.fr/datasets/rpg',
                 'page_url': 'https://cartes.gouv.fr/rechercher-une-donnee/dataset/IGNF_RPG',
                 'license': 'Licence Ouverte 2.0', 'published_at': '2026-10-23',
@@ -61,6 +62,8 @@ def main() -> None:
                 'missing_regions': sorted(set(REGIONS) - {cp['region'] for cp in checkpoints}),
                 'no_known_parcels': [f['properties']['code'] for f in reference['features'] if totals[f['properties']['code']] == 0],
                 'quality_flags': ['cross_region_distinct_id_overlap_not_checked'],
+                'nomenclature': {'url': 'https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=LANDUSE.AGRICULTURE2025:codes_cultures&OUTPUTFORMAT=application/json&COUNT=1000', 'sha256': hashlib.sha256((cache / 'rpg-codes.json').read_bytes()).hexdigest(), 'rows': len(nomenclature['features'])},
+                'documentation': {'url': 'https://data.geopf.fr/annexes/ressources/documentation/DC_DL_RPG_4.0.pdf', 'sha256': hashlib.sha256((cache / 'rpg4-doc.pdf').read_bytes()).hexdigest() if (cache / 'rpg4-doc.pdf').exists() else None},
                 'ambiguous_group_labels': {g: sorted(v) for g, v in labels.items() if len(v) > 1}}
     atomic_write(destination / 'rpg-manifest.json', json.dumps(manifest, ensure_ascii=False, separators=(',', ':')).encode())
     context = {code: {'area_ha': sums.get((code, '1')), 'total_rpg_ha': total,
