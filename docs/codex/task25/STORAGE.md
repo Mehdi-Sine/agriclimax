@@ -1,0 +1,13 @@
+# Stockage Task25
+
+Choix : agrégats publics compacts, versionnés dans `apps/web/data/agriculture/`, lus côté serveur. Les parcelles, GeoPackages, archives et index d'identités restent dans `work/task25/` (ignoré par Git), jamais dans Postgres ou Supabase Storage. Les fichiers servis sont explicitement inclus dans le tracing Next/Vercel. Aucune clé Supabase n'est utilisée par la nouvelle API agricole.
+
+SAA : 7 080 120 octets d'archive officielle ; environ 11,65Mo de fichiers JSON de restitution (mesure exacte dans `saa-import.json`). Les séries sont partitionnées par indicateur/maille ; une requête ne renvoie pas toute la base. Le RPG ajoute des agrégats pour les 713 PRA et des métadonnées de lots seulement. Les empreintes/statuts restent séparés des valeurs.
+
+Ajout de stockage PostgreSQL/Supabase Storage : **0 octet écrit par cette Task**. Aucun changement de schéma, migration, RLS/grant ou droit `spatial_ref_sys`. Le volume global DB avant/après n'est pas mesuré : la connexion disponible est l'API REST, pas une session SQL d'administration. Il serait incorrect d'inventer une mesure de table/index. Les données climatiques DEV restent lues par le serveur existant.
+
+Le plan d'acquisition officiel (`national-acquisition-plan.json`) mesure **10 945 220 073 octets d'archives RPG compressées**, hors extraction. Le disque du worker fait environ 7,9Gio et héberge déjà l'application/dépendances ; tout conserver nationalement n'y tient pas. Le traitement s'arrête avant un lot qui n'a pas la marge requise. Les preuves acquises ne sont pas effacées automatiquement : cette suppression a été rejetée par le contrôle automatique d'approbation.
+
+Plan national chiffré : capacité hors DB d'au moins 11Go pour les seules archives, plus le GeoPackage régional extrait le plus volumineux, les index d'identités et une marge de travail ; réserver **25Go minimum**, puis confirmer après inspection des en-têtes des 13 archives. Sur ce worker, la couverture disponible reste celle des checkpoints effectivement acquis. Aucun service payant n'a été créé.
+
+Budget annuel : une nouvelle édition complète de la taille 2025 représente au moins 10,95Go de téléchargements et d'archives supplémentaires si l'on conserve les versions, plus quelques dizaines de Mo d'agrégats. Coût monétaire non extrapolé : stockage externe non provisionné, aucune facturation engagée. Le workflow périodique ne vérifie que les catalogues ; aucun téléchargement massif automatique.
