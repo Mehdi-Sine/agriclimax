@@ -55,3 +55,5 @@
 @media(max-width:480px){.unified-product .filters-toggle{display:block;width:100%;text-align:left;font-weight:600;margin-bottom:8px;font-size:12px}.unified-filters:not(.filters-open){display:none}.unified-heading .eyebrow{display:none}.unified-heading{margin-bottom:14px}.unified-heading .scale-badge{font-size:10px;padding:4px 8px}.unified-context{gap:0}.unified-context>div{width:100%}.unified-search{margin-top:0}.unified-heading>div>p:last-child{font-size:12px}}
 
 .unified-grid:not(.has-selection){grid-template-columns:1fr}.unified-grid:not(.has-selection) .unified-panel{display:none}.unified-source-banner{font-size:12px;background:var(--surface-subtle);padding:12px;border-left:3px solid var(--brand-secondary);margin:14px 0}
+
+.unified-panel details {overflow-wrap:anywhere;}

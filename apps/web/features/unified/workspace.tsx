@@ -129,7 +129,7 @@ export function UnifiedWorkspace() {
       <a className="unified-help" href="#sources">ⓘ Aide et sources</a>
     </header>
     <main id="main" className="unified-main">
-      <div className="unified-heading"><div><p className="eyebrow">EXPLORER LES TERRITOIRES · FRANCE MÉTROPOLITAINE ET CORSE</p><h1>{TITLES[space]}</h1><p>{DESCRIPTIONS[space]}</p></div><span className="scale-badge">713 PRA · contours officiels</span></div>
+      <div className="unified-heading"><div><p className="eyebrow">EXPLORER LES TERRITOIRES · FRANCE MÉTROPOLITAINE ET CORSE</p><h1>{TITLES[space]}</h1><p>{DESCRIPTIONS[space]}</p></div><span className="scale-badge">{space === 'productions' ? 'Mailles agricoles · sources officielles' : '713 PRA · contours officiels'}</span></div>
       {climateBody}
     </main>
   </div>;
