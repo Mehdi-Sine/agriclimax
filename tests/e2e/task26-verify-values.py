@@ -32,7 +32,7 @@ def main() -> None:
         ) as response:
             payload = json.loads(response.read(2_000_001))
         if not isinstance(payload, dict):
-            raise ValueError("Expected JSON object")
+            raise TypeError("Expected JSON object")
         return payload
 
     mark = monotonic()
