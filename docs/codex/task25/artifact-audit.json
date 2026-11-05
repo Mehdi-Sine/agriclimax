@@ -1,18 +1,21 @@
 {
-  "national_rpg": false,
+  "national_rpg": true,
   "regions": [
     "11",
     "24",
     "27",
+    "28",
+    "32",
     "44",
     "52",
     "53",
     "75",
     "76",
     "84",
+    "93",
     "94"
   ],
-  "known_pra": 635,
+  "known_pra": 713,
   "rpg_checked_cells": 15686,
   "cross_region_checked": true,
   "saa_indicators": 496,

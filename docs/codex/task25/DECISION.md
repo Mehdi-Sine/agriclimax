@@ -1,11 +1,11 @@
 # Décision Task25
 
-**EN VALIDATION — acquisition nationale RPG en cours.**
+**EN VALIDATION FINALE — RPG national acquis, agrégé et audité.**
 
-SAA nationale réellement intégrée : 2010–2025, 128 productions, 436 761 valeurs, cartes aux mailles départementales/régionales publiées. Le RPG publié correspond encore à six livraisons complètes, 4 256 355 parcelles, dont six corses. Les autres régions sont en acquisition reprenable. Aucun résultat partiel n'est présenté comme national.
+Treize régions sur treize ; 9 721 133 parcelles lues, 713 PRA renseignées. Toutes les sources Parcelles originales sont conservées sans perte dans leurs caches XZ vérifiés. Les checkpoints déjà acquis avant interruption ont été réutilisés.
 
-La recette réelle locale et distante passe à 1440/768/390, avec le même canevas, les API DEV et les chiffres officiels. La Preview vérifiée est documentée dans `preview/browser-real.json`. Son navigateur est relié par une passerelle locale en lecture seule qui valide normalement TLS vers Vercel ; aucune donnée simulée, aucun contournement TLS, aucune modification du magasin de confiance personnel. La demande antérieure de modification NSS n'est plus nécessaire.
+L’audit national version2 exclut 0,303057727ha de recouvrements interrégionaux en plus des 556,134909ha internes. Le total restitué est 27 792 417,521132ha ; 9 629,827855ha hors du référentiel PRA sont comptabilisés séparément. Les contrôles région×groupe passent, avec résidu maximal 1,89×10⁻⁷ha. La CI exige désormais la couverture nationale et un audit correspondant exactement aux données publiées.
 
-La conservation compacte sans perte des seules couches Parcelles utilisées résout la contrainte initiale de rétention des 10,95Go d'archives complètes : SHA256 du fichier original et du cache, vérification du contenu décompressé, éviction des seules copies redondantes après checkpoint. Le téléchargement utilise des plages bornées vérifiées avant assemblage, puis l'empreinte de l'éditeur avant extraction.
+La SAA 2010–2025 reste conservée : 128 productions, 496 indicateurs et 436 761 valeurs. La comparaison intégrale à l’archive conservée est conforme, y compris unités, NULL et statuts.
 
-Restent à terminer : les lots RPG manquants, la répétition de l'audit interrégional sur la couverture finale, puis sa publication et sa recette. L’audit version2 sur les six lots a mesuré et exclu 0,089504388ha de recouvrements supplémentaires, avec bilans région×groupe conservés. Le volume global PostgreSQL est désormais mesuré en lecture seule (144 004 787 octets à la reprise) ; ajout agricole en DB : zéro. La PR reste draft, sans merge ni production. La décision finale sera fondée sur la couverture et les contrôles effectivement terminés.
+Restent à confirmer sur cette version nationale : build, TypeScript, navigateur réel local et Preview à 1440/768/390, puis CI du commit final. Les preuves antérieures conservent leur périmètre et ne remplacent pas cette recette. Aucun statut READY à ce stade ; PR toujours draft, aucun merge ni changement en production.
