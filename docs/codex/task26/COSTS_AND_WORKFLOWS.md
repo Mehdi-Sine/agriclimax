@@ -12,7 +12,7 @@ Dépôt public/runners standard GitHub : calcul gratuit selon règles vérifiée
 
 ## IFS mesuré et scénario de capture pilote
 
-227requêtes réussies d'origine (57index+170champs),66259061octetsGRIB, horsindex/en-têtes/retransmissions. Programme froid GitHub237,37s jusqu'au rejet scientifique ; ce temps inclut acquisition/décodage et ne mesure pas isolément le réseau. Les sources ont été réutilisées sans réseau, puis compactées à61310octets natifs +manifeste. Rejeu local≈0,8s, RSS188408Kio ; RSS froid non mesuré, borne4GiB. API publique agrégée480045octets, aucun champ natif ou secret dans la restitution.
+227requêtes réussies d'origine (57index+170champs),66259061octetsGRIB, horsindex/en-têtes/retransmissions. Programme froid GitHub237,37s jusqu'au rejet scientifique ; ce temps inclut acquisition/décodage et ne mesure pas isolément le réseau. Les sources ont été réutilisées sans réseau, puis compactées à61310octets natifs +manifeste. Rejeu local≈0,8s, RSS188408Kio ; RSS froid non mesuré, borne4GiB. API publique agrégée476685octets, aucun champ natif ou secret dans la restitution.
 
 Scénario **pilote**, un cycle00UTC par jour (non activé) :227requêtes/66,26MoGRIB/jour ;6810requêtes/1,99GoGRIB sur30jours ;82855requêtes/24,18GoGRIB sur365jours, horsindex/transport. Temps indicatif237,37s/cycle :≈3,96min/jour,118,7min/30jours,1444min/an, sans garantie de latence future. Quatrecycles/jour multiplieraient ces valeurs par4 ; ils ne sont pas activés. L'ajout des713PRA n'a pas été testé : les champs restent globaux sélectionnés, mais calcul/poids/contrôles et stockage national ne sont pas extrapolés comme gratuits ou validés.
 

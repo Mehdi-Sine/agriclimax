@@ -21,7 +21,7 @@ RunIFS5novembre2026à00UTC, jours6–12novembre (J+1àJ+7). Acquisition GitHub42
 
 La cause des anomalies source n'est pas attribuée avec certitude. Les effets de quantification et l'approximation RH sur eau liquide sont des limites à investiguer ; ce ne sont pas des corrections validées. Toutes les unités/run/grille/steps ont passé les contrôles GRIB. La publication expérimentale conserve ces limites et les statuts.
 
-Contrôle indépendant, sans `aggregate` ni helperRH de production :420valeurs/statuts,52NULL, écart maximal1,42e−14. Entrées natives et manifeste conservés dans `config/pilots/ifs-oper-20261105-00z/`, jamais exposés par l'API. Test de reproduction des420lignes identiques hors réseau ; seuls les agrégats PRA480045octets sont servis. Horodatage d'acquisition original19:12:22UTC issu du mtime runner dans l'archive (précision2s), explicitement marqué ; publication fournisseur et retard restent NULL.
+Contrôle indépendant, sans `aggregate` ni helperRH de production :420valeurs/statuts,52NULL, écart maximal1,42e−14. Entrées natives et manifeste conservés dans `config/pilots/ifs-oper-20261105-00z/`, jamais exposés par l'API. Test de reproduction des420lignes identiques hors réseau ; seuls les agrégats PRA476685octets sont servis. Horodatage d'acquisition original19:12:22UTC issu du mtime runner dans l'archive (précision2s), explicitement marqué ; publication fournisseur et retard restent NULL.
 
 Reproduction sans CDS/IFS/GRIB global : copier `native.json.gz`, saSHA et `native-manifest.json` dans un répertoirework neuf, puis exécuter le même script avec `--offline-native --execute --run-date 2026-11-05 --root ...`. Le script recalcule les poids depuis les géométries officielles et refuse toute discordance de support/provenance.
 

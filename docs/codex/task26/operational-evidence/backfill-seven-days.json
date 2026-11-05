@@ -1,0 +1,114 @@
+{
+  "dry_run": false,
+  "reference": "ofb-masa-pra-2017-snapshot-20261017",
+  "dataset": "era5land-national-20260919-20261018-v1",
+  "pilot": false,
+  "anchor_verified": true,
+  "status": "completed",
+  "timings_seconds": {
+    "acquisition": 1010.2841843720003,
+    "persistence": 151.0078395620037,
+    "read_validation": 38.084604445000444,
+    "aggregation": 0.22721320800383182,
+    "total": 1280.821789072,
+    "aggregation_cache_and_control": 81.21794748499178
+  },
+  "latest_national_date": "2026-10-26",
+  "source_acquired_at": "2026-11-05T19:55:25.307945+00:00",
+  "limits": {
+    "cds_concurrency": 1,
+    "new_source_extents": 64,
+    "cds_requests": 128,
+    "duration_seconds": 1320,
+    "address_space_bytes": 4294967296,
+    "source_file_bytes": 16777216,
+    "transfer_bytes": 134217728,
+    "workspace_bytes": 469762048
+  },
+  "stage": "publication_validation",
+  "requested_dates": [
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24",
+    "2026-10-25",
+    "2026-10-26"
+  ],
+  "source_groups_acquired": 17,
+  "compact_tiles_created": 298,
+  "days": [
+    {
+      "date": "2026-10-20",
+      "persisted": 713,
+      "expected": 713,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "published": true
+    },
+    {
+      "date": "2026-10-21",
+      "persisted": 713,
+      "expected": 713,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "published": true
+    },
+    {
+      "date": "2026-10-22",
+      "persisted": 713,
+      "expected": 713,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "published": true
+    },
+    {
+      "date": "2026-10-23",
+      "persisted": 713,
+      "expected": 713,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "published": true
+    },
+    {
+      "date": "2026-10-24",
+      "persisted": 713,
+      "expected": 713,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "published": true
+    },
+    {
+      "date": "2026-10-25",
+      "persisted": 713,
+      "expected": 713,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "published": true
+    },
+    {
+      "date": "2026-10-26",
+      "persisted": 713,
+      "expected": 713,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "published": true
+    }
+  ],
+  "updated_at": "2026-11-05T19:58:36.040761+00:00",
+  "cds_requests": 17,
+  "transferred_bytes": 3972929,
+  "run_id": 42095551736,
+  "artifact_bytes": 7125805,
+  "batch_statuses": {
+    "completed": 645,
+    "partial": 68
+  }
+}

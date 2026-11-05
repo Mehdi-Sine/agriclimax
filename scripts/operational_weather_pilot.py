@@ -397,7 +397,7 @@ def main() -> None:
                 flags = (
                     *result.quality_flags,
                     "model_forecast_not_observation",
-                    "coastal_grid_footprint_contains_sea",
+                    "source_grid_not_land_masked",
                     "sampled_3h_then_6h_not_hourly",
                     "publication_time_unknown",
                     "source_delay_not_assessed",
