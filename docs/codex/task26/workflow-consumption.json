@@ -1,0 +1,56 @@
+{
+  "runs": [
+    {
+      "run_id": 42039017875,
+      "job_id": 127284590517,
+      "conclusion": "success",
+      "started_at": "2026-11-05T13:48:22Z",
+      "completed_at": "2026-11-05T13:54:31Z",
+      "wall_seconds": 369
+    },
+    {
+      "run_id": 42040512578,
+      "job_id": 127289801499,
+      "conclusion": "failure",
+      "started_at": "2026-11-05T13:58:19Z",
+      "completed_at": "2026-11-05T14:20:45Z",
+      "wall_seconds": 1346
+    },
+    {
+      "run_id": 42043749342,
+      "job_id": 127302285001,
+      "conclusion": "failure",
+      "started_at": "2026-11-05T14:20:48Z",
+      "completed_at": "2026-11-05T14:23:03Z",
+      "wall_seconds": 135
+    },
+    {
+      "run_id": 42045716625,
+      "job_id": 127307974969,
+      "conclusion": "failure",
+      "started_at": "2026-11-05T14:30:49Z",
+      "completed_at": "2026-11-05T14:53:21Z",
+      "wall_seconds": 1352
+    },
+    {
+      "run_id": 42048394950,
+      "job_id": 127321042599,
+      "conclusion": "success",
+      "started_at": "2026-11-05T14:53:23Z",
+      "completed_at": "2026-11-05T14:56:41Z",
+      "wall_seconds": 198
+    },
+    {
+      "run_id": 42050446210,
+      "job_id": 127324836611,
+      "conclusion": "success",
+      "started_at": "2026-11-05T14:59:55Z",
+      "completed_at": "2026-11-05T15:00:55Z",
+      "wall_seconds": 60
+    }
+  ],
+  "total_runner_seconds": 3460,
+  "rounded_runner_minutes": 61,
+  "repository_visibility": "public",
+  "runner": "ubuntu-latest standard"
+}

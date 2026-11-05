@@ -1,0 +1,43 @@
+{
+  "dry_run": false,
+  "reference": "ofb-masa-pra-2017-snapshot-20261017",
+  "dataset": "era5land-national-20260919-20261018-v1",
+  "pilot": false,
+  "anchor_verified": true,
+  "status": "stopped",
+  "timings_seconds": {
+    "acquisition": 1263.279851579,
+    "persistence": 16.161454987999832,
+    "read_validation": 6.923871536000142,
+    "aggregation": 0.004858953999246296,
+    "total": 1320.0004554260001,
+    "aggregation_cache_and_control": 33.630418369000836
+  },
+  "latest_national_date": "2026-10-18",
+  "source_acquired_at": "2026-10-30T23:07:23.00521+00:00",
+  "limits": {
+    "cds_concurrency": 1,
+    "new_tiles": 64,
+    "cds_requests": 128,
+    "duration_seconds": 1320,
+    "address_space_bytes": 4294967296,
+    "source_file_bytes": 16777216,
+    "transfer_bytes": 134217728,
+    "workspace_bytes": 469762048
+  },
+  "stage": "publication_validation",
+  "requested_dates": [
+    "2026-10-19"
+  ],
+  "source_groups_acquired": 32,
+  "compact_tiles_created": 60,
+  "days": [],
+  "error_type": "TimeoutError",
+  "error_code": "source_destination_validation_or_budget",
+  "stop_reason": "source_destination_validation_or_budget; resume_checkpoints",
+  "cds_requests": 32,
+  "transferred_bytes": 2163023,
+  "batch_count_in_report": 44,
+  "batch_ids_sha256": "bc71662a4f1f54c49822e95a3f7d38ae1b6ca3a67a001b81225c489a2a237c62",
+  "report_detail": "Detailed batch list remains in the original GitHub artifact and workspace; public report retains measurements/count/digest."
+}

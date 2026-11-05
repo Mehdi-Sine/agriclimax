@@ -1,0 +1,78 @@
+[
+  {
+    "snapshot": {
+      "tables": [
+        {
+          "name": "pra_regions",
+          "index_bytes": 16384,
+          "table_bytes": 16384
+        },
+        {
+          "name": "pra_departments",
+          "index_bytes": 16384,
+          "table_bytes": 16384
+        },
+        {
+          "name": "pra_territories",
+          "index_bytes": 319488,
+          "table_bytes": 11100160
+        },
+        {
+          "name": "pra_grid_weights",
+          "index_bytes": 2162688,
+          "table_bytes": 2236416
+        },
+        {
+          "name": "pra_climatology_releases",
+          "index_bytes": 65536,
+          "table_bytes": 16384
+        },
+        {
+          "name": "pra_batches",
+          "index_bytes": 491520,
+          "table_bytes": 9207808
+        },
+        {
+          "name": "pra_daily",
+          "index_bytes": 9043968,
+          "table_bytes": 12083200
+        },
+        {
+          "name": "pra_indicator_definitions",
+          "index_bytes": 16384,
+          "table_bytes": 16384
+        },
+        {
+          "name": "pra_diagnostics",
+          "index_bytes": 163840,
+          "table_bytes": 221184
+        },
+        {
+          "name": "pra_reference_statistics",
+          "index_bytes": 8192,
+          "table_bytes": 8192
+        },
+        {
+          "name": "pra_climatology_support",
+          "index_bytes": 245760,
+          "table_bytes": 229376
+        },
+        {
+          "name": "pra_climatology_normals",
+          "index_bytes": 6053888,
+          "table_bytes": 6676480
+        },
+        {
+          "name": "pra_climatology_daily",
+          "index_bytes": 16457728,
+          "table_bytes": 35282944
+        }
+      ],
+      "daily_rows": 23580,
+      "normal_rows": 521916,
+      "daily_digest": "9e1b5d29a1969b5936ff7ed579174a87",
+      "normal_digest": "7fd7fa815a78ea2bfd4412a658e15612",
+      "database_bytes": 145520307
+    }
+  }
+]

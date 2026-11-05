@@ -1,7 +1,7 @@
 ........................................................................ [ 26%]
-........................................................................ [ 53%]
-........................................................................ [ 79%]
-.......................................................                  [100%]
+........................................................................ [ 52%]
+........................................................................ [ 78%]
+..........................................................               [100%]
 =============================== warnings summary ===============================
 tests/climate/test_climate.py::test_netcdf_day_boundary_units_and_missingness
   <frozen importlib._bootstrap>:488: RuntimeWarning: numpy.ndarray size changed, may indicate binary incompatibility. Expected 16 from C header, got 96 from PyObject
@@ -16,4 +16,4 @@ tests/territories/test_pilot_resilience.py: 2 warnings
     data[key] = value
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-271 passed, 51 warnings in 23.86s
+274 passed, 51 warnings in 26.61s

@@ -4,7 +4,7 @@ Base : `d9c936ede556648f090445f9e158827472db0379`, main après fusion de #54. Br
 
 | Travaux | Réutilisé | Manque traité |
 |---|---|---|
-| 19D | `Era5LandProvider`, tuiles compactes SHA256, `run_batch`, `PraRepository`, 713 contours / 14541 intersections EPSG:3035 | Adaptateur quotidien, reprise inter-runs et plafond de publication |
+| 19D | `Era5LandProvider`, tuiles compactes SHA256, `run_batch`, `PraRepository`, 713 contours / 14541 intersections EPSG:3035 ; acquisition Task19D par blocs de 2° | Adaptateur quotidien, reprise inter-runs et plafond de publication |
 | 20 | `territoryData`, pagination 8×100, statuts, carte et fiches | Date de fin dynamique et preuve de publication des 713 PRA |
 | 21 | Calculs et garde de normales homologues | Aucune acquisition ni réduction historique nouvelle |
 | 22 | Climatologie compacte annuelle active, 260958 lignes ; édition supplantée conservée | Aucun changement |
@@ -19,3 +19,9 @@ Caches effectivement présents au début : ni ancien cache national ni normales 
 État DEV lu avant ingestion : dernière date 2026-10-18, 21390 lignes nationales (713×30), 23580 lignes avec pilotes, base 145520307 octets. Les preuves de Tasks antérieures sont des références historiques, pas une validation Task26.
 
 Frontières : acquisition CDS/transport, orchestration/checkpoints, RPC serveur, DTO et sélection temporelle commune. Pas de nouveaux calculs agricoles, géométries, poids, THI PRA ou architecture nationale concurrente.
+
+## Contrôles complémentaires
+
+Le regroupement national validé représente **30 blocs de 2°, 96 tuiles et 6861 cellules natives**. Le partitionnement Task19D est extrait dans `write_native_tiles`, appelé par l'ancien script et l'adaptateur quotidien : pas de deuxième implémentation scientifique. Pour un bloc partiellement en cache, seules les sous-tuiles manquantes sont demandées ; les entrées conservées ne sont ni remplacées ni renormalisées. Les jours/cellules attendus sont contrôlés par ensemble exact avant persistance.
+
+L'audit du lecteur historique a confronté les fixtures au producteur Python et au SQL : les tableaux de couverture stockés suivent Tmoy/Tmin/Tmax/pluie, et non l'ordre Tmin/Tmax/Tmoy des colonnes de normales. Le mapping de lecture est corrigé sans toucher aux valeurs stockées ni aux règles de calcul.
