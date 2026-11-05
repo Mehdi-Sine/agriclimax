@@ -141,6 +141,12 @@ def main() -> int:
     signal.signal(signal.SIGALRM, terminate)
     signal.alarm(1320)
     try:
+        catalog = repository.catalog()
+        actual_latest = date.fromisoformat(catalog["latest"])
+        if latest > actual_latest:
+            raise ValueError("Local checkpoint is ahead of the actual DEV catalog")
+        latest = actual_latest
+        report["source_acquired_at"] = catalog["acquired_at"]
         # National anchor is verified independently of the pilot subset.
         anchor_rows = repository.read_day(str(latest))
         if persisted(anchor_rows, expected, latest) != expected:
@@ -190,6 +196,11 @@ def main() -> int:
             ]
             latest = max([latest, *published])
             report["latest_national_date"] = str(latest)
+            published_catalog = repository.catalog()
+            if published_catalog["latest"] < str(latest):
+                raise ValueError("Published day missing from DEV catalog")
+            report["source_acquired_at"] = published_catalog["acquired_at"]
+            report["updated_at"] = published_catalog["updated_at"]
             atomic_write(
                 state_path,
                 json.dumps(

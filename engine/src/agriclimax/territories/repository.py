@@ -29,6 +29,27 @@ class PraRepository:
         self.reference_version = reference_version
         self.dataset_version = dataset_version
 
+    def catalog(self) -> dict[str, Any]:
+        request = Request(
+            self.url.replace("agriclimax_persist_pra", "agriclimax_pra_daily_catalog"),
+            data=json.dumps(
+                {"p_reference": self.reference_version, "p_dataset": self.dataset_version}
+            ).encode(),
+            headers={
+                "apikey": os.environ["SUPABASE_SECRET_KEY"],
+                "Content-Type": "application/json",
+            },
+        )
+        with build_opener(NoRedirect()).open(request, timeout=30) as response:
+            raw = json.loads(response.read(12_001))
+        if (
+            not isinstance(raw, dict)
+            or raw.get("source_id") != "era5-land"
+            or (raw.get("dataset_version") != self.dataset_version)
+        ):
+            raise ValueError("Invalid national catalog receipt")
+        return raw
+
     def read_day(self, day: str) -> list[dict[str, Any]]:
         """Existing paginated contract; missing rows have no batch_key."""
         rows: list[dict[str, Any]] = []

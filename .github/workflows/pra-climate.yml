@@ -8,16 +8,12 @@ on:
       mode:
         description: Existing bounded batch or incremental national DEV adapter
         type: choice
-        options: [batch, national-daily]
+        options: [batch, daily-pilot, national-daily]
         default: batch
       daily_downloads:
         description: New tile budget (1 to 64); pilot defaults to four
         type: number
         default: 4
-      daily_pilot:
-        description: Limit daily adapter to complete/partial/Crozon pilot before national validation
-        type: boolean
-        default: true
       reference_directory:
         description: Reviewed reference directory under config/coverage (manifest, reference and weights JSON)
         required: true
@@ -56,7 +52,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   batch:
-    if: github.event_name == 'workflow_dispatch' && inputs.mode != 'national-daily'
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'batch'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -103,7 +99,7 @@ jobs:
           if-no-files-found: warn
   national-daily:
     # Deliberately no variable can enable scheduling before reviewed DEV acceptance.
-    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'national-daily'
+    if: github.event_name == 'workflow_dispatch' && (inputs.mode == 'daily-pilot' || inputs.mode == 'national-daily')
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -142,7 +138,7 @@ jobs:
           DATE_FROM: ${{ inputs.from }}
           DATE_TO: ${{ inputs.to }}
           EXECUTE: ${{ inputs.execute }}
-          PILOT: ${{ inputs.daily_pilot }}
+          PILOT: ${{ inputs.mode == 'daily-pilot' }}
           MAX_DOWNLOADS: ${{ inputs.daily_downloads }}
           OPENBLAS_NUM_THREADS: '1'
           OMP_NUM_THREADS: '1'
