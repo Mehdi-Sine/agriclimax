@@ -184,6 +184,7 @@ def main() -> int:
             ),
             args.root / "source-cache",
             retrieve=retrieve,
+            require_complete_time_axis=True,
         )
         result: dict[str, Any] = {"status": "completed", "days": [], "batches": []}
         report["stage"] = "pending_destination_validation"

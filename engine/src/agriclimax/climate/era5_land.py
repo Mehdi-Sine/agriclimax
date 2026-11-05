@@ -25,7 +25,10 @@ class Retrieve(Protocol):
 
 
 def cds_retrieve(
-    request: dict[str, object], target: Path, *, timeout_seconds: int = 1200,
+    request: dict[str, object],
+    target: Path,
+    *,
+    timeout_seconds: int = 1200,
     max_file_bytes: int | None = None,
 ) -> None:
     """SDK in a bounded subprocess; stdout/stderr cannot leak credentials into manifests."""
@@ -62,8 +65,16 @@ class Era5LandProvider:
     source_id = "era5-land"
     demo = False
 
-    def __init__(self, dataset: Dataset, root: Path, retrieve: Retrieve = cds_retrieve):
+    def __init__(
+        self,
+        dataset: Dataset,
+        root: Path,
+        retrieve: Retrieve = cds_retrieve,
+        *,
+        require_complete_time_axis: bool = False,
+    ):
         self.dataset, self.root, self.retrieve = dataset, root, retrieve
+        self.require_complete_time_axis = require_complete_time_axis
 
     def acquire(
         self,
@@ -143,7 +154,15 @@ class Era5LandProvider:
                 path = self.root / "sources" / f"{receipt['checksum']}.source"
             files.append(path)
             receipts.append(receipt)
-        return decode_netcdf(files, receipts, self.dataset, bbox, start, end)
+        return decode_netcdf(
+            files,
+            receipts,
+            self.dataset,
+            bbox,
+            start,
+            end,
+            require_complete_time_axis=self.require_complete_time_axis,
+        )
 
 
 def decode_netcdf(
@@ -153,6 +172,8 @@ def decode_netcdf(
     bbox: tuple[float, float, float, float],
     start: date,
     end: date,
+    *,
+    require_complete_time_axis: bool = False,
 ) -> list[ReferenceDay]:
     """Only supported dimensions/units accepted; zip/multiple forecast streams fail explicitly."""
     import xarray as xr
@@ -181,6 +202,15 @@ def decode_netcdf(
         times = list(merged.time.values)
         if len(set(times)) != len(times):
             raise ValueError("Duplicate source timestamps")
+        if require_complete_time_axis:
+            first = datetime.combine(start, datetime.min.time())
+            required = {
+                (first + timedelta(hours=i)).isoformat()
+                for i in range(((end - start).days + 1) * 24 + 1)
+            }
+            available = {str(t)[:19] for t in times}
+            if not required.issubset(available):
+                raise ValueError("Incomplete source time axis; daily publication withheld")
         checksums = sorted(str(r["checksum"]) for r in receipts)
         digest = hashlib.sha256(json.dumps(checksums).encode()).hexdigest()
         retrieved = max(datetime.fromisoformat(str(r["retrieved_at"])) for r in receipts)
