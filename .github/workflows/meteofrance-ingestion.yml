@@ -99,11 +99,13 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r engine/requirements-dev.lock
-      - name: Six fixed official endpoints; no retries or writes
+      - name: Official catalogues and gated tiny WCS fields; no ingestion or database write
         env:
           PYTHONPATH: engine/src
           METEOFRANCE_OBSERVATIONS_API_KEY: ${{ secrets.METEOFRANCE_OBSERVATIONS_API_KEY }}
           METEOFRANCE_CLIMATOLOGY_API_KEY: ${{ secrets.METEOFRANCE_CLIMATOLOGY_API_KEY }}
+          METEOFRANCE_AROME_API_KEY: ${{ secrets.METEOFRANCE_AROME_API_KEY }}
+          METEOFRANCE_ARPEGE_API_KEY: ${{ secrets.METEOFRANCE_ARPEGE_API_KEY }}
         run: python scripts/probe_operational_access.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
