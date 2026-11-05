@@ -153,3 +153,19 @@ def test_response_budget_and_credential_echo_not_retained(monkeypatch):
     Response.body = gzip.compress(b"synthetic-secret-canary")
     record, body = probe.fetch(probe.ORIGIN, "METEOFRANCE_AROME_API_KEY", 100)
     assert not body and record["outcome"] == "credential_echo_rejected"
+
+
+@pytest.mark.parametrize("product", ["arome", "arpege"])
+def test_official_gml_envelope_with_separate_time_period(product):
+    root = Path(__file__).resolve().parents[3]
+    content = (
+        root / "engine/tests/territories/fixtures" / f"{product}-wcs-description.xml"
+    ).read_bytes()
+    subsets, selected = probe.field_parameters(content)
+    assert subsets == [
+        ("subset", "long(1.4,1.5)"),
+        ("subset", "lat(48,48.1)"),
+        ("subset", "height(2)"),
+        ("subset", 'time("2026-11-05T18:00:00Z")'),
+    ]
+    assert selected["height"] == 2

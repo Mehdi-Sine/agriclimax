@@ -1,6 +1,6 @@
 name: Météo-France live station ingestion
 on:
-  # One-shot continuation while the terminal GitHub credential is expired.
+  # One-shot continuation with the advertised GML spatial/time axes.
   push:
     branches: [codex/26-national-daily-climate]
     paths: [.github/workflows/meteofrance-ingestion.yml]

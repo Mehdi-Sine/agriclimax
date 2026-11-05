@@ -115,7 +115,22 @@ def field_parameters(content: bytes) -> tuple[list[tuple[str, str]], dict[str, o
     if not lower or not upper:
         raise ValueError("Missing bounds")
     lows, highs = lower.split(), upper.split()
-    if len(lows) != len(axes) or len(highs) != len(axes):
+    if envelope.tag.endswith("}EnvelopeWithTimePeriod") and len(lows) == len(axes) - 1:
+        # GML keeps time in begin/endPosition, outside the three spatial corners.
+        spatial_axes = [axis for axis in axes if axis.lower() != "time"]
+        if len(spatial_axes) != len(lows) or len(highs) != len(lows):
+            raise ValueError("Ambiguous spatial axes")
+        lower_by_axis = dict(zip(spatial_axes, lows, strict=True))
+        upper_by_axis = dict(zip(spatial_axes, highs, strict=True))
+        time_axis = next(axis for axis in axes if axis.lower() == "time")
+        begin = next(e.text for e in envelope if e.tag.endswith("}beginPosition"))
+        end = next(e.text for e in envelope if e.tag.endswith("}endPosition"))
+        if not begin or not end:
+            raise ValueError("Missing time period")
+        lower_by_axis[time_axis], upper_by_axis[time_axis] = begin, end
+        lows = [lower_by_axis[axis] for axis in axes]
+        highs = [upper_by_axis[axis] for axis in axes]
+    if len(lows) != len(axes) or len(highs) != len(axes) or len(set(axes)) != len(axes):
         raise ValueError("Ambiguous axes")
     subsets = []
     selected: dict[str, object] = {}
@@ -195,6 +210,17 @@ def probe(root: Path) -> list[dict[str, object]]:
                 model_ids[product] = ids
                 record.update(
                     coverage_count=len(ids),
+                    pilot_variables=[
+                        v
+                        for v in (
+                            "TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+                            "DEW_POINT_TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+                            "RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+                            "TOTAL_PRECIPITATION__GROUND_OR_WATER_SURFACE",
+                            "WIND_SPEED__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+                        )
+                        if any(i.split("___")[0] == v for i in ids)
+                    ],
                     first_variables=list(dict.fromkeys(i.split("___")[0] for i in ids))[
                         :20
                     ],
