@@ -112,6 +112,7 @@ def execute(
     *,
     max_downloads: int = 4,
     seconds: int = 1320,
+    timings: dict[str, float] | None = None,
 ) -> dict[str, Any]:
     # Imports are deferred: planning/tests need neither CDS nor geospatial dependencies.
     from agriclimax.territories.pipeline import run_batch
@@ -143,6 +144,7 @@ def execute(
                 root,
                 max_downloads=min(4, max_downloads - downloads),
                 persist=persist,
+                timings=timings,
             )
             downloads += result.get("downloaded_tiles", 0)
             report["batches"].append(result)

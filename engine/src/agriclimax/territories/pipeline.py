@@ -9,6 +9,7 @@ from collections.abc import Callable
 from dataclasses import asdict
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
+from time import monotonic
 from typing import Any
 
 from agriclimax.climate.coverage import compact
@@ -183,6 +184,7 @@ def run_batch(
     max_downloads: int = 2,
     persist: Callable[[dict[str, Any]], None] | None = None,
     parameters: Parameters | None = None,
+    timings: dict[str, float] | None = None,
 ) -> dict[str, Any]:
     if not 0 <= max_downloads <= 4 or not 0 <= (end - start).days <= 6:
         raise ValueError("0–4 downloads, 1–7 days per bounded batch")
@@ -288,6 +290,7 @@ def run_batch(
     }
     if len(keys) != len(rows) or keys != expected_keys:
         raise ValueError("Missing or duplicate native support; source not fabricated")
+    aggregation_started = monotonic()
     daily = []
     for offset in range(days):
         day = str(start + timedelta(days=offset))
@@ -348,6 +351,8 @@ def run_batch(
                     "confidence": "low",
                 }
             )
+    if timings is not None:
+        timings["aggregation"] = timings.get("aggregation", 0.0) + monotonic() - aggregation_started
     envelope = {
         "batch_key": key,
         "identity": identity,

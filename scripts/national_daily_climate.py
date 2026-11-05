@@ -211,6 +211,7 @@ def main() -> int:
                 persist,
                 max_downloads=1,
                 seconds=max(1, int(1320 - (monotonic() - started))),
+                timings=timings,
             )
             result_days.extend(stage["days"])
             result_batches.extend(stage["batches"])
