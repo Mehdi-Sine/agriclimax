@@ -1,4 +1,5 @@
 """Publish completed regional checkpoints only; incomplete national coverage stays explicit."""
+import argparse
 import hashlib
 import json
 from collections import defaultdict
@@ -9,11 +10,16 @@ from agriclimax.ingestion.storage import atomic_write
 REGIONS = ["11", "24", "27", "28", "32", "44", "52", "53", "75", "76", "84", "93", "94"]
 
 
-def main() -> None:
+def main(regions: list[str] | None = None) -> None:
     cache = Path('work/task25')
     destination = Path('apps/web/data/agriculture')
     reference = json.loads(Path('config/coverage/ofb-masa-pra-2017-snapshot-20261017/reference.json').read_text())
     checkpoints = [json.loads(p.read_text()) for p in sorted(cache.glob('R*-complete.json'))]
+    if regions is not None:
+        selected = set(regions)
+        checkpoints = [cp for cp in checkpoints if cp['region'] in selected]
+        if {cp['region'] for cp in checkpoints} != selected:
+            raise ValueError('Selected audited regional checkpoint is missing')
     if not checkpoints:
         raise ValueError('No completed official RPG delivery')
     for cp in checkpoints:
@@ -111,4 +117,6 @@ def main() -> None:
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--regions', nargs='+', choices=REGIONS, help='Publish an explicitly pinned audited cohort while other regions continue ingesting')
+    main(parser.parse_args().regions)

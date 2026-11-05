@@ -23,3 +23,5 @@ Premier audit interrégional (quatre lots) : 3 910 paires candidates, 95 parcell
 ## Reprise du 5 novembre 2026
 
 Six régions vérifiées et publiées : 11/24/27/75/84/94, soit 4 256 355 parcelles lues et 456 PRA renseignées. Les quatre résultats déjà publiés ont été conservés. Audit interrégional version2 : 12 408 paires candidates, 367 parcelles avec intersection positive, 0,089504388ha exclus ; résidu −5,21×10⁻¹³ha. Contrôles d’artefacts : 15 686 cellules RPG, les 29 350 séries SAA et 436 761 valeurs vérifiées. Suites locales : 263 tests Python et 253 TypeScript réussis.
+
+Jalon dix régions : 8 308 520 parcelles lues, 635 PRA renseignées. Cohorte explicitement figée et auditée : 35 737 paires candidates, 1 022 parcelles à recouvrement positif, 0,225466170ha exclus ; résidu −5,43×10⁻¹²ha. L’arrivée d’autres checkpoints ne modifie pas cette cohorte publiée.
