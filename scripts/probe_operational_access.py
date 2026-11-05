@@ -5,7 +5,6 @@ import hashlib
 import io
 import json
 import os
-import struct
 import xml.etree.ElementTree as ET
 from datetime import UTC, datetime
 from pathlib import Path
@@ -75,7 +74,25 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
                         record["outcome"] = "received"
         except HTTPError as error:
             record["status"] = error.code
-            error.close()  # No response/error text or redirect target is logged.
+            # Only a bounded, structured service exception is reported; never raw error text.
+            error_body = error.read(4097)
+            if len(error_body) <= 4096 and key.encode() not in error_body:
+                try:
+                    if error.headers.get("Content-Encoding") == "gzip":
+                        with gzip.GzipFile(fileobj=io.BytesIO(error_body)) as zipped:
+                            error_body = zipped.read(4097)
+                    if len(error_body) <= 4096 and key.encode() not in error_body:
+                        parsed = xml_root(error_body)
+                        codes = [
+                            e.attrib["exceptionCode"]
+                            for e in parsed.iter()
+                            if "exceptionCode" in e.attrib
+                        ]
+                        if codes:
+                            record["service_exception_codes"] = codes[:3]
+                except (ET.ParseError, ValueError, OSError, EOFError):
+                    pass
+            error.close()
         except (URLError, OSError, TimeoutError, ValueError, EOFError):
             record["outcome"] = "network_or_response_error"
             content = b""
@@ -166,25 +183,25 @@ def field_parameters(content: bytes) -> tuple[list[tuple[str, str]], dict[str, o
     return subsets, selected
 
 
-def tiff_dimensions(content: bytes) -> tuple[int, int]:
-    """Validate classic TIFF dimensions before retaining the tiny field."""
-    if content[:4] not in {b"II*\x00", b"MM\x00*"}:
-        raise ValueError("Not a classic TIFF field")
-    endian = "<" if content[:2] == b"II" else ">"
-    offset = struct.unpack_from(endian + "I", content, 4)[0]
-    count = struct.unpack_from(endian + "H", content, offset)[0]
-    dimensions = {}
-    for index in range(count):
-        pos = offset + 2 + 12 * index
-        tag, kind, size = struct.unpack_from(endian + "HHI", content, pos)
-        if tag in {256, 257} and kind in {3, 4} and size == 1:
-            dimensions[tag] = struct.unpack_from(
-                endian + ("H" if kind == 3 else "I"), content, pos + 8
-            )[0]
-    width, height = dimensions[256], dimensions[257]
-    if not 0 < width * height <= 100:
+def grib_points(content: bytes) -> int:
+    """Require one complete GRIB2 field and at most 100 native grid points."""
+    if content[:4] != b"GRIB" or len(content) < 20 or content[7] != 2:
+        raise ValueError("Not GRIB2")
+    if int.from_bytes(content[8:16], "big") != len(content) or content[-4:] != b"7777":
+        raise ValueError("Not one complete GRIB message")
+    offset, points = 16, 0
+    while offset < len(content) - 4:
+        length = int.from_bytes(content[offset : offset + 4], "big")
+        if length < 5 or offset + length > len(content) - 4:
+            raise ValueError("Invalid section")
+        if content[offset + 4] == 3:
+            if length < 14 or points:
+                raise ValueError("Invalid grid section")
+            points = int.from_bytes(content[offset + 6 : offset + 10], "big")
+        offset += length
+    if offset != len(content) - 4 or not 0 < points <= 100:
         raise ValueError("Field grid exceeds pilot budget")
-    return width, height
+    return points
 
 
 def probe(root: Path) -> list[dict[str, object]]:
@@ -267,7 +284,9 @@ def probe(root: Path) -> list[dict[str, object]]:
                 record["outcome"] = "unsupported_description_no_field_requested"
                 continue
             query = urlencode(
-                base + [("coverageid", coverage), ("format", "image/tiff")] + subsets
+                base
+                + [("coverageid", coverage), ("format", "application/wmo-grib")]
+                + subsets
             )
             field, content = fetch(
                 ORIGIN + path + "GetCoverage?" + query, variable, FIELD_LIMIT
@@ -281,16 +300,15 @@ def probe(root: Path) -> list[dict[str, object]]:
             )
             if content and field["status"] == 200:
                 try:
-                    width, height = tiff_dimensions(content)
+                    points = grib_points(content)
                     field.update(
-                        outcome="validated_tiny_tiff",
-                        width=width,
-                        height=height,
+                        outcome="validated_tiny_grib",
+                        grid_points=points,
                         sha256=hashlib.sha256(content).hexdigest(),
                     )
-                    (root / f"{product}-tiny.tiff").write_bytes(content)
-                except (ValueError, KeyError, struct.error):
-                    field["outcome"] = "invalid_or_oversized_tiff"
+                    (root / f"{product}-tiny.grib2").write_bytes(content)
+                except ValueError:
+                    field["outcome"] = "invalid_or_oversized_grib"
             results.append(field)
     else:
         results.append(

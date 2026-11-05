@@ -1,6 +1,6 @@
 name: Météo-France live station ingestion
 on:
-  # One-shot continuation with the advertised GML spatial/time axes.
+  # One-shot probe of native GRIB only; removed after this access check.
   push:
     branches: [codex/26-national-daily-climate]
     paths: [.github/workflows/meteofrance-ingestion.yml]

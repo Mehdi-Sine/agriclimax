@@ -2,7 +2,6 @@
 
 import gzip
 import importlib.util
-import struct
 import sys
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
@@ -27,14 +26,10 @@ DESCRIPTION = b"""<w:CoverageDescriptions xmlns:w="wcs" xmlns:g="gml">
 </g:Envelope></w:CoverageDescriptions>"""
 
 
-def tiny_tiff(width=5, height=5):
-    return (
-        b"II*\0"
-        + struct.pack("<IH", 8, 2)
-        + b"".join(
-            struct.pack("<HHII", tag, 4, 1, value) for tag, value in [(256, width), (257, height)]
-        )
-    )
+def tiny_grib(points=25):
+    grid = (14).to_bytes(4, "big") + bytes([3, 0]) + points.to_bytes(4, "big") + bytes(4)
+    size = 16 + len(grid) + 4
+    return b"GRIB" + bytes([0, 0, 0, 2]) + size.to_bytes(8, "big") + grid + b"7777"
 
 
 def test_model_product_keys_and_gated_small_subsets(monkeypatch, tmp_path):
@@ -47,7 +42,7 @@ def test_model_product_keys_and_gated_small_subsets(monkeypatch, tmp_path):
             if "GetCapabilities" in url
             else DESCRIPTION
             if "DescribeCoverage" in url
-            else tiny_tiff()
+            else tiny_grib()
         )
         return {"status": 200}, body
 
@@ -68,7 +63,7 @@ def test_model_product_keys_and_gated_small_subsets(monkeypatch, tmp_path):
                 "long(1.4,1.5)",
                 "height(2)",
             ]
-    assert sum(r.get("outcome") == "validated_tiny_tiff" for r in results) == 2
+    assert sum(r.get("outcome") == "validated_tiny_grib" for r in results) == 2
 
 
 @pytest.mark.parametrize("denied", ["arome", "arpege"])
@@ -106,9 +101,9 @@ def test_extra_axis_is_refused():
         probe.field_parameters(description)
 
 
-def test_national_sized_tiff_refused():
+def test_national_sized_grib_refused():
     with pytest.raises(ValueError, match="budget"):
-        probe.tiff_dimensions(tiny_tiff(1000, 1000))
+        probe.grib_points(tiny_grib(1_000_000))
 
 
 def test_response_budget_and_credential_echo_not_retained(monkeypatch):
@@ -169,3 +164,9 @@ def test_official_gml_envelope_with_separate_time_period(product):
         ("subset", 'time("2026-11-05T18:00:00Z")'),
     ]
     assert selected["height"] == 2
+
+
+@pytest.mark.parametrize("mutate", [lambda b: b[:-1], lambda b: b + b])
+def test_partial_or_multiple_grib_messages_refused(mutate):
+    with pytest.raises(ValueError):
+        probe.grib_points(mutate(tiny_grib()))
