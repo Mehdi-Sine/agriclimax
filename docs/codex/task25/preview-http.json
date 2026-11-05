@@ -1,0 +1,32 @@
+{
+  "preview_url": "https://agriclimax-ncnis8ebz-mehdi-sines-projects.vercel.app",
+  "commit": "d73f919ff77fc2da06f35e8bd079546bdc14503a",
+  "mocked": false,
+  "tls_verification": true,
+  "http_proofs": [
+    {
+      "query": "action=catalog",
+      "status": 200
+    },
+    {
+      "query": "action=dataset&indicator=saa-cop-03-surf-departement",
+      "status": 200,
+      "source_sha256": "46e2ea9493ae34fac5d343e6cef51ac08a455d970ce78611c5d3b2365650d76f",
+      "rows": 100,
+      "seine_et_marne_ha_2025": 117468
+    },
+    {
+      "query": "action=dataset&indicator=rpg-group-1-surf-pra",
+      "status": 200,
+      "source_sha256": "a48905cbd959a5014e8d35294a672ab84f4f5ee8f5e9cdea8fb6334d43ff0a29",
+      "rows": 713
+    },
+    {
+      "query": "action=wheat-context&pra=pra:77336",
+      "status": 200,
+      "area_ha": 11657.8274277755,
+      "coverage": "partial"
+    }
+  ],
+  "browser_verified": false
+}

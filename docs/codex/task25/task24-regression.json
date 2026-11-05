@@ -1,0 +1,13 @@
+{
+  "syntheticTransport": true,
+  "cases": [
+    "Real polygon hover/click, quantitative tooltip and panel equality",
+    "Normal, anomaly, daily history",
+    "Three spaces preserve PRA and the same canvas; browser back and reload",
+    "Wheat period and indicator controls",
+    "Unavailable PRA never displays zero",
+    "Partial coverage warning",
+    "Desktop/tablet/mobile overflow and keyboard focus"
+  ],
+  "errors": []
+}

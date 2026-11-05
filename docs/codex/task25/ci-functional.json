@@ -1,0 +1,59 @@
+{
+  "functional_commit": "60090e83e3b06133db5d8d318fece3a15326b96d",
+  "workflow_runs": [
+    {
+      "id": 42028361766,
+      "name": "Quality",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 191
+    },
+    {
+      "id": 42028361646,
+      "name": "Security audits",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 195
+    },
+    {
+      "id": 42028361643,
+      "name": "Task12 ERA5 real validation",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 117
+    }
+  ],
+  "quality_jobs": [
+    {
+      "id": 127248177890,
+      "name": "web-demo",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127248178362,
+      "name": "python-contracts",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127248178528,
+      "name": "sql (extensions)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127248178533,
+      "name": "guards",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127248178717,
+      "name": "sql (public)",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "all_passed": true
+}

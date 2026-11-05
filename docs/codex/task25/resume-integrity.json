@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-05",
+  "preserved_head": "5c6f3050b03fc224911f968b34544cf9ff3b6884",
+  "regions": [
+    {
+      "region": "11",
+      "compressed_sha256": "453ded3924064fcd61fe1ed01afb766e1c43827f04c6095ec51ed837a5616c5a",
+      "compressed_bytes": 27239348,
+      "parcels": 125212,
+      "source_cache_verified": true
+    },
+    {
+      "region": "24",
+      "compressed_sha256": "7b2a2a4c5de71183fdcf9898f4dd928ce73980b1b94eb276baf70e4a6379297e",
+      "compressed_bytes": 146352488,
+      "parcels": 568675,
+      "source_cache_verified": true
+    },
+    {
+      "region": "27",
+      "compressed_sha256": "26818405891c5ecd02739239dc9ad1ce4129cd133a8ab4815a5593d6b3858b5c",
+      "compressed_bytes": 208855704,
+      "parcels": 623358,
+      "source_cache_verified": true
+    },
+    {
+      "region": "75",
+      "compressed_sha256": "90e70dcf3f829b6cebb4cb68089270e2f681fad16f468badab177148b69b2775",
+      "compressed_bytes": 434470024,
+      "parcels": 1565085,
+      "source_cache_verified": true
+    },
+    {
+      "region": "84",
+      "compressed_sha256": "2e0aa5733590485cd8ec62eb700d72bc18b59a3c01bea4e4665a5183235ce12f",
+      "compressed_bytes": 402216820,
+      "parcels": 1330906,
+      "source_cache_verified": true
+    },
+    {
+      "region": "94",
+      "compressed_sha256": "93de79efd273fc9654e5ffb12e3a8f54e604f0a7f137df5bdff7c146c50a8cf9",
+      "compressed_bytes": 18664516,
+      "parcels": 43119,
+      "source_cache_verified": true
+    }
+  ],
+  "total_parcels_read": 4256355,
+  "completed_regions_recalculated": false
+}

@@ -1,0 +1,233 @@
+{
+  "decision": "READY_FOR_AGRICULTURAL_UX_REVIEW",
+  "functional_commit": "60090e83e3b06133db5d8d318fece3a15326b96d",
+  "base_commit": "78e2881ba072b0a468e782018689fff70c13c5dc",
+  "local": {
+    "python": {
+      "passed": 265,
+      "command": "PYTHONPATH=engine/src python -m pytest engine/tests -q"
+    },
+    "typescript": {
+      "passed": 253,
+      "files": 23,
+      "command": "pnpm test"
+    },
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "frozen_lockfile_install": "passed (pnpm10; existing lockfile unchanged)",
+    "agriculture_tests": 18,
+    "contracts": "passed",
+    "source_secret_guard": "passed",
+    "client_secret_guard": "passed",
+    "forward_only_migration_guard": "passed",
+    "bundle_budget": "passed",
+    "server_import_index": "passed"
+  },
+  "browser_local": {
+    "base": "http://127.0.0.1:3027",
+    "mocked": false,
+    "realDataVerified": true,
+    "viewports": [
+      {
+        "space": "climat",
+        "size": "desktop",
+        "width": 1440,
+        "height": 1000,
+        "featureCount": 713,
+        "screenshot": "screenshots/climat-desktop.png"
+      },
+      {
+        "space": "saa-departement",
+        "size": "desktop",
+        "width": 1440,
+        "height": 1000,
+        "featureCount": 96,
+        "screenshot": "screenshots/saa-departement-desktop.png"
+      },
+      {
+        "space": "rpg",
+        "size": "desktop",
+        "width": 1440,
+        "height": 1000,
+        "featureCount": 713,
+        "screenshot": "screenshots/rpg-desktop.png"
+      },
+      {
+        "space": "analyse",
+        "size": "desktop",
+        "width": 1440,
+        "height": 1000,
+        "featureCount": 713,
+        "screenshot": "screenshots/analyse-desktop.png"
+      },
+      {
+        "space": "climat",
+        "size": "tablet",
+        "width": 768,
+        "height": 1000,
+        "featureCount": 713,
+        "screenshot": "screenshots/climat-tablet.png"
+      },
+      {
+        "space": "saa-departement",
+        "size": "tablet",
+        "width": 768,
+        "height": 1000,
+        "featureCount": 96,
+        "screenshot": "screenshots/saa-departement-tablet.png"
+      },
+      {
+        "space": "rpg",
+        "size": "tablet",
+        "width": 768,
+        "height": 1000,
+        "featureCount": 713,
+        "screenshot": "screenshots/rpg-tablet.png"
+      },
+      {
+        "space": "analyse",
+        "size": "tablet",
+        "width": 768,
+        "height": 1000,
+        "featureCount": 713,
+        "screenshot": "screenshots/analyse-tablet.png"
+      },
+      {
+        "space": "climat",
+        "size": "mobile",
+        "width": 390,
+        "height": 844,
+        "featureCount": 713,
+        "screenshot": "screenshots/climat-mobile.png"
+      },
+      {
+        "space": "saa-departement",
+        "size": "mobile",
+        "width": 390,
+        "height": 844,
+        "featureCount": 96,
+        "screenshot": "screenshots/saa-departement-mobile.png"
+      },
+      {
+        "space": "rpg",
+        "size": "mobile",
+        "width": 390,
+        "height": 844,
+        "featureCount": 713,
+        "screenshot": "screenshots/rpg-mobile.png"
+      },
+      {
+        "space": "analyse",
+        "size": "mobile",
+        "width": 390,
+        "height": 844,
+        "featureCount": 713,
+        "screenshot": "screenshots/analyse-mobile.png"
+      }
+    ],
+    "apiProofs": {
+      "saaSha": "46e2ea9493ae34fac5d343e6cef51ac08a455d970ce78611c5d3b2365650d76f",
+      "wheatFrance2025": 4494355,
+      "seineEtMarne2025": 117468,
+      "corsica2A2025": 2,
+      "rpgPra": "pra:77336",
+      "rpgAreaHa": 11660.401404365111,
+      "rpgRegions": [
+        "11",
+        "24",
+        "27",
+        "28",
+        "32",
+        "44",
+        "52",
+        "53",
+        "75",
+        "76",
+        "84",
+        "93",
+        "94"
+      ],
+      "rpgCoverage": "national",
+      "rpgArtifactSha": "07afe77f98583d05f83f476be44bdaf3de89f77b55d9935459253c7a079a8d30",
+      "rpgKnownPra": 713,
+      "climateRows": 713,
+      "climateUnavailable": 68
+    },
+    "errors": [],
+    "cases": [
+      "Regional-only poultry remains regional, source unit preserved",
+      "Same canvas and PRA context across all three spaces",
+      "Closing RPG panel clears both shared and agricultural selection",
+      "Native 2010 value, URL and reload",
+      "Historical wheat and station THI routes remain accessible"
+    ],
+    "transportRetries": [],
+    "validated_functional_commit": "60090e83e3b06133db5d8d318fece3a15326b96d",
+    "national_coverage_required": true
+  },
+  "preview": {
+    "url": "https://agriclimax-4rscsoh29-mehdi-sines-projects.vercel.app",
+    "validated_commit": "60090e83e3b06133db5d8d318fece3a15326b96d",
+    "api_probe_passed": true,
+    "browser_passed": true,
+    "national_coverage_required": true,
+    "browser_evidence": "preview/browser-real.json",
+    "transport": "Read-only localhost gateway to the exact Preview; HTTPS upstream certificate verified using system CA trust. No mocks, no TLS bypass, no home trust-store changes."
+  },
+  "source_status": {
+    "saa": {
+      "productions": 128,
+      "indicators": 496,
+      "series": 29350,
+      "numeric_values": 436761,
+      "years": [
+        2010,
+        2025
+      ],
+      "native_scales": [
+        "departement",
+        "region"
+      ],
+      "source_fidelity": "saa-source-fidelity.json"
+    },
+    "rpg": {
+      "regions": 13,
+      "parcels_read": 9721133,
+      "duplicates_excluded": 14659,
+      "invalid_parcels_repaired": 148,
+      "known_pra": 713,
+      "no_known_parcels": [],
+      "total_published_rpg_ha": 27792417.50625289,
+      "excluded_intra_region_ha": 556.1349092437545,
+      "excluded_cross_region_ha": 0.31793703906078313,
+      "outside_pra_ha": 9629.827854569228,
+      "max_regional_conservation_residual_ha": 1.8835999071598053e-07,
+      "source_gpkg_bytes": 6296264704,
+      "retained_xz_bytes": 2751121956,
+      "delivery_archive_bytes": 10945220073
+    }
+  },
+  "scientific_controls": {
+    "artifact_audit": "artifact-audit.json",
+    "identity_ownership": "identity-ownership-audit.json",
+    "regional_checkpoints_byte_unchanged": "regional-checkpoints-unchanged.json",
+    "source_cache_proofs": "national-source-cache-proofs.json",
+    "cross_region_rule": "rpg-cross-region-3",
+    "all_checks_passed": true
+  },
+  "ci": {
+    "functional_commit": "60090e83e3b06133db5d8d318fece3a15326b96d",
+    "all_passed": true,
+    "proof": "ci-functional.json"
+  },
+  "coverage_independence": {
+    "real_cases": 68,
+    "proof": "coverage-independence.json"
+  },
+  "foundation_unchanged": "foundation-unchanged.json",
+  "storage": "storage-measures.json",
+  "production_changes": false,
+  "merged": false,
+  "draft_pr": "https://github.com/Mehdi-Sine/agriclimax/pull/54"
+}

@@ -1,0 +1,142 @@
+{
+  "base": "http://127.0.0.1:3027",
+  "mocked": false,
+  "realDataVerified": true,
+  "viewports": [
+    {
+      "space": "climat",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "featureCount": 713,
+      "screenshot": "screenshots/climat-desktop.png"
+    },
+    {
+      "space": "saa-departement",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "featureCount": 96,
+      "screenshot": "screenshots/saa-departement-desktop.png"
+    },
+    {
+      "space": "rpg",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "featureCount": 713,
+      "screenshot": "screenshots/rpg-desktop.png"
+    },
+    {
+      "space": "analyse",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "featureCount": 713,
+      "screenshot": "screenshots/analyse-desktop.png"
+    },
+    {
+      "space": "climat",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "featureCount": 713,
+      "screenshot": "screenshots/climat-tablet.png"
+    },
+    {
+      "space": "saa-departement",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "featureCount": 96,
+      "screenshot": "screenshots/saa-departement-tablet.png"
+    },
+    {
+      "space": "rpg",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "featureCount": 713,
+      "screenshot": "screenshots/rpg-tablet.png"
+    },
+    {
+      "space": "analyse",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "featureCount": 713,
+      "screenshot": "screenshots/analyse-tablet.png"
+    },
+    {
+      "space": "climat",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "featureCount": 713,
+      "screenshot": "screenshots/climat-mobile.png"
+    },
+    {
+      "space": "saa-departement",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "featureCount": 96,
+      "screenshot": "screenshots/saa-departement-mobile.png"
+    },
+    {
+      "space": "rpg",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "featureCount": 713,
+      "screenshot": "screenshots/rpg-mobile.png"
+    },
+    {
+      "space": "analyse",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "featureCount": 713,
+      "screenshot": "screenshots/analyse-mobile.png"
+    }
+  ],
+  "apiProofs": {
+    "saaSha": "46e2ea9493ae34fac5d343e6cef51ac08a455d970ce78611c5d3b2365650d76f",
+    "wheatFrance2025": 4494355,
+    "seineEtMarne2025": 117468,
+    "corsica2A2025": 2,
+    "rpgPra": "pra:77336",
+    "rpgAreaHa": 11660.401404365111,
+    "rpgRegions": [
+      "11",
+      "24",
+      "27",
+      "28",
+      "32",
+      "44",
+      "52",
+      "53",
+      "75",
+      "76",
+      "84",
+      "93",
+      "94"
+    ],
+    "rpgCoverage": "national",
+    "rpgArtifactSha": "07afe77f98583d05f83f476be44bdaf3de89f77b55d9935459253c7a079a8d30",
+    "rpgKnownPra": 713,
+    "climateRows": 713,
+    "climateUnavailable": 68
+  },
+  "errors": [],
+  "cases": [
+    "Regional-only poultry remains regional, source unit preserved",
+    "Same canvas and PRA context across all three spaces",
+    "Closing RPG panel clears both shared and agricultural selection",
+    "Native 2010 value, URL and reload",
+    "Historical wheat and station THI routes remain accessible"
+  ],
+  "transportRetries": [],
+  "validated_functional_commit": "60090e83e3b06133db5d8d318fece3a15326b96d",
+  "national_coverage_required": true
+}

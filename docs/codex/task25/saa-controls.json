@@ -1,0 +1,26 @@
+{
+  "checks": 2944,
+  "within_rounding": 2943,
+  "differences": [
+    {
+      "production": "saa-fou-05",
+      "variable": "SURF",
+      "year": 2010,
+      "source_france": 1286595.0,
+      "sum_departments": 1286597.0,
+      "difference": 2.0,
+      "null_departments": 1,
+      "within_rounding": false
+    }
+  ],
+  "wheat_2025": {
+    "production": "saa-cop-03",
+    "variable": "SURF",
+    "year": 2025,
+    "source_france": 4494355.0,
+    "sum_departments": 4494355.0,
+    "difference": 0.0,
+    "null_departments": 0,
+    "within_rounding": true
+  }
+}

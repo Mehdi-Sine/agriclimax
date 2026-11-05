@@ -1,10 +1,11 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import type { Map as LibreMap, ExpressionSpecification } from 'maplibre-gl';
+import type { Map as LibreMap, GeoJSONSource, ExpressionSpecification } from 'maplibre-gl';
 import type { FeatureCollection, Geometry } from 'geojson';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { anomalyBand, availability, type ClimateContextRow } from './model';
 import type { TerritorialValue } from '../unified/model';
+import type { AgriculturalStatus } from '../agriculture/model';
 import type { TerritoryRow } from '../../lib/server/territories';
 
 export type PraProperties = {
@@ -23,6 +24,7 @@ export default function NationalMap({
   selected,
   onSelect,
   quantitative,
+  geography = { prefix: 'pra:', label: '713 PRA', attribution: 'PRA · OFB / MASA · contours source inchangés' },
 }: {
   collection: PraCollection;
   rows: TerritoryRow[] | null;
@@ -30,13 +32,16 @@ export default function NationalMap({
   mode: 'availability' | 'anomaly';
   selected: string;
   onSelect: (id: string) => void;
-  quantitative?: { values: TerritorialValue[]; field: 'value' | 'normal' | 'anomaly'; unit: string; bounds: number[]; colors: string[] };
+  quantitative?: { values: (Pick<TerritorialValue, 'territoryId' | 'value' | 'normal' | 'anomaly'> & { status: TerritorialValue['status'] | AgriculturalStatus })[]; field: 'value' | 'normal' | 'anomaly'; unit: string; bounds: number[]; colors: string[] };
+  geography?: { prefix: string; label: string; attribution: string };
 }) {
   const container = useRef<HTMLDivElement>(null),
     map = useRef<LibreMap | null>(null),
     select = useRef(onSelect),
     modeRef = useRef(mode),
-    quantRef = useRef(quantitative);
+    quantRef = useRef(quantitative),
+    collectionRef = useRef(collection),
+    geographyRef = useRef(geography);
   const [ready, setReady] = useState(false),
     [rendered, setRendered] = useState(false),
     [failed, setFailed] = useState(false),
@@ -49,7 +54,9 @@ export default function NationalMap({
   useEffect(() => {
     modeRef.current = mode;
     quantRef.current = quantitative;
-  }, [mode, quantitative]);
+    collectionRef.current = collection;
+    geographyRef.current = geography;
+  }, [mode, quantitative, collection, geography]);
 
   useEffect(() => {
     let disposed = false;
@@ -108,21 +115,21 @@ export default function NationalMap({
         m.addControl(
           new lib.AttributionControl({
             compact: true,
-            customAttribution: 'PRA · OFB / MASA · contours source inchangés',
+            customAttribution: 'PRA · OFB / MASA ; départements et régions · Etalab 2025 · Licence Ouverte',
           }),
         );
         m.on('load', () => {
           if (disposed) return;
           m.addSource('pra', {
             type: 'geojson',
-            data: collection,
+            data: collectionRef.current,
             promoteId: 'code',
           });
           m.addLayer({
             id: 'pra-fill',
             type: 'fill',
             source: 'pra',
-            paint: { 'fill-color': ['coalesce', ['feature-state', 'color'], fill], 'fill-opacity': 0.9 },
+            paint: { 'fill-color': ['coalesce', ['feature-state', 'color'], fill], 'fill-opacity': ['case', ['boolean', ['feature-state', 'suppressed'], false], 0.4, 0.9] },
           });
           m.addLayer({
             id: 'pra-outline',
@@ -140,7 +147,7 @@ export default function NationalMap({
           });
           m.on('click', 'pra-fill', (e) => {
             const code = e.features?.[0]?.properties?.code;
-            if (typeof code === 'string') select.current(`pra:${code}`);
+            if (typeof code === 'string') select.current(`${geographyRef.current.prefix}${code}`);
           });
           m.on('mousemove', 'pra-fill', (e) => {
             m.getCanvas().style.cursor = 'pointer';
@@ -176,7 +183,14 @@ export default function NationalMap({
       map.current?.remove();
       map.current = null;
     };
-  }, [collection]);
+  }, []);
+
+  // Keep the same MapLibre canvas across spaces/scales; replace only GeoJSON data.
+  useEffect(() => {
+    if (!ready || !map.current) return;
+    map.current.removeFeatureState({ source: 'pra' });
+    (map.current.getSource('pra') as GeoJSONSource).setData(collection);
+  }, [ready, collection]);
 
   useEffect(() => {
     if (!ready || !map.current) return;
@@ -200,7 +214,8 @@ export default function NationalMap({
               : availability(byId.get(id)),
           color: quantitative ? (value == null ? css.getPropertyValue('--national-unavailable').trim() : ink) : null,
           value: value ?? null,
-          quality: q ? ({ available: 'Disponible', partial: 'Partiel', unavailable: 'Indisponible', not_applicable: 'Non applicable', source_error: 'Erreur source' }[q.status]) : 'Indisponible',
+          quality: q ? ({ available: 'Disponible', partial: 'Partiel', unavailable: 'Indisponible', not_applicable: 'Non applicable', source_error: 'Erreur source', suppressed: 'Secret statistique', stale: 'Ancien millésime' }[q.status]) : 'Indisponible',
+          suppressed: q?.status === 'suppressed',
           partial: q?.status === 'partial',
           anomaly: climate?.anomaly ?? null,
           selected: f.id === selected,
@@ -233,7 +248,7 @@ export default function NationalMap({
   }, [ready, selected, collection, quantitative]);
 
   return (
-    <section aria-label="Carte des 713 PRA" className="national-map-wrap">
+    <section aria-label={`Carte des ${geography.label}`} className="national-map-wrap">
       <button
         type="button"
         onClick={() =>
@@ -246,7 +261,7 @@ export default function NationalMap({
           )
         }
       >
-        Vue nationale · 713 PRA
+        Vue nationale · {geography.label}
       </button>
       <div
         ref={container}
@@ -255,7 +270,7 @@ export default function NationalMap({
         data-feature-count={collection.features.length}
         data-mode={mode}
       />
-      {!ready && !failed && <p role="status">Chargement des 713 contours…</p>}
+      {!ready && !failed && <p role="status">Chargement des contours · {geography.label}…</p>}
       {failed && (
         <p role="alert">
           Carte indisponible. La recherche permet toujours de

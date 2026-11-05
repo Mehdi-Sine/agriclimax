@@ -1,0 +1,16 @@
+{
+  "base": "78e2881ba072b0a468e782018689fff70c13c5dc",
+  "protected_paths": [
+    "engine/src/agriclimax/climate",
+    "engine/src/agriclimax/territories",
+    "engine/src/agriclimax/wheat",
+    "apps/web/lib/server/unified.ts",
+    "supabase/migrations",
+    "config/coverage",
+    "apps/web/public/maps/pra-national.geojson"
+  ],
+  "changed_protected_files": [],
+  "reference_sha256": "51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669",
+  "original_reference_bytes_identical": true,
+  "pra_count": 713
+}

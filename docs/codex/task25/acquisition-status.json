@@ -1,0 +1,22 @@
+{
+  "status": "partial",
+  "completed_regions": [
+    "11",
+    "24",
+    "94"
+  ],
+  "known_pra": 123,
+  "disk_total_bytes": 8417406976,
+  "disk_free_bytes": 5261910016,
+  "national_compressed_source_bytes": 10945220073,
+  "raw_sources_retained": true,
+  "incomplete_downloads": [
+    {
+      "name": "R27.7z.part",
+      "bytes": 27262976
+    }
+  ],
+  "national_cache_capacity_sufficient": false,
+  "resume": "python scripts/agriculture_rpg.py (requires adequate persistent cache capacity)",
+  "source_unavailable": false
+}

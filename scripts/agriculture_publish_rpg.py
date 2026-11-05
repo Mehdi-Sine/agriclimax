@@ -1,0 +1,122 @@
+"""Publish completed regional checkpoints only; incomplete national coverage stays explicit."""
+import argparse
+import hashlib
+import json
+from collections import defaultdict
+from pathlib import Path
+
+from agriclimax.ingestion.storage import atomic_write
+
+REGIONS = ["11", "24", "27", "28", "32", "44", "52", "53", "75", "76", "84", "93", "94"]
+
+
+def main(regions: list[str] | None = None) -> None:
+    cache = Path('work/task25')
+    destination = Path('apps/web/data/agriculture')
+    reference = json.loads(Path('config/coverage/ofb-masa-pra-2017-snapshot-20261017/reference.json').read_text())
+    checkpoints = [json.loads(p.read_text()) for p in sorted(cache.glob('R*-complete.json'))]
+    if regions is not None:
+        selected = set(regions)
+        checkpoints = [cp for cp in checkpoints if cp['region'] in selected]
+        if {cp['region'] for cp in checkpoints} != selected:
+            raise ValueError('Selected audited regional checkpoint is missing')
+    if not checkpoints:
+        raise ValueError('No completed official RPG delivery')
+    for cp in checkpoints:
+        if not all(g['declared_area_check'] and abs(g['conservation_residual_ha']) <= .001 for g in cp['groups'].values()):
+            raise ValueError('Regional declared-area/conservation control failed')
+    nomenclature = json.loads((cache / 'rpg-codes.json').read_text())
+    labels = defaultdict(set)
+    for f in nomenclature['features']:
+        props = f['properties']
+        labels[props['code_groupe_culture']].add(props['libelle_groupe_culture'])
+    sums = defaultdict(float)
+    totals = defaultdict(float)
+    for cp in checkpoints:
+        for code, group, area in cp['aggregates']:
+            sums[(code, group)] += area
+            totals[code] += area
+    cross_path = cache / 'cross-region-complete.json'
+    cross = json.loads(cross_path.read_text()) if cross_path.exists() else None
+    expected_provenance = hashlib.sha256(json.dumps(checkpoints, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+    cross_checked = cross is not None and cross.get('rule_version') == 'rpg-cross-region-3' and cross.get('identity_ownership_verified') is True and cross.get('source_provenance_sha256') == expected_provenance
+    if not cross_checked:
+        raise ValueError('A matching interregional audit is required before publication; completed regions changed or audit missing')
+    if cross_checked:
+        for code, group, correction in cross['corrections']:
+            if correction > sums[(code, group)] + 0.0001:
+                raise ValueError('Cross-region correction exceeds acquired area')
+            sums[(code, group)] = max(0, sums[(code, group)] - correction)
+        totals = defaultdict(float)
+        for (code, _group), area in sums.items():
+            totals[code] += area
+    quality_flags = [] if cross_checked else ['cross_region_distinct_id_overlap_not_checked']
+    if any(len(names) > 1 for names in labels.values()):
+        quality_flags.append('ambiguous_source_group_not_selectable')
+    invalid_count = sum(cp['invalid_geometries'] for cp in checkpoints)
+    repaired_pra = sorted({code for cp in checkpoints for code in cp['repaired_pra_codes']})
+    if invalid_count:
+        quality_flags.append('invalid_parcel_geometries_repaired')
+    if repaired_pra:
+        quality_flags.append('working_pra_geometries_repaired')
+    digest = hashlib.sha256(json.dumps({'checkpoints': checkpoints, 'cross_audit': cross if cross_checked else None}, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+    full = {cp['region'] for cp in checkpoints} == set(REGIONS)
+    indicators = []
+    for group, names in sorted(labels.items(), key=lambda pair: int(pair[0])):
+        # Conflicting source labels (observed for group25) are not silently reconciled.
+        if len(names) != 1 or not any(g == group and v > 0 for (_, g), v in sums.items()):
+            continue
+        indicator = {'id': f'rpg-group-{group}-surf-pra', 'production': f'rpg-group-{group}',
+                     'label': next(iter(names)), 'variable': 'SURF', 'variable_label': 'Surface RPG déclarée',
+                     'unit': 'ha', 'scale': 'pra', 'years': [2025], 'source_id': 'rpg-2025',
+                     'sha256': digest, 'sheet': 'RPG',
+                     'unit_note': 'Intersection surfacique en EPSG:3035, hectares géométriques des parcelles déclarées à la PAC, hors recouvrements exclus. Ne représente pas toute la surface agricole.'}
+        rows = []
+        for f in reference['features']:
+            code = f['properties']['code']
+            known = totals[code] > 0
+            value = sums[(code, group)] if known else None
+            rows.append({'code': code, 'name': f['properties']['name'], 'values': [value],
+                         'statuses': ['available' if full and known else 'partial' if known else 'unavailable'],
+                         'quality_code': 'geometric_overlay', 'source_anomalies': {}})
+        atomic_write(destination / f"{indicator['id']}.json", json.dumps({'indicator': indicator, 'rows': rows}, ensure_ascii=False, separators=(',', ':'), allow_nan=False).encode())
+        indicators.append(indicator)
+    manifest = {'schema_version': 'agriculture-1', 'rule_version': 'rpg-area-1', 'source_id': 'rpg-2025',
+                'source_version': '4.0',
+                'spatial_controls': {
+                    'parcels_read': sum(cp['parcels'] for cp in checkpoints),
+                    'duplicate_ids_excluded': sum(cp['duplicate_ids'] for cp in checkpoints),
+                    'invalid_parcel_geometries_repaired': invalid_count,
+                    'working_pra_geometries_repaired': repaired_pra,
+                    'excluded_intra_region_overlap_ha': sum(g['excluded_overlap_ha'] for cp in checkpoints for g in cp['groups'].values()),
+                    'declared_area_checks_passed': True,
+                    'max_regional_conservation_residual_ha': max(abs(g['conservation_residual_ha']) for cp in checkpoints for g in cp['groups'].values())},
+                'provider': 'IGN / ASP', 'url': 'https://www.data.gouv.fr/datasets/rpg',
+                'page_url': 'https://cartes.gouv.fr/rechercher-une-donnee/dataset/IGNF_RPG',
+                'license': 'Licence Ouverte 2.0', 'published_at': '2026-10-23',
+                'acquired_at': max(cp['acquired_at'] for cp in checkpoints), 'sha256': digest,
+                'scope': 'Déclarations PAC niveau 1 ; surfaces géométriques, non surfaces agricoles exhaustives',
+                'statistical_status': {'2025': 'annual_declarations'}, 'indicators': indicators,
+                'coverage': 'national' if full else 'partial',
+                'completed_regions': [cp['region'] for cp in checkpoints],
+                'missing_regions': sorted(set(REGIONS) - {cp['region'] for cp in checkpoints}),
+                'no_known_parcels': [f['properties']['code'] for f in reference['features'] if totals[f['properties']['code']] == 0],
+                'quality_flags': quality_flags,
+                'cross_region_audit': {key: value for key, value in cross.items() if key not in ('corrections', 'group_exclusions')} if cross_checked else None,
+                'nomenclature': {'url': 'https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=LANDUSE.AGRICULTURE2025:codes_cultures&OUTPUTFORMAT=application/json&COUNT=1000', 'sha256': hashlib.sha256((cache / 'rpg-codes.json').read_bytes()).hexdigest(), 'rows': len(nomenclature['features'])},
+                'documentation': {'url': 'https://data.geopf.fr/annexes/ressources/documentation/DC_DL_RPG_4.0.pdf', 'sha256': hashlib.sha256((cache / 'rpg4-doc.pdf').read_bytes()).hexdigest() if (cache / 'rpg4-doc.pdf').exists() else None},
+                'ambiguous_group_labels': {g: sorted(v) for g, v in labels.items() if len(v) > 1}}
+    atomic_write(destination / 'rpg-manifest.json', json.dumps(manifest, ensure_ascii=False, separators=(',', ':')).encode())
+    context = {code: {'area_ha': sums.get((code, '1')), 'total_rpg_ha': total,
+                     'share': sums.get((code, '1'), 0) / total if total else None,
+                     'status': 'available' if full else 'partial'} for code, total in totals.items() if total > 0}
+    atomic_write(destination / 'rpg-wheat-context.json', json.dumps({'year': 2025, 'manifest': manifest, 'pra': context}, ensure_ascii=False, separators=(',', ':'), allow_nan=False).encode())
+    # Compact public evidence has no parcel geometry/identifier.
+    atomic_write(Path('docs/codex/task25/rpg-import.json'), json.dumps({'manifest': manifest, 'checkpoints': checkpoints, 'cross_region_audit': cross if cross_checked else None}, ensure_ascii=False, separators=(',', ':'), allow_nan=False).encode())
+    print(json.dumps({'regions': len(checkpoints), 'indicators': len(indicators), 'known_pra': len(context), 'national': full}))
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--regions', nargs='+', choices=REGIONS, help='Publish an explicitly pinned audited cohort while other regions continue ingesting')
+    main(parser.parse_args().regions)

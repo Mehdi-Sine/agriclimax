@@ -1,0 +1,10 @@
+{
+  "restored_identifiers": 770,
+  "from_index_region": "24",
+  "original_checkpoint_region": "11",
+  "source_parcelles_bytes_verified": true,
+  "fingerprints_verified": true,
+  "regional_area_checkpoints_recalculated": false,
+  "method": "Restore first-delivery ownership from complete verified R11 input and original accepted-ID digest; correct derived index only",
+  "cause": "Legacy identity-index rehydration used replacement instead of first-seen ownership before this was fixed; original area checkpoints remained unchanged"
+}

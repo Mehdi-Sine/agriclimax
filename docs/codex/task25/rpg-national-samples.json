@@ -1,0 +1,84 @@
+{
+  "year": 2025,
+  "unit": "ha",
+  "scope": "Declared PAC parcels; geometry deduplicated and overlaid, not exhaustive agricultural area",
+  "samples": [
+    {
+      "group": "1",
+      "label": "Blé tendre",
+      "declared_ha": 4463253.100000005,
+      "source_geometry_ha": 4463244.63093469,
+      "excluded_intra_region_ha": 78.65274552575264,
+      "excluded_cross_region_ha": 0.055698955373380696,
+      "outside_pra_after_exclusion_ha": 154.37667830242944,
+      "published_ha": 4463011.545811943,
+      "all_declared_area_controls_passed": true
+    },
+    {
+      "group": "2",
+      "label": "Maïs grain et ensilage",
+      "declared_ha": 2810376.0899999994,
+      "source_geometry_ha": 2810371.8426015503,
+      "excluded_intra_region_ha": 56.36624136586339,
+      "excluded_cross_region_ha": 0.030353572389526396,
+      "outside_pra_after_exclusion_ha": 136.2762625658556,
+      "published_ha": 2810179.169744056,
+      "all_declared_area_controls_passed": true
+    },
+    {
+      "group": "3",
+      "label": "Orge",
+      "declared_ha": 1790503.5100000023,
+      "source_geometry_ha": 1790497.786810432,
+      "excluded_intra_region_ha": 29.54684544539968,
+      "excluded_cross_region_ha": 0.01566766103034131,
+      "outside_pra_after_exclusion_ha": 188.64282071090037,
+      "published_ha": 1790279.5814766216,
+      "all_declared_area_controls_passed": true
+    },
+    {
+      "group": "5",
+      "label": "Colza",
+      "declared_ha": 1264439.3699999996,
+      "source_geometry_ha": 1264435.8299812097,
+      "excluded_intra_region_ha": 18.923916934116118,
+      "excluded_cross_region_ha": 0.008368254338651989,
+      "outside_pra_after_exclusion_ha": 19.34225956278597,
+      "published_ha": 1264397.5554364629,
+      "all_declared_area_controls_passed": true
+    },
+    {
+      "group": "18",
+      "label": "Prairies permanentes",
+      "declared_ha": 7649159.640000001,
+      "source_geometry_ha": 7649104.857993974,
+      "excluded_intra_region_ha": 160.45678379211463,
+      "excluded_cross_region_ha": 0.10549033908319054,
+      "outside_pra_after_exclusion_ha": 6180.207695542877,
+      "published_ha": 7642764.088024515,
+      "all_declared_area_controls_passed": true
+    },
+    {
+      "group": "19",
+      "label": "Prairies temporaires",
+      "declared_ha": 1395302.8699999999,
+      "source_geometry_ha": 1395296.8496032117,
+      "excluded_intra_region_ha": 30.850516713466373,
+      "excluded_cross_region_ha": 0.01740187629902287,
+      "outside_pra_after_exclusion_ha": 155.3044678260868,
+      "published_ha": 1395110.677216804,
+      "all_declared_area_controls_passed": true
+    },
+    {
+      "group": "21",
+      "label": "Vignes",
+      "declared_ha": 578872.6400000004,
+      "source_geometry_ha": 578834.2945370575,
+      "excluded_intra_region_ha": 39.663394133597016,
+      "excluded_cross_region_ha": 0.019807913278812282,
+      "outside_pra_after_exclusion_ha": 55.261944930141304,
+      "published_ha": 578739.3493900823,
+      "all_declared_area_controls_passed": true
+    }
+  ]
+}
