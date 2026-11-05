@@ -45,3 +45,52 @@ def test_wrong_or_truncated_range_cannot_modify_prefix(tmp_path, monkeypatch, he
         module['download']('https://example.test/source', archive, 6)
     assert not archive.exists()
     assert prefix.read_bytes() == b'ab'
+
+
+def test_slow_source_range_is_bisected_without_accepting_truncated_body(tmp_path, monkeypatch):
+    module = loader(monkeypatch)
+    size = 1024 * 1024
+    source = bytes(range(256)) * (size // 256)
+    archive = tmp_path / 'R11.7z'
+    calls = []
+
+    def curl(args, check):
+        start, end = map(int, args[args.index('--range')+1].split('-'))
+        calls.append((start, end))
+        output = Path(args[args.index('--output')+1])
+        if start == 0 and end == size-1:
+            output.write_bytes(b'unverified truncated response')
+            raise module['subprocess'].CalledProcessError(28, args)
+        output.write_bytes(source[start:end+1])
+        Path(args[args.index('--dump-header')+1]).write_text(f'HTTP/2 206\nContent-Range: bytes {start}-{end}/{size}\n')
+    monkeypatch.setattr(module['subprocess'], 'run', curl)
+    module['download']('https://example.test/source', archive, size)
+    assert archive.read_bytes() == source
+    assert (0, size//2-1) in calls and (size//2, size-1) in calls
+
+
+def test_verified_later_chunk_survives_an_earlier_failure_and_is_reused(tmp_path, monkeypatch):
+    module = loader(monkeypatch)
+    block = 4 * 1024 * 1024
+    source = b'a' * block + b'z'
+    archive = tmp_path / 'R11.7z'
+    failing = True
+    calls = []
+
+    def curl(args, check):
+        start, end = map(int, args[args.index('--range')+1].split('-'))
+        calls.append(start)
+        if failing and start < block:
+            raise module['subprocess'].CalledProcessError(28, args)
+        Path(args[args.index('--output')+1]).write_bytes(source[start:end+1])
+        Path(args[args.index('--dump-header')+1]).write_text(f'HTTP/2 206\nContent-Range: bytes {start}-{end}/{len(source)}\n')
+    monkeypatch.setattr(module['subprocess'], 'run', curl)
+    with pytest.raises(module['subprocess'].CalledProcessError):
+        module['download']('https://example.test/source', archive, len(source))
+    assert not archive.exists()
+    assert archive.with_suffix(f'.chunk-{block}').read_bytes() == b'z'
+    failing = False
+    calls.clear()
+    module['download']('https://example.test/source', archive, len(source))
+    assert archive.read_bytes() == source
+    assert block not in calls

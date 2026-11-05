@@ -57,33 +57,60 @@ def download(url: str, path: Path, expected_bytes: int | None = None) -> None:
         if offset > expected_bytes:
             raise ValueError("Oversized partial source archive")
 
-        def fetch(start: int) -> Path:
-            end = min(start + chunk_bytes, expected_bytes) - 1
-            chunk = path.with_suffix(f".chunk-{start}")
-            headers_path = path.with_suffix(f".headers-{start}")
-            subprocess.run(["curl", "--fail", "--location", "--silent", "--show-error",
-                            "--connect-timeout", "30", "--max-time", "180", "--retry", "3",
-                            "--range", f"{start}-{end}", "--max-filesize", str(end-start+1),
-                            "--dump-header", str(headers_path), "--output", str(chunk), url], check=True)
-            headers = headers_path.read_text().lower().splitlines()
-            expected_range = f"content-range: bytes {start}-{end}/{expected_bytes}"
-            statuses = [line.split()[1] for line in headers if line.startswith("http/")]
-            if not statuses or statuses[-1] != "206" or expected_range not in [line.strip() for line in headers] or chunk.stat().st_size != end-start+1:
-                raise ValueError("Invalid bounded source range")
+        def fetch_range(start: int, end: int, chunk: Path) -> Path:
+            headers_path = chunk.with_name(chunk.name + '.headers')
+            proof_path = chunk.with_name(chunk.name + '.verified.json')
+            signature = {'url': url, 'start': start, 'end': end, 'total': expected_bytes}
+            if chunk.exists() and proof_path.exists():
+                proof = json.loads(proof_path.read_text())
+                if all(proof.get(k) == v for k, v in signature.items()) and chunk.stat().st_size == end-start+1 and digest(chunk) == proof.get('sha256'):
+                    return chunk
+            method = 'exact_http_range'
+            try:
+                subprocess.run(["curl", "--fail", "--location", "--silent", "--show-error",
+                                "--connect-timeout", "20", "--max-time", "45", "--retry", "1",
+                                "--range", f"{start}-{end}", "--max-filesize", str(end-start+1),
+                                "--dump-header", str(headers_path), "--output", str(chunk), url], check=True)
+            except subprocess.CalledProcessError:
+                if end-start+1 <= 256 * 1024:
+                    raise
+                # Retry a slow source range as two independently verified smaller
+                # requests. Never append bytes from a truncated HTTP response.
+                midpoint = (start+end)//2
+                pieces = [fetch_range(left, right, path.with_suffix(f'.range-{left}-{right}'))
+                          for left, right in ((start, midpoint), (midpoint+1, end))]
+                with chunk.open('wb') as output:
+                    for piece in pieces:
+                        with piece.open('rb') as inp:
+                            shutil.copyfileobj(inp, output)
+                method = 'assembled_verified_subranges'
+                if chunk.stat().st_size != end-start+1:
+                    raise ValueError('Invalid assembled source range')
+                # Only verified redundant subrange copies are evicted; their
+                # headers and checksum proofs remain beside the regional cache.
+                for piece in pieces:
+                    piece.unlink()
+            else:
+                headers = headers_path.read_text().lower().splitlines()
+                expected_range = f"content-range: bytes {start}-{end}/{expected_bytes}"
+                statuses = [line.split()[1] for line in headers if line.startswith("http/")]
+                if not statuses or statuses[-1] != "206" or expected_range not in [line.strip() for line in headers] or chunk.stat().st_size != end-start+1:
+                    raise ValueError("Invalid bounded source range")
+            save(proof_path, {**signature, 'sha256': digest(chunk), 'acquisition': method})
             return chunk
 
-        while offset < expected_bytes:
-            starts = list(range(offset, min(offset + chunk_bytes * 4, expected_bytes), chunk_bytes))
-            with ThreadPoolExecutor(max_workers=4) as workers:
-                chunks = list(workers.map(fetch, starts))
-            with temporary.open("ab") as output:
-                for chunk in chunks:
-                    with chunk.open("rb") as stream:
-                        shutil.copyfileobj(stream, output)
-                    # Only the verified duplicate chunk is removed after appending.
-                    chunk.unlink()
-                    offset = output.tell()
-            print(json.dumps({"downloaded_bytes": offset, "expected_bytes": expected_bytes}), flush=True)
+        def fetch(start: int) -> Path:
+            return fetch_range(start, min(start+chunk_bytes, expected_bytes)-1, path.with_suffix(f'.chunk-{start}'))
+
+        # Four network requests at most; source-order assembly, while workers may
+        # continue ahead of one slow request. Disk is bounded by this one archive.
+        with ThreadPoolExecutor(max_workers=4) as workers, temporary.open('ab') as output:
+            for chunk in workers.map(fetch, range(offset, expected_bytes, chunk_bytes)):
+                with chunk.open('rb') as stream:
+                    shutil.copyfileobj(stream, output)
+                chunk.unlink()
+                offset = output.tell()
+                print(json.dumps({"downloaded_bytes": offset, "expected_bytes": expected_bytes}), flush=True)
         if temporary.stat().st_size != expected_bytes:
             raise ValueError("Truncated source archive")
         temporary.replace(path)
