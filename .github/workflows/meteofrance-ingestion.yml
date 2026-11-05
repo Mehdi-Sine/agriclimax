@@ -1,9 +1,5 @@
 name: Météo-France live station ingestion
 on:
-  # One-shot probe of native GRIB only; removed after this access check.
-  push:
-    branches: [codex/26-national-daily-climate]
-    paths: [.github/workflows/meteofrance-ingestion.yml]
   workflow_dispatch:
     inputs:
       probe_only:
@@ -94,7 +90,7 @@ jobs:
           if-no-files-found: warn
 
   operational-access:
-    if: (github.event_name == 'workflow_dispatch' && inputs.probe_only) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[model-access-probe-only]'))
+    if: github.event_name == 'workflow_dispatch' && inputs.probe_only
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

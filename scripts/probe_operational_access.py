@@ -95,6 +95,8 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
             error.close()
         except (URLError, OSError, TimeoutError, ValueError, EOFError):
             record["outcome"] = "network_or_response_error"
+            if record["status"] == "binding_absent":
+                record["status"] = "network_unavailable"
             content = b""
     record.update(bytes=len(content), seconds=monotonic() - started)
     return record, content

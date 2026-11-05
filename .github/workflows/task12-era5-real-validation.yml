@@ -8,6 +8,8 @@ on:
 
 jobs:
   validate-era5:
+    # This task explicitly forbids ERA5 acquisitions; PR updates must stay read-only.
+    if: github.event_name != 'pull_request' || github.head_ref != 'codex/26-national-daily-climate'
     runs-on: ubuntu-latest
 
     steps:
