@@ -1,7 +1,219 @@
 {
   "mocked": false,
   "climate_rows": 713,
+  "rpg_national": true,
+  "rpg_artifact_sha256": "07afe77f98583d05f83f476be44bdaf3de89f77b55d9935459253c7a079a8d30",
   "independent_coverage_cases": [
+    {
+      "pra": "pra:06245",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 8637.804334109354,
+      "wheat_ha": 0.26166069728063324,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:06249",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 2323.0975490137885,
+      "wheat_ha": 0.0,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:11470",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 89301.73412393959,
+      "wheat_ha": 1541.9131941531416,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:11471",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 18577.466872993304,
+      "wheat_ha": 372.6781198464397,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:13244",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 59930.090431840166,
+      "wheat_ha": 434.12827306419973,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:13468",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 41796.86828746638,
+      "wheat_ha": 745.1989581993201,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:13469",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 1089.7370219469085,
+      "wheat_ha": 0.6988112509126759,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:14085",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 58243.82655433022,
+      "wheat_ha": 11388.61928512634,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:14353",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 106064.76118960323,
+      "wheat_ha": 13578.879106708117,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:14355",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 87617.93067241402,
+      "wheat_ha": 30182.368060007004,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:17111",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 37268.74001027247,
+      "wheat_ha": 3204.9053326683725,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:17374",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 62363.884936495735,
+      "wheat_ha": 18164.82774478368,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:17377",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 163153.2199209275,
+      "wheat_ha": 24874.034483159183,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:22358",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 74851.21893516119,
+      "wheat_ha": 16132.784787054425,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:29101",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 2253.860036316657,
+      "wheat_ha": 220.47117473009357,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:29102",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 2253.809582303449,
+      "wheat_ha": 168.15127870910433,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:29103",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 6964.663421452348,
+      "wheat_ha": 1078.0021902599326,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:29358",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 37214.810621401215,
+      "wheat_ha": 2018.3890241908755,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:29361",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 115156.51751251039,
+      "wheat_ha": 13711.728762814086,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:29362",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 84396.76040162997,
+      "wheat_ha": 16371.973451197618,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:29363",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 106720.28433121824,
+      "wheat_ha": 13058.031949787654,
+      "agriculture_status": "available"
+    },
     {
       "pra": "pra:2A258",
       "climate_value": null,
@@ -10,7 +222,7 @@
       "rpg_year": 2025,
       "known_rpg_ha": 15597.020452110677,
       "wheat_ha": 0.0,
-      "agriculture_status": "partial"
+      "agriculture_status": "available"
     },
     {
       "pra": "pra:2A259",
@@ -20,7 +232,7 @@
       "rpg_year": 2025,
       "known_rpg_ha": 53287.16538561989,
       "wheat_ha": 0.0,
-      "agriculture_status": "partial"
+      "agriculture_status": "available"
     },
     {
       "pra": "pra:2A260",
@@ -30,7 +242,7 @@
       "rpg_year": 2025,
       "known_rpg_ha": 47531.81867114797,
       "wheat_ha": 0.0,
-      "agriculture_status": "partial"
+      "agriculture_status": "available"
     },
     {
       "pra": "pra:2B258",
@@ -40,7 +252,7 @@
       "rpg_year": 2025,
       "known_rpg_ha": 31940.409674081373,
       "wheat_ha": 38.052057124806716,
-      "agriculture_status": "partial"
+      "agriculture_status": "available"
     },
     {
       "pra": "pra:2B259",
@@ -50,7 +262,7 @@
       "rpg_year": 2025,
       "known_rpg_ha": 57185.00824064478,
       "wheat_ha": 0.0,
-      "agriculture_status": "partial"
+      "agriculture_status": "available"
     },
     {
       "pra": "pra:2B260",
@@ -60,7 +272,417 @@
       "rpg_year": 2025,
       "known_rpg_ha": 100414.12327888145,
       "wheat_ha": 0.0,
-      "agriculture_status": "partial"
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:30471",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 49754.16088085074,
+      "wheat_ha": 305.36725906074264,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:33115",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 7924.730097783623,
+      "wheat_ha": 118.33407987794178,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:33137",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 15941.146848498582,
+      "wheat_ha": 88.77813536322414,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:33378",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 19694.31156614506,
+      "wheat_ha": 9.550388672155536,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:34416",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 23726.707512809968,
+      "wheat_ha": 38.194752306201785,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:34471",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 75878.53611014325,
+      "wheat_ha": 2610.4115515523963,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:35358",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 23371.17502740598,
+      "wheat_ha": 4243.468871432286,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:40130",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 3595.338584783612,
+      "wheat_ha": 0.0,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:40131",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 3658.9977804678224,
+      "wheat_ha": 10.917326691229732,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:40132",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 4293.589701723467,
+      "wheat_ha": 22.72795788352588,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:40144",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 2445.4189193246284,
+      "wheat_ha": 0.0,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:44106",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 39591.5409005603,
+      "wheat_ha": 1344.1016678629924,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:44108",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 44783.0190597993,
+      "wheat_ha": 3878.985246994012,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:44364",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 19859.87222635383,
+      "wheat_ha": 888.0336137331113,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:44365",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 12285.61616225486,
+      "wheat_ha": 387.8151297876315,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:50081",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 12193.686383101083,
+      "wheat_ha": 804.8729674859893,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:50082",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 44713.046343452515,
+      "wheat_ha": 3204.56167926363,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:50083",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 15115.863817002511,
+      "wheat_ha": 1286.3121581963408,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:50084",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 50556.299178226414,
+      "wheat_ha": 2903.0547529186833,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:50086",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 158105.98092785157,
+      "wheat_ha": 14027.21411536301,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:50087",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 66105.89742406156,
+      "wheat_ha": 10825.44869466782,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:56363",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 147371.85661775927,
+      "wheat_ha": 22204.672752473736,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:56364",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 43981.68934545733,
+      "wheat_ha": 4287.240772205872,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:59325",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 23230.758664013323,
+      "wheat_ha": 8509.399207919223,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:62029",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 37827.870705963025,
+      "wheat_ha": 7693.183061742574,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:62325",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 25121.744273178905,
+      "wheat_ha": 8432.273249638667,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:64138",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 4202.348415721222,
+      "wheat_ha": 0.0,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:64139",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 97710.15210852926,
+      "wheat_ha": 264.58306585258117,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:66252",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 30309.554390881483,
+      "wheat_ha": 193.7209999811804,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:66254",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 1151.043236621877,
+      "wheat_ha": 0.0,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:76046",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 195319.0386180755,
+      "wheat_ha": 57712.35950684512,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:76047",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 30903.067945334875,
+      "wheat_ha": 9019.2328268862,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:80037",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 13473.323027250535,
+      "wheat_ha": 3086.913626184509,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:80038",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 69676.80465224897,
+      "wheat_ha": 24197.875777208712,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:83247",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 9021.38718885298,
+      "wheat_ha": 0.0,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:83248",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 2708.770737625003,
+      "wheat_ha": 3.22851674400052,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:83469",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 4304.2453328646925,
+      "wheat_ha": 0.0,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:85365",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 22759.87709333073,
+      "wheat_ha": 706.2450143509886,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:85368",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 243935.98780124617,
+      "wheat_ha": 40883.63619342249,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:85369",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 49984.98604324422,
+      "wheat_ha": 2469.948578774918,
+      "agriculture_status": "available"
+    },
+    {
+      "pra": "pra:85371",
+      "climate_value": null,
+      "climate_status": "unavailable",
+      "climate_date": "2026-10-15",
+      "rpg_year": 2025,
+      "known_rpg_ha": 42183.29261592165,
+      "wheat_ha": 8383.071227224673,
+      "agriculture_status": "available"
     }
   ]
 }

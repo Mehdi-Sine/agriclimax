@@ -1,27 +1,31 @@
 # Résultats Task25
 
-Les fichiers JSON joints sont les preuves d'import réelles ; les fixtures scientifiques utilisent uniquement des géométries synthétiques et n'alimentent jamais le produit.
+La publication nationale repose sur les treize livraisons RPG2025 officielles, les séries SAA réellement acquises et le référentiel original des 713 PRA, dont six corses. Aucune donnée de démonstration n’alimente ces rubriques.
 
-## SAA réellement acquise
+## RPG2025 national
 
-Deux XLSX officiels, 2010–2025 ; 128 productions, 496 indicateurs, 29 350 séries, 436 761 valeurs. Les valeurs source sont conservées sans conversion implicite d'unité. `saa-import.json` conserve les lignes d'échantillon et les contrôles nationaux.
+- **13 régions sur 13 ; 713 PRA renseignées ; 22 groupes source qualifiés.**
+- **9 721 133 parcelles lues**, 14 659 occurrences d’identifiants identiques exclues, 148 géométries invalides réparées en copie de travail.
+- **27 792 417.506253ha** restitués dans les PRA, par intersections réelles en EPSG:3035.
+- 556.134909ha de recouvrements internes et 0.317937039ha interrégionaux exclus ; **9629.827855ha hors du snapshot PRA**, comptabilisés séparément.
+- 50762 paires candidates interrégionales, 1439 parcelles avec recouvrement positif. Tous les contrôles région×groupe passent ; résidu maximal 1.88e-07ha, sous la tolérance de 0,001ha.
 
-`saa-controls.json` : 2 943/2 944 comparaisons de sommes départementales avec le total France sont dans la tolérance d'arrondi. L'unique différence est +2ha, maïs fourrage non irrigué, surface 2010 : une cellule source −2 est restituée NULL, sans compensation arbitraire. Pour le blé tendre 2025 : somme départementale = total officiel France = **4 494 355ha**. Seine-et-Marne : **117 468ha** ; Corse-du-Sud : **2ha** ; Haute-Corse : **75ha**.
+Les totaux sont des surfaces géométriques de déclarations PAC, pas une mesure exhaustive de l’agriculture. Les comparaisons aux hectares déclarés source et les exemples blé/maïs/orge/colza/prairies/vigne figurent dans `rpg-national-samples.json`. Aucun rapprochement arbitraire avec les estimations SAA.
 
-## RPG réellement acquis
+Les digests de propriété des identifiants correspondent aux treize checkpoints (`identity-ownership-audit.json`). L’ancienne réhydratation de l’index avait déplacé 770 identifiants partagés ; leur propriété a été restaurée depuis la source vérifiée, puis tous les index de l’audit ont été reconstruits. Les treize checkpoints de surfaces sont restés strictement byte-identiques (`regional-checkpoints-unchanged.json`). La publication refuse un audit périmé et peut figer explicitement une cohorte auditée.
 
-Les compteurs/contrôles régionaux et les surfaces par PRA/groupe figurent dans `rpg-import.json`. Seuls les lots terminés sont publiés ; la bannière et les statuts signalent la couverture partielle. Aucun résultat régional n'est présenté comme national.
+## SAA conservée et vérifiée
 
-Premier lot vérifié : Île-de-France, 125 212 parcelles, 5 géométries invalides traitées, aucun doublon d'identifiant, 6,385878817ha de recouvrements exclus. Les comparaisons avec les surfaces déclarées passent pour tous ses groupes. Le pipeline conserve ses checkpoints ; la contrainte de disque est documentée dans `STORAGE.md`. Quatre lots complets sont publiés : Île-de-France, Centre-Val de Loire, Bourgogne-Franche-Comté, Corse. Au total : **1 360 364 parcelles**, **201 PRA** avec déclarations connues, dont les **six corses**. Les autres PRA ne reçoivent aucune valeur inventée. Les comparaisons avec les surfaces déclarées passent pour tous les groupes des quatre lots. Résidu maximal de conservation : 2,86×10⁻⁹ha.
+Deux XLSX officiels 2010–2025 : **128 productions, 496 indicateurs, 29 350 séries, 436 761 valeurs numériques**. La comparaison de **469 600 cellules, NULL compris**, et des unités/statuts/anomalies aux fichiers conservés est conforme (`saa-source-fidelity.json`). Une qualité non renseignée reste NULL.
 
-## Validation
+Contrôle blé tendre 2025 : total France = somme départementale = **4 494 355ha** ; Seine-et-Marne **117 468ha**, Corse-du-Sud **2ha**, Haute-Corse **75ha**. Les contrôles nationaux passent pour 2 943/2 944 sommes à la tolérance d’arrondi. L’unique écart de +2ha en 2010 vient de la cellule source −2 restituée NULL, sans compensation fabriquée. Les fichiers bruts et leurs empreintes restent disponibles hors Git.
 
-Les résultats finaux des commandes, captures et URL de Preview sont à lire dans `validation.json`, `browser-real.json` et `UX_ACCEPTANCE.md`. 256 tests Python et quatre tests supplémentaires d’intégrité de téléchargement, 253 tests TypeScript et build/lint/typecheck locaux passent. La recette locale réelle produit 13 captures, vérifie les mailles SAA, les surfaces RPG, le croisement blé et la persistance du canevas. Les API Preview sont testées séparément dans `preview-http.json` ; la recette navigateur distante passe aussi, preuves et captures dans `preview/`. Une passerelle en lecture seule relaie la Preview avec vérification TLS normale côté système ; le navigateur utilise son adresse locale, sans fixtures ni modification du magasin de confiance. Les calculs ERA5, normales, anomalies, périodes, cumuls et règles existantes ne sont pas modifiés.
+## Application et validation
 
-Premier audit interrégional (quatre lots) : 3 910 paires candidates, 95 parcelles à recouvrement positif ; 0,014780114ha supplémentaires exclus. Résidu de conservation : −1,97×10⁻¹³ha. L’audit est lié aux empreintes exactes des checkpoints.
+La même carte persistante dessert Climat, Productions et Analyse. Les statistiques SAA restent à leur maille départementale/régionale ; le RPG est à la PRA. Le croisement blé distingue aléa observé et contexte PAC2025, sans stade, dommage ni surface touchée estimés. Les **68 PRA climatiques indisponibles ont toutes un contexte agricole connu** (`coverage-independence.json`).
 
-## Reprise du 5 novembre 2026
+Validation du commit fonctionnel `60090e83e3b06133db5d8d318fece3a15326b96d` : **265 tests Python, 253 TypeScript**, build/lint/typecheck, contrôles de contrats, migrations, secrets et budget réussis. Recettes locales et Preview réelles, sans mocks, à **1440/768/390px**, 13 captures par environnement. Elles vérifient aussi le même canevas entre espaces, les unités volailles régionales, le millésime 2010 et les parcours stationnels, dont le THI.
 
-Six régions vérifiées et publiées : 11/24/27/75/84/94, soit 4 256 355 parcelles lues et 456 PRA renseignées. Les quatre résultats déjà publiés ont été conservés. Audit interrégional version2 : 12 408 paires candidates, 367 parcelles avec intersection positive, 0,089504388ha exclus ; résidu −5,21×10⁻¹³ha. Contrôles d’artefacts : 15 686 cellules RPG, les 29 350 séries SAA et 436 761 valeurs vérifiées. Suites locales : 263 tests Python et 253 TypeScript réussis.
+Preview : https://agriclimax-4rscsoh29-mehdi-sines-projects.vercel.app . Transport de recette distant : passerelle locale en lecture seule vers cette Preview, HTTPS amont normalement vérifié ; aucune désactivation TLS ni modification du magasin de confiance personnel. Les valeurs et l’empreinte API/carte/fiche correspondent à `07afe77f98583d05f83f476be44bdaf3de89f77b55d9935459253c7a079a8d30`. Les détails CI sont conservés dans `ci-functional.json` et `validation.json`.
 
-Jalon dix régions : 8 308 520 parcelles lues, 635 PRA renseignées. Cohorte explicitement figée et auditée : 35 737 paires candidates, 1 022 parcelles à recouvrement positif, 0,225466170ha exclus ; résidu −5,43×10⁻¹²ha. L’arrivée d’autres checkpoints ne modifie pas cette cohorte publiée.
+Le socle scientifique, les migrations et les géométries originales sont inchangés depuis la base Task24 (`foundation-unchanged.json`). Aucun merge ni déploiement en production.

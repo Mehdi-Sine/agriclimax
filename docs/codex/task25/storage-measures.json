@@ -1,12 +1,18 @@
 {
-  "artifact_bytes": 14665374,
+  "artifact_bytes": 14882244,
   "artifact_files": 521,
   "saa_source_bytes": 7080120,
   "raw_parcel_files_committed": false,
   "db_bytes_written": 0,
   "db_global_size_measured": true,
-  "client_gzip_bytes": 595589,
+  "db_global_before_resume_bytes": 144004787,
+  "db_global_after_ingestion_bytes": 145225395,
+  "db_global_delta_bytes": 1220608,
+  "db_delta_relation": "agriclimax_private.climate_references",
+  "agricultural_db_relations": 0,
+  "client_gzip_bytes": 595598,
   "client_gzip_budget_bytes": 2097152,
   "rpg_national_archive_bytes": 10945220073,
-  "db_global_size_before_resumed_completion_bytes": 144004787
+  "retained_original_gpkg_bytes": 6296264704,
+  "retained_xz_bytes": 2751121956
 }

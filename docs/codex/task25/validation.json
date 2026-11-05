@@ -1,8 +1,10 @@
 {
-  "commit": "4e3b16b",
+  "decision": "READY_FOR_AGRICULTURAL_UX_REVIEW",
+  "functional_commit": "60090e83e3b06133db5d8d318fece3a15326b96d",
+  "base_commit": "78e2881ba072b0a468e782018689fff70c13c5dc",
   "local": {
     "python": {
-      "passed": 263,
+      "passed": 265,
       "command": "PYTHONPATH=engine/src python -m pytest engine/tests -q"
     },
     "typescript": {
@@ -12,19 +14,18 @@
     },
     "typecheck": "passed",
     "lint": "passed",
-    "build": "passed (six-region artifacts)",
+    "build": "passed",
     "frozen_lockfile_install": "passed (pnpm10; existing lockfile unchanged)",
-    "scientific_geometry_tests": 7,
+    "agriculture_tests": 18,
     "contracts": "passed",
     "source_secret_guard": "passed",
     "client_secret_guard": "passed",
     "forward_only_migration_guard": "passed",
     "bundle_budget": "passed",
-    "server_import_index": "passed",
-    "acquisition_safety_tests": 9
+    "server_import_index": "passed"
   },
   "browser_local": {
-    "base": "http://127.0.0.1:3025",
+    "base": "http://127.0.0.1:3027",
     "mocked": false,
     "realDataVerified": true,
     "viewports": [
@@ -131,14 +132,25 @@
       "seineEtMarne2025": 117468,
       "corsica2A2025": 2,
       "rpgPra": "pra:77336",
-      "rpgAreaHa": 11657.8274277755,
+      "rpgAreaHa": 11660.401404365111,
       "rpgRegions": [
         "11",
         "24",
         "27",
+        "28",
+        "32",
+        "44",
+        "52",
+        "53",
+        "75",
+        "76",
+        "84",
+        "93",
         "94"
       ],
-      "rpgCoverage": "partial",
+      "rpgCoverage": "national",
+      "rpgArtifactSha": "07afe77f98583d05f83f476be44bdaf3de89f77b55d9935459253c7a079a8d30",
+      "rpgKnownPra": 713,
       "climateRows": 713,
       "climateUnavailable": 68
     },
@@ -151,55 +163,71 @@
       "Historical wheat and station THI routes remain accessible"
     ],
     "transportRetries": [],
-    "tested_web_code_commit": "7bc462f"
+    "validated_functional_commit": "60090e83e3b06133db5d8d318fece3a15326b96d",
+    "national_coverage_required": true
   },
   "preview": {
+    "url": "https://agriclimax-4rscsoh29-mehdi-sines-projects.vercel.app",
+    "validated_commit": "60090e83e3b06133db5d8d318fece3a15326b96d",
     "api_probe_passed": true,
-    "url": "https://agriclimax-ncnis8ebz-mehdi-sines-projects.vercel.app",
-    "validated_commit": "d73f919ff77fc2da06f35e8bd079546bdc14503a",
     "browser_passed": true,
+    "national_coverage_required": true,
     "browser_evidence": "preview/browser-real.json",
-    "transport": "Read-only loopback gateway; HTTPS upstream uses normal system CA verification. Browser localhost HTTP transport, no TLS bypass, no mocks, no home trust-store changes."
+    "transport": "Read-only localhost gateway to the exact Preview; HTTPS upstream certificate verified using system CA trust. No mocks, no TLS bypass, no home trust-store changes."
   },
   "source_status": {
-    "saa": "national native series, metro+Corsica maps",
-    "rpg": {
-      "regions": [
-        "11",
-        "24",
-        "27",
-        "75",
-        "84",
-        "94"
+    "saa": {
+      "productions": 128,
+      "indicators": 496,
+      "series": 29350,
+      "numeric_values": 436761,
+      "years": [
+        2010,
+        2025
       ],
-      "known_pra": 456,
-      "processed_parcels": 4256355,
-      "national": false
+      "native_scales": [
+        "departement",
+        "region"
+      ],
+      "source_fidelity": "saa-source-fidelity.json"
+    },
+    "rpg": {
+      "regions": 13,
+      "parcels_read": 9721133,
+      "duplicates_excluded": 14659,
+      "invalid_parcels_repaired": 148,
+      "known_pra": 713,
+      "no_known_parcels": [],
+      "total_published_rpg_ha": 27792417.50625289,
+      "excluded_intra_region_ha": 556.1349092437545,
+      "excluded_cross_region_ha": 0.31793703906078313,
+      "outside_pra_ha": 9629.827854569228,
+      "max_regional_conservation_residual_ha": 1.8835999071598053e-07,
+      "source_gpkg_bytes": 6296264704,
+      "retained_xz_bytes": 2751121956,
+      "delivery_archive_bytes": 10945220073
     }
   },
-  "untouched": [
-    "official PRA coordinates",
-    "ERA5 calculations",
-    "climate normals/anomalies/period operators",
-    "SQL migrations and spatial_ref_sys grants"
-  ],
-  "production_changes": false,
-  "dependency_patch": {
-    "py7zr": "1.1.3",
-    "pyppmd": "1.3.1",
-    "official_archive_extraction_identical": true,
-    "ci_recheck": "passed (fe8e7b4 python-dependencies)"
+  "scientific_controls": {
+    "artifact_audit": "artifact-audit.json",
+    "identity_ownership": "identity-ownership-audit.json",
+    "regional_checkpoints_byte_unchanged": "regional-checkpoints-unchanged.json",
+    "source_cache_proofs": "national-source-cache-proofs.json",
+    "cross_region_rule": "rpg-cross-region-3",
+    "all_checks_passed": true
+  },
+  "ci": {
+    "functional_commit": "60090e83e3b06133db5d8d318fece3a15326b96d",
+    "all_passed": true,
+    "proof": "ci-functional.json"
   },
   "coverage_independence": {
-    "real_cases": 6,
+    "real_cases": 68,
     "proof": "coverage-independence.json"
   },
-  "resume": {
-    "date": "2026-11-05",
-    "source_integrity": "resume-integrity.json",
-    "completed_regions_recalculated": false,
-    "artifact_audit": "artifact-audit.json",
-    "database_before": "database-resume-before.json",
-    "pending_final_browser_for_new_coverage": true
-  }
+  "foundation_unchanged": "foundation-unchanged.json",
+  "storage": "storage-measures.json",
+  "production_changes": false,
+  "merged": false,
+  "draft_pr": "https://github.com/Mehdi-Sine/agriclimax/pull/54"
 }

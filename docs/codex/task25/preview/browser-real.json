@@ -1,5 +1,5 @@
 {
-  "base": "http://127.0.0.1:3030",
+  "base": "http://127.0.0.1:3031",
   "mocked": false,
   "realDataVerified": true,
   "viewports": [
@@ -106,13 +106,25 @@
     "seineEtMarne2025": 117468,
     "corsica2A2025": 2,
     "rpgPra": "pra:77336",
-    "rpgAreaHa": 11657.8274277755,
+    "rpgAreaHa": 11660.401404365111,
     "rpgRegions": [
       "11",
       "24",
+      "27",
+      "28",
+      "32",
+      "44",
+      "52",
+      "53",
+      "75",
+      "76",
+      "84",
+      "93",
       "94"
     ],
-    "rpgCoverage": "partial",
+    "rpgCoverage": "national",
+    "rpgArtifactSha": "07afe77f98583d05f83f476be44bdaf3de89f77b55d9935459253c7a079a8d30",
+    "rpgKnownPra": 713,
     "climateRows": 713,
     "climateUnavailable": 68
   },
@@ -120,11 +132,13 @@
   "cases": [
     "Regional-only poultry remains regional, source unit preserved",
     "Same canvas and PRA context across all three spaces",
+    "Closing RPG panel clears both shared and agricultural selection",
     "Native 2010 value, URL and reload",
     "Historical wheat and station THI routes remain accessible"
   ],
   "transportRetries": [],
-  "upstream": "https://agriclimax-ncnis8ebz-mehdi-sines-projects.vercel.app",
-  "validated_commit": "d73f919ff77fc2da06f35e8bd079546bdc14503a",
-  "transport": "Read-only loopback gateway; HTTPS upstream uses normal system CA verification. Browser localhost HTTP transport, no TLS bypass, no mocks, no home trust-store changes."
+  "validated_functional_commit": "60090e83e3b06133db5d8d318fece3a15326b96d",
+  "national_coverage_required": true,
+  "upstream": "https://agriclimax-4rscsoh29-mehdi-sines-projects.vercel.app",
+  "transport": "Read-only localhost gateway to the exact Preview; HTTPS upstream certificate verified using system CA trust. No mocks, no TLS bypass, no home trust-store changes."
 }

@@ -1,0 +1,97 @@
+{
+  "project": "agriclimax-dev",
+  "phase": "after_national_ingestion",
+  "measured_at": "2026-11-05 12:31:13.106211+00",
+  "database_name": "postgres",
+  "database_bytes": 145225395,
+  "agricultural_relation_count": 0,
+  "largest_user_relations": [
+    {
+      "relname": "pra_climatology_daily",
+      "schemaname": "agriclimax_private",
+      "index_bytes": 16457728,
+      "table_bytes": 35282944,
+      "total_bytes": 51740672
+    },
+    {
+      "relname": "pra_daily",
+      "schemaname": "agriclimax_private",
+      "index_bytes": 9043968,
+      "table_bytes": 12083200,
+      "total_bytes": 21127168
+    },
+    {
+      "relname": "pra_climatology_normals",
+      "schemaname": "agriclimax_private",
+      "index_bytes": 6053888,
+      "table_bytes": 6676480,
+      "total_bytes": 12730368
+    },
+    {
+      "relname": "pra_territories",
+      "schemaname": "agriclimax_private",
+      "index_bytes": 319488,
+      "table_bytes": 11100160,
+      "total_bytes": 11419648
+    },
+    {
+      "relname": "climate_references",
+      "schemaname": "agriclimax_private",
+      "index_bytes": 671744,
+      "table_bytes": 9871360,
+      "total_bytes": 10543104
+    },
+    {
+      "relname": "pra_batches",
+      "schemaname": "agriclimax_private",
+      "index_bytes": 491520,
+      "table_bytes": 9207808,
+      "total_bytes": 9699328
+    },
+    {
+      "relname": "spatial_ref_sys",
+      "schemaname": "public",
+      "index_bytes": 212992,
+      "table_bytes": 7102464,
+      "total_bytes": 7315456
+    },
+    {
+      "relname": "pra_grid_weights",
+      "schemaname": "agriclimax_private",
+      "index_bytes": 2162688,
+      "table_bytes": 2236416,
+      "total_bytes": 4399104
+    },
+    {
+      "relname": "pra_climatology_support",
+      "schemaname": "agriclimax_private",
+      "index_bytes": 245760,
+      "table_bytes": 229376,
+      "total_bytes": 475136
+    },
+    {
+      "relname": "station_weather_batches",
+      "schemaname": "agriclimax_private",
+      "index_bytes": 57344,
+      "table_bytes": 409600,
+      "total_bytes": 466944
+    },
+    {
+      "relname": "daily_snapshots",
+      "schemaname": "agriclimax_private",
+      "index_bytes": 32768,
+      "table_bytes": 360448,
+      "total_bytes": 393216
+    },
+    {
+      "relname": "pra_diagnostics",
+      "schemaname": "agriclimax_private",
+      "index_bytes": 163840,
+      "table_bytes": 221184,
+      "total_bytes": 385024
+    }
+  ],
+  "measurement": "Read-only pg_database_size and pg_stat_user_tables; no source rows read",
+  "agricultural_relation_count_scope": "all non-system schemas",
+  "agriculture_task_database_writes_bytes": 0
+}

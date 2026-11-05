@@ -23,7 +23,7 @@ Base : `78e2881ba072b0a468e782018689fff70c13c5dc` (PR53). Aucun jeu de démonstr
 - Livraisons régionales officielles : `https://data.geopf.fr/telechargement/resource/RPG/RPG_4-0__GPKG_LAMB93_R{code}_2025-01-01` ; leur flux Atom fournit l'URL 7z et sa taille. Seul `RPG_Parcelles.gpkg` est exploité.
 - Nomenclature 2025 : service WFS `LANDUSE.AGRICULTURE2025:codes_cultures`. Les libellés viennent du service, sans catégories agricoles inventées. Le groupe25 a deux libellés contradictoires : son aire contribue au dénominateur RPG, mais ce groupe n'est pas proposé comme production qualifiée.
 - Licence Ouverte 2.0. Mesure : hectares géométriques des parcelles déclarées PAC, pas toute la surface agricole, pas rendement, récolte, exploitation ou cheptel.
-- Couverture effectivement publiée : `rpg-import.json`, `rpg-manifest.json` et bannière produit. Un lot incomplet n'est jamais publié. Une couverture partielle n'est jamais appelée nationale.
+- Couverture finale : **treize régions et 713 PRA**, 22 groupes qualifiés. Le groupe25 ambigu reste compté dans le total sans catégorie inventée. Détails de la publication : `rpg-import.json`, `rpg-manifest.json` et bannière produit. Un lot incomplet n'est jamais publié. Une couverture partielle n'est jamais appelée nationale.
 
 ## Cartographie
 
