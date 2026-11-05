@@ -251,6 +251,46 @@ def run_batch(
             }
         )
         archive = root / "tiles" / f"{tile_key}.json.gz"
+        if not archive.exists() and start != end:
+            # Assemble an exact multi-day tile from verified daily checkpoints.
+            # Scientific rows and individual receipts are retained without redecoding.
+            pieces = []
+            for offset in range((end - start).days + 1):
+                tile_day = start + timedelta(days=offset)
+                daily_key = digest(
+                    {
+                        "dataset": provider.dataset.model_dump(mode="json"),
+                        "start": str(tile_day),
+                        "end": str(tile_day),
+                        "west": west,
+                        "south": south,
+                        "compact_version": 1,
+                    }
+                )
+                daily_path = root / "tiles" / f"{daily_key}.json.gz"
+                if not daily_path.exists():
+                    break
+                raw = daily_path.read_bytes()
+                if hashlib.sha256(raw).hexdigest() != daily_path.with_suffix(".sha256").read_text():
+                    raise ValueError("Corrupt daily tile archive")
+                pieces.append(json.loads(gzip.decompress(raw)))
+            if len(pieces) == (end - start).days + 1:
+                receipts = {digest(r): r for piece in pieces for r in piece["source"]["receipts"]}
+                payload = {
+                    "rows": [r for piece in pieces for r in piece["rows"]],
+                    "source": {
+                        "catalogue": "reanalysis-era5-land",
+                        "receipts": [receipts[k] for k in sorted(receipts)],
+                        "source_checksums": sorted({r["checksum"] for r in receipts.values()}),
+                    },
+                }
+                raw = gzip.compress(
+                    json.dumps(payload, sort_keys=True, allow_nan=False).encode(), mtime=0
+                )
+                atomic_write(archive, raw)
+                atomic_write(
+                    archive.with_suffix(".sha256"), hashlib.sha256(raw).hexdigest().encode()
+                )
         if not archive.exists():
             if downloaded >= max_downloads:
                 return {
@@ -353,6 +393,8 @@ def run_batch(
             )
     if timings is not None:
         timings["aggregation"] = timings.get("aggregation", 0.0) + monotonic() - aggregation_started
+    if start != end:
+        sources = {digest(source): source for source in sources.values()}
     envelope = {
         "batch_key": key,
         "identity": identity,

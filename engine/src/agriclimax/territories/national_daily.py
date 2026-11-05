@@ -67,6 +67,79 @@ def acquire_groups(
     return True, acquired, created
 
 
+def acquire_windows(
+    provider: Any,
+    weights_by_day: dict[date, list[Any]],
+    root: Path,
+    maximum_groups: int,
+) -> tuple[bool, int, int]:
+    """Group missing native tiles across adjacent days; retain daily checkpoint keys.
+
+    Never request an already cached tile/day, including the three pilot PRA.
+    Incomplete groups fall back to the exact missing one-degree subtiles.
+    """
+    from agriclimax.territories.pipeline import digest, write_native_tiles
+
+    missing: dict[tuple[int, int, int], list[tuple[date, list[tuple[int, int]]]]] = {}
+    for day, weights in sorted(weights_by_day.items()):
+        tiles = {(math.floor(w.longitude), math.floor(w.latitude)) for w in weights}
+        for west, south in sorted({(x // 2 * 2, y // 2 * 2) for x, y in tiles}):
+            wanted = sorted((x, y) for x, y in tiles if (x // 2 * 2, y // 2 * 2) == (west, south))
+            absent = []
+            for x, y in wanted:
+                key = digest(
+                    {
+                        "dataset": provider.dataset.model_dump(mode="json"),
+                        "start": str(day),
+                        "end": str(day),
+                        "west": x,
+                        "south": y,
+                        "compact_version": 1,
+                    }
+                )
+                path = root / "tiles" / f"{key}.json.gz"
+                if not path.exists():
+                    absent.append((x, y))
+                elif (
+                    hashlib.sha256(path.read_bytes()).hexdigest()
+                    != path.with_suffix(".sha256").read_text()
+                ):
+                    raise ValueError("Corrupt compact checkpoint")
+            if absent:
+                if absent == wanted:
+                    missing.setdefault((west, south, 2), []).append((day, absent))
+                else:
+                    for x, y in absent:
+                        missing.setdefault((x, y, 1), []).append((day, [(x, y)]))
+    acquired, created = 0, 0
+    for (west, south, size), entries in sorted(missing.items()):
+        # Identical footprint plus contiguous dates; bounded by seven days and month.
+        chunks: list[list[tuple[date, list[tuple[int, int]]]]] = []
+        for entry in entries:
+            if (
+                not chunks
+                or len(chunks[-1]) == 7
+                or entry[0] != chunks[-1][-1][0] + timedelta(days=1)
+                or entry[0].month != chunks[-1][-1][0].month
+                or entry[1] != chunks[-1][-1][1]
+            ):
+                chunks.append([])
+            chunks[-1].append(entry)
+        for chunk in chunks:
+            if acquired >= maximum_groups:
+                return False, acquired, created
+            if sum(p.stat().st_size for p in root.rglob("*") if p.is_file()) > 448 * 1024**2:
+                raise ValueError("Workspace quota exceeded")
+            refs = provider.acquire(
+                (west, south, west + size, south + size), chunk[0][0], chunk[-1][0]
+            )
+            acquired += 1
+            created += write_native_tiles(
+                refs, root, provider.dataset, chunk[0][1], [(day, day) for day, _ in chunk]
+            )
+    return True, acquired, created
+
+
 def dates(start: date, end: date) -> list[date]:
     if not 0 <= (end - start).days < 30:
         raise ValueError("Explicit window must contain 1–30 UTC days")
@@ -137,11 +210,15 @@ def execute(
     started = monotonic()
     downloads = 0
     report: dict[str, Any] = {"status": "processing", "days": [], "batches": []}
-    for day in days:
-        existing = persisted(read(day), expected, day)
-        for territory in sorted(territories, key=lambda t: t.id):
-            if territory.id in existing:
-                continue
+    existing_by_day = {day: persisted(read(day), expected, day) for day in days}
+    for territory in sorted(territories, key=lambda t: t.id):
+        pending = [d for d in days if territory.id not in existing_by_day[d]]
+        chunks: list[list[date]] = []
+        for day in pending:
+            if not chunks or day != chunks[-1][-1] + timedelta(days=1):
+                chunks.append([])
+            chunks[-1].append(day)
+        for chunk in chunks:
             if monotonic() - started >= seconds:
                 report["stop_reason"] = "duration_budget"
                 return report
@@ -149,8 +226,8 @@ def execute(
                 provider,
                 territory,
                 weights,
-                day,
-                day,
+                chunk[0],
+                chunk[-1],
                 root,
                 max_downloads=min(4, max_downloads - downloads),
                 persist=persist,
@@ -158,9 +235,9 @@ def execute(
             )
             downloads += result.get("downloaded_tiles", 0)
             report["batches"].append(result)
-            # Compact checkpoint vs missing destination must never imply publication.
             if result["status"] == "replayed":
                 raise ValueError("Local completed checkpoint disagrees with DEV; investigate")
+    for day in days:
         rows = read(day)
         published = persisted(rows, expected, day)
         report["days"].append(

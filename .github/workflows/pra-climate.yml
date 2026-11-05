@@ -145,7 +145,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          args=(--max-downloads "$MAX_DOWNLOADS")
+          args=(--max-downloads "$MAX_DOWNLOADS" --max-days 7)
           if [[ -n "$DATE_FROM" || -n "$DATE_TO" ]]; then args+=(--from "$DATE_FROM" --to "$DATE_TO"); fi
           if [[ "$EXECUTE" == true ]]; then args+=(--execute); fi
           if [[ "$PILOT" == true ]]; then args+=(--pilot); fi

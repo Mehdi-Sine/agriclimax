@@ -15,7 +15,7 @@ from agriclimax.territories.national_daily import (
     DEV_HOST,
     PILOT,
     REFERENCE,
-    acquire_groups,
+    acquire_windows,
     execute,
     persisted,
     window,
@@ -183,47 +183,41 @@ def main() -> int:
             retrieve=retrieve,
         )
         result: dict[str, Any] = {"status": "completed", "days": [], "batches": []}
-        result_days = []
-        result_batches = []
-        groups_remaining = args.max_downloads
-        total_tiles_created = 0
-        for day in days:
-            existing = persisted(read(day), selected, day)
-            needed_weights = [w for w in weights if w.pra_id not in existing]
-            ready, acquired, created = True, 0, 0
-            report["stage"] = "acquisition_and_native_validation"
-            if needed_weights:
-                ready, acquired, created = acquire_groups(
-                    provider, needed_weights, day, args.root, groups_remaining
-                )
-            groups_remaining -= acquired
-            report["source_groups_acquired"] = args.max_downloads - groups_remaining
-            total_tiles_created += created
-            report["compact_tiles_created"] = total_tiles_created
-            if not ready:
-                result["status"] = "processing"
-                result["stop_reason"] = "source_group_budget_resume_checkpoints"
-                break
+        needed_by_day = {
+            day: [
+                w
+                for w in weights
+                if w.pra_id not in persisted(read(day), selected, day)
+            ]
+            for day in days
+        }
+        report["stage"] = "acquisition_and_native_validation"
+        ready, acquired, created = acquire_windows(
+            provider, needed_by_day, args.root, args.max_downloads
+        )
+        report["source_groups_acquired"] = acquired
+        report["compact_tiles_created"] = created
+        if ready:
             report["stage"] = "aggregation_and_persistence"
-            stage = execute(
+            result = execute(
                 territories,
                 weights,
                 provider,
                 args.root,
-                [day],
+                days,
                 read,
                 persist,
                 max_downloads=1,
                 seconds=max(1, int(1320 - (monotonic() - started))),
                 timings=timings,
             )
-            result_days.extend(stage["days"])
-            result_batches.extend(stage["batches"])
-            if stage["status"] != "completed":
-                result["status"] = stage["status"]
-                break
-        result["days"] = result_days
-        result["batches"] = result_batches
+        else:
+            result = {
+                "status": "processing",
+                "days": [],
+                "batches": [],
+                "stop_reason": "source_group_budget_resume_checkpoints",
+            }
         report.update(result)
         if not args.pilot:
             published = [
