@@ -8,7 +8,7 @@ on:
       mode:
         description: Existing bounded batch or incremental national DEV adapter
         type: choice
-        options: [batch, daily-pilot, national-daily]
+        options: [batch, daily-pilot, national-daily, operational-pilot]
         default: batch
       daily_downloads:
         description: Maximum new source extents, 1 or 2 degrees (1 to 64); default four
@@ -160,5 +160,40 @@ jobs:
             work/pra-daily/tiles/
             work/pra-daily/state.json
             work/pra-daily/run.json
+          retention-days: 7
+          if-no-files-found: warn
+
+  operational-pilot:
+    # Manual twelve-PRA capture only; never enables a national forecast schedule.
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'operational-pilot'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r engine/requirements-dev.lock -r engine/requirements-climate.lock -r engine/requirements-geo.lock -r engine/requirements-operational.lock
+      - name: Capture one bounded real IFS cycle on twelve official PRA
+        timeout-minutes: 22
+        env:
+          PYTHONPATH: engine/src
+          RUN_DATE: ${{ inputs.from }}
+          EXECUTE: ${{ inputs.execute }}
+          OPENBLAS_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '1'
+        run: |
+          args=(--run-date "$RUN_DATE")
+          if [[ "$EXECUTE" == true ]]; then args+=(--execute); fi
+          timeout --signal=TERM --kill-after=10s 21m python scripts/operational_weather_pilot.py "${args[@]}"
+      - name: Preserve verified compact cycle and index receipts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: operational-pilot
+          path: |
+            work/operational-pilot/cycle.json
+            work/operational-pilot/*.index
+            work/operational-pilot/*.sha256
           retention-days: 7
           if-no-files-found: warn

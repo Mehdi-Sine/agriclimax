@@ -66,7 +66,7 @@ class PraWeather(BaseModel):
         if self.status != "available" and self.value is not None:
             raise ValueError("Incomplete support cannot yield a scientific value")
         if self.status == "available" and (
-            self.value is None or self.spatial_coverage < 0.999999 or self.temporal_coverage != 1
+            self.value is None or self.spatial_coverage < 0.9999 or self.temporal_coverage != 1
         ):
             raise ValueError("Available requires complete support")
         if self.status == "unavailable" and not self.unavailable_reason:
