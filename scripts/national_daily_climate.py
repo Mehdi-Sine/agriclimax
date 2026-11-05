@@ -33,7 +33,7 @@ def main() -> int:
     parser.add_argument("--root", type=Path, default=Path("work/pra-daily"))
     args = parser.parse_args()
     if not 1 <= args.max_downloads <= 64:
-        parser.error("One to 64 new tile downloads per run")
+        parser.error("One to 64 new source extents per run")
     directory = Path("config/coverage") / REFERENCE
     manifest = json.loads((directory / "manifest.json").read_text())
     reference = json.loads((directory / "reference.json").read_text())
@@ -62,7 +62,7 @@ def main() -> int:
         "source_acquired_at": None,
         "limits": {
             "cds_concurrency": 1,
-            "new_tiles": args.max_downloads,
+            "new_source_extents": args.max_downloads,
             "cds_requests": 128,
             "duration_seconds": 1320,
             "address_space_bytes": 4 * 1024**3,
