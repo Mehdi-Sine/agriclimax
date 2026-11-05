@@ -70,7 +70,8 @@ async function supabaseRpc(
 
 export function parseContextRow(raw: unknown): ClimateContextRow {
   if (!isRecord(raw)) throw new ApiError('INVALID_RESPONSE', 502);
-  const index = ['temperature_min', 'temperature_max', 'temperature', 'precipitation'].indexOf(String(raw.variable));
+  // Stored PRA coverage follows pipeline.VARIABLES, independently of normal-column order.
+  const index = ['temperature', 'temperature_min', 'temperature_max', 'precipitation'].indexOf(String(raw.variable));
   const coverage = raw.current_coverage;
   if (Array.isArray(coverage)) {
     if (index < 0 || coverage.length !== 4 || !coverage.every(v => v === null || typeof v === 'number' && Number.isFinite(v) && v >= 0 && v <= 1.0001)) throw new ApiError('INVALID_RESPONSE', 502);
