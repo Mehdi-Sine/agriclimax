@@ -4,7 +4,7 @@ import { ApiError } from './query';
 import { NATIONAL, type ClimateContextRow, type ClimateVariable } from '../../features/national/model';
 import { aggregate, INDICATORS } from '../../features/unified/model';
 import { nationalDays } from './national-availability';
-import { calendarDays } from '../../features/national/daily-availability';
+import { calendarDays, withinAvailable } from '../../features/national/daily-availability';
 
 // At most 60 map days retained, five minutes; no failed requests cached.
 const cache = new Map<string, { expires: number; promise: Promise<ClimateContextRow[]> }>();
@@ -27,7 +27,7 @@ export async function unifiedData(params: URLSearchParams, transport: typeof fet
   const threshold=Number(params.get('threshold')??definition?.parameter??25);
   const availableDays=await nationalDays(transport,[start,end]);
   const dates=calendarDays(start,end);
-  if([...params.keys()].some(k=>!allowed.includes(k)||params.getAll(k).length!==1)||!availableDays.includes(start)||!availableDays.includes(end)||!dates.length||dates.length>30||!definition||!Number.isFinite(threshold)||threshold< -30||threshold>60) throw new ApiError('INVALID_QUERY',400);
+  if([...params.keys()].some(k=>!allowed.includes(k)||params.getAll(k).length!==1)||!withinAvailable(start,availableDays)||!withinAvailable(end,availableDays)||!dates.length||dates.length>30||!definition||!Number.isFinite(threshold)||threshold< -30||threshold>60) throw new ApiError('INVALID_QUERY',400);
   if(process.env.PRA_NATIONAL_ENABLED!=='1')throw new ApiError('NOT_CONFIGURED',503);
   const grouped=new Map<string,ClimateContextRow[]>();
   // Four dates in flight (four paginated RPC requests concurrently); no annual series sent to client.

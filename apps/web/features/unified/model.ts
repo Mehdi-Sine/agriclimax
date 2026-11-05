@@ -1,6 +1,6 @@
 import type { Geometry } from 'geojson';
 import { DAYS, NATIONAL, type ClimateContextRow, type ClimateVariable } from '../national/model';
-import { calendarDays } from '../national/daily-availability';
+import { calendarDays, isCalendarDate, trailingStart, withinAvailable } from '../national/daily-availability';
 export type Space = 'climat' | 'productions' | 'analyse';
 export type ValueStatus = 'available' | 'partial' | 'unavailable' | 'not_applicable' | 'source_error';
 export interface TerritorySelection { type: 'pra' | 'department' | 'station'; id: string; name: string; geometry?: Geometry; attachments: string[] }
@@ -24,9 +24,11 @@ export const RULES: AgroclimaticRule[] = ['hot','rain','frost','gdd'].map(id=>({
 export type UnifiedState = { pra: string; date: string; start: string; period: boolean; indicator: string; mode: 'value' | 'normal' | 'anomaly'; threshold: number; production: string; variable: string };
 export function parseState(params: URLSearchParams, space: Space, availableDays: string[] = DAYS): { state: UnifiedState; errors: string[] } {
   const errors: string[]=[];
-  const date=params.get('date') ?? availableDays.at(-1)!, start=params.get('start') ?? availableDays[Math.max(0,availableDays.length-30)];
+  const date=params.get('date') ?? availableDays.at(-1)!;
+  const defaultStart=isCalendarDate(date)?[availableDays[0],trailingStart(date,30)].sort().at(-1)!:availableDays[0];
+  const start=params.get('start') ?? defaultStart;
   const length=calendarDays(start,date).length;
-  if(!availableDays.includes(date)||!availableDays.includes(start)||!length||length>30) errors.push('Dates hors des données disponibles ou période de plus de 30 jours.');
+  if(!withinAvailable(date,availableDays)||!withinAvailable(start,availableDays)||!length||length>30) errors.push('Dates hors des données disponibles ou période de plus de 30 jours.');
   const pra=params.get('pra') ?? '';
   if(pra&&!/^pra:[0-9AB]{4,8}$/.test(pra)) errors.push('Identifiant PRA invalide.');
   const indicator=params.get('indicateur') ?? (space==='analyse'?'hot':'temperature');

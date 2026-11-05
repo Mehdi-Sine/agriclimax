@@ -9,7 +9,7 @@ import {
 import { territoryData, type TerritoryRow } from './territories';
 import { ApiError } from './query';
 import { nationalAvailability, nationalDays } from './national-availability';
-import { calendarDays, trailingStart } from '../../features/national/daily-availability';
+import { calendarDays, isCalendarDate, trailingStart, withinAvailable } from '../../features/national/daily-availability';
 
 type JsonRecord = Record<string, unknown>;
 
@@ -225,7 +225,8 @@ export async function nationalData(
 
   const availableDays = await nationalDays(transport, [date || params.get('end') || NATIONAL.end]);
   const historyEnd = params.get('end') || NATIONAL.end;
-  const historyDays = calendarDays(trailingStart(historyEnd, 30), historyEnd);
+  const historyDays = isCalendarDate(historyEnd) ? calendarDays(
+    [NATIONAL.start,trailingStart(historyEnd, 30)].sort().at(-1)!, historyEnd) : [];
 
   const allowed =
     action === 'day'
@@ -242,9 +243,9 @@ export async function nationalData(
       (key) => !allowed.includes(key) || params.getAll(key).length !== 1,
     ) ||
     ((action === 'day' || action === 'context-day') &&
-      !availableDays.includes(date)) ||
+      !withinAvailable(date,availableDays)) ||
     ((action === 'history' || action === 'context-history') &&
-      (!availableDays.includes(historyEnd) || !historyDays.length)) ||
+      (!withinAvailable(historyEnd,availableDays) || !historyDays.length)) ||
     ((action === 'history' || action === 'context-history') &&
       !/^pra:[0-9AB]{4,8}$/.test(pra)) ||
     (action === 'context-day' &&
