@@ -1,8 +1,8 @@
 {
-  "commit": "7bc462f",
+  "commit": "4e3b16b",
   "local": {
     "python": {
-      "passed": 261,
+      "passed": 263,
       "command": "PYTHONPATH=engine/src python -m pytest engine/tests -q"
     },
     "typescript": {
@@ -12,7 +12,7 @@
     },
     "typecheck": "passed",
     "lint": "passed",
-    "build": "passed",
+    "build": "passed (six-region artifacts)",
     "frozen_lockfile_install": "passed (pnpm10; existing lockfile unchanged)",
     "scientific_geometry_tests": 7,
     "contracts": "passed",
@@ -21,7 +21,7 @@
     "forward_only_migration_guard": "passed",
     "bundle_budget": "passed",
     "server_import_index": "passed",
-    "acquisition_safety_tests": 7
+    "acquisition_safety_tests": 9
   },
   "browser_local": {
     "base": "http://127.0.0.1:3025",
@@ -168,10 +168,12 @@
         "11",
         "24",
         "27",
+        "75",
+        "84",
         "94"
       ],
-      "known_pra": 201,
-      "processed_parcels": 1360364,
+      "known_pra": 456,
+      "processed_parcels": 4256355,
       "national": false
     }
   },
@@ -191,5 +193,13 @@
   "coverage_independence": {
     "real_cases": 6,
     "proof": "coverage-independence.json"
+  },
+  "resume": {
+    "date": "2026-11-05",
+    "source_integrity": "resume-integrity.json",
+    "completed_regions_recalculated": false,
+    "artifact_audit": "artifact-audit.json",
+    "database_before": "database-resume-before.json",
+    "pending_final_browser_for_new_coverage": true
   }
 }
