@@ -62,6 +62,12 @@ class PraRepository:
                 for r in page
             ):
                 raise ValueError("Invalid PRA read identities")
+            for row in page:
+                if row.get("valid_counts") == [0, 0, 0, 0] and all(
+                    row.get(v) is None
+                    for v in ("temperature", "temperature_min", "temperature_max", "precipitation")
+                ):
+                    row["status"] = "unavailable"
             rows.extend(page)
             cursor = raw.get("next_cursor")
             if cursor is None:

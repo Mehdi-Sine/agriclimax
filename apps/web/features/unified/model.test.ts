@@ -28,3 +28,7 @@ it('reports invalid deep links instead of silently coercing dates, thresholds or
   for(const q of ['date=2026-11-03','start=2026-10-18&date=2026-09-19','seuil=NaN','indicateur=hot&mode=anomaly','pra=station:12','date=2026-10-15&date=2026-10-16','production=unknown','periode=year'])expect(parseState(new URLSearchParams(q),'climat').errors.length).toBeGreaterThan(0);
   expect(parseState(new URLSearchParams('pra=pra:01451&date=2026-10-15'),'climat')).toMatchObject({errors:[],state:{pra:'pra:01451',date:'2026-10-15',indicator:'temperature',mode:'value'}});
 });
+
+it('distinguishes partial native support with a NULL PRA value from completely unavailable support',()=>{
+ expect(aggregate([{...row(null),current_status:'partial',current_coverage:0.8}],INDICATORS[0],1,25)).toMatchObject({value:null,status:'partial',normal:null,anomaly:null,coverage:0.8});
+});

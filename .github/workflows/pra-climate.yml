@@ -120,8 +120,6 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p work/pra-daily
-          # One measured local pilot tile; never overwrite a restored checkpoint.
-          cp -rn docs/codex/task26/pilot-checkpoints/tiles work/pra-daily/
           if [[ -n "$CHECKPOINT_RUN_ID" ]]; then
             [[ "$CHECKPOINT_RUN_ID" =~ ^[0-9]+$ ]]
             gh run download "$CHECKPOINT_RUN_ID" --name pra-daily-checkpoints --dir work/pra-daily
@@ -132,6 +130,8 @@ jobs:
               if gh run download "$previous" --name pra-daily-checkpoints --dir work/pra-daily 2>/dev/null; then break; fi
             done < work/prior-runs.txt
           fi
+          # One measured local pilot tile; never overwrite a restored checkpoint.
+          cp -rn docs/codex/task26/pilot-checkpoints/tiles work/pra-daily/
       - name: Incremental DEV only; offline dry-run unless execute is checked
         timeout-minutes: 24
         env:
