@@ -40,11 +40,11 @@ def main() -> None:
     cross = evidence.get('cross_region_audit')
     if cross is not None:
         version = cross['rule_version']
-        assert version in ('rpg-cross-region-1', 'rpg-cross-region-2')
-        encoded = json.dumps(checkpoints, sort_keys=True, separators=(',', ':')) if version == 'rpg-cross-region-2' else json.dumps([(cp['region'], cp['archive_sha256']) for cp in checkpoints])
+        assert version in ('rpg-cross-region-1', 'rpg-cross-region-2', 'rpg-cross-region-3')
+        encoded = json.dumps(checkpoints, sort_keys=True, separators=(',', ':')) if version in ('rpg-cross-region-2', 'rpg-cross-region-3') else json.dumps([(cp['region'], cp['archive_sha256']) for cp in checkpoints])
         assert cross['source_provenance_sha256'] == hashlib.sha256(encoded.encode()).hexdigest()
         if args.require_national:
-            assert version == 'rpg-cross-region-2' and cross.get('regional_crop_controls')
+            assert version == 'rpg-cross-region-3' and cross.get('identity_ownership_verified') is True and cross.get('regional_crop_controls')
         assert abs(cross['conservation_residual_ha']) <= .001
         for code, group, area in cross['corrections']:
             expected[(code, group)] -= area

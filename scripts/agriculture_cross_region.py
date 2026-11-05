@@ -14,6 +14,7 @@ from collections import defaultdict
 from contextlib import contextmanager
 from pathlib import Path
 
+from agriclimax.agriculture.identity import ownership_digests
 from agriclimax.agriculture.spatial import PraAllocator, gpkg_geometry
 from agriclimax.ingestion.storage import atomic_write
 from shapely.ops import unary_union
@@ -49,6 +50,10 @@ def source(region: str):
 def main() -> None:
     checkpoints = [json.loads(p.read_text()) for p in sorted(CACHE.glob('R*-complete.json'))]
     regions = [cp['region'] for cp in checkpoints]
+    with sqlite3.connect(f'file:{CACHE}/parcel-identities.sqlite?mode=ro', uri=True) as identities:
+        ownership = ownership_digests(identities, {cp['region']: cp['parcel_id_digest'] for cp in checkpoints})
+    if not all(value['matches_checkpoint'] for value in ownership.values()):
+        raise ValueError('Identity ownership differs from regional checkpoints; restore identities in acquisition order before auditing')
     reference_sha = hashlib.sha256(REFERENCE.read_bytes()).hexdigest()
     if any(cp['reference_sha256'] != reference_sha or cp['rule_version'] != 'rpg-area-1' for cp in checkpoints):
         raise ValueError('Checkpoint reference/method mismatch')
@@ -58,7 +63,7 @@ def main() -> None:
     index.execute('create virtual table if not exists bounds using rtree(id,minx,maxx,miny,maxy,+region,+fid)')
     for cp in checkpoints:
         region = cp['region']
-        bounds_key = hashlib.sha256((cp['archive_sha256'] + cp['parcel_id_digest']).encode()).hexdigest()
+        bounds_key = hashlib.sha256(('ownership-verified-1' + cp['archive_sha256'] + cp['parcel_id_digest']).encode()).hexdigest()
         if index.execute('select sha from complete where region=?', (region,)).fetchone() == (bounds_key,):
             continue
         index.execute('delete from bounds where region=?', (region,))
@@ -139,7 +144,8 @@ def main() -> None:
                                       'outside_pra_after_exclusion_ha': outside_after,
                                       'published_ha': published, 'conservation_residual_ha': residual,
                                       'declared_area_check': metrics['declared_area_check']})
-    result = {'rule_version': 'rpg-cross-region-2', 'regions': regions, 'source_provenance_sha256': provenance,
+    result = {'rule_version': 'rpg-cross-region-3', 'regions': regions, 'source_provenance_sha256': provenance,
+              'identity_ownership_verified': True, 'ownership_checks': ownership,
               'ownership': 'Ascending region code, then source FID; exact duplicate IDs already owned by identity index',
               'bbox_candidate_pairs': len(pairs), 'parcels_with_positive_overlap': intersecting,
               'excluded_overlap_ha': excluded_total, 'excluded_outside_pra_ha': outside_total,

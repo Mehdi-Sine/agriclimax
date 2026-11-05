@@ -39,7 +39,7 @@ def main(regions: list[str] | None = None) -> None:
     cross_path = cache / 'cross-region-complete.json'
     cross = json.loads(cross_path.read_text()) if cross_path.exists() else None
     expected_provenance = hashlib.sha256(json.dumps(checkpoints, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
-    cross_checked = cross is not None and cross.get('rule_version') == 'rpg-cross-region-2' and cross.get('source_provenance_sha256') == expected_provenance
+    cross_checked = cross is not None and cross.get('rule_version') == 'rpg-cross-region-3' and cross.get('identity_ownership_verified') is True and cross.get('source_provenance_sha256') == expected_provenance
     if not cross_checked:
         raise ValueError('A matching interregional audit is required before publication; completed regions changed or audit missing')
     if cross_checked:

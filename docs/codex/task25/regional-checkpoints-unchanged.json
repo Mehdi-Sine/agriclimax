@@ -1,0 +1,70 @@
+{
+  "before_identity_restoration_commit": "a845f5dc2cce0d72d7a2ec17fb5e0e57c464c61d",
+  "checks": [
+    {
+      "region": "11",
+      "checkpoint_sha256": "9741687430f3c2b8bc2eba174e840dfcc81deb04162b270e2fd706801562408e",
+      "regional_area_checkpoint_unchanged": true
+    },
+    {
+      "region": "24",
+      "checkpoint_sha256": "7b0468ae7b921cc121bc316fd87b4fdb50110747e7cf78a9d1cf5cd526f723f5",
+      "regional_area_checkpoint_unchanged": true
+    },
+    {
+      "region": "27",
+      "checkpoint_sha256": "c230e46218288bea546815a40802b7065d399f8bc91671a2c83bd377f702ace6",
+      "regional_area_checkpoint_unchanged": true
+    },
+    {
+      "region": "28",
+      "checkpoint_sha256": "12a8bee5639dd52a903c35fac5503b57a8cd28198e56496baee5b60e38b99065",
+      "regional_area_checkpoint_unchanged": true
+    },
+    {
+      "region": "32",
+      "checkpoint_sha256": "9ad135e29c5acec9523f7965e77333b8633d9ccb0d01180cf7889564917d3d48",
+      "regional_area_checkpoint_unchanged": true
+    },
+    {
+      "region": "44",
+      "checkpoint_sha256": "80b032888c691f2a70b3dfccf02bfad9baefdee6fdb593d8206a0993966d9b2f",
+      "regional_area_checkpoint_unchanged": true
+    },
+    {
+      "region": "52",
+      "checkpoint_sha256": "3d93aef9d710f1902e322a04dbee882862171bc41f66d6f588b6808bdbb941b7",
+      "regional_area_checkpoint_unchanged": true
+    },
+    {
+      "region": "53",
+      "checkpoint_sha256": "812301c7134ff0aa563beaa3edc558d678fa5442ca418745f81b2c7456adab70",
+      "regional_area_checkpoint_unchanged": true
+    },
+    {
+      "region": "75",
+      "checkpoint_sha256": "f80905f9f7ce523ec0a5cade3913dde3d105e1932c13ecce79a47d7c8d29e02e",
+      "regional_area_checkpoint_unchanged": true
+    },
+    {
+      "region": "76",
+      "checkpoint_sha256": "5e1055d1370fb876b0d00f39a093aeeb2a488320492662e9ba14f2fb75671565",
+      "regional_area_checkpoint_unchanged": true
+    },
+    {
+      "region": "84",
+      "checkpoint_sha256": "7322369b8f39ff1b88989777d5cf3f8e6101500b6924fc37627482d55a7a6a37",
+      "regional_area_checkpoint_unchanged": true
+    },
+    {
+      "region": "93",
+      "checkpoint_sha256": "d8281c706ac1c0b356b57a3596a40ba5507c21840cf7a18cce196f755ced58db",
+      "regional_area_checkpoint_unchanged": true
+    },
+    {
+      "region": "94",
+      "checkpoint_sha256": "7cd1bd1a9b6bf604a4add06ae546eb4f94a2924087bd6c18991c6bb26a46051a",
+      "regional_area_checkpoint_unchanged": true
+    }
+  ]
+}

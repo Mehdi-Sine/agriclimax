@@ -1,0 +1,83 @@
+{
+  "all_ownership_digests_match": true,
+  "rows": [
+    {
+      "region": "11",
+      "owned_ids": 125212,
+      "expected_ids": 125212,
+      "ownership_matches_checkpoint": true
+    },
+    {
+      "region": "24",
+      "owned_ids": 567905,
+      "expected_ids": 567905,
+      "ownership_matches_checkpoint": true
+    },
+    {
+      "region": "27",
+      "owned_ids": 622919,
+      "expected_ids": 622919,
+      "ownership_matches_checkpoint": true
+    },
+    {
+      "region": "28",
+      "owned_ids": 528843,
+      "expected_ids": 528843,
+      "ownership_matches_checkpoint": true
+    },
+    {
+      "region": "32",
+      "owned_ids": 553332,
+      "expected_ids": 553332,
+      "ownership_matches_checkpoint": true
+    },
+    {
+      "region": "44",
+      "owned_ids": 848062,
+      "expected_ids": 848062,
+      "ownership_matches_checkpoint": true
+    },
+    {
+      "region": "52",
+      "owned_ids": 744916,
+      "expected_ids": 744916,
+      "ownership_matches_checkpoint": true
+    },
+    {
+      "region": "53",
+      "owned_ids": 840567,
+      "expected_ids": 840567,
+      "ownership_matches_checkpoint": true
+    },
+    {
+      "region": "75",
+      "owned_ids": 1564205,
+      "expected_ids": 1564205,
+      "ownership_matches_checkpoint": true
+    },
+    {
+      "region": "76",
+      "owned_ids": 1611764,
+      "expected_ids": 1611764,
+      "ownership_matches_checkpoint": true
+    },
+    {
+      "region": "84",
+      "owned_ids": 1329059,
+      "expected_ids": 1329059,
+      "ownership_matches_checkpoint": true
+    },
+    {
+      "region": "93",
+      "owned_ids": 326571,
+      "expected_ids": 326571,
+      "ownership_matches_checkpoint": true
+    },
+    {
+      "region": "94",
+      "owned_ids": 43119,
+      "expected_ids": 43119,
+      "ownership_matches_checkpoint": true
+    }
+  ]
+}

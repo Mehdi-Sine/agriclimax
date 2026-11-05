@@ -188,7 +188,7 @@ def process_region(region: str, cache: Path, allocator: PraAllocator, reference_
             raise ValueError("Checkpoint does not match reference/method")
         # Rebuild compact identity indexes from retained inputs when resuming an
         # earlier checkpoint, without redoing the costly scientific overlay.
-        identities = sqlite3.connect(cache / 'parcel-identities.sqlite')
+        identities = sqlite3.connect(cache / 'parcel-identities.sqlite', timeout=300)
         identities.execute('create table if not exists parcel_identity_v2 (id text primary key, fingerprint blob not null, region text not null)')
         if not identities.execute('select 1 from parcel_identity_v2 where region=? limit 1', (region,)).fetchone():
             source = next((cache / f'R{region}-extract').rglob('RPG_Parcelles.gpkg'), None)
@@ -248,7 +248,7 @@ def process_region(region: str, cache: Path, allocator: PraAllocator, reference_
     if metadata != [("RPG_Parcelles", "geom", 2154)]:
         raise ValueError(f"Unexpected RPG CRS/schema: {metadata}")
     rows = db.execute("select fid,id_parcel,code_cultu,code_group,surf_parc,geom from RPG_Parcelles order by fid")
-    identities = sqlite3.connect(cache / 'parcel-identities.sqlite')
+    identities = sqlite3.connect(cache / 'parcel-identities.sqlite', timeout=300)
     identities.execute('create table if not exists parcel_identity_v2 (id text primary key, fingerprint blob not null, region text not null)')
     aggregates = defaultdict(float)
     groups = defaultdict(lambda: defaultdict(float))
@@ -330,6 +330,13 @@ def main() -> int:
     if len(features) != 713:
         raise ValueError("Expected official 713-PRA snapshot")
     allocator = PraAllocator(features)
+    # Rehydrate prior identity cohorts in their original acquisition order, not
+    # numeric region order. Existing scientific overlays are never recalculated.
+    existing = sorted((json.loads(path.read_text()) for path in args.cache.glob('R*-complete.json')), key=lambda cp: cp['acquired_at'])
+    for cp in existing:
+        process_region(cp['region'], args.cache, allocator, digest(REFERENCE), args.workers)
+        if args.compact_cache:
+            compact(args.cache, cp['region'], evict=True)
     for region in args.regions:
         process_region(region, args.cache, allocator, digest(REFERENCE), args.workers)
         if args.compact_cache:

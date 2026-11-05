@@ -14,7 +14,7 @@ def test_stale_interregional_audit_cannot_overwrite_last_audited_artifacts(tmp_p
     checkpoint = repository / 'docs/codex/task25/checkpoints/R11-complete.json'
     (cache / 'R11-complete.json').write_bytes(checkpoint.read_bytes())
     (cache / 'rpg-codes.json').write_text(json.dumps({'features': []}))
-    (cache / 'cross-region-complete.json').write_text(json.dumps({'rule_version': 'rpg-cross-region-2', 'source_provenance_sha256': 'previous-regional-set'}))
+    (cache / 'cross-region-complete.json').write_text(json.dumps({'rule_version': 'rpg-cross-region-3', 'identity_ownership_verified': True, 'source_provenance_sha256': 'previous-regional-set'}))
     reference = tmp_path / 'config/coverage/ofb-masa-pra-2017-snapshot-20261017/reference.json'
     reference.parent.mkdir(parents=True)
     reference.write_text(json.dumps({'features': []}))
