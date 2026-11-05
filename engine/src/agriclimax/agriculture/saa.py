@@ -106,7 +106,7 @@ def read_release(content: bytes) -> Iterator[dict[str, Any]]:
                                 "variable_label": "Production fourragère" if sheet_name == "FOU" and variable == "PROD" else VARIABLES[variable][0], "unit": unit,
                                 "scale": effective_scale, "code": code, "name": name,
                                 "values": list(values), "statuses": list(statuses),
-                                "quality_code": str(cells["STATUT_QUALITE"]),
+                                "quality_code": None if cells["STATUT_QUALITE"] is None else str(cells["STATUT_QUALITE"]),
                                 "source_anomalies": {str(y): cells[c] for y, c in zip(YEARS, columns) if isinstance(cells.get(c), (float, int)) and cells[c] < 0},
                                 "unit_note": str(preamble[1][0]), "workbook": member,
                             }

@@ -7,7 +7,7 @@ export interface AgriculturalIndicator {
 }
 export interface AgriculturalSeries {
   code: string; name: string; values: (number | null)[]; statuses: AgriculturalStatus[];
-  quality_code: string; source_anomalies: Record<string, number>;
+  quality_code: string | null; source_anomalies: Record<string, number>;
 }
 export interface AgriculturalManifest {
   schema_version: string; rule_version: string; source_id: string; provider: string;

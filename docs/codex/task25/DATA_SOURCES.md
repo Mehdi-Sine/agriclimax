@@ -13,7 +13,7 @@ Base : `78e2881ba072b0a468e782018689fff70c13c5dc` (PR53). Aucun jeu de démonstr
 - Fourrages/prairies : le libellé « production fourragère » respecte la distinction source entre récolte des fourrages et production disponible des prairies ; détail conservé dans la note de définition.
 - Unités conservées : surfaces ha ; récoltes végétales q ; rendements q/ha ; cheptels EFA têtes, EFV milliers de têtes ; lait hl. Pas de conversion implicite q → tonnes.
 - Les lignes France sont des contrôles, jamais des polygones régionaux. Les codes départementaux SSP sont normalisés sans perdre 2A/2B ; les codes régionaux DROM 971/972/973/974/976 sont rattachés aux codes région 01/02/03/04/06. Les cartes restent dans l'emprise produit métropole + Corse, les séries sources conservent les DROM.
-- Les cellules vides restent NULL (`unavailable`), les conventions explicites de secret restent `suppressed`. Le statut qualité SSP est conservé brut. La cellule négative de FOU est conservée dans `source_anomalies`, restituée NULL et explique un écart de contrôle de 2 ha en 2010.
+- Les cellules vides restent NULL (`unavailable`), les conventions explicites de secret restent `suppressed`. Le statut qualité SSP est conservé ; une cellule de qualité non renseignée reste NULL, jamais le texte « None ». La cellule négative de FOU est conservée dans `source_anomalies`, restituée NULL et explique un écart de contrôle de 2 ha en 2010.
 
 ## IGN / ASP — RPG2025, niveau 1
 

@@ -1,7 +1,7 @@
 """A truncated or misrouted HTTP range must never enter the official archive cache."""
 import runpy
-from threading import Event
 from pathlib import Path
+from threading import Event
 
 import pytest
 
