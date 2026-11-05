@@ -14,6 +14,8 @@ Preuves dans `operational-evidence/source-access.json` et `additional-access.jso
 
 Le secret observations présent ne prouve pas un abonnement modèles. Le contrôle WCS AROME0,025° conforme renvoie aussi401. Aucun abonnement/jeton inventé ; pas de substitution d'une observation par H+0. Les anciennes données stationnelles restent intactes, mais ne prouvent pas un accès actuel.
 
+Confirmation depuis GitHub Actions : run42089606819, six endpoints, six401 (DPObs/v1,v2,PackageObs,v2,AROME,ARPEGE,DPClim/v1),4,29s de requêtes,0octet source. Preuve `operational-evidence/github-source-access.json`. Ce blocage d’authentification est également présent sur le runner ; aucune poursuite de téléchargement Météo-France ne peut le résoudre sans droits valides.
+
 ## Documentation et limites de vérification
 
 [Météo-France modèles](https://confluence-meteofrance.atlassian.net/wiki/spaces/OpenDataMeteoFrance/pages/621019138/) annonce analyses/prévisions AROME0,01/0,025°, ARPEGE Europe0,1°/monde0,25°, fréquence6h et échéances ARPEGE jusqu'à102h. Ces capacités ne sont pas des acquisitions réussies. Couverture exacte, heures de publication et rétention de chaque couverture WCS restent non vérifiées faute d'accès.
