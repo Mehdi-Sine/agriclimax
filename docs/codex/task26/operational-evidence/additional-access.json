@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://public-api.meteofrance.fr/public/DPObs/v1/liste-stations",
+    "status": 401,
+    "bytes": 0
+  },
+  {
+    "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCapabilities?service=WCS&version=2.0.1&request=GetCapabilities",
+    "status": 401,
+    "bytes": 0
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "product": "AROME",
+    "url": "https://public-api.meteofrance.fr/public/arome/1.0/wms/MF-NWP-HIGHRES-AROME-001-FRANCE-WMS/GetCapabilities?service=WCS&version=2.0.1&request=GetCapabilities",
+    "status": 401,
+    "bytes": 0,
+    "seconds": 8.512030112997309
+  },
+  {
+    "product": "ARPEGE",
+    "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wms/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WMS/GetCapabilities?service=WCS&version=2.0.1&request=GetCapabilities",
+    "status": 401,
+    "bytes": 0,
+    "seconds": 3.351400305997231
+  },
+  {
+    "product": "DonneesPubliquesObservation",
+    "url": "https://public-api.meteofrance.fr/public/DPObs/v2/liste-stations",
+    "status": 401,
+    "bytes": 0,
+    "seconds": 1.3940633550009807
+  },
+  {
+    "product": "DonneesPubliquesPaquetObservation",
+    "url": "https://public-api.meteofrance.fr/public/DPPaquetObs/v2/liste-stations",
+    "status": 401,
+    "bytes": 0,
+    "seconds": 0.9073458040002151
+  }
+]
