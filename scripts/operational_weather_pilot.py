@@ -10,6 +10,14 @@ from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from typing import Literal
 
+VARIABLES: tuple["Variable", ...] = (
+    "temperature",
+    "temperature_min",
+    "temperature_max",
+    "precipitation",
+    "humidity",
+)
+
 Variable = Literal[
     "temperature", "temperature_min", "temperature_max", "precipitation", "humidity"
 ]
@@ -98,7 +106,7 @@ def main() -> None:
         transferred += len(raw)
         if len(raw) > limit:
             raise ValueError("Source byte budget exceeded")
-        return raw
+        return bytes(raw)
 
     for step in steps:
         index_path = args.root / f"{step}.index"
@@ -155,7 +163,11 @@ def main() -> None:
             }
             receipts.append(receipt)
             fields[step, param] = read_grib(
-                str(path), step, {"2t": "2t", "2d": "2d", "tp": "tp"}[param], cells
+                str(path),
+                step,
+                {"2t": "2t", "2d": "2d", "tp": "tp"}[param],
+                cells,
+                int(args.run_date.strftime("%Y%m%d")),
             )
     run = datetime.combine(args.run_date, datetime.min.time(), UTC)
     acquired = datetime.now(UTC)
@@ -166,16 +178,7 @@ def main() -> None:
         selected = [s for s in steps if start <= s <= end]
         if selected[0] != start or selected[-1] != end:
             raise ValueError("Incomplete daily temporal support")
-        native: dict[Variable, dict[str, float | None]] = {
-            v: {}
-            for v in (
-                "temperature",
-                "temperature_min",
-                "temperature_max",
-                "precipitation",
-                "humidity",
-            )
-        }
+        native: dict[Variable, dict[str, float | None]] = {v: {} for v in VARIABLES}
         for cell in cells:
             ts = [fields[s, "2t"][cell] for s in selected]
             ds = [fields[s, "2d"][cell] for s in selected]

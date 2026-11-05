@@ -82,7 +82,7 @@ def humidity(temperature_k: float, dewpoint_k: float) -> float:
 
 
 def read_grib(
-    path: str, expected_step: int, expected_param: str, cells: set[str]
+    path: str, expected_step: int, expected_param: str, cells: set[str], run_date: int | None = None
 ) -> dict[str, float | None]:
     # ecCodes is dynamically typed; keep the optional decoder out of planning imports.
     import eccodes as ec  # type: ignore[import-untyped]
@@ -101,6 +101,18 @@ def read_grib(
                 or abs(float(ec.codes_get(handle, "jDirectionIncrementInDegrees")) - 0.25) > 1e-8
             ):
                 raise ValueError("Unexpected IFS grid/parameter/step")
+            if run_date is not None and (
+                int(ec.codes_get(handle, "dataDate")) != run_date
+                or int(ec.codes_get(handle, "dataTime")) != 0
+            ):
+                raise ValueError("GRIB run does not match its index")
+            if ec.codes_get(handle, "units") != ("m" if expected_param == "tp" else "K"):
+                raise ValueError("Unexpected GRIB units")
+            if expected_param == "tp" and (
+                ec.codes_get(handle, "stepType") != "accum"
+                or int(ec.codes_get(handle, "startStep")) != 0
+            ):
+                raise ValueError("Expected rain accumulation since model run")
             lats, lons, values = (
                 ec.codes_get_array(handle, k) for k in ["latitudes", "longitudes", "values"]
             )

@@ -197,3 +197,11 @@ jobs:
             work/operational-pilot/*.sha256
           retention-days: 7
           if-no-files-found: warn
+      - name: Preserve selected byte ranges after interruption for explicit recovery
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: operational-pilot-recovery
+          path: work/operational-pilot/
+          retention-days: 3
+          if-no-files-found: warn

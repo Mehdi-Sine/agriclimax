@@ -8,6 +8,7 @@ import { trailingStart, type NationalAvailability } from '../national/daily-avai
 import { AGRICULTURE, INDICATORS, RULES, parseState, type Space, type TerritorialValue } from './model';
 import './unified.css';
 import { useAgriculturalExplorer } from '../agriculture/explorer';
+import { OperationalWorkspace } from '../operational/workspace';
 import { WheatContext } from '../agriculture/wheat-context';
 
 function valueLabel(value: number | null | undefined): string { return value == null ? 'Indisponible' : new Intl.NumberFormat('fr-FR', {maximumFractionDigits:2}).format(value); }
@@ -32,6 +33,10 @@ const TITLES={climat:'Climat des territoires agricoles',productions:'Les product
 const DESCRIPTIONS={climat:'Explorer les valeurs ERA5-Land, leurs normales et leurs écarts à l’échelle des PRA.',productions:'Surfaces, rendements et volumes : une lecture agricole à la maille de la source.',analyse:'Des indicateurs climatiques descriptifs pour le blé tendre, sans score d’impact implicite.'};
 const STATUS={available:'Disponible',partial:'Partiel',unavailable:'Indisponible',not_applicable:'Non applicable',source_error:'Erreur source'};
 export function UnifiedWorkspace() {
+  const search=useSearchParams(),path=usePathname();
+  return path==='/'&&search.get('experimental')==='weather'?<OperationalWorkspace/>:<HistoricalWorkspace/>;
+}
+function HistoricalWorkspace() {
   const pathname=usePathname(),search=useSearchParams();
   const space:Space=pathname==='/productions'?'productions':pathname==='/analyse'?'analyse':'climat';
   const availability=useResource<NationalAvailability>('/api/national?action=availability');

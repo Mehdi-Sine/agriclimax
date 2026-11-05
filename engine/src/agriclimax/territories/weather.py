@@ -54,6 +54,20 @@ class PraWeather(BaseModel):
         )
         if self.unit != expected:
             raise ValueError("Variable/unit mismatch")
+        if self.source_id == "ecmwf-open-data" and self.nature != "forecast":
+            raise ValueError("IFS open-data forecast cannot be relabelled as observation/analysis")
+        if self.source_id == "era5-land" and self.nature != "reanalysis":
+            raise ValueError("ERA5-Land must remain a reanalysis")
+        if self.value is not None:
+            lower, upper = (
+                (0, 3000)
+                if self.variable == "precipitation"
+                else (0, 100)
+                if self.variable == "humidity"
+                else (-100, 70)
+            )
+            if not lower <= self.value <= upper:
+                raise ValueError("Weather value outside physical contract bounds")
         if self.nature == "forecast":
             if self.model_run_at is None or self.lead_hours is None:
                 raise ValueError("Forecast run and lead required")
