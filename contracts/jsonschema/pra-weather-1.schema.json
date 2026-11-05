@@ -1,4 +1,39 @@
 {
+  "$defs": {
+    "WeatherProvenance": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "checksum": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Checksum",
+          "type": "string"
+        },
+        "grid_version": {
+          "minLength": 1,
+          "title": "Grid Version",
+          "type": "string"
+        },
+        "reference_version": {
+          "minLength": 1,
+          "title": "Reference Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "checksum",
+        "grid_version",
+        "reference_version"
+      ],
+      "title": "WeatherProvenance",
+      "type": "object"
+    }
+  },
   "additionalProperties": false,
   "properties": {
     "contract_version": {
@@ -119,6 +154,18 @@
       "title": "Rule Version",
       "type": "string"
     },
+    "data_freshness": {
+      "enum": [
+        "fresh",
+        "stale",
+        "unknown"
+      ],
+      "title": "Data Freshness",
+      "type": "string"
+    },
+    "provenance": {
+      "$ref": "#/$defs/WeatherProvenance"
+    },
     "grid_version": {
       "minLength": 1,
       "title": "Grid Version",
@@ -214,6 +261,8 @@
     "model_run_at",
     "lead_hours",
     "rule_version",
+    "data_freshness",
+    "provenance",
     "grid_version",
     "weights_sha256",
     "spatial_coverage",

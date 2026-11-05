@@ -6,6 +6,14 @@ from typing import Literal, Self
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
+class WeatherProvenance(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    source_id: str = Field(min_length=1)
+    checksum: str = Field(pattern=r"^[a-f0-9]{64}$")
+    grid_version: str = Field(min_length=1)
+    reference_version: str = Field(min_length=1)
+
+
 class PraWeather(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
     contract_version: Literal["pra-weather-1"] = "pra-weather-1"
@@ -25,6 +33,8 @@ class PraWeather(BaseModel):
     model_run_at: datetime | None
     lead_hours: int | None = Field(ge=0, le=360)
     rule_version: str = Field(min_length=1)
+    data_freshness: Literal["fresh", "stale", "unknown"]
+    provenance: WeatherProvenance
     grid_version: str = Field(min_length=1)
     weights_sha256: str = Field(pattern=r"^[a-f0-9]{64}$")
     spatial_coverage: float = Field(ge=0, le=1, allow_inf_nan=False)
@@ -45,6 +55,12 @@ class PraWeather(BaseModel):
             raise ValueError("UTC timestamps required")
         if self.valid_from.date() != self.valid_date or self.valid_to <= self.valid_from:
             raise ValueError("Invalid validity interval")
+        if (
+            self.provenance.source_id != self.source_id
+            or self.provenance.checksum != self.provenance_sha256
+            or self.provenance.grid_version != self.grid_version
+        ):
+            raise ValueError("Provenance pointer does not match the weather result")
         expected = (
             "mm"
             if self.variable == "precipitation"

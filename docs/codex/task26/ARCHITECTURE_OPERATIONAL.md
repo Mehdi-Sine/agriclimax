@@ -20,3 +20,5 @@ Architecture : fournisseur → champs natifs validés/unités/temps → réducti
 ## Doublons et migrations
 
 Éviter un deuxième moteur de calcul ou une deuxième édition ERA5. L'acquisition multi-jours utilise le splitteur Task19D, la reprise Task26 et les lots existants. À ce jalon A aucune migration indispensable au contrat (adaptateur/addition, historiques immuables). Les besoins de conservation et publication atomique du pilote seront décidés après mesures, pas une nouvelle table par fournisseur.
+
+Le contrat final transporte aussi les champs communs requis par AGENTS : `rule_version`, `data_freshness`, `provenance`, `quality_flags`. La provenance structurée porte source/empreinte/grille/référentiel et doit correspondre aux pointeurs de la ligne. La fraîcheur de publication est `unknown` tant que sa cadence n'est pas vérifiée ; les dates d'acquisition/run restent connues et l'interface calcule séparément l'âge du cycle. Aucune fraîcheur fournisseur n'est inventée depuis l'heure du retraitement.

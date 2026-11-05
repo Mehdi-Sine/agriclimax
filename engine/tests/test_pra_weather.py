@@ -22,6 +22,13 @@ def row():
         "model_run_at": datetime(2026, 11, 5, tzinfo=UTC),
         "lead_hours": 48,
         "rule_version": "pra-weather-1",
+        "data_freshness": "unknown",
+        "provenance": {
+            "source_id": "ecmwf",
+            "checksum": "b" * 64,
+            "grid_version": "ifs-0p25",
+            "reference_version": "synthetic",
+        },
         "grid_version": "ifs-0p25",
         "weights_sha256": "a" * 64,
         "spatial_coverage": 1,

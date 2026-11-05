@@ -3,7 +3,7 @@ export type WeatherRow = {
   contract_version: 'pra-weather-1'; pra_id:string;variable:WeatherVariable;unit:'degC'|'mm'|'%';value:number|null;
   status:'available'|'partial'|'unavailable';valid_date:string;valid_from:string;valid_to:string;
   source_id:string;model:string;nature:'observation'|'analysis'|'reanalysis'|'forecast';model_run_at:string|null;
-  lead_hours:number|null;rule_version:string;grid_version:string;weights_sha256:string;spatial_coverage:number;
+  lead_hours:number|null;rule_version:string;data_freshness:'fresh'|'stale'|'unknown';provenance:{source_id:string;checksum:string;grid_version:string;reference_version:string};grid_version:string;weights_sha256:string;spatial_coverage:number;
   temporal_coverage:number;quality_flags:string[];provenance_sha256:string;acquired_at:string;published_at:string|null;
   unavailable_reason:string|null;delayed:boolean|null;scientific_status:'exploratory';
 };

@@ -39,7 +39,7 @@ from agriclimax.territories.operational import (
 )
 from agriclimax.territories.pipeline import digest
 from agriclimax.territories.spatial import load_reference
-from agriclimax.territories.weather import PraWeather
+from agriclimax.territories.weather import PraWeather, WeatherProvenance
 
 
 def main() -> None:
@@ -427,6 +427,13 @@ def main() -> None:
                         model_run_at=run,
                         lead_hours=end,
                         rule_version=CALCULATION_VERSION,
+                        data_freshness="unknown",  # Provider publication/cadence not asserted.
+                        provenance=WeatherProvenance(
+                            source_id="ecmwf-open-data",
+                            checksum=provenance,
+                            grid_version=GRID,
+                            reference_version=REFERENCE,
+                        ),
                         grid_version=GRID,
                         weights_sha256=weight_fingerprint(ws),
                         spatial_coverage=min(1, result.valid_weighted_coverage),
