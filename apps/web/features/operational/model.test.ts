@@ -1,4 +1,5 @@
 import {describe,it,expect} from 'vitest';
+import actualCycle from '../../data/operational/cycle.json';
 import {completeForecastCycle,cumulativeRain,weatherSelection,type WeatherRow,type WeatherCycle} from './model';
 // Synthetic contract checks only; never served by the product.
 function cycle():WeatherCycle {
@@ -10,6 +11,7 @@ function cycle():WeatherCycle {
   return {run,acquired_at:run,pra_count:12,rows,recent_estimate_status:'unavailable',attribution:'Synthetic test only'};
 }
 describe('operational source separation and atomic cycles',()=>{
+  it('accepts the retained real cycle with equivalent Z and +00:00 run timestamps',()=>{expect(completeForecastCycle(actualCycle as WeatherCycle)).toBe(true);});
   it('rejects relabelled forecasts, missing rows, duplicates and wrong leads',()=>{
     expect(completeForecastCycle(cycle())).toBe(true);
     for(const change of [{nature:'observation' as const},{lead_hours:24},{model_run_at:'2026-11-04T00:00:00Z'}]){

@@ -30,7 +30,7 @@ export function completeForecastCycle(cycle:WeatherCycle):boolean {
   const run=Date.parse(cycle.run);
   return Number.isFinite(run)&&ids.size===12&&keys.size===cycle.rows.length&&cycle.rows.every(r=>{
     const from=Date.parse(r.valid_from),to=Date.parse(r.valid_to),lead=(to-run)/3600000;
-    return r.nature==='forecast'&&r.source_id==='ecmwf-open-data'&&r.model_run_at===cycle.run
+    return r.nature==='forecast'&&r.source_id==='ecmwf-open-data'&&r.model_run_at!==null&&Date.parse(r.model_run_at)===run
       &&r.valid_from.slice(0,10)===r.valid_date&&to-from===86400000&&lead===r.lead_hours
       &&[48,72,96,120,144,168,192].includes(lead)&&new Date(from).getUTCHours()===0
       &&(r.status==='available'?r.value!==null&&r.spatial_coverage>=0.9999&&r.temporal_coverage===1:r.value===null);

@@ -18,7 +18,7 @@ try{
  const cycle=await response.json();assert.equal(cycle.rows.length,420);assert.equal(cycle.pra_count,12);
  const dates=[...new Set(cycle.rows.map(r=>r.valid_date))].sort();assert.equal(dates.length,7);
  assert.equal(new Set(cycle.rows.map(r=>r.pra_id)).size,12);
- assert.ok(cycle.rows.every(r=>r.nature==='forecast'&&r.model_run_at===cycle.run));
+ assert.ok(cycle.rows.every(r=>r.nature==='forecast'&&Date.parse(r.model_run_at)===Date.parse(cycle.run)));
  report.run=cycle.run;report.dates=dates;report.pra=12;
  const fmt=v=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(v);
  for(const [name,width,height] of [['desktop',1440,1000],['tablet',768,1000],['mobile',390,844]]){
