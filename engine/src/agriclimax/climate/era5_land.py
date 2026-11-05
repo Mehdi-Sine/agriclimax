@@ -24,7 +24,10 @@ class Retrieve(Protocol):
     def __call__(self, request: dict[str, object], target: Path) -> None: ...
 
 
-def cds_retrieve(request: dict[str, object], target: Path) -> None:
+def cds_retrieve(
+    request: dict[str, object], target: Path, *, timeout_seconds: int = 1200,
+    max_file_bytes: int | None = None,
+) -> None:
     """SDK in a bounded subprocess; stdout/stderr cannot leak credentials into manifests."""
     if not os.environ.get("CDSAPI_KEY"):
         raise ValueError("CDSAPI_KEY required; accept the reanalysis-era5-land licence in CDS")
@@ -32,6 +35,9 @@ def cds_retrieve(request: dict[str, object], target: Path) -> None:
     # origin receives the API key; SDK handles signed dataset download locations.
     program = """
 import cdsapi, json, os, sys
+if int(sys.argv[2]):
+ import resource
+ resource.setrlimit(resource.RLIMIT_FSIZE, (int(sys.argv[2]), int(sys.argv[2])))
 client = cdsapi.Client(url="https://cds.climate.copernicus.eu/api",
  key=os.environ["CDSAPI_KEY"], quiet=True, debug=False,
  timeout=60, retry_max=3, sleep_max=8)
@@ -39,11 +45,11 @@ client.retrieve("reanalysis-era5-land", json.load(sys.stdin), sys.argv[1])
 """
     try:
         subprocess.run(
-            [sys.executable, "-c", program, str(target)],
+            [sys.executable, "-c", program, str(target), str(max_file_bytes or 0)],
             input=json.dumps(request).encode(),
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
-            timeout=1200,
+            timeout=timeout_seconds,
             check=True,
         )
     except (subprocess.SubprocessError, OSError):

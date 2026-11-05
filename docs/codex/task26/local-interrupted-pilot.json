@@ -1,0 +1,34 @@
+{
+  "dry_run": false,
+  "reference": "ofb-masa-pra-2017-snapshot-20261017",
+  "dataset": "era5land-national-20260919-20261018-v1",
+  "pilot": true,
+  "anchor_verified": true,
+  "status": "stopped",
+  "timings_seconds": {
+    "acquisition": 81.40240410900014,
+    "persistence": 0.0,
+    "read_validation": 4.0080363600000055,
+    "total": 103.43327576299998,
+    "aggregation_cache_and_control": 18.022835293999833
+  },
+  "latest_national_date": "2026-10-18",
+  "source_acquired_at": null,
+  "limits": {
+    "cds_concurrency": 1,
+    "new_tiles": 4,
+    "cds_requests": 8,
+    "duration_seconds": 1320,
+    "address_space_bytes": 4294967296,
+    "source_file_bytes": 16777216,
+    "transfer_bytes": 134217728,
+    "workspace_bytes": 469762048
+  },
+  "requested_dates": [
+    "2026-10-19",
+    "2026-10-20"
+  ],
+  "stop_reason": "source_destination_validation_or_budget; resume_checkpoints",
+  "cds_requests": 2,
+  "transferred_bytes": 57171
+}

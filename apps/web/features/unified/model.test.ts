@@ -11,6 +11,13 @@ it('preserves partial sums and absence, never interprets missing days as zero',(
   expect(aggregate([row(12),row(null)],INDICATORS[3],2,25)).toMatchObject({value:12,normal:null,anomaly:null,status:'partial',observedDays:1,expectedDays:2,coverage:0.5});
   expect(aggregate([row(null)],INDICATORS[3],1,25)).toMatchObject({value:null,status:'unavailable'});
   expect(aggregate([{...row(12),current_coverage:0.5,current_status:'partial'}],INDICATORS[0],1,25).status).toBe('partial');
+  expect(aggregate([{...row(12),current_coverage:0.5,current_status:'partial'}],INDICATORS[0],1,25)).toMatchObject({normal:null,anomaly:null});
+});
+it('accepts a discovered recent date without losing archive deep links',()=>{
+  const days=['2026-09-19','2026-10-18','2026-10-29','2026-10-30'];
+  expect(parseState(new URLSearchParams('date=2026-10-30&start=2026-10-29'),'climat',days).errors).toEqual([]);
+  expect(parseState(new URLSearchParams('date=2026-10-18&start=2026-09-19'),'climat',days).errors).toEqual([]);
+  expect(parseState(new URLSearchParams('date=2026-10-30&start=2026-09-19'),'climat',days).errors.length).toBeGreaterThan(0);
 });
 it('uses strict thresholds and never constructs a derived normal from daily mean normals',()=>{
   expect(aggregate([row(25),row(26),row(null)],INDICATORS[4],3,25)).toMatchObject({value:1,normal:null,anomaly:null,status:'partial'});

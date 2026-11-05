@@ -29,6 +29,50 @@ class PraRepository:
         self.reference_version = reference_version
         self.dataset_version = dataset_version
 
+    def read_day(self, day: str) -> list[dict[str, Any]]:
+        """Existing paginated contract; missing rows have no batch_key."""
+        rows: list[dict[str, Any]] = []
+        after = ""
+        for _ in range(8):
+            request = Request(
+                self.url.replace("agriclimax_persist_pra", "agriclimax_pra_read"),
+                data=json.dumps(
+                    {
+                        "p_reference": self.reference_version,
+                        "p_dataset": self.dataset_version,
+                        "p_date": day,
+                        "p_scope": "france",
+                        "p_id": "",
+                        "p_after": after,
+                        "p_limit": 100,
+                    }
+                ).encode(),
+                headers={
+                    "apikey": os.environ["SUPABASE_SECRET_KEY"],
+                    "Content-Type": "application/json",
+                },
+            )
+            with build_opener(NoRedirect()).open(request, timeout=30) as response:
+                raw = json.loads(response.read(300_001))
+            page = raw.get("data")
+            if not isinstance(page, list) or len(page) > 100:
+                raise ValueError("Invalid PRA read receipt")
+            if any(
+                not isinstance(r, dict) or not isinstance(r.get("id"), str) or r["id"] <= after
+                for r in page
+            ):
+                raise ValueError("Invalid PRA read identities")
+            rows.extend(page)
+            cursor = raw.get("next_cursor")
+            if cursor is None:
+                if len({r["id"] for r in rows}) != len(rows):
+                    raise ValueError("Duplicate PRA read identities")
+                return rows
+            if not page or cursor != page[-1]["id"] or cursor <= after:
+                raise ValueError("Invalid PRA read cursor")
+            after = cursor
+        raise ValueError("PRA read exceeded eight pages")
+
     def persist(self, envelope: dict[str, Any]) -> None:
         content = json.dumps(
             {

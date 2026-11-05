@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import NationalMap, { type PraCollection } from '../national/map';
 import { DAYS, NATIONAL, type ClimateContextRow } from '../national/model';
+import { trailingStart, type NationalAvailability } from '../national/daily-availability';
 import { AGRICULTURE, INDICATORS, RULES, parseState, type Space, type TerritorialValue } from './model';
 import './unified.css';
 import { useAgriculturalExplorer } from '../agriculture/explorer';
@@ -33,7 +34,10 @@ const STATUS={available:'Disponible',partial:'Partiel',unavailable:'Indisponible
 export function UnifiedWorkspace() {
   const pathname=usePathname(),search=useSearchParams();
   const space:Space=pathname==='/productions'?'productions':pathname==='/analyse'?'analyse':'climat';
-  const {state,errors}=parseState(new URLSearchParams(search.toString()),space);
+  const availability=useResource<NationalAvailability>('/api/national?action=availability');
+  const availableDays=availability.data?.days??DAYS;
+  const latest=availability.data?.latest??NATIONAL.end;
+  const {state,errors}=parseState(new URLSearchParams(search.toString()),space,availableDays);
   const def=INDICATORS.find(i=>i.id===state.indicator)!;
   const agriculture = useAgriculturalExplorer(space === 'productions');
   const [query,setQuery]=useState(''),[filtersOpen,setFiltersOpen]=useState(false);
@@ -41,10 +45,10 @@ export function UnifiedWorkspace() {
   const collection=geometry.data?.type==='FeatureCollection'&&geometry.data.features.length===713?geometry.data:null;
   const feature=collection?.features.find(f=>f.id===state.pra);
   const selectionInvalid=!!state.pra&&!!collection&&!feature;
-  const invalid=errors.length>0||selectionInvalid;
+  const invalid=errors.length>0||selectionInvalid||!availability.data;
   const dataUrl=space==='productions'||invalid?null:`/api/unified?${new URLSearchParams({start:state.period?state.start:state.date,end:state.date,indicator:def.id,threshold:String(state.threshold)})}`;
   const source=useResource<{data:TerritorialValue[]}>(dataUrl);
-  const history=useResource<{data:ClimateContextRow[]}>(state.pra&&space!=='productions'&&!invalid?`/api/national?${new URLSearchParams({action:'context-history',pra:state.pra})}`:null);
+  const history=useResource<{data:ClimateContextRow[]}>(state.pra&&space!=='productions'&&!invalid?`/api/national?${new URLSearchParams({action:'context-history',pra:state.pra,end:state.date})}`:null);
   const values=source.data?.data??[];
   const current=values.find(v=>v.territoryId===state.pra);
   const matches=useMemo(()=>{
@@ -86,14 +90,14 @@ export function UnifiedWorkspace() {
       <section id="map-filters" className={`unified-filters ${filtersOpen?'filters-open':''}`} aria-label="Filtres de la carte">
         {space!=='climat'&&<label>Production<select value={state.production} onChange={e=>change({production:e.target.value})}>{AGRICULTURE.map(p=><option key={p.id} value={p.id}>{p.label}</option>)}</select></label>}
           <label>Lecture temporelle<select value={state.period?'periode':'jour'} onChange={e=>change({periode:e.target.value})}><option value="jour">Jour</option><option value="periode">Période</option></select></label>
-          {state.period&&<label>Début · UTC<input type="date" value={state.start} min={NATIONAL.start} max={NATIONAL.end} onChange={e=>change({start:e.target.value})}/></label>}
-          <label>{state.period?'Fin':'Date'} · UTC<input type="date" value={state.date} min={NATIONAL.start} max={NATIONAL.end} onChange={e=>change({date:e.target.value})}/></label>
+          {state.period&&<label>Début · UTC<input type="date" value={state.start} min={availableDays[0]} max={latest} onChange={e=>change({start:e.target.value})}/></label>}
+          <label>{state.period?'Fin':'Date'} · UTC<input type="date" value={state.date} min={availableDays[0]} max={latest} onChange={e=>change({date:e.target.value})}/></label>
           <label>{space==='analyse'?'Aléa descriptif':'Indicateur'}<select value={state.indicator} onChange={e=>change({indicateur:e.target.value,mode:'value',seuil:String(INDICATORS.find(d=>d.id===e.target.value)?.parameter??25)})}>{space==='climat'?<>{['meteo','agrometeo'].map(f=><optgroup key={f} label={f==='meteo'?'Météo / climatologie':'Agrométéo simple'}>{INDICATORS.filter(d=>d.family===f).map(d=><option key={d.id} value={d.id}>{d.label}</option>)}</optgroup>)}</>:RULES.filter(r=>r.production===state.production).map(r=><option key={r.id} value={r.indicator}>{r.label}</option>)}</select></label>
           {['above','gdd'].includes(def.operator)&&<label>{def.operator==='gdd'?'Base':'Seuil Tmax'} · °C<input type="number" min="-30" max="60" value={state.threshold} onChange={e=>change({seuil:e.target.value})}/></label>}
           <label>Lecture<select value={state.mode} onChange={e=>change({mode:e.target.value})}><option value="value">Valeur</option>{def.reference&&<><option value="normal">Normale 1991–2020</option><option value="anomaly">Anomalie</option></>}</select></label>
       </section>
-      <div className="unified-context"><span>Archive ERA5-Land · dernier jour disponible : 18/10/2026 · échelle PRA</span><div><button onClick={()=>change({date:NATIONAL.end,periode:'jour'})}>Dernier jour</button><button onClick={()=>change({start:DAYS[Math.max(0,DAYS.indexOf(state.date)-6)],periode:'periode'})}>7 jours</button><button onClick={()=>change({start:NATIONAL.start,date:NATIONAL.end,periode:'periode'})}>30 jours</button></div></div>
-      {invalid&&<p className="unified-alert" role="alert">{[...errors,...(selectionInvalid?['PRA inconnue dans le référentiel.']:[])].join(' ')} <Link href={pathname}>Réinitialiser les filtres</Link></p>}
+      <div className="unified-context"><span>ERA5-Land · dernier jour acquis national : {availability.data?.latest??'vérification…'} · échelle PRA</span><div><button onClick={()=>change({date:latest,periode:'jour'})}>Dernier jour</button><button onClick={()=>change({start:trailingStart(latest,7),date:latest,periode:'periode'})}>7 jours</button><button onClick={()=>change({start:trailingStart(latest,30),date:latest,periode:'periode'})}>30 jours</button></div></div>
+      {(errors.length>0||selectionInvalid)&&<p className="unified-alert" role="alert">{[...errors,...(selectionInvalid?['PRA inconnue dans le référentiel.']:[])].join(' ')} <Link href={pathname}>Réinitialiser les filtres</Link></p>}
       <div className="unified-search"><label htmlFor="pra-search">⌕ Rechercher une PRA</label><input id="pra-search" type="search" autoComplete="off" placeholder="Nom, code PRA ou département…" value={query} onChange={e=>setQuery(e.target.value)} maxLength={100}/>{query&&<div className="unified-results" aria-label="Résultats PRA">{matches.map(f=><button key={String(f.id)} onClick={()=>{change({pra:String(f.id)});setQuery('');}}>{f.properties.name} <small>{f.properties.code} · {f.properties.department_name}</small></button>)}{!matches.length&&<p>Aucun territoire trouvé.</p>}</div>}</div>
       </>}
       <div className={`unified-grid ${(space === 'productions' ? agriculture.hasSelection : !!feature)?'has-selection':''}`}>
@@ -115,11 +119,11 @@ export function UnifiedWorkspace() {
             {current?.status==='partial'&&<p>Résultat partiel : somme ou moyenne des seuls jours renseignés, sans extrapolation.</p>}
             {space==='analyse'&&<WheatContext pra={state.pra} climate={current} indicator={def} start={state.period ? state.start : state.date} end={state.date} threshold={state.threshold} />}
             <h3>{def.variable==='temperature_max'?'Tmax':def.variable==='temperature_min'?'Tmin':def.variable==='precipitation'?'Pluie':'Température moyenne'} · évolution quotidienne</h3>{!def.reference&&<p>Série climatique d’origine, avant calcul de l’indice.</p>}{history.error?<p role="alert">Historique indisponible. {history.error}</p>:history.data?<History rows={history.data.data.filter(r=>r.variable===def.variable)} unit={def.variable==='precipitation'?'mm':'°C'}/>:<p role="status">Chargement de l’historique…</p>}
-            <details><summary>Détails et méthode</summary><p>{def.method}</p><p>Référence homologue exigée pour une anomalie ; aucune anomalie de jours au seuil ou degrés-jours. Réanalyse exploratoire, pas une mesure en station. Températures extrêmes : extrema des cellules, pas température au centre de PRA.</p><p>Règle {def.version} · {NATIONAL.dataset} · normale {NATIONAL.climatology}. Fraîcheur : archive septembre–octobre 2026.</p></details>
+            <details><summary>Détails et méthode</summary><p>{def.method}</p><p>Référence homologue exigée pour une anomalie ; aucune anomalie de jours au seuil ou degrés-jours. Réanalyse exploratoire, pas une mesure en station. Températures extrêmes : extrema des cellules, pas température au centre de PRA.</p><p>Règle {def.version} · {NATIONAL.dataset} · normale {NATIONAL.climatology}. Date source : {state.date} UTC.</p></details>
           </>:<><div className="panel-illustration" aria-hidden="true">◎</div><h2>Chaque territoire a son histoire</h2><p>Sélectionnez une PRA sur la carte ou recherchez son nom pour ouvrir sa fiche.</p><p>La sélection vous accompagne dans les trois espaces.</p></>}
         </aside>
       </div>
-      {space === 'productions' ? agriculture.method : <>      <details id="sources" className="unified-method"><summary>Sources, méthodes et limites</summary><p>Contours OFB / MASA · {NATIONAL.reference} · géométrie source inchangée, réserves PostGIS de l’issue #49 conservées. ERA5-Land est une réanalyse et non une observation stationnelle. Normales quotidiennes 1991–2020. Archive disponible du 19/09 au 18/10/2026 ; aucune journée postérieure inventée.</p><p>Pour les périodes : moyenne des températures, somme des pluies, compte de jours au seuil strict. Les jours absents restent absents ; résultats partiels signalés. Les anomalies exigent les mêmes jours observés et une référence complète. Le 29 février conserve l’état de référence insuffisante.</p><p>Agreste SAA : séries annuelles départementales et régionales, dans l’espace Productions ; aucune statistique départementale répartie artificiellement entre PRA. Aucun niveau de risque, sensibilité ou impact agricole estimé.</p><p><Link href="/stations?mode=live_meteofrance&production=wheat">Stations Météo-France</Link> · <Link href="/stations?mode=live_meteofrance&production=cattle&indicator=thi">THI bovin stationnel</Link> · <Link href="/demo">Démonstration fictive séparée</Link></p></details></>}
+      {space === 'productions' ? agriculture.method : <>      <details id="sources" className="unified-method"><summary>Sources, méthodes et limites</summary><p>Contours OFB / MASA · {NATIONAL.reference} · géométrie source inchangée, réserves PostGIS de l’issue #49 conservées. ERA5-Land est une réanalyse et non une observation stationnelle. Normales quotidiennes 1991–2020. Dernière journée nationale réellement acquise : {availability.data?.latest??'en cours de vérification'}. Les dates sont vérifiées dans les données persistées.</p><p>Pour les périodes : moyenne des températures, somme des pluies, compte de jours au seuil strict. Les jours absents restent absents ; résultats partiels signalés. Les anomalies exigent les mêmes jours observés et une référence complète. Le 29 février conserve l’état de référence insuffisante.</p><p>Agreste SAA : séries annuelles départementales et régionales, dans l’espace Productions ; aucune statistique départementale répartie artificiellement entre PRA. Aucun niveau de risque, sensibilité ou impact agricole estimé.</p><p><Link href="/stations?mode=live_meteofrance&production=wheat">Stations Météo-France</Link> · <Link href="/stations?mode=live_meteofrance&production=cattle&indicator=thi">THI bovin stationnel</Link> · <Link href="/demo">Démonstration fictive séparée</Link></p></details></>}
   </>;
   return <div className="unified-product">
     <a className="skip-link" href="#main">Aller à la carte et aux filtres</a>
@@ -130,6 +134,7 @@ export function UnifiedWorkspace() {
     </header>
     <main id="main" className="unified-main">
       <div className="unified-heading"><div><p className="eyebrow">EXPLORER LES TERRITOIRES · FRANCE MÉTROPOLITAINE ET CORSE</p><h1>{TITLES[space]}</h1><p>{DESCRIPTIONS[space]}</p></div><span className="scale-badge">{space === 'productions' ? 'Mailles agricoles · sources officielles' : '713 PRA · contours officiels'}</span></div>
+      <div className="unified-context" role={availability.error?'alert':'status'}>{availability.error?<span>Disponibilité climatique inaccessible. {availability.error}</span>:availability.data?<span>{availability.data.freshness==='stale'?'Données retardées':'Réanalyse récente'} · date source : {availability.data.source_date} UTC · acquisition : {availability.data.acquired_at??'date non exposée par le service actuel'} · mise à jour : {availability.data.updated_at??'inconnue'} (UTC)</span>:<span>Vérification de la dernière journée nationale acquise…</span>}</div>
       {climateBody}
     </main>
   </div>;
@@ -139,5 +144,5 @@ function History({rows,unit}:{rows:ClimateContextRow[];unit:string}) {
   if(!numbers.length)return <p>Aucune valeur ni normale disponible.</p>;
   const min=Math.min(...numbers),max=Math.max(...numbers),span=max-min||1;
   const path=(field:'current_value'|'normal_1991_2020')=>{let pen=false;return rows.map((r,i)=>{const v=r[field];if(v===null){pen=false;return '';}const p=`${pen?'L':'M'} ${30+i*10} ${120-(v-min)*95/span}`;pen=true;return p;}).join(' ');};
-  return <><figure className="unified-chart"><svg viewBox="0 0 340 150" role="img" aria-label={`Évolution observée et normale quotidienne, ${unit}`}><text x="0" y="18">{valueLabel(max)}</text><text x="0" y="140">{valueLabel(min)}</text><path className="normal-line" d={path('normal_1991_2020')}/><path className="observed-line" d={path('current_value')}/></svg><figcaption>Trait plein : réanalyse · pointillé : normale<br/>19 sept. → 18 oct. 2026 · {unit}</figcaption></figure><details><summary>Valeurs quotidiennes accessibles</summary><div className="history-table"><table><caption>ERA5-Land · {unit} · jours UTC</caption><thead><tr><th>Date</th><th>Valeur</th><th>Normale</th><th>État</th></tr></thead><tbody>{rows.map(r=><tr key={r.date}><th>{r.date}</th><td>{valueLabel(r.current_value)}</td><td>{valueLabel(r.normal_1991_2020)}</td><td>{r.current_status==='available'?'Disponible':r.current_status==='partial'?'Partiel':'Indisponible'}</td></tr>)}</tbody></table></div></details></>;
+  return <><figure className="unified-chart"><svg viewBox="0 0 340 150" role="img" aria-label={`Évolution observée et normale quotidienne, ${unit}`}><text x="0" y="18">{valueLabel(max)}</text><text x="0" y="140">{valueLabel(min)}</text><path className="normal-line" d={path('normal_1991_2020')}/><path className="observed-line" d={path('current_value')}/></svg><figcaption>Trait plein : réanalyse · pointillé : normale<br/>{rows[0]?.date} → {rows.at(-1)?.date} · {unit}</figcaption></figure><details><summary>Valeurs quotidiennes accessibles</summary><div className="history-table"><table><caption>ERA5-Land · {unit} · jours UTC</caption><thead><tr><th>Date</th><th>Valeur</th><th>Normale</th><th>État</th></tr></thead><tbody>{rows.map(r=><tr key={r.date}><th>{r.date}</th><td>{valueLabel(r.current_value)}</td><td>{valueLabel(r.normal_1991_2020)}</td><td>{r.current_status==='available'?'Disponible':r.current_status==='partial'?'Partiel':'Indisponible'}</td></tr>)}</tbody></table></div></details></>;
 }

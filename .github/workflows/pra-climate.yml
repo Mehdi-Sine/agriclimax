@@ -1,7 +1,23 @@
 name: Bounded PRA climate batch
 on:
+  # Registered but the national job below remains dispatch-only until DEV acceptance.
+  schedule:
+    - cron: '20 8 * * *'
   workflow_dispatch:
     inputs:
+      mode:
+        description: Existing bounded batch or incremental national DEV adapter
+        type: choice
+        options: [batch, national-daily]
+        default: batch
+      daily_downloads:
+        description: New tile budget (1 to 64); pilot defaults to four
+        type: number
+        default: 4
+      daily_pilot:
+        description: Limit daily adapter to complete/partial/Crozon pilot before national validation
+        type: boolean
+        default: true
       reference_directory:
         description: Reviewed reference directory under config/coverage (manifest, reference and weights JSON)
         required: true
@@ -9,7 +25,7 @@ on:
         type: string
       dataset_version:
         description: Immutable explicit CDS source revision
-        required: true
+        required: false
         type: string
       pra_ids:
         description: Comma separated stable PRA IDs (maximum 4; no automatic national selection)
@@ -40,6 +56,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   batch:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode != 'national-daily'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -82,5 +99,70 @@ jobs:
             work/pra/run.json
             work/pra/coverage.json
             work/pra/coverage.md
+          retention-days: 7
+          if-no-files-found: warn
+  national-daily:
+    # Deliberately no variable can enable scheduling before reviewed DEV acceptance.
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'national-daily'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r engine/requirements-dev.lock -r engine/requirements-climate.lock -r engine/requirements-geo.lock
+      - name: Restore most recent compact checkpoints on this branch (bounded search)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHECKPOINT_RUN_ID: ${{ inputs.checkpoint_run_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p work/pra-daily
+          # One measured local pilot tile; never overwrite a restored checkpoint.
+          cp -rn docs/codex/task26/pilot-checkpoints/tiles work/pra-daily/
+          if [[ -n "$CHECKPOINT_RUN_ID" ]]; then
+            [[ "$CHECKPOINT_RUN_ID" =~ ^[0-9]+$ ]]
+            gh run download "$CHECKPOINT_RUN_ID" --name pra-daily-checkpoints --dir work/pra-daily
+          else
+            gh run list --workflow pra-climate.yml --branch "$GITHUB_REF_NAME" --limit 20 --json databaseId --jq '.[].databaseId' > work/prior-runs.txt
+            while read -r previous; do
+              [[ "$previous" == "$GITHUB_RUN_ID" ]] && continue
+              if gh run download "$previous" --name pra-daily-checkpoints --dir work/pra-daily 2>/dev/null; then break; fi
+            done < work/prior-runs.txt
+          fi
+      - name: Incremental DEV only; offline dry-run unless execute is checked
+        timeout-minutes: 24
+        env:
+          PYTHONPATH: engine/src
+          NEXT_PUBLIC_SUPABASE_URL: ${{ inputs.execute && secrets.NEXT_PUBLIC_SUPABASE_URL || '' }}
+          SUPABASE_SECRET_KEY: ${{ inputs.execute && secrets.SUPABASE_SECRET_KEY || '' }}
+          CDSAPI_KEY: ${{ inputs.execute && secrets.CDSAPI_KEY || '' }}
+          DATE_FROM: ${{ inputs.from }}
+          DATE_TO: ${{ inputs.to }}
+          EXECUTE: ${{ inputs.execute }}
+          PILOT: ${{ inputs.daily_pilot }}
+          MAX_DOWNLOADS: ${{ inputs.daily_downloads }}
+          OPENBLAS_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          args=(--max-downloads "$MAX_DOWNLOADS")
+          if [[ -n "$DATE_FROM" || -n "$DATE_TO" ]]; then args+=(--from "$DATE_FROM" --to "$DATE_TO"); fi
+          if [[ "$EXECUTE" == true ]]; then args+=(--execute); fi
+          if [[ "$PILOT" == true ]]; then args+=(--pilot); fi
+          timeout --signal=TERM --kill-after=15s 23m python scripts/national_daily_climate.py "${args[@]}"
+      - name: Preserve compact restart state even after timeout (no hourly or raw source cache)
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pra-daily-checkpoints
+          path: |
+            work/pra-daily/batches/
+            work/pra-daily/tiles/
+            work/pra-daily/state.json
+            work/pra-daily/run.json
           retention-days: 7
           if-no-files-found: warn

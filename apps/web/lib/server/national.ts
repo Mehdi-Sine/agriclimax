@@ -8,6 +8,8 @@ import {
 } from '../../features/national/model';
 import { territoryData, type TerritoryRow } from './territories';
 import { ApiError } from './query';
+import { nationalAvailability, nationalDays } from './national-availability';
+import { calendarDays, trailingStart } from '../../features/national/daily-availability';
 
 type JsonRecord = Record<string, unknown>;
 
@@ -177,6 +179,7 @@ async function nationalContextDay(
 async function nationalContextHistory(
   pra: string,
   transport: typeof fetch,
+  days: string[] = DAYS,
 ) {
   const raw = await supabaseRpc(
     'agriclimax_pra_climatology_daily_read',
@@ -184,21 +187,21 @@ async function nationalContextHistory(
       p_release: NATIONAL.climatology,
       p_dataset: NATIONAL.dataset,
       p_pra: pra,
-      p_start: NATIONAL.start,
-      p_end: NATIONAL.end,
+      p_start: days[0],
+      p_end: days.at(-1),
     },
     transport,
   );
   if (!isRecord(raw) || raw.status !== 'available' || !Array.isArray(raw.data))
     throw new ApiError('INVALID_RESPONSE', 502);
   const data = raw.data.map(parseContextRow);
-  if (data.length !== DAYS.length * VARIABLES.length)
+  if (data.length !== days.length * VARIABLES.length)
     throw new ApiError('INVALID_RESPONSE', 502);
   if (new Set(data.map(r => `${r.date}:${r.variable}`)).size !== data.length) throw new ApiError('INVALID_RESPONSE', 502);
   for (const row of data) {
     if (
       !row.date ||
-      !DAYS.includes(row.date) ||
+      !days.includes(row.date) ||
       !row.variable ||
       !VARIABLES.some((v) => v.key === row.variable)
     )
@@ -219,14 +222,18 @@ export async function nationalData(
   const pra = params.get('pra') || '';
   const variable = params.get('variable') || '';
 
+  const availableDays = await nationalDays(transport, [date || params.get('end') || NATIONAL.end]);
+  const historyEnd = params.get('end') || NATIONAL.end;
+  const historyDays = calendarDays(trailingStart(historyEnd, 30), historyEnd);
+
   const allowed =
     action === 'day'
       ? ['action', 'date']
       : action === 'history'
-        ? ['action', 'pra']
+        ? ['action', 'pra', 'end']
         : action === 'context-day'
           ? ['action', 'date', 'variable']
-          : ['action', 'pra'];
+          : ['action', 'pra', 'end'];
 
   if (
     !['day', 'history', 'context-day', 'context-history'].includes(action) ||
@@ -234,7 +241,9 @@ export async function nationalData(
       (key) => !allowed.includes(key) || params.getAll(key).length !== 1,
     ) ||
     ((action === 'day' || action === 'context-day') &&
-      !DAYS.includes(date)) ||
+      !availableDays.includes(date)) ||
+    ((action === 'history' || action === 'context-history') &&
+      (!availableDays.includes(historyEnd) || !historyDays.length)) ||
     ((action === 'history' || action === 'context-history') &&
       !/^pra:[0-9AB]{4,8}$/.test(pra)) ||
     (action === 'context-day' &&
@@ -263,7 +272,7 @@ export async function nationalData(
   }
 
   if (action === 'context-history') {
-    const data = await nationalContextHistory(pra, transport);
+    const data = await nationalContextHistory(pra, transport, historyDays);
     return {
       reference_version: NATIONAL.reference,
       dataset_version: NATIONAL.dataset,
@@ -272,7 +281,7 @@ export async function nationalData(
       source_id: 'era5-land',
       source_kind: 'reanalysis',
       scientific_status: 'exploratory',
-      period: [NATIONAL.start, NATIONAL.end],
+      period: [historyDays[0], historyEnd],
       pra,
       data,
     };
@@ -308,9 +317,9 @@ export async function nationalData(
     )
       throw new ApiError('INVALID_RESPONSE', 502);
   } else {
-    for (let i = 0; i < DAYS.length; i += 4) {
+    for (let i = 0; i < historyDays.length; i += 4) {
       const pages = await Promise.all(
-        DAYS.slice(i, i + 4).map((day) =>
+        historyDays.slice(i, i + 4).map((day) =>
           territoryData(
             new URLSearchParams({
               ...base,
@@ -327,7 +336,7 @@ export async function nationalData(
         if (
           page.data.length !== 1 ||
           page.data[0].id !== pra ||
-          page.data[0].valid_date !== DAYS[i + j]
+          page.data[0].valid_date !== historyDays[i + j]
         )
           throw new ApiError('INVALID_RESPONSE', 502);
         data.push(page.data[0]);
@@ -340,7 +349,7 @@ export async function nationalData(
     source_id: 'era5-land',
     source_kind: 'reanalysis',
     method_version: 'pra-native-1',
-    period: [NATIONAL.start, NATIONAL.end],
+    period: action === 'day' ? [date, date] : [historyDays[0], historyEnd],
     data,
   };
 }
@@ -350,8 +359,15 @@ export async function readNational(
   transport: typeof fetch = fetch,
 ) {
   try {
+    const params = new URL(request.url).searchParams;
+    if (params.get('action') === 'availability') {
+      if ([...params.keys()].some(k => k !== 'action' || params.getAll(k).length !== 1))
+        throw new ApiError('INVALID_QUERY', 400);
+      return Response.json(await nationalAvailability(transport),
+        { headers: { 'Cache-Control': 'no-store' } });
+    }
     return Response.json(
-      await nationalData(new URL(request.url).searchParams, transport),
+      await nationalData(params, transport),
       { headers: { 'Cache-Control': 'no-store' } },
     );
   } catch (error) {

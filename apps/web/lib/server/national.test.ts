@@ -24,7 +24,7 @@ it('gates the public activation until the operator enables the secured environme
 it.each([
   '',
   '?action=day',
-  '?action=day&date=2026-10-19',
+  '?action=day&date=2099-10-19',
   '?action=history&pra=station:1',
   '?action=day&date=2026-10-18&dataset=demo',
   '?action=day&date=2026-10-18&date=2026-10-18',
@@ -170,7 +170,7 @@ it('rejects unbounded or unknown context selectors before calling Supabase', asy
   for (const query of [
     '?action=context-day&date=2026-10-18&variable=humidity',
     '?action=context-history&pra=station:1',
-    '?action=context-day&date=2026-10-19&variable=temperature',
+    '?action=context-day&date=2099-10-19&variable=temperature',
   ]) {
     const response = await readNational(
       new Request(`https://test/api/national${query}`),

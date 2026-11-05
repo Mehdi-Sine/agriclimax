@@ -1,0 +1,9 @@
+
+> @agriclimax/web@ build /workspace/agriclimax/apps/web
+> node features/observation/prepare-worker.mjs && next build
+
+▲ Next.js 16.4.1 (Turbopack)
+✓ Running next.config.ts took 28ms
+- Experiments (use with caution):
+  ⨯ useTypeScriptCli
+
