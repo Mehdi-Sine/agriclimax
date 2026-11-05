@@ -1,5 +1,6 @@
 """A truncated or misrouted HTTP range must never enter the official archive cache."""
 import runpy
+from threading import Event
 from pathlib import Path
 
 import pytest
@@ -76,14 +77,19 @@ def test_verified_later_chunk_survives_an_earlier_failure_and_is_reused(tmp_path
     archive = tmp_path / 'R11.7z'
     failing = True
     calls = []
+    later_response = Event()
 
     def curl(args, check):
         start, end = map(int, args[args.index('--range')+1].split('-'))
         calls.append(start)
         if failing and start < block:
+            if start == 0:
+                assert later_response.wait(timeout=5)
             raise module['subprocess'].CalledProcessError(28, args)
         Path(args[args.index('--output')+1]).write_bytes(source[start:end+1])
         Path(args[args.index('--dump-header')+1]).write_text(f'HTTP/2 206\nContent-Range: bytes {start}-{end}/{len(source)}\n')
+        if start == block:
+            later_response.set()
     monkeypatch.setattr(module['subprocess'], 'run', curl)
     with pytest.raises(module['subprocess'].CalledProcessError):
         module['download']('https://example.test/source', archive, len(source))

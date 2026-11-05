@@ -151,7 +151,7 @@ def main() -> None:
     if abs(result['conservation_residual_ha']) > 0.001:
         raise ValueError('Cross-region conservation failed')
     atomic_write(CACHE / 'cross-region-complete.json', json.dumps(result, separators=(',', ':'), allow_nan=False).encode())
-    print(json.dumps({k:v for k,v in result.items() if k not in ('corrections','group_exclusions')}), flush=True)
+    print(json.dumps({k:v for k,v in result.items() if k not in ('corrections','group_exclusions','regional_crop_controls')}), flush=True)
 
 
 if __name__ == '__main__':
