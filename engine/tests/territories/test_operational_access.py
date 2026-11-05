@@ -1,5 +1,6 @@
 """Probe authorization isolation and hard bounds; all HTTP here is synthetic."""
 
+import gzip
 import importlib.util
 import struct
 import sys
@@ -117,9 +118,10 @@ def test_response_budget_and_credential_echo_not_retained(monkeypatch):
         status = 200
 
         def __init__(self):
-            self.headers = {}
+            self.headers = {"Content-Encoding": self.encoding}
 
         body = b"synthetic-secret-canary"
+        encoding = "identity"
 
         def __enter__(self):
             return self
@@ -142,3 +144,12 @@ def test_response_budget_and_credential_echo_not_retained(monkeypatch):
     Response.body = b"x" * 101
     record, body = probe.fetch(probe.ORIGIN, "METEOFRANCE_AROME_API_KEY", 100)
     assert not body and record["status"] == 200 and record["outcome"] == "response_budget_exceeded"
+
+    # A small compressed response must not bypass the decompressed-byte bound.
+    Response.encoding = "gzip"
+    Response.body = gzip.compress(b"x" * 101)
+    record, body = probe.fetch(probe.ORIGIN, "METEOFRANCE_AROME_API_KEY", 100)
+    assert not body and record["outcome"] == "response_budget_exceeded"
+    Response.body = gzip.compress(b"synthetic-secret-canary")
+    record, body = probe.fetch(probe.ORIGIN, "METEOFRANCE_AROME_API_KEY", 100)
+    assert not body and record["outcome"] == "credential_echo_rejected"

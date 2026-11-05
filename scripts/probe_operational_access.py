@@ -1,6 +1,8 @@
 """Bounded read-only access probe; product credentials never enter reports or URLs."""
 
+import gzip
 import hashlib
+import io
 import json
 import os
 import struct
@@ -25,7 +27,9 @@ MODELS = {
         "METEOFRANCE_ARPEGE_API_KEY",
     ),
 }
-METADATA_LIMIT = 1_500_000
+CATALOGUE_LIMIT = 1_500_000
+# WCS lists many variables and retained model runs; this is XML, never field data.
+METADATA_LIMIT = 16 * 1024 * 1024
 FIELD_LIMIT = 262_144
 
 
@@ -40,16 +44,28 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
     key = os.environ.get(variable, "").strip()
     if key:
         try:
-            request = Request(url, headers={"apikey": key})
+            request = Request(url, headers={"apikey": key, "Accept-Encoding": "gzip"})
             with build_opener(NoRedirect()).open(request, timeout=20) as response:
                 record["status"] = response.status
                 record["content_type"] = response.headers.get("Content-Type", "")
                 length = response.headers.get("Content-Length")
-                if length is not None and int(length) > limit:
+                encoding = response.headers.get("Content-Encoding", "identity").lower()
+                wire_limit = (
+                    min(limit, 2 * 1024 * 1024) if encoding == "gzip" else limit
+                )
+                record["content_encoding"] = encoding
+                if length is not None:
+                    record["declared_wire_bytes"] = int(length)
+                if length is not None and int(length) > wire_limit:
                     record["outcome"] = "response_budget_exceeded"
                 else:
-                    content = response.read(limit + 1)
-                    if len(content) > limit:
+                    content = response.read(wire_limit + 1)
+                    wire_bytes = len(content)
+                    record["wire_bytes_read"] = wire_bytes
+                    if len(content) <= wire_limit and encoding == "gzip":
+                        with gzip.GzipFile(fileobj=io.BytesIO(content)) as zipped:
+                            content = zipped.read(limit + 1)
+                    if len(content) > limit or wire_bytes > wire_limit:
                         record["outcome"] = "response_budget_exceeded"
                         content = b""
                     elif key.encode() in content:
@@ -60,8 +76,9 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
         except HTTPError as error:
             record["status"] = error.code
             error.close()  # No response/error text or redirect target is logged.
-        except (URLError, OSError, TimeoutError, ValueError):
+        except (URLError, OSError, TimeoutError, ValueError, EOFError):
             record["outcome"] = "network_or_response_error"
+            content = b""
     record.update(bytes=len(content), seconds=monotonic() - started)
     return record, content
 
@@ -217,12 +234,12 @@ def probe(root: Path) -> list[dict[str, object]]:
             results.append(record)
             if not content or record["status"] != 200:
                 continue
+            (root / f"{product}-description.xml").write_bytes(content)
             try:
                 subsets, selected = field_parameters(content)
             except (ET.ParseError, ValueError, StopIteration):
                 record["outcome"] = "unsupported_description_no_field_requested"
                 continue
-            (root / f"{product}-description.xml").write_bytes(content)
             query = urlencode(
                 base + [("coverageid", coverage), ("format", "image/tiff")] + subsets
             )
@@ -278,7 +295,7 @@ def probe(root: Path) -> list[dict[str, object]]:
             "METEOFRANCE_CLIMATOLOGY_API_KEY",
         ),
     ):
-        record, _ = fetch(ORIGIN + path, variable, METADATA_LIMIT)
+        record, _ = fetch(ORIGIN + path, variable, CATALOGUE_LIMIT)
         record.update(product=product, operation="catalogue")
         results.append(record)
     (root / "access.json").write_text(json.dumps(results, indent=2) + "\n")
