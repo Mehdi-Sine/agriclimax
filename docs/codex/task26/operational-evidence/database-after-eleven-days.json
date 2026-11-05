@@ -1,0 +1,195 @@
+{
+  "days": [
+    {
+      "count": 713,
+      "valid_date": "2026-09-19"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-09-20"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-09-21"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-09-22"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-09-23"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-09-24"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-09-25"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-09-26"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-09-27"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-09-28"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-09-29"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-09-30"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-01"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-02"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-03"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-04"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-05"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-06"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-07"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-08"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-09"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-10"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-11"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-12"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-13"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-14"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-15"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-16"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-17"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-18"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-19"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-20"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-21"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-22"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-23"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-24"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-25"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-26"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-27"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-28"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-29"
+    },
+    {
+      "count": 713,
+      "valid_date": "2026-10-30"
+    }
+  ],
+  "tables": [
+    {
+      "name": "pra_batches",
+      "bytes": 15228928
+    },
+    {
+      "name": "pra_climatology_daily",
+      "bytes": 51740672
+    },
+    {
+      "name": "pra_daily",
+      "bytes": 29810688
+    }
+  ],
+  "daily_rows": 32136,
+  "batch_count": 6072,
+  "observed_at": "2026-11-05T20:48:28.307394+00:00",
+  "day19_digest": "26ec4787c9a41857af5646434e0aae9e",
+  "normal_digest": "7fd7fa815a78ea2bfd4412a658e15612",
+  "database_bytes": 163337907,
+  "all_batch_digest": "53cb2449fe0a7a12e96ad1970e507fef",
+  "all_daily_digest": "bec298ee46e4ee350ef8196693075c99",
+  "old_daily_digest": "9e1b5d29a1969b5936ff7ed579174a87"
+}

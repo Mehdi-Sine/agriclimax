@@ -1,0 +1,14 @@
+{
+  "new_rows": 7840,
+  "new_national_dates": 11,
+  "database_bytes": 163337907,
+  "engineering_guard_bytes": 375000000,
+  "daily_relation_delta": 8142848,
+  "batch_relation_delta": 4046848,
+  "combined_relation_delta": 12189696,
+  "normalized_713_pra_day_bytes": 1108578.2204081633,
+  "backfill_amortized_365_day_projection_bytes": 404631050.4489796,
+  "daily_singleton_conservative_projection_bytes_per_year": 735460000,
+  "old_daily_and_normals_unchanged": true,
+  "not_a_fresh_singleton_daily_measurement": true
+}

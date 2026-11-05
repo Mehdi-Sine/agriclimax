@@ -1,10 +1,23 @@
-# Task26B — décision de jalon, à finaliser après les runs en cours
+# Task26B — décisions finales au 5 novembre 2026
 
-Branche `codex/26-national-daily-climate`, seule PR55 toujours draft, pas de merge ou production. Socle historique conservé.
+Branche existante `codex/26-national-daily-climate`, **PR55 conservée en draft**. Aucun merge, déploiement production ou calendrier national activé. Les checkpoints, anciens historiques,521916normales, géométries/poids ERA5 et données RPG/SAA sont conservés.
 
-1. `READY_FOR_ERA5_DAILY_DEV` : **NOT_READY à ce jalon**. Groupage/reprise et archive réversible implémentés et testés ; rattrapage réel en cours. Conservation12–24mois sous375Mo non démontrée, lecture historique froide et restauration DEV transactionnelle restent nécessaires avant planification.
-2. `READY_FOR_OPERATIONAL_NATIONAL_SCALEUP` : **NOT_READY**. Authentification Météo-France401 confirmée sur Cloud ET GitHub pour six endpoints, aucune analyse J−1 ni comparaison stationnelle obtenue. IFS doit encore être acquis/recetté ; même un piloteIFS réussi ne suffira pas à valider une chaîne multi-sources J−1/J+7.
+## READY_FOR_ERA5_DAILY_DEV : NOT_READY
 
-Jalons sauvegardés :1d67142contrat/audit,0115b9bacquisitionmulti-jours,86933f3captureIFSbornée,2ff781dlecteurpilote/archive,653b389accèsréels/stockage/probe. Le premier dispatchIFS86933f3 a été annulé pendant son attente, sans acquisition ; remplacement2ff781dpour ajouter les contrôles et la récupération des plages en échec. Aucun traitement national réussi antérieur n'est recommencé.
+Rattrapage réel **20–30octobre inclus :11journées,713PRA chacune**,645disponibles/67partielles/1indisponible. Trois pilotes du20 conservés octet-identiques. Dernière journée nationale30octobre, disponibilité horaire complémentaire pluie vérifiée. Groupage, déduplication, reprise après interruption, valeurs API et recette Preview validés ; rejeux sans source ni écriture, empreintes DB inchangées.
 
-La tâche n'est pas présentée comme une généralisation réussie. Les mesures, dernière date nationale, journées rattrapées et recette finale sont à compléter après les exécutions bornées en cours.
+La conservation reste le verrou :163337907octets DB, progression groupée≈1,109Mo/jour et404,63Mo/an déjà incompatible avec375Mo avant socle ; scénario quotidien prudent735,46Mo/an. Archives exactes et restauration locale prouvées, trois canaris DEV idempotents. **Lecture froide des liens historiques, politique de rétention et restauration complète ne sont pas implémentées/validées**. Option chiffrée≈94Mo/an d’archives singleton +DB glissante30–60jours, à vérifier avec les limites des hébergements existants ; aucune suppression ni hausse arbitraire de garde.
+
+## READY_FOR_OPERATIONAL_NATIONAL_SCALEUP : NOT_READY
+
+Pilote IFS réel de12PRA officielles, cycle5novembre00UTC, prévisions6–12novembre J+1..7.420lignes sur5variables,52NULL explicites ; poids0,25° indépendants, calcul versionné `pra-weather-daily-2`, contrat `pra-weather-1`, provenance/fraîcheur/qualité strictes. Reproduction native hors réseau et validation indépendante/Preview réussies. Consultation expérimentale dans le canevas existant, aucune complétude nationale annoncée.
+
+**J−1 absent** : six endpoints officiels Météo-France répondent401 depuis Cloud et GitHub. Alternative publique PNT réellement sondée : licence ouverte, un paquet57,22Mo accessible, seulement2048octets lus ; premier message H+0 identifié comme prévision, pas preuve d’analyse T2m ou d’observation. Aucun contournement d’accès. Comparaisons analyse/stations, chevauchement ERA5 et continuité AROME/ARPEGE/IFS non exécutées, donc non validées. Un seul cycle exploratoire ne prouve ni le skill J+7 ni la soutenabilité nationale.
+
+## Livrables et opérations restantes
+
+Huit documents de phase, métriques JSON, archives réversibles, recettes historiques et expérimentales locales/Preview, contrats et tests sauvegardés dans cette même branche. Sources GitHub : runs42091357008/42095551736/42099133896/42103633624 pour ERA5,42089278523 pour IFS,42089606819 pour les droitsMF.68invocationsCDS/12,31Mo ; IFS227appels logiques/66,26Mo ;6430s/111min arrondies de jobs source/probe, horsCI/Vercel. Aucun coût payant ajouté ; stockage annuel non résolu. Détails et limites dans COSTS_AND_WORKFLOWS.md.
+
+Avant activation ERA5 : implémenter puis tester le lecteur historique froid, la rétention et une restauration complète, avec mesure12–24mois sous les limites. Avant généralisation opérationnelle : obtenir les droits MF utiles ou une voie officielle d’analyse quotidienne validée, acquérir un pilote J−1 borné, effectuer les trois comparaisons scientifiques, puis mesurer plusieurs cycles et le dimensionnement713PRA. Ne pas relancer les sources déjà acquises pour ces validations.
+
+Le dernier état CI exact figure dans QUALITY_COMPARISON.md et la PR ; un job annulé n’est jamais compté réussi. La tâche livre un socle sauvegardé et un pilote IFS démontré, sans prétendre livrer une chaîne nationale J−1/J+7 prête à l’exploitation.

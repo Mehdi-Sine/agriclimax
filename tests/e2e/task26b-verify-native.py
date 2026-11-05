@@ -6,11 +6,14 @@ import json
 import math
 from collections import Counter
 from pathlib import Path
+from urllib.parse import urlsplit
+from urllib.request import ProxyHandler, build_opener
 
 
 def main() -> None:
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--root',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--base')
     args=p.parse_args();cycle=json.loads((args.root/'cycle.json').read_text())
     raw=(args.root/'native.json.gz').read_bytes()
     assert hashlib.sha256(raw).hexdigest()==cycle['native_cache_sha256']
@@ -44,8 +47,28 @@ def main() -> None:
             assert difference<=1e-10,(row['pra_id'],row['valid_date'],row['variable'],difference)
         checks+=1
     report={'real_native_values':True,'production_aggregation_called':False,'rows_checked':checks,'nulls_checked':nulls,
-            'max_absolute_difference':maximum,'tolerance':1e-10,'network_requests':0,
+            'max_absolute_difference':maximum,'tolerance':1e-10,'source_acquisition_requests':0,'api_requests':int(bool(args.base)),
             'status_counts':dict(Counter(r['variable']+':'+r['status'] for r in cycle['rows'])),'native_sha256':cycle['native_cache_sha256']}
+    if args.base:
+        origin=urlsplit(args.base)
+        assert origin.scheme=='http' and origin.hostname=='127.0.0.1' and not origin.username
+        with build_opener(ProxyHandler({})).open(args.base+'/api/operational?experimental=weather',timeout=120) as response:
+            public=json.loads(response.read(2000001))
+        assert len(public['rows'])==420
+        served={(r['pra_id'],r['valid_date'],r['variable']):r for r in public['rows']}
+        api_difference=0.0;transport_adjustments=0
+        for expected in cycle['rows']:
+            actual=served[(expected['pra_id'],expected['valid_date'],expected['variable'])]
+            for key in expected:
+                if key in {'value','spatial_coverage','temporal_coverage'} and expected[key] is not None:
+                    assert actual[key] is not None
+                    delta=abs(actual[key]-expected[key]);api_difference=max(api_difference,delta)
+                    assert delta<=max(math.ulp(actual[key]),math.ulp(expected[key]))
+                    if delta:transport_adjustments+=1
+                else:assert actual[key]==expected[key],(key,actual[key],expected[key])
+        report['api_rows_verified']=420;report['api_max_absolute_difference']=api_difference
+        report['api_float64_one_ulp_transport_adjustments']=transport_adjustments
+        report['api_calculation_version']=next(iter({r['rule_version'] for r in public['rows']}))
     args.output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
 
 

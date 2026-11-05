@@ -6,7 +6,7 @@ Preuves dans `operational-evidence/source-access.json` et `additional-access.jso
 
 | Source | Accès observé | Conséquence |
 |---|---|---|
-| ERA5-Land CDS | Task26 réel ; rattrapage Task26B en cours | Réanalyse0,1°, T2m et TP ; même réduction UTC et masque NULL |
+| ERA5-Land CDS | National réel jusqu’au30 octobre ;11 journées Task26B publiées | Réanalyse0,1°, T2m et TP ; même réduction UTC et masque NULL |
 | AROME/ARPEGE | Métadonnées OpenAPI accessibles, champs **401** | Aucun champ ni analyse J−1 acquis |
 | Observations DPObs/v1 et v2 | Catalogue **401** | Aucune valeur stationnelle actuelle obtenue |
 | Package Observations v2 | Catalogue **401** | Pas de paquet24h acquis |

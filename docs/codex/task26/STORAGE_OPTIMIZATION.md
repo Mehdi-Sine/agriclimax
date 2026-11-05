@@ -18,4 +18,10 @@ Contrôle DEV supplémentaire : les trois enveloppes restaurées19octobre (Beauc
 
 **Reste à valider** : lecture d'archive des liens datés, politique de rétention DB et restauration complète après archivage. Aucun DELETE n'est exécuté. La compression portable testée ne suffit pas à autoriser la planification nationale.
 
-Mesures du rattrapage et projection recalculée à compléter après publication.
+## Mesure finale des11 journées
+
+Avant rattrapage :149960371octets DB ; tables quotidiennes21667840, lots11182080. Après : **163337907octets DB**, quotidiennes29810688, lots15228928 ; normales51740672inchangées. Delta des deux relations12189696octets pour7840nouvelles lignes, soit **1108578octets par journée713PRA normalisée**, environ404631050octets/an. Ce gain concerne le rattrapage groupé : il ne démontre pas le coût d’un nouveau jour singleton. Même cette projection dépasse375Mo avant ajout du socle existant. La référence prudente quotidienne735460000octets/an reste applicable ; aucune trajectoire12–24mois sous la garde n’est validée.
+
+Archives supplémentaires vérifiées :716sorties de la fenêtre20–26 (dont3anciennes pilotes),4470914→474556octets ;713sorties27–30,3148893→351528octets. Toutes restaurées octet-identiques, SHA256 respectifs `b52eb1ab39cffc56774386b81e62aca94013c66b06a19bb51d05dc4b7790114a` et `32a3ededfdf741ed9c7b23201da256a3c2652a781f479b676770830e3c3e512c`. Preuves `archive-seven-days.json`, `archive-four-days.json`, `storage-eleven-days.json`.
+
+Le snapshot exporte uniquement les dates de récupération demandées et contrôle les SHA des tuiles ; il ne supprime aucun original. Le workflow conserve un chemin de récupération des originaux si l’export échoue. L’archive exacte fonctionne ; **lecteur historique froid, rétention DB et restauration complète après suppression ne sont pas implémentés/validés**. Ces opérations constituent le verrou de conservation, pas un motif pour répéter les acquisitions réussies.

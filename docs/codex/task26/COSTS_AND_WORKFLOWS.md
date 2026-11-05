@@ -17,3 +17,13 @@ Dépôt public/runners standard GitHub : calcul gratuit selon règles vérifiée
 Scénario **pilote**, un cycle00UTC par jour (non activé) :227requêtes/66,26MoGRIB/jour ;6810requêtes/1,99GoGRIB sur30jours ;82855requêtes/24,18GoGRIB sur365jours, horsindex/transport. Temps indicatif237,37s/cycle :≈3,96min/jour,118,7min/30jours,1444min/an, sans garantie de latence future. Quatrecycles/jour multiplieraient ces valeurs par4 ; ils ne sont pas activés. L'ajout des713PRA n'a pas été testé : les champs restent globaux sélectionnés, mais calcul/poids/contrôles et stockage national ne sont pas extrapolés comme gratuits ou validés.
 
 Les521916normales,23580lignes historiques≤18octobre et données agricoles restent protégées par empreintes et absence de modifications. Les métriques ERA5 de conservation à long terme doivent distinguer le **rattrapage groupé** de l'exploitation **quotidienne singleton** : on ne déduit pas une année quotidienne depuis un lot de7jours artificiellement amorti. Le scénario Task26≈735Mo/an reste la garde prudente tant qu'une conservation opérationnelle n'est pas validée.
+
+## Mesures finales ERA5 et consommation des runners
+
+Les quatre passages source utiles totalisent68invocations CDS,12,313Mo de fichiers,76,30min de programme (63,32min acquisition,5,58min persistance,1,72min lecture). Le premier échec de lecture de manifestes est comptabilisé séparément, sans lui attribuer de nouvelles sources. Détails par passage dans ERA5_BACKFILL.md et `backfill-campaign.json`.
+
+Les sept jobs de rattrapage, captureIFS et probeMF ont consommé **6430secondes de runner,111minutes arrondies par job**, installations et échecs inclus. Preuve `workflow-consumption.json`. Ce total exclut CI, Vercel et usages antérieurs ; ce n’est pas une facture générale. CaptureIFS :269s de runner, programme237,37s jusqu’au rejet initial ; les reprises scientifiques ultérieures étaient hors réseau.
+
+Projections quotidiennes ERA5 prudentes Task26 :≈2,015Mo/jour,60,45Mo/30jours,735,46Mo/an de relations, avant le socle déjà présent. La mesure groupée Task26B≈1,109Mo/jour serait33,26Mo/30jours et404,63Mo/an, **scénario amorti de backfill uniquement**, non un résultat singleton. Ne pas extrapoler les76,30min sur11jours groupés en délai garanti d’acquisition quotidienne. RSS froid ERA5/IFS non mesuré : les plafonds sont des protections, pas des mesures.
+
+Prochaine opération source : aucune pour la cible30octobre. Les acquisitions nationales et opérationnelles régulières restent désactivées. Les seules validations encore nécessaires concernent conservation12–24mois, droits/chaîne MF J−1, comparaisons scientifiques et dimensionnement national ; aucun abonnement nouveau n’a été créé.

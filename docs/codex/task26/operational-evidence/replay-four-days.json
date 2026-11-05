@@ -1,0 +1,78 @@
+{
+  "dry_run": false,
+  "reference": "ofb-masa-pra-2017-snapshot-20261017",
+  "dataset": "era5land-national-20260919-20261018-v1",
+  "pilot": false,
+  "anchor_verified": true,
+  "status": "completed",
+  "timings_seconds": {
+    "acquisition": 0.0,
+    "persistence": 0.0,
+    "read_validation": 30.08153804498943,
+    "total": 45.150025220002135,
+    "aggregation_cache_and_control": 15.068487175012706
+  },
+  "latest_national_date": "2026-10-30",
+  "source_acquired_at": "2026-11-05T20:35:44.317839+00:00",
+  "limits": {
+    "cds_concurrency": 1,
+    "new_source_extents": 1,
+    "cds_requests": 128,
+    "duration_seconds": 1320,
+    "address_space_bytes": 4294967296,
+    "source_file_bytes": 16777216,
+    "transfer_bytes": 134217728,
+    "workspace_bytes": 469762048
+  },
+  "stage": "publication_validation",
+  "requested_dates": [
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30"
+  ],
+  "source_groups_acquired": 0,
+  "compact_tiles_created": 0,
+  "days": [
+    {
+      "date": "2026-10-27",
+      "persisted": 713,
+      "expected": 713,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "published": true
+    },
+    {
+      "date": "2026-10-28",
+      "persisted": 713,
+      "expected": 713,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "published": true
+    },
+    {
+      "date": "2026-10-29",
+      "persisted": 713,
+      "expected": 713,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "published": true
+    },
+    {
+      "date": "2026-10-30",
+      "persisted": 713,
+      "expected": 713,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "published": true
+    }
+  ],
+  "batches": [],
+  "updated_at": "2026-11-05T20:39:30.705728+00:00",
+  "cds_requests": 0,
+  "transferred_bytes": 0
+}

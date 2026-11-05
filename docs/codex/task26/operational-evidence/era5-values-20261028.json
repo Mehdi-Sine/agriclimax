@@ -1,0 +1,83 @@
+{
+  "mocked": false,
+  "date": "2026-10-28",
+  "source": "actual immutable checkpoints",
+  "pra_rows": 713,
+  "scalar_comparisons_including_null": 2852,
+  "float_policy": "existing Task19C float4_matches; no new tolerance",
+  "unified_rows_by_indicator": {
+    "temperature": 713,
+    "temperature_min": 713,
+    "temperature_max": 713,
+    "rain": 713
+  },
+  "crop_artifacts_unchanged": [
+    {
+      "indicator": "rpg-group-1-surf-pra",
+      "rows": 713,
+      "protected_file_sha256": "770d6756b6b7f6d00db7dcf3b83c9065351c7211ad609ce071bc4fc12994a236",
+      "one_ulp_json_roundtrips": 65
+    },
+    {
+      "indicator": "saa-cop-03-surf-departement",
+      "rows": 100,
+      "protected_file_sha256": "663f783ef66f40876802ffd1a1f2a7c0acd0557650819ab72b560df9e3584c04",
+      "one_ulp_json_roundtrips": 0
+    }
+  ],
+  "elapsed_seconds": 12.863579118002235,
+  "catalog": {
+    "source_id": "era5-land",
+    "dataset_version": "era5land-national-20260919-20261018-v1",
+    "latest": "2026-10-30",
+    "source_date": "2026-10-30",
+    "days": [
+      "2026-09-19",
+      "2026-09-20",
+      "2026-09-21",
+      "2026-09-22",
+      "2026-09-23",
+      "2026-09-24",
+      "2026-09-25",
+      "2026-09-26",
+      "2026-09-27",
+      "2026-09-28",
+      "2026-09-29",
+      "2026-09-30",
+      "2026-10-01",
+      "2026-10-02",
+      "2026-10-03",
+      "2026-10-04",
+      "2026-10-05",
+      "2026-10-06",
+      "2026-10-07",
+      "2026-10-08",
+      "2026-10-09",
+      "2026-10-10",
+      "2026-10-11",
+      "2026-10-12",
+      "2026-10-13",
+      "2026-10-14",
+      "2026-10-15",
+      "2026-10-16",
+      "2026-10-17",
+      "2026-10-18",
+      "2026-10-19",
+      "2026-10-20",
+      "2026-10-21",
+      "2026-10-22",
+      "2026-10-23",
+      "2026-10-24",
+      "2026-10-25",
+      "2026-10-26",
+      "2026-10-27",
+      "2026-10-28",
+      "2026-10-29",
+      "2026-10-30"
+    ],
+    "acquired_at": "2026-11-05T20:35:44.317839+00:00",
+    "updated_at": "2026-11-05T20:39:30.705728+00:00",
+    "acquisition_time_status": "known",
+    "freshness": "stale"
+  }
+}

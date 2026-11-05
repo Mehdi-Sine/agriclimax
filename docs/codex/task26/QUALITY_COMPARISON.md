@@ -14,3 +14,15 @@ Contrôle indépendant réel IFS :420agrégats,52NULL attendus, écart maximal1,
 Recette réelle IFS locale et Preview :90comparaisons API/carte au survol/fiche par environnement,12PRA, J+1/J+7, cinqvariables, NULL, même canevas, desktop1440/tablette768/mobile390, aucun débordement ou erreurJS. Rapports et captures `operational-local/` et `operational-preview/`. TLS normal, gatewayGET/HEAD Task25/26, aucun mock. La comparaison de run accepte les représentationsUTC équivalentesZ/+00:00 sans relâcher la sémantique temporelle.
 
 Campagne complète locale :283testsPython et260TS, lint/typage/build/guards réussis ; puis nouveau test réel UTC et trois cas supplémentaires d'axe horaire validés ciblés. CI7f58c9f :286Python/261TS et les suites SQL public/extensions, web-demo, sécurité au vert. Une course de titre Next dans un ancien audit navigateur a été corrigée en attendant le titre réel non vide avant axe, sans désactiver de règle d'accessibilité.
+
+## Contrôles finaux supplémentaires
+
+Rattrapage11jours :31372comparaisons natives et31372comparaisons DTO,713identités par date ; rejeux0source/0écriture et empreintes DB inchangées. Les18captures historiques finales couvrent local et Preview.
+
+Le calcul `pra-weather-daily-2` fixe Tmin/Tmax sur [00UTC,00UTC suivant), sans inclure le minimum/maximum de minuit du lendemain. Température moyenne et RH intégrées utilisent toujours la borne finale nécessaire.26Tmin et5Tmax corrigés depuis le prototype ; natifs inchangés. Deux cas limites de test supplémentaires couvrent cette convention.
+
+Comparaison indépendante des420lignes avec l’API Preview réelle :52NULL, écart calcul maximal1,4211e−14 (tolérance1e−10),0requête source.154champs numériques de transport JSON/JS ont requis au plus1ULP float64, y compris couvertures ; aucune tolérance sur les statuts et les autres métadonnées. Preuve `ifs-preview-all-values.json` et vérificateur `tests/e2e/task26b-verify-native.py --base`. Les90comparaisons carte/fiche/API par environnement sont conservées. Aucune donnée fictive ni erreur réseau masquée.
+
+CI350dd62/run42106751117 :288tests Python et261tests TypeScript ; Python, guards et SQL public/extensions réussis ; lint, typage, testsTS, build et sécurité bundle réussis. Le job web-demo a été annulé pendant la dernière séquence navigateur, après succès des audits demo/PRA/intégration/blé : ce run ne constitue pas une CI entièrement verte. La preuve responsive propre à Task26B locale/Preview est distincte. Le statut du dernier run est à consulter dans la PR, sans assimiler un job annulé à une réussite.
+
+Le précédent commit scientifique dc1ffc2 a une CI complète verte (run42103669136). Le timeout du350dd62 provient notamment de13min26s d’installation Chromium/dépendances avant la séquence navigateur ; aucune assertion échouée dans les étapes terminées. Aucun plafond de sécurité source n’est relevé pour le contourner.
