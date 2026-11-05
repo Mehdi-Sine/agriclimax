@@ -1,0 +1,48 @@
+{
+  "base": "http://127.0.0.1:3031",
+  "mocked": false,
+  "realDataVerified": true,
+  "checks": [
+    "420 actual forecast rows",
+    "12 official PRA only",
+    "J+1 and J+7",
+    "NULL preserved",
+    "90 API/card numeric comparisons",
+    "Same canvas",
+    "No horizontal overflow",
+    "J−1 explicitly unavailable",
+    "No opt-in: HTTP400"
+  ],
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "numericComparisons": 30
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1000,
+      "numericComparisons": 30
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "numericComparisons": 30
+    }
+  ],
+  "errors": [],
+  "run": "2026-11-05T00:00:00+00:00",
+  "dates": [
+    "2026-11-06",
+    "2026-11-07",
+    "2026-11-08",
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-11",
+    "2026-11-12"
+  ],
+  "pra": 12
+}
