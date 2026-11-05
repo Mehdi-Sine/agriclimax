@@ -34,8 +34,15 @@ try {
  const wheat=await api(`action=wheat-context&pra=${encodeURIComponent(pra)}`);
  assert.equal(wheat.data.area_ha,agriculturalPra.values[0]);
  assert.equal(wheat.year,2025);
+ assert.equal(wheat.source.sha256,rpg.indicator.sha256,'Map and panel must use the same RPG artifact version');
+ if(process.env.TASK25_REQUIRE_NATIONAL==='1'){
+  assert.equal(wheat.source.coverage,'national');
+  assert.equal(wheat.source.completed_regions.length,13);
+  assert.equal(rpg.rows.filter(r=>r.values[0]!==null).length,713-wheat.source.no_known_parcels.length);
+  assert.equal(rpg.rows.some(r=>r.statuses[0]==='partial'),false);
+ }
  const fmt=n=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(n);
- report.apiProofs={saaSha:saa.indicator.sha256,wheatFrance2025:4494355,seineEtMarne2025:117468,corsica2A2025:2,rpgPra:pra,rpgAreaHa:agriculturalPra.values[0],rpgRegions:wheat.source.completed_regions,rpgCoverage:wheat.source.coverage};
+ report.apiProofs={saaSha:saa.indicator.sha256,wheatFrance2025:4494355,seineEtMarne2025:117468,corsica2A2025:2,rpgPra:pra,rpgAreaHa:agriculturalPra.values[0],rpgRegions:wheat.source.completed_regions,rpgCoverage:wheat.source.coverage,rpgArtifactSha:rpg.indicator.sha256,rpgKnownPra:rpg.rows.filter(r=>r.values[0]!==null).length};
  const climateResponse=await page.request.get(`${base}/api/unified?start=2026-10-15&end=2026-10-15&indicator=temperature&threshold=25`);
  assert.equal(climateResponse.status(),200,'Live DEV/Preview climate required');
  const climate=await climateResponse.json();assert.equal(climate.data.length,713);

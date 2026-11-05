@@ -1,0 +1,8 @@
+{
+  "source_sha256": "46e2ea9493ae34fac5d343e6cef51ac08a455d970ce78611c5d3b2365650d76f",
+  "source_bytes": 7080120,
+  "source_series_compared": 29350,
+  "source_cells_compared_including_null": 469600,
+  "all_persisted_values_statuses_units_and_source_anomalies_identical": true,
+  "method": "Replay actual qualified XLSX release and compare every native territory/year record with published server artifacts; no re-acquisition or overwrite"
+}
