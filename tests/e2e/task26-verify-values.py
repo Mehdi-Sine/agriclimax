@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import math
 import sys
 from pathlib import Path
 from time import monotonic
@@ -91,13 +92,38 @@ def main() -> None:
         path = Path("apps/web/data/agriculture") / f"{identifier}.json"
         protected = json.loads(path.read_text())
         remote = get("/api/agriculture", action="dataset", indicator=identifier)
-        for key in ("indicator", "years", "rows"):
-            assert remote[key] == protected[key], (identifier, key)
+        float64_transport_adjustments = 0
+
+        def compare(original: Any, served: Any) -> None:
+            nonlocal float64_transport_adjustments
+            if original == served:
+                return
+            if isinstance(original, dict) and isinstance(served, dict):
+                for key, value in original.items():
+                    assert key in served
+                    compare(value, served[key])
+            elif isinstance(original, list) and isinstance(served, list):
+                assert len(original) == len(served)
+                for value, actual_value in zip(original, served, strict=True):
+                    compare(value, actual_value)
+            elif isinstance(original, float) and isinstance(served, (float, int)):
+                # JSON module compilation/serialization may differ by one IEEE754 bit.
+                # No scientific rounding, NULL substitution or source-file change.
+                assert abs(original - served) <= max(
+                    math.ulp(original), math.ulp(served)
+                )
+                float64_transport_adjustments += 1
+            else:
+                raise TypeError((original, served))
+
+        for key in protected:
+            compare(protected[key], remote[key])
         crops.append(
             {
                 "indicator": identifier,
                 "rows": len(remote["rows"]),
                 "protected_file_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                "one_ulp_json_roundtrips": float64_transport_adjustments,
             }
         )
     report = {

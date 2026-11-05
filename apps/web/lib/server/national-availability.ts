@@ -1,6 +1,6 @@
 import 'server-only';
 import { NATIONAL, DAYS } from '../../features/national/model';
-import { calendarDays, type NationalAvailability } from '../../features/national/daily-availability';
+import { calendarDays, isCalendarDate, type NationalAvailability } from '../../features/national/daily-availability';
 import { ApiError } from './query';
 
 let cached: { expires: number; promise: Promise<NationalAvailability> } | undefined;
@@ -47,6 +47,7 @@ export function nationalAvailability(transport:typeof fetch=fetch):Promise<Natio
   return promise;
 }
 export async function nationalDays(transport:typeof fetch, requested:string[]=[]):Promise<string[]> {
+  if(requested.some(d=>!isCalendarDate(d)))return DAYS;
   const today=new Date().toISOString().slice(0,10);
   // Legacy dates keep their existing bounded reader; future days still require catalog proof.
   if(requested.length&&requested.every(d=>DAYS.includes(d)||d<NATIONAL.start||d>today))return DAYS;
