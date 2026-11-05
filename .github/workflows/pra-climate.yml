@@ -11,13 +11,13 @@ on:
         options: [batch, daily-pilot, national-daily]
         default: batch
       daily_downloads:
-        description: New tile budget (1 to 64); pilot defaults to four
+        description: Maximum new 2-degree source groups (1 to 64); default four
         type: number
         default: 4
       reference_directory:
         description: Reviewed reference directory under config/coverage (manifest, reference and weights JSON)
         required: true
-        default: config/coverage/pra-official-2017
+        default: config/coverage/ofb-masa-pra-2017-snapshot-20261017
         type: string
       dataset_version:
         description: Immutable explicit CDS source revision

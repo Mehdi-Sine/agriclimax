@@ -89,6 +89,15 @@ def test_missing_or_duplicate_source_never_persists(tmp_path):
     assert not list(tmp_path.rglob("completed.json"))
 
 
+def test_same_sized_wrong_date_support_cannot_be_published_as_null(tmp_path):
+    t, w, provider = support()
+    provider.acquire.return_value[0].batch.valid_date = date(2026, 1, 2)
+    persist = Mock()
+    with pytest.raises(ValueError, match="native support"):
+        run_batch(provider, t, w, date(2026, 1, 1), date(2026, 1, 1), tmp_path, persist=persist)
+    persist.assert_not_called()
+
+
 def test_partial_weather_keeps_nulls_and_no_complete_checkpoint(tmp_path):
     t, w, provider = support()
     provider.acquire.return_value[0].batch.observations[0].value = None

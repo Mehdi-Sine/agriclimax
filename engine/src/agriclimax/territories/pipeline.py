@@ -13,6 +13,7 @@ from typing import Any
 
 from agriclimax.climate.coverage import compact
 from agriclimax.climate.era5_land import Era5LandProvider
+from agriclimax.climate.models import Dataset, ReferenceDay
 from agriclimax.daily import retry
 from agriclimax.ingestion.storage import atomic_write
 from agriclimax.wheat.models import Parameters
@@ -27,6 +28,74 @@ VERSION = "pra-native-1"
 
 def digest(value: object) -> str:
     return hashlib.sha256(json.dumps(value, sort_keys=True, allow_nan=False).encode()).hexdigest()
+
+
+def write_native_tiles(
+    refs: list[ReferenceDay],
+    root: Path,
+    dataset: Dataset,
+    wanted: list[tuple[int, int]],
+    windows: list[tuple[date, date]],
+) -> int:
+    """Task19D's lossless 2-degree -> native 1-degree compact checkpoint splitter.
+
+    Existing checkpoints are retained; mixed acquisitions must agree on every
+    common native value (including NULL masks), never silently replace inputs.
+    """
+    if not refs:
+        raise ValueError("Missing source group")
+    rows = [
+        (math.floor(round(r.longitude, 1)), math.floor(round(r.latitude, 1)), compact(r))
+        for r in refs
+    ]
+    created = 0
+    for x, y in wanted:
+        for start, end in windows:
+            selected = [
+                r
+                for rx, ry, r in rows
+                if (rx, ry) == (x, y) and str(start) <= str(r["valid_date"]) <= str(end)
+            ]
+            if len(selected) != 100 * ((end - start).days + 1) or len(
+                {(r["cell_id"], r["valid_date"]) for r in selected}
+            ) != len(selected):
+                raise ValueError("Incomplete native tile")
+            key = digest(
+                {
+                    "dataset": dataset.model_dump(mode="json"),
+                    "start": str(start),
+                    "end": str(end),
+                    "west": x,
+                    "south": y,
+                    "compact_version": 1,
+                }
+            )
+            path = root / "tiles" / f"{key}.json.gz"
+            if path.exists():
+                content = path.read_bytes()
+                if hashlib.sha256(content).hexdigest() != path.with_suffix(".sha256").read_text():
+                    raise ValueError("Tile checksum mismatch")
+                previous = {
+                    (r["cell_id"], r["valid_date"]): r
+                    for r in json.loads(gzip.decompress(content))["rows"]
+                }
+                for row in selected:
+                    old = previous.get((row["cell_id"], row["valid_date"]))
+                    if old is None or any(old[v] != row[v] for v in (*VARIABLES, "quality_flags")):
+                        raise ValueError("Immutable native source conflict")
+                continue
+            content = gzip.compress(
+                json.dumps(
+                    {"rows": selected, "source": refs[0].source_request},
+                    sort_keys=True,
+                    allow_nan=False,
+                ).encode(),
+                mtime=0,
+            )
+            atomic_write(path, content)
+            atomic_write(path.with_suffix(".sha256"), hashlib.sha256(content).hexdigest().encode())
+            created += 1
+    return created
 
 
 def plan(
@@ -214,7 +283,10 @@ def run_batch(
         calculation_time = datetime.now(UTC)
     days = (end - start).days + 1
     keys = {(r["cell_id"], r["valid_date"]) for r in rows}
-    if len(keys) != len(rows) or len(keys) != len(weights) * days:
+    expected_keys = {
+        (w.cell_id, str(start + timedelta(days=i))) for w in weights for i in range(days)
+    }
+    if len(keys) != len(rows) or keys != expected_keys:
         raise ValueError("Missing or duplicate native support; source not fabricated")
     daily = []
     for offset in range(days):

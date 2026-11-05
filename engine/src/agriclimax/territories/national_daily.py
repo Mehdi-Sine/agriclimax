@@ -1,5 +1,7 @@
 """Daily orchestration of the existing PRA batches; no new scientific pipeline."""
 
+import hashlib
+import math
 from collections.abc import Callable
 from datetime import date, timedelta
 from pathlib import Path
@@ -10,6 +12,49 @@ REFERENCE = "ofb-masa-pra-2017-snapshot-20261017"
 DATASET = "era5land-national-20260919-20261018-v1"
 DEV_HOST = "yyfbpecxvxglzxopsmel.supabase.co"
 PILOT = ("pra:28341", "pra:06245", "pra:29102")
+
+
+def acquire_groups(
+    provider: Any, weights: list[Any], day: date, root: Path, maximum_groups: int
+) -> tuple[bool, int, int]:
+    """Reuse Task19D 2-degree requests and exact existing compact tile identities."""
+    from agriclimax.territories.pipeline import digest, write_native_tiles
+
+    tiles = {(math.floor(w.longitude), math.floor(w.latitude)) for w in weights}
+    groups = sorted({(x // 2 * 2, y // 2 * 2) for x, y in tiles})
+    acquired, created = 0, 0
+    for west, south in groups:
+        wanted = sorted((x, y) for x, y in tiles if (x // 2 * 2, y // 2 * 2) == (west, south))
+        missing = False
+        for x, y in wanted:
+            key = digest(
+                {
+                    "dataset": provider.dataset.model_dump(mode="json"),
+                    "start": str(day),
+                    "end": str(day),
+                    "west": x,
+                    "south": y,
+                    "compact_version": 1,
+                }
+            )
+            path = root / "tiles" / f"{key}.json.gz"
+            if not path.exists():
+                missing = True
+            elif (
+                hashlib.sha256(path.read_bytes()).hexdigest()
+                != path.with_suffix(".sha256").read_text()
+            ):
+                raise ValueError("Corrupt compact checkpoint")
+        if not missing:
+            continue
+        if acquired >= maximum_groups:
+            return False, acquired, created
+        if sum(p.stat().st_size for p in root.rglob("*") if p.is_file()) > 448 * 1024**2:
+            raise ValueError("Workspace quota exceeded")
+        refs = provider.acquire((west, south, west + 2, south + 2), day, day)
+        acquired += 1
+        created += write_native_tiles(refs, root, provider.dataset, wanted, [(day, day)])
+    return True, acquired, created
 
 
 def dates(start: date, end: date) -> list[date]:

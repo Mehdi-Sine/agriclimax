@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-import gzip
 import hashlib
 import json
 import math
@@ -14,11 +13,10 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from agriclimax.climate.coverage import compact
 from agriclimax.climate.era5_land import Era5LandProvider, cds_retrieve
 from agriclimax.climate.models import Dataset
 from agriclimax.ingestion.storage import atomic_write
-from agriclimax.territories.pipeline import digest, run_batch
+from agriclimax.territories.pipeline import digest, run_batch, write_native_tiles
 from agriclimax.territories.repository import PraRepository
 from agriclimax.territories.spatial import Weight, load_reference
 from pra_30day_review import OLD_EDITION, OLD_ROOT, boundary_equal
@@ -291,40 +289,7 @@ def main() -> None:
                 ):
                     raise ValueError("Existing cache budget exceeded")
                 refs = provider.acquire((west, south, west + 2, south + 2), first, last)
-                rows = [
-                    (
-                        math.floor(round(r.longitude, 1)),
-                        math.floor(round(r.latitude, 1)),
-                        compact(r),
-                    )
-                    for r in refs
-                ]
-                for x, y in wanted:
-                    for s, e in windows:
-                        selected = [
-                            row
-                            for rx, ry, row in rows
-                            if (rx, ry) == (x, y)
-                            and str(s) <= str(row["valid_date"]) <= str(e)
-                        ]
-                        if len(selected) != 100 * ((e - s).days + 1):
-                            raise ValueError("Incomplete native tile")
-                        content = gzip.compress(
-                            json.dumps(
-                                {"rows": selected, "source": refs[0].source_request},
-                                sort_keys=True,
-                                allow_nan=False,
-                            ).encode(),
-                            mtime=0,
-                        )
-                        path = tile(ROOT, release, x, y, s, e)
-                        if path.exists() and path.read_bytes() != content:
-                            raise ValueError("Immutable tile conflict")
-                        atomic_write(path, content)
-                        atomic_write(
-                            path.with_suffix(".sha256"),
-                            hashlib.sha256(content).hexdigest().encode(),
-                        )
+                write_native_tiles(refs, ROOT, release, wanted, windows)
                 print(
                     "Verified source extent",
                     west,

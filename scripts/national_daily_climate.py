@@ -7,6 +7,7 @@ import signal
 from datetime import UTC, date, datetime
 from pathlib import Path
 from time import monotonic
+from typing import Any
 from urllib.parse import urlsplit
 
 from agriclimax.territories.national_daily import (
@@ -14,6 +15,7 @@ from agriclimax.territories.national_daily import (
     DEV_HOST,
     PILOT,
     REFERENCE,
+    acquire_groups,
     execute,
     persisted,
     window,
@@ -178,17 +180,45 @@ def main() -> int:
             args.root / "source-cache",
             retrieve=retrieve,
         )
-        result = execute(
-            territories,
-            weights,
-            provider,
-            args.root,
-            days,
-            read,
-            persist,
-            max_downloads=args.max_downloads,
-            seconds=max(1, int(1320 - (monotonic() - started))),
-        )
+        result: dict[str, Any] = {"status": "completed", "days": [], "batches": []}
+        result_days = []
+        result_batches = []
+        groups_remaining = args.max_downloads
+        total_tiles_created = 0
+        for day in days:
+            existing = persisted(read(day), selected, day)
+            needed_weights = [w for w in weights if w.pra_id not in existing]
+            ready, acquired, created = True, 0, 0
+            if needed_weights:
+                ready, acquired, created = acquire_groups(
+                    provider, needed_weights, day, args.root, groups_remaining
+                )
+            groups_remaining -= acquired
+            report["source_groups_acquired"] = args.max_downloads - groups_remaining
+            total_tiles_created += created
+            report["compact_tiles_created"] = total_tiles_created
+            if not ready:
+                result["status"] = "processing"
+                result["stop_reason"] = "source_group_budget_resume_checkpoints"
+                break
+            stage = execute(
+                territories,
+                weights,
+                provider,
+                args.root,
+                [day],
+                read,
+                persist,
+                max_downloads=1,
+                seconds=max(1, int(1320 - (monotonic() - started))),
+            )
+            result_days.extend(stage["days"])
+            result_batches.extend(stage["batches"])
+            if stage["status"] != "completed":
+                result["status"] = stage["status"]
+                break
+        result["days"] = result_days
+        result["batches"] = result_batches
         report.update(result)
         if not args.pilot:
             published = [
