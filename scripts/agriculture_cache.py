@@ -71,7 +71,7 @@ def compact(cache: Path, region: str, evict: bool = False) -> dict:
     compressed = owned(cache / f"R{region}-Parcelles.gpkg.xz", cache)
     if not compressed.exists():
         temporary = compressed.with_suffix(".xz.part")
-        with source.open("rb") as inp, lzma.open(temporary, "wb", preset=3) as out:
+        with source.open("rb") as inp, lzma.open(temporary, "wb", preset=0) as out:
             shutil.copyfileobj(inp, out, 1024 * 1024)
         temporary.replace(compressed)
     with lzma.open(compressed, "rb") as stream:

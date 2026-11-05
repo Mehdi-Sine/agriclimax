@@ -49,13 +49,17 @@ def source(region: str):
 def main() -> None:
     checkpoints = [json.loads(p.read_text()) for p in sorted(CACHE.glob('R*-complete.json'))]
     regions = [cp['region'] for cp in checkpoints]
-    provenance = hashlib.sha256(json.dumps([(cp['region'], cp['archive_sha256']) for cp in checkpoints]).encode()).hexdigest()
+    reference_sha = hashlib.sha256(REFERENCE.read_bytes()).hexdigest()
+    if any(cp['reference_sha256'] != reference_sha or cp['rule_version'] != 'rpg-area-1' for cp in checkpoints):
+        raise ValueError('Checkpoint reference/method mismatch')
+    provenance = hashlib.sha256(json.dumps(checkpoints, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
     index = sqlite3.connect(CACHE / 'cross-region-bounds.sqlite')
     index.execute('create table if not exists complete (region text primary key, sha text not null)')
     index.execute('create virtual table if not exists bounds using rtree(id,minx,maxx,miny,maxy,+region,+fid)')
     for cp in checkpoints:
         region = cp['region']
-        if index.execute('select sha from complete where region=?', (region,)).fetchone() == (cp['archive_sha256'],):
+        bounds_key = hashlib.sha256((cp['archive_sha256'] + cp['parcel_id_digest']).encode()).hexdigest()
+        if index.execute('select sha from complete where region=?', (region,)).fetchone() == (bounds_key,):
             continue
         index.execute('delete from bounds where region=?', (region,))
         with source(region) as db:
@@ -65,7 +69,7 @@ def main() -> None:
                join identities.parcel_identity_v2 i on i.id=p.id_parcel where i.region=?''', (region,))
             prefix = int(region) * 1_000_000_000
             index.executemany('insert into bounds values (?,?,?,?,?,?,?)', ((prefix+fid, minx, maxx, miny, maxy, region, fid) for fid, minx, maxx, miny, maxy in rows))
-        index.execute('insert or replace into complete values (?,?)', (region, cp['archive_sha256']))
+        index.execute('insert or replace into complete values (?,?)', (region, bounds_key))
         index.commit()
         print(json.dumps({'step': 'bounds', 'region': region}), flush=True)
     # RTree outward-rounded float boxes are a conservative candidate superset.
@@ -97,6 +101,8 @@ def main() -> None:
         print(json.dumps({'step': 'candidates', 'region': region, 'parcels': len(fids)}), flush=True)
     corrections = defaultdict(float)
     excluded_by_group = defaultdict(float)
+    outside_by_group = defaultdict(float)
+    allocated_by_group = defaultdict(float)
     intersecting = 0
     excluded_total = 0.0
     outside_total = 0.0
@@ -112,14 +118,34 @@ def main() -> None:
         outside_total += allocation.outside_ha
         group = groups[current]
         excluded_by_group[(current[0], group)] += allocation.source_ha
+        outside_by_group[(current[0], group)] += allocation.outside_ha
+        allocated_by_group[(current[0], group)] += sum(allocation.hectares.values())
         for code, area in allocation.hectares.items():
             corrections[(code, group)] += area
-    result = {'rule_version': 'rpg-cross-region-1', 'regions': regions, 'source_provenance_sha256': provenance,
+    regional_controls = []
+    for cp in checkpoints:
+        for group, metrics in sorted(cp['groups'].items()):
+            key = (cp['region'], group)
+            outside_after = metrics['outside_pra_ha'] - outside_by_group[key]
+            published = metrics['allocated_ha'] - allocated_by_group[key]
+            residual = metrics['source_geometry_ha'] - metrics['excluded_overlap_ha'] - excluded_by_group[key] - outside_after - published
+            if abs(residual) > .001 or published < -.0001 or outside_after < -.0001:
+                raise ValueError('Regional/crop cross-delivery conservation failed')
+            regional_controls.append({'region': cp['region'], 'group': group,
+                                      'declared_ha': metrics['declared_ha'],
+                                      'source_geometry_ha': metrics['source_geometry_ha'],
+                                      'excluded_intra_region_ha': metrics['excluded_overlap_ha'],
+                                      'excluded_cross_region_ha': excluded_by_group[key],
+                                      'outside_pra_after_exclusion_ha': outside_after,
+                                      'published_ha': published, 'conservation_residual_ha': residual,
+                                      'declared_area_check': metrics['declared_area_check']})
+    result = {'rule_version': 'rpg-cross-region-2', 'regions': regions, 'source_provenance_sha256': provenance,
               'ownership': 'Ascending region code, then source FID; exact duplicate IDs already owned by identity index',
               'bbox_candidate_pairs': len(pairs), 'parcels_with_positive_overlap': intersecting,
               'excluded_overlap_ha': excluded_total, 'excluded_outside_pra_ha': outside_total,
               'allocated_correction_ha': sum(corrections.values()),
               'conservation_residual_ha': excluded_total-outside_total-sum(corrections.values()),
+              'regional_crop_controls': regional_controls,
               'group_exclusions': [[r,g,a] for (r,g),a in sorted(excluded_by_group.items())],
               'corrections': [[c,g,a] for (c,g),a in sorted(corrections.items())]}
     if abs(result['conservation_residual_ha']) > 0.001:

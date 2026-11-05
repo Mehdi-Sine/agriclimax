@@ -52,7 +52,7 @@ def download(url: str, path: Path, expected_bytes: int | None = None) -> None:
         # Bounded ranges survive proxy truncation without restarting a 1–2GB
         # delivery. A chunk is appended only after exact Content-Range/size checks;
         # the publisher checksum is checked before any parcel extraction.
-        chunk_bytes = 16 * 1024 * 1024
+        chunk_bytes = 4 * 1024 * 1024
         offset = temporary.stat().st_size if temporary.exists() else 0
         if offset > expected_bytes:
             raise ValueError("Oversized partial source archive")
@@ -191,7 +191,8 @@ def process_region(region: str, cache: Path, allocator: PraAllocator, reference_
     expected = int(link.attrib["{https://data.geopf.fr/annexes/ressources/xsd/gpf_dl.xsd}length"])
     archive = cache / f"R{region}.7z"
     existing_layer = next((cache / f'R{region}-extract').rglob('RPG_Parcelles.gpkg'), None)
-    required = (0 if archive.exists() else expected) + (0 if existing_layer else expected) + 256 * 1024 * 1024
+    partial_bytes = archive.with_suffix('.7z.part').stat().st_size if archive.with_suffix('.7z.part').exists() else 0
+    required = (0 if archive.exists() else max(0, expected - partial_bytes)) + (0 if existing_layer else expected) + 256 * 1024 * 1024
     if shutil.disk_usage(cache).free < required:
         raise ValueError("Insufficient disk for bounded regional extraction; keep checkpoints")
     print(json.dumps({"region": region, "step": "download", "bytes": expected}), flush=True)

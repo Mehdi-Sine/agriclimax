@@ -19,7 +19,6 @@ def main() -> None:
     for cp in checkpoints:
         if not all(g['declared_area_check'] and abs(g['conservation_residual_ha']) <= .001 for g in cp['groups'].values()):
             raise ValueError('Regional declared-area/conservation control failed')
-    digest = hashlib.sha256(json.dumps(checkpoints, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
     nomenclature = json.loads((cache / 'rpg-codes.json').read_text())
     labels = defaultdict(set)
     for f in nomenclature['features']:
@@ -33,8 +32,8 @@ def main() -> None:
             totals[code] += area
     cross_path = cache / 'cross-region-complete.json'
     cross = json.loads(cross_path.read_text()) if cross_path.exists() else None
-    expected_provenance = hashlib.sha256(json.dumps([(cp['region'], cp['archive_sha256']) for cp in checkpoints]).encode()).hexdigest()
-    cross_checked = cross is not None and cross.get('source_provenance_sha256') == expected_provenance
+    expected_provenance = hashlib.sha256(json.dumps(checkpoints, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+    cross_checked = cross is not None and cross.get('rule_version') == 'rpg-cross-region-2' and cross.get('source_provenance_sha256') == expected_provenance
     if cross_checked:
         for code, group, correction in cross['corrections']:
             if correction > sums[(code, group)] + 0.0001:
@@ -44,6 +43,15 @@ def main() -> None:
         for (code, _group), area in sums.items():
             totals[code] += area
     quality_flags = [] if cross_checked else ['cross_region_distinct_id_overlap_not_checked']
+    if any(len(names) > 1 for names in labels.values()):
+        quality_flags.append('ambiguous_source_group_not_selectable')
+    invalid_count = sum(cp['invalid_geometries'] for cp in checkpoints)
+    repaired_pra = sorted({code for cp in checkpoints for code in cp['repaired_pra_codes']})
+    if invalid_count:
+        quality_flags.append('invalid_parcel_geometries_repaired')
+    if repaired_pra:
+        quality_flags.append('working_pra_geometries_repaired')
+    digest = hashlib.sha256(json.dumps({'checkpoints': checkpoints, 'cross_audit': cross if cross_checked else None}, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
     full = {cp['region'] for cp in checkpoints} == set(REGIONS)
     indicators = []
     for group, names in sorted(labels.items(), key=lambda pair: int(pair[0])):
@@ -67,6 +75,14 @@ def main() -> None:
         indicators.append(indicator)
     manifest = {'schema_version': 'agriculture-1', 'rule_version': 'rpg-area-1', 'source_id': 'rpg-2025',
                 'source_version': '4.0',
+                'spatial_controls': {
+                    'parcels_read': sum(cp['parcels'] for cp in checkpoints),
+                    'duplicate_ids_excluded': sum(cp['duplicate_ids'] for cp in checkpoints),
+                    'invalid_parcel_geometries_repaired': invalid_count,
+                    'working_pra_geometries_repaired': repaired_pra,
+                    'excluded_intra_region_overlap_ha': sum(g['excluded_overlap_ha'] for cp in checkpoints for g in cp['groups'].values()),
+                    'declared_area_checks_passed': True,
+                    'max_regional_conservation_residual_ha': max(abs(g['conservation_residual_ha']) for cp in checkpoints for g in cp['groups'].values())},
                 'provider': 'IGN / ASP', 'url': 'https://www.data.gouv.fr/datasets/rpg',
                 'page_url': 'https://cartes.gouv.fr/rechercher-une-donnee/dataset/IGNF_RPG',
                 'license': 'Licence Ouverte 2.0', 'published_at': '2026-10-23',
