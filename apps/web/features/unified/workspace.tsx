@@ -134,7 +134,7 @@ export function UnifiedWorkspace() {
     </header>
     <main id="main" className="unified-main">
       <div className="unified-heading"><div><p className="eyebrow">EXPLORER LES TERRITOIRES · FRANCE MÉTROPOLITAINE ET CORSE</p><h1>{TITLES[space]}</h1><p>{DESCRIPTIONS[space]}</p></div><span className="scale-badge">{space === 'productions' ? 'Mailles agricoles · sources officielles' : '713 PRA · contours officiels'}</span></div>
-      <div className="unified-context" role={availability.error?'alert':'status'}>{availability.error?<span>Disponibilité climatique inaccessible. {availability.error}</span>:availability.data?<span>{availability.data.freshness==='stale'?'Données retardées':'Réanalyse récente'} · date source : {availability.data.source_date} UTC · acquisition : {availability.data.acquired_at??'date non exposée par le service actuel'} · mise à jour : {availability.data.updated_at??'inconnue'} (UTC)</span>:<span>Vérification de la dernière journée nationale acquise…</span>}</div>
+      <div className="unified-context" role={availability.error?'alert':'status'}>{availability.error?<span>Disponibilité climatique inaccessible. {availability.error}</span>:availability.data?<span>Dernière publication nationale · {availability.data.freshness==='stale'?'Données retardées':'Réanalyse récente'} · date source : {availability.data.source_date} UTC · acquisition : {availability.data.acquired_at??'date non exposée par le service actuel'} · mise à jour : {availability.data.updated_at??'inconnue'} (UTC)</span>:<span>Vérification de la dernière journée nationale acquise…</span>}</div>
       {climateBody}
     </main>
   </div>;

@@ -143,6 +143,7 @@ def main() -> int:
     signal.signal(signal.SIGALRM, terminate)
     signal.alarm(1320)
     try:
+        report["stage"] = "catalog"
         catalog = repository.catalog()
         actual_latest = date.fromisoformat(catalog["latest"])
         if latest > actual_latest:
@@ -150,6 +151,7 @@ def main() -> int:
         latest = actual_latest
         report["source_acquired_at"] = catalog["acquired_at"]
         # National anchor is verified independently of the pilot subset.
+        report["stage"] = "anchor_validation"
         anchor_rows = repository.read_day(str(latest))
         if persisted(anchor_rows, expected, latest) != expected:
             raise ValueError("National anchor is not fully persisted in DEV")
@@ -189,6 +191,7 @@ def main() -> int:
             existing = persisted(read(day), selected, day)
             needed_weights = [w for w in weights if w.pra_id not in existing]
             ready, acquired, created = True, 0, 0
+            report["stage"] = "acquisition_and_native_validation"
             if needed_weights:
                 ready, acquired, created = acquire_groups(
                     provider, needed_weights, day, args.root, groups_remaining
@@ -201,6 +204,7 @@ def main() -> int:
                 result["status"] = "processing"
                 result["stop_reason"] = "source_group_budget_resume_checkpoints"
                 break
+            report["stage"] = "aggregation_and_persistence"
             stage = execute(
                 territories,
                 weights,
@@ -227,6 +231,7 @@ def main() -> int:
             ]
             latest = max([latest, *published])
             report["latest_national_date"] = str(latest)
+            report["stage"] = "publication_validation"
             published_catalog = repository.catalog()
             if published_catalog["latest"] < str(latest):
                 raise ValueError("Published day missing from DEV catalog")
@@ -242,9 +247,16 @@ def main() -> int:
                     }
                 ).encode(),
             )
-    except (ValueError, RuntimeError, OSError, TimeoutError):
+    except (ValueError, RuntimeError, OSError, TimeoutError) as error:
         # No upstream exception/URL/credential is included in public artifacts.
         report["status"] = "stopped"
+        report["error_type"] = type(error).__name__
+        report["error_code"] = {
+            "Immutable native source conflict": "native_source_conflict",
+            "Incomplete native tile": "incomplete_native_tile",
+            "Corrupt compact checkpoint": "corrupt_checkpoint",
+            "CDS acquisition failed; check network, CDSAPI_KEY and dataset licence": "cds_acquisition_failed",
+        }.get(str(error), "source_destination_validation_or_budget")
         report["stop_reason"] = (
             "source_destination_validation_or_budget; resume_checkpoints"
         )

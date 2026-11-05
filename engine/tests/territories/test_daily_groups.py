@@ -12,7 +12,7 @@ import pytest
 from agriclimax.climate.coverage import compact
 from agriclimax.climate.models import Dataset, ReferencePeriod
 from agriclimax.territories.national_daily import acquire_groups
-from agriclimax.territories.pipeline import digest
+from agriclimax.territories.pipeline import digest, write_native_tiles
 from agriclimax.territories.spatial import Weight
 
 
@@ -87,7 +87,7 @@ def test_existing_121_cell_checkpoint_is_retained_and_null_masks_cannot_change(t
     path.write_bytes(content)
     path.with_suffix(".sha256").write_text(hashlib.sha256(content).hexdigest())
     assert len(rows) == 121
-    assert acquire_groups(provider, weights, day, tmp_path, 1) == (True, 1, 3)
+    assert acquire_groups(provider, weights, day, tmp_path, 3) == (True, 3, 3)
     assert path.read_bytes() == content
     # Honest checksum but conflicting native science must still be rejected.
     rows[0]["temperature"] = None
@@ -97,5 +97,5 @@ def test_existing_121_cell_checkpoint_is_retained_and_null_masks_cannot_change(t
     other = next(p for p in path.parent.glob("*.json.gz") if p != path)
     other.unlink()
     with pytest.raises(ValueError, match="source conflict"):
-        acquire_groups(provider, weights, day, tmp_path, 1)
+        write_native_tiles(refs, tmp_path, provider.dataset, [(0, 44)], [(day, day)])
     assert path.read_bytes() == changed

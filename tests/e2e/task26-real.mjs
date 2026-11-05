@@ -24,6 +24,8 @@ try{
  assert.equal(climateResponse.status(),200);const climate=await climateResponse.json();
  assert.equal(climate.data.length,713);assert.equal(new Set(climate.data.map(r=>r.territoryId)).size,713);
  report.timings.mapApiMs=performance.now()-dayStart;
+ assert.equal(climate.data.find(r=>r.territoryId==='pra:06245').status,'partial');
+ assert.equal(climate.data.find(r=>r.territoryId==='pra:29102').status,'unavailable');
  report.states=Object.fromEntries(['available','partial','unavailable'].map(s=>[s,climate.data.filter(r=>r.status===s).length]));
  for(const row of climate.data)if(row.status!=='available')assert.equal(row.anomaly,null,'No incomplete-series anomaly');
  const fmt=n=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(n);

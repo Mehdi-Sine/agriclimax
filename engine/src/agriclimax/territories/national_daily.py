@@ -25,7 +25,7 @@ def acquire_groups(
     acquired, created = 0, 0
     for west, south in groups:
         wanted = sorted((x, y) for x, y in tiles if (x // 2 * 2, y // 2 * 2) == (west, south))
-        missing = False
+        missing: list[tuple[int, int]] = []
         for x, y in wanted:
             key = digest(
                 {
@@ -39,7 +39,7 @@ def acquire_groups(
             )
             path = root / "tiles" / f"{key}.json.gz"
             if not path.exists():
-                missing = True
+                missing.append((x, y))
             elif (
                 hashlib.sha256(path.read_bytes()).hexdigest()
                 != path.with_suffix(".sha256").read_text()
@@ -47,13 +47,23 @@ def acquire_groups(
                 raise ValueError("Corrupt compact checkpoint")
         if not missing:
             continue
-        if acquired >= maximum_groups:
-            return False, acquired, created
-        if sum(p.stat().st_size for p in root.rglob("*") if p.is_file()) > 448 * 1024**2:
-            raise ValueError("Workspace quota exceeded")
-        refs = provider.acquire((west, south, west + 2, south + 2), day, day)
-        acquired += 1
-        created += write_native_tiles(refs, root, provider.dataset, wanted, [(day, day)])
+        # A partly cached group keeps its original inputs. Request only missing
+        # subtiles; entirely absent groups reuse the validated Task19D 2-degree path.
+        extents = (
+            [(west, south, west + 2, south + 2, wanted)]
+            if len(missing) == len(wanted)
+            else [(x, y, x + 1, y + 1, [(x, y)]) for x, y in missing]
+        )
+        for left, bottom, right, top, selected_tiles in extents:
+            if acquired >= maximum_groups:
+                return False, acquired, created
+            if sum(p.stat().st_size for p in root.rglob("*") if p.is_file()) > 448 * 1024**2:
+                raise ValueError("Workspace quota exceeded")
+            refs = provider.acquire((left, bottom, right, top), day, day)
+            acquired += 1
+            created += write_native_tiles(
+                refs, root, provider.dataset, selected_tiles, [(day, day)]
+            )
     return True, acquired, created
 
 
