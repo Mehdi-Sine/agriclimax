@@ -24,8 +24,8 @@ def main() -> None:
         for w in weights:
             cell=w['cell_id'];temp=[fields[f'{s}:2t'][cell] for s in steps]
             variable=row['variable']
-            if variable=='temperature_min':v=min(temp)-273.15
-            elif variable=='temperature_max':v=max(temp)-273.15
+            if variable=='temperature_min':v=min(temp[:-1])-273.15
+            elif variable=='temperature_max':v=max(temp[:-1])-273.15
             elif variable=='temperature':v=sum((temp[i]+temp[i+1])*(steps[i+1]-steps[i])/48 for i in range(len(steps)-1))-273.15
             elif variable=='precipitation':
                 v=1000*(fields[f'{end}:tp'][cell]-fields[f'{start}:tp'][cell]);v=None if v<0 else v

@@ -2,6 +2,7 @@
 
 import math
 from dataclasses import asdict
+from itertools import pairwise
 
 from shapely.geometry import box, mapping, shape
 
@@ -79,6 +80,38 @@ def humidity(temperature_k: float, dewpoint_k: float) -> float:
     if not math.isfinite(value) or not 0 <= value <= 100:
         raise ValueError("Invalid RH from T/dewpoint")
     return value
+
+
+CALCULATION_VERSION = "pra-weather-daily-2"
+
+
+def daily_temperature(
+    values: list[float | None], steps: list[int]
+) -> tuple[float | None, float | None, float | None]:
+    """Mean integrates the boundary; extrema belong to [00 UTC, next 00 UTC).
+
+    The following midnight supports integration but is not an extremum sample
+    of the preceding date. All expected endpoint support remains mandatory.
+    """
+    if (
+        len(values) != len(steps)
+        or len(steps) < 2
+        or steps[-1] - steps[0] != 24
+        or any(b - a not in {3, 6} for a, b in pairwise(steps))
+    ):
+        raise ValueError("Complete ordered 24-hour forecast sampling required")
+    if any(v is None or not math.isfinite(v) for v in values):
+        return None, None, None
+    complete = [v for v in values if v is not None]
+    mean = (
+        sum(
+            (complete[i] + complete[i + 1]) / 2 * (steps[i + 1] - steps[i])
+            for i in range(len(steps) - 1)
+        )
+        / 24
+        - 273.15
+    )
+    return mean, min(complete[:-1]) - 273.15, max(complete[:-1]) - 273.15
 
 
 def read_grib(

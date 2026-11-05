@@ -28,8 +28,10 @@ from agriclimax.ingestion.storage import atomic_write
 from agriclimax.territories.aggregate import Family, aggregate
 from agriclimax.territories.national_daily import REFERENCE
 from agriclimax.territories.operational import (
+    CALCULATION_VERSION,
     GRID,
     PILOT_CODES,
+    daily_temperature,
     grid_weights,
     humidity,
     read_grib,
@@ -309,22 +311,10 @@ def main() -> None:
             ts = [fields[s, "2t"][cell] for s in selected]
             ds = [fields[s, "2d"][cell] for s in selected]
             rain0, rain1 = fields[start, "tp"][cell], fields[end, "tp"][cell]
-            full = all(x is not None for x in ts)
-            if full:
-                temps = [float(x) for x in ts if x is not None]
-                native["temperature"][cell] = (
-                    sum(
-                        (temps[i] + temps[i + 1]) / 2 * (selected[i + 1] - selected[i])
-                        for i in range(len(selected) - 1)
-                    )
-                    / 24
-                    - 273.15
-                )
-                native["temperature_min"][cell] = min(temps) - 273.15
-                native["temperature_max"][cell] = max(temps) - 273.15
-            else:
-                for v in ("temperature", "temperature_min", "temperature_max"):
-                    native[v][cell] = None
+            mean, minimum, maximum = daily_temperature(ts, selected)
+            native["temperature"][cell] = mean
+            native["temperature_min"][cell] = minimum
+            native["temperature_max"][cell] = maximum
             rain = None if rain0 is None or rain1 is None else (rain1 - rain0) * 1000
             if rain is not None and rain < 0:
                 negative_rain.append(
@@ -398,6 +388,7 @@ def main() -> None:
                     *result.quality_flags,
                     "model_forecast_not_observation",
                     "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
                     "sampled_3h_then_6h_not_hourly",
                     "publication_time_unknown",
                     "source_delay_not_assessed",
@@ -435,7 +426,7 @@ def main() -> None:
                         nature="forecast",
                         model_run_at=run,
                         lead_hours=end,
-                        rule_version="pra-weather-1",
+                        rule_version=CALCULATION_VERSION,
                         grid_version=GRID,
                         weights_sha256=weight_fingerprint(ws),
                         spatial_coverage=min(1, result.valid_weighted_coverage),

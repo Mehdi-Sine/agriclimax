@@ -21,6 +21,21 @@ try{
  assert.ok(cycle.rows.every(r=>r.nature==='forecast'&&Date.parse(r.model_run_at)===Date.parse(cycle.run)));
  report.run=cycle.run;report.dates=dates;report.pra=12;
  const fmt=v=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(v);
+ // Representative points computed inside the unchanged official PRA polygons.
+ const points={'pra:28341':[1.5309604452926004,48.12072168328314],'pra:29102':[-4.463692370502372,48.25476836579469],'pra:2B260':[9.164094653276404,42.2995954675024]};
+ async function hoverValue(pra,row){
+  const map=page.locator('.national-map');await map.scrollIntoViewIfNeeded();
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+  const box=await map.boundingBox();const merc=([lon,lat])=>[(lon+180)/360,(1-Math.log(Math.tan(Math.PI/4+lat*Math.PI/360))/Math.PI)/2];
+  const a=merc([-5.3,41.3]),b=merc([9.8,51.2]),point=merc(points[pra]);
+  const scale=Math.min((box.width-40)/(b[0]-a[0]),(box.height-40)/(a[1]-b[1]));
+  const x=box.x+box.width/2+(point[0]-(a[0]+b[0])/2)*scale,y=box.y+box.height/2+(point[1]-(a[1]+b[1])/2)*scale;
+  await page.mouse.move(x-0.3,y);await page.mouse.move(x,y);
+  await page.locator('.national-hover').filter({hasText:pra.slice(4)}).waitFor({timeout:5000});
+  const hover=await page.locator('.national-hover').innerText();
+  assert.ok(hover.includes(row.value===null?'Indisponible':fmt(row.value)),`${pra}/${row.variable} API/map numeric parity: ${hover}`);
+ }
+
  for(const [name,width,height] of [['desktop',1440,1000],['tablet',768,1000],['mobile',390,844]]){
   await page.setViewportSize({width,height});await page.goto(base+'/?experimental=weather');
   await page.locator('.national-map[data-ready="true"][data-feature-count="12"]').waitFor({timeout:90000});
@@ -35,6 +50,7 @@ try{
      const row=cycle.rows.find(r=>r.valid_date===date&&r.pra_id===pra&&r.variable===variable);
      const text=await page.getByTestId('weather-value').innerText();
      assert.ok(text.includes(row.value===null?'Indisponible':fmt(row.value)),`${name}/${date}/${pra}/${variable} numeric parity`);
+     await hoverValue(pra,row);
     }
    }
   }
@@ -43,6 +59,6 @@ try{
   await page.screenshot({path:`${output}/${name}.png`,fullPage:true});
   report.viewports.push({name,width,height,numericComparisons:30});
  }
- assert.deepEqual(report.errors,[]);report.realDataVerified=true;report.checks=['420 actual forecast rows','12 official PRA only','J+1 and J+7','NULL preserved','90 API/card numeric comparisons','Same canvas','No horizontal overflow','J−1 explicitly unavailable','No opt-in: HTTP400'];
+ assert.deepEqual(report.errors,[]);report.realDataVerified=true;report.checks=['420 actual forecast rows','12 official PRA only','J+1 and J+7','NULL preserved','90 API/map/card numeric comparisons','Same canvas','No horizontal overflow','J−1 explicitly unavailable','No opt-in: HTTP400'];
  await writeFile(`${output}/browser-real.json`,JSON.stringify(report,null,2));console.log(JSON.stringify(report));
 }finally{await browser.close();}

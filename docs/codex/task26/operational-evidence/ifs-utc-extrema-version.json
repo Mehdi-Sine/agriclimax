@@ -1,0 +1,12 @@
+{
+  "calculation_version": "pra-weather-daily-2",
+  "contract_version": "pra-weather-1",
+  "native_source_sha256_unchanged": "d6ea2da4b05f02b793df977469502aab2b2074469a96a3367ed5bbdbed638627",
+  "source_reacquisitions": 0,
+  "changed_values": 31,
+  "changed_by_variable": {
+    "temperature_min": 26,
+    "temperature_max": 5
+  },
+  "change": "Tmin/Tmax sampled on half-open UTC day; following midnight retained only for mean integration"
+}

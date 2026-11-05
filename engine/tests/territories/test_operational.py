@@ -31,3 +31,16 @@ def test_humidity_units_saturation_and_impossible_dewpoint():
     assert 52 < humidity(293.15, 283.15) < 54
     with pytest.raises(ValueError):
         humidity(280, 290)
+
+
+@pytest.mark.parametrize("following_midnight", [263.15, 303.15])
+def test_daily_extrema_exclude_following_midnight_but_mean_integrates_it(following_midnight):
+    from agriclimax.territories.operational import daily_temperature
+
+    steps = list(range(0, 25, 3))
+    values = [283.15] * 8 + [following_midnight]
+    mean, low, high = daily_temperature(values, steps)
+    assert low == high == 10
+    assert abs(mean - (10 + (following_midnight - 283.15) / 16)) < 1e-10
+    values[4] = None
+    assert daily_temperature(values, steps) == (None, None, None)
