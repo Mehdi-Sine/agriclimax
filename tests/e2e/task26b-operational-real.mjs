@@ -27,11 +27,11 @@ try{
   assert.match(await page.locator('main').innerText(),/Estimation J−1 : indisponible/);
   await page.evaluate(()=>{window.__task26bCanvas=document.querySelector('.national-map');});
   for(const date of [dates[0],dates.at(-1)]){
-   await page.getByLabel('Date · UTC',{exact:true}).selectOption(date);
+   await page.getByRole('combobox',{name:/^Date · UTC/}).selectOption(date);
    for(const pra of ['pra:28341','pra:29102','pra:2B260']){
-    await page.getByLabel('PRA',{exact:true}).selectOption(pra);
+    await page.getByRole('combobox',{name:/^PRA/}).selectOption(pra);
     for(const variable of ['temperature','precipitation','humidity','temperature_min','temperature_max']){
-     await page.getByLabel('Variable',{exact:true}).selectOption(variable);
+     await page.getByRole('combobox',{name:/^Variable/}).selectOption(variable);
      const row=cycle.rows.find(r=>r.valid_date===date&&r.pra_id===pra&&r.variable===variable);
      const text=await page.getByTestId('weather-value').innerText();
      assert.ok(text.includes(row.value===null?'Indisponible':fmt(row.value)),`${name}/${date}/${pra}/${variable} numeric parity`);
