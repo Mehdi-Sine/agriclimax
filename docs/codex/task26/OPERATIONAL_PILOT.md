@@ -12,4 +12,16 @@ La publication web utilise le même canevas `NationalMap`, les mêmes composants
 
 Dates, variables, PRA sélectionnables ; run et acquisitionUTC, couverture/qualité, cumul des pluies, NULL et fraîcheur explicites. Tmax/Tmin échantillonnées, Tmoy trapézoïdale et RH approximative sont marquées. Pas d'anomalie implicite ni transition AROME/ARPEGE/IFS non validée. Pas d'enregistrement d'une prévision comme observation.
 
-**J−1 non démontré** : six401confirmés sur GitHub, aucune analyse ou observation actuelle acquise. Aucun substitut caché ; ce blocage empêche le critère de généralisation multi-sources. Les résultats IFS et mesures de capture sont à compléter après le run réel.
+**J−1 non démontré** : six401confirmés sur GitHub, aucune analyse ou observation actuelle acquise. Aucun substitut caché ; ce blocage empêche le critère de généralisation multi-sources. 
+## Résultat réel
+
+RunIFS5novembre2026à00UTC, jours6–12novembre (J+1àJ+7). Acquisition GitHub42089278523 :57index+170champs sélectionnés,66259061octetsGRIB ; arrêt scientifique après237,37s de programme, sans publication. Artefact de récupération conservé. Aucune réacquisition : décodage local des mêmes octets, puis cache natif compactSHA25661310octets, et retraitement/rejeu hors réseau en≈0,8s, RSS188408Kio mesuré sur le rejeu. Le RSS de l'acquisition froide n'a pas été mesuré (borne4GiB seulement).
+
+420lignes :84Tmoy,84Tmin,84Tmax disponibles ; pluie77disponibles/7partielles ; RH39disponibles/45partielles.12différences natives de cumul négatives (−0,12207à−0,06104mm) et123échantillons de réduction RH hors bornes ; valeurs concernées NULL, aucune pluie négative remise à0 et aucune RH écrêtée. Ces comptes peuvent partager un échantillon de frontière de journée ; ils ne représentent pas123stations ni123jours indépendants. La couverture temporelle conserve les intervalles valides, la couverture spatiale les cellules valides sur toute la journée.
+
+La cause des anomalies source n'est pas attribuée avec certitude. Les effets de quantification et l'approximation RH sur eau liquide sont des limites à investiguer ; ce ne sont pas des corrections validées. Toutes les unités/run/grille/steps ont passé les contrôles GRIB. La publication expérimentale conserve ces limites et les statuts.
+
+Contrôle indépendant, sans `aggregate` ni helperRH de production :420valeurs/statuts,52NULL, écart maximal1,42e−14. Entrées natives et manifeste conservés dans `config/pilots/ifs-oper-20261105-00z/`, jamais exposés par l'API. Test de reproduction des420lignes identiques hors réseau ; seuls les agrégats PRA480045octets sont servis. Horodatage d'acquisition original19:12:22UTC issu du mtime runner dans l'archive (précision2s), explicitement marqué ; publication fournisseur et retard restent NULL.
+
+Reproduction sans CDS/IFS/GRIB global : copier `native.json.gz`, saSHA et `native-manifest.json` dans un répertoirework neuf, puis exécuter le même script avec `--offline-native --execute --run-date 2026-11-05 --root ...`. Le script recalcule les poids depuis les géométries officielles et refuse toute discordance de support/provenance.
+

@@ -34,7 +34,7 @@ class PraWeather(BaseModel):
     acquired_at: datetime
     published_at: datetime | None
     unavailable_reason: str | None
-    delayed: bool
+    delayed: bool | None
     scientific_status: Literal["exploratory"] = "exploratory"
 
     @model_validator(mode="after")

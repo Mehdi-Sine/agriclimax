@@ -1,0 +1,831 @@
+{
+  "run": "2026-11-05T00:00:00+00:00",
+  "acquired_at": "2026-11-05T19:12:22+00:00",
+  "source_url": "https://data.ecmwf.int/forecasts/20261105/00z/ifs/0p25/oper/20261105000000",
+  "pra_count": 12,
+  "metrics": {
+    "decode_seconds": 0.0,
+    "downloaded_bytes": 0,
+    "max_rss_kib": 188408,
+    "native_cache_reused": true,
+    "network_requests": 0,
+    "seconds": 0.7798672879980586
+  },
+  "provenance_sha256": "ceae2baf2878fc7532fd5f1ecdccf04e461d9daac3ea195d76f321fc808ce063",
+  "native_cache_sha256": "d6ea2da4b05f02b793df977469502aab2b2074469a96a3367ed5bbdbed638627",
+  "quality_audit": {
+    "invalid_humidity_samples": [
+      {
+        "cell_id": "ifs.48.00.1.75",
+        "dewpoint_k": 276.2200012207031,
+        "step": 27,
+        "temperature_k": 276.0449523925781
+      },
+      {
+        "cell_id": "ifs.48.00.1.75",
+        "dewpoint_k": 275.83229064941406,
+        "step": 30,
+        "temperature_k": 275.7933349609375
+      },
+      {
+        "cell_id": "ifs.43.75.1.75",
+        "dewpoint_k": 278.33229064941406,
+        "step": 30,
+        "temperature_k": 278.2933349609375
+      },
+      {
+        "cell_id": "ifs.45.25.3.00",
+        "dewpoint_k": 274.08229064941406,
+        "step": 30,
+        "temperature_k": 274.0433349609375
+      },
+      {
+        "cell_id": "ifs.48.25.1.25",
+        "dewpoint_k": 275.33229064941406,
+        "step": 30,
+        "temperature_k": 275.2933349609375
+      },
+      {
+        "cell_id": "ifs.44.00.1.25",
+        "dewpoint_k": 277.58229064941406,
+        "step": 30,
+        "temperature_k": 277.5433349609375
+      },
+      {
+        "cell_id": "ifs.43.50.2.00",
+        "dewpoint_k": 279.08229064941406,
+        "step": 30,
+        "temperature_k": 279.0433349609375
+      },
+      {
+        "cell_id": "ifs.43.75.1.50",
+        "dewpoint_k": 278.33229064941406,
+        "step": 30,
+        "temperature_k": 278.2933349609375
+      },
+      {
+        "cell_id": "ifs.48.00.1.50",
+        "dewpoint_k": 275.7200012207031,
+        "step": 27,
+        "temperature_k": 275.5449523925781
+      },
+      {
+        "cell_id": "ifs.48.00.1.50",
+        "dewpoint_k": 275.33229064941406,
+        "step": 30,
+        "temperature_k": 275.2933349609375
+      },
+      {
+        "cell_id": "ifs.48.25.1.75",
+        "dewpoint_k": 275.08229064941406,
+        "step": 30,
+        "temperature_k": 275.0433349609375
+      },
+      {
+        "cell_id": "ifs.42.50.9.25",
+        "dewpoint_k": 283.33229064941406,
+        "step": 30,
+        "temperature_k": 283.2933349609375
+      },
+      {
+        "cell_id": "ifs.49.25.-0.50",
+        "dewpoint_k": 277.33229064941406,
+        "step": 30,
+        "temperature_k": 277.2933349609375
+      },
+      {
+        "cell_id": "ifs.43.50.1.50",
+        "dewpoint_k": 278.9700012207031,
+        "step": 27,
+        "temperature_k": 278.7949523925781
+      },
+      {
+        "cell_id": "ifs.44.00.1.50",
+        "dewpoint_k": 276.7200012207031,
+        "step": 27,
+        "temperature_k": 276.5449523925781
+      },
+      {
+        "cell_id": "ifs.46.25.4.75",
+        "dewpoint_k": 278.01617431640625,
+        "step": 45,
+        "temperature_k": 277.848388671875
+      },
+      {
+        "cell_id": "ifs.46.25.4.75",
+        "dewpoint_k": 277.6305389404297,
+        "step": 48,
+        "temperature_k": 277.46697998046875
+      },
+      {
+        "cell_id": "ifs.42.00.9.00",
+        "dewpoint_k": 276.8017883300781,
+        "step": 72,
+        "temperature_k": 276.7856903076172
+      },
+      {
+        "cell_id": "ifs.48.00.1.75",
+        "dewpoint_k": 276.27760314941406,
+        "step": 54,
+        "temperature_k": 276.2406005859375
+      },
+      {
+        "cell_id": "ifs.46.00.5.00",
+        "dewpoint_k": 278.77760314941406,
+        "step": 54,
+        "temperature_k": 278.7406005859375
+      },
+      {
+        "cell_id": "ifs.46.00.5.00",
+        "dewpoint_k": 278.3017883300781,
+        "step": 72,
+        "temperature_k": 278.2856903076172
+      },
+      {
+        "cell_id": "ifs.48.00.1.25",
+        "dewpoint_k": 275.8377685546875,
+        "step": 51,
+        "temperature_k": 275.73199462890625
+      },
+      {
+        "cell_id": "ifs.48.25.1.25",
+        "dewpoint_k": 276.3377685546875,
+        "step": 51,
+        "temperature_k": 276.23199462890625
+      },
+      {
+        "cell_id": "ifs.48.25.1.25",
+        "dewpoint_k": 275.5517883300781,
+        "step": 72,
+        "temperature_k": 275.5356903076172
+      },
+      {
+        "cell_id": "ifs.43.50.4.75",
+        "dewpoint_k": 279.5517883300781,
+        "step": 72,
+        "temperature_k": 279.5356903076172
+      },
+      {
+        "cell_id": "ifs.46.50.5.50",
+        "dewpoint_k": 279.02760314941406,
+        "step": 54,
+        "temperature_k": 278.9906005859375
+      },
+      {
+        "cell_id": "ifs.46.50.5.50",
+        "dewpoint_k": 277.7620086669922,
+        "step": 69,
+        "temperature_k": 277.7200012207031
+      },
+      {
+        "cell_id": "ifs.48.00.1.50",
+        "dewpoint_k": 276.02760314941406,
+        "step": 54,
+        "temperature_k": 275.9906005859375
+      },
+      {
+        "cell_id": "ifs.46.50.5.25",
+        "dewpoint_k": 278.3017883300781,
+        "step": 72,
+        "temperature_k": 278.2856903076172
+      },
+      {
+        "cell_id": "ifs.42.50.9.25",
+        "dewpoint_k": 281.52760314941406,
+        "step": 54,
+        "temperature_k": 281.4906005859375
+      },
+      {
+        "cell_id": "ifs.42.50.9.25",
+        "dewpoint_k": 279.0120086669922,
+        "step": 69,
+        "temperature_k": 278.9700012207031
+      },
+      {
+        "cell_id": "ifs.42.50.9.25",
+        "dewpoint_k": 277.5517883300781,
+        "step": 72,
+        "temperature_k": 277.5356903076172
+      },
+      {
+        "cell_id": "ifs.49.25.-0.50",
+        "dewpoint_k": 276.3377685546875,
+        "step": 51,
+        "temperature_k": 276.23199462890625
+      },
+      {
+        "cell_id": "ifs.46.00.5.25",
+        "dewpoint_k": 277.7620086669922,
+        "step": 69,
+        "temperature_k": 277.7200012207031
+      },
+      {
+        "cell_id": "ifs.46.00.5.25",
+        "dewpoint_k": 276.5517883300781,
+        "step": 72,
+        "temperature_k": 276.5356903076172
+      },
+      {
+        "cell_id": "ifs.43.25.1.75",
+        "dewpoint_k": 275.27760314941406,
+        "step": 54,
+        "temperature_k": 275.2406005859375
+      },
+      {
+        "cell_id": "ifs.41.75.9.25",
+        "dewpoint_k": 279.7620086669922,
+        "step": 69,
+        "temperature_k": 279.7200012207031
+      },
+      {
+        "cell_id": "ifs.43.75.6.75",
+        "dewpoint_k": 275.77760314941406,
+        "step": 54,
+        "temperature_k": 275.7406005859375
+      },
+      {
+        "cell_id": "ifs.46.25.4.75",
+        "dewpoint_k": 277.6305389404297,
+        "step": 48,
+        "temperature_k": 277.46697998046875
+      },
+      {
+        "cell_id": "ifs.46.25.4.75",
+        "dewpoint_k": 277.77760314941406,
+        "step": 54,
+        "temperature_k": 277.7406005859375
+      },
+      {
+        "cell_id": "ifs.49.50.-1.75",
+        "dewpoint_k": 277.52760314941406,
+        "step": 54,
+        "temperature_k": 277.4906005859375
+      },
+      {
+        "cell_id": "ifs.46.00.4.75",
+        "dewpoint_k": 275.8377685546875,
+        "step": 51,
+        "temperature_k": 275.73199462890625
+      },
+      {
+        "cell_id": "ifs.42.50.9.00",
+        "dewpoint_k": 276.0517883300781,
+        "step": 72,
+        "temperature_k": 276.0356903076172
+      },
+      {
+        "cell_id": "ifs.42.00.9.00",
+        "dewpoint_k": 276.8017883300781,
+        "step": 72,
+        "temperature_k": 276.7856903076172
+      },
+      {
+        "cell_id": "ifs.48.00.1.75",
+        "dewpoint_k": 274.9748992919922,
+        "step": 75,
+        "temperature_k": 274.9530792236328
+      },
+      {
+        "cell_id": "ifs.46.00.5.00",
+        "dewpoint_k": 278.3017883300781,
+        "step": 72,
+        "temperature_k": 278.2856903076172
+      },
+      {
+        "cell_id": "ifs.46.00.5.00",
+        "dewpoint_k": 277.7248992919922,
+        "step": 75,
+        "temperature_k": 277.7030792236328
+      },
+      {
+        "cell_id": "ifs.48.00.1.25",
+        "dewpoint_k": 274.7248992919922,
+        "step": 75,
+        "temperature_k": 274.7030792236328
+      },
+      {
+        "cell_id": "ifs.48.25.1.25",
+        "dewpoint_k": 275.5517883300781,
+        "step": 72,
+        "temperature_k": 275.5356903076172
+      },
+      {
+        "cell_id": "ifs.43.50.5.00",
+        "dewpoint_k": 281.9748992919922,
+        "step": 75,
+        "temperature_k": 281.9530792236328
+      },
+      {
+        "cell_id": "ifs.46.25.5.00",
+        "dewpoint_k": 277.7248992919922,
+        "step": 75,
+        "temperature_k": 277.7030792236328
+      },
+      {
+        "cell_id": "ifs.43.50.4.75",
+        "dewpoint_k": 279.5517883300781,
+        "step": 72,
+        "temperature_k": 279.5356903076172
+      },
+      {
+        "cell_id": "ifs.43.50.4.75",
+        "dewpoint_k": 280.4748992919922,
+        "step": 75,
+        "temperature_k": 280.4530792236328
+      },
+      {
+        "cell_id": "ifs.46.50.5.50",
+        "dewpoint_k": 275.9748992919922,
+        "step": 75,
+        "temperature_k": 275.9530792236328
+      },
+      {
+        "cell_id": "ifs.48.00.1.50",
+        "dewpoint_k": 274.7248992919922,
+        "step": 75,
+        "temperature_k": 274.7030792236328
+      },
+      {
+        "cell_id": "ifs.48.25.1.75",
+        "dewpoint_k": 274.9748992919922,
+        "step": 75,
+        "temperature_k": 274.9530792236328
+      },
+      {
+        "cell_id": "ifs.46.50.5.25",
+        "dewpoint_k": 278.3017883300781,
+        "step": 72,
+        "temperature_k": 278.2856903076172
+      },
+      {
+        "cell_id": "ifs.42.50.9.25",
+        "dewpoint_k": 277.5517883300781,
+        "step": 72,
+        "temperature_k": 277.5356903076172
+      },
+      {
+        "cell_id": "ifs.42.50.9.25",
+        "dewpoint_k": 276.4748992919922,
+        "step": 75,
+        "temperature_k": 276.4530792236328
+      },
+      {
+        "cell_id": "ifs.46.50.5.00",
+        "dewpoint_k": 277.7248992919922,
+        "step": 75,
+        "temperature_k": 277.7030792236328
+      },
+      {
+        "cell_id": "ifs.46.00.5.25",
+        "dewpoint_k": 276.5517883300781,
+        "step": 72,
+        "temperature_k": 276.5356903076172
+      },
+      {
+        "cell_id": "ifs.46.25.4.75",
+        "dewpoint_k": 276.9748992919922,
+        "step": 75,
+        "temperature_k": 276.9530792236328
+      },
+      {
+        "cell_id": "ifs.46.00.4.75",
+        "dewpoint_k": 276.4748992919922,
+        "step": 75,
+        "temperature_k": 276.4530792236328
+      },
+      {
+        "cell_id": "ifs.42.50.9.00",
+        "dewpoint_k": 276.0517883300781,
+        "step": 72,
+        "temperature_k": 276.0356903076172
+      },
+      {
+        "cell_id": "ifs.42.50.9.00",
+        "dewpoint_k": 275.9748992919922,
+        "step": 75,
+        "temperature_k": 275.9530792236328
+      },
+      {
+        "cell_id": "ifs.44.75.6.50",
+        "dewpoint_k": 274.6114501953125,
+        "step": 111,
+        "temperature_k": 274.6046447753906
+      },
+      {
+        "cell_id": "ifs.48.25.1.25",
+        "dewpoint_k": 276.59471130371094,
+        "step": 99,
+        "temperature_k": 276.55970764160156
+      },
+      {
+        "cell_id": "ifs.44.75.6.25",
+        "dewpoint_k": 273.8614501953125,
+        "step": 111,
+        "temperature_k": 273.8546447753906
+      },
+      {
+        "cell_id": "ifs.44.75.6.25",
+        "dewpoint_k": 273.7729034423828,
+        "step": 114,
+        "temperature_k": 273.7177734375
+      },
+      {
+        "cell_id": "ifs.44.75.6.25",
+        "dewpoint_k": 273.6618957519531,
+        "step": 117,
+        "temperature_k": 273.619384765625
+      },
+      {
+        "cell_id": "ifs.42.50.9.25",
+        "dewpoint_k": 282.9118957519531,
+        "step": 117,
+        "temperature_k": 282.869384765625
+      },
+      {
+        "cell_id": "ifs.43.25.1.75",
+        "dewpoint_k": 286.09471130371094,
+        "step": 99,
+        "temperature_k": 286.05970764160156
+      },
+      {
+        "cell_id": "ifs.43.25.1.75",
+        "dewpoint_k": 287.9118957519531,
+        "step": 117,
+        "temperature_k": 287.869384765625
+      },
+      {
+        "cell_id": "ifs.48.25.1.50",
+        "dewpoint_k": 276.34471130371094,
+        "step": 99,
+        "temperature_k": 276.30970764160156
+      },
+      {
+        "cell_id": "ifs.49.50.-1.75",
+        "dewpoint_k": 277.84471130371094,
+        "step": 99,
+        "temperature_k": 277.80970764160156
+      },
+      {
+        "cell_id": "ifs.49.50.-1.75",
+        "dewpoint_k": 278.57623291015625,
+        "step": 102,
+        "temperature_k": 278.41259765625
+      },
+      {
+        "cell_id": "ifs.45.25.3.00",
+        "dewpoint_k": 279.49542236328125,
+        "step": 144,
+        "temperature_k": 279.380615234375
+      },
+      {
+        "cell_id": "ifs.48.00.1.25",
+        "dewpoint_k": 282.03204345703125,
+        "step": 141,
+        "temperature_k": 282.02232360839844
+      },
+      {
+        "cell_id": "ifs.48.00.1.25",
+        "dewpoint_k": 281.49542236328125,
+        "step": 144,
+        "temperature_k": 281.380615234375
+      },
+      {
+        "cell_id": "ifs.48.25.1.25",
+        "dewpoint_k": 281.24542236328125,
+        "step": 144,
+        "temperature_k": 281.130615234375
+      },
+      {
+        "cell_id": "ifs.46.25.5.00",
+        "dewpoint_k": 282.78204345703125,
+        "step": 141,
+        "temperature_k": 282.77232360839844
+      },
+      {
+        "cell_id": "ifs.45.00.3.25",
+        "dewpoint_k": 280.28204345703125,
+        "step": 141,
+        "temperature_k": 280.27232360839844
+      },
+      {
+        "cell_id": "ifs.45.00.3.00",
+        "dewpoint_k": 279.99542236328125,
+        "step": 144,
+        "temperature_k": 279.880615234375
+      },
+      {
+        "cell_id": "ifs.45.25.6.25",
+        "dewpoint_k": 274.53204345703125,
+        "step": 141,
+        "temperature_k": 274.52232360839844
+      },
+      {
+        "cell_id": "ifs.42.50.9.25",
+        "dewpoint_k": 287.8499755859375,
+        "step": 135,
+        "temperature_k": 287.7219696044922
+      },
+      {
+        "cell_id": "ifs.42.50.9.25",
+        "dewpoint_k": 285.2496337890625,
+        "step": 138,
+        "temperature_k": 285.1502380371094
+      },
+      {
+        "cell_id": "ifs.42.50.9.25",
+        "dewpoint_k": 284.03204345703125,
+        "step": 141,
+        "temperature_k": 284.02232360839844
+      },
+      {
+        "cell_id": "ifs.46.50.5.00",
+        "dewpoint_k": 282.03204345703125,
+        "step": 141,
+        "temperature_k": 282.02232360839844
+      },
+      {
+        "cell_id": "ifs.42.25.9.00",
+        "dewpoint_k": 282.5999755859375,
+        "step": 135,
+        "temperature_k": 282.4719696044922
+      },
+      {
+        "cell_id": "ifs.42.25.9.00",
+        "dewpoint_k": 281.4996337890625,
+        "step": 138,
+        "temperature_k": 281.4002380371094
+      },
+      {
+        "cell_id": "ifs.43.75.4.50",
+        "dewpoint_k": 283.74542236328125,
+        "step": 144,
+        "temperature_k": 283.630615234375
+      },
+      {
+        "cell_id": "ifs.43.25.1.75",
+        "dewpoint_k": 285.99542236328125,
+        "step": 144,
+        "temperature_k": 285.880615234375
+      },
+      {
+        "cell_id": "ifs.46.25.4.75",
+        "dewpoint_k": 282.78204345703125,
+        "step": 141,
+        "temperature_k": 282.77232360839844
+      },
+      {
+        "cell_id": "ifs.46.50.4.75",
+        "dewpoint_k": 281.78204345703125,
+        "step": 141,
+        "temperature_k": 281.77232360839844
+      },
+      {
+        "cell_id": "ifs.46.50.4.75",
+        "dewpoint_k": 281.24542236328125,
+        "step": 144,
+        "temperature_k": 281.130615234375
+      },
+      {
+        "cell_id": "ifs.42.50.9.00",
+        "dewpoint_k": 286.8499755859375,
+        "step": 135,
+        "temperature_k": 286.7219696044922
+      },
+      {
+        "cell_id": "ifs.44.00.7.00",
+        "dewpoint_k": 281.9996337890625,
+        "step": 138,
+        "temperature_k": 281.9002380371094
+      },
+      {
+        "cell_id": "ifs.43.75.7.25",
+        "dewpoint_k": 282.28204345703125,
+        "step": 141,
+        "temperature_k": 282.27232360839844
+      },
+      {
+        "cell_id": "ifs.45.00.6.75",
+        "dewpoint_k": 273.2496337890625,
+        "step": 138,
+        "temperature_k": 273.1502380371094
+      },
+      {
+        "cell_id": "ifs.45.25.3.00",
+        "dewpoint_k": 279.49542236328125,
+        "step": 144,
+        "temperature_k": 279.380615234375
+      },
+      {
+        "cell_id": "ifs.48.00.1.25",
+        "dewpoint_k": 281.49542236328125,
+        "step": 144,
+        "temperature_k": 281.380615234375
+      },
+      {
+        "cell_id": "ifs.48.25.1.25",
+        "dewpoint_k": 281.24542236328125,
+        "step": 144,
+        "temperature_k": 281.130615234375
+      },
+      {
+        "cell_id": "ifs.45.00.3.00",
+        "dewpoint_k": 279.99542236328125,
+        "step": 144,
+        "temperature_k": 279.880615234375
+      },
+      {
+        "cell_id": "ifs.42.50.9.25",
+        "dewpoint_k": 286.11427307128906,
+        "step": 162,
+        "temperature_k": 285.9324035644531
+      },
+      {
+        "cell_id": "ifs.43.75.4.50",
+        "dewpoint_k": 283.74542236328125,
+        "step": 144,
+        "temperature_k": 283.630615234375
+      },
+      {
+        "cell_id": "ifs.43.25.1.75",
+        "dewpoint_k": 285.99542236328125,
+        "step": 144,
+        "temperature_k": 285.880615234375
+      },
+      {
+        "cell_id": "ifs.43.25.1.75",
+        "dewpoint_k": 287.72352600097656,
+        "step": 168,
+        "temperature_k": 287.7206115722656
+      },
+      {
+        "cell_id": "ifs.46.50.4.75",
+        "dewpoint_k": 281.24542236328125,
+        "step": 144,
+        "temperature_k": 281.130615234375
+      },
+      {
+        "cell_id": "ifs.42.00.9.00",
+        "dewpoint_k": 285.84263610839844,
+        "step": 186,
+        "temperature_k": 285.8399353027344
+      },
+      {
+        "cell_id": "ifs.44.75.7.00",
+        "dewpoint_k": 272.34263610839844,
+        "step": 186,
+        "temperature_k": 272.3399353027344
+      },
+      {
+        "cell_id": "ifs.44.75.6.50",
+        "dewpoint_k": 274.84263610839844,
+        "step": 186,
+        "temperature_k": 274.8399353027344
+      },
+      {
+        "cell_id": "ifs.41.75.9.00",
+        "dewpoint_k": 287.34263610839844,
+        "step": 186,
+        "temperature_k": 287.3399353027344
+      },
+      {
+        "cell_id": "ifs.45.00.2.75",
+        "dewpoint_k": 282.09263610839844,
+        "step": 186,
+        "temperature_k": 282.0899353027344
+      },
+      {
+        "cell_id": "ifs.49.00.-0.75",
+        "dewpoint_k": 285.59263610839844,
+        "step": 186,
+        "temperature_k": 285.5899353027344
+      },
+      {
+        "cell_id": "ifs.42.00.9.25",
+        "dewpoint_k": 285.4542541503906,
+        "step": 180,
+        "temperature_k": 285.33575439453125
+      },
+      {
+        "cell_id": "ifs.42.50.9.25",
+        "dewpoint_k": 286.34263610839844,
+        "step": 186,
+        "temperature_k": 286.3399353027344
+      },
+      {
+        "cell_id": "ifs.49.25.-0.50",
+        "dewpoint_k": 283.3325500488281,
+        "step": 192,
+        "temperature_k": 283.2069854736328
+      },
+      {
+        "cell_id": "ifs.42.25.9.00",
+        "dewpoint_k": 282.84263610839844,
+        "step": 186,
+        "temperature_k": 282.8399353027344
+      },
+      {
+        "cell_id": "ifs.43.25.1.75",
+        "dewpoint_k": 287.72352600097656,
+        "step": 168,
+        "temperature_k": 287.7206115722656
+      },
+      {
+        "cell_id": "ifs.41.75.9.25",
+        "dewpoint_k": 286.7042541503906,
+        "step": 180,
+        "temperature_k": 286.58575439453125
+      },
+      {
+        "cell_id": "ifs.49.50.-1.75",
+        "dewpoint_k": 286.09263610839844,
+        "step": 186,
+        "temperature_k": 286.0899353027344
+      },
+      {
+        "cell_id": "ifs.45.00.6.50",
+        "dewpoint_k": 272.59263610839844,
+        "step": 186,
+        "temperature_k": 272.5899353027344
+      },
+      {
+        "cell_id": "ifs.45.00.6.75",
+        "dewpoint_k": 273.34263610839844,
+        "step": 186,
+        "temperature_k": 273.3399353027344
+      }
+    ],
+    "negative_accumulation_cells_days": [
+      {
+        "cell_id": "ifs.45.00.2.75",
+        "day_offset": 1,
+        "difference_mm": -0.06103515625
+      },
+      {
+        "cell_id": "ifs.45.00.3.00",
+        "day_offset": 1,
+        "difference_mm": -0.06103515625
+      },
+      {
+        "cell_id": "ifs.45.25.2.75",
+        "day_offset": 1,
+        "difference_mm": -0.06103515625
+      },
+      {
+        "cell_id": "ifs.49.25.-1.25",
+        "day_offset": 4,
+        "difference_mm": -0.1220703125
+      },
+      {
+        "cell_id": "ifs.48.25.1.25",
+        "day_offset": 4,
+        "difference_mm": -0.1220703125
+      },
+      {
+        "cell_id": "ifs.41.50.8.75",
+        "day_offset": 4,
+        "difference_mm": -0.1220703125
+      },
+      {
+        "cell_id": "ifs.42.00.8.75",
+        "day_offset": 4,
+        "difference_mm": -0.1220703125
+      },
+      {
+        "cell_id": "ifs.49.00.-0.75",
+        "day_offset": 4,
+        "difference_mm": -0.1220703125
+      },
+      {
+        "cell_id": "ifs.42.25.8.50",
+        "day_offset": 4,
+        "difference_mm": -0.1220703125
+      },
+      {
+        "cell_id": "ifs.42.25.9.00",
+        "day_offset": 4,
+        "difference_mm": -0.1220703125
+      },
+      {
+        "cell_id": "ifs.43.50.1.50",
+        "day_offset": 4,
+        "difference_mm": -0.1220703125
+      },
+      {
+        "cell_id": "ifs.49.50.-1.75",
+        "day_offset": 4,
+        "difference_mm": -0.1220703125
+      }
+    ]
+  },
+  "status_counts": {
+    "temperature:available": 84,
+    "temperature_min:available": 84,
+    "temperature_max:available": 84,
+    "precipitation:available": 77,
+    "humidity:partial": 45,
+    "humidity:available": 39,
+    "precipitation:partial": 7
+  },
+  "source_grib_bytes": 66259061,
+  "successful_original_requests": 227
+}

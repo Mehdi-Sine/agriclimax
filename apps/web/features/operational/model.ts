@@ -5,7 +5,7 @@ export type WeatherRow = {
   source_id:string;model:string;nature:'observation'|'analysis'|'reanalysis'|'forecast';model_run_at:string|null;
   lead_hours:number|null;rule_version:string;grid_version:string;weights_sha256:string;spatial_coverage:number;
   temporal_coverage:number;quality_flags:string[];provenance_sha256:string;acquired_at:string;published_at:string|null;
-  unavailable_reason:string|null;delayed:boolean;scientific_status:'exploratory';
+  unavailable_reason:string|null;delayed:boolean|null;scientific_status:'exploratory';
 };
 export type WeatherCycle = {run:string|null;acquired_at:string|null;pra_count:number;rows:WeatherRow[];recent_estimate_status:string;attribution:string};
 export const VARIABLES: {id:WeatherVariable;label:string;unit:string}[] = [

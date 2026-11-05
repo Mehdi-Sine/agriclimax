@@ -76,9 +76,9 @@ def humidity(temperature_k: float, dewpoint_k: float) -> float:
     """Magnus water-surface approximation; exploratory, no supersaturation clamp."""
     t, d = temperature_k - 273.15, dewpoint_k - 273.15
     value = 100 * math.exp(17.625 * d / (243.04 + d) - 17.625 * t / (243.04 + t))
-    if not math.isfinite(value) or not 0 <= value <= 100.5:
+    if not math.isfinite(value) or not 0 <= value <= 100:
         raise ValueError("Invalid RH from T/dewpoint")
-    return min(100.0, value)
+    return value
 
 
 def read_grib(

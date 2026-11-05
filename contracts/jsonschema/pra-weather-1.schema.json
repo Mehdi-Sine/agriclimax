@@ -182,8 +182,15 @@
       "title": "Unavailable Reason"
     },
     "delayed": {
-      "title": "Delayed",
-      "type": "boolean"
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Delayed"
     },
     "scientific_status": {
       "const": "exploratory",

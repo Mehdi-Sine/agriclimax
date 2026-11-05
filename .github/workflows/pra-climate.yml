@@ -207,6 +207,9 @@ jobs:
           name: operational-pilot
           path: |
             work/operational-pilot/cycle.json
+            work/operational-pilot/native.json.gz
+            work/operational-pilot/native.json.sha256
+            work/operational-pilot/native-manifest.json
             work/operational-pilot/*.index
             work/operational-pilot/*.sha256
           retention-days: 7

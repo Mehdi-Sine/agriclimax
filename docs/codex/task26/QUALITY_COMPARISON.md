@@ -9,4 +9,6 @@
 - Comparaison AROME/ARPEGE/IFS : **non exécutée**, champs Météo-France inaccessibles. Pas de raccordement modèle supposé valide.
 - IFS : prévision unique, faible durée ; validation structurelle/exploratoire ne valide pas statistiquement J+7. Min/max3–6h peuvent manquer les extrêmes ; moyenne trapézoïdale et RH Magnus sont des approximations explicites. Cellules côtières incluent de la mer ; modèle non substituable au masque terre ERA5.
 
-Recette navigateur, valeurs réelles et campagne finale à consigner après capture/publication.
+Contrôle indépendant réel IFS :420agrégats,52NULL attendus, écart maximal1,42e−14 ; preuve `operational-evidence/ifs-independent-values.json`. Rejeu compact natif sans réseau restitue exactement les420lignes publiées.12différences négatives de pluie et123échantillons RH invalides restent traçables/NULL, pas une correction cachée. Aucun indice de skill J+7 n'en est déduit.
+
+Recette navigateur et campagne finale à consigner après publication Preview.

@@ -10,7 +10,7 @@ Preuves dans `operational-evidence/source-access.json` et `additional-access.jso
 | AROME/ARPEGE | Métadonnées OpenAPI accessibles, champs **401** | Aucun champ ni analyse J−1 acquis |
 | Observations DPObs/v1 et v2 | Catalogue **401** | Aucune valeur stationnelle actuelle obtenue |
 | Package Observations v2 | Catalogue **401** | Pas de paquet24h acquis |
-| IFS Open Data | Index réel5nov00UTC accessible, offsets2t/2d/TP identifiés | Pilote par plages HTTP206 préparé, réussite à confirmer après run |
+| IFS Open Data | Index réel5nov00UTC accessible, offsets2t/2d/TP identifiés | 170champs acquis par HTTP206 ; pilote réel retraité hors réseau |
 
 Le secret observations présent ne prouve pas un abonnement modèles. Le contrôle WCS AROME0,025° conforme renvoie aussi401. Aucun abonnement/jeton inventé ; pas de substitution d'une observation par H+0. Les anciennes données stationnelles restent intactes, mais ne prouvent pas un accès actuel.
 
@@ -26,4 +26,4 @@ Confirmation depuis GitHub Actions : run42089606819, six endpoints, six401 (DPOb
 
 [Index HTTP](https://confluence.ecmwf.int/spaces/DAC/pages/738041083/) : offsets/longueurs recalculés chaque cycle ; refus de réponse200 à une demande Range, Content-Range/longueur/SHA contrôlés. Le coût comprend les champs sélectionnés entiers car l'index ne découpe pas une région à l'intérieur d'un champ ; **jamais le GRIB complet toutes variables/niveaux**. Sous-sélection France/Corse et seulement les cellules utiles aux12PRA ensuite. Un cycle,96Mio,240requêtes,1200s maximum. Rétention ancienne non testée ; limite interne3jours n'est pas une garantie fournisseur. Publication exacte inconnue : NULL.
 
-Tmin/Tmax IFS : extrema échantillonnés3/6h, pas continus. Tmoy : intégration trapézoïdale. Humidité : Magnus eau liquide depuis2t/2d, approximation versionnée. Pluie : différence d'accumulations du même run entre deux00UTC, pas de concaténation implicite de cycles/modèles. Aucun fournisseur accessible ne prouve encore une estimation J−1 comparable aux observations.
+Tmin/Tmax IFS : extrema échantillonnés3/6h, pas continus. Tmoy : intégration trapézoïdale. Humidité : Magnus eau liquide depuis2t/2d, approximation versionnée. Pluie : différence d'accumulations du même run entre deux00UTC, pas de concaténation implicite de cycles/modèles. Aucun fournisseur accessible ne prouve encore une estimation J−1 comparable aux observations. Le retard fournisseur est inconnu (NULL), distinct de la fraîcheur calculable depuis l’acquisition.
