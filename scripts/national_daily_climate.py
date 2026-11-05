@@ -17,6 +17,7 @@ from agriclimax.territories.national_daily import (
     REFERENCE,
     acquire_windows,
     execute,
+    pending_weights,
     persisted,
     window,
 )
@@ -137,13 +138,15 @@ def main() -> int:
             timings["persistence"] += monotonic() - before
 
     def terminate(signum: int, frame: object) -> None:
-        raise TimeoutError("Bounded national run interrupted")
+        # A global budget is not a transient HTTP timeout and MUST escape retry().
+        raise RuntimeError("Bounded national run interrupted")
 
     signal.signal(signal.SIGTERM, terminate)
     signal.signal(signal.SIGALRM, terminate)
     signal.alarm(1320)
     try:
         report["stage"] = "catalog"
+        atomic_write(args.root / "run.json", json.dumps(report, indent=2).encode())
         catalog = repository.catalog()
         actual_latest = date.fromisoformat(catalog["latest"])
         if latest > actual_latest:
@@ -183,15 +186,11 @@ def main() -> int:
             retrieve=retrieve,
         )
         result: dict[str, Any] = {"status": "completed", "days": [], "batches": []}
-        needed_by_day = {
-            day: [
-                w
-                for w in weights
-                if w.pra_id not in persisted(read(day), selected, day)
-            ]
-            for day in days
-        }
+        report["stage"] = "pending_destination_validation"
+        atomic_write(args.root / "run.json", json.dumps(report, indent=2).encode())
+        needed_by_day = pending_weights(weights, days, selected, read)
         report["stage"] = "acquisition_and_native_validation"
+        atomic_write(args.root / "run.json", json.dumps(report, indent=2).encode())
         ready, acquired, created = acquire_windows(
             provider, needed_by_day, args.root, args.max_downloads
         )

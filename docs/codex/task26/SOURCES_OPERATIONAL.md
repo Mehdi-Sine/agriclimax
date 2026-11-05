@@ -14,7 +14,7 @@ Preuves dans `operational-evidence/source-access.json` et `additional-access.jso
 
 Le secret observations présent ne prouve pas un abonnement modèles. Le contrôle WCS AROME0,025° conforme renvoie aussi401. Aucun abonnement/jeton inventé ; pas de substitution d'une observation par H+0. Les anciennes données stationnelles restent intactes, mais ne prouvent pas un accès actuel.
 
-Confirmation depuis GitHub Actions : run42089606819, six endpoints, six401 (DPObs/v1,v2,PackageObs,v2,AROME,ARPEGE,DPClim/v1),4,29s de requêtes,0octet source. Preuve `operational-evidence/github-source-access.json`. Ce blocage d’authentification est également présent sur le runner ; aucune poursuite de téléchargement Météo-France ne peut le résoudre sans droits valides.
+Confirmation depuis GitHub Actions : run42089606819, six endpoints, six401 (DPObs/v1,v2,PackageObs,v2,AROME,ARPEGE,DPClim/v1),4,29s de requêtes,0octet source. Preuve `operational-evidence/github-source-access.json`. Ce blocage d’authentification est également présent sur le runner ; aucune poursuite de téléchargement Météo-France ne peut le résoudre sans droits valides. Lecture DEV : dernière archive station24octobre2026 (250lots), dernier échantillon observations16octobre (10lots) ; aucune disponibilité J−1 prouvée par ces anciennes données.
 
 ## Documentation et limites de vérification
 

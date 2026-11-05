@@ -184,6 +184,20 @@ def persisted(rows: list[dict[str, Any]], expected: set[str], day: date) -> set[
     return {r["id"] for r in rows if r.get("batch_key") and r.get("valid_date") == str(day)}
 
 
+def pending_weights(
+    weights: list[Any],
+    days: list[date],
+    expected: set[str],
+    read: Callable[[date], list[dict[str, Any]]],
+) -> dict[date, list[Any]]:
+    """One destination read per date, independent of the number of native weights."""
+    result = {}
+    for day in days:
+        existing = persisted(read(day), expected, day)
+        result[day] = [w for w in weights if w.pra_id not in existing]
+    return result
+
+
 def execute(
     territories: list[Any],
     weights: list[Any],

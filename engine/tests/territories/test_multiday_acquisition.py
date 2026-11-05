@@ -31,3 +31,26 @@ def test_gap_never_acquires_a_persisted_day_and_budget_is_bounded(tmp_path):
             provider, {date(2026, 10, 20): weights, date(2026, 10, 22): weights}, tmp_path, 1
         ) == (False, 1, 1)
         assert calls[0][1:] == (date(2026, 10, 20), date(2026, 10, 20))
+
+
+def test_destination_read_count_is_per_day_not_per_native_weight():
+    from agriclimax.territories.national_daily import pending_weights
+
+    weights = [SimpleNamespace(pra_id=f"pra:{i % 3}") for i in range(14541)]
+    days = [date(2026, 10, 20) + timedelta(days=i) for i in range(7)]
+    calls = []
+
+    def read(day):
+        calls.append(day)
+        return [
+            {
+                "id": f"pra:{i}",
+                "valid_date": str(day) if i == 0 else None,
+                "batch_key": "existing" if i == 0 else None,
+            }
+            for i in range(3)
+        ]
+
+    pending = pending_weights(weights, days, {"pra:0", "pra:1", "pra:2"}, read)
+    assert calls == days
+    assert all(len(ws) == 9694 and all(w.pra_id != "pra:0" for w in ws) for ws in pending.values())

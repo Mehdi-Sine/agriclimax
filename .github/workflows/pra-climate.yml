@@ -150,16 +150,22 @@ jobs:
           if [[ "$EXECUTE" == true ]]; then args+=(--execute); fi
           if [[ "$PILOT" == true ]]; then args+=(--pilot); fi
           timeout --signal=TERM --kill-after=15s 23m python scripts/national_daily_climate.py "${args[@]}"
+      - name: Export only the requested recovery window without removing original checkpoints
+        if: always()
+        id: snapshot
+        env:
+          PYTHONPATH: engine/src
+        run: python scripts/pra_checkpoint_snapshot.py
       - name: Preserve compact restart state even after timeout (no hourly or raw source cache)
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: pra-daily-checkpoints
           path: |
-            work/pra-daily/batches/
-            work/pra-daily/tiles/
-            work/pra-daily/state.json
-            work/pra-daily/run.json
+            ${{ steps.snapshot.outcome == 'success' && 'work/pra-daily-export' || 'work/pra-daily' }}/batches/
+            ${{ steps.snapshot.outcome == 'success' && 'work/pra-daily-export' || 'work/pra-daily' }}/tiles/
+            ${{ steps.snapshot.outcome == 'success' && 'work/pra-daily-export' || 'work/pra-daily' }}/state.json
+            ${{ steps.snapshot.outcome == 'success' && 'work/pra-daily-export' || 'work/pra-daily' }}/run.json
           retention-days: 7
           if-no-files-found: warn
 
