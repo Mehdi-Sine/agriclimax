@@ -1,6 +1,7 @@
 import { afterEach, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 vi.mock('server-only',()=>({}));
+vi.mock('./spatial-restitution',()=>({observedSupportDay:vi.fn().mockResolvedValue({verified:false,rows:[],geometries:{},identity:'unavailable'})}));
 import { parseContextRow, readNational } from './national';
 import { unifiedData } from './unified';
 import { DAYS } from '../../features/national/model';

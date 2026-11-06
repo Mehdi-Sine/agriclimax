@@ -170,7 +170,10 @@
             "maximum": 1
           },
           "rule_version": {
-            "const": "agroclimatic-1.0.0"
+            "enum": [
+              "agroclimatic-1.0.0",
+              "agroclimatic-1.1.0"
+            ]
           },
           "parameters": {
             "type": "object",
@@ -268,6 +271,12 @@
                     "number",
                     "null"
                   ]
+                },
+                "support_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "additionalProperties": false
@@ -289,6 +298,36 @@
                 "run"
               ]
             }
+          },
+          "observed_value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "support_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "support_scope": {
+            "enum": [
+              "whole_pra",
+              "qualified_pra_estimate",
+              "observed_area",
+              "unavailable"
+            ]
+          },
+          "spatial_coverage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "temporal_coverage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
           }
         },
         "additionalProperties": false

@@ -13,6 +13,7 @@ export type PraProperties = {
   name: string;
   department_name: string;
   department?: string;
+  support_id?:string;
   region_name: string;
 };
 export type PraCollection = FeatureCollection<Geometry, PraProperties>;
@@ -288,6 +289,7 @@ export default function NationalMap({
         className="national-map"
         data-ready={ready && rendered}
         data-feature-count={collection.features.length}
+        data-covered-support-count={coveredSupport?.features.length??0}
         data-mode={mode}
       />
       {!ready && !failed && <p role="status">Chargement des contours · {geography.label}…</p>}

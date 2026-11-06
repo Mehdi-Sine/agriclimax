@@ -1,6 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { supportPolicy } from "./observed-support";
 import { RULES, type Production } from "./catalogue";
 import type { AgroResult } from "./calculate";
 import type { AgroPayload } from "../../lib/server/agroclimatic";
@@ -78,6 +79,30 @@ export function useAgroclimatic(
       ? `/api/agroclimatic?${query}`
       : null,
   );
+  const supportResource = useResource<{ collection: PraCollection }>(
+    active && mode === "history" && supportPolicy(rule)
+      ? "/api/national/support?" +
+          new URLSearchParams({ start, end, variable: rule.variables[0] })
+      : null,
+  );
+  const validSupportKey =
+    resource.data?.data
+      .filter((r) => r.observed_value != null && r.support_id)
+      .map((r) => r.support_id)
+      .sort()
+      .join(",") ?? "";
+  const coveredSupport = useMemo(() => {
+    const ids = new Set(validSupportKey.split(","));
+    const source = supportResource.data?.collection;
+    return source
+      ? {
+          ...source,
+          features: source.features.filter(
+            (f) => f.properties.support_id && ids.has(f.properties.support_id),
+          ),
+        }
+      : null;
+  }, [supportResource.data, validSupportKey]);
   const data = resource.data?.data ?? [],
     current = data.find((r) => r.territoryId === pra),
     feature = collection?.features.find((f) => f.id === pra);
@@ -115,7 +140,11 @@ export function useAgroclimatic(
     }
     window.history.pushState(null, "", `${pathname}?${p}`);
   }
-  const values = data.flatMap((r) => (r.value === null ? [] : [r.value])),
+  const values = data.flatMap((r) =>
+      (r.value ?? r.observed_value) == null
+        ? []
+        : [(r.value ?? r.observed_value)!],
+    ),
     low = values.length ? Math.min(...values) : 0,
     high = values.length ? Math.max(...values) : 1;
   const bounds = Array.from(
@@ -364,8 +393,12 @@ export function useAgroclimatic(
       </p>
       <div className="unified-value">
         <strong>
-          {fmt(current?.value)}{" "}
-          <em>{current?.value != null ? rule.unit : ""}</em>
+          {fmt(current?.value ?? current?.observed_value)}{" "}
+          <em>
+            {(current?.value ?? current?.observed_value) != null
+              ? rule.unit
+              : ""}
+          </em>
         </strong>
       </div>
       <p>
@@ -378,16 +411,46 @@ export function useAgroclimatic(
       </p>
       <p>
         {current
-          ? `${current.observedDays}/${current.expectedDays} journées exploitables · ${current.status === "available" ? "Période complète" : "Période incomplète"} · ${current.reason ?? "variables compatibles"}`
+          ? `${current.observedDays}/${current.expectedDays} journées exploitables · ${current.observedDays === current.expectedDays ? "Toutes les journées renseignées" : "Période incomplète"} · ${current.reason ?? "variables compatibles"}`
           : "Sélection conservée ; données en cours de lecture ou indisponibles."}
       </p>
+      {current?.support_scope && current.support_scope !== "whole_pra" && (
+        <p className="coastal-qualification">
+          {current.support_scope === "qualified_pra_estimate"
+            ? "Estimation qualifiée à couverture ≥90% ; moyenne calculée sur la portion renseignée."
+            : current.observed_value != null
+              ? "Valeur de la portion renseignée uniquement ; aucune valeur pour la PRA entière."
+              : "Cumul indisponible sur un support commun prouvé."}{" "}
+          Couverture spatiale : {fmt((current.spatial_coverage ?? 0) * 100)} % ·
+          couverture temporelle : {fmt((current.temporal_coverage ?? 0) * 100)}{" "}
+          %. La surface colorée représente seulement le support commun
+          réellement renseigné.
+        </p>
+      )}
+      {stateCrozon(current) && (
+        <p>
+          Absence de support ERA5-Land : aucun historique inventé.{" "}
+          <button
+            onClick={() =>
+              change({ temporal: "forecast", agro_start: "", agro_end: "" })
+            }
+          >
+            Consulter la météo opérationnelle disponible
+          </button>
+        </p>
+      )}
       {current?.reason && (
         <p role="status">
-          {current.reason === "incompatible_sources_or_runs"
-            ? "Cumul refusé : changement de source ou de run. Consultez les journées ci-dessous ou réduisez la période."
-            : rule.variables.includes("humidity")
-              ? "THI indisponible sans température et humidité conjointes valides. La chaleur météorologique reste accessible dans la liste des indicateurs."
-              : "Aucun cumul complet affiché lorsque des journées ou des variables manquent."}
+          {current.reason === "incompatible_spatial_support"
+            ? "Cumul refusé : supports spatiaux différents. Aucune union des surfaces journalières n’est affichée."
+            : current.reason === "qualified_spatial_estimate" ||
+                current.reason === "observed_area_only"
+              ? "Résultat exploratoire sur support spatial explicite, sans extrapolation de la portion non renseignée."
+              : current.reason === "incompatible_sources_or_runs"
+                ? "Cumul refusé : changement de source ou de run. Consultez les journées ci-dessous ou réduisez la période."
+                : rule.variables.includes("humidity")
+                  ? "THI indisponible sans température et humidité conjointes valides. La chaleur météorologique reste accessible dans la liste des indicateurs."
+                  : "Aucun cumul complet affiché lorsque des journées ou des variables manquent."}
         </p>
       )}
       {current && (
@@ -559,6 +622,7 @@ export function useAgroclimatic(
   );
   return {
     filters,
+    coveredSupport,
     panel,
     summary,
     mapTitle: (
@@ -583,7 +647,7 @@ export function useAgroclimatic(
           ? `${resource.error} Vérifiez les dates (J+1 à J+7 pour la prévision) et la couverture.`
           : !resource.data
             ? "Chargement des indicateurs nationaux…"
-            : `${eligible.length}/713 PRA avec un résultat complet. Gris : NULL, jamais zéro.`}
+            : `${eligible.length}/713 valeurs PRA (dont estimations qualifiées) · ${data.filter((r) => r.observed_value != null && r.value === null).length} valeurs de portion seulement. Gris : portion absente ou résultat non calculable, jamais zéro.`}
       </p>
     ),
     legend: (
@@ -596,8 +660,9 @@ export function useAgroclimatic(
           ))}
         </div>
         <p>
-          {rule.unit} · limites PRA uniformes ; surfaces grises : résultats
-          indisponibles ou incomplets.
+          {rule.unit} · limites PRA uniformes ; surfaces colorées partielles :
+          portions réellement renseignées sur toute la période ; reste grisé.
+          Une estimation ≥90% ne constitue pas une mesure intégrale.
         </p>
       </div>
     ),
@@ -605,7 +670,16 @@ export function useAgroclimatic(
       selected: pra,
       onSelect: (id: string) => change({ pra: id }),
       quantitative: {
-        values: data,
+        values: data.map((r) => ({
+          ...r,
+          value:
+            r.support_id &&
+            !coveredSupport?.features.some(
+              (f) => f.properties.support_id === r.support_id,
+            )
+              ? null
+              : (r.value ?? r.observed_value ?? null),
+        })),
         field: "value" as const,
         unit: rule.unit,
         bounds,
@@ -621,6 +695,9 @@ export function useAgroclimatic(
       },
     },
   };
+}
+function stateCrozon(current: AgroResult | undefined) {
+  return current?.territoryId === "pra:29102" && current.observedDays === 0;
 }
 function Series({
   result,
@@ -640,7 +717,9 @@ function Series({
     return {
       ...r,
       value: cumulative
-        ? prefix.some((p) => p.value === null)
+        ? prefix.some(
+            (p) => p.value === null || p.support_id !== prefix[0].support_id,
+          )
           ? null
           : prefix.reduce((sum, p) => sum + p.value!, 0)
         : r.value,
@@ -654,7 +733,7 @@ function Series({
     .map((r, i) =>
       r.value === null
         ? ""
-        : `${i > 0 && rows[i - 1].value !== null ? "L" : "M"} ${30 + (i * 280) / Math.max(1, rows.length - 1)} ${120 - ((r.value - min) * 100) / span}`,
+        : `${i > 0 && rows[i - 1].value !== null && rows[i - 1].support_id === r.support_id ? "L" : "M"} ${30 + (i * 280) / Math.max(1, rows.length - 1)} ${120 - ((r.value - min) * 100) / span}`,
     )
     .join(" ");
   return (

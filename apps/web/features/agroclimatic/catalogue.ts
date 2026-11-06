@@ -2,6 +2,7 @@ import { cattleRule } from "../cattle/thi";
 import type { WeatherVariable } from "../operational/model";
 export type Production = "wheat" | "cattle";
 export type Operator =
+  | "mean"
   | "gdd"
   | "above"
   | "below"
@@ -60,6 +61,7 @@ const wheat = (
   formula: string,
 ): Rule => ({
   ...common,
+  version: id === "temperature_mean" ? "agroclimatic-1.1.0" : common.version,
   id,
   production: "wheat",
   label,
@@ -214,4 +216,14 @@ export const RULES: Rule[] = [
       "Information de température indépendante du THI ; ne remplace pas une humidité absente. " +
       common.limits,
   },
+  wheat(
+    "temperature_mean",
+    "Température moyenne",
+    "Températures",
+    "temperature",
+    "mean",
+    "°C",
+    null,
+    "Moyenne des Tmoy quotidiennes sur un support spatial explicitement défini",
+  ),
 ];

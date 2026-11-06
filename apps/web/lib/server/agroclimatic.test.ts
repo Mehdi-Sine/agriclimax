@@ -10,6 +10,16 @@ vi.mock("./weather-archives", () => ({
   nationalWeatherDocument: sources.weather,
   archivedEra5Day: sources.archived,
 }));
+vi.mock("./spatial-restitution", () => ({
+  observedSupportDay: vi
+    .fn()
+    .mockResolvedValue({
+      verified: false,
+      rows: [],
+      geometries: {},
+      identity: "unavailable",
+    }),
+}));
 vi.mock("./national", () => ({ nationalData: sources.national }));
 vi.mock("./national-availability", () => ({ nationalDays: sources.days }));
 import { agroclimaticData, readAgroclimatic } from "./agroclimatic";
@@ -121,4 +131,81 @@ it("replays verified daily archives without reading normals or acquiring any sou
   expect(result.data[0].provenance[0]).toContain("immutable-batch");
   expect(sources.national).not.toHaveBeenCalled();
   expect(sources.weather).not.toHaveBeenCalled();
+});
+
+it("preserves strict 1.0.0 and publishes qualified results separately on native observed support", async () => {
+  const { observedSupportDay } = await import("./spatial-restitution");
+  sources.days.mockResolvedValue(["2026-09-20", "2026-09-21"]);
+  const pra = identities.ids[0];
+  vi.mocked(observedSupportDay).mockImplementation(async () => ({
+    verified: true,
+    identity: "same-weights/reference",
+    geometries: {
+      mask: {
+        type: "Feature",
+        id: pra,
+        properties: {
+          code: pra.slice(4),
+          name: "test",
+          department_name: "test",
+          region_name: "test",
+        },
+        geometry: {
+          type: "Polygon",
+          coordinates: [
+            [
+              [0, 0],
+              [1, 0],
+              [1, 1],
+              [0, 0],
+            ],
+          ],
+        },
+      },
+    },
+    rows: [
+      {
+        pra_id: pra,
+        coverage: 0.95,
+        observed_value: 5,
+        value: 5,
+        support_id: "mask",
+        temporal_coverage: 1,
+        rule_version: "pra-observed-area-mean-90-1",
+        quality_flags: [],
+      },
+    ],
+  }));
+  sources.archived.mockImplementation(async (date: string) =>
+    identities.ids.map((pra_id) => ({
+      pra_id,
+      valid_date: date,
+      temperature: pra_id === pra ? null : 5,
+      temperature_min: null,
+      temperature_max: null,
+      precipitation: null,
+      coverage: pra_id === pra ? [0.95, 0.95, 0.95, 0.95] : [1, 1, 1, 1],
+      status: pra_id === pra ? "partial" : "available",
+      quality_flags: [],
+      computed_at: "2026-11-01T00:00:00Z",
+      batch_key: "immutable-batch",
+    })),
+  );
+  const q = { indicator: "gdd", start: "2026-09-20", end: "2026-09-21", pra };
+  const current = await agroclimaticData(new URLSearchParams(q));
+  expect(current.data[0]).toMatchObject({
+    value: 10,
+    observed_value: 10,
+    support_id: "mask",
+    status: "partial",
+    rule_version: "agroclimatic-1.1.0",
+    spatial_coverage: 0.95,
+    temporal_coverage: 1,
+  });
+  const strict = await agroclimaticData(
+    new URLSearchParams({ ...q, rule_version: "agroclimatic-1.0.0" }),
+  );
+  expect(strict.data[0].value).toBeNull();
+  expect(strict.data[0].rule_version).toBe("agroclimatic-1.0.0");
+  expect(strict.data[0].observed_value).toBeUndefined();
 });

@@ -16,6 +16,15 @@ export interface InputDay {
   quality_flags: string[];
 }
 export interface AgroResult {
+  observed_value?: number | null;
+  support_id?: string | null;
+  support_scope?:
+    | "whole_pra"
+    | "qualified_pra_estimate"
+    | "observed_area"
+    | "unavailable";
+  spatial_coverage?: number;
+  temporal_coverage?: number;
   territoryId: string;
   value: number | null;
   normal: null;
@@ -46,6 +55,7 @@ export interface AgroResult {
   }[];
   series: {
     date: string;
+    support_id?: string | null;
     temperature: number | null;
     value: number | null;
     source: string | null;
@@ -142,7 +152,7 @@ export function calculate(
       longest = Math.max(longest, run);
     } else run = 0;
   }
-  const thresholdRule = !["gdd", "sum", "thi"].includes(rule.operator);
+  const thresholdRule = !["gdd", "mean", "sum", "thi"].includes(rule.operator);
   const signals =
     thresholdRule && threshold !== null
       ? series.flatMap((r) =>
@@ -173,7 +183,9 @@ export function calculate(
         ? count
         : ["longestAbove", "longestBelow", "thiLongest"].includes(rule.operator)
           ? longest
-          : good.reduce((a, b) => a + b, 0);
+          : rule.operator === "mean"
+            ? good.reduce((a, b) => a + b, 0) / good.length
+            : good.reduce((a, b) => a + b, 0);
   const partialSupport = orderedRows.some(
     (r) => !r.complete && rule.variables.some((v) => r.values[v] != null),
   );
