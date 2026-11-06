@@ -12,7 +12,7 @@ La publication web utilise le même canevas `NationalMap`, les mêmes composants
 
 Dates, variables, PRA sélectionnables ; run et acquisitionUTC, couverture/qualité, cumul des pluies, NULL et fraîcheur explicites. Tmax/Tmin échantillonnées, Tmoy trapézoïdale et RH approximative sont marquées. Pas d'anomalie implicite ni transition AROME/ARPEGE/IFS non validée. Pas d'enregistrement d'une prévision comme observation.
 
-**J−1 non démontré** : six401confirmés sur GitHub, aucune analyse ou observation actuelle acquise. Aucun substitut caché ; ce blocage empêche le critère de généralisation multi-sources. 
+**J−1 non démontré** : les anciens401modèles sont supersédés par les nouvelles clés et le contrôle WCS200 du6novembre ; les deuxchamps T2m lus restent des prévisions H+0. Aucune analyse quotidienne ou observation actuelle n’est validée ; catalogues Observations/Climatologie401. Aucun substitut caché ; ce blocage empêche le critère de généralisation multi-sources.
 ## Résultat réel
 
 RunIFS5novembre2026à00UTC, jours6–12novembre (J+1àJ+7). Acquisition GitHub42089278523 :57index+170champs sélectionnés,66259061octetsGRIB ; arrêt scientifique après237,37s de programme, sans publication. Artefact de récupération conservé. Aucune réacquisition : décodage local des mêmes octets, puis cache natif compactSHA25661310octets, et retraitement/rejeu hors réseau en≈0,8s, RSS188408Kio mesuré sur le rejeu. Le RSS de l'acquisition froide n'a pas été mesuré (borne4GiB seulement).

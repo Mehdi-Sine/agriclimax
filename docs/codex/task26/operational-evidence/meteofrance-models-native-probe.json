@@ -1,0 +1,232 @@
+{
+  "run_id": 42179450077,
+  "commit": "e54f2e4be9283ad5e8e7dde899303e760af54163",
+  "event": "workflow_dispatch",
+  "probe_only": true,
+  "live_ingestion": "skipped",
+  "observed_at": "2026-11-06T07:13:53.455182+00:00",
+  "results": [
+    {
+      "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCapabilities?service=WCS&version=2.0.1&request=GetCapabilities&language=eng",
+      "credential_binding": "METEOFRANCE_AROME_API_KEY",
+      "status": 200,
+      "content_type": "application/xml",
+      "content_encoding": "gzip",
+      "wire_bytes_read": 72459,
+      "outcome": "received",
+      "bytes": 2648851,
+      "seconds": 1.4871120560000008,
+      "product": "arome",
+      "operation": "GetCapabilities",
+      "coverage_count": 8194,
+      "pilot_variables": [
+        "TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+        "DEW_POINT_TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+        "RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+        "TOTAL_PRECIPITATION__GROUND_OR_WATER_SURFACE",
+        "WIND_SPEED__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND"
+      ],
+      "first_variables": [
+        "GEOMETRIC_HEIGHT__GROUND_OR_WATER_SURFACE",
+        "ALTITUDE_TPW__ISOTHERMAL_LEVEL_27315",
+        "ALTITUDE_TPW__ISOTHERMAL_LEVEL_27415",
+        "ALTITUDE_TPW__ISOTHERMAL_LEVEL_27465",
+        "ALTITUDE_TEMPERATURE__ISOTHERMAL_LEVEL_25315",
+        "ALTITUDE_TEMPERATURE__ISOTHERMAL_LEVEL_26115",
+        "ALTITUDE_TEMPERATURE__ISOTHERMAL_LEVEL_26315",
+        "ALTITUDE_TEMPERATURE__ISOTHERMAL_LEVEL_27315",
+        "BRIGHTNESS_TEMPERATURE__GROUND_OR_WATER_SURFACE",
+        "BRIGHTNESS_TEMPERATURE_62__GROUND_OR_WATER_SURFACE",
+        "CONVECTIVE_AVAILABLE_POTENTIAL_ENERGY__GROUND_OR_WATER_SURFACE",
+        "CONVECTIVE_INHIBITION__GROUND_OR_WATER_SURFACE",
+        "SPECIFIC_CLOUD_ICE_WATER_CONTENT__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+        "SPECIFIC_CLOUD_ICE_WATER_CONTENT__ISOBARIC_SURFACE",
+        "SPECIFIC_GRAUPEL_WATER_CONTENT__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+        "SPECIFIC_GRAUPEL_WATER_CONTENT__ISOBARIC_SURFACE",
+        "SPECIFIC_RAIN_WATER_CONTENT__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+        "SPECIFIC_RAIN_WATER_CONTENT__ISOBARIC_SURFACE",
+        "SPECIFIC_SNOW_WATER_CONTENT__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+        "SPECIFIC_SNOW_WATER_CONTENT__ISOBARIC_SURFACE"
+      ],
+      "first_coverage_ids": [
+        "GEOMETRIC_HEIGHT__GROUND_OR_WATER_SURFACE___2026-11-02T00.00.00Z",
+        "GEOMETRIC_HEIGHT__GROUND_OR_WATER_SURFACE___2026-11-02T03.00.00Z",
+        "GEOMETRIC_HEIGHT__GROUND_OR_WATER_SURFACE___2026-11-02T06.00.00Z",
+        "GEOMETRIC_HEIGHT__GROUND_OR_WATER_SURFACE___2026-11-02T09.00.00Z",
+        "GEOMETRIC_HEIGHT__GROUND_OR_WATER_SURFACE___2026-11-02T12.00.00Z"
+      ]
+    },
+    {
+      "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCapabilities?service=WCS&version=2.0.1&request=GetCapabilities&language=eng",
+      "credential_binding": "METEOFRANCE_ARPEGE_API_KEY",
+      "status": 200,
+      "content_type": "application/xml",
+      "content_encoding": "gzip",
+      "wire_bytes_read": 41842,
+      "outcome": "received",
+      "bytes": 1446358,
+      "seconds": 0.8834218669999956,
+      "product": "arpege",
+      "operation": "GetCapabilities",
+      "coverage_count": 4556,
+      "pilot_variables": [
+        "TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+        "DEW_POINT_TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+        "RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+        "TOTAL_PRECIPITATION__GROUND_OR_WATER_SURFACE",
+        "WIND_SPEED__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND"
+      ],
+      "first_variables": [
+        "GEOMETRIC_HEIGHT__GROUND_OR_WATER_SURFACE",
+        "ALTITUDE_TPW__ISOTHERMAL_LEVEL_27315",
+        "ALTITUDE_TPW__ISOTHERMAL_LEVEL_27415",
+        "ALTITUDE_TPW__ISOTHERMAL_LEVEL_27465",
+        "ALTITUDE_TEMPERATURE__ISOTHERMAL_LEVEL_25315",
+        "ALTITUDE_TEMPERATURE__ISOTHERMAL_LEVEL_26315",
+        "ALTITUDE_TEMPERATURE__ISOTHERMAL_LEVEL_27315",
+        "BRIGHTNESS_TEMPERATURE__GROUND_OR_WATER_SURFACE",
+        "BRIGHTNESS_TEMPERATURE_62__GROUND_OR_WATER_SURFACE",
+        "CONVECTIVE_AVAILABLE_POTENTIAL_ENERGY__GROUND_OR_WATER_SURFACE",
+        "CONVECTIVE_INHIBITION__GROUND_OR_WATER_SURFACE",
+        "SPECIFIC_CLOUD_ICE_WATER_CONTENT__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+        "SPECIFIC_CLOUD_ICE_WATER_CONTENT__ISOBARIC_SURFACE",
+        "CLOUD_WATER__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+        "CLOUD_WATER__ISOBARIC_SURFACE",
+        "PRECIPITABLE_WATER__GROUND_OR_WATER_SURFACE",
+        "RELATIVE_DIVERGENCE__ISOBARIC_SURFACE",
+        "TOTAL_WATER_PRECIPITATION__GROUND_OR_WATER_SURFACE",
+        "WIND_SPEED_GUST__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND",
+        "WIND_SPEED__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND"
+      ],
+      "first_coverage_ids": [
+        "GEOMETRIC_HEIGHT__GROUND_OR_WATER_SURFACE___2026-11-02T00.00.00Z",
+        "GEOMETRIC_HEIGHT__GROUND_OR_WATER_SURFACE___2026-11-02T06.00.00Z",
+        "GEOMETRIC_HEIGHT__GROUND_OR_WATER_SURFACE___2026-11-02T12.00.00Z",
+        "GEOMETRIC_HEIGHT__GROUND_OR_WATER_SURFACE___2026-11-02T18.00.00Z",
+        "GEOMETRIC_HEIGHT__GROUND_OR_WATER_SURFACE___2026-11-03T00.00.00Z"
+      ]
+    },
+    {
+      "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/DescribeCoverage?service=WCS&version=2.0.1&coverageID=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T03.00.00Z",
+      "credential_binding": "METEOFRANCE_AROME_API_KEY",
+      "status": 200,
+      "content_type": "application/xml",
+      "content_encoding": "gzip",
+      "wire_bytes_read": 1573,
+      "outcome": "received",
+      "bytes": 5917,
+      "seconds": 0.8372022749999957,
+      "product": "arome",
+      "operation": "DescribeCoverage",
+      "coverage_id": "TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T03.00.00Z"
+    },
+    {
+      "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T03.00.00Z&format=application%2Fwmo-grib&subset=long%281.4%2C1.5%29&subset=lat%2848%2C48.1%29&subset=height%282%29&subset=time%282026-11-06T03%3A00%3A00Z%29",
+      "credential_binding": "METEOFRANCE_AROME_API_KEY",
+      "status": 200,
+      "content_type": "application/wmo-grib",
+      "content_encoding": "identity",
+      "wire_bytes_read": 229,
+      "outcome": "validated_tiny_grib",
+      "bytes": 229,
+      "seconds": 0.5612355260000044,
+      "product": "arome",
+      "operation": "GetCoverage",
+      "coverage_id": "TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T03.00.00Z",
+      "selected_axes": {
+        "long": [
+          1.4,
+          1.5
+        ],
+        "lat": [
+          48,
+          48.1
+        ],
+        "height": 2,
+        "time": "2026-11-06T03:00:00Z"
+      },
+      "nature": "model_field_not_station_observation",
+      "grid_points": 25,
+      "sha256": "8f3b866fb3e6b92a7db6cb45129f3cfca402d485835d69255cca2a96ede824d6"
+    },
+    {
+      "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/DescribeCoverage?service=WCS&version=2.0.1&coverageID=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z",
+      "credential_binding": "METEOFRANCE_ARPEGE_API_KEY",
+      "status": 200,
+      "content_type": "application/xml",
+      "content_encoding": "gzip",
+      "wire_bytes_read": 1715,
+      "outcome": "received",
+      "bytes": 6261,
+      "seconds": 0.760533420999991,
+      "product": "arpege",
+      "operation": "DescribeCoverage",
+      "coverage_id": "TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z"
+    },
+    {
+      "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%281.4%2C1.5%29&subset=lat%2848%2C48.1%29&subset=height%282%29&subset=time%282026-11-06T00%3A00%3A00Z%29",
+      "credential_binding": "METEOFRANCE_ARPEGE_API_KEY",
+      "status": 200,
+      "content_type": "application/wmo-grib",
+      "content_encoding": "identity",
+      "wire_bytes_read": 185,
+      "outcome": "validated_tiny_grib",
+      "bytes": 185,
+      "seconds": 0.7367817549999955,
+      "product": "arpege",
+      "operation": "GetCoverage",
+      "coverage_id": "TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z",
+      "selected_axes": {
+        "long": [
+          1.4,
+          1.5
+        ],
+        "lat": [
+          48,
+          48.1
+        ],
+        "height": 2,
+        "time": "2026-11-06T00:00:00Z"
+      },
+      "nature": "model_field_not_station_observation",
+      "grid_points": 4,
+      "sha256": "fc80a8570b75dfb7de48a0b05a4943cea2a4812849c44116f81a0c293ad86946"
+    },
+    {
+      "url": "https://public-api.meteofrance.fr/public/DPObs/v1/liste-stations",
+      "credential_binding": "METEOFRANCE_OBSERVATIONS_API_KEY",
+      "status": 401,
+      "bytes": 0,
+      "seconds": 0.8528432110000068,
+      "product": "observations-v1",
+      "operation": "catalogue"
+    },
+    {
+      "url": "https://public-api.meteofrance.fr/public/DPObs/v2/liste-stations",
+      "credential_binding": "METEOFRANCE_OBSERVATIONS_API_KEY",
+      "status": 401,
+      "bytes": 0,
+      "seconds": 0.5177618549999892,
+      "product": "observations-v2",
+      "operation": "catalogue"
+    },
+    {
+      "url": "https://public-api.meteofrance.fr/public/DPPaquetObs/v2/liste-stations",
+      "credential_binding": "METEOFRANCE_OBSERVATIONS_API_KEY",
+      "status": 401,
+      "bytes": 0,
+      "seconds": 0.697976469000011,
+      "product": "package-observations-v2",
+      "operation": "catalogue"
+    },
+    {
+      "url": "https://public-api.meteofrance.fr/public/DPClim/v1/liste-stations/quotidienne?id-departement=29",
+      "credential_binding": "METEOFRANCE_CLIMATOLOGY_API_KEY",
+      "status": 401,
+      "bytes": 0,
+      "seconds": 0.513377663,
+      "product": "climatology",
+      "operation": "catalogue"
+    }
+  ]
+}

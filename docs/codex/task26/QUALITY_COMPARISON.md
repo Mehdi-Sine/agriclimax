@@ -6,7 +6,7 @@
 - Poids IFS indépendants : emprises natives0,25° densifiées, intersections total-PRA, contrôle de fermeture ; cas côtier synthétique séparé des preuves de données réelles. Pas de renormalisation sur les seules cellules valides.
 - Comparaison analyse/stations J−1 : **non exécutée**, authentification401 actuelle. Aucun biais/RMSE inventé.
 - Comparaison estimation récente/ERA5 : **non exécutée**, aucune analyse disponible et aucune date commune actuellement obtenue.
-- Comparaison AROME/ARPEGE/IFS : **non exécutée**, champs Météo-France inaccessibles. Pas de raccordement modèle supposé valide.
+- Comparaison AROME/ARPEGE/IFS : **non exécutée**. Les nouveaux accès WCS modèles ont été confirmés le6novembre sur deuxpetits champs T2m ; aucune série commune multi-modèles n’a été acquise pour comparaison. Pas de raccordement modèle supposé valide.
 - IFS : prévision unique, faible durée ; validation structurelle/exploratoire ne valide pas statistiquement J+7. Min/max3–6h peuvent manquer les extrêmes ; moyenne trapézoïdale et RH Magnus sont des approximations explicites. Cellules côtières incluent de la mer ; modèle non substituable au masque terre ERA5.
 
 Contrôle indépendant réel IFS :420agrégats,52NULL attendus, écart maximal1,42e−14 ; preuve `operational-evidence/ifs-independent-values.json`. Rejeu compact natif sans réseau restitue exactement les420lignes publiées.12différences négatives de pluie et123échantillons RH invalides restent traçables/NULL, pas une correction cachée. Aucun indice de skill J+7 n'en est déduit.
@@ -26,3 +26,5 @@ Comparaison indépendante des420lignes avec l’API Preview réelle :52NULL, éc
 CI350dd62/run42106751117 :288tests Python et261tests TypeScript ; Python, guards et SQL public/extensions réussis ; lint, typage, testsTS, build et sécurité bundle réussis. Le job web-demo a été annulé pendant la dernière séquence navigateur, après succès des audits demo/PRA/intégration/blé : ce run ne constitue pas une CI entièrement verte. La preuve responsive propre à Task26B locale/Preview est distincte. Le statut du dernier run est à consulter dans la PR, sans assimiler un job annulé à une réussite.
 
 Le précédent commit scientifique dc1ffc2 a une CI complète verte (run42103669136). Le timeout du350dd62 provient notamment de13min26s d’installation Chromium/dépendances avant la séquence navigateur ; aucune assertion échouée dans les étapes terminées. Aucun plafond de sécurité source n’est relevé pour le contourner.
+
+Contrôle d’accès post-souscriptions : GetCapabilities/DescribeCoverage/GetCoverage200 pour AROME et ARPEGE (run42179450077),414octets GRIB au total, décodage indépendant2t/K/hauteur2m/H+0/typeprévision.13tests ciblés de probe passent, sans modification des modèles scientifiques ou de l’interface. Cela valide l’accès borné, pas la qualité prévisionnelle.

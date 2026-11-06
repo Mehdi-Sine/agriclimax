@@ -1,0 +1,35 @@
+{
+  "decoder": "existing eccodes2.50.0; offline, no new acquisition",
+  "fields": {
+    "arome": {
+      "edition": 2,
+      "shortName": "2t",
+      "name": "2 metre temperature",
+      "units": "K",
+      "typeOfLevel": "heightAboveGround",
+      "level": 2,
+      "dataDate": 20261106,
+      "dataTime": 300,
+      "step": 0,
+      "numberOfDataPoints": 25,
+      "Ni": 5,
+      "Nj": 5,
+      "typeOfGeneratingProcess": 2
+    },
+    "arpege": {
+      "edition": 2,
+      "shortName": "2t",
+      "name": "2 metre temperature",
+      "units": "K",
+      "typeOfLevel": "heightAboveGround",
+      "level": 2,
+      "dataDate": 20261106,
+      "dataTime": 0,
+      "step": 0,
+      "numberOfDataPoints": 4,
+      "Ni": 2,
+      "Nj": 2,
+      "typeOfGeneratingProcess": 2
+    }
+  }
+}
