@@ -65,6 +65,7 @@ class WcsProvider:
         self.budget = budget
         self.ids: list[str] = []
         self.receipts: dict[str, dict[str, Any]] = {}
+        self.latest: dict[str, Any] = {}
 
     def request(
         self, operation: str, parameters: list[tuple[str, str]], limit: int
@@ -76,7 +77,12 @@ class WcsProvider:
             + "?"
             + urlencode([("service", "WCS"), ("version", "2.0.1")] + parameters)
         )
-        key = hashlib.sha256(url.encode()).hexdigest()
+        token = url + (
+            datetime.now(UTC).date().isoformat()
+            if operation == "GetCapabilities"
+            else ""
+        )
+        key = hashlib.sha256(token.encode()).hexdigest()
         body_path, receipt_path = self.root / f"{key}.body", self.root / f"{key}.json"
         if body_path.exists():
             receipt = json.loads(receipt_path.read_text())
@@ -89,12 +95,13 @@ class WcsProvider:
                     "Corrupt/incorrect WCS checkpoint; no automatic reacquisition"
                 )
             self.receipts[key] = receipt
+            self.latest = receipt
             return body
         self.budget.before()
         record, body = fetch(url, self.binding, limit)
         size = record.get("wire_bytes_read", 0)
         if not isinstance(size, int):
-            raise ValueError("Invalid transport byte counter")
+            raise TypeError("Invalid transport byte counter")
         self.budget.bytes += size
         if self.budget.bytes > self.budget.bytes_limit:
             raise RuntimeError("Source byte budget exceeded")
@@ -111,6 +118,7 @@ class WcsProvider:
         atomic_write(body_path, body)
         atomic_write(receipt_path, json.dumps(receipt, sort_keys=True).encode())
         self.receipts[key] = receipt
+        self.latest = receipt
         return body
 
     def catalogue(self) -> list[str]:

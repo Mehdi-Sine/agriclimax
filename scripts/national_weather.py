@@ -32,19 +32,17 @@ def main() -> None:
         )
         return
     run = datetime.combine(args.run_date, datetime.min.time(), UTC)
-    report = preflight(args.root, run, Budget())
-    print(json.dumps(report))
-    if args.mode == "national":
-        if (
-            not args.national_authorized
-            or not report["national_estimate"]["admissible"]
-        ):
-            raise ValueError(
-                "National authorization and admissible measured preflight required"
-            )
-        raise RuntimeError(
-            "National processing not yet implemented; no publication performed"
-        )
+    budget = Budget()
+    if args.mode == "preflight":
+        report = preflight(args.root, run, budget)
+        print(json.dumps(report))
+    else:
+        if not args.national_authorized:
+            raise ValueError("Explicit national authorization required")
+        from national_weather_run import run_national
+
+        result = run_national(args.root, run, budget, args.publish_dev)
+        print(json.dumps(result))
 
 
 if __name__ == "__main__":
