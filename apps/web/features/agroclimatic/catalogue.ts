@@ -18,7 +18,7 @@ const common = {
   unavailable: 'Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.',
   limits: 'Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie.',
 };
-const wheat = (id:string,label:string,family:string,variable:WeatherVariable,operator:Operator,unit:string,threshold:number|null,formula:string):Rule => ({...common,id,production:'wheat',label,family,variables:[variable],operator,unit,threshold,formula,description:label+' sur une fenêtre fournie explicitement, sans stade phénologique inféré.',source:operator==='gdd'?'https://doi.org/10.1016/S0168-1923(97)00030-5':'https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.'});
+const wheat = (id:string,label:string,family:string,variable:WeatherVariable,operator:Operator,unit:string,threshold:number|null,formula:string):Rule => ({...common,id,production:'wheat',label,family,variables:[variable],operator,unit,threshold,formula,description:label+' sur une fenêtre fournie explicitement, sans stade phénologique inféré.',source:operator==='gdd'?'https://doi.org/10.1016/S0168-1923(97)00027-0':'https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.'});
 const cattle = (id:string,label:string,operator:Operator,unit:string):Rule => ({...common,id,production:'cattle',label,family:'Exposition thermique',variables:['temperature','humidity'],operator,unit,threshold:operator==='thi'?null:cattleRule.thresholds[0],formula:cattleRule.formula+(operator==='thi'?' ; maximum des synthèses quotidiennes':operator==='thiAbove'?' ; nombre de jours THI > seuil':' ; plus longue séquence THI > seuil'),description:'THI synthétique journalier à partir de Tmoy et RHmoy compatibles ; jamais un maximum horaire.',source:cattleRule.source.url,limits:cattleRule.notice+' '+common.limits});
 export const RULES:Rule[] = [
  wheat('gdd','Somme de températures','Températures','temperature','gdd','°C·j',0,'Σ max(0, Tmoy − base)'),
@@ -27,6 +27,7 @@ export const RULES:Rule[] = [
  wheat('frost','Jours de gel','Gel','temperature_min','below','jours',0,'Σ 1(Tmin < seuil)'),
  wheat('frost_sequence','Séquence de gel maximale','Gel','temperature_min','longestBelow','jours',0,'max longueur des séquences calendaires Tmin < seuil'),
  wheat('rain','Pluie cumulée','Précipitations','precipitation','sum','mm',null,'Σ précipitation quotidienne'),
+ wheat('heavy_rain','Jours de pluie importante','Précipitations','precipitation','above','jours',20,'Σ 1(pluie > seuil)'),
  wheat('dry','Jours secs','Précipitations','precipitation','below','jours',1,'Σ 1(pluie < seuil)'),
  wheat('dry_sequence','Séquence sèche maximale','Précipitations','precipitation','longestBelow','jours',1,'max longueur des séquences calendaires pluie < seuil'),
  cattle('thi','THI journalier synthétique','thi','THI'),cattle('thi_days','Jours au-dessus du seuil THI','thiAbove','jours'),cattle('thi_sequence','Séquence de dépassement THI','thiLongest','jours'),

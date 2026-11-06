@@ -132,6 +132,8 @@ export default function NationalMap({
         );
         m.on('load', () => {
           if (disposed) return;
+          m.addSource('national-silhouette',{type:'geojson',data:'/maps/france-silhouette.geojson'});
+          m.addLayer({id:'national-shadow',type:'line',source:'national-silhouette',paint:{'line-color':color('--text-primary'),'line-width':10,'line-blur':7,'line-opacity':0.12,'line-translate':[2,3]}});
           m.addSource('pra', {
             type: 'geojson',
             data: collectionRef.current,
@@ -141,22 +143,19 @@ export default function NationalMap({
             id: 'pra-fill',
             type: 'fill',
             source: 'pra',
-            paint: { 'fill-color': ['coalesce', ['feature-state', 'color'], fill], 'fill-opacity': ['case', ['boolean', ['feature-state', 'suppressed'], false], 0.4, 0.9] },
+            paint: { 'fill-color': ['coalesce', ['feature-state', 'color'], fill], 'fill-antialias': false, 'fill-opacity': ['case', ['boolean', ['feature-state', 'suppressed'], false], 0.4, 0.9] },
           });
           m.addSource('pra-covered',{type:'geojson',data:supportRef.current??{type:'FeatureCollection',features:[]},promoteId:'code'});
-          m.addLayer({id:'pra-covered-fill',type:'fill',source:'pra-covered',paint:{'fill-color':['coalesce',['feature-state','color'],color('--national-unavailable')],'fill-opacity':0.9}});
+          m.addLayer({id:'pra-covered-fill',type:'fill',source:'pra-covered',paint:{'fill-color':['coalesce',['feature-state','color'],color('--national-unavailable')],'fill-antialias':false,'fill-opacity':0.9}});
+          m.addLayer({id:'pra-selection',type:'fill',source:'pra',paint:{'fill-color':color('--text-primary'),'fill-opacity':['case',['boolean',['feature-state','selected'],false],0.18,0],'fill-antialias':false}});
           m.addLayer({
             id: 'pra-outline',
             type: 'line',
             source: 'pra',
             paint: {
               'line-color': color('--text-primary'),
-              'line-width': [
-                'case',
-                ['boolean', ['feature-state', 'selected'], false],
-                3,
-                ['case', ['boolean', ['feature-state', 'partial'], false], 1.6, 0.5],
-              ],
+              'line-width': 0.7,
+              'line-opacity': 0.55,
             },
           });
           m.on('click', 'pra-fill', (e) => {
