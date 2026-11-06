@@ -2,7 +2,7 @@
 
 PR draft unique : https://github.com/Mehdi-Sine/agriclimax/pull/56
 
-Les calculs nationaux et comparaisons indépendantes déjà validés sont conservés. La recette réelle de la Preview du dernier commit applicatif `20c60495b420f9947f6a98f052f1024a0b84162f` (déploiement 7607665041) est achevée. La présente clôture ne modifie que documentation, preuves et harness de recette ; aucun code applicatif, formule, seuil, géométrie ou pipeline n'est redéveloppé. Après publication de cette clôture, l'origine Preview et les checks de son dernier commit sont vérifiés à nouveau ; l'attestation finale est consignée dans la description de la PR, sans modifier les données ni les calculs nationaux.
+Les calculs nationaux et comparaisons indépendantes déjà validés sont conservés. La recette réelle de la Preview du dernier commit applicatif `20c60495b420f9947f6a98f052f1024a0b84162f` (déploiement 7607665041) est achevée. La présente clôture ne modifie que documentation (dont un mémo dans le dossier web pour publication Preview), preuves et harness de recette ; aucun code applicatif, formule, seuil, géométrie ou pipeline n'est redéveloppé. Après publication de cette clôture, l'origine Preview et les checks de son dernier commit sont vérifiés à nouveau ; l'attestation finale est consignée dans la description de la PR, sans modifier les données ni les calculs nationaux.
 
 | Verdict demandé | Décision | Éléments probants |
 |---|---|---|

@@ -8,6 +8,7 @@
   },
   "closure_changes_limited_to": [
     "docs/codex/task28",
-    "tests/e2e/task28-*.mjs"
+    "tests/e2e/task28-*.mjs",
+    "apps/web/TASK28_ACCEPTANCE.md (documentation only)"
   ]
 }
