@@ -45,7 +45,10 @@ const query = new URLSearchParams({
 const response = page.waitForResponse(
   (r) => r.url().includes("/api/agroclimatic?") && r.ok(),
 );
-await page.goto(origin + "/analyse?" + query, { waitUntil: "networkidle" });
+await page.goto(origin + "/analyse?" + query, {
+  waitUntil: "domcontentloaded",
+  timeout: 120000,
+});
 const d = await (await response).json();
 const value = d.data.find((r) => r.territoryId === expected.territoryId).value;
 if (value !== expected.value) throw new Error("Inconsistent cycle value");

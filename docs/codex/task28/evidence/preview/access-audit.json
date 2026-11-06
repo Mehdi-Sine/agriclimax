@@ -1,0 +1,21 @@
+{
+  "application_commit": "20c60495b420f9947f6a98f052f1024a0b84162f",
+  "deployment_id": 7607665041,
+  "origin": "https://agriclimax-67qlntbcm-mehdi-sines-projects.vercel.app",
+  "official_authenticated_tool_available": false,
+  "user_authorized_fallback": true,
+  "bind": "127.0.0.1",
+  "methods": [
+    "GET",
+    "HEAD"
+  ],
+  "secret_header": "x-vercel-protection-bypass",
+  "secret_value_recorded": false,
+  "redirects_followed": false,
+  "tls_verification": true,
+  "gateway_stopped": true,
+  "persistent_authentication_state_created": false,
+  "temporary_idele_trust_store_removed": true,
+  "offline_national_replay": false,
+  "weather_acquisitions": 0
+}

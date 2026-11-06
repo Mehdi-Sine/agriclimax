@@ -60,7 +60,8 @@ for (const [name, width, height] of [
     { timeout: 120000 },
   );
   await page.goto(origin + "/analyse?pra=pra:28341", {
-    waitUntil: "networkidle",
+    waitUntil: "domcontentloaded",
+    timeout: 120000,
   });
   await check(await first);
   await page
@@ -165,7 +166,7 @@ for (const [name, width, height] of [
     (r) => r.url().includes("/api/agroclimatic?indicator=thi&") && r.ok(),
     { timeout: 120000 },
   );
-  await page.reload({ waitUntil: "networkidle" });
+  await page.reload({ waitUntil: "domcontentloaded", timeout: 120000 });
   await check(await reload);
   await page
     .locator('.national-map[data-ready="true"]')

@@ -13,3 +13,5 @@ Exemple réel Beauce dunoise (pra:28341), 25–31 octobre : 73,535799 °C·j, af
 Les signaux de journées chaudes, gelées, sèches ou fortement pluvieuses expliquent date, PRA, variable, valeur, seuil strict, source et run. Il s'agit de conditions climatiques à surveiller, pas d'alertes officielles ni de prescriptions.
 
 Preuves : `evidence/coverage.json` (130 cas nationaux), `evidence/independent-local.json` (comparaisons Python indépendantes), `evidence/local/acceptance.json` (API/fiche sur trois formats). Ces preuves sont locales sur données cloud réelles, pas des preuves Preview.
+
+La recette Preview est également achevée : neuf vues blé parmi les 13 indicateurs contrôlés sur chaque format, périodes et unités cohérentes, carte et valeur de fiche comparées à l'API réelle ; voir `evidence/preview/portfolio.json` et `acceptance.json`. Aucun calcul national précédemment validé n'a été rejoué hors de ces lectures nécessaires à la recette.

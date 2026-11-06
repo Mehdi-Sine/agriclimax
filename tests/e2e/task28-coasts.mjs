@@ -27,7 +27,10 @@ for (const [name, pra] of [
     pra: "pra:" + pra,
     weather_run: "2026-11-06T06:00:00+00:00",
   });
-  await page.goto(origin + "/analyse?" + query, { waitUntil: "networkidle" });
+  await page.goto(origin + "/analyse?" + query, {
+    waitUntil: "domcontentloaded",
+    timeout: 120000,
+  });
   await page
     .locator('.national-map[data-ready="true"]')
     .waitFor({ timeout: 90000 });

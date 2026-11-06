@@ -1,0 +1,650 @@
+{
+  "origin": "http://127.0.0.1:3100",
+  "checks": [
+    {
+      "viewport": "desktop",
+      "production": "wheat",
+      "indicator": "gdd",
+      "unit": "°C·j",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "desktop",
+      "production": "wheat",
+      "indicator": "hot",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "desktop",
+      "production": "wheat",
+      "indicator": "hot_sequence",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "desktop",
+      "production": "wheat",
+      "indicator": "frost",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 1,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "desktop",
+      "production": "wheat",
+      "indicator": "frost_sequence",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 1,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "desktop",
+      "production": "wheat",
+      "indicator": "rain",
+      "unit": "mm",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0.0013198488730599058,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "desktop",
+      "production": "wheat",
+      "indicator": "heavy_rain",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "desktop",
+      "production": "wheat",
+      "indicator": "dry",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 1,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "desktop",
+      "production": "wheat",
+      "indicator": "dry_sequence",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 1,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "desktop",
+      "production": "cattle",
+      "indicator": "thi",
+      "unit": "THI",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 32.79101134916147,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "desktop",
+      "production": "cattle",
+      "indicator": "thi_days",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "desktop",
+      "production": "cattle",
+      "indicator": "thi_sequence",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "desktop",
+      "production": "cattle",
+      "indicator": "cattle_heat",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "desktop",
+      "temporal": "recent",
+      "source": "recent",
+      "notLabelledObservation": true
+    },
+    {
+      "viewport": "tablet",
+      "production": "wheat",
+      "indicator": "gdd",
+      "unit": "°C·j",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "tablet",
+      "production": "wheat",
+      "indicator": "hot",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "tablet",
+      "production": "wheat",
+      "indicator": "hot_sequence",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "tablet",
+      "production": "wheat",
+      "indicator": "frost",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 1,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "tablet",
+      "production": "wheat",
+      "indicator": "frost_sequence",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 1,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "tablet",
+      "production": "wheat",
+      "indicator": "rain",
+      "unit": "mm",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0.0013198488730599058,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "tablet",
+      "production": "wheat",
+      "indicator": "heavy_rain",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "tablet",
+      "production": "wheat",
+      "indicator": "dry",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 1,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "tablet",
+      "production": "wheat",
+      "indicator": "dry_sequence",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 1,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "tablet",
+      "production": "cattle",
+      "indicator": "thi",
+      "unit": "THI",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 32.79101134916147,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "tablet",
+      "production": "cattle",
+      "indicator": "thi_days",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "tablet",
+      "production": "cattle",
+      "indicator": "thi_sequence",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "tablet",
+      "production": "cattle",
+      "indicator": "cattle_heat",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "tablet",
+      "temporal": "recent",
+      "source": "recent",
+      "notLabelledObservation": true
+    },
+    {
+      "viewport": "mobile",
+      "production": "wheat",
+      "indicator": "gdd",
+      "unit": "°C·j",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "mobile",
+      "production": "wheat",
+      "indicator": "hot",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "mobile",
+      "production": "wheat",
+      "indicator": "hot_sequence",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "mobile",
+      "production": "wheat",
+      "indicator": "frost",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 1,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "mobile",
+      "production": "wheat",
+      "indicator": "frost_sequence",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 1,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "mobile",
+      "production": "wheat",
+      "indicator": "rain",
+      "unit": "mm",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0.0013198488730599058,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "mobile",
+      "production": "wheat",
+      "indicator": "heavy_rain",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "mobile",
+      "production": "wheat",
+      "indicator": "dry",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 1,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "mobile",
+      "production": "wheat",
+      "indicator": "dry_sequence",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 1,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "mobile",
+      "production": "cattle",
+      "indicator": "thi",
+      "unit": "THI",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 32.79101134916147,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "mobile",
+      "production": "cattle",
+      "indicator": "thi_days",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "mobile",
+      "production": "cattle",
+      "indicator": "thi_sequence",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "mobile",
+      "production": "cattle",
+      "indicator": "cattle_heat",
+      "unit": "jours",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "pra": "pra:05231",
+      "value": 0,
+      "apiPanelMatch": true,
+      "sameCanvas": true,
+      "officialFeatures": 713
+    },
+    {
+      "viewport": "mobile",
+      "temporal": "recent",
+      "source": "recent",
+      "notLabelledObservation": true
+    }
+  ],
+  "errors": [],
+  "noOfflineNationalReplay": true,
+  "noAcquisitions": true
+}
