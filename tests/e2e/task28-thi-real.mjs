@@ -1,7 +1,7 @@
 // Demonstrate an actually calculable THI from the current verified national cycle.
 import { chromium } from "playwright";
 import { mkdir, writeFile } from "node:fs/promises";
-const origin = process.env.TASK28_ORIGIN ?? "http://127.0.0.1:3005",
+const origin = process.env.TASK28_ORIGIN ?? "http://127.0.0.1:3006",
   output = process.env.TASK28_OUTPUT ?? "work/task28-thi";
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({
@@ -60,6 +60,41 @@ await page
 await page
   .locator('.national-map[data-ready="true"]')
   .waitFor({ timeout: 90000 });
+const dep = expected.territoryId.slice(4, 6);
+const saa = await (
+  await context.request.get(
+    origin +
+      "/api/agriculture?action=dataset&indicator=saa-efa-20-eff-departement",
+  )
+).json();
+const row = saa.rows.find((r) => r.code === dep),
+  i = saa.indicator.years.indexOf(2025),
+  heads = row?.values[i] ?? null;
+if (heads !== null)
+  await page
+    .getByRole("region", { name: "Contexte bovin départemental" })
+    .filter({
+      hasText: new Intl.NumberFormat("fr-FR", {
+        maximumFractionDigits: 0,
+      }).format(heads),
+    })
+    .waitFor();
+await writeFile(
+  output + "/cattle-context.json",
+  JSON.stringify(
+    {
+      department: dep,
+      year: 2025,
+      value: heads,
+      unit: "têtes",
+      scale: saa.indicator.scale,
+      matched: true,
+      not_assigned_to_pra: true,
+    },
+    null,
+    2,
+  ),
+);
 await page.screenshot({
   path: output + "/desktop-thi-available.png",
   fullPage: true,

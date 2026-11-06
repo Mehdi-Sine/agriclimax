@@ -9,6 +9,7 @@ import { calendarDays, trailingStart } from "../national/daily-availability";
 import type { PraCollection } from "../national/map";
 import type { WeatherCycle } from "../operational/model";
 import { useResource } from "../unified/resource";
+import { CattleContext } from "../agriculture/cattle-context";
 import { WheatContext } from "../agriculture/wheat-context";
 import { INDICATORS, type TerritorialValue } from "../unified/model";
 const fmt = (v: number | null | undefined) =>
@@ -465,12 +466,7 @@ export function useAgroclimatic(
           threshold={threshold ?? 0}
         />
       ) : (
-        <p>
-          Couverture climatique indépendante de la présence documentée de
-          bovins. Aucune prairie RPG convertie en effectif. Les statistiques SAA
-          restent consultables à leur échelle départementale dans Productions
-          agricoles.
-        </p>
+        <CattleContext department={feature.properties.department} pra={pra} />
       )}
       {current && (
         <details>

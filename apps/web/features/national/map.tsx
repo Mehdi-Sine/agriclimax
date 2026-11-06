@@ -12,6 +12,7 @@ export type PraProperties = {
   code: string;
   name: string;
   department_name: string;
+  department?: string;
   region_name: string;
 };
 export type PraCollection = FeatureCollection<Geometry, PraProperties>;

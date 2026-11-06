@@ -25,3 +25,5 @@ Le site de l'Institut de l'Élevage renvoie une vérification de connexion : com
 3. Exécuter `TASK28_ORIGIN=http://127.0.0.1:<port> TASK28_OUTPUT=docs/codex/task28/evidence/preview node tests/e2e/task28-real.mjs` puis `python scripts/agroclimatic_verify.py --origin http://127.0.0.1:<port> --output docs/codex/task28/evidence/independent-preview.json`.
 4. Comparer les résultats au cycle explicitement choisi, documenter tout nouveau cycle ; ne relancer aucun fournisseur météo, pipeline agricole ou publication quotidienne.
 5. Ajouter les captures et attribuer séparément les quatre verdicts seulement après validation Preview. Garder la PR draft, sans fusion ni déploiement production.
+
+Complément C4 : le total bovin départemental SAA 2025 réutilise le dataset existant `saa-efa-20-eff-departement`, avec rattachement officiel du référentiel, source et statut. La lecture API et la fiche THI calculable sont comparées, et les captures bovines incluent ce contexte ; aucune affectation d'effectif aux PRA.
