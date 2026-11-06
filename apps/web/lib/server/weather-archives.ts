@@ -13,7 +13,7 @@ import {record,unpackWeatherArchive,type JsonRecord} from './weather-archive-cod
 const BUCKET='pra-climate-archives';
 const ajv=new Ajv2020({strict:false});addFormats(ajv);
 const validRow=ajv.compile<WeatherRow>(schema);
-export type ArchiveEntry={path:string;sha256:string;bytes:number;dates:string[];run_date?:string;method_version?:string;pra_count?:number};
+export type ArchiveEntry={path:string;sha256:string;bytes:number;dates:string[];run_date?:string;run_at?:string;method_version?:string;pra_count?:number};
 export type ArchiveCatalogue={version:'pra-archive-catalogue-1';weather:ArchiveEntry[];era5:ArchiveEntry[]};
 export type NationalWeatherDocument=JsonRecord&{rows:WeatherRow[];selected_indices:number[];run:string;acquired_at:string;pra_count:713;attribution:string;recent_estimate_status:string};
 let catalogueCache:{expires:number;value:Promise<ArchiveCatalogue|null>}|undefined;
@@ -55,7 +55,7 @@ export function archiveCatalogue():Promise<ArchiveCatalogue|null>{
 async function blob(e:ArchiveEntry):Promise<Uint8Array>{const raw=await storage(e.path,8*1024**2);if(!raw||raw.length!==e.bytes||createHash('sha256').update(raw).digest('hex')!==e.sha256)throw new Error('ARCHIVE_CHECKSUM');return raw;}
 export async function nationalWeatherDocument(requestedRun?:string):Promise<NationalWeatherDocument|null>{
   const catalogue=await archiveCatalogue();
-  const latest=catalogue?.weather.filter(e=>e.method_version==='pra-national-weather-daily-1'&&(!requestedRun||e.run_date===requestedRun)&&typeof e.run_date==='string'&&isCalendarDate(e.run_date)).sort((a,b)=>b.run_date!.localeCompare(a.run_date!))[0];
+  const latest=catalogue?.weather.filter(e=>e.method_version==='pra-national-weather-daily-1'&&(!requestedRun||e.run_date===requestedRun)&&typeof e.run_date==='string'&&isCalendarDate(e.run_date)).sort((a,b)=>(b.run_at??b.run_date!).localeCompare(a.run_at??a.run_date!))[0];
   if(!latest)return null;
   if(cycleCache?.sha===latest.sha256)return cycleCache.value;
   const value=(async()=>{

@@ -30,7 +30,7 @@ on:
         description: First UTC date (default today minus five days)
         type: string
       to:
-        description: Last UTC date (maximum seven-day batch windows; plan at most 90 days)
+        description: Last UTC date for ERA batches; for weather modes optionally H00, H06, H12, H18
         type: string
       execute:
         description: Acquire a bounded real-data batch (otherwise plan only)
@@ -247,6 +247,7 @@ jobs:
           OPENBLAS_NUM_THREADS: '1'
           WEATHER_MODE: ${{ inputs.mode }}
           WEATHER_DATE: ${{ inputs.from }}
+          WEATHER_HOUR: ${{ inputs.to }}
           EXECUTE: ${{ inputs.execute }}
           AUTHORIZE_NATIONAL: ${{ inputs.national_authorized }}
           PUBLISH_DEV: ${{ inputs.publish_dev }}
@@ -259,6 +260,7 @@ jobs:
           set -euo pipefail
           args=(--mode "${WEATHER_MODE#weather-}" --root work/national-weather)
           if [[ -n "$WEATHER_DATE" ]]; then args+=(--run-date "$WEATHER_DATE"); fi
+          if [[ -n "$WEATHER_HOUR" ]]; then [[ "$WEATHER_HOUR" =~ ^H(00|06|12|18)$ ]]; args+=(--run-hour "$((10#${WEATHER_HOUR#H}))"); fi
           if [[ "$EXECUTE" == true ]]; then args+=(--execute); fi
           if [[ "$AUTHORIZE_NATIONAL" == true ]]; then args+=(--national-authorized); fi
           if [[ "$PUBLISH_DEV" == true ]]; then args+=(--publish-dev); fi

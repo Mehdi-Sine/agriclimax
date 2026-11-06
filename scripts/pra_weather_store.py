@@ -152,6 +152,7 @@ class ArchiveStore:
         dates = sorted({r["valid_date"] for r in document["rows"]})
         entry: dict[str, Any] = {
             "run_date": document["run"][:10],
+            "run_at": document["run"],
             "sha256": checksum,
             "path": f"weather/{checksum}.json.gz",
             "bytes": len(raw),
@@ -163,7 +164,7 @@ class ArchiveStore:
         same = [
             e
             for e in catalogue["weather"]
-            if e["run_date"] == entry["run_date"]
+            if e.get("run_at", e["run_date"] + "T00:00:00+00:00") == entry["run_at"]
             and e["method_version"] == entry["method_version"]
         ]
         if same:

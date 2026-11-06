@@ -147,7 +147,8 @@ def model_day(
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     directory = root / "reduced"
     directory.mkdir(exist_ok=True)
-    path = directory / f"{provider.product}-{day}.json.gz"
+    suffix = f"-H{run.hour:02d}" if run.hour else ""
+    path = directory / f"{provider.product}-{day}{suffix}.json.gz"
     fingerprint = digest([asdict(w) for w in weights])
     if path.exists():
         raw = path.read_bytes()
@@ -243,7 +244,7 @@ def wcs_models(
         provider = WcsProvider(model, root, budget)
         for offset in [-1, 0, 1] if model == "arome" else [0, 1, 2, 3]:
             day = run.date() + timedelta(days=offset)
-            source_run = run - timedelta(days=1) if offset == -1 else run
+            source_run = run.replace(hour=0) - timedelta(days=1) if offset == -1 else run.replace(hour=0) if offset == 0 else run
             output, audit = model_day(
                 provider, source_run, day, territories, weights, root
             )

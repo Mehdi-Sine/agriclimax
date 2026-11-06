@@ -267,8 +267,8 @@ def validate_document(document: dict[str, Any], expected_ids: set[str]) -> dict[
     for row in rows:
         PraWeather.model_validate(row)
     run = datetime.fromisoformat(document["run"])
-    if run.utcoffset() != timedelta(0) or run.hour or run.minute:
-        raise ValueError("Reviewed 00 UTC cycle required")
+    if run.utcoffset() != timedelta(0) or run.hour not in {0,6,12,18} or run.minute:
+        raise ValueError("Reviewed synoptic UTC publication cycle required")
     expected_matrix = {(pra, var) for pra in expected_ids for var in VARIABLES}
     groups: dict[tuple[str, str], list[int]] = defaultdict(list)
     for index, row in enumerate(rows):

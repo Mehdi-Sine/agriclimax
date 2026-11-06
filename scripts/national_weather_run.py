@@ -165,7 +165,7 @@ def run_national(
             (
                 e
                 for e in store.catalogue()["weather"]
-                if e["run_date"] == run.date().isoformat()
+                if e.get("run_at", e["run_date"] + "T00:00:00+00:00") == run.isoformat()
                 and e["method_version"] == RULE
             ),
             None,

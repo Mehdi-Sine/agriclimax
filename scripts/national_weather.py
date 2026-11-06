@@ -16,6 +16,7 @@ def main() -> None:
     parser.add_argument(
         "--run-date", type=date.fromisoformat, default=datetime.now(UTC).date()
     )
+    parser.add_argument("--run-hour", type=int, choices=[0,6,12,18], default=0)
     parser.add_argument("--root", type=Path, default=Path("work/national-weather"))
     parser.add_argument("--execute", action="store_true")
     parser.add_argument("--national-authorized", action="store_true")
@@ -33,7 +34,7 @@ def main() -> None:
             )
         )
         return
-    run = datetime.combine(args.run_date, datetime.min.time(), UTC)
+    run = datetime.combine(args.run_date, datetime.min.time(), UTC).replace(hour=args.run_hour)
     if args.mode == "replay":
         import hashlib
 
@@ -48,7 +49,7 @@ def main() -> None:
             (
                 e
                 for e in store.catalogue()["weather"]
-                if e["run_date"] == str(args.run_date) and e["method_version"] == RULE
+                if e.get("run_at", e["run_date"] + "T00:00:00+00:00") == run.isoformat() and e["method_version"] == RULE
             ),
             None,
         )
