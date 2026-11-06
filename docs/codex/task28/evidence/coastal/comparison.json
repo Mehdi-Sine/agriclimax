@@ -1,0 +1,334 @@
+{
+  "cases": [
+    {
+      "period": "day",
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "indicator": "temperature_mean",
+      "before_strict": 645,
+      "after_pra_values": 681,
+      "after_observed_portion_only": 31,
+      "after_unavailable": 1
+    },
+    {
+      "period": "day",
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "indicator": "gdd",
+      "before_strict": 645,
+      "after_pra_values": 681,
+      "after_observed_portion_only": 31,
+      "after_unavailable": 1
+    },
+    {
+      "period": "day",
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "indicator": "rain",
+      "before_strict": 645,
+      "after_pra_values": 681,
+      "after_observed_portion_only": 31,
+      "after_unavailable": 1
+    },
+    {
+      "period": "day",
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "indicator": "hot",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "day",
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "indicator": "frost",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "day",
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "indicator": "heavy_rain",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 67,
+      "after_unavailable": 1
+    },
+    {
+      "period": "day",
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "indicator": "dry",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 67,
+      "after_unavailable": 1
+    },
+    {
+      "period": "day",
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "indicator": "dry_sequence",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 67,
+      "after_unavailable": 1
+    },
+    {
+      "period": "five_days",
+      "start": "2026-10-27",
+      "end": "2026-10-31",
+      "indicator": "temperature_mean",
+      "before_strict": 645,
+      "after_pra_values": 681,
+      "after_observed_portion_only": 31,
+      "after_unavailable": 1
+    },
+    {
+      "period": "five_days",
+      "start": "2026-10-27",
+      "end": "2026-10-31",
+      "indicator": "gdd",
+      "before_strict": 645,
+      "after_pra_values": 681,
+      "after_observed_portion_only": 31,
+      "after_unavailable": 1
+    },
+    {
+      "period": "five_days",
+      "start": "2026-10-27",
+      "end": "2026-10-31",
+      "indicator": "rain",
+      "before_strict": 645,
+      "after_pra_values": 681,
+      "after_observed_portion_only": 31,
+      "after_unavailable": 1
+    },
+    {
+      "period": "five_days",
+      "start": "2026-10-27",
+      "end": "2026-10-31",
+      "indicator": "hot",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "five_days",
+      "start": "2026-10-27",
+      "end": "2026-10-31",
+      "indicator": "frost",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "five_days",
+      "start": "2026-10-27",
+      "end": "2026-10-31",
+      "indicator": "heavy_rain",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 67,
+      "after_unavailable": 1
+    },
+    {
+      "period": "five_days",
+      "start": "2026-10-27",
+      "end": "2026-10-31",
+      "indicator": "dry",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 67,
+      "after_unavailable": 1
+    },
+    {
+      "period": "five_days",
+      "start": "2026-10-27",
+      "end": "2026-10-31",
+      "indicator": "dry_sequence",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 67,
+      "after_unavailable": 1
+    },
+    {
+      "period": "seven_days",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "indicator": "temperature_mean",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "seven_days",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "indicator": "gdd",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "seven_days",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "indicator": "rain",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "seven_days",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "indicator": "hot",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "seven_days",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "indicator": "frost",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "seven_days",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "indicator": "heavy_rain",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "seven_days",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "indicator": "dry",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "seven_days",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "indicator": "dry_sequence",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "thirty_days",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "indicator": "temperature_mean",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "thirty_days",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "indicator": "gdd",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "thirty_days",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "indicator": "rain",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "thirty_days",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "indicator": "hot",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "thirty_days",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "indicator": "frost",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "thirty_days",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "indicator": "heavy_rain",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "thirty_days",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "indicator": "dry",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    },
+    {
+      "period": "thirty_days",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "indicator": "dry_sequence",
+      "before_strict": 645,
+      "after_pra_values": 645,
+      "after_observed_portion_only": 0,
+      "after_unavailable": 68
+    }
+  ],
+  "independent_partial_pra_checks": 2176,
+  "new_acquisitions": 0,
+  "strict_version_preserved": true,
+  "source_support_days": [
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-10-31"
+  ]
+}

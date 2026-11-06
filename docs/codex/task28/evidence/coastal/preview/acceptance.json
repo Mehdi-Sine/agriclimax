@@ -1,0 +1,690 @@
+{
+  "origin": "http://127.0.0.1:3100",
+  "checks": [
+    {
+      "viewport": "desktop",
+      "pra": "pra:28341",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 8.721807,
+      "observed_value": null,
+      "spatial_coverage": 1,
+      "temporal_coverage": 1,
+      "support_scope": "whole_pra",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:28341",
+      "indicator": "temperature_mean",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 8.721807,
+      "observed_value": null,
+      "spatial_coverage": 1,
+      "temporal_coverage": 1,
+      "support_scope": "whole_pra",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:28341",
+      "indicator": "rain",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 0.0025629988,
+      "observed_value": null,
+      "spatial_coverage": 1,
+      "temporal_coverage": 1,
+      "support_scope": "whole_pra",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:28341",
+      "indicator": "hot",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "observed_value": null,
+      "spatial_coverage": null,
+      "temporal_coverage": null,
+      "support_scope": null,
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:28341",
+      "indicator": "frost",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "observed_value": null,
+      "spatial_coverage": null,
+      "temporal_coverage": null,
+      "support_scope": null,
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06245",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 11.511637132239922,
+      "observed_value": 11.511637132239922,
+      "spatial_coverage": 0.9998932089264675,
+      "temporal_coverage": 1,
+      "support_scope": "qualified_pra_estimate",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06245",
+      "indicator": "temperature_mean",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 11.511637132239922,
+      "observed_value": 11.511637132239922,
+      "spatial_coverage": 0.9998932089264675,
+      "temporal_coverage": 1,
+      "support_scope": "qualified_pra_estimate",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06245",
+      "indicator": "rain",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 0.02060390901657638,
+      "observed_value": 0.02060390901657638,
+      "spatial_coverage": 0.9998932089264675,
+      "temporal_coverage": 1,
+      "support_scope": "qualified_pra_estimate",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06245",
+      "indicator": "hot",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": null,
+      "temporal_coverage": null,
+      "support_scope": null,
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06245",
+      "indicator": "frost",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": null,
+      "temporal_coverage": null,
+      "support_scope": null,
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06249",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": 14.132484056321204,
+      "spatial_coverage": 0.8692918641207557,
+      "temporal_coverage": 1,
+      "support_scope": "observed_area",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "observedAndUncoveredRealHover": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06249",
+      "indicator": "temperature_mean",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": 14.132484056321204,
+      "spatial_coverage": 0.8692918641207557,
+      "temporal_coverage": 1,
+      "support_scope": "observed_area",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06249",
+      "indicator": "rain",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": 0.028225469264019785,
+      "spatial_coverage": 0.8692918641207557,
+      "temporal_coverage": 1,
+      "support_scope": "observed_area",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06249",
+      "indicator": "hot",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": null,
+      "temporal_coverage": null,
+      "support_scope": null,
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06249",
+      "indicator": "frost",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": null,
+      "temporal_coverage": null,
+      "support_scope": null,
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:29102",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": 0,
+      "temporal_coverage": 0,
+      "support_scope": "unavailable",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:29102",
+      "indicator": "temperature_mean",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": 0,
+      "temporal_coverage": 0,
+      "support_scope": "unavailable",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:29102",
+      "indicator": "rain",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": 0,
+      "temporal_coverage": 0,
+      "support_scope": "unavailable",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:29102",
+      "indicator": "hot",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": null,
+      "temporal_coverage": null,
+      "support_scope": null,
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:29102",
+      "indicator": "frost",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": null,
+      "temporal_coverage": null,
+      "support_scope": null,
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:28341",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-27",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 49.715249,
+      "observed_value": null,
+      "spatial_coverage": 1,
+      "temporal_coverage": 1,
+      "support_scope": "whole_pra",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06245",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-27",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 65.33997990239983,
+      "observed_value": 65.33997990239983,
+      "spatial_coverage": 0.9998932089264675,
+      "temporal_coverage": 1,
+      "support_scope": "qualified_pra_estimate",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06249",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-27",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": 77.01503274696279,
+      "spatial_coverage": 0.8692918641207557,
+      "temporal_coverage": 1,
+      "support_scope": "observed_area",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:29102",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-27",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": 0,
+      "temporal_coverage": 0,
+      "support_scope": "unavailable",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:28341",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-25",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 73.53579900000001,
+      "observed_value": null,
+      "spatial_coverage": 1,
+      "temporal_coverage": 1,
+      "support_scope": "whole_pra",
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06245",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-25",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": 0.9998932089264675,
+      "temporal_coverage": 0.7142857142857143,
+      "support_scope": "unavailable",
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06249",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-25",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": 0.8692918641207557,
+      "temporal_coverage": 0.7142857142857143,
+      "support_scope": "unavailable",
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:29102",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-25",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": 0,
+      "temporal_coverage": 0,
+      "support_scope": "unavailable",
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:28341",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-02",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 388.1437050000001,
+      "observed_value": null,
+      "spatial_coverage": 1,
+      "temporal_coverage": 1,
+      "support_scope": "whole_pra",
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06245",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-02",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": 0.9998932089264675,
+      "temporal_coverage": 0.16666666666666666,
+      "support_scope": "unavailable",
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:06249",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-02",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": 0.8692918641207557,
+      "temporal_coverage": 0.16666666666666666,
+      "support_scope": "unavailable",
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "desktop",
+      "pra": "pra:29102",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-02",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": 0,
+      "temporal_coverage": 0,
+      "support_scope": "unavailable",
+      "geometry_supports": 0,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "tablet",
+      "pra": "pra:28341",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 8.721807,
+      "observed_value": null,
+      "spatial_coverage": 1,
+      "temporal_coverage": 1,
+      "support_scope": "whole_pra",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "tablet",
+      "pra": "pra:06245",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 11.511637132239922,
+      "observed_value": 11.511637132239922,
+      "spatial_coverage": 0.9998932089264675,
+      "temporal_coverage": 1,
+      "support_scope": "qualified_pra_estimate",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "tablet",
+      "pra": "pra:06249",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": 14.132484056321204,
+      "spatial_coverage": 0.8692918641207557,
+      "temporal_coverage": 1,
+      "support_scope": "observed_area",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "tablet",
+      "pra": "pra:29102",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": 0,
+      "temporal_coverage": 0,
+      "support_scope": "unavailable",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "mobile",
+      "pra": "pra:28341",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 8.721807,
+      "observed_value": null,
+      "spatial_coverage": 1,
+      "temporal_coverage": 1,
+      "support_scope": "whole_pra",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "mobile",
+      "pra": "pra:06245",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 11.511637132239922,
+      "observed_value": 11.511637132239922,
+      "spatial_coverage": 0.9998932089264675,
+      "temporal_coverage": 1,
+      "support_scope": "qualified_pra_estimate",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "mobile",
+      "pra": "pra:06249",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": 14.132484056321204,
+      "spatial_coverage": 0.8692918641207557,
+      "temporal_coverage": 1,
+      "support_scope": "observed_area",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    },
+    {
+      "viewport": "mobile",
+      "pra": "pra:29102",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-31",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "observed_value": null,
+      "spatial_coverage": 0,
+      "temporal_coverage": 0,
+      "support_scope": "unavailable",
+      "geometry_supports": 67,
+      "apiPanelMatch": true
+    }
+  ],
+  "errors": []
+}

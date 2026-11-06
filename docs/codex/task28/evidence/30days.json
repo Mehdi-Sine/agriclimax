@@ -1,0 +1,14 @@
+{
+  "period": {
+    "start": "2026-10-02",
+    "end": "2026-10-31",
+    "timezone": "UTC"
+  },
+  "rule": "gdd",
+  "bytes": 2925635,
+  "complete": 645,
+  "calculation_ms": 186.8439010000002,
+  "selected_days": 30,
+  "api_seconds": 19.580669,
+  "conditions": "Concurrent browser acceptance and archive reads in this session"
+}

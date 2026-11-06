@@ -1,0 +1,338 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agriclimax.invalid/contracts/agroclimatic-1",
+  "title": "National exploratory agroclimatic results, selected-PRA details only",
+  "type": "object",
+  "required": [
+    "contract_version",
+    "rule",
+    "parameters",
+    "period",
+    "temporal",
+    "source_version",
+    "run",
+    "calculated_at",
+    "calculation_ms",
+    "data"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "agroclimatic-1"
+    },
+    "rule": {
+      "type": "object",
+      "required": [
+        "id",
+        "version",
+        "production",
+        "formula",
+        "variables",
+        "unit",
+        "source",
+        "quality",
+        "unavailable",
+        "limits",
+        "scientific_status"
+      ]
+    },
+    "parameters": {
+      "type": "object",
+      "required": [
+        "threshold"
+      ],
+      "properties": {
+        "threshold": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "period": {
+      "type": "object",
+      "required": [
+        "start",
+        "end",
+        "timezone"
+      ],
+      "properties": {
+        "start": {
+          "type": "string"
+        },
+        "end": {
+          "type": "string"
+        },
+        "timezone": {
+          "const": "UTC"
+        }
+      },
+      "additionalProperties": false
+    },
+    "temporal": {
+      "enum": [
+        "history",
+        "recent",
+        "forecast"
+      ]
+    },
+    "source_version": {
+      "type": "string"
+    },
+    "run": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "calculated_at": {
+      "type": "string"
+    },
+    "calculation_ms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "data": {
+      "type": "array",
+      "minItems": 713,
+      "maxItems": 713,
+      "items": {
+        "type": "object",
+        "required": [
+          "territoryId",
+          "value",
+          "normal",
+          "anomaly",
+          "status",
+          "reason",
+          "unit",
+          "observedDays",
+          "expectedDays",
+          "coverage",
+          "rule_version",
+          "parameters",
+          "data_freshness",
+          "provenance",
+          "quality_flags",
+          "scientific_status",
+          "episodes",
+          "longest",
+          "series",
+          "signals"
+        ],
+        "properties": {
+          "territoryId": {
+            "type": "string",
+            "pattern": "^pra:[0-9AB]{5}$"
+          },
+          "value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "normal": {
+            "type": "null"
+          },
+          "anomaly": {
+            "type": "null"
+          },
+          "status": {
+            "enum": [
+              "available",
+              "partial",
+              "unavailable"
+            ]
+          },
+          "reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "unit": {
+            "type": "string"
+          },
+          "observedDays": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 30
+          },
+          "expectedDays": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30
+          },
+          "coverage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "rule_version": {
+            "enum": [
+              "agroclimatic-1.0.0",
+              "agroclimatic-1.1.0"
+            ]
+          },
+          "parameters": {
+            "type": "object",
+            "required": [
+              "threshold"
+            ],
+            "properties": {
+              "threshold": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "data_freshness": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "provenance": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "quality_flags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "scientific_status": {
+            "const": "exploratory"
+          },
+          "episodes": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "longest": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "series": {
+            "type": "array",
+            "maxItems": 30,
+            "items": {
+              "type": "object",
+              "required": [
+                "date",
+                "value",
+                "source",
+                "run",
+                "nature",
+                "temperature"
+              ],
+              "properties": {
+                "date": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "run": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "nature": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "temperature": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "support_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "signals": {
+            "type": "array",
+            "maxItems": 30,
+            "items": {
+              "type": "object",
+              "required": [
+                "date",
+                "territory",
+                "variable",
+                "value",
+                "threshold",
+                "comparison",
+                "source",
+                "run"
+              ]
+            }
+          },
+          "observed_value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "support_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "support_scope": {
+            "enum": [
+              "whole_pra",
+              "qualified_pra_estimate",
+              "observed_area",
+              "unavailable"
+            ]
+          },
+          "spatial_coverage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "temporal_coverage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

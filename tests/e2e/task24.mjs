@@ -12,8 +12,9 @@ const report={syntheticTransport:true,cases:[],errors:[]};
 try{
 const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce',locale:'fr-FR'});
 page.on('pageerror',e=>report.errors.push(e.message));
+await page.route('**/api/agroclimatic?**',route=>route.fulfill({json:{data:fixture.map(r=>({...r,parameters:{threshold:25},series:[],signals:[],episodes:0,longest:0,data_freshness:['synthetic-test-only'],provenance:['synthetic-test-only']})),source_version:'synthetic-test-only',calculated_at:'2026-10-18T00:00:00Z'}}));
 await page.route('**/api/unified?**',route=>route.fulfill({json:{data:fixture}}));
-await page.route('**/api/national?**',route=>route.fulfill({json:{data:Array.from({length:30},(_,i)=>new Date(Date.UTC(2026,8,19+i)).toISOString().slice(0,10)).flatMap(date=>['temperature','temperature_min','temperature_max','precipitation'].map(variable=>({date,variable,current_value:12,normal_1991_2020:10,anomaly:2,current_status:'available'})))}}));
+await page.route('**/api/national?**',route=>new URL(route.request().url()).searchParams.get('action')==='availability'?route.fulfill({json:{latest:'2026-10-18',days:Array.from({length:30},(_,i)=>new Date(Date.UTC(2026,8,19+i)).toISOString().slice(0,10))}}):route.fulfill({json:{data:Array.from({length:30},(_,i)=>new Date(Date.UTC(2026,8,19+i)).toISOString().slice(0,10)).flatMap(date=>['temperature','temperature_min','temperature_max','precipitation'].map(variable=>({date,variable,current_value:12,normal_1991_2020:10,anomaly:2,current_status:'available'})))}}));
 await page.goto(base+'/?date=2026-10-15');
 await page.locator('.national-map[data-ready="true"]').waitFor({timeout:60000});
 await page.getByText(/PRA complètes/).waitFor();
@@ -37,8 +38,8 @@ for(const [name,path] of [['Productions agricoles','productions'],['Analyse agro
 }
 await page.goBack();await page.waitForURL('**/analyse?**');await page.reload();assert.equal(new URL(page.url()).searchParams.get('pra'),id);
 report.cases.push('Three spaces preserve PRA and the same canvas; browser back and reload');
-await page.getByRole('combobox',{name:'Aléa descriptif'}).selectOption('rain');await page.getByRole('button',{name:'30 jours',exact:true}).click();
-assert.equal(new URL(page.url()).searchParams.get('start'),'2026-09-19');assert.equal(new URL(page.url()).searchParams.get('date'),'2026-10-18');
+await page.getByRole('combobox',{name:'Indicateur',exact:true}).selectOption('rain');await page.getByRole('button',{name:'30 jours',exact:true}).click();
+assert.equal(new URL(page.url()).searchParams.get('agro_start'),'2026-09-19');assert.equal(new URL(page.url()).searchParams.get('agro_end'),'2026-10-18');
 report.cases.push('Wheat period and indicator controls');
 await page.goto(base+'/?pra=pra%3A29102&date=2026-10-15');await page.getByRole('heading',{name:/CROZON/}).waitFor();await page.locator('.unified-value strong').filter({hasText:'Indisponible'}).waitFor();
 report.cases.push('Unavailable PRA never displays zero');

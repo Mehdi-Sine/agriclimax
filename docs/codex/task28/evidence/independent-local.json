@@ -1,0 +1,98 @@
+{
+  "history_end": "2026-10-31",
+  "weather_run": "2026-11-06T06:00:00+00:00",
+  "checks": [
+    {
+      "indicator": "gdd",
+      "period": [
+        "2026-10-25",
+        "2026-10-31"
+      ],
+      "compared": 713,
+      "complete": 645,
+      "partial": 0,
+      "api_seconds": 1.7547799930000565,
+      "bytes": 1003954,
+      "calculation_ms": 41.68079899999975
+    },
+    {
+      "indicator": "rain",
+      "period": [
+        "2026-10-25",
+        "2026-10-31"
+      ],
+      "compared": 713,
+      "complete": 645,
+      "partial": 0,
+      "api_seconds": 0.09742746300003091,
+      "bytes": 1005190,
+      "calculation_ms": 20.332212000001164
+    },
+    {
+      "indicator": "hot",
+      "period": [
+        "2026-10-25",
+        "2026-10-31"
+      ],
+      "compared": 713,
+      "complete": 645,
+      "partial": 0,
+      "api_seconds": 0.1499836380000943,
+      "bytes": 992958,
+      "calculation_ms": 44.215524999999616
+    },
+    {
+      "indicator": "frost_sequence",
+      "period": [
+        "2026-10-25",
+        "2026-10-31"
+      ],
+      "compared": 713,
+      "complete": 645,
+      "partial": 0,
+      "api_seconds": 0.08868536700015284,
+      "bytes": 992308,
+      "calculation_ms": 29.52432100000442
+    },
+    {
+      "indicator": "dry_sequence",
+      "period": [
+        "2026-10-25",
+        "2026-10-31"
+      ],
+      "compared": 713,
+      "complete": 645,
+      "partial": 0,
+      "api_seconds": 0.12273708099996838,
+      "bytes": 992318,
+      "calculation_ms": 37.046173000002455
+    },
+    {
+      "indicator": "thi",
+      "period": [
+        "2026-11-07",
+        "2026-11-07"
+      ],
+      "compared": 713,
+      "complete": 216,
+      "partial": 497,
+      "api_seconds": 0.07021090600005664,
+      "bytes": 658747,
+      "calculation_ms": 8.797867999994196
+    },
+    {
+      "indicator": "frost",
+      "period": [
+        "2026-11-13",
+        "2026-11-13"
+      ],
+      "compared": 713,
+      "complete": 713,
+      "partial": 0,
+      "api_seconds": 0.03826744899993173,
+      "bytes": 538500,
+      "calculation_ms": 6.44470800000272
+    }
+  ],
+  "source_acquisitions": 0
+}

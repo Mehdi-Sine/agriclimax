@@ -1,0 +1,14 @@
+{
+  "validated_application_commit": "20c60495b420f9947f6a98f052f1024a0b84162f",
+  "trees": {
+    "apps/web": "2fdf373eb0a637959e8d9c90cca0d289fe7c6eab",
+    "engine": "fbde68e2b6b1d26c497c4bfcdd56bdd27d12944b",
+    "config": "1a67c7d227199d21001444075af4a0213b7b1185",
+    "contracts": "5de34a42238216be59f12bf52e9de9339ad5b516"
+  },
+  "closure_changes_limited_to": [
+    "docs/codex/task28",
+    "tests/e2e/task28-*.mjs",
+    "apps/web/TASK28_ACCEPTANCE.md (documentation only)"
+  ]
+}
