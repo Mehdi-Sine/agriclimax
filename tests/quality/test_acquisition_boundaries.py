@@ -38,3 +38,10 @@ class AcquisitionBoundaries(unittest.TestCase):
             "false",
         )
         self.assertIn("inputs.allow_dev_write", workflow["jobs"]["validate-era5"]["if"])
+
+    def test_dispatch_inputs_stay_within_platform_limit(self):
+        workflow = yaml.load(
+            Path(".github/workflows/pra-climate.yml").read_text(),
+            Loader=yaml.BaseLoader,
+        )
+        self.assertLessEqual(len(workflow["on"]["workflow_dispatch"]["inputs"]), 10)

@@ -1,0 +1,78 @@
+{
+  "comparisons": [
+    {
+      "date": "2026-10-19",
+      "variable": "temperature",
+      "rows": 713,
+      "exact_dto_equality": true
+    },
+    {
+      "date": "2026-10-19",
+      "variable": "temperature_min",
+      "rows": 713,
+      "exact_dto_equality": true
+    },
+    {
+      "date": "2026-10-19",
+      "variable": "temperature_max",
+      "rows": 713,
+      "exact_dto_equality": true
+    },
+    {
+      "date": "2026-10-19",
+      "variable": "precipitation",
+      "rows": 713,
+      "exact_dto_equality": true
+    },
+    {
+      "date": "2026-10-20",
+      "variable": "temperature",
+      "rows": 713,
+      "exact_dto_equality": true
+    },
+    {
+      "date": "2026-10-20",
+      "variable": "temperature_min",
+      "rows": 713,
+      "exact_dto_equality": true
+    },
+    {
+      "date": "2026-10-20",
+      "variable": "temperature_max",
+      "rows": 713,
+      "exact_dto_equality": true
+    },
+    {
+      "date": "2026-10-20",
+      "variable": "precipitation",
+      "rows": 713,
+      "exact_dto_equality": true
+    },
+    {
+      "date": "2026-10-30",
+      "variable": "temperature",
+      "rows": 713,
+      "exact_dto_equality": true
+    },
+    {
+      "date": "2026-10-30",
+      "variable": "temperature_min",
+      "rows": 713,
+      "exact_dto_equality": true
+    },
+    {
+      "date": "2026-10-30",
+      "variable": "temperature_max",
+      "rows": 713,
+      "exact_dto_equality": true
+    },
+    {
+      "date": "2026-10-30",
+      "variable": "precipitation",
+      "rows": 713,
+      "exact_dto_equality": true
+    }
+  ],
+  "database_writes": 0,
+  "source_acquisitions": 0
+}

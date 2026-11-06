@@ -13,3 +13,13 @@ Sélection envisagée, à valider sur support réel et comparaison : AROME court
 Conservation : agrégats PRA compressés, références sources mutualisées, aucun GRIB brut dans Supabase. Archives exactes26B réutilisées pour le lecteur froid et une restauration vérifiable. Aucune purge des anciennes données autorisée ; la conservation24mois doit être chiffrée avec les limites des services existants avant planification DEV.
 
 CI : Task12 devient définitivement dispatch-only avec autorisation DEV explicite. Quality/Security restent inchangées après rejet automatique d’une tentative de report de ces contrôles. Les développements seront regroupés pour limiter les campagnes imposées par les pushes ; vérifications ciblées locales entre jalons. Aucun calendrier national activé avant les critères de recette.
+
+## Implémentation finale vérifiée
+
+Le budget candidat a été respecté par le cycle réel6novembre00UTC :413requêtes/95,18Mo/694,65s. La sélection désormais réalisée est AROMEJ−1/J0/J+1,ARPEGEJ+2/J+3,IFSJ+4..7 ; chaque modèle reste exposé séparément. Les 713PRA sont traitées, les absences restent NULL. Le contrat scientifique demeure `pra-weather-1`, la sélection `pra-national-weather-daily-1`.
+
+Chaîne : champs WCS/indexRange partagés → caches SHA/run immuables → réductions natives UTC → intersections de grille propres → contrôles indépendants → archive PRA compacte vérifiée → catalogue privé → serveur Next strict → réponses713/date/variable → canevas national existant. La publication n'embarque aucune grille dans Supabase ni clé côtéclient. Conservation et lecteurs froids réutilisent les enveloppes exactes26B ; pas de nouvelle architectureDB.
+
+Le catalogue est mis en cache15min, un cycle parSHA, trois archivesERA au maximum. Les historiques s'ouvrent via les API existantes, un ancien scénario via `run`. L'opt-in `experimental=weather` et les trois espaces actuels restent conservés ; aucun score agronomique nouveau.
+
+Quality/Security n'ont pas été désactivés : Quality a ensuite été renforcé par ruff/mypy sur les nouveaux modules. Les automatismes nationaux restent désactivés pour les limites documentées dans STORAGE_AND_AUTOMATION.md. Les résultats, limites et décisions indépendantes se trouvent dans les six autres livrables nationaux.

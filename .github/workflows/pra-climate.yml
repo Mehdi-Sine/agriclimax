@@ -14,11 +14,6 @@ on:
         description: Maximum new source extents, 1 or 2 degrees (1 to 64); default four
         type: number
         default: 4
-      reference_directory:
-        description: Reviewed reference directory under config/coverage (manifest, reference and weights JSON)
-        required: true
-        default: config/coverage/ofb-masa-pra-2017-snapshot-20261017
-        type: string
       dataset_version:
         description: Immutable explicit CDS source revision
         required: false
@@ -78,7 +73,7 @@ jobs:
         env:
           PYTHONPATH: engine/src
           CDSAPI_KEY: ${{ inputs.execute && secrets.CDSAPI_KEY || '' }}
-          REFERENCE_DIRECTORY: ${{ inputs.reference_directory }}
+          REFERENCE_DIRECTORY: config/coverage/ofb-masa-pra-2017-snapshot-20261017
           DATASET_VERSION: ${{ inputs.dataset_version }}
           PRA_IDS: ${{ inputs.pra_ids }}
           DATE_FROM: ${{ inputs.from }}
