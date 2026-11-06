@@ -125,3 +125,14 @@ describe("shared national agroclimatic calculator", () => {
     }
   });
 });
+
+it("keeps the measured mean temperature separate from clipped GDD and normalizes input ordering", () => {
+  const rows = [
+    day("2026-12-31", -1),
+    day("2027-01-01", 4),
+    day("2027-01-02", 8),
+  ];
+  const result = evalRows("gdd", rows, 2);
+  expect(result.series[0]).toMatchObject({ value: 0, temperature: -1 });
+  expect(evalRows("gdd", [...rows].reverse(), 2)).toEqual(result);
+});

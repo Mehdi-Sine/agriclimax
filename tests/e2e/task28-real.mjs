@@ -1,7 +1,7 @@
 // Real application acceptance: no mocked responses, clock changes or source acquisitions.
 import { chromium } from "playwright";
 import { mkdir, writeFile } from "node:fs/promises";
-const origin = process.env.TASK28_ORIGIN ?? "http://127.0.0.1:3002";
+const origin = process.env.TASK28_ORIGIN ?? "http://127.0.0.1:3003";
 const output = process.env.TASK28_OUTPUT ?? "work/task28-browser";
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({
@@ -9,15 +9,6 @@ const browser = await chromium.launch({
   args: ["--no-sandbox", "--enable-unsafe-swiftshader"],
 });
 const report = { origin, checks: [], screenshots: [], errors: [] };
-const api = await browser.newContext();
-const catalogue = await (
-  await api.request.get(
-    origin + "/api/operational?experimental=weather&catalogue=1",
-  )
-).json();
-const day = new Date(Date.parse(catalogue.run.slice(0, 10)) + 86400000)
-  .toISOString()
-  .slice(0, 10);
 for (const [name, width, height] of [
   ["desktop", 1440, 1000],
   ["tablet", 768, 1000],
@@ -27,39 +18,13 @@ for (const [name, width, height] of [
     viewport: { width, height },
     isMobile: name === "mobile",
     hasTouch: name === "mobile",
+    locale: "fr-FR",
   });
   const page = await context.newPage();
   page.on("pageerror", (e) => report.errors.push({ name, error: e.message }));
-  let payload = null;
-  page.on("response", async (response) => {
-    if (response.url().includes("/api/agroclimatic?") && response.ok())
-      payload = await response.json();
-  });
-  await page.goto(origin + "/analyse?pra=pra:28341", {
-    waitUntil: "networkidle",
-  });
-  await page
-    .locator('.national-map[data-ready="true"]')
-    .waitFor({ timeout: 90000 });
-  await page.waitForFunction(
-    () =>
-      document.querySelector(".unified-source-state") ||
-      document.body.innerText.includes("/713 PRA avec un résultat complet"),
-    { timeout: 120000 },
-  );
-  await page.locator(".unified-panel .unified-value strong").waitFor();
-  await page.waitForFunction(
-    () =>
-      !document
-        .querySelector(".unified-panel .unified-value strong")
-        ?.textContent?.includes("Indisponible"),
-    { timeout: 120000 },
-  );
-  await page.evaluate(() => {
-    window.__task28Canvas = document.querySelector(".national-map canvas");
-  });
-  const assertValue = async () => {
-    if (!payload) throw new Error("NO_REAL_PAYLOAD");
+  let payload;
+  async function check(response) {
+    payload = await response.json();
     const expected = payload.data.find((r) => r.territoryId === "pra:28341");
     const formatted =
       expected.value === null
@@ -67,19 +32,61 @@ for (const [name, width, height] of [
         : new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 2 }).format(
             expected.value,
           );
-    const actual = await page
+    await page
       .locator(".unified-panel .unified-value strong")
-      .innerText();
-    if (!actual.includes(formatted))
-      throw new Error("PANEL_API_MISMATCH " + actual + " vs " + formatted);
+      .filter({ hasText: formatted })
+      .waitFor({ timeout: 120000 });
     report.checks.push({
       name,
       indicator: payload.rule.id,
+      period: payload.period,
       value: expected.value,
       matched: true,
     });
-  };
-  await assertValue();
+  }
+  async function act(action, id, extra = "") {
+    const next = page.waitForResponse(
+      (r) =>
+        r.url().includes("/api/agroclimatic?indicator=" + id + "&") &&
+        r.url().includes(extra) &&
+        r.ok(),
+      { timeout: 120000 },
+    );
+    await action();
+    await check(await next);
+  }
+  const first = page.waitForResponse(
+    (r) => r.url().includes("/api/agroclimatic?indicator=gdd&") && r.ok(),
+    { timeout: 120000 },
+  );
+  await page.goto(origin + "/analyse?pra=pra:28341", {
+    waitUntil: "networkidle",
+  });
+  await check(await first);
+  await page
+    .locator('.national-map[data-ready="true"]')
+    .waitFor({ timeout: 90000 });
+  report.checks.push({
+    name,
+    initialReady_ms: await page.evaluate(() => performance.now()),
+    resources: await page.evaluate(() =>
+      performance
+        .getEntriesByType("resource")
+        .filter(
+          (r) =>
+            r.name.includes("/maps/") || r.name.includes("/api/agroclimatic"),
+        )
+        .map((r) => ({
+          name: new URL(r.name).pathname,
+          duration_ms: r.duration >= 0 ? r.duration : null,
+          timing_valid: r.duration >= 0,
+          bytes: r.transferSize,
+        })),
+    ),
+  });
+  await page.evaluate(() => {
+    window.__task28Canvas = document.querySelector(".national-map canvas");
+  });
   await page.screenshot({
     path: `${output}/${name}-wheat.png`,
     fullPage: true,
@@ -88,44 +95,43 @@ for (const [name, width, height] of [
   await page
     .locator(".national-map")
     .screenshot({ path: `${output}/${name}-map.png` });
-  await page.getByLabel("Indicateur", { exact: true }).selectOption("hot");
-  await page.waitForResponse(
-    (r) => r.url().includes("/api/agroclimatic?indicator=hot&") && r.ok(),
-    { timeout: 120000 },
+  await act(
+    () =>
+      page
+        .getByRole("combobox", { name: "Indicateur", exact: true })
+        .selectOption("hot"),
+    "hot",
   );
-  await page.waitForTimeout(200);
-  await assertValue();
-  await page
-    .getByLabel("Temporalité", { exact: true })
-    .selectOption("forecast");
-  await page.waitForResponse(
-    (r) =>
-      r.url().includes("temporal=forecast") &&
-      r.url().includes("/api/agroclimatic?") &&
-      r.ok(),
-    { timeout: 120000 },
+  await act(
+    () =>
+      page
+        .getByRole("combobox", { name: "Temporalité", exact: true })
+        .selectOption("forecast"),
+    "hot",
+    "temporal=forecast",
   );
-  await page.getByLabel("Indicateur", { exact: true }).selectOption("frost");
-  await page.waitForResponse(
-    (r) => r.url().includes("/api/agroclimatic?indicator=frost&") && r.ok(),
-    { timeout: 120000 },
+  await act(
+    () =>
+      page
+        .getByRole("combobox", { name: "Indicateur", exact: true })
+        .selectOption("frost"),
+    "frost",
   );
-  await page.getByRole("button", { name: "J+7", exact: true }).click();
-  await page.waitForResponse(
-    (r) => r.url().includes("/api/agroclimatic?indicator=frost&") && r.ok(),
-    { timeout: 120000 },
+  await act(
+    () => page.getByRole("button", { name: "J+7", exact: true }).click(),
+    "frost",
   );
-  await page.waitForTimeout(200);
-  await assertValue();
-  await page.getByLabel("Production", { exact: true }).selectOption("cattle");
-  await page.waitForResponse(
-    (r) => r.url().includes("/api/agroclimatic?indicator=thi&") && r.ok(),
-    { timeout: 120000 },
+  await act(
+    () =>
+      page
+        .getByRole("combobox", { name: "Production", exact: true })
+        .selectOption("cattle"),
+    "thi",
   );
-  await page.waitForTimeout(200);
-  await assertValue();
   if (
-    (await page.getByLabel("PRA", { exact: true }).inputValue()) !== "pra:28341"
+    (await page
+      .getByRole("combobox", { name: "PRA", exact: true })
+      .inputValue()) !== "pra:28341"
   )
     throw new Error("PRA_LOST");
   if (
@@ -140,44 +146,48 @@ for (const [name, width, height] of [
     path: `${output}/${name}-cattle.png`,
     fullPage: true,
   });
+  await act(
+    () =>
+      page
+        .getByRole("button", {
+          name: "Prochaine semaine · séries",
+          exact: true,
+        })
+        .click(),
+    "thi",
+  );
   await page
-    .getByRole("button", { name: "Prochaine semaine · séries", exact: true })
-    .click();
-  await page.waitForResponse(
+    .locator(".unified-panel")
+    .filter({ hasText: "Cumul refusé" })
+    .waitFor();
+  const share = page.url();
+  const reload = page.waitForResponse(
     (r) => r.url().includes("/api/agroclimatic?indicator=thi&") && r.ok(),
     { timeout: 120000 },
   );
-  await page.waitForTimeout(200);
-  if (
-    !(await page
-      .locator(".unified-panel")
-      .innerText()
-      .then((t) => t.includes("Cumul refusé")))
-  )
-    throw new Error("MIXED_SOURCE_NOT_EXPLAINED");
-  const share = page.url();
   await page.reload({ waitUntil: "networkidle" });
+  await check(await reload);
   await page
     .locator('.national-map[data-ready="true"]')
     .waitFor({ timeout: 90000 });
   if (
     page.url() !== share ||
-    (await page.getByLabel("Production", { exact: true }).inputValue()) !==
-      "cattle"
+    (await page
+      .getByRole("combobox", { name: "Production", exact: true })
+      .inputValue()) !== "cattle"
   )
     throw new Error("SHARE_STATE_LOST");
   await page.getByRole("link", { name: "Climat", exact: true }).click();
   await page.waitForURL((u) => u.pathname === "/");
-  if (
-    !page.url().includes("pra=pra%3A28341") &&
-    !page.url().includes("pra=pra:28341")
-  )
+  if (new URL(page.url()).searchParams.get("pra") !== "pra:28341")
     throw new Error("CLIMATE_PRA_LOST");
   await page
     .getByRole("link", { name: "Productions agricoles", exact: true })
     .click();
   await page.waitForURL("**/productions?*");
-  if (!page.url().includes("28341")) throw new Error("AGRICULTURE_PRA_LOST");
+  if (new URL(page.url()).searchParams.get("pra") !== "pra:28341")
+    throw new Error("AGRICULTURE_PRA_LOST");
+  await page.keyboard.press("Tab");
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth > innerWidth,
   );

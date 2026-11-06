@@ -452,7 +452,7 @@ export function useAgroclimatic(
             change({ temporal: "forecast", agro_start: "", agro_end: "" })
           }
         >
-          Consulter la perspective J+7
+          Consulter les prévisions · J+1 à J+7
         </button>
       )}
       {production === "wheat" ? (
@@ -520,10 +520,10 @@ export function useAgroclimatic(
         · {data.filter((r) => r.status === "unavailable").length} indisponibles.{" "}
         {start} → {end} UTC.
       </p>
-      <div className="legend-ramp">
+      <div className="agro-class-distribution">
         {bounds.map((b, i) => (
-          <span key={i} style={{ background: `var(${tokens[i]})` }}>
-            <small>
+          <span key={i} style={{ borderTopColor: `var(${tokens[i]})` }}>
+            <span>
               {fmt(i === 0 ? low : bounds[i - 1])} – {fmt(b)} :{" "}
               {
                 eligible.filter(
@@ -535,7 +535,7 @@ export function useAgroclimatic(
                 ).length
               }{" "}
               PRA
-            </small>
+            </span>
           </span>
         ))}
       </div>
@@ -663,6 +663,25 @@ function Series({
     .join(" ");
   return (
     <>
+      {cumulative && (
+        <>
+          <h4>Température moyenne source · °C</h4>
+          <Series
+            result={{
+              ...result,
+              series: result.series.map((r) => ({
+                ...r,
+                value: r.temperature,
+              })),
+            }}
+            cumulative={false}
+            rain={false}
+            unit="°C"
+            threshold={result.parameters.threshold}
+          />
+          <h4>Trajectoire des degrés-jours cumulés</h4>
+        </>
+      )}
       <figure className="unified-chart">
         <svg
           viewBox="0 0 340 150"

@@ -232,7 +232,8 @@
                 "value",
                 "source",
                 "run",
-                "nature"
+                "nature",
+                "temperature"
               ],
               "properties": {
                 "date": {
@@ -259,6 +260,12 @@
                 "nature": {
                   "type": [
                     "string",
+                    "null"
+                  ]
+                },
+                "temperature": {
+                  "type": [
+                    "number",
                     "null"
                   ]
                 }

@@ -46,6 +46,7 @@ export interface AgroResult {
   }[];
   series: {
     date: string;
+    temperature: number | null;
     value: number | null;
     source: string | null;
     run: string | null;
@@ -74,6 +75,7 @@ export function calculate(
   rule: Rule,
   threshold: number | null,
 ): AgroResult {
+  const orderedRows = [...rows].sort((a, b) => a.date.localeCompare(b.date));
   const dates = calendarDays(start, end);
   if (
     !dates.length ||
@@ -83,13 +85,15 @@ export function calculate(
   )
     throw new Error("INVALID_PERIOD_OR_PARAMETER");
   const byDate = new Map<string, InputDay>();
-  for (const row of rows) {
+  for (const row of orderedRows) {
     if (row.pra !== pra || !dates.includes(row.date))
       throw new Error("OUTSIDE_INPUT");
     if (byDate.has(row.date)) throw new Error("DUPLICATE_DAY");
     byDate.set(row.date, row);
   }
-  const origins = new Set(rows.map((r) => `${r.source}/${r.run}/${r.nature}`));
+  const origins = new Set(
+    orderedRows.map((r) => `${r.source}/${r.run}/${r.nature}`),
+  );
   const series = dates.map((date) => {
     const row = byDate.get(date);
     let value: number | null = null;
@@ -105,6 +109,10 @@ export function calculate(
     }
     return {
       date,
+      temperature:
+        row?.complete && valid("temperature", row.values.temperature)
+          ? row.values.temperature
+          : null,
       value,
       source: row?.source ?? null,
       run: row?.run ?? null,
@@ -112,7 +120,8 @@ export function calculate(
     };
   });
   const good = series.flatMap((r) => (r.value === null ? [] : [r.value]));
-  const incompatible = origins.size > 1 || rows.some((r) => !r.compatible);
+  const incompatible =
+    origins.size > 1 || orderedRows.some((r) => !r.compatible);
   const complete = good.length === dates.length && !incompatible;
   let count = 0,
     episodes = 0,
@@ -165,13 +174,13 @@ export function calculate(
         : ["longestAbove", "longestBelow", "thiLongest"].includes(rule.operator)
           ? longest
           : good.reduce((a, b) => a + b, 0);
-  const partialSupport = rows.some(
+  const partialSupport = orderedRows.some(
     (r) => !r.complete && rule.variables.some((v) => r.values[v] != null),
   );
   const humidityMissing =
     rule.variables.includes("humidity") &&
     rows.length > 0 &&
-    rows.every((r) => r.values.humidity == null);
+    orderedRows.every((r) => r.values.humidity == null);
   const reason = incompatible
     ? "incompatible_sources_or_runs"
     : !good.length
@@ -202,11 +211,11 @@ export function calculate(
     coverage: good.length / dates.length,
     rule_version: rule.version,
     parameters: { threshold },
-    data_freshness: [...new Set(rows.map((r) => r.freshness))],
-    provenance: [...new Set(rows.flatMap((r) => r.provenance))],
+    data_freshness: [...new Set(orderedRows.map((r) => r.freshness))],
+    provenance: [...new Set(orderedRows.flatMap((r) => r.provenance))],
     quality_flags: [
       ...new Set([
-        ...rows.flatMap((r) => r.quality_flags),
+        ...orderedRows.flatMap((r) => r.quality_flags),
         ...(reason ? [reason] : []),
         ...(rule.variables.includes("humidity")
           ? ["synthetic_daily_not_hourly_maximum"]

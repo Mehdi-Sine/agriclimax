@@ -1,0 +1,374 @@
+{
+  "origin": "http://127.0.0.1:3005",
+  "checks": [
+    {
+      "name": "desktop",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-25",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 73.53579900000001,
+      "matched": true
+    },
+    {
+      "name": "desktop",
+      "initialReady_ms": 7810.5,
+      "resources": [
+        {
+          "name": "/maps/pra-national.geojson",
+          "duration_ms": 4055.5,
+          "timing_valid": true,
+          "bytes": 9658798
+        },
+        {
+          "name": "/api/agroclimatic",
+          "duration_ms": 2520.9000000001397,
+          "timing_valid": true,
+          "bytes": 1005071
+        },
+        {
+          "name": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "duration_ms": null,
+          "timing_valid": false,
+          "bytes": 145069
+        }
+      ]
+    },
+    {
+      "name": "desktop",
+      "indicator": "hot",
+      "period": {
+        "start": "2026-10-25",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "matched": true
+    },
+    {
+      "name": "desktop",
+      "indicator": "hot",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "matched": true
+    },
+    {
+      "name": "desktop",
+      "indicator": "frost",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "matched": true
+    },
+    {
+      "name": "desktop",
+      "indicator": "frost",
+      "period": {
+        "start": "2026-11-13",
+        "end": "2026-11-13",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "matched": true
+    },
+    {
+      "name": "desktop",
+      "indicator": "thi",
+      "period": {
+        "start": "2026-11-13",
+        "end": "2026-11-13",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "matched": true
+    },
+    {
+      "name": "desktop",
+      "indicator": "thi",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-13",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "matched": true
+    },
+    {
+      "name": "desktop",
+      "indicator": "thi",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-13",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "matched": true
+    },
+    {
+      "name": "desktop",
+      "sharedURL": "http://127.0.0.1:3005/analyse?pra=pra%3A28341&agro=thi&temporal=forecast&agro_start=2026-11-07&agro_end=2026-11-13&production=cattle",
+      "praPersistent": true,
+      "sameCanvas": true,
+      "overflow": false
+    },
+    {
+      "name": "tablet",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-25",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 73.53579900000001,
+      "matched": true
+    },
+    {
+      "name": "tablet",
+      "initialReady_ms": 4559.800000000047,
+      "resources": [
+        {
+          "name": "/maps/pra-national.geojson",
+          "duration_ms": 1297.8000000000466,
+          "timing_valid": true,
+          "bytes": 9658798
+        },
+        {
+          "name": "/api/agroclimatic",
+          "duration_ms": 24,
+          "timing_valid": true,
+          "bytes": 1005071
+        },
+        {
+          "name": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "duration_ms": null,
+          "timing_valid": false,
+          "bytes": 145069
+        }
+      ]
+    },
+    {
+      "name": "tablet",
+      "indicator": "hot",
+      "period": {
+        "start": "2026-10-25",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "matched": true
+    },
+    {
+      "name": "tablet",
+      "indicator": "hot",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "matched": true
+    },
+    {
+      "name": "tablet",
+      "indicator": "frost",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "matched": true
+    },
+    {
+      "name": "tablet",
+      "indicator": "frost",
+      "period": {
+        "start": "2026-11-13",
+        "end": "2026-11-13",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "matched": true
+    },
+    {
+      "name": "tablet",
+      "indicator": "thi",
+      "period": {
+        "start": "2026-11-13",
+        "end": "2026-11-13",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "matched": true
+    },
+    {
+      "name": "tablet",
+      "indicator": "thi",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-13",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "matched": true
+    },
+    {
+      "name": "tablet",
+      "indicator": "thi",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-13",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "matched": true
+    },
+    {
+      "name": "tablet",
+      "sharedURL": "http://127.0.0.1:3005/analyse?pra=pra%3A28341&agro=thi&temporal=forecast&agro_start=2026-11-07&agro_end=2026-11-13&production=cattle",
+      "praPersistent": true,
+      "sameCanvas": true,
+      "overflow": false
+    },
+    {
+      "name": "mobile",
+      "indicator": "gdd",
+      "period": {
+        "start": "2026-10-25",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 73.53579900000001,
+      "matched": true
+    },
+    {
+      "name": "mobile",
+      "initialReady_ms": 4010.5999999998603,
+      "resources": [
+        {
+          "name": "/maps/pra-national.geojson",
+          "duration_ms": 1103.8999999999069,
+          "timing_valid": true,
+          "bytes": 9658798
+        },
+        {
+          "name": "/api/agroclimatic",
+          "duration_ms": 35,
+          "timing_valid": true,
+          "bytes": 1005071
+        },
+        {
+          "name": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "duration_ms": null,
+          "timing_valid": false,
+          "bytes": 145069
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "indicator": "hot",
+      "period": {
+        "start": "2026-10-25",
+        "end": "2026-10-31",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "matched": true
+    },
+    {
+      "name": "mobile",
+      "indicator": "hot",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "matched": true
+    },
+    {
+      "name": "mobile",
+      "indicator": "frost",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-07",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "matched": true
+    },
+    {
+      "name": "mobile",
+      "indicator": "frost",
+      "period": {
+        "start": "2026-11-13",
+        "end": "2026-11-13",
+        "timezone": "UTC"
+      },
+      "value": 0,
+      "matched": true
+    },
+    {
+      "name": "mobile",
+      "indicator": "thi",
+      "period": {
+        "start": "2026-11-13",
+        "end": "2026-11-13",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "matched": true
+    },
+    {
+      "name": "mobile",
+      "indicator": "thi",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-13",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "matched": true
+    },
+    {
+      "name": "mobile",
+      "indicator": "thi",
+      "period": {
+        "start": "2026-11-07",
+        "end": "2026-11-13",
+        "timezone": "UTC"
+      },
+      "value": null,
+      "matched": true
+    },
+    {
+      "name": "mobile",
+      "sharedURL": "http://127.0.0.1:3005/analyse?pra=pra%3A28341&agro=thi&temporal=forecast&agro_start=2026-11-07&agro_end=2026-11-13&production=cattle",
+      "praPersistent": true,
+      "sameCanvas": true,
+      "overflow": false
+    }
+  ],
+  "screenshots": [
+    "desktop-wheat.png",
+    "desktop-cattle.png",
+    "desktop-map.png",
+    "tablet-wheat.png",
+    "tablet-cattle.png",
+    "tablet-map.png",
+    "mobile-wheat.png",
+    "mobile-cattle.png",
+    "mobile-map.png"
+  ],
+  "errors": []
+}

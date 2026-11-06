@@ -1,0 +1,16 @@
+# Performances nationales
+
+Mesures locales en build de production, données nationales réelles lues depuis les lecteurs existants ; aucun téléchargement auprès des fournisseurs météo. Les mesures locales ne préjugent pas du démarrage à froid Vercel.
+
+- 130 cas nationaux × 713 PRA = 92 690 états vérifiés : historique 7 jours, récent, chaque journée J+1..J+7 et semaine entière pour 13 règles. Maximum mesuré de réponse : 1 059 305 octets sur ce balayage. Calcul pur généralement de quelques millisecondes à quelques dizaines de millisecondes. Détails par cas dans `evidence/coverage.json`.
+- Vérification indépendante : 4 991 comparaisons numériques/NULL Python contre API sur 7 règles/fenêtres. Lecture initiale GDD 7 jours : 1,75 s, calcul 41,68 ms, réponse environ 1 Mo ; cas chauds suivants 0,04–0,15 s. Voir `evidence/independent-local.json`.
+- Fenêtre GDD de 30 jours, avec détail d'une PRA : environ 2,93 Mo non compressés, 187 ms de calcul pur et 19,6 s de lecture/réponse lors du contrôle final concurrent aux tests navigateur (contrôle initial : 116 ms et 10,5 s). Voir `evidence/30days.json`. Les détails de séries ne sont pas transmis pour les 712 autres PRA.
+- Les temps de chargement réels du canevas, de la géométrie et de l'API par format sont consignés dans `evidence/local/acceptance.json`. Ils incluent Chromium logiciel et les conditions du réseau de cette session ; pas une garantie de performance sur tous les mobiles.
+
+L'adaptateur lit directement les agrégats des archives vérifiées lorsqu'ils existent. Repli vers le lecteur national conservé pour les autres dates ; aucune requête par PRA. Quatre journées au maximum sont lues simultanément. Les résultats sont mutualisés dans un cache de 12 combinaisons au maximum, durée une minute, clé incluant cycle, version de source, règle, paramètres et dates. Le détail PRA est projeté après le calcul national et ne crée pas de nouvelle lecture source.
+
+Aucune écriture Supabase, aucune table ni index, aucun résultat dérivé persisté : accroissement Supabase zéro. Le nouveau fichier cartographique public pèse 335 751 octets ; il est statique et servi par l'hébergement existant. Les captures de recette sont des preuves Git, pas des données ajoutées à Supabase. Aucun service payant ni dépendance cartographique de production ajoutés.
+
+Le contrat conserve les lots historiques et les empreintes des variables prévisionnelles. Le rejeu récupère les mêmes valeurs depuis les archives immuables ; timestamp de calcul et durée sont des métadonnées de télémétrie, pas des valeurs scientifiques reproductibles. Un futur cycle publié est découvert par les lecteurs/manifests existants. Aucun workflow quotidien modifié.
+
+La géométrie officielle publique préexistante représente environ 9,66 Mo non compressés. Elle reste identique et n'est pas remplacée par la silhouette décorative. Les mesures du navigateur sont des observations de cette session, sans comparaison contrôlée avant/après sur matériel physique : l'absence de régression quantitative WebGL ne peut donc pas être certifiée. Une durée de ressource négative renvoyée par le navigateur est conservée comme timing invalide (NULL), jamais interprétée comme un temps réel.
