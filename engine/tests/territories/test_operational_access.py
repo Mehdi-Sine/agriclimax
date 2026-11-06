@@ -58,7 +58,7 @@ def test_model_product_keys_and_gated_small_subsets(monkeypatch, tmp_path):
             assert limit == 262144
             query = parse_qs(urlsplit(url).query)
             assert query["subset"] == [
-                'time("2026-11-05T00:00:00Z")',
+                "time(2026-11-05T00:00:00Z)",
                 "lat(48,48.1)",
                 "long(1.4,1.5)",
                 "height(2)",
@@ -161,7 +161,7 @@ def test_official_gml_envelope_with_separate_time_period(product):
         ("subset", "long(1.4,1.5)"),
         ("subset", "lat(48,48.1)"),
         ("subset", "height(2)"),
-        ("subset", 'time("2026-11-05T18:00:00Z")'),
+        ("subset", "time(2026-11-05T18:00:00Z)"),
     ]
     assert selected["height"] == 2
 

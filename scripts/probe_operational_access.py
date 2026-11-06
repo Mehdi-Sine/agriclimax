@@ -90,6 +90,13 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
                         ]
                         if codes:
                             record["service_exception_codes"] = codes[:3]
+                        messages = [
+                            " ".join((e.text or "").split())[:240]
+                            for e in parsed.iter()
+                            if e.tag.endswith("}ExceptionText")
+                        ]
+                        if messages:
+                            record["service_exception_messages"] = messages[:3]
                 except (ET.ParseError, ValueError, OSError, EOFError):
                     pass
             error.close()
@@ -166,7 +173,7 @@ def field_parameters(content: bytes) -> tuple[list[tuple[str, str]], dict[str, o
             when = datetime.fromisoformat(low)
             if when.tzinfo is None:
                 raise ValueError("Time without timezone")
-            subsets.append(("subset", f'{axis}("{low}")'))
+            subsets.append(("subset", f"{axis}({low})"))
             selected[axis] = low
             found.add("time")
             continue
