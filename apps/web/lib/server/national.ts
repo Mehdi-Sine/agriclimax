@@ -8,6 +8,7 @@ import {
 } from '../../features/national/model';
 import { territoryData, type TerritoryRow } from './territories';
 import { ApiError } from './query';
+import {archivedEra5Day,type ArchivedDaily} from './weather-archives';
 import { nationalAvailability, nationalDays } from './national-availability';
 import { calendarDays, isCalendarDate, trailingStart, withinAvailable } from '../../features/national/daily-availability';
 
@@ -211,6 +212,24 @@ async function nationalContextHistory(
   return data;
 }
 
+function archivedContext(data:ClimateContextRow[],archive:ArchivedDaily[],variable:ClimateVariable):ClimateContextRow[]{
+  const lookup=new Map(archive.map(row=>[row.pra_id,row]));
+  const index=['temperature','temperature_min','temperature_max','precipitation'].indexOf(variable);
+  return data.map(row=>{
+    const archived=lookup.get(row.pra_id!);if(!archived)throw new ApiError('INVALID_RESPONSE',502);
+    const value=archived[variable];
+    return {...row,current_value:value,current_status:archived.status,current_coverage:archived.coverage[index],anomaly:value===null||row.normal_1991_2020===null?null:Math.fround(value)-Math.fround(row.normal_1991_2020),status:value===null?'missing_current':row.normal_1991_2020===null?'missing_reference':'available'};
+  });
+}
+function archivedNative(data:TerritoryRow[],archive:ArchivedDaily[]):TerritoryRow[]{
+  const lookup=new Map(archive.map(row=>[row.pra_id,row]));
+  return data.map(row=>{
+    const saved=lookup.get(row.id);if(!saved)throw new ApiError('INVALID_RESPONSE',502);
+    const empty=saved.valid_counts.every(v=>v===0)&&[saved.temperature,saved.temperature_min,saved.temperature_max,saved.precipitation].every(v=>v===null);
+    return {...row,temperature:saved.temperature,temperature_min:saved.temperature_min,temperature_max:saved.temperature_max,precipitation:saved.precipitation,valid_date:saved.valid_date,coverage:saved.coverage,valid_counts:saved.valid_counts,expected_cells:saved.expected_cells,status:empty?'unavailable':saved.status,quality_flags:saved.quality_flags,batch_key:saved.batch_key,computed_at:saved.computed_at,freshness:Date.now()-Date.parse(saved.valid_date)>6*86400000?'stale':'recent_reanalysis'};
+  });
+}
+
 export async function nationalData(
   params: URLSearchParams,
   transport: typeof fetch = fetch,
@@ -222,6 +241,8 @@ export async function nationalData(
   const date = params.get('date') || '';
   const pra = params.get('pra') || '';
   const variable = params.get('variable') || '';
+  const forceCold=params.get('storage')==='cold';
+  if(params.has('storage')&&!forceCold)throw new ApiError('INVALID_QUERY',400);
 
   const availableDays = await nationalDays(transport, [date || params.get('end') || NATIONAL.end]);
   const historyEnd = params.get('end') || NATIONAL.end;
@@ -230,12 +251,12 @@ export async function nationalData(
 
   const allowed =
     action === 'day'
-      ? ['action', 'date']
+      ? ['action', 'date','storage']
       : action === 'history'
-        ? ['action', 'pra', 'end']
+        ? ['action', 'pra', 'end','storage']
         : action === 'context-day'
-          ? ['action', 'date', 'variable']
-          : ['action', 'pra', 'end'];
+          ? ['action', 'date', 'variable','storage']
+          : ['action', 'pra', 'end','storage'];
 
   if (
     !['day', 'history', 'context-day', 'context-history'].includes(action) ||
@@ -254,12 +275,15 @@ export async function nationalData(
     throw new ApiError('INVALID_QUERY', 400);
 
   if (action === 'context-day') {
-    const data = await nationalContextDay(
+    let data = await nationalContextDay(
       date,
       variable as ClimateVariable,
       transport,
     );
+    let archiveUsed=false;
+    if(transport===fetch&&(forceCold||data.every(row=>row.current_status===null))){const archived=await archivedEra5Day(date);if(archived){data=archivedContext(data,archived,variable as ClimateVariable);archiveUsed=true;}}
     return {
+      storage:archiveUsed?'verified_cold_archive':'warm_database',
       reference_version: NATIONAL.reference,
       dataset_version: NATIONAL.dataset,
       climatology_release: NATIONAL.climatology,
@@ -274,8 +298,16 @@ export async function nationalData(
   }
 
   if (action === 'context-history') {
-    const data = await nationalContextHistory(pra, transport, historyDays);
+    let data = await nationalContextHistory(pra, transport, historyDays);
+    const archivedDays:string[]=[];
+    if(transport===fetch)for(const day of historyDays){
+      if(!forceCold&&!data.filter(r=>r.date===day).every(r=>r.current_status===null))continue;
+      const archived=await archivedEra5Day(day);if(!archived)continue;
+      const byVariable=VARIABLES.flatMap(v=>archivedContext(data.filter(r=>r.date===day&&r.variable===v.key),archived,v.key));
+      data=data.map(r=>r.date===day?byVariable.find(a=>a.variable===r.variable)??r:r);archivedDays.push(day);
+    }
     return {
+      archived_days:archivedDays,
       reference_version: NATIONAL.reference,
       dataset_version: NATIONAL.dataset,
       climatology_release: NATIONAL.climatology,
@@ -312,6 +344,7 @@ export async function nationalData(
       after = result.next_cursor || '';
       if (!after) break;
     }
+    if(transport===fetch&&(forceCold||data.every(r=>r.valid_date===null))){const archived=await archivedEra5Day(date);if(archived)data.splice(0,data.length,...archivedNative(data,archived));}
     if (
       after ||
       data.length !== 713 ||
@@ -335,6 +368,7 @@ export async function nationalData(
         ),
       );
       for (const [j, page] of pages.entries()) {
+        if(transport===fetch&&(forceCold||page.data[0]?.valid_date===null)){const archived=await archivedEra5Day(historyDays[i+j]);if(archived)page.data=archivedNative(page.data,archived);}
         if (
           page.data.length !== 1 ||
           page.data[0].id !== pra ||

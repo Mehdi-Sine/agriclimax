@@ -10,31 +10,16 @@ import './unified.css';
 import { useAgriculturalExplorer } from '../agriculture/explorer';
 import { OperationalWorkspace } from '../operational/workspace';
 import { WheatContext } from '../agriculture/wheat-context';
+import {useResource} from './resource';
 
 function valueLabel(value: number | null | undefined): string { return value == null ? 'Indisponible' : new Intl.NumberFormat('fr-FR', {maximumFractionDigits:2}).format(value); }
 
-type Resource<T> = {key:string;data:T|null;error:string|null};
-function useResource<T>(url:string|null, cached=false) {
-  const [result,setResult]=useState<Resource<T>>({key:'',data:null,error:null});
-  useEffect(()=>{
-    if(!url)return;
-    const controller=new AbortController();
-    fetch(url,{signal:controller.signal,cache:cached?'force-cache':'default'}).then(async response=>{
-      if(!response.ok){const body=await response.json().catch(()=>({}));throw new Error(body.error==='NOT_CONFIGURED'?'Source non activée dans cet environnement.':'Source momentanément inaccessible.');}
-      return response.json() as Promise<T>;
-    }).then(data=>setResult({key:url,data,error:null})).catch((error:unknown)=>{
-      if(!controller.signal.aborted)setResult({key:url,data:null,error:error instanceof Error?error.message:'Source indisponible.'});
-    });
-    return ()=>controller.abort();
-  },[url,cached]);
-  return result.key===url?result:{key:url??'',data:null,error:null};
-}
 const TITLES={climat:'Climat des territoires agricoles',productions:'Les productions, dans leur territoire',analyse:'Comprendre les aléas agroclimatiques'};
 const DESCRIPTIONS={climat:'Explorer les valeurs ERA5-Land, leurs normales et leurs écarts à l’échelle des PRA.',productions:'Surfaces, rendements et volumes : une lecture agricole à la maille de la source.',analyse:'Des indicateurs climatiques descriptifs pour le blé tendre, sans score d’impact implicite.'};
 const STATUS={available:'Disponible',partial:'Partiel',unavailable:'Indisponible',not_applicable:'Non applicable',source_error:'Erreur source'};
 export function UnifiedWorkspace() {
   const search=useSearchParams(),path=usePathname();
-  return path==='/'&&search.get('experimental')==='weather'?<OperationalWorkspace/>:<HistoricalWorkspace/>;
+  return (path==='/'||path==='/analyse')&&search.get('experimental')==='weather'?<OperationalWorkspace/>:<HistoricalWorkspace/>;
 }
 function HistoricalWorkspace() {
   const pathname=usePathname(),search=useSearchParams();
@@ -51,9 +36,9 @@ function HistoricalWorkspace() {
   const feature=collection?.features.find(f=>f.id===state.pra);
   const selectionInvalid=!!state.pra&&!!collection&&!feature;
   const invalid=errors.length>0||selectionInvalid||!availability.data;
-  const dataUrl=space==='productions'||invalid?null:`/api/unified?${new URLSearchParams({start:state.period?state.start:state.date,end:state.date,indicator:def.id,threshold:String(state.threshold)})}`;
+  const dataUrl=space==='productions'||invalid?null:`/api/unified?${new URLSearchParams({start:state.period?state.start:state.date,end:state.date,indicator:def.id,threshold:String(state.threshold),...(search.get('storage')==='cold'?{storage:'cold'}:{})})}`;
   const source=useResource<{data:TerritorialValue[]}>(dataUrl);
-  const history=useResource<{data:ClimateContextRow[]}>(state.pra&&space!=='productions'&&!invalid?`/api/national?${new URLSearchParams({action:'context-history',pra:state.pra,end:state.date})}`:null);
+  const history=useResource<{data:ClimateContextRow[]}>(state.pra&&space!=='productions'&&!invalid?`/api/national?${new URLSearchParams({action:'context-history',pra:state.pra,end:state.date,...(search.get('storage')==='cold'?{storage:'cold'}:{})})}`:null);
   const values=source.data?.data??[];
   const current=values.find(v=>v.territoryId===state.pra);
   const matches=useMemo(()=>{
@@ -105,6 +90,8 @@ function HistoricalWorkspace() {
       {(errors.length>0||selectionInvalid)&&<p className="unified-alert" role="alert">{[...errors,...(selectionInvalid?['PRA inconnue dans le référentiel.']:[])].join(' ')} <Link href={pathname}>Réinitialiser les filtres</Link></p>}
       <div className="unified-search"><label htmlFor="pra-search">⌕ Rechercher une PRA</label><input id="pra-search" type="search" autoComplete="off" placeholder="Nom, code PRA ou département…" value={query} onChange={e=>setQuery(e.target.value)} maxLength={100}/>{query&&<div className="unified-results" aria-label="Résultats PRA">{matches.map(f=><button key={String(f.id)} onClick={()=>{change({pra:String(f.id)});setQuery('');}}>{f.properties.name} <small>{f.properties.code} · {f.properties.department_name}</small></button>)}{!matches.length&&<p>Aucun territoire trouvé.</p>}</div>}</div>
       </>}
+      {space!=='productions'&&search.get('storage')==='cold'&&<p role="status">Lecture depuis les archives vérifiées lorsqu’elles existent ; autres journées lues dans les données DEV conservées.</p>}
+      {space!=='productions'&&<p><Link href={`/?experimental=weather${state.pra?'&pra='+encodeURIComponent(state.pra):''}`}>Météo récente et prévisions nationales J+7</Link></p>}
       <div className={`unified-grid ${(space === 'productions' ? agriculture.hasSelection : !!feature)?'has-selection':''}`}>
         <section className="unified-map-card" aria-label="Exploration cartographique">
           {space === 'productions' ? agriculture.mapTitle : <>          <div className="unified-map-title"><strong>{title} · {def.unit}</strong><span>{`${state.period?state.start+' → ':''}${state.date} · ${state.mode==='value'?'Valeur':state.mode==='normal'?'Normale 1991–2020':'Anomalie'}`}</span></div></>}
@@ -128,7 +115,8 @@ function HistoricalWorkspace() {
           </>:<><div className="panel-illustration" aria-hidden="true">◎</div><h2>Chaque territoire a son histoire</h2><p>Sélectionnez une PRA sur la carte ou recherchez son nom pour ouvrir sa fiche.</p><p>La sélection vous accompagne dans les trois espaces.</p></>}
         </aside>
       </div>
-      {space === 'productions' ? agriculture.method : <>      <details id="sources" className="unified-method"><summary>Sources, méthodes et limites</summary><p>Contours OFB / MASA · {NATIONAL.reference} · géométrie source inchangée, réserves PostGIS de l’issue #49 conservées. ERA5-Land est une réanalyse et non une observation stationnelle. Normales quotidiennes 1991–2020. Dernière journée nationale réellement acquise : {availability.data?.latest??'en cours de vérification'}. Les dates sont vérifiées dans les données persistées.</p><p>Pour les périodes : moyenne des températures, somme des pluies, compte de jours au seuil strict. Les jours absents restent absents ; résultats partiels signalés. Les anomalies exigent les mêmes jours observés et une référence complète. Le 29 février conserve l’état de référence insuffisante.</p><p>Agreste SAA : séries annuelles départementales et régionales, dans l’espace Productions ; aucune statistique départementale répartie artificiellement entre PRA. Aucun niveau de risque, sensibilité ou impact agricole estimé.</p><p><Link href="/stations?mode=live_meteofrance&production=wheat">Stations Météo-France</Link> · <Link href="/stations?mode=live_meteofrance&production=cattle&indicator=thi">THI bovin stationnel</Link> · <Link href="/demo">Démonstration fictive séparée</Link></p></details></>}
+      {space === 'productions' ? agriculture.method : <>      {<p><Link href={`/?date=${state.date}&indicateur=${def.id}&storage=cold${state.pra?'&pra='+encodeURIComponent(state.pra):''}`}>Consulter les archives historiques vérifiées</Link></p>}
+      <details id="sources" className="unified-method"><summary>Sources, méthodes et limites</summary><p>Contours OFB / MASA · {NATIONAL.reference} · géométrie source inchangée, réserves PostGIS de l’issue #49 conservées. ERA5-Land est une réanalyse et non une observation stationnelle. Normales quotidiennes 1991–2020. Dernière journée nationale réellement acquise : {availability.data?.latest??'en cours de vérification'}. Les dates sont vérifiées dans les données persistées.</p><p>Pour les périodes : moyenne des températures, somme des pluies, compte de jours au seuil strict. Les jours absents restent absents ; résultats partiels signalés. Les anomalies exigent les mêmes jours observés et une référence complète. Le 29 février conserve l’état de référence insuffisante.</p><p>Agreste SAA : séries annuelles départementales et régionales, dans l’espace Productions ; aucune statistique départementale répartie artificiellement entre PRA. Aucun niveau de risque, sensibilité ou impact agricole estimé.</p><p><Link href="/stations?mode=live_meteofrance&production=wheat">Stations Météo-France</Link> · <Link href="/stations?mode=live_meteofrance&production=cattle&indicator=thi">THI bovin stationnel</Link> · <Link href="/demo">Démonstration fictive séparée</Link></p></details></>}
   </>;
   return <div className="unified-product">
     <a className="skip-link" href="#main">Aller à la carte et aux filtres</a>

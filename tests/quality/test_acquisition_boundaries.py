@@ -22,6 +22,8 @@ class AcquisitionBoundaries(unittest.TestCase):
                     "CDSAPI_KEY",
                     "METEOFRANCE_AROME_API_KEY",
                     "METEOFRANCE_ARPEGE_API_KEY",
+                    "METEOFRANCE_OBSERVATIONS_API_KEY",
+                    "METEOFRANCE_CLIMATOLOGY_API_KEY",
                 ):
                     self.assertNotIn("secrets." + secret, text, str(path))
 

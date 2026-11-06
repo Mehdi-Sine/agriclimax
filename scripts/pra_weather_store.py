@@ -19,17 +19,18 @@ from agriclimax.territories.national_weather import validate_document
 from agriclimax.territories.weather_archive import decode, encode
 
 BUCKET = "pra-climate-archives"
+DEV_HOST = "yyfbpecxvxglzxopsmel.supabase.co"
 MAX_OBJECT = 8 * 1024**2
 STORAGE_GUARD = 900 * 1024**2
 
 
 class ArchiveStore:
-    def __init__(self) -> None:
+    def __init__(self, read_only: bool = False) -> None:
         base = os.environ.get("NEXT_PUBLIC_SUPABASE_URL", "").rstrip("/")
         origin = urlsplit(base)
         if (
             origin.scheme != "https"
-            or not origin.hostname
+            or origin.hostname != DEV_HOST
             or origin.path
             or origin.query
             or origin.username
@@ -38,6 +39,7 @@ class ArchiveStore:
         ):
             raise ValueError("Configured private HTTPS Supabase origin required")
         self.base = base + "/storage/v1"
+        self.read_only = read_only
         self.requests = 0
         self.writes = 0
 
@@ -48,6 +50,8 @@ class ArchiveStore:
         body: bytes | None = None,
         upsert: bool = False,
     ) -> bytes:
+        if self.read_only and method != "GET":
+            raise RuntimeError("Read-only archive transport forbids remote mutations")
         if not re.fullmatch(r"[a-zA-Z0-9_./-]+", path) or ".." in path:
             raise ValueError("Invalid archive path")
         headers = {

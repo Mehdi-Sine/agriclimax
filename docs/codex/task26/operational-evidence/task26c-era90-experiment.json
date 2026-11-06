@@ -1,0 +1,3830 @@
+{
+  "rule_version": "era5-observed-area-90-experiment-1",
+  "read_only": true,
+  "network_requests": 0,
+  "writes_to_existing_data": 0,
+  "source_tile_count": 480,
+  "dates": [
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30"
+  ],
+  "pra_count": 713,
+  "partial_rows": 272,
+  "eligible_mean_rows": 144,
+  "eligible_pra": 36,
+  "extremes_normals_anomalies_modified": false,
+  "publication_authorized": false,
+  "limitation": "Daily cache validates 24 hourly samples upstream; this experiment cannot independently identify static sea mask versus transient missingness. No historical value replaced.",
+  "rows": [
+    {
+      "pra_id": "pra:06245",
+      "date": "2026-10-27",
+      "coverage": 0.9998932089264675,
+      "candidate_mean": 14.057950046854863,
+      "valid_cells": 26,
+      "expected_cells": 27,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:06249",
+      "date": "2026-10-27",
+      "coverage": 0.8692918641207557,
+      "candidate_mean": null,
+      "valid_cells": 14,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:11470",
+      "date": "2026-10-27",
+      "coverage": 0.9641519659224319,
+      "candidate_mean": 15.787077906496204,
+      "valid_cells": 55,
+      "expected_cells": 59,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:11471",
+      "date": "2026-10-27",
+      "coverage": 0.9065635341573803,
+      "candidate_mean": 16.44550424653025,
+      "valid_cells": 12,
+      "expected_cells": 15,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:13244",
+      "date": "2026-10-27",
+      "coverage": 0.7888092110691269,
+      "candidate_mean": null,
+      "valid_cells": 20,
+      "expected_cells": 30,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:13468",
+      "date": "2026-10-27",
+      "coverage": 0.8980667533247565,
+      "candidate_mean": null,
+      "valid_cells": 40,
+      "expected_cells": 48,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:13469",
+      "date": "2026-10-27",
+      "coverage": 0.9260709079747366,
+      "candidate_mean": 14.97260389648501,
+      "valid_cells": 7,
+      "expected_cells": 8,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:14085",
+      "date": "2026-10-27",
+      "coverage": 0.9948095221389818,
+      "candidate_mean": 13.770823892632073,
+      "valid_cells": 20,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:14353",
+      "date": "2026-10-27",
+      "coverage": 0.9657735546410766,
+      "candidate_mean": 13.263098225879617,
+      "valid_cells": 37,
+      "expected_cells": 41,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:14355",
+      "date": "2026-10-27",
+      "coverage": 0.9170711457169373,
+      "candidate_mean": 13.339475574886697,
+      "valid_cells": 27,
+      "expected_cells": 30,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:17111",
+      "date": "2026-10-27",
+      "coverage": 0.9599558028371323,
+      "candidate_mean": 14.878916201159505,
+      "valid_cells": 15,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:17374",
+      "date": "2026-10-27",
+      "coverage": 0.8486400642338845,
+      "candidate_mean": null,
+      "valid_cells": 18,
+      "expected_cells": 26,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:17377",
+      "date": "2026-10-27",
+      "coverage": 0.8946179944127761,
+      "candidate_mean": null,
+      "valid_cells": 54,
+      "expected_cells": 64,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:22358",
+      "date": "2026-10-27",
+      "coverage": 0.943851224067074,
+      "candidate_mean": 14.114399319500622,
+      "valid_cells": 42,
+      "expected_cells": 52,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29101",
+      "date": "2026-10-27",
+      "coverage": 0.8486596116160978,
+      "candidate_mean": null,
+      "valid_cells": 4,
+      "expected_cells": 6,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29102",
+      "date": "2026-10-27",
+      "coverage": 0,
+      "candidate_mean": null,
+      "valid_cells": 0,
+      "expected_cells": 6,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29103",
+      "date": "2026-10-27",
+      "coverage": 0.39940706754017047,
+      "candidate_mean": null,
+      "valid_cells": 5,
+      "expected_cells": 9,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29358",
+      "date": "2026-10-27",
+      "coverage": 0.9459016665211627,
+      "candidate_mean": 13.786526383197646,
+      "valid_cells": 19,
+      "expected_cells": 23,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29361",
+      "date": "2026-10-27",
+      "coverage": 0.9595980976205128,
+      "candidate_mean": 13.408119344906643,
+      "valid_cells": 40,
+      "expected_cells": 50,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29362",
+      "date": "2026-10-27",
+      "coverage": 0.9291212136614772,
+      "candidate_mean": 13.223067746997993,
+      "valid_cells": 31,
+      "expected_cells": 35,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29363",
+      "date": "2026-10-27",
+      "coverage": 0.8203940844044206,
+      "candidate_mean": null,
+      "valid_cells": 34,
+      "expected_cells": 50,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2A258",
+      "date": "2026-10-27",
+      "coverage": 0.4692215787208781,
+      "candidate_mean": null,
+      "valid_cells": 16,
+      "expected_cells": 28,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2A259",
+      "date": "2026-10-27",
+      "coverage": 0.8845635429854587,
+      "candidate_mean": null,
+      "valid_cells": 34,
+      "expected_cells": 47,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2A260",
+      "date": "2026-10-27",
+      "coverage": 0.9926908133329774,
+      "candidate_mean": 14.703730079051608,
+      "valid_cells": 35,
+      "expected_cells": 38,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2B258",
+      "date": "2026-10-27",
+      "coverage": 0.8523500667147054,
+      "candidate_mean": null,
+      "valid_cells": 23,
+      "expected_cells": 31,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2B259",
+      "date": "2026-10-27",
+      "coverage": 0.7645953157328961,
+      "candidate_mean": null,
+      "valid_cells": 36,
+      "expected_cells": 51,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2B260",
+      "date": "2026-10-27",
+      "coverage": 0.9998391064170352,
+      "candidate_mean": 14.672251651754024,
+      "valid_cells": 49,
+      "expected_cells": 50,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:30471",
+      "date": "2026-10-27",
+      "coverage": 0.9151607416991552,
+      "candidate_mean": 14.426671885693912,
+      "valid_cells": 21,
+      "expected_cells": 24,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:33115",
+      "date": "2026-10-27",
+      "coverage": 0.6250895705887968,
+      "candidate_mean": null,
+      "valid_cells": 5,
+      "expected_cells": 8,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:33137",
+      "date": "2026-10-27",
+      "coverage": 0.8385368566114515,
+      "candidate_mean": null,
+      "valid_cells": 33,
+      "expected_cells": 46,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:33378",
+      "date": "2026-10-27",
+      "coverage": 0.9481359308824623,
+      "candidate_mean": 16.23020996580594,
+      "valid_cells": 50,
+      "expected_cells": 57,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:34416",
+      "date": "2026-10-27",
+      "coverage": 0.9991014172087588,
+      "candidate_mean": 14.298237070665154,
+      "valid_cells": 31,
+      "expected_cells": 32,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:34471",
+      "date": "2026-10-27",
+      "coverage": 0.828298320308539,
+      "candidate_mean": null,
+      "valid_cells": 35,
+      "expected_cells": 45,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:35358",
+      "date": "2026-10-27",
+      "coverage": 0.99639822701174,
+      "candidate_mean": 14.203909502419288,
+      "valid_cells": 16,
+      "expected_cells": 17,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40130",
+      "date": "2026-10-27",
+      "coverage": 0.9288993259519046,
+      "candidate_mean": 16.889128607511047,
+      "valid_cells": 18,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40131",
+      "date": "2026-10-27",
+      "coverage": 0.8692293987607427,
+      "candidate_mean": null,
+      "valid_cells": 14,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40132",
+      "date": "2026-10-27",
+      "coverage": 0.9764042995653717,
+      "candidate_mean": 17.488491948023455,
+      "valid_cells": 10,
+      "expected_cells": 11,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40144",
+      "date": "2026-10-27",
+      "coverage": 0.8889803665316505,
+      "candidate_mean": null,
+      "valid_cells": 5,
+      "expected_cells": 6,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44106",
+      "date": "2026-10-27",
+      "coverage": 0.9842032749295404,
+      "candidate_mean": 14.160745580100398,
+      "valid_cells": 18,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44108",
+      "date": "2026-10-27",
+      "coverage": 0.8880962258758613,
+      "candidate_mean": null,
+      "valid_cells": 20,
+      "expected_cells": 23,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44364",
+      "date": "2026-10-27",
+      "coverage": 0.8437314181659112,
+      "candidate_mean": null,
+      "valid_cells": 11,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44365",
+      "date": "2026-10-27",
+      "coverage": 0.8744163164905747,
+      "candidate_mean": null,
+      "valid_cells": 8,
+      "expected_cells": 10,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50081",
+      "date": "2026-10-27",
+      "coverage": 0.4392698929830878,
+      "candidate_mean": null,
+      "valid_cells": 4,
+      "expected_cells": 7,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50082",
+      "date": "2026-10-27",
+      "coverage": 0.8985468114265341,
+      "candidate_mean": null,
+      "valid_cells": 17,
+      "expected_cells": 23,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50083",
+      "date": "2026-10-27",
+      "coverage": 0.5290317530925099,
+      "candidate_mean": null,
+      "valid_cells": 4,
+      "expected_cells": 10,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50084",
+      "date": "2026-10-27",
+      "coverage": 0.909439459848472,
+      "candidate_mean": 14.083470828555365,
+      "valid_cells": 18,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50086",
+      "date": "2026-10-27",
+      "coverage": 0.966332527574241,
+      "candidate_mean": 13.71239827738022,
+      "valid_cells": 43,
+      "expected_cells": 47,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50087",
+      "date": "2026-10-27",
+      "coverage": 0.9523685722380425,
+      "candidate_mean": 13.524444767030777,
+      "valid_cells": 22,
+      "expected_cells": 25,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:56363",
+      "date": "2026-10-27",
+      "coverage": 0.9986627181779798,
+      "candidate_mean": 13.969317405247462,
+      "valid_cells": 57,
+      "expected_cells": 58,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:56364",
+      "date": "2026-10-27",
+      "coverage": 0.6672327714923467,
+      "candidate_mean": null,
+      "valid_cells": 24,
+      "expected_cells": 45,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:59325",
+      "date": "2026-10-27",
+      "coverage": 0.988177403555667,
+      "candidate_mean": 14.025135007036488,
+      "valid_cells": 14,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:62029",
+      "date": "2026-10-27",
+      "coverage": 0.9205695638102344,
+      "candidate_mean": 13.767848814178109,
+      "valid_cells": 16,
+      "expected_cells": 18,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:62325",
+      "date": "2026-10-27",
+      "coverage": 0.8434556049927447,
+      "candidate_mean": null,
+      "valid_cells": 14,
+      "expected_cells": 17,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:64138",
+      "date": "2026-10-27",
+      "coverage": 0.7810293706444065,
+      "candidate_mean": null,
+      "valid_cells": 8,
+      "expected_cells": 11,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:64139",
+      "date": "2026-10-27",
+      "coverage": 0.9998391252146827,
+      "candidate_mean": 15.912136789874632,
+      "valid_cells": 32,
+      "expected_cells": 33,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:66252",
+      "date": "2026-10-27",
+      "coverage": 0.8602622725532107,
+      "candidate_mean": null,
+      "valid_cells": 19,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:66254",
+      "date": "2026-10-27",
+      "coverage": 0.9322428436688067,
+      "candidate_mean": 17.0609550532491,
+      "valid_cells": 3,
+      "expected_cells": 5,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:76046",
+      "date": "2026-10-27",
+      "coverage": 0.9421832945090279,
+      "candidate_mean": 13.410965759105487,
+      "valid_cells": 48,
+      "expected_cells": 54,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:76047",
+      "date": "2026-10-27",
+      "coverage": 0.8302416592053758,
+      "candidate_mean": null,
+      "valid_cells": 13,
+      "expected_cells": 17,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:80037",
+      "date": "2026-10-27",
+      "coverage": 0.7778511767974388,
+      "candidate_mean": null,
+      "valid_cells": 7,
+      "expected_cells": 10,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:80038",
+      "date": "2026-10-27",
+      "coverage": 0.9728623673490356,
+      "candidate_mean": 13.361905843004072,
+      "valid_cells": 22,
+      "expected_cells": 24,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:83247",
+      "date": "2026-10-27",
+      "coverage": 0.9614688820896001,
+      "candidate_mean": 15.395384381435415,
+      "valid_cells": 25,
+      "expected_cells": 28,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:83248",
+      "date": "2026-10-27",
+      "coverage": 0.968796697627486,
+      "candidate_mean": 15.732729271127353,
+      "valid_cells": 13,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:83469",
+      "date": "2026-10-27",
+      "coverage": 0.7874651605721475,
+      "candidate_mean": null,
+      "valid_cells": 13,
+      "expected_cells": 24,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85365",
+      "date": "2026-10-27",
+      "coverage": 0.6172217036801729,
+      "candidate_mean": null,
+      "valid_cells": 10,
+      "expected_cells": 19,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85368",
+      "date": "2026-10-27",
+      "coverage": 0.9726297334555114,
+      "candidate_mean": 13.829185266612384,
+      "valid_cells": 68,
+      "expected_cells": 72,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85369",
+      "date": "2026-10-27",
+      "coverage": 0.9401202467856143,
+      "candidate_mean": 14.29769159431564,
+      "valid_cells": 18,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85371",
+      "date": "2026-10-27",
+      "coverage": 0.9996466270079374,
+      "candidate_mean": 14.02846115543289,
+      "valid_cells": 25,
+      "expected_cells": 26,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:06245",
+      "date": "2026-10-28",
+      "coverage": 0.9998932089264675,
+      "candidate_mean": 13.760987521119569,
+      "valid_cells": 26,
+      "expected_cells": 27,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:06249",
+      "date": "2026-10-28",
+      "coverage": 0.8692918641207557,
+      "candidate_mean": null,
+      "valid_cells": 14,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:11470",
+      "date": "2026-10-28",
+      "coverage": 0.9641519659224319,
+      "candidate_mean": 14.532148313148381,
+      "valid_cells": 55,
+      "expected_cells": 59,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:11471",
+      "date": "2026-10-28",
+      "coverage": 0.9065635341573803,
+      "candidate_mean": 16.17311285636501,
+      "valid_cells": 12,
+      "expected_cells": 15,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:13244",
+      "date": "2026-10-28",
+      "coverage": 0.7888092110691269,
+      "candidate_mean": null,
+      "valid_cells": 20,
+      "expected_cells": 30,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:13468",
+      "date": "2026-10-28",
+      "coverage": 0.8980667533247565,
+      "candidate_mean": null,
+      "valid_cells": 40,
+      "expected_cells": 48,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:13469",
+      "date": "2026-10-28",
+      "coverage": 0.9260709079747366,
+      "candidate_mean": 15.063830884222874,
+      "valid_cells": 7,
+      "expected_cells": 8,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:14085",
+      "date": "2026-10-28",
+      "coverage": 0.9948095221389818,
+      "candidate_mean": 11.714951283537715,
+      "valid_cells": 20,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:14353",
+      "date": "2026-10-28",
+      "coverage": 0.9657735546410766,
+      "candidate_mean": 10.829998246295855,
+      "valid_cells": 37,
+      "expected_cells": 41,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:14355",
+      "date": "2026-10-28",
+      "coverage": 0.9170711457169373,
+      "candidate_mean": 11.00359392475551,
+      "valid_cells": 27,
+      "expected_cells": 30,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:17111",
+      "date": "2026-10-28",
+      "coverage": 0.9599558028371323,
+      "candidate_mean": 11.481470669345008,
+      "valid_cells": 15,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:17374",
+      "date": "2026-10-28",
+      "coverage": 0.8486400642338845,
+      "candidate_mean": null,
+      "valid_cells": 18,
+      "expected_cells": 26,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:17377",
+      "date": "2026-10-28",
+      "coverage": 0.8946179944127761,
+      "candidate_mean": null,
+      "valid_cells": 54,
+      "expected_cells": 64,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:22358",
+      "date": "2026-10-28",
+      "coverage": 0.943851224067074,
+      "candidate_mean": 12.210242138622817,
+      "valid_cells": 42,
+      "expected_cells": 52,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29101",
+      "date": "2026-10-28",
+      "coverage": 0.8486596116160978,
+      "candidate_mean": null,
+      "valid_cells": 4,
+      "expected_cells": 6,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29102",
+      "date": "2026-10-28",
+      "coverage": 0,
+      "candidate_mean": null,
+      "valid_cells": 0,
+      "expected_cells": 6,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29103",
+      "date": "2026-10-28",
+      "coverage": 0.39940706754017047,
+      "candidate_mean": null,
+      "valid_cells": 5,
+      "expected_cells": 9,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29358",
+      "date": "2026-10-28",
+      "coverage": 0.9459016665211627,
+      "candidate_mean": 12.276218650259933,
+      "valid_cells": 19,
+      "expected_cells": 23,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29361",
+      "date": "2026-10-28",
+      "coverage": 0.9595980976205128,
+      "candidate_mean": 11.855306975053908,
+      "valid_cells": 40,
+      "expected_cells": 50,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29362",
+      "date": "2026-10-28",
+      "coverage": 0.9291212136614772,
+      "candidate_mean": 11.01076265391537,
+      "valid_cells": 31,
+      "expected_cells": 35,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29363",
+      "date": "2026-10-28",
+      "coverage": 0.8203940844044206,
+      "candidate_mean": null,
+      "valid_cells": 34,
+      "expected_cells": 50,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2A258",
+      "date": "2026-10-28",
+      "coverage": 0.4692215787208781,
+      "candidate_mean": null,
+      "valid_cells": 16,
+      "expected_cells": 28,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2A259",
+      "date": "2026-10-28",
+      "coverage": 0.8845635429854587,
+      "candidate_mean": null,
+      "valid_cells": 34,
+      "expected_cells": 47,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2A260",
+      "date": "2026-10-28",
+      "coverage": 0.9926908133329774,
+      "candidate_mean": 14.179925203795314,
+      "valid_cells": 35,
+      "expected_cells": 38,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2B258",
+      "date": "2026-10-28",
+      "coverage": 0.8523500667147054,
+      "candidate_mean": null,
+      "valid_cells": 23,
+      "expected_cells": 31,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2B259",
+      "date": "2026-10-28",
+      "coverage": 0.7645953157328961,
+      "candidate_mean": null,
+      "valid_cells": 36,
+      "expected_cells": 51,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2B260",
+      "date": "2026-10-28",
+      "coverage": 0.9998391064170352,
+      "candidate_mean": 13.934790995904471,
+      "valid_cells": 49,
+      "expected_cells": 50,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:30471",
+      "date": "2026-10-28",
+      "coverage": 0.9151607416991552,
+      "candidate_mean": 15.74137274625612,
+      "valid_cells": 21,
+      "expected_cells": 24,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:33115",
+      "date": "2026-10-28",
+      "coverage": 0.6250895705887968,
+      "candidate_mean": null,
+      "valid_cells": 5,
+      "expected_cells": 8,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:33137",
+      "date": "2026-10-28",
+      "coverage": 0.8385368566114515,
+      "candidate_mean": null,
+      "valid_cells": 33,
+      "expected_cells": 46,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:33378",
+      "date": "2026-10-28",
+      "coverage": 0.9481359308824623,
+      "candidate_mean": 12.436382731728647,
+      "valid_cells": 50,
+      "expected_cells": 57,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:34416",
+      "date": "2026-10-28",
+      "coverage": 0.9991014172087588,
+      "candidate_mean": 15.14785843052131,
+      "valid_cells": 31,
+      "expected_cells": 32,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:34471",
+      "date": "2026-10-28",
+      "coverage": 0.828298320308539,
+      "candidate_mean": null,
+      "valid_cells": 35,
+      "expected_cells": 45,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:35358",
+      "date": "2026-10-28",
+      "coverage": 0.99639822701174,
+      "candidate_mean": 11.990261777226545,
+      "valid_cells": 16,
+      "expected_cells": 17,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40130",
+      "date": "2026-10-28",
+      "coverage": 0.9288993259519046,
+      "candidate_mean": 13.581673440020095,
+      "valid_cells": 18,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40131",
+      "date": "2026-10-28",
+      "coverage": 0.8692293987607427,
+      "candidate_mean": null,
+      "valid_cells": 14,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40132",
+      "date": "2026-10-28",
+      "coverage": 0.9764042995653717,
+      "candidate_mean": 14.812015974924364,
+      "valid_cells": 10,
+      "expected_cells": 11,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40144",
+      "date": "2026-10-28",
+      "coverage": 0.8889803665316505,
+      "candidate_mean": null,
+      "valid_cells": 5,
+      "expected_cells": 6,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44106",
+      "date": "2026-10-28",
+      "coverage": 0.9842032749295404,
+      "candidate_mean": 11.471351115187497,
+      "valid_cells": 18,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44108",
+      "date": "2026-10-28",
+      "coverage": 0.8880962258758613,
+      "candidate_mean": null,
+      "valid_cells": 20,
+      "expected_cells": 23,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44364",
+      "date": "2026-10-28",
+      "coverage": 0.8437314181659112,
+      "candidate_mean": null,
+      "valid_cells": 11,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44365",
+      "date": "2026-10-28",
+      "coverage": 0.8744163164905747,
+      "candidate_mean": null,
+      "valid_cells": 8,
+      "expected_cells": 10,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50081",
+      "date": "2026-10-28",
+      "coverage": 0.4392698929830878,
+      "candidate_mean": null,
+      "valid_cells": 4,
+      "expected_cells": 7,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50082",
+      "date": "2026-10-28",
+      "coverage": 0.8985468114265341,
+      "candidate_mean": null,
+      "valid_cells": 17,
+      "expected_cells": 23,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50083",
+      "date": "2026-10-28",
+      "coverage": 0.5290317530925099,
+      "candidate_mean": null,
+      "valid_cells": 4,
+      "expected_cells": 10,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50084",
+      "date": "2026-10-28",
+      "coverage": 0.909439459848472,
+      "candidate_mean": 12.36716429904475,
+      "valid_cells": 18,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50086",
+      "date": "2026-10-28",
+      "coverage": 0.966332527574241,
+      "candidate_mean": 11.908347247984965,
+      "valid_cells": 43,
+      "expected_cells": 47,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50087",
+      "date": "2026-10-28",
+      "coverage": 0.9523685722380425,
+      "candidate_mean": 11.48741227563906,
+      "valid_cells": 22,
+      "expected_cells": 25,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:56363",
+      "date": "2026-10-28",
+      "coverage": 0.9986627181779798,
+      "candidate_mean": 10.948841827881415,
+      "valid_cells": 57,
+      "expected_cells": 58,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:56364",
+      "date": "2026-10-28",
+      "coverage": 0.6672327714923467,
+      "candidate_mean": null,
+      "valid_cells": 24,
+      "expected_cells": 45,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:59325",
+      "date": "2026-10-28",
+      "coverage": 0.988177403555667,
+      "candidate_mean": 11.958442154629326,
+      "valid_cells": 14,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:62029",
+      "date": "2026-10-28",
+      "coverage": 0.9205695638102344,
+      "candidate_mean": 11.889364592144613,
+      "valid_cells": 16,
+      "expected_cells": 18,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:62325",
+      "date": "2026-10-28",
+      "coverage": 0.8434556049927447,
+      "candidate_mean": null,
+      "valid_cells": 14,
+      "expected_cells": 17,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:64138",
+      "date": "2026-10-28",
+      "coverage": 0.7810293706444065,
+      "candidate_mean": null,
+      "valid_cells": 8,
+      "expected_cells": 11,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:64139",
+      "date": "2026-10-28",
+      "coverage": 0.9998391252146827,
+      "candidate_mean": 13.140522121491095,
+      "valid_cells": 32,
+      "expected_cells": 33,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:66252",
+      "date": "2026-10-28",
+      "coverage": 0.8602622725532107,
+      "candidate_mean": null,
+      "valid_cells": 19,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:66254",
+      "date": "2026-10-28",
+      "coverage": 0.9322428436688067,
+      "candidate_mean": 16.49030549726683,
+      "valid_cells": 3,
+      "expected_cells": 5,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:76046",
+      "date": "2026-10-28",
+      "coverage": 0.9421832945090279,
+      "candidate_mean": 11.593886063871375,
+      "valid_cells": 48,
+      "expected_cells": 54,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:76047",
+      "date": "2026-10-28",
+      "coverage": 0.8302416592053758,
+      "candidate_mean": null,
+      "valid_cells": 13,
+      "expected_cells": 17,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:80037",
+      "date": "2026-10-28",
+      "coverage": 0.7778511767974388,
+      "candidate_mean": null,
+      "valid_cells": 7,
+      "expected_cells": 10,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:80038",
+      "date": "2026-10-28",
+      "coverage": 0.9728623673490356,
+      "candidate_mean": 11.359819066997224,
+      "valid_cells": 22,
+      "expected_cells": 24,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:83247",
+      "date": "2026-10-28",
+      "coverage": 0.9614688820896001,
+      "candidate_mean": 15.682991196671217,
+      "valid_cells": 25,
+      "expected_cells": 28,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:83248",
+      "date": "2026-10-28",
+      "coverage": 0.968796697627486,
+      "candidate_mean": 15.928989493844655,
+      "valid_cells": 13,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:83469",
+      "date": "2026-10-28",
+      "coverage": 0.7874651605721475,
+      "candidate_mean": null,
+      "valid_cells": 13,
+      "expected_cells": 24,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85365",
+      "date": "2026-10-28",
+      "coverage": 0.6172217036801729,
+      "candidate_mean": null,
+      "valid_cells": 10,
+      "expected_cells": 19,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85368",
+      "date": "2026-10-28",
+      "coverage": 0.9726297334555114,
+      "candidate_mean": 10.87802063773631,
+      "valid_cells": 68,
+      "expected_cells": 72,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85369",
+      "date": "2026-10-28",
+      "coverage": 0.9401202467856143,
+      "candidate_mean": 11.465065111792265,
+      "valid_cells": 18,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85371",
+      "date": "2026-10-28",
+      "coverage": 0.9996466270079374,
+      "candidate_mean": 11.027339949261666,
+      "valid_cells": 25,
+      "expected_cells": 26,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:06245",
+      "date": "2026-10-29",
+      "coverage": 0.9998932089264675,
+      "candidate_mean": 13.16439350259572,
+      "valid_cells": 26,
+      "expected_cells": 27,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:06249",
+      "date": "2026-10-29",
+      "coverage": 0.8692918641207557,
+      "candidate_mean": null,
+      "valid_cells": 14,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:11470",
+      "date": "2026-10-29",
+      "coverage": 0.9641519659224319,
+      "candidate_mean": 12.532064807783454,
+      "valid_cells": 55,
+      "expected_cells": 59,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:11471",
+      "date": "2026-10-29",
+      "coverage": 0.9065635341573803,
+      "candidate_mean": 13.042668292838165,
+      "valid_cells": 12,
+      "expected_cells": 15,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:13244",
+      "date": "2026-10-29",
+      "coverage": 0.7888092110691269,
+      "candidate_mean": null,
+      "valid_cells": 20,
+      "expected_cells": 30,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:13468",
+      "date": "2026-10-29",
+      "coverage": 0.8980667533247565,
+      "candidate_mean": null,
+      "valid_cells": 40,
+      "expected_cells": 48,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:13469",
+      "date": "2026-10-29",
+      "coverage": 0.9260709079747366,
+      "candidate_mean": 14.822620507875126,
+      "valid_cells": 7,
+      "expected_cells": 8,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:14085",
+      "date": "2026-10-29",
+      "coverage": 0.9948095221389818,
+      "candidate_mean": 10.839027418609724,
+      "valid_cells": 20,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:14353",
+      "date": "2026-10-29",
+      "coverage": 0.9657735546410766,
+      "candidate_mean": 9.80429219093423,
+      "valid_cells": 37,
+      "expected_cells": 41,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:14355",
+      "date": "2026-10-29",
+      "coverage": 0.9170711457169373,
+      "candidate_mean": 9.797132443097112,
+      "valid_cells": 27,
+      "expected_cells": 30,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:17111",
+      "date": "2026-10-29",
+      "coverage": 0.9599558028371323,
+      "candidate_mean": 10.977486047400992,
+      "valid_cells": 15,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:17374",
+      "date": "2026-10-29",
+      "coverage": 0.8486400642338845,
+      "candidate_mean": null,
+      "valid_cells": 18,
+      "expected_cells": 26,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:17377",
+      "date": "2026-10-29",
+      "coverage": 0.8946179944127761,
+      "candidate_mean": null,
+      "valid_cells": 54,
+      "expected_cells": 64,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:22358",
+      "date": "2026-10-29",
+      "coverage": 0.943851224067074,
+      "candidate_mean": 11.744857814449633,
+      "valid_cells": 42,
+      "expected_cells": 52,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29101",
+      "date": "2026-10-29",
+      "coverage": 0.8486596116160978,
+      "candidate_mean": null,
+      "valid_cells": 4,
+      "expected_cells": 6,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29102",
+      "date": "2026-10-29",
+      "coverage": 0,
+      "candidate_mean": null,
+      "valid_cells": 0,
+      "expected_cells": 6,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29103",
+      "date": "2026-10-29",
+      "coverage": 0.39940706754017047,
+      "candidate_mean": null,
+      "valid_cells": 5,
+      "expected_cells": 9,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29358",
+      "date": "2026-10-29",
+      "coverage": 0.9459016665211627,
+      "candidate_mean": 11.605716173374024,
+      "valid_cells": 19,
+      "expected_cells": 23,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29361",
+      "date": "2026-10-29",
+      "coverage": 0.9595980976205128,
+      "candidate_mean": 11.263426683750584,
+      "valid_cells": 40,
+      "expected_cells": 50,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29362",
+      "date": "2026-10-29",
+      "coverage": 0.9291212136614772,
+      "candidate_mean": 10.535189767705615,
+      "valid_cells": 31,
+      "expected_cells": 35,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29363",
+      "date": "2026-10-29",
+      "coverage": 0.8203940844044206,
+      "candidate_mean": null,
+      "valid_cells": 34,
+      "expected_cells": 50,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2A258",
+      "date": "2026-10-29",
+      "coverage": 0.4692215787208781,
+      "candidate_mean": null,
+      "valid_cells": 16,
+      "expected_cells": 28,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2A259",
+      "date": "2026-10-29",
+      "coverage": 0.8845635429854587,
+      "candidate_mean": null,
+      "valid_cells": 34,
+      "expected_cells": 47,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2A260",
+      "date": "2026-10-29",
+      "coverage": 0.9926908133329774,
+      "candidate_mean": 12.751546062628984,
+      "valid_cells": 35,
+      "expected_cells": 38,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2B258",
+      "date": "2026-10-29",
+      "coverage": 0.8523500667147054,
+      "candidate_mean": null,
+      "valid_cells": 23,
+      "expected_cells": 31,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2B259",
+      "date": "2026-10-29",
+      "coverage": 0.7645953157328961,
+      "candidate_mean": null,
+      "valid_cells": 36,
+      "expected_cells": 51,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2B260",
+      "date": "2026-10-29",
+      "coverage": 0.9998391064170352,
+      "candidate_mean": 13.094610200831097,
+      "valid_cells": 49,
+      "expected_cells": 50,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:30471",
+      "date": "2026-10-29",
+      "coverage": 0.9151607416991552,
+      "candidate_mean": 14.119685546677509,
+      "valid_cells": 21,
+      "expected_cells": 24,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:33115",
+      "date": "2026-10-29",
+      "coverage": 0.6250895705887968,
+      "candidate_mean": null,
+      "valid_cells": 5,
+      "expected_cells": 8,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:33137",
+      "date": "2026-10-29",
+      "coverage": 0.8385368566114515,
+      "candidate_mean": null,
+      "valid_cells": 33,
+      "expected_cells": 46,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:33378",
+      "date": "2026-10-29",
+      "coverage": 0.9481359308824623,
+      "candidate_mean": 11.058853302641921,
+      "valid_cells": 50,
+      "expected_cells": 57,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:34416",
+      "date": "2026-10-29",
+      "coverage": 0.9991014172087588,
+      "candidate_mean": 12.351362703655235,
+      "valid_cells": 31,
+      "expected_cells": 32,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:34471",
+      "date": "2026-10-29",
+      "coverage": 0.828298320308539,
+      "candidate_mean": null,
+      "valid_cells": 35,
+      "expected_cells": 45,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:35358",
+      "date": "2026-10-29",
+      "coverage": 0.99639822701174,
+      "candidate_mean": 11.399869222310272,
+      "valid_cells": 16,
+      "expected_cells": 17,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40130",
+      "date": "2026-10-29",
+      "coverage": 0.9288993259519046,
+      "candidate_mean": 12.117976037703905,
+      "valid_cells": 18,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40131",
+      "date": "2026-10-29",
+      "coverage": 0.8692293987607427,
+      "candidate_mean": null,
+      "valid_cells": 14,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40132",
+      "date": "2026-10-29",
+      "coverage": 0.9764042995653717,
+      "candidate_mean": 13.683872408045753,
+      "valid_cells": 10,
+      "expected_cells": 11,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40144",
+      "date": "2026-10-29",
+      "coverage": 0.8889803665316505,
+      "candidate_mean": null,
+      "valid_cells": 5,
+      "expected_cells": 6,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44106",
+      "date": "2026-10-29",
+      "coverage": 0.9842032749295404,
+      "candidate_mean": 11.08404495255748,
+      "valid_cells": 18,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44108",
+      "date": "2026-10-29",
+      "coverage": 0.8880962258758613,
+      "candidate_mean": null,
+      "valid_cells": 20,
+      "expected_cells": 23,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44364",
+      "date": "2026-10-29",
+      "coverage": 0.8437314181659112,
+      "candidate_mean": null,
+      "valid_cells": 11,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44365",
+      "date": "2026-10-29",
+      "coverage": 0.8744163164905747,
+      "candidate_mean": null,
+      "valid_cells": 8,
+      "expected_cells": 10,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50081",
+      "date": "2026-10-29",
+      "coverage": 0.4392698929830878,
+      "candidate_mean": null,
+      "valid_cells": 4,
+      "expected_cells": 7,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50082",
+      "date": "2026-10-29",
+      "coverage": 0.8985468114265341,
+      "candidate_mean": null,
+      "valid_cells": 17,
+      "expected_cells": 23,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50083",
+      "date": "2026-10-29",
+      "coverage": 0.5290317530925099,
+      "candidate_mean": null,
+      "valid_cells": 4,
+      "expected_cells": 10,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50084",
+      "date": "2026-10-29",
+      "coverage": 0.909439459848472,
+      "candidate_mean": 11.511111240007333,
+      "valid_cells": 18,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50086",
+      "date": "2026-10-29",
+      "coverage": 0.966332527574241,
+      "candidate_mean": 11.051323034019628,
+      "valid_cells": 43,
+      "expected_cells": 47,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50087",
+      "date": "2026-10-29",
+      "coverage": 0.9523685722380425,
+      "candidate_mean": 10.828035387630983,
+      "valid_cells": 22,
+      "expected_cells": 25,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:56363",
+      "date": "2026-10-29",
+      "coverage": 0.9986627181779798,
+      "candidate_mean": 10.740089060791256,
+      "valid_cells": 57,
+      "expected_cells": 58,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:56364",
+      "date": "2026-10-29",
+      "coverage": 0.6672327714923467,
+      "candidate_mean": null,
+      "valid_cells": 24,
+      "expected_cells": 45,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:59325",
+      "date": "2026-10-29",
+      "coverage": 0.988177403555667,
+      "candidate_mean": 12.081033594319114,
+      "valid_cells": 14,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:62029",
+      "date": "2026-10-29",
+      "coverage": 0.9205695638102344,
+      "candidate_mean": 11.854483116767513,
+      "valid_cells": 16,
+      "expected_cells": 18,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:62325",
+      "date": "2026-10-29",
+      "coverage": 0.8434556049927447,
+      "candidate_mean": null,
+      "valid_cells": 14,
+      "expected_cells": 17,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:64138",
+      "date": "2026-10-29",
+      "coverage": 0.7810293706444065,
+      "candidate_mean": null,
+      "valid_cells": 8,
+      "expected_cells": 11,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:64139",
+      "date": "2026-10-29",
+      "coverage": 0.9998391252146827,
+      "candidate_mean": 12.663108110349594,
+      "valid_cells": 32,
+      "expected_cells": 33,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:66252",
+      "date": "2026-10-29",
+      "coverage": 0.8602622725532107,
+      "candidate_mean": null,
+      "valid_cells": 19,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:66254",
+      "date": "2026-10-29",
+      "coverage": 0.9322428436688067,
+      "candidate_mean": 14.480281285148916,
+      "valid_cells": 3,
+      "expected_cells": 5,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:76046",
+      "date": "2026-10-29",
+      "coverage": 0.9421832945090279,
+      "candidate_mean": 10.931151065326683,
+      "valid_cells": 48,
+      "expected_cells": 54,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:76047",
+      "date": "2026-10-29",
+      "coverage": 0.8302416592053758,
+      "candidate_mean": null,
+      "valid_cells": 13,
+      "expected_cells": 17,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:80037",
+      "date": "2026-10-29",
+      "coverage": 0.7778511767974388,
+      "candidate_mean": null,
+      "valid_cells": 7,
+      "expected_cells": 10,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:80038",
+      "date": "2026-10-29",
+      "coverage": 0.9728623673490356,
+      "candidate_mean": 11.213142340899106,
+      "valid_cells": 22,
+      "expected_cells": 24,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:83247",
+      "date": "2026-10-29",
+      "coverage": 0.9614688820896001,
+      "candidate_mean": 15.263053556476464,
+      "valid_cells": 25,
+      "expected_cells": 28,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:83248",
+      "date": "2026-10-29",
+      "coverage": 0.968796697627486,
+      "candidate_mean": 15.746208285699884,
+      "valid_cells": 13,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:83469",
+      "date": "2026-10-29",
+      "coverage": 0.7874651605721475,
+      "candidate_mean": null,
+      "valid_cells": 13,
+      "expected_cells": 24,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85365",
+      "date": "2026-10-29",
+      "coverage": 0.6172217036801729,
+      "candidate_mean": null,
+      "valid_cells": 10,
+      "expected_cells": 19,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85368",
+      "date": "2026-10-29",
+      "coverage": 0.9726297334555114,
+      "candidate_mean": 10.9568095715988,
+      "valid_cells": 68,
+      "expected_cells": 72,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85369",
+      "date": "2026-10-29",
+      "coverage": 0.9401202467856143,
+      "candidate_mean": 11.356591584433398,
+      "valid_cells": 18,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85371",
+      "date": "2026-10-29",
+      "coverage": 0.9996466270079374,
+      "candidate_mean": 11.134108196709237,
+      "valid_cells": 25,
+      "expected_cells": 26,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:06245",
+      "date": "2026-10-30",
+      "coverage": 0.9998932089264675,
+      "candidate_mean": 12.845011699589765,
+      "valid_cells": 26,
+      "expected_cells": 27,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:06249",
+      "date": "2026-10-30",
+      "coverage": 0.8692918641207557,
+      "candidate_mean": null,
+      "valid_cells": 14,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:11470",
+      "date": "2026-10-30",
+      "coverage": 0.9641519659224319,
+      "candidate_mean": 13.223093585546223,
+      "valid_cells": 55,
+      "expected_cells": 59,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:11471",
+      "date": "2026-10-30",
+      "coverage": 0.9065635341573803,
+      "candidate_mean": 13.525253494432723,
+      "valid_cells": 12,
+      "expected_cells": 15,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:13244",
+      "date": "2026-10-30",
+      "coverage": 0.7888092110691269,
+      "candidate_mean": null,
+      "valid_cells": 20,
+      "expected_cells": 30,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:13468",
+      "date": "2026-10-30",
+      "coverage": 0.8980667533247565,
+      "candidate_mean": null,
+      "valid_cells": 40,
+      "expected_cells": 48,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:13469",
+      "date": "2026-10-30",
+      "coverage": 0.9260709079747366,
+      "candidate_mean": 14.997980710746308,
+      "valid_cells": 7,
+      "expected_cells": 8,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:14085",
+      "date": "2026-10-30",
+      "coverage": 0.9948095221389818,
+      "candidate_mean": 10.10475018482413,
+      "valid_cells": 20,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:14353",
+      "date": "2026-10-30",
+      "coverage": 0.9657735546410766,
+      "candidate_mean": 9.277587144952843,
+      "valid_cells": 37,
+      "expected_cells": 41,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:14355",
+      "date": "2026-10-30",
+      "coverage": 0.9170711457169373,
+      "candidate_mean": 9.136176700170376,
+      "valid_cells": 27,
+      "expected_cells": 30,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:17111",
+      "date": "2026-10-30",
+      "coverage": 0.9599558028371323,
+      "candidate_mean": 10.522166214807202,
+      "valid_cells": 15,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:17374",
+      "date": "2026-10-30",
+      "coverage": 0.8486400642338845,
+      "candidate_mean": null,
+      "valid_cells": 18,
+      "expected_cells": 26,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:17377",
+      "date": "2026-10-30",
+      "coverage": 0.8946179944127761,
+      "candidate_mean": null,
+      "valid_cells": 54,
+      "expected_cells": 64,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:22358",
+      "date": "2026-10-30",
+      "coverage": 0.943851224067074,
+      "candidate_mean": 11.344032577899348,
+      "valid_cells": 42,
+      "expected_cells": 52,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29101",
+      "date": "2026-10-30",
+      "coverage": 0.8486596116160978,
+      "candidate_mean": null,
+      "valid_cells": 4,
+      "expected_cells": 6,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29102",
+      "date": "2026-10-30",
+      "coverage": 0,
+      "candidate_mean": null,
+      "valid_cells": 0,
+      "expected_cells": 6,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29103",
+      "date": "2026-10-30",
+      "coverage": 0.39940706754017047,
+      "candidate_mean": null,
+      "valid_cells": 5,
+      "expected_cells": 9,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29358",
+      "date": "2026-10-30",
+      "coverage": 0.9459016665211627,
+      "candidate_mean": 11.532022141787843,
+      "valid_cells": 19,
+      "expected_cells": 23,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29361",
+      "date": "2026-10-30",
+      "coverage": 0.9595980976205128,
+      "candidate_mean": 11.15936566663898,
+      "valid_cells": 40,
+      "expected_cells": 50,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29362",
+      "date": "2026-10-30",
+      "coverage": 0.9291212136614772,
+      "candidate_mean": 10.70524865949214,
+      "valid_cells": 31,
+      "expected_cells": 35,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:29363",
+      "date": "2026-10-30",
+      "coverage": 0.8203940844044206,
+      "candidate_mean": null,
+      "valid_cells": 34,
+      "expected_cells": 50,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2A258",
+      "date": "2026-10-30",
+      "coverage": 0.4692215787208781,
+      "candidate_mean": null,
+      "valid_cells": 16,
+      "expected_cells": 28,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2A259",
+      "date": "2026-10-30",
+      "coverage": 0.8845635429854587,
+      "candidate_mean": null,
+      "valid_cells": 34,
+      "expected_cells": 47,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2A260",
+      "date": "2026-10-30",
+      "coverage": 0.9926908133329774,
+      "candidate_mean": 11.5255149423012,
+      "valid_cells": 35,
+      "expected_cells": 38,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2B258",
+      "date": "2026-10-30",
+      "coverage": 0.8523500667147054,
+      "candidate_mean": null,
+      "valid_cells": 23,
+      "expected_cells": 31,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2B259",
+      "date": "2026-10-30",
+      "coverage": 0.7645953157328961,
+      "candidate_mean": null,
+      "valid_cells": 36,
+      "expected_cells": 51,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:2B260",
+      "date": "2026-10-30",
+      "coverage": 0.9998391064170352,
+      "candidate_mean": 11.373631933585465,
+      "valid_cells": 49,
+      "expected_cells": 50,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:30471",
+      "date": "2026-10-30",
+      "coverage": 0.9151607416991552,
+      "candidate_mean": 14.25923707456696,
+      "valid_cells": 21,
+      "expected_cells": 24,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:33115",
+      "date": "2026-10-30",
+      "coverage": 0.6250895705887968,
+      "candidate_mean": null,
+      "valid_cells": 5,
+      "expected_cells": 8,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:33137",
+      "date": "2026-10-30",
+      "coverage": 0.8385368566114515,
+      "candidate_mean": null,
+      "valid_cells": 33,
+      "expected_cells": 46,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:33378",
+      "date": "2026-10-30",
+      "coverage": 0.9481359308824623,
+      "candidate_mean": 10.617789364772445,
+      "valid_cells": 50,
+      "expected_cells": 57,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:34416",
+      "date": "2026-10-30",
+      "coverage": 0.9991014172087588,
+      "candidate_mean": 12.77635487381579,
+      "valid_cells": 31,
+      "expected_cells": 32,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:34471",
+      "date": "2026-10-30",
+      "coverage": 0.828298320308539,
+      "candidate_mean": null,
+      "valid_cells": 35,
+      "expected_cells": 45,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:35358",
+      "date": "2026-10-30",
+      "coverage": 0.99639822701174,
+      "candidate_mean": 11.062832802764504,
+      "valid_cells": 16,
+      "expected_cells": 17,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40130",
+      "date": "2026-10-30",
+      "coverage": 0.9288993259519046,
+      "candidate_mean": 11.415796471959245,
+      "valid_cells": 18,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40131",
+      "date": "2026-10-30",
+      "coverage": 0.8692293987607427,
+      "candidate_mean": null,
+      "valid_cells": 14,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40132",
+      "date": "2026-10-30",
+      "coverage": 0.9764042995653717,
+      "candidate_mean": 13.327788546859114,
+      "valid_cells": 10,
+      "expected_cells": 11,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:40144",
+      "date": "2026-10-30",
+      "coverage": 0.8889803665316505,
+      "candidate_mean": null,
+      "valid_cells": 5,
+      "expected_cells": 6,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44106",
+      "date": "2026-10-30",
+      "coverage": 0.9842032749295404,
+      "candidate_mean": 10.788511000138067,
+      "valid_cells": 18,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44108",
+      "date": "2026-10-30",
+      "coverage": 0.8880962258758613,
+      "candidate_mean": null,
+      "valid_cells": 20,
+      "expected_cells": 23,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44364",
+      "date": "2026-10-30",
+      "coverage": 0.8437314181659112,
+      "candidate_mean": null,
+      "valid_cells": 11,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:44365",
+      "date": "2026-10-30",
+      "coverage": 0.8744163164905747,
+      "candidate_mean": null,
+      "valid_cells": 8,
+      "expected_cells": 10,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50081",
+      "date": "2026-10-30",
+      "coverage": 0.4392698929830878,
+      "candidate_mean": null,
+      "valid_cells": 4,
+      "expected_cells": 7,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50082",
+      "date": "2026-10-30",
+      "coverage": 0.8985468114265341,
+      "candidate_mean": null,
+      "valid_cells": 17,
+      "expected_cells": 23,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50083",
+      "date": "2026-10-30",
+      "coverage": 0.5290317530925099,
+      "candidate_mean": null,
+      "valid_cells": 4,
+      "expected_cells": 10,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50084",
+      "date": "2026-10-30",
+      "coverage": 0.909439459848472,
+      "candidate_mean": 10.95317350406585,
+      "valid_cells": 18,
+      "expected_cells": 20,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50086",
+      "date": "2026-10-30",
+      "coverage": 0.966332527574241,
+      "candidate_mean": 10.40050000735404,
+      "valid_cells": 43,
+      "expected_cells": 47,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:50087",
+      "date": "2026-10-30",
+      "coverage": 0.9523685722380425,
+      "candidate_mean": 10.565025107175016,
+      "valid_cells": 22,
+      "expected_cells": 25,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:56363",
+      "date": "2026-10-30",
+      "coverage": 0.9986627181779798,
+      "candidate_mean": 10.59676588715773,
+      "valid_cells": 57,
+      "expected_cells": 58,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:56364",
+      "date": "2026-10-30",
+      "coverage": 0.6672327714923467,
+      "candidate_mean": null,
+      "valid_cells": 24,
+      "expected_cells": 45,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:59325",
+      "date": "2026-10-30",
+      "coverage": 0.988177403555667,
+      "candidate_mean": 10.579099774209462,
+      "valid_cells": 14,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:62029",
+      "date": "2026-10-30",
+      "coverage": 0.9205695638102344,
+      "candidate_mean": 10.294567560902498,
+      "valid_cells": 16,
+      "expected_cells": 18,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:62325",
+      "date": "2026-10-30",
+      "coverage": 0.8434556049927447,
+      "candidate_mean": null,
+      "valid_cells": 14,
+      "expected_cells": 17,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:64138",
+      "date": "2026-10-30",
+      "coverage": 0.7810293706444065,
+      "candidate_mean": null,
+      "valid_cells": 8,
+      "expected_cells": 11,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:64139",
+      "date": "2026-10-30",
+      "coverage": 0.9998391252146827,
+      "candidate_mean": 12.220907800526136,
+      "valid_cells": 32,
+      "expected_cells": 33,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:66252",
+      "date": "2026-10-30",
+      "coverage": 0.8602622725532107,
+      "candidate_mean": null,
+      "valid_cells": 19,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:66254",
+      "date": "2026-10-30",
+      "coverage": 0.9322428436688067,
+      "candidate_mean": 13.853214292588026,
+      "valid_cells": 3,
+      "expected_cells": 5,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:76046",
+      "date": "2026-10-30",
+      "coverage": 0.9421832945090279,
+      "candidate_mean": 9.805733356580577,
+      "valid_cells": 48,
+      "expected_cells": 54,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:76047",
+      "date": "2026-10-30",
+      "coverage": 0.8302416592053758,
+      "candidate_mean": null,
+      "valid_cells": 13,
+      "expected_cells": 17,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:80037",
+      "date": "2026-10-30",
+      "coverage": 0.7778511767974388,
+      "candidate_mean": null,
+      "valid_cells": 7,
+      "expected_cells": 10,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:80038",
+      "date": "2026-10-30",
+      "coverage": 0.9728623673490356,
+      "candidate_mean": 9.690110106727424,
+      "valid_cells": 22,
+      "expected_cells": 24,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:83247",
+      "date": "2026-10-30",
+      "coverage": 0.9614688820896001,
+      "candidate_mean": 15.448914636088677,
+      "valid_cells": 25,
+      "expected_cells": 28,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:83248",
+      "date": "2026-10-30",
+      "coverage": 0.968796697627486,
+      "candidate_mean": 15.85112836409647,
+      "valid_cells": 13,
+      "expected_cells": 16,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:83469",
+      "date": "2026-10-30",
+      "coverage": 0.7874651605721475,
+      "candidate_mean": null,
+      "valid_cells": 13,
+      "expected_cells": 24,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85365",
+      "date": "2026-10-30",
+      "coverage": 0.6172217036801729,
+      "candidate_mean": null,
+      "valid_cells": 10,
+      "expected_cells": 19,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85368",
+      "date": "2026-10-30",
+      "coverage": 0.9726297334555114,
+      "candidate_mean": 10.74594681104749,
+      "valid_cells": 68,
+      "expected_cells": 72,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85369",
+      "date": "2026-10-30",
+      "coverage": 0.9401202467856143,
+      "candidate_mean": 11.199976022117479,
+      "valid_cells": 18,
+      "expected_cells": 21,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    },
+    {
+      "pra_id": "pra:85371",
+      "date": "2026-10-30",
+      "coverage": 0.9996466270079374,
+      "candidate_mean": 10.966984236133765,
+      "valid_cells": 25,
+      "expected_cells": 26,
+      "quality_flags": [
+        "exploratory_observed_area_mean",
+        "not_full_pra_mean",
+        "hourly_completeness_inherited_from_verified_daily_cache",
+        "missing_mask_cause_not_independently_verified"
+      ]
+    }
+  ]
+}

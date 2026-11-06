@@ -2,6 +2,7 @@ import 'server-only';
 import { NATIONAL, DAYS } from '../../features/national/model';
 import { calendarDays, isCalendarDate, type NationalAvailability } from '../../features/national/daily-availability';
 import { ApiError } from './query';
+import {archiveCatalogue} from './weather-archives';
 
 let cached: { expires: number; promise: Promise<NationalAvailability> } | undefined;
 
@@ -30,11 +31,15 @@ async function discover(transport: typeof fetch): Promise<NationalAvailability> 
   if(!Array.isArray(days)||days.length!==30||!days.every(d=>typeof d==='string')||days.join(',')!==calendarDays(days[0],date).join(','))throw new ApiError('INVALID_RESPONSE',502);
   for(const field of ['acquired_at','updated_at'] as const)if(!(raw[field]===null||typeof raw[field]==='string'&&Number.isFinite(Date.parse(raw[field] as string))))throw new ApiError('INVALID_RESPONSE',502);
   if(!['known','unknown'].includes(String(raw.acquisition_time_status))||(raw.acquisition_time_status==='known')!==(raw.acquired_at!==null))throw new ApiError('INVALID_RESPONSE',502);
-  return {source_id:'era5-land',dataset_version:NATIONAL.dataset,latest:date,source_date:date,
-    days:[...new Set([...DAYS,...days as string[]])].sort(),
-    acquired_at:raw.acquired_at as string|null,updated_at:raw.updated_at as string|null,
-    acquisition_time_status:raw.acquisition_time_status as 'known'|'unknown',
-    freshness:Date.now()-Date.parse(date)>6*86400000?'stale':'recent_reanalysis'};
+  const cold=transport===fetch?await archiveCatalogue():null;
+  const extra=cold?.era5.flatMap(entry=>entry.dates)??[];
+  const all=[...new Set([...DAYS,...days as string[],...extra])].sort(),latest=all.at(-1)!;
+  const warmLatest=latest===date;
+  return {source_id:'era5-land',dataset_version:NATIONAL.dataset,latest,source_date:latest,
+    days:all,
+    acquired_at:warmLatest?raw.acquired_at as string|null:null,updated_at:warmLatest?raw.updated_at as string|null:null,
+    acquisition_time_status:warmLatest?raw.acquisition_time_status as 'known'|'unknown':'unknown',
+    freshness:Date.now()-Date.parse(latest)>6*86400000?'stale':'recent_reanalysis'};
 }
 
 export function nationalAvailability(transport:typeof fetch=fetch):Promise<NationalAvailability> {

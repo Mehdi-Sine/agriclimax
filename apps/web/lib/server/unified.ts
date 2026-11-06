@@ -8,11 +8,11 @@ import { calendarDays, withinAvailable } from '../../features/national/daily-ava
 
 // At most 60 map days retained, five minutes; no failed requests cached.
 const cache = new Map<string, { expires: number; promise: Promise<ClimateContextRow[]> }>();
-function day(date: string, variable: ClimateVariable, transport: typeof fetch) {
-  const key=`${date}:${variable}`;
+function day(date: string, variable: ClimateVariable, transport: typeof fetch, cold=false) {
+  const key=`${date}:${variable}:${cold}`;
   const hit=cache.get(key);
   if(transport===fetch&&hit&&hit.expires>Date.now()) return hit.promise;
-  const promise=nationalData(new URLSearchParams({action:'context-day',date,variable}),transport).then(r=>r.data as ClimateContextRow[]);
+  const promise=nationalData(new URLSearchParams({action:'context-day',date,variable,...(cold?{storage:'cold'}:{})}),transport).then(r=>r.data as ClimateContextRow[]);
   if(transport===fetch) {
     if(cache.size>=60) cache.delete(cache.keys().next().value!);
     cache.set(key,{expires:Date.now()+300000,promise});
@@ -21,7 +21,9 @@ function day(date: string, variable: ClimateVariable, transport: typeof fetch) {
   return promise;
 }
 export async function unifiedData(params: URLSearchParams, transport: typeof fetch=fetch, signal?: AbortSignal) {
-  const allowed=['start','end','indicator','threshold'];
+  const allowed=['start','end','indicator','threshold','storage'];
+  const cold=params.get('storage')==='cold';
+  if(params.has('storage')&&!cold)throw new ApiError('INVALID_QUERY',400);
   const start=params.get('start')??'',end=params.get('end')??'',id=params.get('indicator')??'';
   const definition=INDICATORS.find(i=>i.id===id);
   const threshold=Number(params.get('threshold')??definition?.parameter??25);
@@ -33,7 +35,7 @@ export async function unifiedData(params: URLSearchParams, transport: typeof fet
   // Four dates in flight (four paginated RPC requests concurrently); no annual series sent to client.
   for(let i=0;i<dates.length;i+=4) {
     if(signal?.aborted) throw new ApiError('UPSTREAM_UNAVAILABLE',503);
-    const pages=await Promise.all(dates.slice(i,i+4).map(date=>day(date,definition.variable,transport)));
+    const pages=await Promise.all(dates.slice(i,i+4).map(date=>day(date,definition.variable,transport,cold)));
     for(const rows of pages)for(const row of rows){const list=grouped.get(row.pra_id!)??[];list.push(row);grouped.set(row.pra_id!,list);}
   }
   return {period:[start,end],indicator:id,threshold,source_id:'era5-land',dataset_version:NATIONAL.dataset,data:[...grouped.values()].map(rows=>({...aggregate(rows,definition,dates.length,threshold),freshness:`ERA5-Land · source ${end} UTC`}))};

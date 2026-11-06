@@ -1,0 +1,141 @@
+{
+  "pairs": [
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arome",
+      "variable": "temperature",
+      "n": 713,
+      "bias_a_minus_b": 0.495089810561146,
+      "rmse": 1.0134669986930098,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arome",
+      "variable": "temperature_min",
+      "n": 713,
+      "bias_a_minus_b": 1.3657614559478546,
+      "rmse": 2.1961048871240267,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arome",
+      "variable": "temperature_max",
+      "n": 713,
+      "bias_a_minus_b": -0.0705385997285348,
+      "rmse": 1.0232807277700366,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arome",
+      "variable": "precipitation",
+      "n": 569,
+      "bias_a_minus_b": -0.12161148277333042,
+      "rmse": 0.7411209454951935,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arome",
+      "variable": "humidity",
+      "n": 142,
+      "bias_a_minus_b": 2.5215083018341287,
+      "rmse": 7.015678507636839,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arpege",
+      "variable": "temperature",
+      "n": 2139,
+      "bias_a_minus_b": 0.5597456280274951,
+      "rmse": 1.0630272712345745,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arpege",
+      "variable": "temperature_min",
+      "n": 2139,
+      "bias_a_minus_b": 0.5072289779399143,
+      "rmse": 1.3935446625779726,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arpege",
+      "variable": "temperature_max",
+      "n": 2139,
+      "bias_a_minus_b": 0.3731391482288562,
+      "rmse": 1.4863043775121318,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arpege",
+      "variable": "precipitation",
+      "n": 1995,
+      "bias_a_minus_b": 0.2859009273585652,
+      "rmse": 1.5680331976949167,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arpege",
+      "variable": "humidity",
+      "n": 1087,
+      "bias_a_minus_b": 0.5057295987399483,
+      "rmse": 5.8770017138511745,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "meteofrance-arome",
+      "source_b": "meteofrance-arpege",
+      "variable": "temperature",
+      "n": 1426,
+      "bias_a_minus_b": 0.010415643265227537,
+      "rmse": 0.7296861195487732,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "meteofrance-arome",
+      "source_b": "meteofrance-arpege",
+      "variable": "temperature_min",
+      "n": 1426,
+      "bias_a_minus_b": -1.0983801757470086,
+      "rmse": 1.654510451720293,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "meteofrance-arome",
+      "source_b": "meteofrance-arpege",
+      "variable": "temperature_max",
+      "n": 1426,
+      "bias_a_minus_b": 0.602740797387935,
+      "rmse": 1.1801312472099965,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "meteofrance-arome",
+      "source_b": "meteofrance-arpege",
+      "variable": "precipitation",
+      "n": 1426,
+      "bias_a_minus_b": 0.055681938236580984,
+      "rmse": 1.222067649680601,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "meteofrance-arome",
+      "source_b": "meteofrance-arpege",
+      "variable": "humidity",
+      "n": 328,
+      "bias_a_minus_b": -1.7575660876992178,
+      "rmse": 5.27834155518382,
+      "statistical_validation": false
+    }
+  ],
+  "station_comparison": "not_executed_observation_access_401",
+  "era5_comparison": "no_common_recent_date_with_ERA5_national30Oct"
+}
