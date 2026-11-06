@@ -1,4 +1,5 @@
 import "server-only";
+import { createHash } from "node:crypto";
 import { gunzipSync } from "node:zlib";
 import {
   currentManifest,
@@ -29,9 +30,13 @@ type SupportData = {
     string,
     FeatureCollection<Geometry, PraProperties>["features"][number]
   >;
+  document_sha256?: string;
   days: Record<string, Record<string, PartialRow[]>>;
 };
 const baseline = source as unknown as SupportData;
+const baselineChecksum = createHash("sha256")
+  .update(JSON.stringify(source))
+  .digest("hex");
 let cached: { sha: string; data: Promise<SupportData> } | undefined;
 let geometryCache:
   | { sha: string; geometries: SupportData["geometries"] }
@@ -91,7 +96,11 @@ async function load(date: string): Promise<SupportData> {
         geometries: geo.geometries as SupportData["geometries"],
       };
     }
-    return { ...value, geometries: geometryCache.geometries } as SupportData;
+    return {
+      ...value,
+      geometries: geometryCache.geometries,
+      document_sha256: e.sha256,
+    } as SupportData;
   })();
   cached = { sha: e.sha256, data };
   void data.catch(() => {
@@ -211,6 +220,7 @@ export async function observedSupportDay(date: string, variable: string) {
   return {
     verified,
     rows,
+    data_sha256: data === baseline ? baselineChecksum : data.document_sha256,
     geometries: data.geometries,
     identity: `${data.rule_version}/${weights}/${reference}`,
   };

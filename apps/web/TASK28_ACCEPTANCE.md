@@ -18,3 +18,14 @@ See [the final decision](../../docs/codex/task28/FINAL_DECISION.md),
 [the scientific comparison](../../docs/codex/task28/THI_IDELE_REVIEW.md), and
 [Preview evidence](../../docs/codex/task28/evidence/preview/).
 The final head/deployment/check attestation is recorded in PR #56 after publication.
+
+## Coastal historical correction
+
+The observed-support rule `agroclimatic-1.1.0` restores qualified daily and
+stable-period mean/GDD/rain values from the existing Task26D exports. The strict
+`1.0.0` remains queryable. On 27–31 October, 681 PRA values and 31 portion-only
+values are available for these indicators; Crozon stays NULL. Missing support
+exports before 27 October keep the seven/thirty-day partial-PRA totals
+unavailable, and extrema are not inferred from mean temperature. This is not a
+713/713 historical success. See
+[the targeted coastal report](../../docs/codex/task28/COASTAL_HISTORICAL_FIX.md).

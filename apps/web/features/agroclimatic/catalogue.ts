@@ -75,9 +75,11 @@ const wheat = (
     label +
     " sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
   source:
-    operator === "gdd"
-      ? "https://doi.org/10.1016/S0168-1923(97)00027-0"
-      : "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+    operator === "mean"
+      ? "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+      : operator === "gdd"
+        ? "https://doi.org/10.1016/S0168-1923(97)00027-0"
+        : "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
 });
 const cattle = (
   id: string,

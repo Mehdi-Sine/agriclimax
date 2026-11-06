@@ -167,7 +167,10 @@ export async function unifiedData(
           run: null,
           nature: "reanalysis",
           freshness: result.freshness,
-          provenance: [result.provenance],
+          provenance: [
+            result.provenance,
+            `${doc.identity}/${r.date}/${doc.data_sha256}`,
+          ],
           quality_flags: result.quality_flags,
           ...(valid
             ? {

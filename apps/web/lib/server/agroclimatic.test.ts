@@ -11,14 +11,12 @@ vi.mock("./weather-archives", () => ({
   archivedEra5Day: sources.archived,
 }));
 vi.mock("./spatial-restitution", () => ({
-  observedSupportDay: vi
-    .fn()
-    .mockResolvedValue({
-      verified: false,
-      rows: [],
-      geometries: {},
-      identity: "unavailable",
-    }),
+  observedSupportDay: vi.fn().mockResolvedValue({
+    verified: false,
+    rows: [],
+    geometries: {},
+    identity: "unavailable",
+  }),
 }));
 vi.mock("./national", () => ({ nationalData: sources.national }));
 vi.mock("./national-availability", () => ({ nationalDays: sources.days }));
@@ -139,6 +137,7 @@ it("preserves strict 1.0.0 and publishes qualified results separately on native 
   const pra = identities.ids[0];
   vi.mocked(observedSupportDay).mockImplementation(async () => ({
     verified: true,
+    data_sha256: "0".repeat(64),
     identity: "same-weights/reference",
     geometries: {
       mask: {

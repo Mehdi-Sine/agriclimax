@@ -427,7 +427,7 @@ export function useAgroclimatic(
           réellement renseigné.
         </p>
       )}
-      {stateCrozon(current) && (
+      {mode === "history" && stateCrozon(current) && (
         <p>
           Absence de support ERA5-Land : aucun historique inventé.{" "}
           <button
@@ -453,6 +453,16 @@ export function useAgroclimatic(
                   : "Aucun cumul complet affiché lorsque des journées ou des variables manquent."}
         </p>
       )}
+      {mode === "history" &&
+        current?.value === null &&
+        ["temperature_min", "temperature_max"].includes(rule.variables[0]) && (
+          <p>
+            Les supports disponibles ne fournissent pas d’extrême natif vérifié
+            pour ce territoire. Une température moyenne ne permet pas de
+            reconstituer les journées chaudes ou de gel ; ces résultats restent
+            indisponibles.
+          </p>
+        )}
       {current && (
         <>
           <h3>

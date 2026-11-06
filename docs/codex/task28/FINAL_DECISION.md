@@ -1,5 +1,18 @@
 # Décision de livraison Task 28
 
+## Complément historique littoral — décision actualisée
+
+La correction est publiée sous `agroclimatic-1.1.0` et la règle stricte `1.0.0` reste accessible. Voir [COASTAL_HISTORICAL_FIX.md](COASTAL_HISTORICAL_FIX.md) pour les tableaux par indicateur/période, l'inventaire individuel et la recette actualisée.
+
+- Sur le 31 octobre et sur les cinq jours 27–31 : Tmoy/GDD/pluie ont **681 valeurs PRA qualifiées**, dont 36 estimations à couverture ≥90%, et **31 valeurs de portion seulement**. Crozon reste NULL. Ce n'est pas 713/713 ni 712 mesures complètes.
+- Les périodes 25–31 octobre et 2–31 octobre restent à **645 valeurs** : les exports de support des jours antérieurs au 27 ne sont pas accessibles dans les archives exposées ; le téléchargement des checkpoints GitHub conservés est refusé (403). Les jours manquants ne sont pas interpolés et aucune union de supports n'est colorée.
+- Extrema, chaleur et gel : **645 valeurs**, faute de valeurs natives permettant une reconstruction défendable sur les 68 autres PRA. Les événements de pluie sur portion sont explicitement limités à la moyenne de ce support ; pas de promotion automatique en événement PRA.
+- État du complément : **restitution validée sur les supports disponibles ; extension 7/30 jours des PRA incomplètes restant conditionnée à une restauration/validation des checkpoints existants**. Aucun succès national global n'est déclaré.
+
+Les verdicts V1 ci-dessous sont ceux de la livraison initiale et ne constituent pas une certification de couverture historique côtière complète. Le complément ne modifie ni THI, ni règles opérationnelles, ni données anciennes, ni automatismes. La Preview du dernier commit et les checks finaux sont attestés dans la PR #56, toujours draft, sans merge ni production.
+
+
+
 PR draft unique : https://github.com/Mehdi-Sine/agriclimax/pull/56
 
 Les calculs nationaux et comparaisons indépendantes déjà validés sont conservés. La recette réelle de la Preview du dernier commit applicatif `20c60495b420f9947f6a98f052f1024a0b84162f` (déploiement 7607665041) est achevée. La présente clôture ne modifie que documentation (dont un mémo dans le dossier web pour publication Preview), preuves et harness de recette ; aucun code applicatif, formule, seuil, géométrie ou pipeline n'est redéveloppé. Après publication de cette clôture, l'origine Preview et les checks de son dernier commit sont vérifiés à nouveau ; l'attestation finale est consignée dans la description de la PR, sans modifier les données ni les calculs nationaux.

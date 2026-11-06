@@ -90,6 +90,8 @@ export async function agroclimaticData(params: URLSearchParams) {
     !!baseRule &&
     supportPolicy(baseRule) !== null;
   const rule = useSupport ? observedRule(baseRule!) : baseRule;
+  if (requestedVersion && rule && rule.version !== requestedVersion)
+    throw new ApiError("INVALID_QUERY", 400);
   const temporal = params.get("temporal") ?? "history",
     start = params.get("start") ?? "",
     end = params.get("end") ?? "";
@@ -266,7 +268,7 @@ export async function agroclimaticData(params: URLSearchParams) {
                   },
                   provenance: [
                     ...row.provenance,
-                    `${support.identity}/${p.support_id}`,
+                    `${support.identity}/${p.support_id}/${date}/${support.data_sha256}`,
                   ],
                   quality_flags: [...row.quality_flags, ...p.quality_flags],
                 };
