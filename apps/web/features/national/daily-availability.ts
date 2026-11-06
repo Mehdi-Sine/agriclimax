@@ -16,7 +16,7 @@ export function isCalendarDate(value: string): boolean {
 }
 
 export function withinAvailable(date: string, days: string[]): boolean {
-  return isCalendarDate(date) && days.length > 0 && date >= days[0] && date <= days.at(-1)!;
+  return isCalendarDate(date) && days.length > 0 && days.includes(date);
 }
 
 export function calendarDays(start: string, end: string): string[] {

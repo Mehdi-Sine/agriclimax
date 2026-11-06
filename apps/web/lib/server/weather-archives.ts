@@ -49,7 +49,7 @@ export function archiveCatalogue():Promise<ArchiveCatalogue|null>{
     if(!record(parsed)||parsed.version!=='pra-archive-catalogue-1'||!Array.isArray(parsed.weather)||!Array.isArray(parsed.era5)||parsed.weather.length>2000||parsed.era5.length>2000||!parsed.weather.every(entry)||!parsed.era5.every(entry))throw new Error('ARCHIVE_CATALOGUE');
     return parsed as ArchiveCatalogue;
   })();
-  catalogueCache={expires:Date.now()+15*60000,value};
+  catalogueCache={expires:Date.now()+60000,value};
   void value.catch(()=>{if(catalogueCache?.value===value)catalogueCache=undefined;});return value;
 }
 async function blob(e:ArchiveEntry):Promise<Uint8Array>{const raw=await storage(e.path,8*1024**2);if(!raw||raw.length!==e.bytes||createHash('sha256').update(raw).digest('hex')!==e.sha256)throw new Error('ARCHIVE_CHECKSUM');return raw;}

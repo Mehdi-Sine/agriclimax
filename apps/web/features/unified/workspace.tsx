@@ -8,7 +8,8 @@ import { trailingStart, type NationalAvailability } from '../national/daily-avai
 import { AGRICULTURE, INDICATORS, RULES, parseState, type Space, type TerritorialValue } from './model';
 import './unified.css';
 import { useAgriculturalExplorer } from '../agriculture/explorer';
-import { OperationalWorkspace } from '../operational/workspace';
+import {useOperationalWeather} from '../operational/workspace';
+import {temporalMode,switchMode,type TemporalMode} from './temporal';
 import { WheatContext } from '../agriculture/wheat-context';
 import {useResource} from './resource';
 
@@ -18,11 +19,13 @@ const TITLES={climat:'Climat des territoires agricoles',productions:'Les product
 const DESCRIPTIONS={climat:'Explorer les valeurs ERA5-Land, leurs normales et leurs écarts à l’échelle des PRA.',productions:'Surfaces, rendements et volumes : une lecture agricole à la maille de la source.',analyse:'Des indicateurs climatiques descriptifs pour le blé tendre, sans score d’impact implicite.'};
 const STATUS={available:'Disponible',partial:'Partiel',unavailable:'Indisponible',not_applicable:'Non applicable',source_error:'Erreur source'};
 export function UnifiedWorkspace() {
-  const search=useSearchParams(),path=usePathname();
-  return (path==='/'||path==='/analyse')&&search.get('experimental')==='weather'?<OperationalWorkspace/>:<HistoricalWorkspace/>;
+  return <HistoricalWorkspace/>;
 }
 function HistoricalWorkspace() {
   const pathname=usePathname(),search=useSearchParams();
+  const temporal=temporalMode(new URLSearchParams(search.toString()));
+  const weather=temporal!=='history'&&pathname!=='/productions';
+  const operational=useOperationalWeather(weather,temporal);
   const space:Space=pathname==='/productions'?'productions':pathname==='/analyse'?'analyse':'climat';
   const availability=useResource<NationalAvailability>('/api/national?action=availability');
   const availableDays=availability.data?.days??DAYS;
@@ -36,9 +39,10 @@ function HistoricalWorkspace() {
   const feature=collection?.features.find(f=>f.id===state.pra);
   const selectionInvalid=!!state.pra&&!!collection&&!feature;
   const invalid=errors.length>0||selectionInvalid||!availability.data;
-  const dataUrl=space==='productions'||invalid?null:`/api/unified?${new URLSearchParams({start:state.period?state.start:state.date,end:state.date,indicator:def.id,threshold:String(state.threshold),...(search.get('storage')==='cold'?{storage:'cold'}:{})})}`;
+  const dataUrl=weather||space==='productions'||invalid?null:`/api/unified?${new URLSearchParams({start:state.period?state.start:state.date,end:state.date,indicator:def.id,threshold:String(state.threshold),...(search.get('storage')==='cold'?{storage:'cold'}:{})})}`;
   const source=useResource<{data:TerritorialValue[]}>(dataUrl);
-  const history=useResource<{data:ClimateContextRow[]}>(state.pra&&space!=='productions'&&!invalid?`/api/national?${new URLSearchParams({action:'context-history',pra:state.pra,end:state.date,...(search.get('storage')==='cold'?{storage:'cold'}:{})})}`:null);
+  const history=useResource<{data:ClimateContextRow[]}>(state.pra&&!weather&&space!=='productions'&&!invalid?`/api/national?${new URLSearchParams({action:'context-history',pra:state.pra,end:state.date,...(search.get('storage')==='cold'?{storage:'cold'}:{})})}`:null);
+  const support=useResource<{verified:boolean;collection:PraCollection}>(!weather&&space!=='productions'&&!state.period&&state.mode==='value'&&['temperature','rain'].includes(state.indicator)?`/api/national/support?${new URLSearchParams({date:state.date,variable:def.variable})}`:null);
   const values=source.data?.data??[];
   const current=values.find(v=>v.territoryId===state.pra);
   const matches=useMemo(()=>{
@@ -73,9 +77,10 @@ function HistoricalWorkspace() {
   }
   const title=def.label;
   const mapCollection = space === 'productions' ? agriculture.collection ?? collection : collection;
-  const mapProps = space === 'productions' ? agriculture.mapProps : { selected: state.pra, onSelect: (id: string) => change({pra:id}), quantitative: {values: invalid ? [] : values, field: state.mode, unit: def.unit, bounds, colors: palette.length ? palette : ['transparent','transparent','transparent','transparent','transparent']} };
+  const mapProps = space === 'productions' ? agriculture.mapProps : weather?operational.mapProps: { selected: state.pra, onSelect: (id: string) => change({pra:id}), quantitative: {values: invalid ? [] : values.map(v=>state.mode==='value'&&v.observed_value!=null?{...v,value:v.value??v.observed_value}:v), field: state.mode, unit: def.unit, bounds, colors: palette.length ? palette : ['transparent','transparent','transparent','transparent','transparent']} };
   const climateBody = <>
-      {space === 'productions' ? agriculture.filters : <>
+      {space!=='productions'&&<section className="temporal-navigation" aria-label="Lecture temporelle des données">{([['history','Historique climatique'],['recent','Météo récente'],['forecast','Prévisions']] as const).map(([mode,label])=><button key={mode} aria-pressed={temporal===mode} onClick={()=>{const p=switchMode(new URLSearchParams(search.toString()),mode as TemporalMode);window.history.pushState(null,'',`${pathname}?${p}`);}}>{label}</button>)}<p>{weather?`Cycle ${operational.catalogue?.run??'en cours de vérification'} · validités ${operational.dates[0]??'—'} → ${operational.dates.at(-1)??'—'} UTC`:`Historique jusqu’au ${latest} UTC · normales 1991–2020`}</p></section>}
+      {space === 'productions' ? agriculture.filters : weather?<>{operational.filters}{operational.shortcuts}</>:<>
       <button className="filters-toggle" aria-expanded={filtersOpen} aria-controls="map-filters" onClick={()=>setFiltersOpen(!filtersOpen)}>Filtres · {def.label} {filtersOpen?'−':'+'}</button>
       <section id="map-filters" className={`unified-filters ${filtersOpen?'filters-open':''}`} aria-label="Filtres de la carte">
         {space!=='climat'&&<label>Production<select value={state.production} onChange={e=>change({production:e.target.value})}>{AGRICULTURE.map(p=><option key={p.id} value={p.id}>{p.label}</option>)}</select></label>}
@@ -90,24 +95,24 @@ function HistoricalWorkspace() {
       {(errors.length>0||selectionInvalid)&&<p className="unified-alert" role="alert">{[...errors,...(selectionInvalid?['PRA inconnue dans le référentiel.']:[])].join(' ')} <Link href={pathname}>Réinitialiser les filtres</Link></p>}
       <div className="unified-search"><label htmlFor="pra-search">⌕ Rechercher une PRA</label><input id="pra-search" type="search" autoComplete="off" placeholder="Nom, code PRA ou département…" value={query} onChange={e=>setQuery(e.target.value)} maxLength={100}/>{query&&<div className="unified-results" aria-label="Résultats PRA">{matches.map(f=><button key={String(f.id)} onClick={()=>{change({pra:String(f.id)});setQuery('');}}>{f.properties.name} <small>{f.properties.code} · {f.properties.department_name}</small></button>)}{!matches.length&&<p>Aucun territoire trouvé.</p>}</div>}</div>
       </>}
-      {space!=='productions'&&search.get('storage')==='cold'&&<p role="status">Lecture depuis les archives vérifiées lorsqu’elles existent ; autres journées lues dans les données DEV conservées.</p>}
-      {space!=='productions'&&<p><Link href={`/?experimental=weather${state.pra?'&pra='+encodeURIComponent(state.pra):''}`}>Météo récente et prévisions nationales J+7</Link></p>}
+      {!weather&&space!=='productions'&&search.get('storage')==='cold'&&<p role="status">Lecture depuis les archives vérifiées lorsqu’elles existent ; autres journées lues dans les données DEV conservées.</p>}
+
       <div className={`unified-grid ${(space === 'productions' ? agriculture.hasSelection : !!feature)?'has-selection':''}`}>
         <section className="unified-map-card" aria-label="Exploration cartographique">
-          {space === 'productions' ? agriculture.mapTitle : <>          <div className="unified-map-title"><strong>{title} · {def.unit}</strong><span>{`${state.period?state.start+' → ':''}${state.date} · ${state.mode==='value'?'Valeur':state.mode==='normal'?'Normale 1991–2020':'Anomalie'}`}</span></div></>}
-          {mapCollection && <NationalMap collection={mapCollection} rows={null} contextRows={null} mode="availability" {...mapProps} />}
-          {space === 'productions' ? agriculture.mapState : <>          {!collection&&<p role={geometry.error?'alert':'status'}>{geometry.error?'Contours indisponibles.':'Chargement des 713 contours officiels…'}</p>}
+          {space === 'productions' ? agriculture.mapTitle : weather?operational.mapTitle:<>          <div className="unified-map-title"><strong>{title} · {def.unit}</strong><span>{`${state.period?state.start+' → ':''}${state.date} · ${state.mode==='value'?'Valeur':state.mode==='normal'?'Normale 1991–2020':'Anomalie'}`}</span></div></>}
+          {mapCollection && <NationalMap coveredSupport={!weather&&space!=='productions'?support.data?.collection:null} collection={mapCollection} rows={null} contextRows={null} mode="availability" {...mapProps} />}
+          {space === 'productions' ? agriculture.mapState : weather?<p>713 PRA · valeurs qualifiées, gris : absence de valeur exploitable.</p>:<>          {!collection&&<p role={geometry.error?'alert':'status'}>{geometry.error?'Contours indisponibles.':'Chargement des 713 contours officiels…'}</p>}
           {!invalid&&<div className="unified-source-state" role={source.error?'alert':'status'}>{source.error?<>{source.error} Aucune donnée de remplacement. <button onClick={()=>{window.location.reload();}}>Réessayer</button></>:!source.data?'Chargement des valeurs nationales…':`${values.filter(v=>v.status==='available').length} PRA complètes · ${values.filter(v=>v.status==='partial').length} partielles · ${values.filter(v=>v.status==='unavailable').length} indisponibles`}</div>}
 </>}
-          {space === 'productions' ? agriculture.legend : <>          <div className="unified-legend" aria-label="Légende quantitative">{finite.length>0&&!invalid?<><div className="legend-ramp">{bounds.map((b,i)=><span key={i} style={{background:`var(${cssColors[i]})`}}><small>{i===0?valueLabel(low)+' – ': '≤ '}{valueLabel(b)}</small></span>)}</div><p>{def.unit} · bornes calculées sur les valeurs affichées · bordure renforcée : partiel</p></>:<p>Aucune valeur cartographiée. Les contours servent uniquement de repères.</p>}<span className="missing-key"/> <small>Gris : donnée absente, aucune valeur zéro déduite</small></div></>}
+          {space === 'productions' ? agriculture.legend : weather?<p>Valeurs et couvertures propres à la source affichée. Les lacunes ne sont jamais remplacées par zéro.</p>:<>          <div className="unified-legend" aria-label="Légende quantitative">{finite.length>0&&!invalid?<><div className="legend-ramp">{bounds.map((b,i)=><span key={i} style={{background:`var(${cssColors[i]})`}}><small>{i===0?valueLabel(low)+' – ': '≤ '}{valueLabel(b)}</small></span>)}</div><p>{def.unit} · bornes calculées sur les valeurs affichées · bordure renforcée : partiel</p></>:<p>Aucune valeur cartographiée. Les contours servent uniquement de repères.</p>}<span className="missing-key"/> <small>Gris : donnée absente, aucune valeur zéro déduite</small></div></>}
         </section>
         <aside className="unified-panel" aria-label="Fiche territoire">
-          {space === 'productions' ? agriculture.panel : feature?<><div className="panel-top"><span className="eyebrow">PETITE RÉGION AGRICOLE · {feature.properties.code}</span><button aria-label="Fermer la fiche PRA" onClick={()=>change({pra:''})}>×</button></div><h2>{feature.properties.name}</h2><p>{feature.properties.department_name} · {feature.properties.region_name}</p>
+          {space === 'productions' ? agriculture.panel : weather?operational.panel:feature?<><div className="panel-top"><span className="eyebrow">PETITE RÉGION AGRICOLE · {feature.properties.code}</span><button aria-label="Fermer la fiche PRA" onClick={()=>change({pra:''})}>×</button></div><h2>{feature.properties.name}</h2><p>{feature.properties.department_name} · {feature.properties.region_name}</p>
             <span className="status-pill">{source.error?'Source inaccessible':current?STATUS[current.status]:'Chargement…'}</span>
             {space==='analyse'&&<h3>A. Aléa climatique</h3>}
             <div className="unified-value"><small>{def.label}{['above','gdd'].includes(def.operator)?` · ${state.threshold} °C`:''}</small><strong>{valueLabel(current?.[state.mode])} <em>{current?.[state.mode]!=null?def.unit:''}</em></strong></div>
             <dl className="unified-comparison"><div><dt>Normale 1991–2020</dt><dd>{def.reference?`${valueLabel(current?.normal)} ${current?.normal!=null?def.unit:''}`:'Non applicable'}</dd></div><div><dt>Anomalie</dt><dd>{def.reference?`${valueLabel(current?.anomaly)} ${current?.anomaly!=null?def.unit:''}`:'Non calculable'}</dd></div></dl>
-            <p className="coverage-line">{current?`${current.observedDays}/${current.expectedDays} jours renseignés · couverture spatiale ${current.coverage==null?'inconnue':valueLabel(current.coverage*100)+' %'}`:'Valeur non disponible pour cette sélection.'}</p>
+            {current?.observed_value!=null&&<p>Moyenne sur la seule portion réellement renseignée : {valueLabel(current.observed_value)} {def.unit}. {current.value===null?'Couverture inférieure à90% : aucune valeur pour la PRA entière.':'Estimation qualifiée à couverture≥90%, pas une mesure intégrale.'} Normale et anomalie non calculées pour cette restitution.</p>}<p className="coverage-line">{current?`${current.observedDays}/${current.expectedDays} jours renseignés · couverture spatiale ${current.coverage==null?'inconnue':valueLabel(current.coverage*100)+' %'}`:'Valeur non disponible pour cette sélection.'}</p>
             {current?.status==='partial'&&<p>Résultat partiel : somme ou moyenne des seuls jours renseignés, sans extrapolation.</p>}
             {space==='analyse'&&<WheatContext pra={state.pra} climate={current} indicator={def} start={state.period ? state.start : state.date} end={state.date} threshold={state.threshold} />}
             <h3>{def.variable==='temperature_max'?'Tmax':def.variable==='temperature_min'?'Tmin':def.variable==='precipitation'?'Pluie':'Température moyenne'} · évolution quotidienne</h3>{!def.reference&&<p>Série climatique d’origine, avant calcul de l’indice.</p>}{history.error?<p role="alert">Historique indisponible. {history.error}</p>:history.data?<History rows={history.data.data.filter(r=>r.variable===def.variable)} unit={def.variable==='precipitation'?'mm':'°C'}/>:<p role="status">Chargement de l’historique…</p>}

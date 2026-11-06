@@ -1,4 +1,5 @@
 import 'server-only';
+import {qualifySpatial} from './spatial-restitution';
 import { nationalData } from './national';
 import { ApiError } from './query';
 import { NATIONAL, type ClimateContextRow, type ClimateVariable } from '../../features/national/model';
@@ -29,7 +30,7 @@ export async function unifiedData(params: URLSearchParams, transport: typeof fet
   const threshold=Number(params.get('threshold')??definition?.parameter??25);
   const availableDays=await nationalDays(transport,[start,end]);
   const dates=calendarDays(start,end);
-  if([...params.keys()].some(k=>!allowed.includes(k)||params.getAll(k).length!==1)||!withinAvailable(start,availableDays)||!withinAvailable(end,availableDays)||!dates.length||dates.length>30||!definition||!Number.isFinite(threshold)||threshold< -30||threshold>60) throw new ApiError('INVALID_QUERY',400);
+  if([...params.keys()].some(k=>!allowed.includes(k)||params.getAll(k).length!==1)||!withinAvailable(start,availableDays)||!withinAvailable(end,availableDays)||!dates.length||dates.some(d=>!withinAvailable(d,availableDays))||dates.length>30||!definition||!Number.isFinite(threshold)||threshold< -30||threshold>60) throw new ApiError('INVALID_QUERY',400);
   if(process.env.PRA_NATIONAL_ENABLED!=='1')throw new ApiError('NOT_CONFIGURED',503);
   const grouped=new Map<string,ClimateContextRow[]>();
   // Four dates in flight (four paginated RPC requests concurrently); no annual series sent to client.
@@ -38,7 +39,8 @@ export async function unifiedData(params: URLSearchParams, transport: typeof fet
     const pages=await Promise.all(dates.slice(i,i+4).map(date=>day(date,definition.variable,transport,cold)));
     for(const rows of pages)for(const row of rows){const list=grouped.get(row.pra_id!)??[];list.push(row);grouped.set(row.pra_id!,list);}
   }
-  return {period:[start,end],indicator:id,threshold,source_id:'era5-land',dataset_version:NATIONAL.dataset,data:[...grouped.values()].map(rows=>({...aggregate(rows,definition,dates.length,threshold),freshness:`ERA5-Land · source ${end} UTC`}))};
+  const data=[...grouped.values()].map(rows=>({...aggregate(rows,definition,dates.length,threshold),freshness:`ERA5-Land · source ${end} UTC`}));
+  return {period:[start,end],indicator:id,threshold,source_id:'era5-land',dataset_version:NATIONAL.dataset,data:dates.length===1&&['temperature','rain'].includes(id)?qualifySpatial(data,end,definition.variable):data};
 }
 export async function readUnified(request:Request) {
   try{return Response.json(await unifiedData(new URL(request.url).searchParams, fetch, request.signal),{headers:{'Cache-Control':'private, max-age=60'}});}

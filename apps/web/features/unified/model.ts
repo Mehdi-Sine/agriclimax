@@ -6,7 +6,7 @@ export type ValueStatus = 'available' | 'partial' | 'unavailable' | 'not_applica
 export interface TerritorySelection { type: 'pra' | 'department' | 'station'; id: string; name: string; geometry?: Geometry; attachments: string[] }
 export interface SourceInfo { provider: string; sourceId: string; temporalResolution: string; spatialResolution: string; range: string[]; license: string | null; retrievedAt: string | null; publishedAt: string | null; limitations: string[] }
 export interface IndicatorDefinition { id: string; label: string; family: 'meteo' | 'agrometeo'; variable: ClimateVariable; unit: string; operator: 'mean' | 'sum' | 'above' | 'below' | 'gdd'; parameter?: number; reference: boolean; scale: 'sequential' | 'diverging'; method: string; version: string; scales: readonly ['pra']; source: string; admissiblePeriod: readonly [string, string] }
-export interface TerritorialValue { territoryId: string; value: number | null; normal: number | null; anomaly: number | null; coverage: number | null; observedDays: number; expectedDays: number; status: ValueStatus; dataScale: 'pra'; datasetVersion: string; freshness: string; rule_version: string; provenance: string; quality_flags: string[] }
+export interface TerritorialValue { observed_value?:number|null; territoryId: string; value: number | null; normal: number | null; anomaly: number | null; coverage: number | null; observedDays: number; expectedDays: number; status: ValueStatus; dataScale: 'pra'; datasetVersion: string; freshness: string; rule_version: string; provenance: string; quality_flags: string[] }
 export interface ProductionDefinition { id: string; label: string; variables: { id: string; label: string; unit: string }[]; source: SourceInfo; connected: boolean }
 export interface AgroclimaticRule { id: string; production: string; indicator: string; label: string; status: 'exploratory' | 'validated'; support: 'pra'; restitution: string; source: string; admissiblePeriod: readonly [string, string] }
 const indicatorBase = { scales: ['pra'] as const, source: 'ERA5-Land · pra-native-1', admissiblePeriod: [NATIONAL.start, NATIONAL.end] as const };
@@ -25,7 +25,7 @@ export type UnifiedState = { pra: string; date: string; start: string; period: b
 export function parseState(params: URLSearchParams, space: Space, availableDays: string[] = DAYS): { state: UnifiedState; errors: string[] } {
   const errors: string[]=[];
   const date=params.get('date') ?? availableDays.at(-1)!;
-  const defaultStart=isCalendarDate(date)?[availableDays[0],trailingStart(date,30)].sort().at(-1)!:availableDays[0];
+  const defaultStart=isCalendarDate(date)?availableDays.find(d=>d>=trailingStart(date,30)&&d<=date)??date:availableDays[0];
   const start=params.get('start') ?? defaultStart;
   const length=calendarDays(start,date).length;
   if(!withinAvailable(date,availableDays)||!withinAvailable(start,availableDays)||!length||length>30) errors.push('Dates hors des données disponibles ou période de plus de 30 jours.');

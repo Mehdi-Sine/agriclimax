@@ -20,8 +20,9 @@ it('accepts a discovered recent date without losing archive deep links',()=>{
   expect(parseState(new URLSearchParams('date=2026-10-30&start=2026-09-19'),'climat',days).errors.length).toBeGreaterThan(0);
 });
 it('preserves an acquired deep link when it ages out of the latest 30-day picker window',()=>{
-  const days=['2026-09-19','2026-10-18','2027-01-02','2027-01-31'];
+  const days=['2026-09-19','2026-09-20','2026-10-18','2026-10-19','2027-01-02','2027-01-31'];
   expect(parseState(new URLSearchParams('date=2026-10-19'),'climat',days)).toMatchObject({errors:[],state:{date:'2026-10-19',start:'2026-09-20'}});
+  expect(parseState(new URLSearchParams('date=2026-10-20'),'climat',days).errors.length).toBeGreaterThan(0);
   expect(parseState(new URLSearchParams('date=2026-02-30'),'climat',days).errors.length).toBeGreaterThan(0);
 });
 it('uses strict thresholds and never constructs a derived normal from daily mean normals',()=>{

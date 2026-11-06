@@ -8,7 +8,7 @@ on:
       mode:
         description: Existing bounded batch or incremental national DEV adapter
         type: choice
-        options: [batch, daily-pilot, national-daily, operational-pilot, weather-preflight, weather-national, weather-health]
+        options: [batch, daily-pilot, national-daily, operational-pilot, weather-preflight, weather-national, weather-health, era5-archive]
         default: batch
       daily_downloads:
         description: Maximum new source extents, 1 or 2 degrees (1 to 64); default four
@@ -303,4 +303,58 @@ jobs:
         with:
           name: national-weather-health
           path: work/weather-health/report.json
+          retention-days: 30
+
+  era5-archive:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'era5-archive' && inputs.national_authorized
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r engine/requirements-dev.lock -r engine/requirements-climate.lock -r engine/requirements-geo.lock -r engine/requirements-operational.lock
+      - name: Resume immutable archive-only checkpoints
+        if: inputs.checkpoint_run_id != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PREVIOUS_RUN: ${{ inputs.checkpoint_run_id }}
+        run: |
+          [[ "$PREVIOUS_RUN" =~ ^[0-9]+$ ]]
+          gh run download "$PREVIOUS_RUN" --name era5-archive-checkpoints --dir work/era5-archive
+      - name: New ERA5 day only, no database persistence
+        timeout-minutes: 23
+        env:
+          PYTHONPATH: engine/src
+          OPENBLAS_NUM_THREADS: '1'
+          CDSAPI_KEY: ${{ inputs.execute && secrets.CDSAPI_KEY || '' }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          ERA_DATE: ${{ inputs.from }}
+          EXECUTE: ${{ inputs.execute }}
+          PUBLISH: ${{ inputs.publish_dev }}
+          MAX_DOWNLOADS: ${{ inputs.daily_downloads }}
+        run: |
+          set -euo pipefail
+          args=(--root work/era5-archive --max-downloads "$MAX_DOWNLOADS")
+          if [[ -n "$ERA_DATE" ]]; then args+=(--date "$ERA_DATE"); fi
+          if [[ "$EXECUTE" == true ]]; then args+=(--execute); fi
+          if [[ "$PUBLISH" == true ]]; then args+=(--publish-dev); fi
+          timeout --signal=TERM --kill-after=10s 22m python scripts/era5_archive_daily.py "${args[@]}"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: era5-archive-checkpoints
+          path: |
+            work/era5-archive/**/tiles/
+            work/era5-archive/**/batches/
+            work/era5-archive/**/exact.json*
+            work/era5-archive/report.json
+          retention-days: 3
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: era5-archive-evidence
+          path: work/era5-archive/report.json
           retention-days: 30
