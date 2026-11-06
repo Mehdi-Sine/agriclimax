@@ -8,7 +8,7 @@ on:
       mode:
         description: Existing bounded batch or incremental national DEV adapter
         type: choice
-        options: [batch, daily-pilot, national-daily, operational-pilot, weather-preflight, weather-national, weather-health, era5-archive]
+        options: [batch, daily-pilot, national-daily, operational-pilot, weather-preflight, weather-national, weather-masks, weather-health, era5-archive]
         default: batch
       daily_downloads:
         description: Maximum new source extents, 1 or 2 degrees (1 to 64); default four
@@ -136,7 +136,7 @@ jobs:
           CDSAPI_KEY: ${{ inputs.execute && secrets.CDSAPI_KEY || '' }}
           DATE_FROM: ${{ inputs.from }}
           DATE_TO: ${{ inputs.to }}
-          EXECUTE: ${{ inputs.execute }}
+          EXECUTE: ${{ github.event_name == 'schedule' || inputs.execute }}
           PILOT: ${{ inputs.mode == 'daily-pilot' }}
           MAX_DOWNLOADS: ${{ inputs.daily_downloads }}
           OPENBLAS_NUM_THREADS: '1'
@@ -192,7 +192,7 @@ jobs:
         env:
           PYTHONPATH: engine/src
           RUN_DATE: ${{ inputs.from }}
-          EXECUTE: ${{ inputs.execute }}
+          EXECUTE: ${{ github.event_name == 'schedule' || inputs.execute }}
           OPENBLAS_NUM_THREADS: '1'
           OMP_NUM_THREADS: '1'
         run: |
@@ -223,7 +223,7 @@ jobs:
           if-no-files-found: warn
 
   national-weather:
-    if: github.event_name == 'workflow_dispatch' && (inputs.mode == 'weather-preflight' || inputs.mode == 'weather-national')
+    if: (github.event_name == 'workflow_dispatch' && (inputs.mode == 'weather-preflight' || inputs.mode == 'weather-national' || inputs.mode == 'weather-masks')) || (github.event_name == 'schedule' && vars.PRA_CLIMATE_DAILY_DEV_ENABLED == 'true' && vars.PRA_CLIMATE_DAILY_KILL_SWITCH != 'true')
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -245,16 +245,16 @@ jobs:
         env:
           PYTHONPATH: engine/src
           OPENBLAS_NUM_THREADS: '1'
-          WEATHER_MODE: ${{ inputs.mode }}
+          WEATHER_MODE: ${{ github.event_name == 'schedule' && 'weather-national' || inputs.mode }}
           WEATHER_DATE: ${{ inputs.from }}
           WEATHER_HOUR: ${{ inputs.to }}
-          EXECUTE: ${{ inputs.execute }}
-          AUTHORIZE_NATIONAL: ${{ inputs.national_authorized }}
-          PUBLISH_DEV: ${{ inputs.publish_dev }}
-          METEOFRANCE_AROME_API_KEY: ${{ inputs.execute && secrets.METEOFRANCE_AROME_API_KEY || '' }}
-          METEOFRANCE_ARPEGE_API_KEY: ${{ inputs.execute && secrets.METEOFRANCE_ARPEGE_API_KEY || '' }}
-          NEXT_PUBLIC_SUPABASE_URL: ${{ inputs.publish_dev && secrets.NEXT_PUBLIC_SUPABASE_URL || '' }}
-          SUPABASE_SECRET_KEY: ${{ inputs.publish_dev && secrets.SUPABASE_SECRET_KEY || '' }}
+          EXECUTE: ${{ github.event_name == 'schedule' || inputs.execute }}
+          AUTHORIZE_NATIONAL: ${{ github.event_name == 'schedule' || inputs.national_authorized }}
+          PUBLISH_DEV: ${{ github.event_name == 'schedule' || inputs.publish_dev }}
+          METEOFRANCE_AROME_API_KEY: ${{ (github.event_name == 'schedule' || inputs.execute) && secrets.METEOFRANCE_AROME_API_KEY || '' }}
+          METEOFRANCE_ARPEGE_API_KEY: ${{ (github.event_name == 'schedule' || inputs.execute) && secrets.METEOFRANCE_ARPEGE_API_KEY || '' }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ (github.event_name == 'schedule' || inputs.publish_dev) && secrets.NEXT_PUBLIC_SUPABASE_URL || '' }}
+          SUPABASE_SECRET_KEY: ${{ (github.event_name == 'schedule' || inputs.publish_dev) && secrets.SUPABASE_SECRET_KEY || '' }}
         shell: bash
         run: |
           set -euo pipefail
@@ -281,11 +281,12 @@ jobs:
         with:
           name: national-weather-checkpoints
           path: work/national-weather/
-          retention-days: 7
+          retention-days: 3
 
   weather-health:
+    needs: [national-weather, era5-archive]
     # Default-branch schedules only; off until independent DEV acceptance.
-    if: (github.event_name == 'workflow_dispatch' && inputs.mode == 'weather-health') || (github.event_name == 'schedule' && vars.PRA_WEATHER_DEV_HEALTH_ENABLED == 'true')
+    if: always() && ((github.event_name == 'workflow_dispatch' && inputs.mode == 'weather-health') || (github.event_name == 'schedule' && (vars.PRA_WEATHER_DEV_HEALTH_ENABLED == 'true' || vars.PRA_CLIMATE_DAILY_DEV_ENABLED == 'true')))
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -308,7 +309,8 @@ jobs:
           retention-days: 30
 
   era5-archive:
-    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'era5-archive' && inputs.national_authorized
+    needs: [national-weather]
+    if: always() && ((github.event_name == 'workflow_dispatch' && inputs.mode == 'era5-archive' && inputs.national_authorized) || (github.event_name == 'schedule' && vars.PRA_CLIMATE_DAILY_DEV_ENABLED == 'true' && vars.PRA_CLIMATE_DAILY_KILL_SWITCH != 'true'))
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -330,13 +332,13 @@ jobs:
         env:
           PYTHONPATH: engine/src
           OPENBLAS_NUM_THREADS: '1'
-          CDSAPI_KEY: ${{ inputs.execute && secrets.CDSAPI_KEY || '' }}
+          CDSAPI_KEY: ${{ (github.event_name == 'schedule' || inputs.execute) && secrets.CDSAPI_KEY || '' }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           ERA_DATE: ${{ inputs.from }}
-          EXECUTE: ${{ inputs.execute }}
-          PUBLISH: ${{ inputs.publish_dev }}
-          MAX_DOWNLOADS: ${{ inputs.daily_downloads }}
+          EXECUTE: ${{ github.event_name == 'schedule' || inputs.execute }}
+          PUBLISH: ${{ github.event_name == 'schedule' || inputs.publish_dev }}
+          MAX_DOWNLOADS: ${{ github.event_name == 'schedule' && '64' || inputs.daily_downloads }}
         run: |
           set -euo pipefail
           args=(--root work/era5-archive --max-downloads "$MAX_DOWNLOADS")

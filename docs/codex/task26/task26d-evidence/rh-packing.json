@@ -1,0 +1,457 @@
+{
+  "fields": 50,
+  "fields_wholly_explained_by_packing": 31,
+  "worst_ratio": 33.23076923076923,
+  "details": [
+    {
+      "model": "arome",
+      "file": "440b9e268922b80a496a4a1bb5dba4bcb6879f4650dc978d62b99f168cc8c8eb.body",
+      "samples_above100": 8114,
+      "max_overshoot_percent": 0.000896453857421875,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.057369545315837656
+    },
+    {
+      "model": "arome",
+      "file": "5fdb3c2ec7d485da6ceaa0b864cb5c6dbf478650fb1cded9de8d7b3f55e9c42d.body",
+      "samples_above100": 94,
+      "max_overshoot_percent": 0.0038776397705078125,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.2481537992065914
+    },
+    {
+      "model": "arome",
+      "file": "037808de15b3ceb4b9afd76f25be253feab519880a1328c08a8d9773dfeb7646.body",
+      "samples_above100": 80,
+      "max_overshoot_percent": 0.006595611572265625,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.8440322186966073
+    },
+    {
+      "model": "arome",
+      "file": "513e4b6b11c23fe6f3c9cc0b6d5380fcd4455472ef97d5f57ec658313ad4b534.body",
+      "samples_above100": 384,
+      "max_overshoot_percent": 0.010358810424804688,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.6629234055538602
+    },
+    {
+      "model": "arome",
+      "file": "1be8f87c71496d0effe8409566821418dfae838122316b1450814ccd3f16ca78.body",
+      "samples_above100": 118,
+      "max_overshoot_percent": 0.001354217529296875,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.17329753478154747
+    },
+    {
+      "model": "arome",
+      "file": "1451be0422d582e8d0c8d13a89cd670af90594898172eec65b02d970e43be73e.body",
+      "samples_above100": 3469,
+      "max_overshoot_percent": 0.0081634521484375,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 1.0446668293873567
+    },
+    {
+      "model": "arome",
+      "file": "a1dd7edf974c3262d29ba2aec3465d8ed2456ede264365ae17afc046bd9d4cba.body",
+      "samples_above100": 21313,
+      "max_overshoot_percent": 0.013408660888671875,
+      "packing_error_percent": 0.015626907348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.858049554497742
+    },
+    {
+      "model": "arome",
+      "file": "70c8dc77a111e47ef7eaeb745e5de0813b7cf8729c8dea0bf9f66c5fea4a8624.body",
+      "samples_above100": 11,
+      "max_overshoot_percent": 0.001384735107421875,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.1772028313400049
+    },
+    {
+      "model": "arome",
+      "file": "fd845b2ba2f2b92864f048fbb2fe726637621fb12c12bbcbf8a1b3baa2b60e77.body",
+      "samples_above100": 383,
+      "max_overshoot_percent": 0.0041751861572265625,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.26719560573695456
+    },
+    {
+      "model": "arome",
+      "file": "867e5065150c17e5497ad3bfea8ae6ae726df0aa2d915fe46d476a3ed6b8e64b.body",
+      "samples_above100": 1,
+      "max_overshoot_percent": 0.00823974609375,
+      "packing_error_percent": 0.000247955322265625,
+      "all_within_packing_error": false,
+      "ratio": 33.23076923076923
+    },
+    {
+      "model": "arome",
+      "file": "32adde33e0c342fec882d6356d2c5d9765685becdd3ce37bc6bcb4d745c55f05.body",
+      "samples_above100": 21536,
+      "max_overshoot_percent": 0.0013866424560546875,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.08873970094598718
+    },
+    {
+      "model": "arome",
+      "file": "dd44ef836302acf91fc18fa4efc924d45960d817663a9fdae11f102a303d44f0.body",
+      "samples_above100": 37,
+      "max_overshoot_percent": 0.003894805908203125,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.4984134732731267
+    },
+    {
+      "model": "arome",
+      "file": "c5f803201594315a2542ba75fcc23c6b0af55d4498dc9f2111ef01e50b609b4e.body",
+      "samples_above100": 3073,
+      "max_overshoot_percent": 0.0013561248779296875,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.08678669514800122
+    },
+    {
+      "model": "arome",
+      "file": "5b432a476379fa60d56e6ac9626e0c791ba474b67e8df12f9bc560260aaa7eee.body",
+      "samples_above100": 11083,
+      "max_overshoot_percent": 0.008243560791015625,
+      "packing_error_percent": 0.0156252384185791,
+      "all_within_packing_error": true,
+      "ratio": 0.5275798403955018
+    },
+    {
+      "model": "arome",
+      "file": "74d0eddbb9a4527b644b1c0dc48fe50bf609ab97bbd65077b86bdc5a861a43fc.body",
+      "samples_above100": 94,
+      "max_overshoot_percent": 0.013408660888671875,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 1.7158896753722235
+    },
+    {
+      "model": "arome",
+      "file": "531566c889f4a7a21081eba6a27c45fcf7ab9a5a97a0825cc95a492fcae257ba.body",
+      "samples_above100": 9349,
+      "max_overshoot_percent": 0.006134033203125,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.3925541653951785
+    },
+    {
+      "model": "arome",
+      "file": "1b23481d9ef4ed7bee328b3d9c2106ca0bd070411092d12517e902c050782a5e.body",
+      "samples_above100": 279,
+      "max_overshoot_percent": 0.014739990234375,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 1.886258237734928
+    },
+    {
+      "model": "arome",
+      "file": "4b6c208ba9f2d46469fcd274892b89c35e24ee85cbc5053398e6c3f2e0f79e37.body",
+      "samples_above100": 22068,
+      "max_overshoot_percent": 0.003894805908203125,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.2492523649679585
+    },
+    {
+      "model": "arome",
+      "file": "72617ae41f37a628a1cc767bdf1686299b4a416b0f8a4ffb7ff434d52057d914.body",
+      "samples_above100": 2455,
+      "max_overshoot_percent": 0.017612457275390625,
+      "packing_error_percent": 0.015626907348632812,
+      "all_within_packing_error": false,
+      "ratio": 1.127059685097034
+    },
+    {
+      "model": "arome",
+      "file": "78a110d926fb41c543fb5baac67d4cc97fef5971e1940a834d777dcba76e5ed4.body",
+      "samples_above100": 199,
+      "max_overshoot_percent": 0.006134033203125,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.784964608249939
+    },
+    {
+      "model": "arome",
+      "file": "97a3c24fe2c9b4aba56a9a67f900122d2e34af3d9dad7c2afe19ed8dea6717ff.body",
+      "samples_above100": 198,
+      "max_overshoot_percent": 0.0138397216796875,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 1.7710519892604344
+    },
+    {
+      "model": "arome",
+      "file": "149a2f5147aca3fc52d79fc6ba7f77f848193c63b7b4aeed1734778f7b261e7d.body",
+      "samples_above100": 5214,
+      "max_overshoot_percent": 0.0138397216796875,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 1.7710519892604344
+    },
+    {
+      "model": "arome",
+      "file": "60410561477c53f97e8d139c4e7f8a0da5b43792828c00922dec1d9a901e4360.body",
+      "samples_above100": 1348,
+      "max_overshoot_percent": 0.014739990234375,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.94330180042722
+    },
+    {
+      "model": "arome",
+      "file": "5805d2fa889053f49aac5c08b361bce01f8391295ed379df38a9a44df403548e.body",
+      "samples_above100": 191,
+      "max_overshoot_percent": 0.008243560791015625,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 1.0549182328533073
+    },
+    {
+      "model": "arome",
+      "file": "e3007cfb63ac17ce81fef2a1b6ab5d65f214467f364044cdee04caa32d0475e1.body",
+      "samples_above100": 351,
+      "max_overshoot_percent": 0.0081634521484375,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 1.0446668293873567
+    },
+    {
+      "model": "arome",
+      "file": "811f57df9a37e1e90eb841c7e31dad54d860416f104b2a2b81afbbfd8e540ab0.body",
+      "samples_above100": 76,
+      "max_overshoot_percent": 0.00089263916015625,
+      "packing_error_percent": 0.007816314697265625,
+      "all_within_packing_error": true,
+      "ratio": 0.11420204978038068
+    },
+    {
+      "model": "arome",
+      "file": "030be6d2be728ccecaad31933bea748281bf80b7350c4dad96663444fb51a294.body",
+      "samples_above100": 17001,
+      "max_overshoot_percent": 0.006595611572265625,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.4220933780897162
+    },
+    {
+      "model": "arome",
+      "file": "30a76d08d95bc9c5a0f033bb45c05e68567265c922418fda24d8fcf3b32012d5.body",
+      "samples_above100": 161,
+      "max_overshoot_percent": 0.010356903076171875,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 1.3253600195264827
+    },
+    {
+      "model": "arome",
+      "file": "d5f4962ab28a48a421759fe1cf8965a0e5582536927bb6b3361a17b44a9e34cf.body",
+      "samples_above100": 169,
+      "max_overshoot_percent": 0.017612457275390625,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 2.2538442762997315
+    },
+    {
+      "model": "arpege",
+      "file": "0f947bd66cb5a9e615f87bb59e5067b071209c5c4f912a1abd91f7abd372c7b7.body",
+      "samples_above100": 78,
+      "max_overshoot_percent": 0.01825714111328125,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 2.3363436660971444
+    },
+    {
+      "model": "arpege",
+      "file": "fb981b698e5a4835e29309493b9e7d89467fd3dc8b1afdcfed98e6dc24842d4e.body",
+      "samples_above100": 59,
+      "max_overshoot_percent": 0.017932891845703125,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 2.294849890163534
+    },
+    {
+      "model": "arpege",
+      "file": "78cc23a76e19ec8871a2a49628a7afe458ea6624fe9dd4d4357dd6a87458fd40.body",
+      "samples_above100": 105,
+      "max_overshoot_percent": 0.00788116455078125,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 1.0085428362216255
+    },
+    {
+      "model": "arpege",
+      "file": "e09b5e5d9636a7b8ae8ad4ab52c792e2b057186ca22d70a0644bdbedcedaa0ec.body",
+      "samples_above100": 252,
+      "max_overshoot_percent": 0.006427764892578125,
+      "packing_error_percent": 0.015626907348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.41132674234102284
+    },
+    {
+      "model": "arpege",
+      "file": "6f14981407bad3ba8e9fd674956173db4f484c503f001f5a2eb47903fb37d3ac.body",
+      "samples_above100": 9,
+      "max_overshoot_percent": 0.002300262451171875,
+      "packing_error_percent": 0.015626907348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.14719882826803368
+    },
+    {
+      "model": "arpege",
+      "file": "4afc320ce5d6f4dc55a5ed2fc01f8ba4c118ee2270b58701d946c2f51d542d79.body",
+      "samples_above100": 84,
+      "max_overshoot_percent": 0.00769805908203125,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.9851110568708812
+    },
+    {
+      "model": "arpege",
+      "file": "e1bd02c2a5a798d73db15628fbc41eeb7eab609cb66aa4e94c23b664a75eacca.body",
+      "samples_above100": 231,
+      "max_overshoot_percent": 0.000274658203125,
+      "packing_error_percent": 0.015626907348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.01757597949469059
+    },
+    {
+      "model": "arpege",
+      "file": "aed42923f019c0f79f2490da03939905b33604fa045b453008da15a7e05b8e1f.body",
+      "samples_above100": 117,
+      "max_overshoot_percent": 0.001888275146484375,
+      "packing_error_percent": 0.015626907348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.1208348590259978
+    },
+    {
+      "model": "arpege",
+      "file": "b0a365524ddae68661f118008b898c35c56660d12c9880a6253ef8908fced5ea.body",
+      "samples_above100": 512,
+      "max_overshoot_percent": 0.00371551513671875,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.4754698559921894
+    },
+    {
+      "model": "arpege",
+      "file": "3f426346f51691ca1bfe7f61d274ea656d41cbaaaeb3975fd2ce428393cab45b.body",
+      "samples_above100": 291,
+      "max_overshoot_percent": 0.016851425170898438,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": false,
+      "ratio": 1.0784253890753739
+    },
+    {
+      "model": "arpege",
+      "file": "1ae66f2bea54f29ac0fdb95f746963b2a94c2bb19c110df0902fa200c585f7db.body",
+      "samples_above100": 40,
+      "max_overshoot_percent": 0.019300460815429688,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": false,
+      "ratio": 1.2351541043637473
+    },
+    {
+      "model": "arpege",
+      "file": "8e2b3e529bfa54ba8d2c530b1accb7922e9ebc68bfa1c11dcdb8a02d82f47483.body",
+      "samples_above100": 297,
+      "max_overshoot_percent": 0.0041103363037109375,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.2630454684162344
+    },
+    {
+      "model": "arpege",
+      "file": "6d95c3f47bdd48d78bc54182a1f4412f80273554a39e91d6bcfafe033c7624af.body",
+      "samples_above100": 241,
+      "max_overshoot_percent": 0.0094146728515625,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 1.2047839882841103
+    },
+    {
+      "model": "arpege",
+      "file": "26efb8e7d3323072cb144a02dcb36365a437209a669f12b56a62449a0b2194cd.body",
+      "samples_above100": 67,
+      "max_overshoot_percent": 0.013614654541015625,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": false,
+      "ratio": 1.742250427141811
+    },
+    {
+      "model": "arpege",
+      "file": "20e76f9c35c3689d3d42c05beaa20b88bcc87611700f803900893054add00b01.body",
+      "samples_above100": 24,
+      "max_overshoot_percent": 0.012018203735351562,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.769118095819347
+    },
+    {
+      "model": "arpege",
+      "file": "beb7a5794a62fca868e0a157a048a2d08c2a02d33e0493894814e5be8b3b0095.body",
+      "samples_above100": 565,
+      "max_overshoot_percent": 0.0057315826416015625,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.36679890143423866
+    },
+    {
+      "model": "arpege",
+      "file": "9ab5549d37ad2b613c9815a1feeff35bb5dd1ae6b64f7e39767302189f6ffb01.body",
+      "samples_above100": 102,
+      "max_overshoot_percent": 0.004444122314453125,
+      "packing_error_percent": 0.015626907348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.28438911265714634
+    },
+    {
+      "model": "arpege",
+      "file": "ba0e3099e6876ea40f68b142066bf5d79fcb4bd4ebee0672c6e79a69b14f5bbf.body",
+      "samples_above100": 226,
+      "max_overshoot_percent": 0.015695571899414062,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": false,
+      "ratio": 1.0044552944766554
+    },
+    {
+      "model": "arpege",
+      "file": "73b15e064251efb372a7723e005afabc73d265b9c5c8d057096c6aa7cecbb88d.body",
+      "samples_above100": 212,
+      "max_overshoot_percent": 0.005702972412109375,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.729802294361728
+    },
+    {
+      "model": "arpege",
+      "file": "2da2d4c5470e71139450d71699ae7235ba876c803d9f755d41cd4a30f92a67b7.body",
+      "samples_above100": 405,
+      "max_overshoot_percent": 0.004974365234375,
+      "packing_error_percent": 0.007814407348632812,
+      "all_within_packing_error": true,
+      "ratio": 0.6365633390285574
+    },
+    {
+      "model": "arpege",
+      "file": "c92901e0e7d93ea4ccf697f1b72eb150807e1239d87d6d9803ef3ff14793579f.body",
+      "samples_above100": 440,
+      "max_overshoot_percent": 0.000667572021484375,
+      "packing_error_percent": 0.015625953674316406,
+      "all_within_packing_error": true,
+      "ratio": 0.042722001830942935
+    }
+  ]
+}

@@ -31,6 +31,9 @@ def indexed_bytes(catalogue: dict[str, Any]) -> int:
         geometry = entry.get("geometry_entry")
         if geometry:
             objects[geometry["path"]] = int(geometry["bytes"])
+    mask = catalogue.get("land_masks")
+    if mask:
+        objects[mask["path"]] = int(mask["bytes"])
     return sum(objects.values())
 
 
@@ -132,7 +135,7 @@ class ArchiveStore:
     def publish_current(self, catalogue: dict[str, Any]) -> None:
         weather = sorted(catalogue["weather"], key=lambda e: e.get("run_at", e["run_date"]))
         era5 = sorted(catalogue["era5"], key=lambda e: max(e["dates"]))
-        current = {"version": "pra-current-1", "weather": weather[-1:] , "era5": era5[-1:], "era5_dates": sorted({d for e in era5 for d in e["dates"]}), "supports": catalogue.get("supports", [])[-1:]}
+        current = {"version": "pra-current-1", "weather": weather[-1:] , "era5": era5[-1:], "era5_dates": sorted({d for e in era5 for d in e["dates"]}), "supports": catalogue.get("supports", [])[-1:], "land_masks": catalogue.get("land_masks")}
         raw = json.dumps(current, sort_keys=True).encode()
         if self.request(f"object/{BUCKET}/current.json") == raw:
             return

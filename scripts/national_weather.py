@@ -11,7 +11,7 @@ from national_weather_sources import Budget, preflight
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--mode", choices=["preflight", "national", "replay"], required=True
+        "--mode", choices=["preflight", "national", "replay", "masks"], required=True
     )
     parser.add_argument(
         "--run-date", type=date.fromisoformat, default=datetime.now(UTC).date()
@@ -77,6 +77,11 @@ def main() -> None:
         args.root.mkdir(parents=True, exist_ok=True)
         atomic_write(args.root / "replay.json", json.dumps(result, indent=2).encode())
         print(json.dumps(result))
+        return
+    if args.mode == "masks":
+        from operational_land_masks import run as mask_run
+
+        print(json.dumps(mask_run(args.root, args.publish_dev)))
         return
     budget = Budget()
     if args.mode == "preflight":

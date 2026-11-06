@@ -52,7 +52,7 @@ export function archiveCatalogue():Promise<ArchiveCatalogue|null>{
   catalogueCache={expires:Date.now()+15*60000,value};
   void value.catch(()=>{if(catalogueCache?.value===value)catalogueCache=undefined;});return value;
 }
-type CurrentManifest={version:'pra-current-1';weather:ArchiveEntry[];era5:ArchiveEntry[];era5_dates:string[];supports?:ArchiveEntry[]};
+type CurrentManifest={version:'pra-current-1';weather:ArchiveEntry[];era5:ArchiveEntry[];era5_dates:string[];supports?:ArchiveEntry[];land_masks?:ArchiveEntry|null};
 let currentCache:{expires:number;value:Promise<CurrentManifest|null>}|undefined;
 export function currentManifest():Promise<CurrentManifest|null>{
  if(currentCache&&currentCache.expires>Date.now())return currentCache.value;
@@ -121,4 +121,14 @@ export async function archivedEra5Day(date:string):Promise<ArchivedDaily[]|null>
   }
   if(rows.length!==713||new Set(rows.map(r=>r.pra_id)).size!==713||!rows.every(r=>identities.ids.includes(r.pra_id)))throw new Error('EXACT_ARCHIVE_IDENTITIES');
   return rows;
+}
+
+let landCache:{sha:string;value:Promise<Record<string,Record<string,{native_cells:number;physical_land_mask_available:boolean;source_land_fraction:number;mask_sha256:string}>>>}|undefined;
+export async function nationalLandMasks(){
+ const current=await currentManifest(),e=current?.land_masks;if(!e)return null;
+ if(!entry(e))throw new Error('LAND_MASK_POINTER');
+ if(landCache?.sha===e.sha256)return landCache.value;
+ const value=(async()=>{const raw:unknown=JSON.parse(gunzipSync(await archiveBlob(e),{maxOutputLength:4*1024**2}).toString());if(!record(raw)||raw.rule_version!=='pra-official-model-land-fraction-1'||!record(raw.sources))throw new Error('LAND_MASK_CONTRACT');
+ const result:Record<string,Record<string,{native_cells:number;physical_land_mask_available:boolean;source_land_fraction:number;mask_sha256:string}>>={};
+ for(const name of ['arome','arpege']){const source=raw.sources[name];if(!record(source)||!record(source.pra)||Object.keys(source.pra).length!==713)throw new Error('LAND_MASK_IDENTITIES');result[name]={};for(const [pra,q] of Object.entries(source.pra)){if(!identities.ids.includes(pra)||!record(q)||typeof q.native_cells!=='number'||q.physical_land_mask_available!==true||typeof q.source_land_fraction!=='number'||q.source_land_fraction<0||q.source_land_fraction>1.0001||typeof q.mask_sha256!=='string'||!/^[a-f0-9]{64}$/.test(q.mask_sha256))throw new Error('LAND_MASK_VALUE');result[name][pra]={native_cells:q.native_cells,physical_land_mask_available:true,source_land_fraction:q.source_land_fraction,mask_sha256:q.mask_sha256};}}return result;})();landCache={sha:e.sha256,value};void value.catch(()=>{if(landCache?.value===value)landCache=undefined;});return value;
 }

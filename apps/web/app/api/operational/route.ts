@@ -2,7 +2,7 @@ import 'server-only';
 import {completeForecastCycle,VARIABLES,type WeatherCycle,type WeatherModel,type WeatherRow,type CoastalQualification} from '../../../features/operational/model';
 import pilot from '../../../data/operational/cycle.json';
 import {record} from '../../../lib/server/weather-archive-codec';
-import {nationalWeatherDocument} from '../../../lib/server/weather-archives';
+import {nationalWeatherDocument,nationalLandMasks} from '../../../lib/server/weather-archives';
 import {isCalendarDate} from '../../../features/national/daily-availability';
 
 export const runtime='nodejs';
@@ -32,6 +32,7 @@ export async function GET(request:Request){
       if(!record(values))continue;const q=values[pra];
       if(record(q)&&typeof q.native_cells==='number'&&typeof q.physical_land_mask_available==='boolean')qualification[source]={native_cells:q.native_cells,physical_land_mask_available:q.physical_land_mask_available,...(typeof q.centre_inside_reference_fraction==='number'?{centre_inside_reference_fraction:q.centre_inside_reference_fraction}:{}),...(q.source_land_fraction===null||typeof q.source_land_fraction==='number'?{source_land_fraction:q.source_land_fraction}:{})};
     }
+    if(pra){const masks=await nationalLandMasks();if(masks)for(const [model,values] of Object.entries(masks))if(values[pra])qualification[model]=values[pra];}
     const dates=[...new Set(rows.map(r=>r.valid_date))].sort(),ids=[...new Set(rows.map(r=>r.pra_id))].sort();
     if(date&&!dates.includes(date)||pra&&!ids.includes(pra))return Response.json({error:'DATE_OR_PRA_NOT_AVAILABLE'},{status:404});
     // Serverless response limits: national maps expose one date/variable (713 rows),
