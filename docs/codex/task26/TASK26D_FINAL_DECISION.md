@@ -28,7 +28,7 @@ Aucun score agricole nouveau ni garantie statistiqueJ+7. Les limites restantes s
 
 ## Recette, protections et limites de clôture
 
-266tests TypeScript et312tests Python réussis ; typecheck, lint, build de production, Ruff/Mypy des six nouveaux modules, garde secrets et migrations réussis. Les workflows Quality/Security obligatoires restent actifs ; leurs résultats GitHub et la Preview sont consultables depuis la PR. Les tests synthétiques CI restent distincts des preuves Preview réelles.
+266tests TypeScript et312tests Python existants et2tests supplémentaires de découverte des runs réussis ; typecheck, lint, build de production, Ruff/Mypy des six nouveaux modules, garde secrets et migrations réussis. Les workflows Quality/Security obligatoires restent actifs ; leurs résultats GitHub et la Preview sont consultables depuis la PR. Les tests synthétiques CI restent distincts des preuves Preview réelles.
 
 Le nouveau cycle réel est **6novembre06UTC**, différent du cycle00UTC deTask26C, mais **pas une nouvelle date d'initialisation après le6novembre**. Cette distinction est conservée : aucun run futur ni nouveau jour de prévision14novembre n'est inventé. Une prochaine date ne pourra être vérifiée qu'après sa disponibilité fournisseur.
 

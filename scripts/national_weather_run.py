@@ -177,8 +177,8 @@ def run_national(
             report = {
                 "status": "idempotent_existing_publication",
                 "validation": validation,
-                "source_requests": 0,
-                "source_bytes": 0,
+                "source_requests": budget.requests,
+                "source_bytes": budget.bytes,
                 "storage_writes": 0,
                 "restored_sha256": previous["sha256"],
             }

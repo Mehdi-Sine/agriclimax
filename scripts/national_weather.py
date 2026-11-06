@@ -5,7 +5,7 @@ import json
 from datetime import UTC, date, datetime
 from pathlib import Path
 
-from national_weather_sources import Budget, preflight
+from national_weather_sources import Budget, latest_available_run, preflight
 
 
 def main() -> None:
@@ -17,11 +17,14 @@ def main() -> None:
         "--run-date", type=date.fromisoformat, default=datetime.now(UTC).date()
     )
     parser.add_argument("--run-hour", type=int, choices=[0,6,12,18], default=0)
+    parser.add_argument("--latest-available", action="store_true")
     parser.add_argument("--root", type=Path, default=Path("work/national-weather"))
     parser.add_argument("--execute", action="store_true")
     parser.add_argument("--national-authorized", action="store_true")
     parser.add_argument("--publish-dev", action="store_true")
     args = parser.parse_args()
+    if args.latest_available and args.mode not in {"national", "preflight"}:
+        parser.error("Latest-run discovery is only available for national/preflight modes")
     if not args.execute:
         print(
             json.dumps(
@@ -94,6 +97,8 @@ def main() -> None:
         print(json.dumps(humidity_review(args.root)))
         return
     budget = Budget()
+    if args.latest_available:
+        run = latest_available_run(args.root, datetime.now(UTC), budget)
     if args.mode == "preflight":
         report = preflight(args.root, run, budget)
         print(json.dumps(report))

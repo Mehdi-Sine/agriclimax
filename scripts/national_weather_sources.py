@@ -225,6 +225,23 @@ def grib_metadata(
         ec.codes_release(handle)
 
 
+def latest_available_run(root: Path, now: datetime, budget: Budget) -> datetime:
+    """Choose today's latest common advertised run, without downloading fields."""
+    catalogues = [set(WcsProvider(model, root, budget).catalogue()) for model in MODELS]
+    for hour in (18, 12, 6, 0):
+        candidate = now.replace(hour=hour, minute=0, second=0, microsecond=0)
+        if candidate > now:
+            continue
+        expected = {
+            f"{parameter}___{candidate:%Y-%m-%dT%H.%M.%SZ}"
+            + ("_P1D" if variable == "precipitation" else "")
+            for variable, parameter in PARAMETERS.items()
+        }
+        if all(expected <= ids for ids in catalogues):
+            return candidate
+    raise ValueError("No complete common model run advertised today; retain prior publication")
+
+
 def preflight(root: Path, run: datetime, budget: Budget) -> dict[str, Any]:
     report: dict[str, Any] = {
         "run": run.isoformat(),

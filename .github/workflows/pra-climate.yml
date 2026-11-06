@@ -248,6 +248,7 @@ jobs:
           WEATHER_MODE: ${{ (github.event_name == 'schedule' || inputs.mode == 'daily-dev-check') && 'weather-national' || inputs.mode }}
           WEATHER_DATE: ${{ inputs.from }}
           WEATHER_HOUR: ${{ inputs.to }}
+          DISCOVER_LATEST: ${{ github.event_name == 'schedule' }}
           EXECUTE: ${{ github.event_name == 'schedule' || inputs.execute }}
           AUTHORIZE_NATIONAL: ${{ github.event_name == 'schedule' || inputs.national_authorized }}
           PUBLISH_DEV: ${{ github.event_name == 'schedule' || inputs.publish_dev }}
@@ -259,6 +260,7 @@ jobs:
         run: |
           set -euo pipefail
           args=(--mode "${WEATHER_MODE#weather-}" --root work/national-weather)
+          if [[ "$DISCOVER_LATEST" == true ]]; then args+=(--latest-available); fi
           if [[ -n "$WEATHER_DATE" ]]; then args+=(--run-date "$WEATHER_DATE"); fi
           if [[ -n "$WEATHER_HOUR" ]]; then [[ "$WEATHER_HOUR" =~ ^H(00|06|12|18)$ ]]; args+=(--run-hour "$((10#${WEATHER_HOUR#H}))"); fi
           if [[ "$EXECUTE" == true ]]; then args+=(--execute); fi

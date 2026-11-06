@@ -10,13 +10,13 @@ Après la revue utilisateur et une fusion décidée séparément : vérifier les
 
 ## Séquence bornée
 
-1. Préflight du run synoptique disponible, cache dédupliqué, acquisition météo mutualisée et validation des713PRA ; anciennes publications immuables conservées.
+1. Détection du dernier run synoptique commun annoncé du jour (trois variables, deux modèles ; initialisations futures exclues), puis préflight, cache dédupliqué, acquisition météo mutualisée et validation des713PRA ; anciennes publications immuables conservées.
 2. Publication du cycle complet et du manifeste vivant ; la carte détecte les dates sans nouveau commit.
 3. Détection de la prochaine journée ERA5 non publiée, reprise du dernier checkpoint de branche sur une recherche bornée à20runs, source puis archive-only complète.
 4. En cas d'échec, au maximum deux stages supplémentaires séquentiels reprennent les checkpoints du même run. Chaque stage conserve les plafonds22minutes/128appels/128MiB/4GiB ; aucune boucle illimitée ni acquisition par PRA.
 5. Healthcheck après tous les stages : intégrité713PRA, pointeur vivant correspondant à la dernière publication vérifiée, âge météo≤36h, décalage ERA≤7jours et taille indexée sous900MiB. Un échec du job signale l'incident par les mécanismesGitHub du dépôt.
 
-Les reprises n'effacent pas les anciennes données. Seule la journée en cours est exportée, sans dupliquer les anciennes grilles. Un source indisponible ou une journée incomplète ne remplace jamais une publication complète.
+La découverte utilise uniquement les deux GetCapabilities partagés et leur cache horaire vérifié ; elle ne télécharge aucun champ. Si aucun run commun complet du jour n'est annoncé, le job échoue en conservant la publication précédente. Deux tests indépendants couvrent le modèle incomplet, le run futur et l'absence de cycle commun ; cette nouvelle sélection automatique n'a pas été exercée par un cron activé. Les reprises n'effacent pas les anciennes données. Seule la journée en cours est exportée, sans dupliquer les anciennes grilles. Un source indisponible ou une journée incomplète ne remplace jamais une publication complète.
 
 ## Validation réelle
 
