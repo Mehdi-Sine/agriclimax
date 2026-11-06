@@ -253,8 +253,8 @@ jobs:
           PUBLISH_DEV: ${{ github.event_name == 'schedule' || inputs.publish_dev }}
           METEOFRANCE_AROME_API_KEY: ${{ (github.event_name == 'schedule' || inputs.execute) && secrets.METEOFRANCE_AROME_API_KEY || '' }}
           METEOFRANCE_ARPEGE_API_KEY: ${{ (github.event_name == 'schedule' || inputs.execute) && secrets.METEOFRANCE_ARPEGE_API_KEY || '' }}
-          NEXT_PUBLIC_SUPABASE_URL: ${{ (github.event_name == 'schedule' || inputs.publish_dev) && secrets.NEXT_PUBLIC_SUPABASE_URL || '' }}
-          SUPABASE_SECRET_KEY: ${{ (github.event_name == 'schedule' || inputs.publish_dev) && secrets.SUPABASE_SECRET_KEY || '' }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ (github.event_name == 'schedule' || inputs.publish_dev || inputs.mode == 'weather-coastal-review') && secrets.NEXT_PUBLIC_SUPABASE_URL || '' }}
+          SUPABASE_SECRET_KEY: ${{ (github.event_name == 'schedule' || inputs.publish_dev || inputs.mode == 'weather-coastal-review') && secrets.SUPABASE_SECRET_KEY || '' }}
         shell: bash
         run: |
           set -euo pipefail
@@ -328,6 +328,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           PREVIOUS_RUN: ${{ inputs.checkpoint_run_id }}
         run: |
+          mkdir -p work/era5-archive
           if [[ -n "$PREVIOUS_RUN" ]]; then
             [[ "$PREVIOUS_RUN" =~ ^[0-9]+$ ]]
             gh run download "$PREVIOUS_RUN" --name era5-archive-checkpoints --dir work/era5-archive
@@ -359,16 +360,14 @@ jobs:
           if [[ "$EXECUTE" == true ]]; then args+=(--execute); fi
           if [[ "$PUBLISH" == true ]]; then args+=(--publish-dev); fi
           timeout --signal=TERM --kill-after=10s 22m python scripts/era5_archive_daily.py "${args[@]}"
+      - name: Export only the current day, never accumulate prior raw grids
+        if: always()
+        run: python scripts/era5_export_checkpoint.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: era5-archive-checkpoints
-          path: |
-            work/era5-archive/**/source-cache/
-            work/era5-archive/**/tiles/
-            work/era5-archive/**/batches/
-            work/era5-archive/**/exact.json*
-            work/era5-archive/report.json
+          path: work/era5-archive-export/
           retention-days: 3
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
@@ -401,16 +400,14 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: timeout --signal=TERM --kill-after=10s 22m python scripts/era5_archive_daily.py --root work/era5-archive --max-downloads 64 --execute --publish-dev
+      - name: Export only the current day, never accumulate prior raw grids
+        if: always()
+        run: python scripts/era5_export_checkpoint.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: era5-resume-1-checkpoints
-          path: |
-            work/era5-archive/**/source-cache/
-            work/era5-archive/**/tiles/
-            work/era5-archive/**/batches/
-            work/era5-archive/**/exact.json*
-            work/era5-archive/report.json
+          path: work/era5-archive-export/
           retention-days: 3
 
   era5-resume-2:
@@ -437,14 +434,12 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: timeout --signal=TERM --kill-after=10s 22m python scripts/era5_archive_daily.py --root work/era5-archive --max-downloads 64 --execute --publish-dev
+      - name: Export only the current day, never accumulate prior raw grids
+        if: always()
+        run: python scripts/era5_export_checkpoint.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: era5-resume-2-checkpoints
-          path: |
-            work/era5-archive/**/source-cache/
-            work/era5-archive/**/tiles/
-            work/era5-archive/**/batches/
-            work/era5-archive/**/exact.json*
-            work/era5-archive/report.json
+          path: work/era5-archive-export/
           retention-days: 3

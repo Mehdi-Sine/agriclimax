@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-31",
+  "native_checks": 2852,
+  "raw_api_checks": 2852,
+  "qualified_api_rows_checked": 1426,
+  "production_aggregation_called": false,
+  "source_requests": 0,
+  "database_writes": 0,
+  "qualified": {
+    "temperature": {
+      "value_rows": 681,
+      "partial_area_only": 31,
+      "no_native_value": 1
+    },
+    "precipitation": {
+      "value_rows": 681,
+      "partial_area_only": 31,
+      "no_native_value": 1
+    }
+  }
+}

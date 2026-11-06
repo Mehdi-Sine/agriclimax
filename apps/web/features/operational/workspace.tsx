@@ -9,7 +9,7 @@ import {useResource} from '../unified/resource';
 
 const label=(v:number|null|undefined)=>v==null?'Indisponible':new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(v);
 const status={available:'Disponible',partial:'Partiel',unavailable:'Indisponible'};
-export function useOperationalWeather(active:boolean,requestedMode:TemporalMode){
+export function useOperationalWeather(active:boolean,requestedMode:TemporalMode,geometry:PraCollection|null){
   const search=useSearchParams(),router=useRouter(),pathname=usePathname();
   const model=(search.get('weather_model')??'selected') as WeatherModel;
   const variable=(search.get('weather_variable')??'temperature') as WeatherVariable;
@@ -20,7 +20,6 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode)
   useEffect(()=>{const timer=setInterval(()=>setNow(Date.now()),60000);return()=>clearInterval(timer);},[]);
   const today=new Date(now).toISOString().slice(0,10);
   function change(values:Record<string,string>){const q=new URLSearchParams(search.toString());q.delete('experimental');q.set('temporal',temporalMode);for(const [k,v] of Object.entries(values))q.set(k==='weather_date'?`${temporalMode}_date`:k,v);q.delete('weather_date');router.replace(`${pathname}?${q}`,{scroll:false});}
-  const geometryResource=useResource<PraCollection>('/maps/pra-national.geojson',true),geometry=geometryResource.data;
   const catalogueResource=useResource<WeatherCycle>(`/api/operational?${new URLSearchParams({experimental:'weather',catalogue:'1',model,...runQuery})}`),catalogue=catalogueResource.data;
   const legacy=search.get('experimental')==='weather'&&!search.has('temporal')?search.get('weather_date'):null;
   const temporalMode:TemporalMode=legacy&&catalogue?.run?(legacy<=catalogue.run.slice(0,10)?'recent':'forecast'):requestedMode;
@@ -30,7 +29,7 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode)
   const base={experimental:'weather',model,...runQuery};
   const viewResource=useResource<WeatherCycle>(hasHorizon?`/api/operational?${new URLSearchParams({...base,date,variable})}`:null),view=viewResource.data;
   const historyResource=useResource<WeatherCycle>(hasHorizon?`/api/operational?${new URLSearchParams({...base,pra:selected})}`:null),history=historyResource.data;
-  const error=catalogueResource.error??geometryResource.error??viewResource.error??historyResource.error;
+  const error=catalogueResource.error??viewResource.error??historyResource.error;
   const loading=hasHorizon&&!view&&!viewResource.error;
   useEffect(()=>{
     const frame=requestAnimationFrame(()=>{const css=getComputedStyle(document.documentElement);setColors(['--map-cool','--map-cool-light','--map-mid','--map-warm-light','--map-warm'].map(k=>css.getPropertyValue(k).trim()));});

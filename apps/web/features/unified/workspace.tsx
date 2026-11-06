@@ -23,9 +23,11 @@ export function UnifiedWorkspace() {
 }
 function HistoricalWorkspace() {
   const pathname=usePathname(),search=useSearchParams();
+  const geometry=useResource<PraCollection>(`/maps/pra-national.geojson?reference=${NATIONAL.reference}`,true);
+  const collection=geometry.data?.type==='FeatureCollection'&&geometry.data.features.length===713?geometry.data:null;
   const temporal=temporalMode(new URLSearchParams(search.toString()));
   const weather=temporal!=='history'&&pathname!=='/productions';
-  const operational=useOperationalWeather(weather,temporal);
+  const operational=useOperationalWeather(weather,temporal,collection);
   const space:Space=pathname==='/productions'?'productions':pathname==='/analyse'?'analyse':'climat';
   const availability=useResource<NationalAvailability>('/api/national?action=availability');
   const availableDays=availability.data?.days??DAYS;
@@ -35,8 +37,6 @@ function HistoricalWorkspace() {
   const def=INDICATORS.find(i=>i.id===state.indicator)!;
   const agriculture = useAgriculturalExplorer(space === 'productions');
   const [query,setQuery]=useState(''),[filtersOpen,setFiltersOpen]=useState(false);
-  const geometry=useResource<PraCollection>(`/maps/pra-national.geojson?reference=${NATIONAL.reference}`,true);
-  const collection=geometry.data?.type==='FeatureCollection'&&geometry.data.features.length===713?geometry.data:null;
   const feature=collection?.features.find(f=>f.id===state.pra);
   const selectionInvalid=!!state.pra&&!!collection&&!feature;
   const invalid=errors.length>0||selectionInvalid||!availability.data;
