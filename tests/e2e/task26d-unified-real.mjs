@@ -37,6 +37,7 @@ for(const [name,width,height] of [['desktop',1440,1000],['tablet',768,1000],['mo
  await p.getByRole('link',{name:'Analyse agroclimato',exact:true}).click();await p.waitForURL(u=>u.pathname==='/analyse');assert.equal(new URL(p.url()).searchParams.get('pra'),'pra:2B260');assert.equal(await canvas.evaluate(n=>n===document.querySelector('.maplibregl-canvas')),true);
  await mode('Historique climatique');await select('Lecture temporelle','jour','periode');await select('Aléa descriptif','rain','indicateur');
  await mode('Prévisions');await select('Modèle','arome','weather_model');await p.getByText('Aucune échéance de ce modèle pour cette journée.',{exact:false}).waitFor();assert.match(await p.getByTestId('weather-value').innerText(),/Indisponible/);
+ assert.equal(await p.getByRole('combobox',{name:/^Date · UTC/}).inputValue(),'2026-11-13','Absent model horizon preserves the requested date visibly');
  assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,name+' overflow');
  await p.locator('.national-map').scrollIntoViewIfNeeded();await p.locator('.national-map-wrap').screenshot({path:`${out}/${name}-map.png`});await p.screenshot({path:`${out}/${name}.png`,fullPage:true});report.viewports.push({name,width,height,sameCanvas:true});
 }

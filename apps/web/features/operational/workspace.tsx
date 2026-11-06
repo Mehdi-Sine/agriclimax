@@ -56,7 +56,7 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode,
     {error&&<p role="alert">{error}</p>}
     {!catalogue&&<p role="status">Chargement du catalogue météo vérifié…</p>}
         <section className="unified-filters filters-open" aria-label="Filtres météorologiques">
-          <label>Date · UTC<select value={date} onChange={e=>change({weather_date:e.target.value})}>{dates.map(d=><option key={d} value={d}>{d}{!catalogue?.available_dates?.includes(d)?' · hors horizon':''}</option>)}</select></label>
+          <label>Date · UTC<select value={date} onChange={e=>change({weather_date:e.target.value})}>{date&&!dates.includes(date)&&<option value={date}>{date} · indisponible pour ce modèle</option>}{dates.map(d=><option key={d} value={d}>{d}{!catalogue?.available_dates?.includes(d)?' · hors horizon':''}</option>)}</select></label>
           <label>Variable<select value={variable} onChange={e=>change({weather_variable:e.target.value})}>{VARIABLES.map(v=><option key={v.id} value={v.id}>{v.label}</option>)}</select></label>
           <label>Modèle<select value={model} onChange={e=>change({weather_model:e.target.value})}>{catalogue?.models?.map(m=><option key={m.id} value={m.id}>{m.label}</option>)}</select></label>
           <label>PRA<select value={selected} onChange={e=>change({pra:e.target.value})}>{collection?.features.map(f=><option key={f.properties.code} value={`pra:${f.properties.code}`}>{f.properties.name}</option>)}</select></label>
