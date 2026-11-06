@@ -127,7 +127,11 @@ def capabilities(content: bytes) -> list[str]:
     return list(dict.fromkeys(ids))
 
 
-def field_parameters(content: bytes) -> tuple[list[tuple[str, str]], dict[str, object]]:
+def field_parameters(
+    content: bytes,
+    bounds: tuple[float, float, float, float] = (1.4, 48.0, 1.5, 48.1),
+    valid_at: datetime | None = None,
+) -> tuple[list[tuple[str, str]], dict[str, object]]:
     """Use advertised axes/time only; refuse an unconstrained extra dimension."""
     root = xml_root(content)
     if root.tag.rsplit("}", 1)[-1] != "CoverageDescriptions":
@@ -164,17 +168,23 @@ def field_parameters(content: bytes) -> tuple[list[tuple[str, str]], dict[str, o
     for axis, low, high in zip(axes, lows, highs, strict=True):
         kind = axis.lower()
         if kind in {"lat", "latitude"}:
-            a, b = 48.0, 48.1
+            a, b = bounds[1], bounds[3]
             found.add("latitude")
         elif kind in {"long", "lon", "longitude"}:
-            a, b = 1.4, 1.5
+            a, b = bounds[0], bounds[2]
             found.add("longitude")
         elif kind == "time":
-            when = datetime.fromisoformat(low)
-            if when.tzinfo is None:
-                raise ValueError("Time without timezone")
-            subsets.append(("subset", f"{axis}({low})"))
-            selected[axis] = low
+            when = valid_at or datetime.fromisoformat(low)
+            if (
+                when.utcoffset() != datetime.fromisoformat(low).utcoffset()
+                or when.utcoffset() is None
+            ):
+                raise ValueError("Time without matching timezone")
+            if not datetime.fromisoformat(low) <= when <= datetime.fromisoformat(high):
+                raise ValueError("Time outside advertised coverage")
+            instant = when.isoformat().replace("+00:00", "Z")
+            subsets.append(("subset", f"{axis}({instant})"))
+            selected[axis] = instant
             found.add("time")
             continue
         elif kind in {"height", "height_above_ground"}:

@@ -34,7 +34,22 @@ def grid_weights(territories: list[Territory], spacing: float = 0.25) -> list[We
     """
     if spacing != 0.25:
         raise ValueError("Only the verified IFS 0.25 degree grid is supported")
+    return regular_grid_weights(territories, spacing, "ifs", 2)
+
+
+def regular_grid_weights(
+    territories: list[Territory], spacing: float, prefix: str, digits: int = 3
+) -> list[Weight]:
+    """Shared EPSG3035 intersections on a verified regular source grid.
+
+    This does not reuse ERA5 masks or weights. All three model centre grids
+    are aligned to integral multiples of their advertised spacing.
+    """
+    if (prefix, spacing) not in {("ifs", 0.25), ("arome", 0.025), ("arpege", 0.1)}:
+        raise ValueError("Unreviewed model/grid")
     result = []
+    # A shared native cell is projected once, even if it intersects several PRA.
+    footprints = {}
     for t in territories:
         polygon = projected(t.geometry)
         west, south, east, north = shape(t.geometry).bounds
@@ -48,15 +63,18 @@ def grid_weights(territories: list[Territory], spacing: float = 0.25) -> list[We
                 math.floor((east + spacing / 2) / spacing) + 1,
             ):
                 lon, lat = x * spacing, y * spacing
-                cell = box(
-                    lon - spacing / 2, lat - spacing / 2, lon + spacing / 2, lat + spacing / 2
-                ).segmentize(0.01)
-                area = polygon.intersection(projected(mapping(cell))).area
+                key = (x, y)
+                if key not in footprints:
+                    cell = box(
+                        lon - spacing / 2, lat - spacing / 2, lon + spacing / 2, lat + spacing / 2
+                    ).segmentize(0.01)
+                    footprints[key] = projected(mapping(cell))
+                area = polygon.intersection(footprints[key]).area
                 if area > 0.01:
                     selected.append(
                         Weight(
                             t.id,
-                            f"ifs.{lat:.2f}.{lon:.2f}",
+                            f"{prefix}.{lat:.{digits}f}.{lon:.{digits}f}",
                             lon,
                             lat,
                             area / 1e6,
@@ -64,7 +82,7 @@ def grid_weights(territories: list[Territory], spacing: float = 0.25) -> list[We
                         )
                     )
         if abs(sum(w.weight for w in selected) - 1) > 0.0001:
-            raise ValueError("IFS footprints do not cover the PRA")
+            raise ValueError("Source-grid footprints do not cover the PRA")
         result.extend(selected)
     return result
 

@@ -2,14 +2,18 @@ name: Task12 ERA5 real validation
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches:
-      - main
+    inputs:
+      allow_dev_write:
+        description: Explicit authorization for legacy real acquisition and DEV persistence
+        type: boolean
+        default: false
+permissions:
+  contents: read
 
 jobs:
   validate-era5:
-    # This task explicitly forbids ERA5 acquisitions; PR updates must stay read-only.
-    if: github.event_name != 'pull_request' || github.head_ref != 'codex/26-national-daily-climate'
+    # Acquisitions and database writes are never ordinary CI checks.
+    if: github.event_name == 'workflow_dispatch' && inputs.allow_dev_write
     runs-on: ubuntu-latest
 
     steps:

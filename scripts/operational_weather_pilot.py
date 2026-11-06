@@ -47,6 +47,7 @@ def main() -> None:
     parser.add_argument("--run-date", type=date.fromisoformat, required=True)
     parser.add_argument("--root", type=Path, default=Path("work/operational-pilot"))
     parser.add_argument("--execute", action="store_true")
+    parser.add_argument("--scope", choices=["pilot", "national"], default="pilot")
     parser.add_argument(
         "--offline-native",
         action="store_true",
@@ -66,7 +67,7 @@ def main() -> None:
                     "run": str(args.run_date),
                     "steps": steps,
                     "parameters": params,
-                    "pra": PILOT_CODES,
+                    "pra": PILOT_CODES if args.scope == "pilot" else "713 official PRA",
                     "request_limit": 240,
                     "source_bytes_limit": 96 * 1024**2,
                     "seconds_limit": 1200,
@@ -82,12 +83,15 @@ def main() -> None:
     reference = json.loads(
         (Path("config/coverage") / REFERENCE / "reference.json").read_text()
     )
-    reference["features"] = [
-        f for f in reference["features"] if f["properties"]["code"] in PILOT_CODES
-    ]
+    if args.scope == "pilot":
+        reference["features"] = [
+            f for f in reference["features"] if f["properties"]["code"] in PILOT_CODES
+        ]
     territories, _ = load_reference(reference, version=REFERENCE)
-    if {t.code for t in territories} != set(PILOT_CODES):
+    if args.scope == "pilot" and {t.code for t in territories} != set(PILOT_CODES):
         raise ValueError("Official pilot identity mismatch")
+    if args.scope == "national" and len({t.code for t in territories}) != 713:
+        raise ValueError("Official national identity mismatch")
     weights = grid_weights(territories)
     cells = {w.cell_id for w in weights}
     source_url = f"https://data.ecmwf.int/forecasts/{args.run_date:%Y%m%d}/00z/ifs/0p25/oper/{args.run_date:%Y%m%d}000000"
