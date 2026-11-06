@@ -18,7 +18,7 @@ const support=await json('/api/national/support?date=2026-10-31&variable=tempera
 const ids=['pra:29102','pra:50081','pra:2B260'];
 const fmt=v=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(v);
 async function mode(label){await p.getByRole('button',{name:label,exact:true}).click();await p.waitForFunction(label=>Array.from(document.querySelectorAll('.temporal-navigation button')).some(b=>b.textContent===label&&b.getAttribute('aria-pressed')==='true'),label);}
-async function select(name,value,param){await p.getByRole('combobox',{name:name==='Date · UTC'?/^Date · UTC/:new RegExp('^'+name)}).selectOption(value);await p.waitForURL(u=>u.searchParams.get(param)===value);}
+async function select(name,value,param){const toggle=p.locator('.filters-toggle');if(await toggle.isVisible()&&await toggle.getAttribute('aria-expanded')==='false')await toggle.click();await p.getByRole('combobox',{name:name==='Date · UTC'?/^Date · UTC/:new RegExp('^'+name)}).selectOption(value);await p.waitForURL(u=>u.searchParams.get(param)===value);}
 for(const [name,width,height] of [['desktop',1440,1000],['tablet',768,1000],['mobile',390,844]]){
  await p.setViewportSize({width,height});await p.goto(base+'/?pra=pra:50081');await p.locator('.national-map[data-ready="true"][data-feature-count="713"]').waitFor({timeout:90000});
  const canvas=await p.locator('.maplibregl-canvas').elementHandle();assert.equal(await p.getByLabel('Date · UTC',{exact:true}).inputValue(),'2026-10-31');
@@ -33,9 +33,9 @@ for(const [name,width,height] of [['desktop',1440,1000],['tablet',768,1000],['mo
  await mode('Prévisions');await p.getByRole('button',{name:'J+3',exact:true}).click();await p.waitForURL(u=>u.searchParams.get('forecast_date')==='2026-11-09');
  await p.getByRole('button',{name:'J+7',exact:true}).click();await p.waitForURL(u=>u.searchParams.get('forecast_date')==='2026-11-13');
  for(const variable of ['temperature','precipitation']){await select('Variable',variable,'weather_variable');const row=selected.find(r=>r.pra_id==='pra:2B260'&&r.variable===variable&&r.valid_date==='2026-11-13');await p.waitForFunction(t=>document.querySelector('[data-testid="weather-value"]')?.textContent.includes(t),row.value===null?'Indisponible':fmt(row.value));report.comparisons++;}
- assert.match(await p.locator('.unified-panel').innerText(),/2026-11-06T00:00:00Z/);
+ assert.match(await p.locator('.unified-main').innerText(),/2026-11-06T00:00:00Z/);
  await p.getByRole('link',{name:'Analyse agroclimato',exact:true}).click();await p.waitForURL(u=>u.pathname==='/analyse');assert.equal(new URL(p.url()).searchParams.get('pra'),'pra:2B260');assert.equal(await canvas.evaluate(n=>n===document.querySelector('.maplibregl-canvas')),true);
- await mode('Historique climatique');await p.getByLabel('Lecture temporelle',{exact:true}).selectOption('jour');await p.waitForURL(u=>u.searchParams.get('periode')==='jour');await p.getByLabel('Aléa descriptif',{exact:true}).selectOption('rain');
+ await mode('Historique climatique');await select('Lecture temporelle','jour','periode');await select('Aléa descriptif','rain','indicateur');
  await mode('Prévisions');await select('Modèle','arome','weather_model');await p.getByText('Aucune échéance de ce modèle pour cette journée.',{exact:false}).waitFor();assert.match(await p.getByTestId('weather-value').innerText(),/Indisponible/);
  assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,name+' overflow');
  await p.locator('.national-map').scrollIntoViewIfNeeded();await p.locator('.national-map-wrap').screenshot({path:`${out}/${name}-map.png`});await p.screenshot({path:`${out}/${name}.png`,fullPage:true});report.viewports.push({name,width,height,sameCanvas:true});

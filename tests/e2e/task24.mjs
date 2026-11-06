@@ -18,7 +18,7 @@ await page.goto(base+'/?date=2026-10-15');
 await page.locator('.national-map[data-ready="true"]').waitFor({timeout:60000});
 await page.getByText(/PRA complètes/).waitFor();
 assert.equal(await page.getByText(/Carte indisponible/).count(),0);
-const canvas=page.locator('.maplibregl-canvas');const original=await canvas.elementHandle();
+const canvas=page.locator('.maplibregl-canvas');const original=await canvas.elementHandle();await canvas.scrollIntoViewIfNeeded();
 const box=await canvas.boundingBox();await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.click(box.x+box.width/2,box.y+box.height/2);
 await page.waitForURL(/pra=pra/);
 const id=new URL(page.url()).searchParams.get('pra');const expected=fixture.find(f=>f.territoryId===id);assert.ok(expected);

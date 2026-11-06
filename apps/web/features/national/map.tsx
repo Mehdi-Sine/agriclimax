@@ -16,6 +16,14 @@ export type PraProperties = {
 };
 export type PraCollection = FeatureCollection<Geometry, PraProperties>;
 
+function focusTerritory(map:LibreMap,collection:PraCollection,selected:string){
+ const geometry=collection.features.find(f=>f.id===selected)?.geometry;
+ const points=geometry?.type==='MultiPolygon'?geometry.coordinates.flat(2):geometry?.type==='Polygon'?geometry.coordinates.flat():[];
+ if(!points.length)return;
+ const [west,south,east,north]=points.reduce(([w,s,e,n],p)=>[Math.min(w,p[0]),Math.min(s,p[1]),Math.max(e,p[0]),Math.max(n,p[1])],[Infinity,Infinity,-Infinity,-Infinity]);
+ map.fitBounds([[west,south],[east,north]],{padding:45,maxZoom:10,duration:0});
+}
+
 export default function NationalMap({
   collection,
   rows,
@@ -272,6 +280,7 @@ export default function NationalMap({
       >
         Vue nationale · {geography.label}
       </button>
+      {selected&&<button type="button" className="national-focus" onClick={()=>{if(map.current)focusTerritory(map.current,collection,selected);}}>Voir ce territoire</button>}
       <div
         ref={container}
         className="national-map"

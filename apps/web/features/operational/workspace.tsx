@@ -8,7 +8,7 @@ import '../unified/unified.css';
 import {useResource} from '../unified/resource';
 
 const label=(v:number|null|undefined)=>v==null?'Indisponible':new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(v);
-const status={available:'Disponible',partial:'Partiel',unavailable:'Indisponible'};
+const status={available:'Grille renseignée',partial:'Support incomplet ou invalide',unavailable:'Indisponible'};
 export function useOperationalWeather(active:boolean,requestedMode:TemporalMode,geometry:PraCollection|null){
   const search=useSearchParams(),router=useRouter(),pathname=usePathname();
   const model=(search.get('weather_model')??'selected') as WeatherModel;
@@ -64,10 +64,11 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode,
         {loading&&<p role="status">Chargement des agrégats PRA…</p>}
         {!hasHorizon&&<p role="status">Aucune échéance de ce modèle pour cette journée. Les contours restent visibles ; aucune valeur n’est remplacée par zéro.</p>}
         <p>{past?'Estimation rétrospective issue de prévisions, pas une observation.':'Prévision, pas une observation.'} Source : {current?.model??'en cours de lecture'} · run {current?.model_run_at??'—'} UTC · acquis {current?.acquired_at??catalogue?.acquired_at} UTC.</p>
-        {!loading&&hasHorizon&&<p>{catalogue?.pra_count} PRA référencées · {available} valeurs exploitables · {partial} supports partiels · {rows.filter(r=>r.status==='unavailable').length} indisponibles. La présence des contours ne signifie pas une couverture complète.</p>}
+        {!loading&&hasHorizon&&<p>{catalogue?.pra_count} PRA référencées · {available} valeurs calculées · {partial} supports partiels · {rows.filter(r=>r.status==='unavailable').length} indisponibles. La présence des contours ne signifie pas une couverture complète.</p>}
 </>;
-  const panel=<><h2>{feature?.properties.name??selected}</h2><p data-testid="weather-value">{label(current?.value)} {def?.unit??''}</p><p>Qualité : {current?status[current.status]:'Indisponible'} · support spatial des valeurs {label(current?current.spatial_coverage*100:null)} % · temporelle {label(current?current.temporal_coverage*100:null)} %.</p>
-          {coastal&&<p>{coastal.physical_land_mask_available?`Fraction de terre du masque officiel ${coastalKey?.toUpperCase()}, pondérée sur les cellules : ${label(coastal.source_land_fraction==null?null:coastal.source_land_fraction*100)} %. Ce masque ne corrige pas les valeurs.`:`Masque terre/mer du modèle indisponible. Centres situés dans le référentiel territorial : ${label(coastal.centre_inside_reference_fraction==null?null:coastal.centre_inside_reference_fraction*100)} % du poids ; indicateur géométrique, pas une mesure de surface terrestre.`}</p>}
+  const panel=<><h2>{feature?.properties.name??selected}</h2><p data-testid="weather-value">{label(current?.value)} {def?.unit??''}</p><p>Support de calcul : {current?status[current.status]:'Indisponible'} · cellules météo renseignées {label(current?current.spatial_coverage*100:null)} % · temporelle {label(current?current.temporal_coverage*100:null)} %.</p>
+          {coastal&&<p>{coastal.physical_land_mask_available?`Fraction de terre du masque officiel ${coastalKey?.toUpperCase()}, pondérée sur les cellules : ${label(coastal.source_land_fraction==null?null:coastal.source_land_fraction*100)} %. Ce masque ne corrige pas les valeurs. Une valeur numérique ne garantit pas une représentativité terrestre validée.`:`Masque terre/mer du modèle indisponible. Centres situés dans le référentiel territorial : ${label(coastal.centre_inside_reference_fraction==null?null:coastal.centre_inside_reference_fraction*100)} % du poids ; indicateur géométrique, pas une mesure de surface terrestre.`}</p>}
+          {coastal?.source_land_fraction!=null&&coastal.source_land_fraction<.5&&<p role="status">Le masque indique un support majoritairement maritime. Ce résultat ne constitue pas une température terrestre validée.</p>}
           <p>Validité : {current?.valid_from??'—'} → {current?.valid_to??'—'} · échéance fin H+{current?.lead_hours??'—'}.</p>
           <p>{model==='selected'?'Cumul multi-modèles non calculé.':`Précipitations cumulées du même scénario : ${label(homogeneous?cumulativeRain(homogeneous,selected,date):null)} mm.`}</p>
           <p>Températures minimale et maximale échantillonnées, sans garantie d’extrêmes continus. Moyennes intégrées sur 24 h. La représentativité des cellules littorales reste qualifiée ; aucune correction terre/mer implicite.</p>
