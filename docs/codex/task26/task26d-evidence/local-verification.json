@@ -1,0 +1,23 @@
+{
+  "tested_commit": "1438fb04207081eeef19bd0f6084e3644093ea9d",
+  "web_tests": 266,
+  "python_tests": 312,
+  "python_warnings": 59,
+  "typecheck": "passed",
+  "lint": "passed",
+  "production_build": "passed",
+  "new_python_modules_ruff_mypy": 6,
+  "task24_browser": "passed (synthetic transport)",
+  "source_secret_guard": "passed",
+  "migration_immutability": "passed",
+  "preview": "https://agriclimax-479yhnpv5-mehdi-sines-projects.vercel.app",
+  "preview_real_weather_comparisons": 33,
+  "preview_responsive_widths": [
+    1440,
+    768,
+    390
+  ],
+  "preview_agricultural_responsive_cases": 12,
+  "preview_coastal_real_cases": 3,
+  "vendor_acquisitions_restarted": 0
+}

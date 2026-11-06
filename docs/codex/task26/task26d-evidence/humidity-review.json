@@ -1,0 +1,36 @@
+{
+  "method": "native-rh-versus-same-model-dewpoint-water-magnus-1",
+  "national_values_modified": false,
+  "comparisons": [
+    {
+      "model": "arome",
+      "run": "2026-11-06T06:00:00+00:00",
+      "validity": "2026-11-07T03:00:00+00:00",
+      "latitude": 42.82500000000004,
+      "longitude": 9.375000000000028,
+      "native_rh_percent": 100.00660705566406,
+      "temperature_k": 281.8124084472656,
+      "dewpoint_k": 281.8124084472656,
+      "water_magnus_rh_percent": 100.0,
+      "native_minus_derived_percent": 0.0066070556640625,
+      "no_clipping": true,
+      "national_statistical_validation": false
+    },
+    {
+      "model": "arpege",
+      "run": "2026-11-06T06:00:00+00:00",
+      "validity": "2026-11-08T00:00:00+00:00",
+      "latitude": 52.0,
+      "longitude": -4.5,
+      "native_rh_percent": 100.00486755371094,
+      "temperature_k": 275.65362548828125,
+      "dewpoint_k": 275.64697265625,
+      "water_magnus_rh_percent": 99.95274309851243,
+      "native_minus_derived_percent": 0.05212445519850917,
+      "no_clipping": true,
+      "national_statistical_validation": false
+    }
+  ],
+  "source_requests": 4,
+  "source_bytes": 3752
+}

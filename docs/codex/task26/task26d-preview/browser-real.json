@@ -1,0 +1,39 @@
+{
+  "base": "http://127.0.0.1:3031",
+  "mocks": false,
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "sameCanvas": true
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1000,
+      "sameCanvas": true
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "sameCanvas": true
+    }
+  ],
+  "errors": [],
+  "comparisons": 33,
+  "checks": [
+    "latest ERA31 direct normal UI",
+    "recent estimate without opt-in",
+    "J+3 and J+7",
+    "five source semantics/no forecast normals",
+    "PRA preserved Climat/Analyse",
+    "one canvas all modes",
+    "67 actual partial supports/36 qualified means/zero-cell Crozon",
+    "source horizon absent stays NULL",
+    "warm/cold exact parity",
+    "new archive-only history120 rows",
+    "three widths no overflow"
+  ]
+}
