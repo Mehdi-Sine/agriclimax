@@ -303,7 +303,7 @@ export async function nationalData(
     if(transport===fetch)for(const day of historyDays){
       if(!forceCold&&!data.filter(r=>r.date===day).every(r=>r.current_status===null))continue;
       const archived=await archivedEra5Day(day);if(!archived)continue;
-      const byVariable=VARIABLES.flatMap(v=>archivedContext(data.filter(r=>r.date===day&&r.variable===v.key),archived,v.key));
+      const byVariable=VARIABLES.flatMap(v=>archivedContext(data.filter(r=>r.date===day&&r.variable===v.key).map(r=>({...r,pra_id:pra})),archived,v.key));
       data=data.map(r=>r.date===day?byVariable.find(a=>a.variable===r.variable)??r:r);archivedDays.push(day);
     }
     return {

@@ -31,7 +31,7 @@ export async function qualifySpatial(rows:TerritorialValue[],date:string,variabl
  return rows.map(row=>{
   const p=partial.get(row.territoryId);if(!p||row.value!==null||row.coverage===null||Math.abs(row.coverage-p.coverage)>0.00001)return row;
   // Keep the former strict value separately; never manufacture compatible normals/anomalies.
-  return {...row,value:p.value,normal:null,anomaly:null,observed_value:p.observed_value,coverage:p.coverage,rule_version:p.rule_version,provenance:'ERA5-Land · verified native daily support',quality_flags:[...row.quality_flags,...p.quality_flags],status:p.coverage>0?'partial':'unavailable'};
+  return {...row,value:p.value,normal:null,anomaly:null,observed_value:p.observed_value,observedDays:p.observed_value!==null?1:0,coverage:p.coverage,rule_version:p.rule_version,provenance:'ERA5-Land · verified native daily support',quality_flags:[...row.quality_flags,...p.quality_flags],status:p.coverage>0?'partial':'unavailable'};
  });
 }
 export function validSupportQuery(params:URLSearchParams):boolean{return [...params.keys()].every(k=>['date','variable'].includes(k)&&params.getAll(k).length===1)&&!!params.get('date')&&!!params.get('variable');}

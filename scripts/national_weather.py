@@ -11,7 +11,7 @@ from national_weather_sources import Budget, preflight
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--mode", choices=["preflight", "national", "replay", "masks"], required=True
+        "--mode", choices=["preflight", "national", "replay", "masks", "coastal-review", "humidity-review"], required=True
     )
     parser.add_argument(
         "--run-date", type=date.fromisoformat, default=datetime.now(UTC).date()
@@ -82,6 +82,16 @@ def main() -> None:
         from operational_land_masks import run as mask_run
 
         print(json.dumps(mask_run(args.root, args.publish_dev)))
+        return
+    if args.mode == "coastal-review":
+        from coastal_model_review import review
+
+        print(json.dumps(review(args.root)))
+        return
+    if args.mode == "humidity-review":
+        from operational_humidity_review import review as humidity_review
+
+        print(json.dumps(humidity_review(args.root)))
         return
     budget = Budget()
     if args.mode == "preflight":

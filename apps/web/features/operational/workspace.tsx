@@ -16,7 +16,8 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode)
   const selected=search.get('pra')??'pra:28341';
   const archivedRun=search.get('weather_run')??'';
   const runQuery:Record<string,string>=archivedRun?{run:archivedRun}:{};
-  const [colors,setColors]=useState<string[]>([]),[now]=useState(()=>Date.now());
+  const [colors,setColors]=useState<string[]>([]),[now,setNow]=useState(()=>Date.now());
+  useEffect(()=>{const timer=setInterval(()=>setNow(Date.now()),60000);return()=>clearInterval(timer);},[]);
   const today=new Date(now).toISOString().slice(0,10);
   function change(values:Record<string,string>){const q=new URLSearchParams(search.toString());q.delete('experimental');q.set('temporal',temporalMode);for(const [k,v] of Object.entries(values))q.set(k==='weather_date'?`${temporalMode}_date`:k,v);q.delete('weather_date');router.replace(`${pathname}?${q}`,{scroll:false});}
   const geometryResource=useResource<PraCollection>('/maps/pra-national.geojson',true),geometry=geometryResource.data;
@@ -51,6 +52,7 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode)
   const available=rows.filter(r=>r.value!==null).length,partial=rows.filter(r=>r.status==='partial').length;
   const homogeneous=history&&current?{...history,rows:history.rows.filter(r=>r.source_id===current.source_id&&r.model_run_at===current.model_run_at&&r.valid_date>=(current.model_run_at??'').slice(0,10))}:null;
   const filters=<>
+    <p>Consultation : {new Date(now).toLocaleString('fr-FR',{timeZone:'Europe/Paris'})} · Europe/Paris. Les journées de validité restent en UTC.</p>
     <p role="status">{temporalMode==='recent'?(date===catalogue?.run?.slice(0,10)?'J0 : journée en cours, incluant des heures prévues ; pas une observation.':'Estimation issue de prévisions antérieures ; aucune observation ou analyse quotidienne validée.'):'Prévisions issues de modèles, pas des observations.'}{stale?' Cycle ancien : actualisation nécessaire.':''}</p>
     {error&&<p role="alert">{error}</p>}
     {!catalogue&&<p role="status">Chargement du catalogue météo vérifié…</p>}

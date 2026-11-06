@@ -9,7 +9,7 @@ import { AGRICULTURE, INDICATORS, RULES, parseState, type Space, type Territoria
 import './unified.css';
 import { useAgriculturalExplorer } from '../agriculture/explorer';
 import {useOperationalWeather} from '../operational/workspace';
-import {temporalMode,switchMode,type TemporalMode} from './temporal';
+import {temporalMode,switchMode,temporalGap,type TemporalMode} from './temporal';
 import { WheatContext } from '../agriculture/wheat-context';
 import {useResource} from './resource';
 
@@ -30,6 +30,7 @@ function HistoricalWorkspace() {
   const availability=useResource<NationalAvailability>('/api/national?action=availability');
   const availableDays=availability.data?.days??DAYS;
   const latest=availability.data?.latest??NATIONAL.end;
+  const gap=temporalGap(latest,operational.catalogue?.all_dates??[]);
   const {state,errors}=parseState(new URLSearchParams(search.toString()),space,availableDays);
   const def=INDICATORS.find(i=>i.id===state.indicator)!;
   const agriculture = useAgriculturalExplorer(space === 'productions');
@@ -79,7 +80,7 @@ function HistoricalWorkspace() {
   const mapCollection = space === 'productions' ? agriculture.collection ?? collection : collection;
   const mapProps = space === 'productions' ? agriculture.mapProps : weather?operational.mapProps: { selected: state.pra, onSelect: (id: string) => change({pra:id}), quantitative: {values: invalid ? [] : values.map(v=>state.mode==='value'&&v.observed_value!=null?{...v,value:v.value??v.observed_value}:v), field: state.mode, unit: def.unit, bounds, colors: palette.length ? palette : ['transparent','transparent','transparent','transparent','transparent']} };
   const climateBody = <>
-      {space!=='productions'&&<section className="temporal-navigation" aria-label="Lecture temporelle des données">{([['history','Historique climatique'],['recent','Météo récente'],['forecast','Prévisions']] as const).map(([mode,label])=><button key={mode} aria-pressed={(weather?operational.temporalMode:temporal)===mode} onClick={()=>{const p=switchMode(new URLSearchParams(search.toString()),mode as TemporalMode);window.history.pushState(null,'',`${pathname}?${p}`);}}>{label}</button>)}<p>{weather?`Cycle ${operational.catalogue?.run??'en cours de vérification'} · validités ${operational.dates[0]??'—'} → ${operational.dates.at(-1)??'—'} UTC`:`Historique jusqu’au ${latest} UTC · normales 1991–2020`}</p></section>}
+      {space!=='productions'&&<section className="temporal-navigation" aria-label="Lecture temporelle des données">{([['history','Historique climatique'],['recent','Météo récente'],['forecast','Prévisions']] as const).map(([mode,label])=><button key={mode} aria-pressed={(weather?operational.temporalMode:temporal)===mode} onClick={()=>{const p=switchMode(new URLSearchParams(search.toString()),mode as TemporalMode);window.history.pushState(null,'',`${pathname}?${p}`);}}>{label}</button>)}<p>{weather?`Cycle ${operational.catalogue?.run??'en cours de vérification'} · validités ${operational.dates[0]??'—'} → ${operational.dates.at(-1)??'—'} UTC`:`Historique jusqu’au ${latest} UTC · normales 1991–2020`}</p>{gap&&<p role="status">Lacune de séries : {gap.start} → {gap.end} UTC ({gap.days} jours). Aucune continuité ni interpolation inventée entre historique et météo.</p>}</section>}
       {space === 'productions' ? agriculture.filters : weather?<>{operational.filters}{operational.shortcuts}</>:<>
       <button className="filters-toggle" aria-expanded={filtersOpen} aria-controls="map-filters" onClick={()=>setFiltersOpen(!filtersOpen)}>Filtres · {def.label} {filtersOpen?'−':'+'}</button>
       <section id="map-filters" className={`unified-filters ${filtersOpen?'filters-open':''}`} aria-label="Filtres de la carte">
@@ -131,8 +132,8 @@ function HistoricalWorkspace() {
       <a className="unified-help" href="#sources">ⓘ Aide et sources</a>
     </header>
     <main id="main" className="unified-main">
-      <div className="unified-heading"><div><p className="eyebrow">EXPLORER LES TERRITOIRES · FRANCE MÉTROPOLITAINE ET CORSE</p><h1>{TITLES[space]}</h1><p>{DESCRIPTIONS[space]}</p></div><span className="scale-badge">{space === 'productions' ? 'Mailles agricoles · sources officielles' : '713 PRA · contours officiels'}</span></div>
-      <div className="unified-context" role={availability.error?'alert':'status'}>{availability.error?<span>Disponibilité climatique inaccessible. {availability.error}</span>:availability.data?<span>Dernière publication nationale · {availability.data.freshness==='stale'?'Données retardées':'Réanalyse récente'} · date source : {availability.data.source_date} UTC · acquisition : {availability.data.acquired_at??'date non exposée par le service actuel'} · mise à jour : {availability.data.updated_at??'inconnue'} (UTC)</span>:<span>Vérification de la dernière journée nationale acquise…</span>}</div>
+      <div className="unified-heading"><div><p className="eyebrow">EXPLORER LES TERRITOIRES · FRANCE MÉTROPOLITAINE ET CORSE</p><h1>{weather?(operational.temporalMode==='recent'?'Météo récente des territoires agricoles':'Prévisions des territoires agricoles'):TITLES[space]}</h1><p>{weather?'Données de modèles, sources et couvertures qualifiées ; les observations et normales historiques restent distinctes.':DESCRIPTIONS[space]}</p></div><span className="scale-badge">{space === 'productions' ? 'Mailles agricoles · sources officielles' : '713 PRA · contours officiels'}</span></div>
+      <div className="unified-context" role={availability.error?'alert':'status'}>{availability.error?<span>Disponibilité climatique inaccessible. {availability.error}</span>:availability.data?<span>Historique ERA5-Land · dernière journée acquise · {availability.data.freshness==='stale'?'Données retardées':'Réanalyse récente'} · date source : {availability.data.source_date} UTC · acquisition : {availability.data.acquired_at??'date non exposée par le service actuel'} · mise à jour : {availability.data.updated_at??'inconnue'} (UTC)</span>:<span>Vérification de la dernière journée nationale acquise…</span>}</div>
       {climateBody}
     </main>
   </div>;

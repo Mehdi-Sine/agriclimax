@@ -13,3 +13,6 @@ export function modeDate(params:URLSearchParams,dates:string[],mode:TemporalMode
 export function switchMode(params:URLSearchParams,mode:TemporalMode):URLSearchParams{
  const p=new URLSearchParams(params);p.set('temporal',mode);p.delete('experimental');p.delete('weather_date');return p;
 }
+export function temporalGap(historyLatest:string,weatherDates:string[]):{start:string;end:string;days:number}|null{
+ const first=[...weatherDates].sort().find(d=>d>historyLatest);if(!first)return null;const distance=(Date.parse(first)-Date.parse(historyLatest))/86400000;if(!Number.isInteger(distance)||distance<=1)return null;return{start:new Date(Date.parse(historyLatest)+86400000).toISOString().slice(0,10),end:new Date(Date.parse(first)-86400000).toISOString().slice(0,10),days:distance-1};
+}

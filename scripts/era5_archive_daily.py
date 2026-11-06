@@ -28,6 +28,7 @@ def main() -> None:
     p.add_argument("--date", type=date.fromisoformat)
     p.add_argument("--root", type=Path, default=Path("work/era5-archive"))
     p.add_argument("--max-downloads", type=int, default=64)
+    p.add_argument("--replay-latest", action="store_true")
     p.add_argument("--execute", action="store_true")
     p.add_argument("--publish-dev", action="store_true")
     args = p.parse_args()
@@ -43,12 +44,22 @@ def main() -> None:
     repository = PraRepository(REFERENCE, DATASET)
     anchor = date.fromisoformat(repository.catalog()["latest"])
     latest = max([anchor, *(date.fromisoformat(d) for e in catalogue["era5"] for d in e["dates"])])
-    day = args.date or latest + timedelta(days=1)
+    day = args.date or (latest if args.replay_latest else latest + timedelta(days=1))
     args.root.mkdir(parents=True, exist_ok=True)
     report: dict[str, Any] = {"date": str(day), "database_writes": 0, "source_requests": 0, "source_bytes": 0, "storage_writes": 0}
     entry = next((e for e in catalogue["era5"] if str(day) in e["dates"]), None)
     if entry:
-        store.blob(entry["path"], entry["sha256"])
+        raw = store.blob(entry["path"], entry["sha256"])
+        restored = json.loads(gzip.decompress(raw))
+        selected: list[dict[str, Any]] = []
+        for record in restored["records"]:
+            if hashlib.sha256(record["content"].encode()).hexdigest() != record["sha256"]:
+                raise ValueError("Replay envelope checksum mismatch")
+            selected.extend(r for r in json.loads(record["content"])["daily"] if r["valid_date"] == str(day))
+        if len(selected) != 713 or len({r["pra_id"] for r in selected}) != 713:
+            raise ValueError("Replay national day restoration incomplete")
+        report["restored_rows"] = len(selected)
+        report["archive_sha256"] = entry["sha256"]
         report["status"] = "read_only_existing_archive"
         atomic_write(args.root / "report.json", json.dumps(report, indent=2).encode())
         print(json.dumps(report))
