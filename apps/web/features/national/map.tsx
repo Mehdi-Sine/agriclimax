@@ -147,6 +147,8 @@ export default function NationalMap({
           });
           m.addSource('pra-covered',{type:'geojson',data:supportRef.current??{type:'FeatureCollection',features:[]},promoteId:'code'});
           m.addLayer({id:'pra-covered-fill',type:'fill',source:'pra-covered',paint:{'fill-color':['coalesce',['feature-state','color'],color('--national-unavailable')],'fill-antialias':false,'fill-opacity':0.9}});
+          const hatch=document.createElement('canvas');hatch.width=8;hatch.height=8;const ink=hatch.getContext('2d');
+          if(ink){ink.strokeStyle=color('--text-primary');ink.lineWidth=1;ink.beginPath();ink.moveTo(0,8);ink.lineTo(8,0);ink.stroke();m.addImage('partial-hatch',ink.getImageData(0,0,8,8));m.addLayer({id:'pra-partial-pattern',type:'fill',source:'pra',paint:{'fill-pattern':'partial-hatch','fill-antialias':false,'fill-opacity':['case',['boolean',['feature-state','partial'],false],0.25,0]}});}
           m.addLayer({id:'pra-selection',type:'fill',source:'pra',paint:{'fill-color':color('--text-primary'),'fill-opacity':['case',['boolean',['feature-state','selected'],false],0.18,0],'fill-antialias':false}});
           m.addLayer({
             id: 'pra-outline',
