@@ -1,0 +1,36 @@
+{
+  "base": "http://127.0.0.1:3031",
+  "mocked": false,
+  "checks": [
+    "713 official features",
+    "all source dates and five variables",
+    "forecast nature retained",
+    "60 real API/card comparisons",
+    "three responsive widths",
+    "no horizontal overflow",
+    "12 actual polygon hover values"
+  ],
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "cardComparisons": 20
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1000,
+      "cardComparisons": 20
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "cardComparisons": 20
+    }
+  ],
+  "errors": [],
+  "apiComparisons": 81995,
+  "run": "2026-11-06T00:00:00+00:00"
+}

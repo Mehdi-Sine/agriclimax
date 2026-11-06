@@ -9,10 +9,12 @@ from collections.abc import Callable
 from dataclasses import asdict
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
+from time import monotonic
 from typing import Any
 
 from agriclimax.climate.coverage import compact
 from agriclimax.climate.era5_land import Era5LandProvider
+from agriclimax.climate.models import Dataset, ReferenceDay
 from agriclimax.daily import retry
 from agriclimax.ingestion.storage import atomic_write
 from agriclimax.wheat.models import Parameters
@@ -27,6 +29,74 @@ VERSION = "pra-native-1"
 
 def digest(value: object) -> str:
     return hashlib.sha256(json.dumps(value, sort_keys=True, allow_nan=False).encode()).hexdigest()
+
+
+def write_native_tiles(
+    refs: list[ReferenceDay],
+    root: Path,
+    dataset: Dataset,
+    wanted: list[tuple[int, int]],
+    windows: list[tuple[date, date]],
+) -> int:
+    """Task19D's lossless 2-degree -> native 1-degree compact checkpoint splitter.
+
+    Existing checkpoints are retained; mixed acquisitions must agree on every
+    common native value (including NULL masks), never silently replace inputs.
+    """
+    if not refs:
+        raise ValueError("Missing source group")
+    rows = [
+        (math.floor(round(r.longitude, 1)), math.floor(round(r.latitude, 1)), compact(r))
+        for r in refs
+    ]
+    created = 0
+    for x, y in wanted:
+        for start, end in windows:
+            selected = [
+                r
+                for rx, ry, r in rows
+                if (rx, ry) == (x, y) and str(start) <= str(r["valid_date"]) <= str(end)
+            ]
+            if len(selected) != 100 * ((end - start).days + 1) or len(
+                {(r["cell_id"], r["valid_date"]) for r in selected}
+            ) != len(selected):
+                raise ValueError("Incomplete native tile")
+            key = digest(
+                {
+                    "dataset": dataset.model_dump(mode="json"),
+                    "start": str(start),
+                    "end": str(end),
+                    "west": x,
+                    "south": y,
+                    "compact_version": 1,
+                }
+            )
+            path = root / "tiles" / f"{key}.json.gz"
+            if path.exists():
+                content = path.read_bytes()
+                if hashlib.sha256(content).hexdigest() != path.with_suffix(".sha256").read_text():
+                    raise ValueError("Tile checksum mismatch")
+                previous = {
+                    (r["cell_id"], r["valid_date"]): r
+                    for r in json.loads(gzip.decompress(content))["rows"]
+                }
+                for row in selected:
+                    old = previous.get((row["cell_id"], row["valid_date"]))
+                    if old is None or any(old[v] != row[v] for v in (*VARIABLES, "quality_flags")):
+                        raise ValueError("Immutable native source conflict")
+                continue
+            content = gzip.compress(
+                json.dumps(
+                    {"rows": selected, "source": refs[0].source_request},
+                    sort_keys=True,
+                    allow_nan=False,
+                ).encode(),
+                mtime=0,
+            )
+            atomic_write(path, content)
+            atomic_write(path.with_suffix(".sha256"), hashlib.sha256(content).hexdigest().encode())
+            created += 1
+    return created
 
 
 def plan(
@@ -114,6 +184,7 @@ def run_batch(
     max_downloads: int = 2,
     persist: Callable[[dict[str, Any]], None] | None = None,
     parameters: Parameters | None = None,
+    timings: dict[str, float] | None = None,
 ) -> dict[str, Any]:
     if not 0 <= max_downloads <= 4 or not 0 <= (end - start).days <= 6:
         raise ValueError("0–4 downloads, 1–7 days per bounded batch")
@@ -180,6 +251,46 @@ def run_batch(
             }
         )
         archive = root / "tiles" / f"{tile_key}.json.gz"
+        if not archive.exists() and start != end:
+            # Assemble an exact multi-day tile from verified daily checkpoints.
+            # Scientific rows and individual receipts are retained without redecoding.
+            pieces = []
+            for offset in range((end - start).days + 1):
+                tile_day = start + timedelta(days=offset)
+                daily_key = digest(
+                    {
+                        "dataset": provider.dataset.model_dump(mode="json"),
+                        "start": str(tile_day),
+                        "end": str(tile_day),
+                        "west": west,
+                        "south": south,
+                        "compact_version": 1,
+                    }
+                )
+                daily_path = root / "tiles" / f"{daily_key}.json.gz"
+                if not daily_path.exists():
+                    break
+                raw = daily_path.read_bytes()
+                if hashlib.sha256(raw).hexdigest() != daily_path.with_suffix(".sha256").read_text():
+                    raise ValueError("Corrupt daily tile archive")
+                pieces.append(json.loads(gzip.decompress(raw)))
+            if len(pieces) == (end - start).days + 1:
+                receipts = {digest(r): r for piece in pieces for r in piece["source"]["receipts"]}
+                payload = {
+                    "rows": [r for piece in pieces for r in piece["rows"]],
+                    "source": {
+                        "catalogue": "reanalysis-era5-land",
+                        "receipts": [receipts[k] for k in sorted(receipts)],
+                        "source_checksums": sorted({r["checksum"] for r in receipts.values()}),
+                    },
+                }
+                raw = gzip.compress(
+                    json.dumps(payload, sort_keys=True, allow_nan=False).encode(), mtime=0
+                )
+                atomic_write(archive, raw)
+                atomic_write(
+                    archive.with_suffix(".sha256"), hashlib.sha256(raw).hexdigest().encode()
+                )
         if not archive.exists():
             if downloaded >= max_downloads:
                 return {
@@ -214,8 +325,12 @@ def run_batch(
         calculation_time = datetime.now(UTC)
     days = (end - start).days + 1
     keys = {(r["cell_id"], r["valid_date"]) for r in rows}
-    if len(keys) != len(rows) or len(keys) != len(weights) * days:
+    expected_keys = {
+        (w.cell_id, str(start + timedelta(days=i))) for w in weights for i in range(days)
+    }
+    if len(keys) != len(rows) or keys != expected_keys:
         raise ValueError("Missing or duplicate native support; source not fabricated")
+    aggregation_started = monotonic()
     daily = []
     for offset in range(days):
         day = str(start + timedelta(days=offset))
@@ -276,6 +391,10 @@ def run_batch(
                     "confidence": "low",
                 }
             )
+    if timings is not None:
+        timings["aggregation"] = timings.get("aggregation", 0.0) + monotonic() - aggregation_started
+    if start != end:
+        sources = {digest(source): source for source in sources.values()}
     envelope = {
         "batch_key": key,
         "identity": identity,

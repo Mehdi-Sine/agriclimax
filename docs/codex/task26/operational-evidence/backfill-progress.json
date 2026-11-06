@@ -1,0 +1,28 @@
+{
+  "run_id": 42091357008,
+  "status": "stopped",
+  "stage": "acquisition_and_native_validation",
+  "timings_seconds": {
+    "acquisition": 1201.401562803,
+    "persistence": 0.0,
+    "read_validation": 18.404302294999994,
+    "total": 1319.7558447469999,
+    "aggregation_cache_and_control": 99.94997964899994
+  },
+  "cds_requests": 21,
+  "transferred_bytes": 4267533,
+  "compact_tiles": 374,
+  "native_rows_by_date": {
+    "2026-10-20": 5705,
+    "2026-10-21": 5300,
+    "2026-10-22": 5300,
+    "2026-10-23": 5300,
+    "2026-10-24": 5300,
+    "2026-10-25": 5300,
+    "2026-10-26": 5300
+  },
+  "distinct_source_receipts_including_pilot": 25,
+  "new_days_published": 0,
+  "snapshot_zip_bytes": 1639530,
+  "source_groups_count_not_written_before_interrupt": true
+}

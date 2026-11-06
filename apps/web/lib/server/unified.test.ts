@@ -10,8 +10,10 @@ function configure(){vi.stubEnv('PRA_NATIONAL_ENABLED','1');vi.stubEnv('NEXT_PUB
 it('matches the deployed SQL array contract and its variable ordering',()=>{
  const sql=readFileSync('../../supabase/migrations/20261102064147_pra_climatology_superseded_release_guard.sql','utf8');
  expect(sql).toContain("'current_coverage',c.coverage");
+ const pipeline=readFileSync('../../engine/src/agriclimax/territories/pipeline.py','utf8');
+ expect(pipeline).toContain('VARIABLES = ("temperature", "temperature_min", "temperature_max", "precipitation")');
  expect(sql).toContain("(0,'temperature_min'");expect(sql).toContain("(1,'temperature_max'");expect(sql).toContain("(2,'temperature'");
- for(const [variable,expected] of [['temperature_min',0.7],['temperature_max',0.8],['temperature',0.9],['precipitation',1]] as const)expect(parseContextRow({...base,variable}).current_coverage).toBe(expected);
+ for(const [variable,expected] of [['temperature_min',0.8],['temperature_max',0.9],['temperature',0.7],['precipitation',1]] as const)expect(parseContextRow({...base,variable}).current_coverage).toBe(expected);
  expect(parseContextRow({...base,variable:'temperature',current_coverage:1}).current_coverage).toBe(1);
  expect(()=>parseContextRow({...base,variable:'temperature',current_coverage:[1,2,1,1]})).toThrow();
 });
@@ -19,7 +21,7 @@ it('accepts the actual 120-row historical response and preserves unavailable and
  configure();
  const f=vi.fn<typeof fetch>().mockResolvedValue(Response.json({status:'available',data:DAYS.flatMap(date=>['temperature_min','temperature_max','temperature','precipitation'].map(variable=>({...base,date,variable})))}));
  const result=await readNational(new Request('https://test/api/national?action=context-history&pra=pra:01451'),f);
- expect(result.status).toBe(200);const data=await result.json();expect(data.data).toHaveLength(120);expect(data.data[2].current_coverage).toBe(0.9);
+ expect(result.status).toBe(200);const data=await result.json();expect(data.data).toHaveLength(120);expect(data.data[2].current_coverage).toBe(0.7);
  const leap=parseContextRow({...base,date:'2024-02-29',variable:'temperature',current_value:null,normal_1991_2020:null,anomaly:null,current_coverage:null,sample_years:8,reference_coverage:8/30,status:'missing_current',normal_status:'leap_day_insufficient_reference'});
  expect(leap.normal_1991_2020).toBeNull();expect(leap.normal_status).toBe('leap_day_insufficient_reference');
  expect(JSON.stringify(data)).not.toContain('test-private');

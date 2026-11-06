@@ -1,0 +1,22 @@
+{
+  "real_native_values": true,
+  "production_aggregation_called": false,
+  "rows_checked": 24955,
+  "nulls_checked": 2087,
+  "max_absolute_difference": 2.842170943040401e-14,
+  "tolerance": 1e-10,
+  "source_acquisition_requests": 0,
+  "api_requests": 0,
+  "status_counts": {
+    "temperature:available": 4991,
+    "temperature_min:available": 4991,
+    "temperature_max:available": 4991,
+    "precipitation:partial": 333,
+    "humidity:partial": 1693,
+    "precipitation:available": 4653,
+    "humidity:available": 3242,
+    "humidity:unavailable": 56,
+    "precipitation:unavailable": 5
+  },
+  "native_sha256": "0c96107262101b17ebfd7c3f45b02b91575c4659421c6569a4c824646d05b7f5"
+}

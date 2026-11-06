@@ -1,0 +1,39 @@
+{
+  "observed_at": "2026-11-05T22:17:33.367382+00:00",
+  "project": "DEV",
+  "incident": "Existing Task12 PR workflow performed unintended real ERA5 smoke acquisitions and immutable persistence while this access follow-up was in progress.",
+  "workflow_runs": [
+    42117887437,
+    42118667143,
+    42118861954,
+    42119208330,
+    42119659452
+  ],
+  "source_dates": [
+    "1991-09-01",
+    "1991-09-03"
+  ],
+  "bbox": [
+    -1.8,
+    48,
+    -1.4,
+    48.3
+  ],
+  "new_immutable_legacy_reference_revisions": 300,
+  "matching_preexisting_variable_value_unit_tuples": 300,
+  "unmatched_scientific_values": 0,
+  "pra_daily_rows": 32136,
+  "pra_batches": 6072,
+  "pra_normals": 521916,
+  "latest_pra_date": "2026-10-30",
+  "old_rows_deleted_or_rewritten": false,
+  "deployed_rpc_verified": "agriclimax_persist_climate performs INSERT ON CONFLICT DO NOTHING into climate_references/climate_indicators only; no PRA writes.",
+  "audit_mode": "Read-only SQL; no corrective DELETE or UPDATE executed.",
+  "guard_commit": "a27c1753b7f87fe175eb9753343b70ce0db17608",
+  "guard_verified_skipped_run": 42120011741,
+  "guard_scope": "Skip Task12 PR smoke for codex/26-national-daily-climate; retain other PRs and manual behavior.",
+  "guard_verified_skipped_runs": [
+    42120011741,
+    42179431930
+  ]
+}

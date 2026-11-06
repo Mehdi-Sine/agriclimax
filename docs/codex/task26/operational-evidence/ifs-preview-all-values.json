@@ -1,0 +1,24 @@
+{
+  "real_native_values": true,
+  "production_aggregation_called": false,
+  "rows_checked": 420,
+  "nulls_checked": 52,
+  "max_absolute_difference": 1.4210854715202004e-14,
+  "tolerance": 1e-10,
+  "source_acquisition_requests": 0,
+  "api_requests": 1,
+  "status_counts": {
+    "temperature:available": 84,
+    "temperature_min:available": 84,
+    "temperature_max:available": 84,
+    "precipitation:available": 77,
+    "humidity:partial": 45,
+    "humidity:available": 39,
+    "precipitation:partial": 7
+  },
+  "native_sha256": "d6ea2da4b05f02b793df977469502aab2b2074469a96a3367ed5bbdbed638627",
+  "api_rows_verified": 420,
+  "api_max_absolute_difference": 1.4210854715202004e-14,
+  "api_float64_one_ulp_transport_adjustments": 154,
+  "api_calculation_version": "pra-weather-daily-2"
+}

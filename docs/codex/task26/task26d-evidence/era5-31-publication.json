@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-31",
+  "database_writes": 0,
+  "source_requests": 21,
+  "source_bytes": 1105506,
+  "storage_writes": 5,
+  "source_groups": 11,
+  "new_compact_tiles": 34,
+  "status": "published",
+  "restored_rows": 713,
+  "archive": {
+    "archive_version": "pra-exact-bytes-1",
+    "sha256": "1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961",
+    "envelopes": 713,
+    "uncompressed_output_bytes": 3107441,
+    "archive_bytes": 284028
+  },
+  "sha256": "1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961",
+  "spatial_support": {
+    "dates": [
+      "2026-10-31"
+    ],
+    "geometries": 67,
+    "bytes": 2439099,
+    "max_area_error_fraction": 0.0006667876838870694
+  },
+  "publication": {
+    "dates": [
+      "2026-10-31"
+    ],
+    "path": "era5/1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961.json.gz",
+    "sha256": "1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961",
+    "bytes": 284028,
+    "inserted": true
+  },
+  "seconds": 837.983102565
+}

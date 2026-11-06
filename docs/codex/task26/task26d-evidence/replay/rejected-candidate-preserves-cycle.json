@@ -1,0 +1,10 @@
+{
+  "rejected_before_any_write": true,
+  "error_type": "ValueError",
+  "old_verified_cycle": "2026-11-06T06:00:00+00:00",
+  "old_sha256": "42b602fdc03b29707d423328026f216354e985e70debbc3252796335c24be724",
+  "old_archive_byte_identical": true,
+  "storage_writes": 0,
+  "source_requests": 0,
+  "test_candidate": "copy of real published cycle with one row removed; never published"
+}

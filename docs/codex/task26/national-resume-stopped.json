@@ -1,0 +1,35 @@
+{
+  "dry_run": false,
+  "reference": "ofb-masa-pra-2017-snapshot-20261017",
+  "dataset": "era5land-national-20260919-20261018-v1",
+  "pilot": false,
+  "anchor_verified": true,
+  "status": "stopped",
+  "timings_seconds": {
+    "acquisition": 86.65224137199999,
+    "persistence": 0.0,
+    "read_validation": 1.851057069999996,
+    "total": 102.952275194,
+    "aggregation_cache_and_control": 14.448976752000007
+  },
+  "latest_national_date": "2026-10-18",
+  "source_acquired_at": "2026-10-30T23:07:23.00521+00:00",
+  "limits": {
+    "cds_concurrency": 1,
+    "new_tiles": 30,
+    "cds_requests": 128,
+    "duration_seconds": 1320,
+    "address_space_bytes": 4294967296,
+    "source_file_bytes": 16777216,
+    "transfer_bytes": 134217728,
+    "workspace_bytes": 469762048
+  },
+  "requested_dates": [
+    "2026-10-19"
+  ],
+  "stop_reason": "source_destination_validation_or_budget; resume_checkpoints",
+  "cds_requests": 2,
+  "transferred_bytes": 86769,
+  "batch_count_in_report": 0,
+  "report_detail": "Detailed batch list remains in the original GitHub artifact and workspace; public report retains measurements/count/digest."
+}

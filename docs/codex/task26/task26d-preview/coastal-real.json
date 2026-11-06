@@ -1,0 +1,42 @@
+{
+  "mocks": false,
+  "base": "http://127.0.0.1:3031",
+  "cases": [
+    {
+      "pra": "50081",
+      "label": "hague",
+      "focusVisible": true,
+      "panel": "PETITE RÉGION AGRICOLE · 50081\n×\nLA HAGUE - 50\n\nManche · Normandie\n\nPartiel\nTempérature moyenne\nIndisponible\nNormale 1991–2020\nIndisponible\nAnomalie\nIndisponible\n\nMoyenne sur la seule portion réellement renseignée : 12,06 °C. Couverture inférieure à90% : aucune valeur pour la PRA entière. Normale et anomalie non calculées pour cette restitution.\n\n1/1 jours renseignés · couverture spatiale 43,93 %\n\nRésultat partiel : somme ou moyenne des seuls jours renseignés, sans extrapolation.\n\nTempérature moyenne · évolution quotidienne\n\nAucune valeur ni normale disponible.\n\nDétails et méthode",
+      "hover": [
+        "LA HAGUE - 50 · 50081 · Portion sans données ; consulter la surface colorée.",
+        "Survolez un territoire pour lire sa valeur. Cliquez pour ouvrir sa fiche.",
+        "LA HAGUE - 50 · 50081 · 12,06 °C · Partiel · aire renseignée",
+        "BOCAGE DE VALOGNES - 50 · 50082 · 11,38 °C · Partiel · aire renseignée"
+      ]
+    },
+    {
+      "pra": "29102",
+      "label": "crozon",
+      "focusVisible": true,
+      "panel": "PETITE RÉGION AGRICOLE · 29102\n×\nPRESQU ILE DE CROZON - 29\n\nFinistère · Bretagne\n\nIndisponible\nTempérature moyenne\nIndisponible\nNormale 1991–2020\nIndisponible\nAnomalie\nIndisponible\n\n0/1 jours renseignés · couverture spatiale 0 %\n\nTempérature moyenne · évolution quotidienne\n\nAucune valeur ni normale disponible.\n\nDétails et méthode",
+      "hover": [
+        "Survolez un territoire pour lire sa valeur. Cliquez pour ouvrir sa fiche.",
+        "PRESQU ILE DE CROZON - 29 · 29102 · Indisponible · Indisponible"
+      ]
+    },
+    {
+      "pra": "2A258",
+      "label": "corse",
+      "focusVisible": true,
+      "panel": "PETITE RÉGION AGRICOLE · 2A258\n×\nLITTORAL CORSE - 2A\n\nCorse-du-Sud · Corse\n\nPartiel\nTempérature moyenne\nIndisponible\nNormale 1991–2020\nIndisponible\nAnomalie\nIndisponible\n\nMoyenne sur la seule portion réellement renseignée : 14,74 °C. Couverture inférieure à90% : aucune valeur pour la PRA entière. Normale et anomalie non calculées pour cette restitution.\n\n1/1 jours renseignés · couverture spatiale 46,92 %\n\nRésultat partiel : somme ou moyenne des seuls jours renseignés, sans extrapolation.\n\nTempérature moyenne · évolution quotidienne\n\nAucune valeur ni normale disponible.\n\nDétails et méthode",
+      "hover": [
+        "LITTORAL CORSE - 2A · 2A258 · Portion sans données ; consulter la surface colorée.",
+        "MONTAGNE CORSE - 2B · 2B260 · 10,86 °C · Partiel · aire renseignée",
+        "MONTAGNE CORSE - 2A · 2A260 · 10,97 °C · Partiel · aire renseignée",
+        "COTEAUX CORSES - 2B · 2B259 · 13,56 °C · Partiel · aire renseignée",
+        "Survolez un territoire pour lire sa valeur. Cliquez pour ouvrir sa fiche."
+      ]
+    }
+  ],
+  "errors": []
+}

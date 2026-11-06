@@ -1,0 +1,132 @@
+[
+  {
+    "pilot": [
+      {
+        "date": "2026-10-19",
+        "pra_id": "pra:06245",
+        "coverage": [
+          0.999893,
+          0.999893,
+          0.999893,
+          0.999893
+        ],
+        "temperature": null,
+        "valid_counts": [
+          26,
+          26,
+          26,
+          26
+        ],
+        "precipitation": null,
+        "expected_cells": 27,
+        "temperature_max": null,
+        "temperature_min": null
+      },
+      {
+        "date": "2026-10-19",
+        "pra_id": "pra:28341",
+        "coverage": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "temperature": 9.46924877166748,
+        "valid_counts": [
+          24,
+          24,
+          24,
+          24
+        ],
+        "precipitation": 3.75841450691223,
+        "expected_cells": 24,
+        "temperature_max": 14.9046878814697,
+        "temperature_min": 4.70968008041382
+      },
+      {
+        "date": "2026-10-19",
+        "pra_id": "pra:29102",
+        "coverage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "temperature": null,
+        "valid_counts": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "precipitation": null,
+        "expected_cells": 6,
+        "temperature_max": null,
+        "temperature_min": null
+      },
+      {
+        "date": "2026-10-20",
+        "pra_id": "pra:06245",
+        "coverage": [
+          0.999893,
+          0.999893,
+          0.999893,
+          0.999893
+        ],
+        "temperature": null,
+        "valid_counts": [
+          26,
+          26,
+          26,
+          26
+        ],
+        "precipitation": null,
+        "expected_cells": 27,
+        "temperature_max": null,
+        "temperature_min": null
+      },
+      {
+        "date": "2026-10-20",
+        "pra_id": "pra:28341",
+        "coverage": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "temperature": 11.650447845459,
+        "valid_counts": [
+          24,
+          24,
+          24,
+          24
+        ],
+        "precipitation": 4.86364221572876,
+        "expected_cells": 24,
+        "temperature_max": 12.9461002349854,
+        "temperature_min": 7.75551748275757
+      },
+      {
+        "date": "2026-10-20",
+        "pra_id": "pra:29102",
+        "coverage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "temperature": null,
+        "valid_counts": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "precipitation": null,
+        "expected_cells": 6,
+        "temperature_max": null,
+        "temperature_min": null
+      }
+    ]
+  }
+]

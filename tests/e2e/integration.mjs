@@ -27,6 +27,9 @@ try {
       return route.continue();
     });
     async function capture(state) {
+      // Next can settle streamed head metadata after the client URL transition.
+      // Still require an actual nonempty document title before the accessibility audit.
+      await page.waitForFunction(() => document.title.trim().length > 0);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `${name}/${state} overflow`);
       await page.addScriptTag({ path: axePath });
       const violations = await page.evaluate(async () => (await window.axe.run(document, { runOnly: { type:'tag', values:['wcag2a','wcag2aa','wcag21a','wcag21aa'] } })).violations.map(v => ({ id:v.id, impact:v.impact, count:v.nodes.length })));

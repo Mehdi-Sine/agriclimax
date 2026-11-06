@@ -1,0 +1,13 @@
+{
+  "new_rows": 4988,
+  "protected_old_daily_unchanged": true,
+  "protected_normals_unchanged": true,
+  "database_bytes_before": 149960371,
+  "database_bytes_after_seven": 157767347,
+  "daily_relation_delta": 4915200,
+  "batch_relation_delta": 1974272,
+  "combined_relation_delta": 6889472,
+  "normalized_713_pra_day_bytes": 984802.2325581395,
+  "backfill_amortized_365_day_projection_bytes": 359452814.88372093,
+  "not_a_fresh_singleton_daily_measurement": true
+}

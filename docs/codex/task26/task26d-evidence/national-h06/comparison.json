@@ -1,0 +1,140 @@
+{
+  "pairs": [
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arome",
+      "variable": "temperature",
+      "n": 713,
+      "bias_a_minus_b": 0.4910096124518775,
+      "rmse": 1.0245782025886603,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arome",
+      "variable": "temperature_min",
+      "n": 713,
+      "bias_a_minus_b": 1.388967142198731,
+      "rmse": 2.1932463331286876,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arome",
+      "variable": "temperature_max",
+      "n": 713,
+      "bias_a_minus_b": -0.1695490084055597,
+      "rmse": 1.0253392562055903,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arome",
+      "variable": "precipitation",
+      "n": 569,
+      "bias_a_minus_b": -0.04164504311739838,
+      "rmse": 0.42629111954333554,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arome",
+      "variable": "humidity",
+      "n": 114,
+      "bias_a_minus_b": 2.9719501413963174,
+      "rmse": 7.366360005054283,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arpege",
+      "variable": "temperature",
+      "n": 2139,
+      "bias_a_minus_b": 0.9375877425907624,
+      "rmse": 1.4230950738245205,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arpege",
+      "variable": "temperature_min",
+      "n": 2139,
+      "bias_a_minus_b": 0.8647450950447785,
+      "rmse": 1.7453254405220895,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arpege",
+      "variable": "temperature_max",
+      "n": 2139,
+      "bias_a_minus_b": 0.6986283083394511,
+      "rmse": 1.6968770625413045,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arpege",
+      "variable": "precipitation",
+      "n": 1995,
+      "bias_a_minus_b": 0.4267485371357712,
+      "rmse": 1.8228650186140873,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "ecmwf-open-data",
+      "source_b": "meteofrance-arpege",
+      "variable": "humidity",
+      "n": 1133,
+      "bias_a_minus_b": 0.7971026522655189,
+      "rmse": 6.651796389251143,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "meteofrance-arome",
+      "source_b": "meteofrance-arpege",
+      "variable": "temperature",
+      "n": 1426,
+      "bias_a_minus_b": 0.13045352360898793,
+      "rmse": 0.7995525425841948,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "meteofrance-arome",
+      "source_b": "meteofrance-arpege",
+      "variable": "temperature_min",
+      "n": 1426,
+      "bias_a_minus_b": -1.0371701961479882,
+      "rmse": 1.7452635772246974,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "meteofrance-arome",
+      "source_b": "meteofrance-arpege",
+      "variable": "temperature_max",
+      "n": 1426,
+      "bias_a_minus_b": 0.7543977948759917,
+      "rmse": 1.248544478229736,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "meteofrance-arome",
+      "source_b": "meteofrance-arpege",
+      "variable": "precipitation",
+      "n": 1426,
+      "bias_a_minus_b": 0.03900389702876041,
+      "rmse": 1.15918728432147,
+      "statistical_validation": false
+    },
+    {
+      "source_a": "meteofrance-arome",
+      "source_b": "meteofrance-arpege",
+      "variable": "humidity",
+      "n": 335,
+      "bias_a_minus_b": -2.069222769431903,
+      "rmse": 6.24787846315465,
+      "statistical_validation": false
+    }
+  ],
+  "status_fields_documented_in": "WEATHER_QUALITY_FINAL.md; original GitHub artifact 13500484512 retained"
+}

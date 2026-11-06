@@ -1,0 +1,44 @@
+[
+  {
+    "product": "observations-v1",
+    "url": "https://public-api.meteofrance.fr/public/DPObs/v1/liste-stations",
+    "status": 401,
+    "bytes": 0,
+    "seconds": 0.6864926310000072
+  },
+  {
+    "product": "observations-v2",
+    "url": "https://public-api.meteofrance.fr/public/DPObs/v2/liste-stations",
+    "status": 401,
+    "bytes": 0,
+    "seconds": 0.7711103379999997
+  },
+  {
+    "product": "package-observations-v2",
+    "url": "https://public-api.meteofrance.fr/public/DPPaquetObs/v2/liste-stations",
+    "status": 401,
+    "bytes": 0,
+    "seconds": 0.5565829109999925
+  },
+  {
+    "product": "arome",
+    "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCapabilities?service=WCS&version=2.0.1&request=GetCapabilities",
+    "status": 401,
+    "bytes": 0,
+    "seconds": 0.6839859990000008
+  },
+  {
+    "product": "arpege",
+    "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCapabilities?service=WCS&version=2.0.1&request=GetCapabilities",
+    "status": 401,
+    "bytes": 0,
+    "seconds": 0.8957137129999921
+  },
+  {
+    "product": "climatology",
+    "url": "https://public-api.meteofrance.fr/public/DPClim/v1/liste-stations/quotidienne?id-departement=29",
+    "status": 401,
+    "bytes": 0,
+    "seconds": 0.6930697129999999
+  }
+]

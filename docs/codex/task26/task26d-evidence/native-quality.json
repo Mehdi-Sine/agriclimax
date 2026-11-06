@@ -1,0 +1,33 @@
+{
+  "120": {
+    "startStep": 0,
+    "endStep": 120,
+    "stepType": "accum",
+    "units": "m",
+    "binaryScaleFactor": -13,
+    "decimalScaleFactor": 0,
+    "bitsPerValue": 12,
+    "packingError": 6.103515625e-05
+  },
+  "144": {
+    "startStep": 0,
+    "endStep": 144,
+    "stepType": "accum",
+    "units": "m",
+    "binaryScaleFactor": -12,
+    "decimalScaleFactor": 0,
+    "bitsPerValue": 12,
+    "packingError": 0.0001220703125
+  },
+  "negative_cells": 180,
+  "negative_mm_range": [
+    -0.1220703125,
+    -0.1220703125
+  ],
+  "combined_packing_error_mm": 0.18310546875,
+  "mf_rh_above100_count": 133206,
+  "mf_rh_above100_range": [
+    100.00027465820312,
+    100.01930046081543
+  ]
+}

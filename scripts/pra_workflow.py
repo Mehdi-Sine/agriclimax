@@ -10,6 +10,8 @@ from pathlib import Path
 
 
 def main() -> int:
+    if not os.environ.get("DATASET_VERSION"):
+        raise ValueError("Explicit source revision required for batch mode")
     directory = Path(os.environ["REFERENCE_DIRECTORY"]).resolve()
     if not directory.is_relative_to(Path("config/coverage").resolve()):
         raise ValueError("Reference directory must stay under config/coverage")

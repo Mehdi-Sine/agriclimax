@@ -520,3 +520,6 @@ fa37d4abab1bfe3b3024355e71195c8639abe477:docs/codex/verification/task19/logs/off
 1757971476d4bf39ed920d384835b94317e13510:docs/codex/verification/task22/cache-validation.json:generic-api-key:89
 1757971476d4bf39ed920d384835b94317e13510:docs/codex/verification/task22/cache-validation.json:generic-api-key:94
 1757971476d4bf39ed920d384835b94317e13510:docs/codex/verification/task22/cache-validation.json:generic-api-key:99
+
+# Exact public comparison-status false positive; see NATIONAL_ACCEPTANCE.md.
+aa19aa042e448c9dcb0016747106a58f156e153c:docs/codex/task26/national-evidence/comparison.json:generic-api-key:139

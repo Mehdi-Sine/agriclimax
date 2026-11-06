@@ -1,0 +1,51 @@
+
+> @agriclimax/web@ build /workspace/agriclimax/apps/web
+> node features/observation/prepare-worker.mjs && next build
+
+▲ Next.js 16.4.1 (Turbopack)
+✓ Running next.config.ts took 28ms
+- Experiments (use with caution):
+  ⨯ useTypeScriptCli
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 10.8s
+  Running TypeScript ...
+  Finished TypeScript in 14.8s ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/25) ...
+  Generating static pages using 2 workers (6/25)
+  Generating static pages using 2 workers (12/25)
+  Generating static pages using 2 workers (18/25)
+✓ Generating static pages using 2 workers (25/25) in 400ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ○ /analyse
+├ ƒ /api/agriculture
+├ ƒ /api/climate/france
+├ ƒ /api/national
+├ ƒ /api/risks/map
+├ ƒ /api/risks/series
+├ ƒ /api/risks/territory
+├ ƒ /api/territories
+├ ƒ /api/territories/diagnostics
+├ ƒ /api/unified
+├ ƒ /api/weather/series
+├ ƒ /api/weather/stations
+├ ƒ /api/wheat
+├ ƒ /demo
+├ ○ /design-system
+├ ƒ /diagnostic
+├ ƒ /history
+├ ○ /manifest.webmanifest
+├ ○ /productions
+├ ƒ /stations
+├ ƒ /territories
+└ ƒ /watch
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

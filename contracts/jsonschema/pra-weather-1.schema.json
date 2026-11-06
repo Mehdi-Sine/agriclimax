@@ -1,0 +1,279 @@
+{
+  "$defs": {
+    "WeatherProvenance": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "checksum": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Checksum",
+          "type": "string"
+        },
+        "grid_version": {
+          "minLength": 1,
+          "title": "Grid Version",
+          "type": "string"
+        },
+        "reference_version": {
+          "minLength": 1,
+          "title": "Reference Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "checksum",
+        "grid_version",
+        "reference_version"
+      ],
+      "title": "WeatherProvenance",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "pra-weather-1",
+      "default": "pra-weather-1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "pra_id": {
+      "pattern": "^pra:[0-9A-Z]{5}$",
+      "title": "Pra Id",
+      "type": "string"
+    },
+    "variable": {
+      "enum": [
+        "temperature",
+        "temperature_min",
+        "temperature_max",
+        "precipitation",
+        "humidity"
+      ],
+      "title": "Variable",
+      "type": "string"
+    },
+    "unit": {
+      "enum": [
+        "degC",
+        "mm",
+        "%"
+      ],
+      "title": "Unit",
+      "type": "string"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Value"
+    },
+    "status": {
+      "enum": [
+        "available",
+        "partial",
+        "unavailable"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "valid_date": {
+      "format": "date",
+      "title": "Valid Date",
+      "type": "string"
+    },
+    "valid_from": {
+      "format": "date-time",
+      "title": "Valid From",
+      "type": "string"
+    },
+    "valid_to": {
+      "format": "date-time",
+      "title": "Valid To",
+      "type": "string"
+    },
+    "source_id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "model": {
+      "maxLength": 100,
+      "minLength": 1,
+      "title": "Model",
+      "type": "string"
+    },
+    "nature": {
+      "enum": [
+        "observation",
+        "analysis",
+        "reanalysis",
+        "forecast"
+      ],
+      "title": "Nature",
+      "type": "string"
+    },
+    "model_run_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Model Run At"
+    },
+    "lead_hours": {
+      "anyOf": [
+        {
+          "maximum": 360,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Lead Hours"
+    },
+    "rule_version": {
+      "minLength": 1,
+      "title": "Rule Version",
+      "type": "string"
+    },
+    "data_freshness": {
+      "enum": [
+        "fresh",
+        "stale",
+        "unknown"
+      ],
+      "title": "Data Freshness",
+      "type": "string"
+    },
+    "provenance": {
+      "$ref": "#/$defs/WeatherProvenance"
+    },
+    "grid_version": {
+      "minLength": 1,
+      "title": "Grid Version",
+      "type": "string"
+    },
+    "weights_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Weights Sha256",
+      "type": "string"
+    },
+    "spatial_coverage": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Spatial Coverage",
+      "type": "number"
+    },
+    "temporal_coverage": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Temporal Coverage",
+      "type": "number"
+    },
+    "quality_flags": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Quality Flags",
+      "type": "array"
+    },
+    "provenance_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Provenance Sha256",
+      "type": "string"
+    },
+    "acquired_at": {
+      "format": "date-time",
+      "title": "Acquired At",
+      "type": "string"
+    },
+    "published_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Published At"
+    },
+    "unavailable_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Unavailable Reason"
+    },
+    "delayed": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Delayed"
+    },
+    "scientific_status": {
+      "const": "exploratory",
+      "default": "exploratory",
+      "title": "Scientific Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "pra_id",
+    "variable",
+    "unit",
+    "value",
+    "status",
+    "valid_date",
+    "valid_from",
+    "valid_to",
+    "source_id",
+    "model",
+    "nature",
+    "model_run_at",
+    "lead_hours",
+    "rule_version",
+    "data_freshness",
+    "provenance",
+    "grid_version",
+    "weights_sha256",
+    "spatial_coverage",
+    "temporal_coverage",
+    "quality_flags",
+    "provenance_sha256",
+    "acquired_at",
+    "published_at",
+    "unavailable_reason",
+    "delayed"
+  ],
+  "title": "PraWeather",
+  "type": "object"
+}

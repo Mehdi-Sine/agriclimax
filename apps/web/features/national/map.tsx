@@ -16,6 +16,14 @@ export type PraProperties = {
 };
 export type PraCollection = FeatureCollection<Geometry, PraProperties>;
 
+function focusTerritory(map:LibreMap,collection:PraCollection,selected:string){
+ const geometry=collection.features.find(f=>f.id===selected)?.geometry;
+ const points=geometry?.type==='MultiPolygon'?geometry.coordinates.flat(2):geometry?.type==='Polygon'?geometry.coordinates.flat():[];
+ if(!points.length)return;
+ const [west,south,east,north]=points.reduce(([w,s,e,n],p)=>[Math.min(w,p[0]),Math.min(s,p[1]),Math.max(e,p[0]),Math.max(n,p[1])],[Infinity,Infinity,-Infinity,-Infinity]);
+ map.fitBounds([[west,south],[east,north]],{padding:45,maxZoom:10,duration:0});
+}
+
 export default function NationalMap({
   collection,
   rows,
@@ -24,8 +32,10 @@ export default function NationalMap({
   selected,
   onSelect,
   quantitative,
+  coveredSupport,
   geography = { prefix: 'pra:', label: '713 PRA', attribution: 'PRA · OFB / MASA · contours source inchangés' },
 }: {
+  coveredSupport?:PraCollection|null;
   collection: PraCollection;
   rows: TerritoryRow[] | null;
   contextRows: ClimateContextRow[] | null;
@@ -41,6 +51,7 @@ export default function NationalMap({
     modeRef = useRef(mode),
     quantRef = useRef(quantitative),
     collectionRef = useRef(collection),
+    supportRef=useRef(coveredSupport),
     geographyRef = useRef(geography);
   const [ready, setReady] = useState(false),
     [rendered, setRendered] = useState(false),
@@ -55,8 +66,9 @@ export default function NationalMap({
     modeRef.current = mode;
     quantRef.current = quantitative;
     collectionRef.current = collection;
+    supportRef.current=coveredSupport;
     geographyRef.current = geography;
-  }, [mode, quantitative, collection, geography]);
+  }, [mode, quantitative, collection, geography,coveredSupport]);
 
   useEffect(() => {
     let disposed = false;
@@ -131,6 +143,8 @@ export default function NationalMap({
             source: 'pra',
             paint: { 'fill-color': ['coalesce', ['feature-state', 'color'], fill], 'fill-opacity': ['case', ['boolean', ['feature-state', 'suppressed'], false], 0.4, 0.9] },
           });
+          m.addSource('pra-covered',{type:'geojson',data:supportRef.current??{type:'FeatureCollection',features:[]},promoteId:'code'});
+          m.addLayer({id:'pra-covered-fill',type:'fill',source:'pra-covered',paint:{'fill-color':['coalesce',['feature-state','color'],color('--national-unavailable')],'fill-opacity':0.9}});
           m.addLayer({
             id: 'pra-outline',
             type: 'line',
@@ -149,15 +163,15 @@ export default function NationalMap({
             const code = e.features?.[0]?.properties?.code;
             if (typeof code === 'string') select.current(`${geographyRef.current.prefix}${code}`);
           });
-          m.on('mousemove', 'pra-fill', (e) => {
+          m.on('mousemove', (e) => {
             m.getCanvas().style.cursor = 'pointer';
-            const f = e.features?.[0],
+            const f = m.queryRenderedFeatures(e.point,{layers:['pra-covered-fill','pra-fill']})[0],
               p = f?.properties,
               display = f?.state?.display || 'missing',
               anomaly = f?.state?.anomaly;
             setHover(
               p && quantRef.current
-                ? `${p.name} · ${p.code} · ${typeof f?.state?.value === 'number' ? new Intl.NumberFormat('fr-FR', {maximumFractionDigits:2}).format(f.state.value) + ' ' + quantRef.current.unit : 'Indisponible'} · ${f?.state?.quality || 'indisponible'}`
+                ? f?.state?.coveredOnly&&f.source==='pra'?`${p.name} · ${p.code} · Portion sans données ; consulter la surface colorée.`:`${p.name} · ${p.code} · ${typeof f?.state?.value === 'number' ? new Intl.NumberFormat('fr-FR', {maximumFractionDigits:2}).format(f.state.value) + ' ' + quantRef.current.unit : 'Indisponible'} · ${f?.state?.quality || 'indisponible'}`
                 : p
                 ? modeRef.current === 'anomaly' && typeof anomaly === 'number'
                   ? `${p.name} · ${p.code} · anomalie ${anomaly > 0 ? '+' : ''}${anomaly.toFixed(2)}`
@@ -198,6 +212,7 @@ export default function NationalMap({
     const quantitativeById = new Map(quantitative?.values.map(r=>[r.territoryId,r]));
     const css = getComputedStyle(document.documentElement);
     const contextById = new Map(contextRows?.map((r) => [r.pra_id, r]));
+    if(map.current.getSource('pra-covered'))(map.current.getSource('pra-covered') as GeoJSONSource).setData(coveredSupport??{type:'FeatureCollection',features:[]});
     for (const f of collection.features) {
       const id = String(f.id);
       const climate = contextById.get(id);
@@ -212,7 +227,8 @@ export default function NationalMap({
             mode === 'anomaly'
               ? anomalyBand(climate?.anomaly)
               : availability(byId.get(id)),
-          color: quantitative ? (value == null ? css.getPropertyValue('--national-unavailable').trim() : ink) : null,
+          coveredOnly:!!coveredSupport?.features.some(g=>g.properties.code===f.properties.code),
+          color: quantitative ? (coveredSupport?.features.some(g=>g.properties.code===f.properties.code)||value == null ? css.getPropertyValue('--national-unavailable').trim() : ink) : null,
           value: value ?? null,
           quality: q ? ({ available: 'Disponible', partial: 'Partiel', unavailable: 'Indisponible', not_applicable: 'Non applicable', source_error: 'Erreur source', suppressed: 'Secret statistique', stale: 'Ancien millésime' }[q.status]) : 'Indisponible',
           suppressed: q?.status === 'suppressed',
@@ -221,8 +237,9 @@ export default function NationalMap({
           selected: f.id === selected,
         },
       );
+      if(map.current.getSource('pra-covered'))map.current.setFeatureState({source:'pra-covered',id:f.properties.code},{color:value==null?css.getPropertyValue('--national-unavailable').trim():ink,value:value??null,quality:q?.status==='partial'?'Partiel · aire renseignée':'Disponible'});
     }
-  }, [ready, rows, contextRows, mode, selected, collection, quantitative]);
+  }, [ready, rows, contextRows, mode, selected, collection, quantitative,coveredSupport]);
 
   useEffect(() => {
     if (!ready || !map.current || !selected || quantitative) return;
@@ -263,6 +280,7 @@ export default function NationalMap({
       >
         Vue nationale · {geography.label}
       </button>
+      {selected&&<button type="button" className="national-focus" onClick={()=>{if(map.current)focusTerritory(map.current,collection,selected);}}>Voir ce territoire</button>}
       <div
         ref={container}
         className="national-map"

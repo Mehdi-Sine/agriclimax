@@ -1,0 +1,19 @@
+{
+  "url": "https://files.data.gouv.fr/meteofrance-pnt/pnt/2026-11-04T00%3A00%3A00Z/arome/0025/SP1/arome__0025__SP1__00H06H__2026-11-04T00%3A00%3A00Z.grib2",
+  "requested_range": "bytes=0-2047",
+  "downloaded_model_fields": 0,
+  "head_status": 200,
+  "file_bytes": "57221125",
+  "accept_ranges": "bytes",
+  "range_status": 206,
+  "content_range": "bytes 0-2047/57221125",
+  "header_bytes": 2048,
+  "header_sha256": "edcd87ca9d93c7b8fa79ab0cfae9afb08f39cc83db7136ca8d78b2b01415ff2f",
+  "first_message_bytes": 746520,
+  "product_definition_template": 0,
+  "parameter_category": 2,
+  "parameter_number": 0,
+  "type_of_generating_process": 2,
+  "forecast_time_unit_code": 1,
+  "forecast_time": 0
+}

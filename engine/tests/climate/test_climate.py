@@ -296,3 +296,29 @@ def test_comparison_cli_with_task11_export(tmp_path):
     initial = output.read_bytes()
     assert subprocess.run(command, cwd=root, capture_output=True, check=False).returncode == 0
     assert output.read_bytes() == initial
+
+
+@pytest.mark.parametrize("missing", ["none", "hour", "following_midnight"])
+def test_daily_publication_requires_actual_source_time_axis_even_for_rain(tmp_path, missing):
+    day = date(1991, 9, 1)
+    path = tmp_path / "time-axis.nc"
+    netcdf(path, day, missing_hour=missing == "hour")
+    if missing == "following_midnight":
+        with xr.open_dataset(path) as original:
+            truncated = original.isel(time=slice(None, -1)).load()
+        truncated.to_netcdf(path, mode="w", engine="netcdf4")
+    args = (
+        [path],
+        [{"checksum": "a" * 64, "retrieved_at": "2026-11-05T00:00:00Z"}],
+        dataset(),
+        (-4.5, 48.4, -4.3, 48.6),
+        day,
+        day,
+    )
+    if missing == "none":
+        assert len(decode_netcdf(*args, require_complete_time_axis=True)) == 1
+    else:
+        with pytest.raises(ValueError, match="time axis"):
+            decode_netcdf(*args, require_complete_time_axis=True)
+        # Historical permissive decoding retains explicit missingness, unchanged.
+        assert len(decode_netcdf(*args)) == 1

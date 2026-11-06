@@ -1,11 +1,12 @@
 import type { Geometry } from 'geojson';
 import { DAYS, NATIONAL, type ClimateContextRow, type ClimateVariable } from '../national/model';
+import { calendarDays, isCalendarDate, trailingStart, withinAvailable } from '../national/daily-availability';
 export type Space = 'climat' | 'productions' | 'analyse';
 export type ValueStatus = 'available' | 'partial' | 'unavailable' | 'not_applicable' | 'source_error';
 export interface TerritorySelection { type: 'pra' | 'department' | 'station'; id: string; name: string; geometry?: Geometry; attachments: string[] }
 export interface SourceInfo { provider: string; sourceId: string; temporalResolution: string; spatialResolution: string; range: string[]; license: string | null; retrievedAt: string | null; publishedAt: string | null; limitations: string[] }
 export interface IndicatorDefinition { id: string; label: string; family: 'meteo' | 'agrometeo'; variable: ClimateVariable; unit: string; operator: 'mean' | 'sum' | 'above' | 'below' | 'gdd'; parameter?: number; reference: boolean; scale: 'sequential' | 'diverging'; method: string; version: string; scales: readonly ['pra']; source: string; admissiblePeriod: readonly [string, string] }
-export interface TerritorialValue { territoryId: string; value: number | null; normal: number | null; anomaly: number | null; coverage: number | null; observedDays: number; expectedDays: number; status: ValueStatus; dataScale: 'pra'; datasetVersion: string; freshness: string; rule_version: string; provenance: string; quality_flags: string[] }
+export interface TerritorialValue { observed_value?:number|null; territoryId: string; value: number | null; normal: number | null; anomaly: number | null; coverage: number | null; observedDays: number; expectedDays: number; status: ValueStatus; dataScale: 'pra'; datasetVersion: string; freshness: string; rule_version: string; provenance: string; quality_flags: string[] }
 export interface ProductionDefinition { id: string; label: string; variables: { id: string; label: string; unit: string }[]; source: SourceInfo; connected: boolean }
 export interface AgroclimaticRule { id: string; production: string; indicator: string; label: string; status: 'exploratory' | 'validated'; support: 'pra'; restitution: string; source: string; admissiblePeriod: readonly [string, string] }
 const indicatorBase = { scales: ['pra'] as const, source: 'ERA5-Land · pra-native-1', admissiblePeriod: [NATIONAL.start, NATIONAL.end] as const };
@@ -21,10 +22,13 @@ export const INDICATORS: IndicatorDefinition[] = [
 export const AGRICULTURE: ProductionDefinition[] = [{id:'wheat',label:'Blé tendre',connected:false,variables:[{id:'area',label:'Surface',unit:'ha'},{id:'yield',label:'Rendement',unit:'q/ha'},{id:'volume',label:'Production',unit:'t'}],source:{provider:'Agreste / SSP',sourceId:'https://www.data.gouv.fr/datasets/agreste-statistique-agricole-annuelle-saa',temporalResolution:'annuelle',spatialResolution:'département',range:[],license:null,retrievedAt:null,publishedAt:null,limitations:['Source structurée, licence et millésime à qualifier avant connexion. Aucune valeur départementale attribuée aux PRA.']}}];
 export const RULES: AgroclimaticRule[] = ['hot','rain','frost','gdd'].map(id=>({id:`wheat-${id}`,production:'wheat',indicator:id,label:INDICATORS.find(i=>i.id===id)!.label,status:'exploratory',support:'pra',restitution:'Aléa descriptif ; exposition et sensibilité non quantifiées.',source:'ERA5-Land · pra-native-1',admissiblePeriod:[NATIONAL.start,NATIONAL.end]}));
 export type UnifiedState = { pra: string; date: string; start: string; period: boolean; indicator: string; mode: 'value' | 'normal' | 'anomaly'; threshold: number; production: string; variable: string };
-export function parseState(params: URLSearchParams, space: Space): { state: UnifiedState; errors: string[] } {
+export function parseState(params: URLSearchParams, space: Space, availableDays: string[] = DAYS): { state: UnifiedState; errors: string[] } {
   const errors: string[]=[];
-  const date=params.get('date') ?? NATIONAL.end, start=params.get('start') ?? NATIONAL.start;
-  if(!DAYS.includes(date)||!DAYS.includes(start)||start>date) errors.push('Dates hors de l’archive disponible ou période inversée.');
+  const date=params.get('date') ?? availableDays.at(-1)!;
+  const defaultStart=isCalendarDate(date)?availableDays.find(d=>d>=trailingStart(date,30)&&d<=date)??date:availableDays[0];
+  const start=params.get('start') ?? defaultStart;
+  const length=calendarDays(start,date).length;
+  if(!withinAvailable(date,availableDays)||!withinAvailable(start,availableDays)||!length||length>30) errors.push('Dates hors des données disponibles ou période de plus de 30 jours.');
   const pra=params.get('pra') ?? '';
   if(pra&&!/^pra:[0-9AB]{4,8}$/.test(pra)) errors.push('Identifiant PRA invalide.');
   const indicator=params.get('indicateur') ?? (space==='analyse'?'hot':'temperature');
@@ -47,7 +51,7 @@ export function aggregate(rows: ClimateContextRow[], definition: IndicatorDefini
   const sum=observed.reduce((n,r)=>n+apply(r.current_value!),0);
   const value=observed.length ? (definition.operator==='mean'?sum/observed.length:sum):null;
   // Compare only identical, complete sets of days; threshold-derived normals are invalid.
-  const normal=definition.reference&&rows.length===expectedDays&&rows.every(r=>r.normal_1991_2020!==null)&&observed.length===expectedDays ? rows.reduce((n,r)=>n+r.normal_1991_2020!,0)/(definition.operator==='mean'?expectedDays:1):null;
   const complete=observed.length===expectedDays&&observed.every(r=>r.current_status==='available'&&r.current_coverage!==null&&r.current_coverage>=0.9999);
-  return {territoryId:rows[0]?.pra_id ?? '',value,normal,anomaly:value!==null&&normal!==null?value-normal:null,coverage:rows.length&&rows.every(r=>r.current_coverage!==null)?rows.reduce((n,r)=>n+r.current_coverage!,0)/expectedDays:null,observedDays:observed.length,expectedDays,status:value===null?'unavailable':complete?'available':'partial',dataScale:'pra',datasetVersion:NATIONAL.dataset,freshness:'Archive ERA5-Land · septembre–octobre 2026',rule_version:definition.version,provenance:'ERA5-Land · pra-native-1',quality_flags:complete?[]:['incomplete_spatial_or_temporal_coverage']};
+  const normal=complete&&definition.reference&&rows.length===expectedDays&&rows.every(r=>r.normal_1991_2020!==null)&&observed.length===expectedDays ? rows.reduce((n,r)=>n+r.normal_1991_2020!,0)/(definition.operator==='mean'?expectedDays:1):null;
+  return {territoryId:rows[0]?.pra_id ?? '',value,normal,anomaly:value!==null&&normal!==null?value-normal:null,coverage:rows.length&&rows.every(r=>r.current_coverage!==null)?rows.reduce((n,r)=>n+r.current_coverage!,0)/expectedDays:null,observedDays:observed.length,expectedDays,status:value===null?(rows.some(r=>r.current_status==='partial'&&r.current_coverage!==null&&r.current_coverage>0)?'partial':'unavailable'):complete?'available':'partial',dataScale:'pra',datasetVersion:NATIONAL.dataset,freshness:'Archive ERA5-Land · septembre–octobre 2026',rule_version:definition.version,provenance:'ERA5-Land · pra-native-1',quality_flags:complete?[]:['incomplete_spatial_or_temporal_coverage']};
 }

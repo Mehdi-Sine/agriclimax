@@ -1,0 +1,141 @@
+{
+  "base": "http://127.0.0.1:3031",
+  "mocked": false,
+  "realDataVerified": true,
+  "viewports": [
+    {
+      "space": "climat",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "screenshot": "screenshots/climat-desktop.png"
+    },
+    {
+      "space": "productions",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "screenshot": "screenshots/productions-desktop.png"
+    },
+    {
+      "space": "analyse",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "screenshot": "screenshots/analyse-desktop.png"
+    },
+    {
+      "space": "climat",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "screenshot": "screenshots/climat-tablet.png"
+    },
+    {
+      "space": "productions",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "screenshot": "screenshots/productions-tablet.png"
+    },
+    {
+      "space": "analyse",
+      "size": "tablet",
+      "width": 768,
+      "height": 1000,
+      "screenshot": "screenshots/analyse-tablet.png"
+    },
+    {
+      "space": "climat",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "screenshot": "screenshots/climat-mobile.png"
+    },
+    {
+      "space": "productions",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "screenshot": "screenshots/productions-mobile.png"
+    },
+    {
+      "space": "analyse",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "screenshot": "screenshots/analyse-mobile.png"
+    }
+  ],
+  "errors": [],
+  "timings": {
+    "catalogMs": 2608.703122,
+    "mapApiMs": 631.2935189999998,
+    "responsiveNineViewsMs": 98012.250426
+  },
+  "checks": [
+    "7 jours: calendar window ending on actually acquired date",
+    "30 jours: calendar window ending on actually acquired date",
+    "Shared map canvas retained across spaces",
+    "Historical station wheat/THI paths remain available"
+  ],
+  "catalog": {
+    "source_id": "era5-land",
+    "dataset_version": "era5land-national-20260919-20261018-v1",
+    "latest": "2026-10-30",
+    "source_date": "2026-10-30",
+    "days": [
+      "2026-09-19",
+      "2026-09-20",
+      "2026-09-21",
+      "2026-09-22",
+      "2026-09-23",
+      "2026-09-24",
+      "2026-09-25",
+      "2026-09-26",
+      "2026-09-27",
+      "2026-09-28",
+      "2026-09-29",
+      "2026-09-30",
+      "2026-10-01",
+      "2026-10-02",
+      "2026-10-03",
+      "2026-10-04",
+      "2026-10-05",
+      "2026-10-06",
+      "2026-10-07",
+      "2026-10-08",
+      "2026-10-09",
+      "2026-10-10",
+      "2026-10-11",
+      "2026-10-12",
+      "2026-10-13",
+      "2026-10-14",
+      "2026-10-15",
+      "2026-10-16",
+      "2026-10-17",
+      "2026-10-18",
+      "2026-10-19",
+      "2026-10-20",
+      "2026-10-21",
+      "2026-10-22",
+      "2026-10-23",
+      "2026-10-24",
+      "2026-10-25",
+      "2026-10-26",
+      "2026-10-27",
+      "2026-10-28",
+      "2026-10-29",
+      "2026-10-30"
+    ],
+    "acquired_at": "2026-11-05T20:35:44.317839+00:00",
+    "updated_at": "2026-11-05T20:39:30.705728+00:00",
+    "acquisition_time_status": "known",
+    "freshness": "stale"
+  },
+  "states": {
+    "available": 645,
+    "partial": 67,
+    "unavailable": 1
+  }
+}

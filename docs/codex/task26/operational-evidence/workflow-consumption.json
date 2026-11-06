@@ -1,0 +1,63 @@
+{
+  "scope": "Task26B source backfill, real IFS capture and MF access probe only; CI and Vercel excluded",
+  "runs": [
+    {
+      "run_id": 42087102375,
+      "job_id": 127455060224,
+      "job": "national-daily",
+      "conclusion": "failure",
+      "runner_seconds": 1419.0,
+      "rounded_minutes": 24
+    },
+    {
+      "run_id": 42091357008,
+      "job_id": 127471013804,
+      "job": "national-daily",
+      "conclusion": "failure",
+      "runner_seconds": 1356.0,
+      "rounded_minutes": 23
+    },
+    {
+      "run_id": 42095551736,
+      "job_id": 127484509029,
+      "job": "national-daily",
+      "conclusion": "success",
+      "runner_seconds": 1324.0,
+      "rounded_minutes": 23
+    },
+    {
+      "run_id": 42099133896,
+      "job_id": 127497006374,
+      "job": "national-daily",
+      "conclusion": "failure",
+      "runner_seconds": 1344.0,
+      "rounded_minutes": 23
+    },
+    {
+      "run_id": 42103633624,
+      "job_id": 127512670506,
+      "job": "national-daily",
+      "conclusion": "success",
+      "runner_seconds": 697.0,
+      "rounded_minutes": 12
+    },
+    {
+      "run_id": 42089278523,
+      "job_id": 127468430564,
+      "job": "operational-pilot",
+      "conclusion": "failure",
+      "runner_seconds": 269.0,
+      "rounded_minutes": 5
+    },
+    {
+      "run_id": 42089606819,
+      "job_id": 127463899160,
+      "job": "operational-access",
+      "conclusion": "success",
+      "runner_seconds": 21.0,
+      "rounded_minutes": 1
+    }
+  ],
+  "runner_seconds": 6430.0,
+  "rounded_minutes": 111
+}
