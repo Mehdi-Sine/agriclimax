@@ -13,7 +13,7 @@ export async function GET(request:Request){
   const p=new URL(request.url).searchParams,allowed=['experimental','model','date','variable','pra','catalogue','run'];
   const requestedRun=p.get('run'),model=p.get('model')??'selected',date=p.get('date'),variable=p.get('variable'),pra=p.get('pra');
   if(p.get('experimental')!=='weather'||[...p.keys()].some(k=>!allowed.includes(k)||p.getAll(k).length!==1))return Response.json({error:'EXPERIMENTAL_OPT_IN_REQUIRED'},{status:400});
-  if(requestedRun&&!isCalendarDate(requestedRun)||!MODELS.some(m=>m.id===model)||date&&!isCalendarDate(date)||variable&&!VARIABLES.some(v=>v.id===variable)||pra&&!/^pra:[0-9A-Z]{5}$/.test(pra)||p.has('catalogue')&&(p.get('catalogue')!=='1'||date||variable||pra))return Response.json({error:'INVALID_WEATHER_QUERY'},{status:400});
+  if(requestedRun&&!(isCalendarDate(requestedRun)||/^\d{4}-\d{2}-\d{2}T(?:00|06|12|18):00:00(?:Z|\+00:00)$/.test(requestedRun)&&isCalendarDate(requestedRun.slice(0,10))&&Number.isFinite(Date.parse(requestedRun)))||!MODELS.some(m=>m.id===model)||date&&!isCalendarDate(date)||variable&&!VARIABLES.some(v=>v.id===variable)||pra&&!/^pra:[0-9A-Z]{5}$/.test(pra)||p.has('catalogue')&&(p.get('catalogue')!=='1'||date||variable||pra))return Response.json({error:'INVALID_WEATHER_QUERY'},{status:400});
   try{
     const national=await nationalWeatherDocument(requestedRun??undefined);
     if(requestedRun&&!national)return Response.json({error:'ARCHIVED_CYCLE_NOT_AVAILABLE'},{status:404});

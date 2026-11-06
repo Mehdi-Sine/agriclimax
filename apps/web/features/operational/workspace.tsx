@@ -9,7 +9,7 @@ import {useResource} from '../unified/resource';
 
 const label=(v:number|null|undefined)=>v==null?'Indisponible':new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(v);
 const status={available:'Disponible',partial:'Partiel',unavailable:'Indisponible'};
-export function useOperationalWeather(active:boolean,temporalMode:TemporalMode){
+export function useOperationalWeather(active:boolean,requestedMode:TemporalMode){
   const search=useSearchParams(),router=useRouter(),pathname=usePathname();
   const model=(search.get('weather_model')??'selected') as WeatherModel;
   const variable=(search.get('weather_variable')??'temperature') as WeatherVariable;
@@ -21,6 +21,8 @@ export function useOperationalWeather(active:boolean,temporalMode:TemporalMode){
   function change(values:Record<string,string>){const q=new URLSearchParams(search.toString());q.delete('experimental');q.set('temporal',temporalMode);for(const [k,v] of Object.entries(values))q.set(k==='weather_date'?`${temporalMode}_date`:k,v);q.delete('weather_date');router.replace(`${pathname}?${q}`,{scroll:false});}
   const geometryResource=useResource<PraCollection>('/maps/pra-national.geojson',true),geometry=geometryResource.data;
   const catalogueResource=useResource<WeatherCycle>(`/api/operational?${new URLSearchParams({experimental:'weather',catalogue:'1',model,...runQuery})}`),catalogue=catalogueResource.data;
+  const legacy=search.get('experimental')==='weather'&&!search.has('temporal')?search.get('weather_date'):null;
+  const temporalMode:TemporalMode=legacy&&catalogue?.run?(legacy<=catalogue.run.slice(0,10)?'recent':'forecast'):requestedMode;
   const dates=modeDates(catalogue,temporalMode);
   const date=modeDate(new URLSearchParams(search.toString()),dates,temporalMode);
   const hasHorizon=active&&dates.includes(date);
@@ -71,7 +73,7 @@ export function useOperationalWeather(active:boolean,temporalMode:TemporalMode){
           {pathname==='/analyse'&&<p>Aucun score d’impact agricole calculé à partir de ces prévisions. Les références RPG/SAA et les parcours blé/bovins restent séparés.</p>}
           <details><summary>Provenance et limites</summary><p>{current?.source_id} · {current?.model} · {current?.rule_version}</p><p>{current?.quality_flags.join(' · ')}</p><p style={{overflowWrap:'anywhere'}}>Empreinte : {current?.provenance_sha256}</p></details>
         </>;
-  return {catalogue,dates,date,filters,panel,mapTitle:<div className="unified-map-title"><h2>{def?.label??'Variable inconnue'} · {def?.unit??''}</h2><span>{past?'Estimation issue de prévisions':'Prévision'}</span></div>,collection,mapProps:{selected,onSelect:(id:string)=>change({pra:id}),quantitative:{values:rows.map(r=>({territoryId:r.pra_id,value:r.value,normal:null,anomaly:null,status:r.status})),field:'value' as const,unit:def?.unit??'',bounds,colors}},shortcuts:<div className="unified-context">
+  return {catalogue,dates,date,filters,panel,temporalMode,legend:<div className="unified-legend" aria-label="Légende météo"><div className="legend-ramp">{bounds.map((b,i)=><span key={i} style={{background:colors[i]}}><small>≤ {label(b)}</small></span>)}</div><p>{def?.unit} · gris : valeur absente ou non admissible, pas zéro.</p></div>,mapTitle:<div className="unified-map-title"><h2>{def?.label??'Variable inconnue'} · {def?.unit??''}</h2><span>{past?'Estimation issue de prévisions':'Prévision'}</span></div>,collection,mapProps:{selected,onSelect:(id:string)=>change({pra:id}),quantitative:{values:rows.map(r=>({territoryId:r.pra_id,value:r.value,normal:null,anomaly:null,status:r.status})),field:'value' as const,unit:def?.unit??'',bounds,colors}},shortcuts:<div className="unified-context">
     {dates.at(-1)&&temporalMode==='recent'&&<button onClick={()=>change({weather_date:dates.at(-1)!})}>Dernière estimation</button>}
     {dates.includes(today)&&<button onClick={()=>change({weather_date:today})}>Aujourd’hui</button>}
     {[3,7].map(lead=>{const day=catalogue?.run?new Date(Date.parse(catalogue.run)+lead*86400000).toISOString().slice(0,10):'';return dates.includes(day)?<button key={lead} onClick={()=>change({weather_date:day})}>J+{lead}</button>:null;})}

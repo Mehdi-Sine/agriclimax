@@ -63,7 +63,7 @@ export async function archiveBlob(e:ArchiveEntry):Promise<Uint8Array>{const raw=
 export async function nationalWeatherDocument(requestedRun?:string):Promise<NationalWeatherDocument|null>{
   const current=requestedRun?null:await currentManifest();
   const catalogue=current??await archiveCatalogue();
-  const latest=catalogue?.weather.filter(e=>e.method_version==='pra-national-weather-daily-1'&&(!requestedRun||e.run_date===requestedRun)&&typeof e.run_date==='string'&&isCalendarDate(e.run_date)).sort((a,b)=>(b.run_at??b.run_date!).localeCompare(a.run_at??a.run_date!))[0];
+  const latest=catalogue?.weather.filter(e=>e.method_version==='pra-national-weather-daily-1'&&(!requestedRun||(requestedRun.includes('T')?Date.parse(e.run_at??e.run_date+'T00:00:00Z')===Date.parse(requestedRun):e.run_date===requestedRun))&&typeof e.run_date==='string'&&isCalendarDate(e.run_date)).sort((a,b)=>(b.run_at??b.run_date!).localeCompare(a.run_at??a.run_date!))[0];
   if(!latest)return null;
   if(cycleCache?.sha===latest.sha256)return cycleCache.value;
   const value=(async()=>{

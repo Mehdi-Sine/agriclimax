@@ -1,0 +1,1085 @@
+[
+  {
+    "anomalies": {
+      "negative_precipitation_cells": 0,
+      "out_of_range_humidity_samples": 21992
+    },
+    "date": "2026-11-05",
+    "independent": {
+      "max_absolute_difference": 0.0,
+      "nulls_checked": 363,
+      "production_reduce_or_aggregate_called": false,
+      "rows_checked": 3565,
+      "tolerance": 1e-09
+    },
+    "model": "arome",
+    "native_cells": 104986,
+    "run": "2026-11-05T00:00:00+00:00",
+    "source_receipts": [
+      {
+        "acquired_at": "2026-11-06T08:46:05.339263+00:00",
+        "sha256": "a5eb6a6410c234b9bc8a3cdcd45f450c747ee3798e0a719db53438a2930cc707",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:06.490964+00:00",
+        "sha256": "7f27253d664a05894fc93676bf856957195075b704ebb27852b6fd11cc0d730b",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:09.313312+00:00",
+        "sha256": "961a2fb7df129f9e7bd7efd0a025d00f6e7f1b8e523dc3e3da2751bbf8d84ca4",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:10.453111+00:00",
+        "sha256": "b075618b18c1187523a6779265e0120d845df6166c099a9e0883fb7bd582b1c4",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:12.070429+00:00",
+        "sha256": "94ff91d8e65cd1bab85feb402c0c2f49f4220aa7268836e33219659807eccbcc",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T03%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:13.171882+00:00",
+        "sha256": "8a3de2a3f3cbf1042bed9fecaba7f34af020b6162f6b2e888616fdee7b514966",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T03%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:14.518338+00:00",
+        "sha256": "b1f7adc4fa63773dab490d533756299b5ffc1ada1a067df0831f5daa2b5d7d25",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T03%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:15.546129+00:00",
+        "sha256": "2110f3aa5dd053c763291b0ad8d581d319bfa685bc427d39626531b1d0dc8935",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T03%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:17.099616+00:00",
+        "sha256": "6547b4695e8e4f39b873131774cca486eb730ef40f29436010aaba48409bbe31",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T06%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:18.026984+00:00",
+        "sha256": "0f28bc7ebda5f594363346fffbb52b1caeb640269b58df020915471c9cd96e45",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T06%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:19.775473+00:00",
+        "sha256": "96abc34ea81ef86a87d77858f4a6de868ef736ad6faf1133159c394d0242b9a4",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T06%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:20.729620+00:00",
+        "sha256": "01a8b24397e43a6c79e90e25e01cb6f6ba96b3e99bc73888356e9ef831afaf9a",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T06%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:22.363136+00:00",
+        "sha256": "eb3aaf595cb2f17795f4c6dfdccb6edc76048e384aa564725a7feb307dd9e987",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T09%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:23.321272+00:00",
+        "sha256": "9a8c139361ae94ba110717135c8bbed6bc83f9c8169bd5c2dc2c2468dd3718aa",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T09%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:25.018153+00:00",
+        "sha256": "ca8431daf767c664753ab15c96bb07672483a845c47bb122d85c5f198c0b1ef1",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T09%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:25.990465+00:00",
+        "sha256": "9a1a726c22da03340d1b34335dbf1d8fb18b4a15287380581a599a6637eae109",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T09%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:27.608599+00:00",
+        "sha256": "12c82357467eb3cbe465a510386ccd0822c42b19f6ad2b8f8035b44f8a776794",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T12%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:28.533412+00:00",
+        "sha256": "e4eef9124e38015838249fbfa1b3c9596e400488e36390797422293a12e70ded",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T12%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:30.086181+00:00",
+        "sha256": "3c08dba7aef1be83b48d4855fd4c29f5ad901ffa6eca7b4fd0a35097265db4dd",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T12%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:31.209777+00:00",
+        "sha256": "700ca171adc154522b91f835d17f4d65888dd572ce24fa5a4ed2595a4ef63a4c",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T12%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:32.603134+00:00",
+        "sha256": "5f0d9316e940d3a0d3bbdf0edc9e9a8d7e30d89116f65c92346c0143eff3a9db",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T15%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:33.521351+00:00",
+        "sha256": "4e14efda6f6872a4bdfc4b5a367723cedfb4a2121cba254920ac049ba937ba79",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T15%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:35.126857+00:00",
+        "sha256": "6cdfc28a0bae5282e042d21f910fdfbbff225d3dcc032a6f52ee4cacfd9030fb",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T15%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:36.099383+00:00",
+        "sha256": "52564793aa67817e672a69615be2f1e318a787dbad0f367d1c37de2b91eaf02e",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T15%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:37.744502+00:00",
+        "sha256": "f2bb9dead5b38e2044437b5067e62df466b223da4233f06a9551aef0d6ebb2e7",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T18%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:38.712110+00:00",
+        "sha256": "433bb6d2aff8ae39e1a5b1e72ebf22988a651b0ee423319ccfc08a45e5f3cc48",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T18%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:40.211573+00:00",
+        "sha256": "7f0562116177fc71e919f899088772a1b1e811432f62a2fbdf87f2eebf3456f5",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T18%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:41.217318+00:00",
+        "sha256": "30efb8533569ec4d3a293426f0ea5f34206bd531c8e773a83e6fb815b185f340",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T18%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:43.115452+00:00",
+        "sha256": "1ba202fffceb02eec837ee421f56eac3fbc7c1b63dbe7a1fda00ebb4e7b88ce3",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T21%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:44.095396+00:00",
+        "sha256": "d63a5ad35374dcfe8a78ea19dd6efc9fccae78f0b1a38d27481e01b2f47d1bb5",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T21%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:45.616846+00:00",
+        "sha256": "fd2b088587406c5cb31b517f88bb9864ed0d780fbf3d51c6b179105585cb58fc",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-05T21%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:46.792826+00:00",
+        "sha256": "b5b87c493a4f13a1bd4fc9d37d73eaf66f56975094babb4c9fa4f456baec255f",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-05T21%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:48.234541+00:00",
+        "sha256": "ad6c5acf4860f16500c57faa0e31fd91cd4c1b29d508014c24edb6258f31919d",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:49.180842+00:00",
+        "sha256": "bdc8602b344663cb6e36f7dd51adc5d3f9ccffa8912c6a42aa767afea032ebb1",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:50.696958+00:00",
+        "sha256": "26efcd7c4ffd44d14f0f76b31a0548377191fcd3042bdf0a63aa09997527a7b8",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:51.675945+00:00",
+        "sha256": "db80a506887eefd842c0a2c901bf4d434ef2ab2e3ff4ec2630860d82a0bedbee",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-05T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:54.265025+00:00",
+        "sha256": "8ddce7ae6e9df6bcb2412d07cf300acb15de1c65fa335175f912e545082ad9dd",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TOTAL_PRECIPITATION__GROUND_OR_WATER_SURFACE___2026-11-05T00.00.00Z_P1D&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=time%282026-11-06T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:46:55.215668+00:00",
+        "sha256": "bc7fcb12586e3c3abdac331de613921e336cd0a94148ff253f49b68280d6e268",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TOTAL_PRECIPITATION__GROUND_OR_WATER_SURFACE___2026-11-05T00.00.00Z_P1D&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=time%282026-11-06T00%3A00%3A00Z%29"
+      }
+    ]
+  },
+  {
+    "anomalies": {
+      "negative_precipitation_cells": 0,
+      "out_of_range_humidity_samples": 57538
+    },
+    "date": "2026-11-06",
+    "independent": {
+      "max_absolute_difference": 0.0,
+      "nulls_checked": 535,
+      "production_reduce_or_aggregate_called": false,
+      "rows_checked": 3565,
+      "tolerance": 1e-09
+    },
+    "model": "arome",
+    "native_cells": 104986,
+    "run": "2026-11-06T00:00:00+00:00",
+    "source_receipts": [
+      {
+        "acquired_at": "2026-11-06T08:47:03.860094+00:00",
+        "sha256": "52f9c70883982c864793a9389d2053f1c50691bfd6ac9bf746862d6b8d8bb9ee",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:04.784324+00:00",
+        "sha256": "bb17f5ecf1dcacb417102fe488a037e806235e214ea3df0307aadab10966dd16",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:06.318986+00:00",
+        "sha256": "2cb22b912e922b0c543e64e6413d8e6787cc084df91458fe2c46703eeaf33299",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:07.298142+00:00",
+        "sha256": "c906adca66caba13422a517218ce9cb23fa66d2176aafa6e1bd3fb44440a784c",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:08.891558+00:00",
+        "sha256": "9be4f3c63de7358479c03fac3e69ffde6d33d01cbe208aedff65192947035c8d",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T03%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:09.842779+00:00",
+        "sha256": "3b504902da9061b2510aa4cc4d1873e27e68b7e0de698cd863680a38b77dda5b",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T03%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:11.354163+00:00",
+        "sha256": "925f0ff0ababfa9b2f716004e5b2d46dd45dfd00163fb9ad3af72549869c16e3",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T03%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:12.320272+00:00",
+        "sha256": "036cf2fc040b3ba2c41a8fde02d5fd5dca995f21065a2256abf56b05782ae417",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T03%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:13.915764+00:00",
+        "sha256": "8a3b7faec4fbd8c4903e2d62f240974657310c8ff62a032c14fed60c51ad612d",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T06%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:14.844038+00:00",
+        "sha256": "b540cb8ac79e2f16178aaa204fa9137087a3fbe782c0e1fa05683b17e479f656",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T06%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:16.373575+00:00",
+        "sha256": "a184e4205beb5fce6d5232b20bbe5191f80641c9948468eb812471851bf1e342",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T06%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:17.352492+00:00",
+        "sha256": "008166d597d497f38ecc7a3884e59dacea1f73d7f6d72c3ea777dc2af6d5417f",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T06%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:18.947852+00:00",
+        "sha256": "50848fb7389ad0bb1f13472019f46391ea70e66ff16b884fc308f51234262ab0",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T09%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:19.888277+00:00",
+        "sha256": "0866befe986ec8cec902cd06cb69df74e27879d216886ca30471c6572da8d04d",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T09%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:21.401243+00:00",
+        "sha256": "0695728d248d7546bcd934ee3d3d6d7d005e501c7fa8cd4f4c66a674934551dd",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T09%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:22.378977+00:00",
+        "sha256": "297a373f793380e92ef694c0a8eb92c2ad64ed4782e52100d77a28b86b6187af",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T09%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:23.993379+00:00",
+        "sha256": "1d3bfcce6063c8f46c232926eb92c5ec2a37873961a4a757e12c98f10431591d",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T12%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:24.943045+00:00",
+        "sha256": "061f4384dc4ee7e857a1e8e70a7101107276c32a1bbd0402c80867ae8e98863e",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T12%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:26.465458+00:00",
+        "sha256": "49cf8f4f62fd84f83906804942ff0c168931cb7b886042ccdf207d564a4e5451",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T12%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:27.439378+00:00",
+        "sha256": "220f9c9ee752fa7f1df68d0aee092927205d3db7f0d5713dac9ca7169f0b33a0",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T12%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:29.049132+00:00",
+        "sha256": "140b16eb184bc3534a9876da0cf63c476ea12ecde15c9328ee005b6710b719d5",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T15%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:30.018037+00:00",
+        "sha256": "8078149e9bbc5c566da515f6b85f5fb53126c6bd6ea35d2ad2fe11573b90a9e8",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T15%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:31.565849+00:00",
+        "sha256": "270997c8141be4cda8329f8951e1fb2e044d404efbaa836bebcdd2a492c4dd05",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T15%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:32.529115+00:00",
+        "sha256": "08ee4c7d9180740cf683535bc4b5ec0b3f2b325da0e3fd55c5799f37e69cd4ad",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T15%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:34.142457+00:00",
+        "sha256": "4a9bef1037745c45536c71cea1add4b70076d8a1d2793ea43d2a8909597f8691",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T18%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:35.057675+00:00",
+        "sha256": "bc91762ae604f95a10182c17b7eec42f6d5027c8960bbd9359e1b1ecf4dc3bf2",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T18%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:36.596055+00:00",
+        "sha256": "f335cbe8059d8bbf71c54ef3ca129617911a8231963e8a85f4c677e9c817e637",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T18%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:37.567980+00:00",
+        "sha256": "f438a3f37eb67420c0df196b8e8f14675aceaba438dcfa3cbc215837bf929a0c",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T18%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:39.225423+00:00",
+        "sha256": "a6d88485a2f4df09d5fb2e8e0a5314e29445d302c91aae3f2aa6ba7b01866a93",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T21%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:40.166668+00:00",
+        "sha256": "7d3e76c19d43571dad4dd3b4e1615752c30d3b86c68644b83b9311abaa287e1c",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T21%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:41.705137+00:00",
+        "sha256": "045a5d46c8b51758df0775caf45053a12798f7f27591ac197756710eb962a688",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-06T21%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:42.683235+00:00",
+        "sha256": "5bac4b9c8e321bd21e77d6250c5a7a38de879cc3bfc715a66bd7934674edcb30",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-06T21%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:44.316871+00:00",
+        "sha256": "8301322e243b9981c9d0623f8eeaeaa3410eb4aab668d5980da0025d27cc38cd",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:45.226248+00:00",
+        "sha256": "6ad26c805fbbd280f4f614a5b91cfa3c858efac00b74ee29ee4fe0598527b3d4",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:46.803320+00:00",
+        "sha256": "91e4bd61a8f194d036f19592ac089709e66656689c7b6ca47fb8f8847a41814c",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:47.791605+00:00",
+        "sha256": "07803bfa9fd5661599a65a7932528878fd497edf62d3bcfcebf69e29580e55d7",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:49.235198+00:00",
+        "sha256": "77116667525ab5345137e0f0cb08650c9678295954b7c99ef822aaec8fd8ce2b",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TOTAL_PRECIPITATION__GROUND_OR_WATER_SURFACE___2026-11-06T00.00.00Z_P1D&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=time%282026-11-07T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:47:50.266193+00:00",
+        "sha256": "26484f0ec462776020ee22aa805cf890c97fd115c356c3349f7ce30b8cec6c6b",
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TOTAL_PRECIPITATION__GROUND_OR_WATER_SURFACE___2026-11-06T00.00.00Z_P1D&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=time%282026-11-07T00%3A00%3A00Z%29"
+      }
+    ]
+  },
+  {
+    "model": "arome",
+    "date": "2026-11-07",
+    "run": "2026-11-06T06:00:00+00:00",
+    "native_cells": 104986,
+    "anomalies": {
+      "negative_precipitation_cells": 0,
+      "out_of_range_humidity_samples": 50719
+    },
+    "independent": {
+      "rows_checked": 3565,
+      "nulls_checked": 497,
+      "max_absolute_difference": 0.0,
+      "tolerance": 1e-09,
+      "production_reduce_or_aggregate_called": false
+    },
+    "source_receipts": [
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T00%3A00%3A00Z%29",
+        "sha256": "f92b2170bb3eac39b33f251cabc0e95f26667c3b6c3292704b0559608d1ccd64",
+        "acquired_at": "2026-11-06T12:08:44.336381+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T00%3A00%3A00Z%29",
+        "sha256": "ea56b4f978a5f6bd2b2fb3cdc0a7adfc262f4d6953b4eec7fb0fe0549a343062",
+        "acquired_at": "2026-11-06T12:08:45.068694+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T00%3A00%3A00Z%29",
+        "sha256": "761d69ca6f7b9c5dad5e9f457dd6d9341d574043a38ed6a3724bb19995fcdfbd",
+        "acquired_at": "2026-11-06T12:08:46.734210+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T00%3A00%3A00Z%29",
+        "sha256": "c3568b52596fbdea2c3627d843f4bc5b2bbc46339f4e73813e40e356264cafda",
+        "acquired_at": "2026-11-06T12:08:47.412808+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T03%3A00%3A00Z%29",
+        "sha256": "43a21301d547de6040132a3b288e2a3a6fa125f56d4c1eda18c844b7e75945ad",
+        "acquired_at": "2026-11-06T12:08:48.762609+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T03%3A00%3A00Z%29",
+        "sha256": "84e650ff70e5b2e1a8372fe80a3e71e3ed38b546002a9c946d167260b9afdb15",
+        "acquired_at": "2026-11-06T12:08:49.439570+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T03%3A00%3A00Z%29",
+        "sha256": "2e0d65efd1020aeadfd8c34141fca565f05fc18345204306fb319e96d8669756",
+        "acquired_at": "2026-11-06T12:08:51.243411+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T03%3A00%3A00Z%29",
+        "sha256": "cd3bae80c130afc47e7c72f427f34c10e197f6d4a3d2b77866321e25e5fd1d11",
+        "acquired_at": "2026-11-06T12:08:52.015062+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T06%3A00%3A00Z%29",
+        "sha256": "75237403ce92490a6bb2ef6bd426c6d3bacef4e5937c89b08a8dcf556b3e982b",
+        "acquired_at": "2026-11-06T12:08:53.470276+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T06%3A00%3A00Z%29",
+        "sha256": "17d81b3af0e51def02f71f1b1833fe7e9e512d75c4bff1e1132886c2fc0432e3",
+        "acquired_at": "2026-11-06T12:08:54.109439+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T06%3A00%3A00Z%29",
+        "sha256": "5584db8f69bacd36635df5e7c285d0ecc6dc45d1925f7f787e851278faa7629c",
+        "acquired_at": "2026-11-06T12:08:55.831021+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T06%3A00%3A00Z%29",
+        "sha256": "2a88a0c1e6b3d71cb31543f1985e0f4a23c051d250c2821b740519b7b91ebfba",
+        "acquired_at": "2026-11-06T12:08:56.629475+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T09%3A00%3A00Z%29",
+        "sha256": "79fb68e01db615487e295f37736ef9961418d2ca944e3a7a1b3c365dbfdb2f14",
+        "acquired_at": "2026-11-06T12:08:58.007483+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T09%3A00%3A00Z%29",
+        "sha256": "c4b8f5a91dce025b656aa092bfbed10ffb6322698cbfa7e510a344f70df18d80",
+        "acquired_at": "2026-11-06T12:08:58.729279+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T09%3A00%3A00Z%29",
+        "sha256": "7b824e440bf422fa1dddc7830698590b673f152272815ff310ee38f793e1448f",
+        "acquired_at": "2026-11-06T12:09:00.218174+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T09%3A00%3A00Z%29",
+        "sha256": "e3f538be19e4744bc333dc604b560a1ef6e5be4676d0e11cec0e9d6f79e7b170",
+        "acquired_at": "2026-11-06T12:09:00.980919+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T12%3A00%3A00Z%29",
+        "sha256": "5b654d580ab6d9a9574d5704d5ce423f674d17c2943f61bdcddcffd3f2a5f5e0",
+        "acquired_at": "2026-11-06T12:09:02.409742+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T12%3A00%3A00Z%29",
+        "sha256": "bd3204fcdc85c12f64b4d66291b3a590202bf4b9b268e5024e9c02bede004717",
+        "acquired_at": "2026-11-06T12:09:03.082153+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T12%3A00%3A00Z%29",
+        "sha256": "bcbb71d5355baf5bf7aa256634e900c74b62f7700fa462c86671f1ba6ba3f0d5",
+        "acquired_at": "2026-11-06T12:09:05.087950+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T12%3A00%3A00Z%29",
+        "sha256": "535f8e943540887e9cc6537990c2ea4f85f7430ec0cbe1423c87a2be500017d1",
+        "acquired_at": "2026-11-06T12:09:05.786188+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T15%3A00%3A00Z%29",
+        "sha256": "c0ed218516ef5ebd1eceef453bfb18410305dc8b9853031470dcfc0c7e2eda2d",
+        "acquired_at": "2026-11-06T12:09:07.195007+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T15%3A00%3A00Z%29",
+        "sha256": "9edb97be1ed3643beb13f3e27d48a87cd9d748ac70c1a709c41cc041c6ec27f5",
+        "acquired_at": "2026-11-06T12:09:07.866198+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T15%3A00%3A00Z%29",
+        "sha256": "8f06e5355c79921b4863b4ef60e42e349f70b88b6ff82cef19a4ae60ab5195ee",
+        "acquired_at": "2026-11-06T12:09:09.281442+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T15%3A00%3A00Z%29",
+        "sha256": "6f73f68f51faa0ff4b5e1c88ec8f9962778301bb83f9afff4dd797587a7ce747",
+        "acquired_at": "2026-11-06T12:09:09.972465+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T18%3A00%3A00Z%29",
+        "sha256": "f7881ad6033064dbf6dfa58697f86d010669259b7d86ee01e781e53aad8826a9",
+        "acquired_at": "2026-11-06T12:09:11.504237+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T18%3A00%3A00Z%29",
+        "sha256": "1a3c4f6e9c44cf68cc1f5ff18d375b34849ae0faba39a79cfd44b36b5448416a",
+        "acquired_at": "2026-11-06T12:09:12.203836+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T18%3A00%3A00Z%29",
+        "sha256": "508ce5342a4504a1b88af795eceb3c506e70ecd9f6c6826823f14f9583cbd379",
+        "acquired_at": "2026-11-06T12:09:13.610869+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T18%3A00%3A00Z%29",
+        "sha256": "80c1b3fa2087b6c79431e2892ed2be62b9c66673139964e1d4c0008d624a1e7d",
+        "acquired_at": "2026-11-06T12:09:14.312733+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T21%3A00%3A00Z%29",
+        "sha256": "4b7ac24e4e4b17084ddb5e04c5259d44d63c09de760e889526591cb095abee08",
+        "acquired_at": "2026-11-06T12:09:15.937521+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T21%3A00%3A00Z%29",
+        "sha256": "eb448d3c6235991d36c9163e99284fc1a98ca3eb45798bd5efdbc7b0c5e6ee05",
+        "acquired_at": "2026-11-06T12:09:16.777532+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-07T21%3A00%3A00Z%29",
+        "sha256": "6cb7c1d0001ded76aa07f30fb0392d7bfcbe2cf4a93a041007d9018e426a6099",
+        "acquired_at": "2026-11-06T12:09:18.058651+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-07T21%3A00%3A00Z%29",
+        "sha256": "fb5a4674ad4c77be25d568643b2afa23674ab8596ba4a74316a3595e7a96dadc",
+        "acquired_at": "2026-11-06T12:09:18.792974+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-08T00%3A00%3A00Z%29",
+        "sha256": "5703330995874e368572560c7f95931804fdc3169a2f6f325cb31097acd977e3",
+        "acquired_at": "2026-11-06T12:09:20.181889+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-08T00%3A00%3A00Z%29",
+        "sha256": "a1a0da91b42aebb9ab149719b66893dc4f3c572cad5e345461dc9e3f5dbd450c",
+        "acquired_at": "2026-11-06T12:09:20.896446+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=height%282%29&subset=time%282026-11-08T00%3A00%3A00Z%29",
+        "sha256": "004e6c2473b2b819abc1ab4a38f8be8fd5227e48873ba599c0723ed0e49c248e",
+        "acquired_at": "2026-11-06T12:09:22.320412+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=height%282%29&subset=time%282026-11-08T00%3A00%3A00Z%29",
+        "sha256": "da5ee20a1e88464db4c062c586acaa942892e371e887ec675f8278310356e079",
+        "acquired_at": "2026-11-06T12:09:23.027324+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TOTAL_PRECIPITATION__GROUND_OR_WATER_SURFACE___2026-11-06T06.00.00Z_P1D&format=application%2Fwmo-grib&subset=long%28-6%2C8.5%29&subset=lat%2842%2C52%29&subset=time%282026-11-08T00%3A00%3A00Z%29",
+        "sha256": "8b105b9502b738a4f76864efc1758a9b1f02dd0b0a31d4d609064bdd3a8294f5",
+        "acquired_at": "2026-11-06T12:09:24.559517+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TOTAL_PRECIPITATION__GROUND_OR_WATER_SURFACE___2026-11-06T06.00.00Z_P1D&format=application%2Fwmo-grib&subset=long%288%2C10%29&subset=lat%2841%2C43.5%29&subset=time%282026-11-08T00%3A00%3A00Z%29",
+        "sha256": "60d5a8232bbc777af4ea0a0ed3d9207e567f834c2384971657e2e0ba6531674a",
+        "acquired_at": "2026-11-06T12:09:25.245642+00:00"
+      }
+    ]
+  },
+  {
+    "anomalies": {
+      "negative_precipitation_cells": 0,
+      "out_of_range_humidity_samples": 629
+    },
+    "date": "2026-11-06",
+    "independent": {
+      "max_absolute_difference": 0.0,
+      "nulls_checked": 244,
+      "production_reduce_or_aggregate_called": false,
+      "rows_checked": 3565,
+      "tolerance": 1e-09
+    },
+    "model": "arpege",
+    "native_cells": 6861,
+    "run": "2026-11-06T00:00:00+00:00",
+    "source_receipts": [
+      {
+        "acquired_at": "2026-11-06T08:48:57.427579+00:00",
+        "sha256": "b85731a89f752d805a5abe8d00b2fa0a46cea2e458ad2dd20fa3d78cb68ae5d2",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:48:58.379578+00:00",
+        "sha256": "7f42d989b1225ed713a9c975b51d8f3e94e9e97da2c293cca01a743d0f710475",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:48:59.372483+00:00",
+        "sha256": "93b9f92473637ce05126ffd91359ee08c7a9f6f751876f7800ebd72db6b758a5",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T03%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:00.581280+00:00",
+        "sha256": "2c845afcfbc2279c7ca1ad8181fb9ae8fa0c09d1511205a8f1706bca2588034b",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T03%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:01.367888+00:00",
+        "sha256": "70ebea6f8e3bfbd19152d32a12cb994d20af728acb5725078193b588f2ac4a08",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T06%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:02.390015+00:00",
+        "sha256": "677e98cdcc6bf5a74fcf713334f553f1a5c9022e7ad5027d787cf5bfdf02ceac",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T06%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:03.391606+00:00",
+        "sha256": "1c311049e65ec33a6218e221419860bba914a812a0eba9291bee66b0288b255c",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T09%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:04.408307+00:00",
+        "sha256": "1b0732247545c516f5c7773730e12cf0af30c55dc7aee6b40a85d03faa4f7ca2",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T09%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:05.369923+00:00",
+        "sha256": "4298e897366396c575baaa261b4dbf5853fb3adf3d9899aa104dcf9c4fdb8320",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T12%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:06.393123+00:00",
+        "sha256": "f5c645123318e24b443f708ba21b0defc3fd04710189e1f2f1893652373da837",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T12%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:07.561176+00:00",
+        "sha256": "b01bf236a5ed45575e780be3c035f85d6560494ad3dbc484f1d48d7d3968e338",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T15%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:08.391611+00:00",
+        "sha256": "ac3a1cc31d0f91ada9e684a0c3bde6db8e5b6d61ee5400d3e1dda306054204ee",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T15%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:09.396584+00:00",
+        "sha256": "bb738506a6b8c2e584e68d4575a3cfa40a494ae2bc577f014ea858b2a742bea0",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T18%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:10.403358+00:00",
+        "sha256": "0016df79acd8661787dc3723db78b57c3ce463d50a321532692117e34f1d5453",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T18%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:11.391032+00:00",
+        "sha256": "d3fe6c4a03b3d70a309af757ab93fd47ae6ba09491eafd2c7dd7983ec4b1550f",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T21%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:12.384337+00:00",
+        "sha256": "3350b8fe626bd09abc20a87d6ea6569054828023efa6ee1c2199cf7008308a71",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-06T21%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:13.388244+00:00",
+        "sha256": "a382791f844b694d9a693b2cbd09fa5a5e0ead785f40ef5a88416b65f96e9baa",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:14.373038+00:00",
+        "sha256": "1c330c34a192e2f2d69f2d8ac19be5d09057fced2610e7971efba9319d72cd78",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T00.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T00%3A00%3A00Z%29"
+      },
+      {
+        "acquired_at": "2026-11-06T08:49:15.370591+00:00",
+        "sha256": "50a7aa9d9a51e4748cff69c3dfe2773eb7465ea2e68bc61d79c459c75433415a",
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TOTAL_PRECIPITATION__GROUND_OR_WATER_SURFACE___2026-11-06T00.00.00Z_P1D&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=time%282026-11-07T00%3A00%3A00Z%29"
+      }
+    ]
+  },
+  {
+    "model": "arpege",
+    "date": "2026-11-07",
+    "run": "2026-11-06T06:00:00+00:00",
+    "native_cells": 6861,
+    "anomalies": {
+      "negative_precipitation_cells": 0,
+      "out_of_range_humidity_samples": 824
+    },
+    "independent": {
+      "rows_checked": 3565,
+      "nulls_checked": 271,
+      "max_absolute_difference": 0.0,
+      "tolerance": 1e-09,
+      "production_reduce_or_aggregate_called": false
+    },
+    "source_receipts": [
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T00%3A00%3A00Z%29",
+        "sha256": "5e6999a4f471e676907448e33fe73291f0ac20d2ba71e809ce782a03ffe45e7e",
+        "acquired_at": "2026-11-06T12:09:30.017669+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T00%3A00%3A00Z%29",
+        "sha256": "63cb231b90ed89eb8d32be8fa00b0566474da0d108b9fa08b7062891a5c346d9",
+        "acquired_at": "2026-11-06T12:09:31.026180+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T03%3A00%3A00Z%29",
+        "sha256": "c8cf7751bd94c7030adb7a2fd048a1675e01b02103672d7aa152650bdad06d54",
+        "acquired_at": "2026-11-06T12:09:32.008851+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T03%3A00%3A00Z%29",
+        "sha256": "d491f3b5f0298a20154d4ddb00779cfe5d974499a98650643f342269ce1cca70",
+        "acquired_at": "2026-11-06T12:09:33.039917+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T06%3A00%3A00Z%29",
+        "sha256": "fe952307585e25f19520d1e2a64d919be4666dbf35dc0b42c31f6422723f1ef5",
+        "acquired_at": "2026-11-06T12:09:34.156109+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T06%3A00%3A00Z%29",
+        "sha256": "4c9316831903dd94b4bfa6b22e1600e9ef01a9b6441fd9e5b5fe0fc0cae0f8ac",
+        "acquired_at": "2026-11-06T12:09:35.012089+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T09%3A00%3A00Z%29",
+        "sha256": "ad36e80815ce201363f4371a656eda3d80a56e012419619aa18803dea7c5c04e",
+        "acquired_at": "2026-11-06T12:09:36.003982+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T09%3A00%3A00Z%29",
+        "sha256": "f0e9e87fa064c4883d35c5e62bf6f181426d89535d1f7e07b787353d6e872c54",
+        "acquired_at": "2026-11-06T12:09:37.036474+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T12%3A00%3A00Z%29",
+        "sha256": "4c37298afc7a5779a139296550675d243c063a3b8b276e9f75ff797aabc2daa5",
+        "acquired_at": "2026-11-06T12:09:38.034288+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T12%3A00%3A00Z%29",
+        "sha256": "3b809805387ae2f66be247851d6be80d5e952b57231a2810aacfe5238268ece6",
+        "acquired_at": "2026-11-06T12:09:39.017294+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T15%3A00%3A00Z%29",
+        "sha256": "f7c94b7a790ea7365bcd2595a44756f01148a657161548b7dda8d30bc702e06e",
+        "acquired_at": "2026-11-06T12:09:39.998328+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T15%3A00%3A00Z%29",
+        "sha256": "e88dd458e1f0a2c85fb1375f84804713ce9d7d1d947500ce5527b7e91200d8e8",
+        "acquired_at": "2026-11-06T12:09:41.011294+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T18%3A00%3A00Z%29",
+        "sha256": "e32cc6af8bf4eba482963a02c79bd35bcaff0d3564b12f12735d97c605eb6d3a",
+        "acquired_at": "2026-11-06T12:09:42.033943+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T18%3A00%3A00Z%29",
+        "sha256": "e7464a6f927af709994ba02df1048e2e5e50b50c3853b0233133eb016b113cfa",
+        "acquired_at": "2026-11-06T12:09:43.023561+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T21%3A00%3A00Z%29",
+        "sha256": "3095d606eb489c4e59b5a5ab8faf18de5ba74a31b7a19ccfc8531902889bf1ef",
+        "acquired_at": "2026-11-06T12:09:44.374192+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-07T21%3A00%3A00Z%29",
+        "sha256": "804423cbcc49a3d7590faf1c32c2914a0732c5bdbbdb0faf3e4ea5dd006b643e",
+        "acquired_at": "2026-11-06T12:09:45.042122+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T00%3A00%3A00Z%29",
+        "sha256": "156827844bc1aa1702e8301fb06854b6468b1f27522072c80d30496107c96b53",
+        "acquired_at": "2026-11-06T12:09:46.020442+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T00%3A00%3A00Z%29",
+        "sha256": "763601b1d22cfa6605b2b7852b03801f5121ec1c44ec3d4c12afdc09071af0d3",
+        "acquired_at": "2026-11-06T12:09:47.038322+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TOTAL_PRECIPITATION__GROUND_OR_WATER_SURFACE___2026-11-06T06.00.00Z_P1D&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=time%282026-11-08T00%3A00%3A00Z%29",
+        "sha256": "daec69803aa6173c0d88cbd1e50becb338cfef2d5fa5e63da10d812a457ce501",
+        "acquired_at": "2026-11-06T12:09:48.030133+00:00"
+      }
+    ]
+  },
+  {
+    "model": "arpege",
+    "date": "2026-11-08",
+    "run": "2026-11-06T06:00:00+00:00",
+    "native_cells": 6861,
+    "anomalies": {
+      "negative_precipitation_cells": 0,
+      "out_of_range_humidity_samples": 226
+    },
+    "independent": {
+      "rows_checked": 3565,
+      "nulls_checked": 112,
+      "max_absolute_difference": 0.0,
+      "tolerance": 1e-09,
+      "production_reduce_or_aggregate_called": false
+    },
+    "source_receipts": [
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T00%3A00%3A00Z%29",
+        "sha256": "156827844bc1aa1702e8301fb06854b6468b1f27522072c80d30496107c96b53",
+        "acquired_at": "2026-11-06T12:09:46.020442+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T00%3A00%3A00Z%29",
+        "sha256": "763601b1d22cfa6605b2b7852b03801f5121ec1c44ec3d4c12afdc09071af0d3",
+        "acquired_at": "2026-11-06T12:09:47.038322+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T03%3A00%3A00Z%29",
+        "sha256": "4c12536cdbf51dfda00cb1d67a39f9427050e5df32afbea6542c8c87b35aaad8",
+        "acquired_at": "2026-11-06T12:09:49.163310+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T03%3A00%3A00Z%29",
+        "sha256": "b2c1aa73ab4db15512cd681a7baf4613a9a2b3d1bcd3a84fb93936c149294722",
+        "acquired_at": "2026-11-06T12:09:50.065164+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T06%3A00%3A00Z%29",
+        "sha256": "5d4a131905274a67a85db74f4b2cde3178441006fbc0f46d4ff61b65ee42a9a5",
+        "acquired_at": "2026-11-06T12:09:51.052155+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T06%3A00%3A00Z%29",
+        "sha256": "037d805247fb849834999010a29c0039e83823a7bda73a8be71bd4db2e4f4472",
+        "acquired_at": "2026-11-06T12:09:52.061875+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T09%3A00%3A00Z%29",
+        "sha256": "86dc3f07376ae3abb7b242634502ba2351fe393c335315d454be78008a358333",
+        "acquired_at": "2026-11-06T12:09:53.064154+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T09%3A00%3A00Z%29",
+        "sha256": "fd0d17581fc5113138334213c2bbcf049e50bcb60d1a1f21bf2c222ad2028345",
+        "acquired_at": "2026-11-06T12:09:54.146654+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T12%3A00%3A00Z%29",
+        "sha256": "03c31f5cc284688215ebd9d0f0cde68fc17d98c7c3a2b895788526818a3e382f",
+        "acquired_at": "2026-11-06T12:09:55.014761+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T12%3A00%3A00Z%29",
+        "sha256": "d8170c41ee09a068b8d70ef492df2ccdb9f16596571ed26578c198d7247ffbfb",
+        "acquired_at": "2026-11-06T12:09:56.029371+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T15%3A00%3A00Z%29",
+        "sha256": "e3703bc0e9df8f4ca9c6f6c0c8eb4fb00d946e131a912d4b474b38f2ae3bbbce",
+        "acquired_at": "2026-11-06T12:09:57.025125+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T15%3A00%3A00Z%29",
+        "sha256": "c9467838e85f2d2232e2898e25bb72731bc715f3cb8a31e7d713712a45028aff",
+        "acquired_at": "2026-11-06T12:09:58.026617+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T18%3A00%3A00Z%29",
+        "sha256": "27b5bfc73da9a3e4dd96d8101c62e56e96a8e064b4ddaa08c06d73073f8e782a",
+        "acquired_at": "2026-11-06T12:09:59.005369+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T18%3A00%3A00Z%29",
+        "sha256": "fdc33c1e9ed44f244dc7a0ef033e0ea1cf75fff2b491738dff6886d187b6e15f",
+        "acquired_at": "2026-11-06T12:10:00.027200+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T21%3A00%3A00Z%29",
+        "sha256": "f16681a00ad39b55e6727a2ee9b1102d0d3bb9819c7657fb728a95776aeac191",
+        "acquired_at": "2026-11-06T12:10:01.023550+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-08T21%3A00%3A00Z%29",
+        "sha256": "fdea69b5bef8989822f7fa50fcbc8513cde7f4cfce167e4796d5cdd159f7d0d5",
+        "acquired_at": "2026-11-06T12:10:02.021216+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T00%3A00%3A00Z%29",
+        "sha256": "45928a25dbb392bdd17854ac3b3644ba13d44126507e468cb5cd219400ba3676",
+        "acquired_at": "2026-11-06T12:10:03.023625+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T00%3A00%3A00Z%29",
+        "sha256": "eaa68cdf9d153a34cc39219f9df07a528a59c0556e118e5665364038edf4cb8a",
+        "acquired_at": "2026-11-06T12:10:04.137954+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TOTAL_PRECIPITATION__GROUND_OR_WATER_SURFACE___2026-11-06T06.00.00Z_P1D&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=time%282026-11-09T00%3A00%3A00Z%29",
+        "sha256": "f4e0992f247b33edd411a44e7e7d88985110ec4740faf461e389d590ae04fedb",
+        "acquired_at": "2026-11-06T12:10:05.153512+00:00"
+      }
+    ]
+  },
+  {
+    "model": "arpege",
+    "date": "2026-11-09",
+    "run": "2026-11-06T06:00:00+00:00",
+    "native_cells": 6861,
+    "anomalies": {
+      "negative_precipitation_cells": 0,
+      "out_of_range_humidity_samples": 323
+    },
+    "independent": {
+      "rows_checked": 3565,
+      "nulls_checked": 121,
+      "max_absolute_difference": 0.0,
+      "tolerance": 1e-09,
+      "production_reduce_or_aggregate_called": false
+    },
+    "source_receipts": [
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T00%3A00%3A00Z%29",
+        "sha256": "45928a25dbb392bdd17854ac3b3644ba13d44126507e468cb5cd219400ba3676",
+        "acquired_at": "2026-11-06T12:10:03.023625+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T00%3A00%3A00Z%29",
+        "sha256": "eaa68cdf9d153a34cc39219f9df07a528a59c0556e118e5665364038edf4cb8a",
+        "acquired_at": "2026-11-06T12:10:04.137954+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T03%3A00%3A00Z%29",
+        "sha256": "94c45be516b7dfe79802b7cff7a98941ec90a6d9c9551811e4566e2bf9b30b7c",
+        "acquired_at": "2026-11-06T12:10:06.125064+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T03%3A00%3A00Z%29",
+        "sha256": "7ba0ea1910444325d01de3e031213d5ee0310b873d32124cf7f5168ebb98b72c",
+        "acquired_at": "2026-11-06T12:10:07.127962+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T06%3A00%3A00Z%29",
+        "sha256": "4810ec37a87ff9b20d3d4b0399d0119c347eb5e7e7e1c3cad8b791001167afae",
+        "acquired_at": "2026-11-06T12:10:08.121715+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T06%3A00%3A00Z%29",
+        "sha256": "56a910d67114c2e9ec13176be8d123e53160464a3a5314f8a8f3303bcf0544eb",
+        "acquired_at": "2026-11-06T12:10:09.139125+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T09%3A00%3A00Z%29",
+        "sha256": "3299a8c66ec8731faae7800e249bc81fbb14533e6b31cf5f8d7b96da8728be30",
+        "acquired_at": "2026-11-06T12:10:10.128162+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T09%3A00%3A00Z%29",
+        "sha256": "7eb28aefc7e8d3beec6499e255bfbd93f6918b677dd1f1d6462d73a333553073",
+        "acquired_at": "2026-11-06T12:10:11.112857+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T12%3A00%3A00Z%29",
+        "sha256": "d6311a2daf406f201b2d570569c6eced24474b6f56887617fd5052fc0858347e",
+        "acquired_at": "2026-11-06T12:10:12.313356+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T12%3A00%3A00Z%29",
+        "sha256": "c203fe2f52587b8cef7f5f4b9a7e325866661d1f9140ebb42469155973dfed66",
+        "acquired_at": "2026-11-06T12:10:13.115684+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T15%3A00%3A00Z%29",
+        "sha256": "101f33e14ce1eaf2c5f8f21a78e96d2b91ff172a021974bbd6d6dd40aeae6947",
+        "acquired_at": "2026-11-06T12:10:14.110539+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T15%3A00%3A00Z%29",
+        "sha256": "a6b8ed0fa4d2b473ead392f2bb1dc5d63c770a82ae4d83fb7ca3c95328fa85f6",
+        "acquired_at": "2026-11-06T12:10:15.102323+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T18%3A00%3A00Z%29",
+        "sha256": "ebb5f58fe5a69b20a96923b1390de2c822504635e32573718e9e08c6e85489ac",
+        "acquired_at": "2026-11-06T12:10:16.139737+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T18%3A00%3A00Z%29",
+        "sha256": "a339f0205001370d0e051324923d670c4165d9372f19afaf8befd8ec786195f4",
+        "acquired_at": "2026-11-06T12:10:17.119540+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T21%3A00%3A00Z%29",
+        "sha256": "f004af21bb75e08422c3d2738a524eee353181c549748d799a36c88aa42c06f0",
+        "acquired_at": "2026-11-06T12:10:18.118650+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-09T21%3A00%3A00Z%29",
+        "sha256": "f20347799dcd3699ed7acc7eeb55e23d230469815ed19555780f674cb24f3376",
+        "acquired_at": "2026-11-06T12:10:19.133396+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TEMPERATURE__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-10T00%3A00%3A00Z%29",
+        "sha256": "388ebbdf7e5ec4195c8ec08ac935f3c57cff96eccdb68f766c7912e72ef79147",
+        "acquired_at": "2026-11-06T12:10:20.115039+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=RELATIVE_HUMIDITY__SPECIFIC_HEIGHT_LEVEL_ABOVE_GROUND___2026-11-06T06.00.00Z&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=height%282%29&subset=time%282026-11-10T00%3A00%3A00Z%29",
+        "sha256": "7f2c275ab24571a83c8bef3029ab64cfa60efe3cf538df4dcd3dafdedc8535c8",
+        "acquired_at": "2026-11-06T12:10:21.117371+00:00"
+      },
+      {
+        "url": "https://public-api.meteofrance.fr/public/arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/GetCoverage?service=WCS&version=2.0.1&coverageid=TOTAL_PRECIPITATION__GROUND_OR_WATER_SURFACE___2026-11-06T06.00.00Z_P1D&format=application%2Fwmo-grib&subset=long%28-6%2C10.5%29&subset=lat%2840.5%2C52%29&subset=time%282026-11-10T00%3A00%3A00Z%29",
+        "sha256": "531d4e7c3948985bd2cf35d46a8b88f529112bef1c39ea8e9d4af421112769bb",
+        "acquired_at": "2026-11-06T12:10:22.104991+00:00"
+      }
+    ]
+  }
+]
