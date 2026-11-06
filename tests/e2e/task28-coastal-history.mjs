@@ -184,6 +184,57 @@ try {
           }
         }
       }
+    const climateResponse = page.waitForResponse(
+      (r) => {
+        const url = new URL(r.url());
+        return (
+          url.pathname === "/api/unified" &&
+          url.searchParams.get("indicator") === "gdd" &&
+          url.searchParams.get("start") === "2026-10-31" &&
+          r.ok()
+        );
+      },
+      { timeout: 180000 },
+    );
+    await page.goto(
+      origin +
+        "/?pra=pra%3A06249&date=2026-10-31&start=2026-10-31&periode=periode&indicateur=gdd",
+      { waitUntil: "domcontentloaded", timeout: 180000 },
+    );
+    const climate = (await (await climateResponse).json()).data.find(
+      (r) => r.territoryId === "pra:06249",
+    );
+    if (climate.value !== null || climate.observed_value == null)
+      throw new Error("CLIMATE_PORTION_NOT_QUALIFIED");
+    await page
+      .locator(".unified-panel")
+      .filter({
+        hasText: new Intl.NumberFormat("fr-FR", {
+          maximumFractionDigits: 2,
+        }).format(climate.observed_value),
+      })
+      .waitFor({ timeout: 60000 });
+    await page.waitForFunction(
+      () =>
+        Number(
+          document.querySelector(".national-map")?.dataset.coveredSupportCount,
+        ) === 67,
+      undefined,
+      { timeout: 60000 },
+    );
+    await page.screenshot({
+      path: `${output}/${viewport}-climate-portion.png`,
+      fullPage: true,
+    });
+    report.checks.push({
+      viewport,
+      space: "climat",
+      pra: "pra:06249",
+      value: climate.value,
+      observed_value: climate.observed_value,
+      apiPanelMatch: true,
+      geometry_supports: 67,
+    });
     await context.close();
   }
   if (report.errors.length) throw new Error(JSON.stringify(report.errors));

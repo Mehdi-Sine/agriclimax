@@ -29,3 +29,5 @@ exports before 27 October keep the seven/thirty-day partial-PRA totals
 unavailable, and extrema are not inferred from mean temperature. This is not a
 713/713 historical success. See
 [the targeted coastal report](../../docs/codex/task28/COASTAL_HISTORICAL_FIX.md).
+
+Recette de clôture littorale : 287 tests TypeScript (32 fichiers), typage et lint réussis. La Preview du commit intermédiaire 437edf6 a passé 41 parcours réels sans erreur applicative sur desktop/tablette/mobile ; captures et audit de fermeture dans `docs/codex/task28/evidence/coastal/preview/`. Le harness ajoute trois contrôles Climat, exécutés sur le dernier commit avec attestation dans la PR. Aucune nouvelle acquisition ni modification THI.

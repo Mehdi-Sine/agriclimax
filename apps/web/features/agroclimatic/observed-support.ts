@@ -47,7 +47,12 @@ export function calculateObserved(
     );
   const incompatible =
     partial.length > 0 &&
-    (supports.size > 1 || rows.some((r) => r.complete && !r.support));
+    (supports.size > 1 ||
+      rows.some((r) => r.complete && !r.support) ||
+      partial.some(
+        (r) =>
+          Math.abs(r.support!.coverage - partial[0].support!.coverage) > 1e-7,
+      ));
   const coverage = partial.length
     ? Math.min(...partial.map((r) => r.support!.coverage))
     : rows.length

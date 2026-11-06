@@ -1,0 +1,18 @@
+{
+  "commit": "437edf6607ba51b8e6126a6b5a8052e0fd9228f6",
+  "deployment": "7611009143",
+  "origin": "https://agriclimax-5vqi727nt-mehdi-sines-projects.vercel.app",
+  "bind": "127.0.0.1",
+  "methods": [
+    "GET",
+    "HEAD"
+  ],
+  "tls_verified": true,
+  "redirects_followed": false,
+  "secret_in_server_header_only": true,
+  "secret_persisted": false,
+  "cookies_forwarded": false,
+  "temporary_browser_contexts_closed": true,
+  "gateway_stopped": true,
+  "receipt": "41 parcours r\u00e9ussis ; recette du commit final attest\u00e9e dans la PR"
+}

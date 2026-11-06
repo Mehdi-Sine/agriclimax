@@ -77,3 +77,7 @@ La correction supprime le masquage des informations réellement disponibles et r
 ## Livraison et recette
 
 Les tests ciblés portent sur couverture complète, ≥90%, <90%, zéro, jours absents, masques/poids incompatibles, version stricte conservée, comparaisons numériques et surfaces cartographiques. Les captures et la recette locale/Preview sont dans `evidence/coastal/`. Le scénario contrôlé inclut Beauce dunoise (28341), Coteaux niçois (06245), Littoral niçois (06249), Crozon (29102), jour/5j/7j/30j, GDD/Tmoy/pluie/chaleur/gel et le survol réel des portions colorées/grisées. L'attestation du dernier commit et la CI finale figurent dans la description de la PR #56.
+
+La provenance nouvelle inclut le SHA256 de la sérialisation JSON du bundle Task26D versionné ou celui du blob d’archive immuable pour le 31 octobre, en plus des identités de poids, référentiel et masque. Une couverture contradictoire pour un même masque/poids est refusée, comme un changement de masque.
+
+Recette de clôture littorale : 287 tests TypeScript (32 fichiers), typage et lint réussis. La Preview du commit intermédiaire 437edf6 a passé 41 parcours réels sans erreur applicative sur desktop/tablette/mobile ; captures et audit de fermeture dans `docs/codex/task28/evidence/coastal/preview/`. Le harness ajoute trois contrôles Climat, exécutés sur le dernier commit avec attestation dans la PR. Aucune nouvelle acquisition ni modification THI.

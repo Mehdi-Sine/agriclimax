@@ -268,6 +268,7 @@ export async function periodSupportDocument(
   return {
     rule_version: "pra-stable-observed-support-1",
     verified: days.every((d) => d.verified),
+    available_dates: dates.filter((_, i) => days[i].verified),
     period: [start, end],
     variable,
     rows,

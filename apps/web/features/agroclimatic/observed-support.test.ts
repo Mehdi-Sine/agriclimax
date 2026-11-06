@@ -69,6 +69,7 @@ it("retains only the observed portion below 90%, including zero rainfall", () =>
 it("does not aggregate differing masks, weight identities, or whole/partial supports", () => {
   for (const next of [
     day("2026-10-31", 10, 0.95, "other"),
+    day("2026-10-31", 10, 0.94),
     { ...day("2026-10-31", 10), support: undefined },
     {
       ...day("2026-10-31", 10),

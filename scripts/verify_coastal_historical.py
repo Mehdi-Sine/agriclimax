@@ -101,16 +101,37 @@ for label, start, end in periods:
         )
         rows = payload["data"]
         assert len(rows) == 713
+        evidence_fields = [
+            "territoryId",
+            "value",
+            "observed_value",
+            "status",
+            "reason",
+            "rule_version",
+            "support_id",
+            "support_scope",
+            "spatial_coverage",
+            "temporal_coverage",
+            "observedDays",
+            "expectedDays",
+        ]
         (dest / f"{label}-{indicator}.json").write_text(
             json.dumps(
                 {
                     "rule": payload["rule"],
                     "period": payload["period"],
-                    "data": [r for r in rows if r["territoryId"] in partial],
+                    "data": [
+                        {k: r.get(k) for k in evidence_fields}
+                        for r in rows
+                        if r["territoryId"] in partial
+                    ],
                 },
-                indent=2,
+                ensure_ascii=False,
+                separators=(",", ":"),
             )
+            + "\n"
         )
+
         for r in rows:
             if r["territoryId"] not in partial:
                 continue

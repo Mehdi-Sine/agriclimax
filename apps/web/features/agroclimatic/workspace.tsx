@@ -79,7 +79,10 @@ export function useAgroclimatic(
       ? `/api/agroclimatic?${query}`
       : null,
   );
-  const supportResource = useResource<{ collection: PraCollection }>(
+  const supportResource = useResource<{
+    collection: PraCollection;
+    available_dates?: string[];
+  }>(
     active && mode === "history" && supportPolicy(rule)
       ? "/api/national/support?" +
           new URLSearchParams({ start, end, variable: rule.variables[0] })
@@ -378,6 +381,35 @@ export function useAgroclimatic(
           · fenêtre explicite, 30 jours maximum
         </span>
       </div>
+      {mode === "history" &&
+        supportResource.data?.available_dates &&
+        supportResource.data.available_dates.length > 0 &&
+        supportResource.data.available_dates.length <
+          calendarDays(start, end).length && (
+          <p role="status">
+            Les supports partiels sont documentés sur{" "}
+            {supportResource.data.available_dates.length}/
+            {calendarDays(start, end).length} journées de cette fenêtre ; leurs
+            cumuls restent indisponibles sur la période entière.{" "}
+            {calendarDays(
+              supportResource.data.available_dates[0],
+              supportResource.data.available_dates.at(-1)!,
+            ).length === supportResource.data.available_dates.length && (
+              <button
+                onClick={() =>
+                  change({
+                    agro_start: supportResource.data!.available_dates![0],
+                    agro_end: supportResource.data!.available_dates!.at(-1)!,
+                  })
+                }
+              >
+                Consulter les supports disponibles :{" "}
+                {supportResource.data.available_dates[0]} →{" "}
+                {supportResource.data.available_dates.at(-1)}
+              </button>
+            )}
+          </p>
+        )}
       <p>
         Indicateurs exploratoires à l’échelle PRA. Aucun stade phénologique,
         dommage, diagnostic animal ou conseil automatique.
