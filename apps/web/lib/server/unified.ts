@@ -40,7 +40,7 @@ export async function unifiedData(params: URLSearchParams, transport: typeof fet
     for(const rows of pages)for(const row of rows){const list=grouped.get(row.pra_id!)??[];list.push(row);grouped.set(row.pra_id!,list);}
   }
   const data=[...grouped.values()].map(rows=>({...aggregate(rows,definition,dates.length,threshold),freshness:`ERA5-Land · source ${end} UTC`}));
-  return {period:[start,end],indicator:id,threshold,source_id:'era5-land',dataset_version:NATIONAL.dataset,data:dates.length===1&&['temperature','rain'].includes(id)?qualifySpatial(data,end,definition.variable):data};
+  return {period:[start,end],indicator:id,threshold,source_id:'era5-land',dataset_version:NATIONAL.dataset,data:dates.length===1&&['temperature','rain'].includes(id)?await qualifySpatial(data,end,definition.variable):data};
 }
 export async function readUnified(request:Request) {
   try{return Response.json(await unifiedData(new URL(request.url).searchParams, fetch, request.signal),{headers:{'Cache-Control':'private, max-age=60'}});}

@@ -24,6 +24,16 @@ MAX_OBJECT = 8 * 1024**2
 STORAGE_GUARD = 900 * 1024**2
 
 
+def indexed_bytes(catalogue: dict[str, Any]) -> int:
+    entries = [e for name in ("weather", "era5", "supports") for e in catalogue.get(name, [])]
+    objects = {e["path"]: int(e["bytes"]) for e in entries}
+    for entry in entries:
+        geometry = entry.get("geometry_entry")
+        if geometry:
+            objects[geometry["path"]] = int(geometry["bytes"])
+    return sum(objects.values())
+
+
 class ArchiveStore:
     def __init__(self, read_only: bool = False) -> None:
         base = os.environ.get("NEXT_PUBLIC_SUPABASE_URL", "").rstrip("/")
@@ -119,6 +129,17 @@ class ArchiveStore:
             else {"version": "pra-archive-catalogue-1", "weather": [], "era5": []}
         )
 
+    def publish_current(self, catalogue: dict[str, Any]) -> None:
+        weather = sorted(catalogue["weather"], key=lambda e: e.get("run_at", e["run_date"]))
+        era5 = sorted(catalogue["era5"], key=lambda e: max(e["dates"]))
+        current = {"version": "pra-current-1", "weather": weather[-1:] , "era5": era5[-1:], "era5_dates": sorted({d for e in era5 for d in e["dates"]}), "supports": catalogue.get("supports", [])[-1:]}
+        raw = json.dumps(current, sort_keys=True).encode()
+        if self.request(f"object/{BUCKET}/current.json") == raw:
+            return
+        self.request(f"object/{BUCKET}/current.json", "POST", raw, upsert=True)
+        if self.request(f"object/{BUCKET}/current.json") != raw:
+            raise ValueError("Current manifest readback mismatch")
+
     def blob(self, path: str, checksum: str) -> bytes:
         raw = self.request(f"object/{BUCKET}/{path}")
         if hashlib.sha256(raw).hexdigest() != checksum:
@@ -172,11 +193,7 @@ class ArchiveStore:
                 raise ValueError("Published immutable weather cycle conflict")
             self.blob(entry["path"], checksum)
             return {**entry, "inserted": False, "storage_writes": 0}
-        projected = sum(
-            e["bytes"]
-            for group in (catalogue["weather"], catalogue["era5"])
-            for e in group
-        ) + len(raw)
+        projected = indexed_bytes(catalogue) + len(raw)
         if projected > STORAGE_GUARD:
             raise ValueError("Archive storage guard exceeded")
         self.put_immutable(entry["path"], raw)
@@ -191,9 +208,10 @@ class ArchiveStore:
         checked = self.catalogue()
         if entry not in checked["weather"]:
             raise ValueError("Catalogue readback mismatch")
+        self.publish_current(checked)
         return {**entry, "inserted": True, "storage_writes": self.writes}
 
-    def publish_era5(self, archive: Path, dates: list[str]) -> dict[str, Any]:
+    def publish_era5(self, archive: Path, dates: list[str], support: dict[str, Any] | None = None) -> dict[str, Any]:
         raw = archive.read_bytes()
         checksum = hashlib.sha256(raw).hexdigest()
         if archive.with_suffix(".sha256").read_text().strip() != checksum:
@@ -208,12 +226,21 @@ class ArchiveStore:
         if entry in catalogue["era5"]:
             self.blob(entry["path"], checksum)
             return {**entry, "inserted": False}
+        projected = indexed_bytes(catalogue) + len(raw) + (int(support["bytes"]) + int(support["geometry_entry"]["bytes"]) if support else 0)
+        if projected > STORAGE_GUARD:
+            raise ValueError("Archive storage guard exceeded")
         self.put_immutable(entry["path"], raw)
         catalogue["era5"].append(entry)
+        if support is not None:
+            catalogue.setdefault("supports", []).append(support)
         self.request(
             f"object/{BUCKET}/catalogue.json",
             "POST",
             json.dumps(catalogue, sort_keys=True).encode(),
             upsert=True,
         )
+        checked = self.catalogue()
+        if entry not in checked["era5"]:
+            raise ValueError("ERA5 catalogue readback mismatch")
+        self.publish_current(checked)
         return {**entry, "inserted": True}

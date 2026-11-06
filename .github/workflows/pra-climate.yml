@@ -349,6 +349,7 @@ jobs:
         with:
           name: era5-archive-checkpoints
           path: |
+            work/era5-archive/**/source-cache/
             work/era5-archive/**/tiles/
             work/era5-archive/**/batches/
             work/era5-archive/**/exact.json*

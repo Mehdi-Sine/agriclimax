@@ -2,7 +2,7 @@ import 'server-only';
 import { NATIONAL, DAYS } from '../../features/national/model';
 import { calendarDays, isCalendarDate, type NationalAvailability } from '../../features/national/daily-availability';
 import { ApiError } from './query';
-import {archiveCatalogue} from './weather-archives';
+import {archiveCatalogue,currentManifest} from './weather-archives';
 
 let cached: { expires: number; promise: Promise<NationalAvailability> } | undefined;
 
@@ -31,8 +31,9 @@ async function discover(transport: typeof fetch): Promise<NationalAvailability> 
   if(!Array.isArray(days)||days.length!==30||!days.every(d=>typeof d==='string')||days.join(',')!==calendarDays(days[0],date).join(','))throw new ApiError('INVALID_RESPONSE',502);
   for(const field of ['acquired_at','updated_at'] as const)if(!(raw[field]===null||typeof raw[field]==='string'&&Number.isFinite(Date.parse(raw[field] as string))))throw new ApiError('INVALID_RESPONSE',502);
   if(!['known','unknown'].includes(String(raw.acquisition_time_status))||(raw.acquisition_time_status==='known')!==(raw.acquired_at!==null))throw new ApiError('INVALID_RESPONSE',502);
-  const cold=transport===fetch?await archiveCatalogue():null;
-  const extra=cold?.era5.flatMap(entry=>entry.dates)??[];
+  const current=transport===fetch?await currentManifest():null;
+  const cold=transport===fetch&&!current?await archiveCatalogue():null;
+  const extra=current?.era5_dates??cold?.era5.flatMap(entry=>entry.dates)??[];
   const all=[...new Set([...DAYS,...days as string[],...extra])].sort(),latest=all.at(-1)!;
   const warmLatest=latest===date;
   return {source_id:'era5-land',dataset_version:NATIONAL.dataset,latest,source_date:latest,

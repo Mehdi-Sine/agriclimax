@@ -70,7 +70,7 @@ def build(root: Path, destination: Path) -> dict[str, Any]:
                 observed = sum(w["weight"] * r[variable] for w, r in valid if r is not None) / coverage if valid else None
                 values.append({"pra_id": pra, "coverage": min(coverage, 1), "observed_value": observed, "value": observed if coverage >= .9 else None, "support_id": support_key if cells else None, "temporal_coverage": 1 if valid else 0, "rule_version": RULE, "quality_flags": ["observed_area_not_whole_pra", "not_for_extremes_normals_anomalies", "verified_24_hourly_samples_upstream"]})
             products[day][variable] = values
-    result = {"rule_version": RULE, "source_id": "era5-land", "grid": "era5land-native-0p1", "dates": days, "geometries": geometries, "days": products, "checks": checks, "network_requests": 0, "historical_values_rewritten": False}
+    result = {"rule_version": RULE, "source_id": "era5-land", "grid": "era5land-native-0p1", "dates": days, "geometries": geometries, "days": products, "checks": checks, "network_requests": 0, "historical_values_rewritten": False, "reference_sha256": hashlib.sha256((directory / "reference.json").read_bytes()).hexdigest(), "weights_sha256": hashlib.sha256((directory / "weights.json").read_bytes()).hexdigest()}
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(result, separators=(",", ":")))
     return {"dates": days, "geometries": len(geometries), "bytes": destination.stat().st_size, "max_area_error_fraction": max(c["display_area_error_fraction"] for c in checks)}

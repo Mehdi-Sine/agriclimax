@@ -1,6 +1,7 @@
 """Incremental DEV ERA5 immutable archive writer; never persists database rows."""
 
 import argparse
+import gzip
 import hashlib
 import json
 import resource
@@ -17,6 +18,7 @@ from agriclimax.territories.national_daily import DATASET, REFERENCE, acquire_wi
 from agriclimax.territories.pipeline import run_batch
 from agriclimax.territories.repository import PraRepository
 from agriclimax.territories.spatial import Weight, load_reference
+from era5_spatial_restitution import build as build_support
 from pra_lossless_archive import pack, restore
 from pra_weather_store import ArchiveStore
 
@@ -101,7 +103,20 @@ def main() -> None:
                 raise ValueError("Full independent restoration failed before publication")
             report.update({"status": "verified", "restored_rows": len(rows), "archive": receipt, "sha256": hashlib.sha256(archive.read_bytes()).hexdigest()})
             if args.publish_dev:
-                report["publication"] = store.publish_era5(archive, [str(day)])
+                support_path = root / "support.json"
+                report["spatial_support"] = build_support(root, support_path)
+                support_document = json.loads(support_path.read_bytes())
+                geometry_document = {"rule_version": support_document["rule_version"], "reference_sha256": support_document["reference_sha256"], "geometries": support_document.pop("geometries")}
+                raw_geometry = gzip.compress(json.dumps(geometry_document, sort_keys=True, separators=(",", ":")).encode(), mtime=0)
+                geometry_sha = hashlib.sha256(raw_geometry).hexdigest()
+                geometry_entry: dict[str, Any] = {"path": f"support/{geometry_sha}.json.gz", "sha256": geometry_sha, "bytes": len(raw_geometry), "dates": []}
+                store.put_immutable(geometry_entry["path"], raw_geometry)
+                support_document["geometry_entry"] = geometry_entry
+                raw_support = gzip.compress(json.dumps(support_document, sort_keys=True, separators=(",", ":")).encode(), mtime=0)
+                support_sha = hashlib.sha256(raw_support).hexdigest()
+                support_entry: dict[str, Any] = {"path": f"support/{support_sha}.json.gz", "sha256": support_sha, "bytes": len(raw_support), "dates": [str(day)], "method_version": "pra-observed-area-mean-90-1", "geometry_entry": geometry_entry}
+                store.put_immutable(support_entry["path"], raw_support)
+                report["publication"] = store.publish_era5(archive, [str(day)], support_entry)
                 report["storage_writes"] = store.writes
                 report["status"] = "published"
     except Exception as error:

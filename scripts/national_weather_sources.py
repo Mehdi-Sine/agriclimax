@@ -78,7 +78,7 @@ class WcsProvider:
             + urlencode([("service", "WCS"), ("version", "2.0.1")] + parameters)
         )
         token = url + (
-            datetime.now(UTC).date().isoformat()
+            datetime.now(UTC).strftime("%Y-%m-%dT%H")
             if operation == "GetCapabilities"
             else ""
         )
