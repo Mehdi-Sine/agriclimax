@@ -23,9 +23,20 @@ export interface WatchEvent {
  provenance:string[];quality_flags:string[];rule_version:string;data_freshness:string[];
 }
 export interface ProductionPresence {id:string;label:string;pra_ids:string[];known_pra_ids:string[];source:string;year:number;limitation:string}
+export type WatchEvidence=Pick<WatchMetric,'sources'|'provenance'|'quality_flags'|'rule_version'|'data_freshness'>;
+export type WatchFact=Omit<WatchMetric,keyof WatchEvidence>&{evidence_id:string};
+export function packMetrics(metrics:WatchMetric[]):{metrics:WatchFact[];evidence:Record<string,WatchEvidence>}{
+ const evidence:Record<string,WatchEvidence>={},ids=new Map<string,string>();
+ const facts=metrics.map(m=>{
+  const {sources,provenance,quality_flags,rule_version,data_freshness,...fact}=m;
+  const entry={sources,provenance,quality_flags,rule_version,data_freshness},signature=JSON.stringify(entry);
+  let id=ids.get(signature);if(!id){id=`e${ids.size+1}`;ids.set(signature,id);evidence[id]=entry;}
+  return {...fact,evidence_id:id};
+ });return {metrics:facts,evidence};
+}
 export interface WatchSummary {
  version:string;identity:string;run:string;published_at:string|null;acquired_at:string;period:[string,string];
- source_nature:'forecast';metrics:WatchMetric[];events:WatchEvent[];places:Place[];productions:ProductionPresence[];
+ source_nature:'forecast';metrics:WatchFact[];evidence:Record<string,WatchEvidence>;events:WatchEvent[];places:Place[];productions:ProductionPresence[];
  coverage:{phenomenon:Phenomenon;evaluated:number;affected:number;insufficient:number;unavailable:number}[];
  source_version:string;calculated_at:string;compute_ms:number;
 }

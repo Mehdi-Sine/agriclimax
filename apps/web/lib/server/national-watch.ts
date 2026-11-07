@@ -4,7 +4,7 @@ import {join} from 'node:path';
 import {createHash} from 'node:crypto';
 import {nationalWeatherDocument,currentManifest} from './weather-archives';
 import {datasets,sources} from './agriculture-index';
-import {detectNational,PHENOMENA,WATCH_VERSION,type Place,type WatchSummary,type ProductionPresence} from '../../features/national-watch/model';
+import {detectNational,packMetrics,PHENOMENA,WATCH_VERSION,type Place,type WatchSummary,type ProductionPresence} from '../../features/national-watch/model';
 import {PRODUCTIONS} from '../../features/national-watch/productions';
 import {PALETTE_VERSION} from '../../features/cartography/registry';
 import type {PraCollection} from '../../features/national/map';
@@ -31,7 +31,7 @@ export async function nationalWatch():Promise<WatchSummary>{
   for(const event of events)event.production_ids=productions.filter(p=>event.pra_ids.some(id=>p.pra_ids.includes(id))).map(p=>p.id);
   return {version:WATCH_VERSION,identity,source_version:source,run:document.run,acquired_at:document.acquired_at,
    published_at:document.rows.map(r=>r.published_at).filter((v):v is string=>!!v).sort().at(-1)??null,
-   source_nature:'forecast',period:[start,end],places,productions,metrics,events,
+   source_nature:'forecast',period:[start,end],places,productions,...packMetrics(metrics),events,
    coverage:PHENOMENA.map(p=>{const m=metrics.filter(m=>m.phenomenon===p.id);return {phenomenon:p.id,evaluated:m.filter(m=>m.detected!==null).length,affected:m.filter(m=>m.detected===true).length,insufficient:m.filter(m=>m.state==='insufficient').length,unavailable:m.filter(m=>m.state==='unavailable').length};}),
    calculated_at:new Date().toISOString(),compute_ms:Math.round(performance.now()-started)};
  })();

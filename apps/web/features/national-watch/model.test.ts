@@ -38,3 +38,11 @@ describe('national selection: explicitly synthetic unit inputs',()=>{
   expect(watchFreshness({run:'2026-07-01T00:00:00Z',acquired_at:'2026-07-01T10:00:00Z',period:['2026-07-02','2026-07-08']},Date.parse('2026-07-20'))).toEqual({stale:true,expired:true});
  });
 });
+
+it('deduplicates evidence without dropping any scientific qualifications',async()=>{
+ const {packMetrics}=await import('./model');
+ const original=detectNational(fixture(),places,'2026-07-01','2026-07-07').metrics;
+ const packed=packMetrics(original);
+ expect(packed.metrics.map(({evidence_id,...fact})=>({...fact,...packed.evidence[evidence_id]}))).toEqual(original);
+ expect(Object.keys(packed.evidence).length).toBeLessThan(original.length);
+});

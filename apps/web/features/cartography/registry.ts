@@ -21,6 +21,7 @@ export function semanticPalette(indicator:string,unit:string,days=1,mode='value'
  if(mode==='anomaly')return temperature
   ? definition('temperature-anomaly','temperature','anomaly','°C',[-3,-1,1,3,Infinity],thermal,'Bleu : froid ; classe neutre centrée sur 0 °C ; chaud : orange/rouge','Normale homologue ERA5-Land 1991–2020 validée')
   : definition('rain-departure','precipitation','anomaly','mm',[-50,-10,10,50,Infinity],[...dry.slice(3).reverse(),'--map-mid',...rain.slice(3)],'Déficit sec, référence neutre, excédent bleu ; écart absolu, jamais sécheresse des sols','Normale homologue 1991–2020 validée');
+ if(indicator==='frost_min')return definition('frost-minimum','cold','absolute','°C',[-10,-5,0,5,Infinity],[...cold].reverse(),'Bleu intense pour les températures les plus basses ; température absolue, sans dommage inféré');
  if(temperature)return definition('temperature-absolute','temperature','absolute','°C',[0,10,20,30,Infinity],thermal,'Température absolue, sans comparaison implicite à la normale');
  if(['dry','dry_sequence'].includes(indicator))return definition('dry-sequence','precipitation','occurrence','jours',[0,2,4,6,Infinity],dry,'Durée sans pluie significative (< 1 mm/j), pas sécheresse agricole');
  if(['frost','frost_sequence'].includes(indicator))return definition('frost-days','cold','occurrence','jours',[0,1,3,5,Infinity],cold,'Bleu croissant : jours de gel, sans dommage inféré');
@@ -43,4 +44,4 @@ export function classLabel(palette:Palette,index:number):string {
  const f=(v:number)=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(v);
  return index===0?`≤ ${f(palette.bounds[0])}`:index===palette.bounds.length-1?`> ${f(palette.bounds[index-1])}`:`> ${f(palette.bounds[index-1])} à ${f(palette.bounds[index])}`;
 }
-export const PALETTES=[semanticPalette('temperature','°C'),semanticPalette('temperature','°C',1,'anomaly'),semanticPalette('rain','mm',1,'anomaly'),...[1,7,30].map(d=>semanticPalette('rain','mm',d)),...['dry','frost','hot','heavy_rain','gdd','thi','humidity'].map(id=>semanticPalette(id,id==='thi'?'THI':id==='gdd'?'°C·j':'jours')), ...['ha','q/ha','t','têtes'].map(u=>semanticPalette('agriculture',u))];
+export const PALETTES=[semanticPalette('temperature','°C'),semanticPalette('temperature','°C',1,'anomaly'),semanticPalette('rain','mm',1,'anomaly'),...[1,7,30].map(d=>semanticPalette('rain','mm',d)),...['frost_min','dry','frost','hot','heavy_rain','gdd','thi','humidity'].map(id=>semanticPalette(id,id==='thi'?'THI':id==='gdd'?'°C·j':'jours')), ...['ha','q/ha','t','têtes'].map(u=>semanticPalette('agriculture',u))];
