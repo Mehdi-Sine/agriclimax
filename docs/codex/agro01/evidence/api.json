@@ -1,0 +1,88 @@
+{
+  "origin": "http://127.0.0.1:3000/api/journal",
+  "kind": "local production build with real archives",
+  "checks": [
+    {
+      "check": "latest",
+      "status": 200,
+      "ms": 2370.176106000031,
+      "bytes": 246199,
+      "edition": "364d084e65ca1964db64fd8d2db8577e99104cacaa8cc850e48d255a3befacb9",
+      "cycle": [
+        "2026-11-07T00:00:00+00:00"
+      ],
+      "wheat_indicators": 10,
+      "wheat_fact_count": 18,
+      "regions": 13
+    },
+    {
+      "check": "repeat",
+      "status": 200,
+      "ms": 12.1719999999641,
+      "bytes": 246199,
+      "edition": "364d084e65ca1964db64fd8d2db8577e99104cacaa8cc850e48d255a3befacb9",
+      "cycle": [
+        "2026-11-07T00:00:00+00:00"
+      ],
+      "wheat_indicators": 10,
+      "wheat_fact_count": 18,
+      "regions": 13
+    },
+    {
+      "check": "old",
+      "status": 200,
+      "ms": 2067.961043999958,
+      "bytes": 230233,
+      "edition": "f85cdaed0af1002ecfc0d42557e00b5e71e477415534f61bfeaad741753c2d6a",
+      "cycle": [
+        "2026-11-06T06:00:00+00:00"
+      ],
+      "wheat_indicators": 10,
+      "wheat_fact_count": 18,
+      "regions": 13
+    },
+    {
+      "check": "conditional",
+      "status": 304
+    },
+    {
+      "check": "invalid-date",
+      "status": 400
+    }
+  ],
+  "response_sha256": "63f8029f73355771e86fc9ef6831300dfec44f8c850af126fc970b0e3d202b6c",
+  "example_wheat_fact": {
+    "id": "wheat-9c386068b5603f500e75de80",
+    "text": "Auvergne-Rhône-Alpes — 82 PRA avec au moins un jour franchissant le seuil descriptif (112/112 PRA complètes). Jours de gel : maximum parmi les PRA évaluables, 1.00 jours dans VALLEE DE LA SAONE - 01 (pra:01195), du 2026-11-08 au 2026-11-08 ; prévision. Descriptif exploratoire ; aucun stade, dommage ou rendement déduit. Représentativité littorale non garantie.",
+    "value": 1,
+    "unit": "jours",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "source": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+    "rule_version": "wheat-descriptive-2.0.0",
+    "provenance": [
+      "ed370aa25381e6ad40c6d962e2a31f0cb01240b0a813546a79d7f83c8d5eb08c",
+      "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+      "meteofrance-arome/2026-11-07T00:00:00Z/ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+    ],
+    "quality_flags": [
+      "total_area_not_agricultural_area",
+      "exploratory",
+      "model_forecast_not_observation",
+      "utc_half_open_day_extrema",
+      "source_land_mask_unavailable",
+      "land_sea_representativeness_requires_qualification",
+      "publication_time_unknown",
+      "temperature_sampled_3h_not_continuous",
+      "descriptive_only_no_agronomic_risk",
+      "exploratory_descriptive_publication",
+      "agronomic_interpretation_not_validated"
+    ],
+    "data_freshness": [
+      "unknown"
+    ],
+    "href": "/analyse?production=wheat&agro=frost&temporal=forecast&agro_start=2026-11-08&agro_end=2026-11-08&weather_run=2026-11-07T00%3A00%3A00%2B00%3A00&pra=pra%3A01195"
+  }
+}

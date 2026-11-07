@@ -1,0 +1,25 @@
+{
+  "typescript": {
+    "passed": 353,
+    "opt_in_skipped": 3
+  },
+  "python": {
+    "passed": 341,
+    "warnings": 63,
+    "warning_note": "Existing xarray/netCDF4 deprecations against numpy 2.5"
+  },
+  "independent_archive_and_synthetic_oracle": "passed, see validation.json",
+  "runtime_real": "passed, see runtime.json",
+  "lint": "passed, zero warnings",
+  "build": "passed, Next 16.4.1 production",
+  "security_source": "passed",
+  "security_client_bundle": "passed",
+  "contracts": "passed",
+  "migrations": "passed",
+  "production_dependency_audit": "passed, see audit output and repository existing ignore list",
+  "ui_files_changed": false,
+  "production_workflows_changed": false,
+  "database_writes": false,
+  "preview_api": "passed; current/old cycles 200, conditional 304, invalid date 400",
+  "gitleaks_note": "SHA-256 native support fingerprints serialized as support_fingerprint to avoid generic-api-key false positives; scanner retained unchanged"
+}
