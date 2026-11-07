@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
-import { RegionalMap, RegionalChart, proportion } from "./visualizations";
+import { RegionalChart, proportion } from "./visualizations";
 import { ProductionStoryCard } from "./stories";
 import type { RegionalSection } from "../model";
 import type { Contribution } from "../registry";
@@ -21,11 +21,6 @@ describe("Journal presentation (synthetic fixtures only)", () => {
     expect(proportion(2, 4)).toBe(50);
   });
   it("shows exact denominators and marks incomplete coverage", () => {
-    const map = renderToStaticMarkup(
-      <RegionalMap regions={[region]} phenomenon="frost" />,
-    );
-    expect(map).toContain("2 / 4 PRA évaluables (50 %), sur 10 PRA");
-    expect(map).toContain("url(#partial)");
     const chart = renderToStaticMarkup(
       <RegionalChart regions={[region]} phenomenon="frost" />,
     );

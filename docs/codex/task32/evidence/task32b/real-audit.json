@@ -1,0 +1,4456 @@
+{
+  "cycles": [
+    {
+      "run": "2026-11-07T00:00:00+00:00",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "source": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+      "edition": "7e6012d4a2bf31e2e0052859da7def6d35e88e458c697fea338b14d668257216",
+      "figures": [
+        {
+          "id": "event-bb1345a771728ef0508fd413",
+          "value": 85,
+          "denominator": 112,
+          "region": "Auvergne-Rhône-Alpes",
+          "phenomenon": "frost",
+          "label": "Gel météorologique attendu",
+          "period": "du 8 au 14 novembre 2026",
+          "href": "/veille?cycle=2026-11-07T00%3A00%3A00%2B00%3A00&phenomene=frost&region=Auvergne-Rh%C3%B4ne-Alpes",
+          "factId": "fact-bb1345a771728ef0508fd413"
+        },
+        {
+          "id": "event-cdbed01951c1afd088079154",
+          "value": 35,
+          "denominator": 35,
+          "region": "Provence-Alpes-Côte d'Azur",
+          "phenomenon": "rain",
+          "label": "Pluie quotidienne importante",
+          "period": "du 8 au 14 novembre 2026",
+          "href": "/veille?cycle=2026-11-07T00%3A00%3A00%2B00%3A00&phenomene=rain&region=Provence-Alpes-C%C3%B4te%20d'Azur",
+          "factId": "fact-cdbed01951c1afd088079154"
+        },
+        {
+          "id": "event-8bcbe10100b157ad16630ad6",
+          "value": 17,
+          "denominator": 36,
+          "region": "Normandie",
+          "phenomenon": "dry",
+          "label": "Séquence sans pluie significative",
+          "period": "du 8 au 14 novembre 2026",
+          "href": "/veille?cycle=2026-11-07T00%3A00%3A00%2B00%3A00&phenomene=dry&region=Normandie",
+          "factId": "fact-8bcbe10100b157ad16630ad6"
+        }
+      ],
+      "extremes": [
+        {
+          "phenomenon": "frost",
+          "region": "Auvergne-Rhône-Alpes",
+          "value": -19.80065002441404,
+          "unit": "°C",
+          "period": [
+            "2026-11-08",
+            "2026-11-14"
+          ],
+          "provenance": [
+            "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce",
+            "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1",
+            "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4",
+            "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+          ],
+          "quality_flags": [
+            "exploratory",
+            "land_sea_representativeness_requires_qualification",
+            "model_forecast_not_observation",
+            "publication_time_unknown",
+            "sampled_3h_then_6h_not_hourly",
+            "sampled_extrema_not_continuous_daily_extrema",
+            "source_delay_not_assessed",
+            "source_grid_not_land_masked",
+            "source_land_mask_unavailable",
+            "source_run_boundaries_sequences_not_joined",
+            "temperature_sampled_3h_not_continuous",
+            "total_area_not_agricultural_area",
+            "utc_half_open_day_extrema"
+          ],
+          "decision": "Conservé dans les faits scientifiques ; remplacé en une par une étendue territoriale documentée, sans moyenne ni surface inférée.",
+          "altitude": "Non fournie par les données de ce contrat ; aucun contexte montagneux affirmé.",
+          "supports": [
+            {
+              "id": "pra:74458",
+              "name": "GRANDES ALPES - 74",
+              "region": "Auvergne-Rhône-Alpes",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": -19.80065002441404,
+                  "unit": "degC",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "temperature_sampled_3h_not_continuous"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": -12.312765502929665,
+                  "unit": "degC",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999995224,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "temperature_sampled_3h_not_continuous"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": -8.878942871093727,
+                  "unit": "degC",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999995224,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "temperature_sampled_3h_not_continuous"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": -3.0663055419921648,
+                  "unit": "degC",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999991,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed",
+                    "sampled_extrema_not_continuous_daily_extrema"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": -1.5508789062499773,
+                  "unit": "degC",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999991,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed",
+                    "sampled_extrema_not_continuous_daily_extrema"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": -0.6718811035156023,
+                  "unit": "degC",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999991,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed",
+                    "sampled_extrema_not_continuous_daily_extrema"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": -8.472967529296852,
+                  "unit": "degC",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999991,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed",
+                    "sampled_extrema_not_continuous_daily_extrema"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "phenomenon": "rain",
+          "region": "Provence-Alpes-Côte d'Azur",
+          "value": 98.34531260101946,
+          "unit": "mm",
+          "period": [
+            "2026-11-08",
+            "2026-11-14"
+          ],
+          "provenance": [
+            "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce",
+            "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1",
+            "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4",
+            "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+          ],
+          "quality_flags": [
+            "exploratory",
+            "land_sea_representativeness_requires_qualification",
+            "model_forecast_not_observation",
+            "native_24h_interval_verified",
+            "negative_source_precipitation_invalid_null_not_clamped",
+            "publication_time_unknown",
+            "sampled_3h_then_6h_not_hourly",
+            "source_delay_not_assessed",
+            "source_grid_not_land_masked",
+            "source_land_mask_unavailable",
+            "source_run_boundaries_sequences_not_joined",
+            "total_area_not_agricultural_area",
+            "utc_half_open_day_extrema"
+          ],
+          "decision": "Conservé dans les faits scientifiques ; remplacé en une par une étendue territoriale documentée, sans moyenne ni surface inférée.",
+          "altitude": "Non fournie par les données de ce contrat ; aucun contexte montagneux affirmé.",
+          "supports": [
+            {
+              "id": "pra:83247",
+              "name": "MAURES ET ESTEREL - 83",
+              "region": "Provence-Alpes-Côte d'Azur",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.8892897207187324,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 4.820736899037431,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998421,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 2.1417005060509537,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998421,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 5.863861767786605,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 98.34531260101946,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0.48518701296642885,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "phenomenon": "dry",
+          "region": "Normandie",
+          "value": 4,
+          "unit": "jours",
+          "period": [
+            "2026-11-08",
+            "2026-11-14"
+          ],
+          "provenance": [
+            "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce",
+            "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1",
+            "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4",
+            "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+          ],
+          "quality_flags": [
+            "exploratory",
+            "land_sea_representativeness_requires_qualification",
+            "model_forecast_not_observation",
+            "native_24h_interval_verified",
+            "negative_source_precipitation_invalid_null_not_clamped",
+            "publication_time_unknown",
+            "sampled_3h_then_6h_not_hourly",
+            "source_delay_not_assessed",
+            "source_grid_not_land_masked",
+            "source_land_mask_unavailable",
+            "source_run_boundaries_sequences_not_joined",
+            "total_area_not_agricultural_area",
+            "utc_half_open_day_extrema"
+          ],
+          "decision": "Conservé dans les faits scientifiques ; remplacé en une par une étendue territoriale documentée, sans moyenne ni surface inférée.",
+          "altitude": "Non fournie par les données de ce contrat ; aucun contexte montagneux affirmé.",
+          "supports": [
+            {
+              "id": "pra:14085",
+              "name": "BESSIN - 14",
+              "region": "Normandie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.04289080279232975,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 5.510254800818993,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999997994,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 4.980672317404954,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999997994,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.6652215695511201,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0.34999990064207404,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0.48131943734102195,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0.14682919745477307,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            },
+            {
+              "id": "pra:14353",
+              "name": "PAYS D AUGE - 14",
+              "region": "Normandie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.03901909919284429,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 5.485386173685869,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998964,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 6.569056998261916,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998964,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.6787813301986986,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999997,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0.5321113318728911,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999997,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999997,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999997,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            },
+            {
+              "id": "pra:14355",
+              "name": "PLAINES DE CAEN ET DE FALAISE - 14",
+              "region": "Normandie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.03532451949948686,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 7.496559333377181,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999065,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 5.8261797401218836,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999065,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.3480265342971369,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999978,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0.6821654675702339,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999978,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0.016324646198304704,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999978,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999978,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            },
+            {
+              "id": "pra:27044",
+              "name": "VEXIN NORMAND - 27",
+              "region": "Normandie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.005160954964885798,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 1.4958419735143127,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999997775,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 11.603251740454365,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999997775,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.3602746282730984,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0.5575569107051815,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0.29643068423949,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            },
+            {
+              "id": "pra:27050",
+              "name": "PAYS DE LYONS - 27",
+              "region": "Normandie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.007522312604334909,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 1.280795792909916,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 11.099114479956594,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.6471090683083751,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0.5290230049355538,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0.09459346509003799,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            },
+            {
+              "id": "pra:27051",
+              "name": "MARAIS VERNIER - 27",
+              "region": "Normandie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.006667239445853776,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999997,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 2.616335019946965,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999996,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 8.427668778365604,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999996,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.732421875,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999998,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0.244140625,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999998,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999998,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999998,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            },
+            {
+              "id": "pra:27052",
+              "name": "ROUMOIS - 27",
+              "region": "Normandie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.04164745961705647,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 2.6588546781581432,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998015,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 9.145393217664175,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998015,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.41808893264200264,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0.41290651697598657,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            },
+            {
+              "id": "pra:27077",
+              "name": "LIEUVIN - 27",
+              "region": "Normandie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.07206067151271446,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 4.209383279780955,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998903,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 7.439673626683426,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998903,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.4218944707233121,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0.7767388313118596,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0.008913196370663179,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            },
+            {
+              "id": "pra:27330",
+              "name": "VEXIN BOSSU - 27",
+              "region": "Normandie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.0005768529509514331,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 2.292721059278858,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.999999999999898,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 12.471290704443874,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.999999999999898,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.2566479154968204,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0.6520080528689237,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0.36247772511386656,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            },
+            {
+              "id": "pra:27332",
+              "name": "VALLEE DE LA SEINE - 27",
+              "region": "Normandie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.0027739575663014077,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 2.4895258570968237,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998347,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 12.001957174758477,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998347,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.054671758136198706,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999974,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0.6189576880186964,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999974,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0.26698053836630076,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999974,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999974,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            },
+            {
+              "id": "pra:27353",
+              "name": "PAYS D AUGE - 27",
+              "region": "Normandie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.0551932507167452,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 4.737966894538091,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999997605,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 6.949106914361447,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999997605,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.9618369870389998,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0.7632180329909279,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999999,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            },
+            {
+              "id": "pra:76047",
+              "name": "PETIT CAUX - 76",
+              "region": "Normandie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.2041863559886388,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 0.03165393708614854,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999751,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 6.647934730725177,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999751,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.7324231812845705,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0.6556800412147865,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            },
+            {
+              "id": "pra:76332",
+              "name": "VALLEE DE LA SEINE - 76",
+              "region": "Normandie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-08",
+                  "value": 0.01137726072638392,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 1.8022348840815416,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999934,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ea26c577f79fd4eb12e35f0aceb241ea8ee59eaebdfc9051c08d2109b2193e21"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 10.169808382584263,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999934,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "dbf09a165b05d23466fadf1d5b1ecb8a5214e001176dd218ba29d5c094d3a5f4"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.7928089985364282,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0.23276350170242774,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0.010310642795194828,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                },
+                {
+                  "date": "2026-11-14",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-07T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "ae7e21ae6e1eeb8a8ee78f0c9ad08008702c9c826ba51b18647dc9aea06b77ce"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "maps": [
+        {
+          "phenomenon": "frost",
+          "count": 713,
+          "available": 713,
+          "partial": 0,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": -0.7420562744140398,
+              "status": "available",
+              "state": "detected",
+              "evidence_id": "e1"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": -0.8473876953124773,
+              "status": "available",
+              "state": "detected",
+              "evidence_id": "e1"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": -1.1310943603515398,
+              "status": "available",
+              "state": "detected",
+              "evidence_id": "e1"
+            }
+          ]
+        },
+        {
+          "phenomenon": "heat",
+          "count": 713,
+          "available": 713,
+          "partial": 0,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 17.094018554687523,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e1"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 17.094018554687523,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e1"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 17.344018554687523,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e1"
+            }
+          ]
+        },
+        {
+          "phenomenon": "rain",
+          "count": 713,
+          "available": 713,
+          "partial": 0,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 14.890572093111576,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 11.006580900087176,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 11.923680229562036,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            }
+          ]
+        },
+        {
+          "phenomenon": "dry",
+          "count": 713,
+          "available": 713,
+          "partial": 0,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 1,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 1,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 1,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            }
+          ]
+        },
+        {
+          "phenomenon": "thi",
+          "count": 713,
+          "available": 77,
+          "partial": 636,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": null,
+              "status": "partial",
+              "state": "insufficient",
+              "evidence_id": "e3"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": null,
+              "status": "partial",
+              "state": "insufficient",
+              "evidence_id": "e3"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": null,
+              "status": "partial",
+              "state": "insufficient",
+              "evidence_id": "e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run": "2026-11-06T00:00:00+00:00",
+      "period": [
+        "2026-11-07",
+        "2026-11-13"
+      ],
+      "source": "62ab191f162a076003ffba79994858fcef0692b3e1f52e1abef1652f2d3c6066",
+      "edition": "ff911dc4e39a1d1a6fa52f01352b028ff01f619bebfe6881145ba6f2ac698e3a",
+      "figures": [
+        {
+          "id": "event-f228d1e4bcdc95f005b7473c",
+          "value": 69,
+          "denominator": 112,
+          "region": "Auvergne-Rhône-Alpes",
+          "phenomenon": "frost",
+          "label": "Gel météorologique attendu",
+          "period": "du 7 au 13 novembre 2026",
+          "href": "/veille?cycle=2026-11-06T00%3A00%3A00%2B00%3A00&phenomene=frost&region=Auvergne-Rh%C3%B4ne-Alpes",
+          "factId": "fact-f228d1e4bcdc95f005b7473c"
+        },
+        {
+          "id": "event-89b9d6c9b35fd2063df104d4",
+          "value": 35,
+          "denominator": 35,
+          "region": "Provence-Alpes-Côte d'Azur",
+          "phenomenon": "rain",
+          "label": "Pluie quotidienne importante",
+          "period": "du 7 au 13 novembre 2026",
+          "href": "/veille?cycle=2026-11-06T00%3A00%3A00%2B00%3A00&phenomene=rain&region=Provence-Alpes-C%C3%B4te%20d'Azur",
+          "factId": "fact-89b9d6c9b35fd2063df104d4"
+        },
+        {
+          "id": "event-1fe309d74dcf94faab16f149",
+          "value": 8,
+          "denominator": 54,
+          "region": "Occitanie",
+          "phenomenon": "dry",
+          "label": "Séquence sans pluie significative",
+          "period": "du 7 au 13 novembre 2026",
+          "href": "/veille?cycle=2026-11-06T00%3A00%3A00%2B00%3A00&phenomene=dry&region=Occitanie",
+          "factId": "fact-1fe309d74dcf94faab16f149"
+        }
+      ],
+      "extremes": [
+        {
+          "phenomenon": "frost",
+          "region": "Auvergne-Rhône-Alpes",
+          "value": -20.42210998535154,
+          "unit": "°C",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "provenance": [
+            "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec",
+            "52f8743d22c1ecc0481ba06be9f4eb2119705c6c5709021c573c9d35e9079b61",
+            "e1cf9c16cf726729cdb0b82d4cafd54d6969fed5832dbca01ecea3e87ef563bf",
+            "ed9d765c2c4be185ecd45c9b4d5a31ff19e41d311e1775662e14f036dc80f00e"
+          ],
+          "quality_flags": [
+            "exploratory",
+            "land_sea_representativeness_requires_qualification",
+            "model_forecast_not_observation",
+            "publication_time_unknown",
+            "sampled_3h_then_6h_not_hourly",
+            "sampled_extrema_not_continuous_daily_extrema",
+            "source_delay_not_assessed",
+            "source_grid_not_land_masked",
+            "source_land_mask_unavailable",
+            "source_run_boundaries_sequences_not_joined",
+            "temperature_sampled_3h_not_continuous",
+            "total_area_not_agricultural_area",
+            "utc_half_open_day_extrema"
+          ],
+          "decision": "Conservé dans les faits scientifiques ; remplacé en une par une étendue territoriale documentée, sans moyenne ni surface inférée.",
+          "altitude": "Non fournie par les données de ce contrat ; aucun contexte montagneux affirmé.",
+          "supports": [
+            {
+              "id": "pra:74458",
+              "name": "GRANDES ALPES - 74",
+              "region": "Auvergne-Rhône-Alpes",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-07",
+                  "value": -20.42210998535154,
+                  "unit": "degC",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "temperature_sampled_3h_not_continuous"
+                  ],
+                  "provenance": "52f8743d22c1ecc0481ba06be9f4eb2119705c6c5709021c573c9d35e9079b61"
+                },
+                {
+                  "date": "2026-11-08",
+                  "value": -16.459509277343727,
+                  "unit": "degC",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999995224,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "temperature_sampled_3h_not_continuous"
+                  ],
+                  "provenance": "e1cf9c16cf726729cdb0b82d4cafd54d6969fed5832dbca01ecea3e87ef563bf"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": -11.199926757812477,
+                  "unit": "degC",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999995224,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "temperature_sampled_3h_not_continuous"
+                  ],
+                  "provenance": "ed9d765c2c4be185ecd45c9b4d5a31ff19e41d311e1775662e14f036dc80f00e"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": -2.6387542724609148,
+                  "unit": "degC",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999991,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed",
+                    "sampled_extrema_not_continuous_daily_extrema"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": -4.173971557617165,
+                  "unit": "degC",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999991,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed",
+                    "sampled_extrema_not_continuous_daily_extrema"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": -3.5223907470702898,
+                  "unit": "degC",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999991,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed",
+                    "sampled_extrema_not_continuous_daily_extrema"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": -3.3264526367187273,
+                  "unit": "degC",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999991,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed",
+                    "sampled_extrema_not_continuous_daily_extrema"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "phenomenon": "rain",
+          "region": "Provence-Alpes-Côte d'Azur",
+          "value": 62.940158648665275,
+          "unit": "mm",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "provenance": [
+            "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec",
+            "52f8743d22c1ecc0481ba06be9f4eb2119705c6c5709021c573c9d35e9079b61",
+            "e1cf9c16cf726729cdb0b82d4cafd54d6969fed5832dbca01ecea3e87ef563bf",
+            "ed9d765c2c4be185ecd45c9b4d5a31ff19e41d311e1775662e14f036dc80f00e"
+          ],
+          "quality_flags": [
+            "exploratory",
+            "land_sea_representativeness_requires_qualification",
+            "model_forecast_not_observation",
+            "native_24h_interval_verified",
+            "negative_source_precipitation_invalid_null_not_clamped",
+            "publication_time_unknown",
+            "sampled_3h_then_6h_not_hourly",
+            "source_delay_not_assessed",
+            "source_grid_not_land_masked",
+            "source_land_mask_unavailable",
+            "source_run_boundaries_sequences_not_joined",
+            "total_area_not_agricultural_area",
+            "utc_half_open_day_extrema"
+          ],
+          "decision": "Conservé dans les faits scientifiques ; remplacé en une par une étendue territoriale documentée, sans moyenne ni surface inférée.",
+          "altitude": "Non fournie par les données de ce contrat ; aucun contexte montagneux affirmé.",
+          "supports": [
+            {
+              "id": "pra:83247",
+              "name": "MAURES ET ESTEREL - 83",
+              "region": "Provence-Alpes-Côte d'Azur",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-07",
+                  "value": 0.038062865710523065,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "52f8743d22c1ecc0481ba06be9f4eb2119705c6c5709021c573c9d35e9079b61"
+                },
+                {
+                  "date": "2026-11-08",
+                  "value": 3.309250388853415,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998421,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "e1cf9c16cf726729cdb0b82d4cafd54d6969fed5832dbca01ecea3e87ef563bf"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 2.6202540738276334,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998421,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ed9d765c2c4be185ecd45c9b4d5a31ff19e41d311e1775662e14f036dc80f00e"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 15.958099187943821,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 2.3634760216277937,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 62.940158648665275,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 18.923163993562337,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "phenomenon": "dry",
+          "region": "Occitanie",
+          "value": 4,
+          "unit": "jours",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "provenance": [
+            "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec",
+            "52f8743d22c1ecc0481ba06be9f4eb2119705c6c5709021c573c9d35e9079b61",
+            "e1cf9c16cf726729cdb0b82d4cafd54d6969fed5832dbca01ecea3e87ef563bf",
+            "ed9d765c2c4be185ecd45c9b4d5a31ff19e41d311e1775662e14f036dc80f00e"
+          ],
+          "quality_flags": [
+            "exploratory",
+            "land_sea_representativeness_requires_qualification",
+            "model_forecast_not_observation",
+            "native_24h_interval_verified",
+            "negative_source_precipitation_invalid_null_not_clamped",
+            "publication_time_unknown",
+            "sampled_3h_then_6h_not_hourly",
+            "source_delay_not_assessed",
+            "source_grid_not_land_masked",
+            "source_land_mask_unavailable",
+            "source_run_boundaries_sequences_not_joined",
+            "total_area_not_agricultural_area",
+            "utc_half_open_day_extrema"
+          ],
+          "decision": "Conservé dans les faits scientifiques ; remplacé en une par une étendue territoriale documentée, sans moyenne ni surface inférée.",
+          "altitude": "Non fournie par les données de ce contrat ; aucun contexte montagneux affirmé.",
+          "supports": [
+            {
+              "id": "pra:66256",
+              "name": "CERDAGNE - 66",
+              "region": "Occitanie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-07",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "52f8743d22c1ecc0481ba06be9f4eb2119705c6c5709021c573c9d35e9079b61"
+                },
+                {
+                  "date": "2026-11-08",
+                  "value": 0.0011630795660576344,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999546,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "e1cf9c16cf726729cdb0b82d4cafd54d6969fed5832dbca01ecea3e87ef563bf"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 0.45384388074198745,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999546,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "ed9d765c2c4be185ecd45c9b4d5a31ff19e41d311e1775662e14f036dc80f00e"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999993,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.08941813612518731,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999993,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999993,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0.5235451850107024,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999993,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "maps": [
+        {
+          "phenomenon": "frost",
+          "count": 713,
+          "available": 713,
+          "partial": 0,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 0.19750366210939774,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e1"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 1.1475311279297102,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e1"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 1.2696014404297102,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e1"
+            }
+          ]
+        },
+        {
+          "phenomenon": "heat",
+          "count": 713,
+          "available": 713,
+          "partial": 0,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 18.062066650390648,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e1"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 18.707620239257835,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e1"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 18.707620239257835,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e1"
+            }
+          ]
+        },
+        {
+          "phenomenon": "rain",
+          "count": 713,
+          "available": 519,
+          "partial": 194,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 9.512080159595289,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 10.283643106981012,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 9.559779580278274,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            }
+          ]
+        },
+        {
+          "phenomenon": "dry",
+          "count": 713,
+          "available": 519,
+          "partial": 194,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 1,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 1,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 2,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            }
+          ]
+        },
+        {
+          "phenomenon": "thi",
+          "count": 713,
+          "available": 115,
+          "partial": 598,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": null,
+              "status": "partial",
+              "state": "insufficient",
+              "evidence_id": "e3"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": null,
+              "status": "partial",
+              "state": "insufficient",
+              "evidence_id": "e4"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": null,
+              "status": "partial",
+              "state": "insufficient",
+              "evidence_id": "e4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run": "2026-11-06T06:00:00+00:00",
+      "period": [
+        "2026-11-07",
+        "2026-11-13"
+      ],
+      "source": "42b602fdc03b29707d423328026f216354e985e70debbc3252796335c24be724",
+      "edition": "cce14e1c34a8e84357e292fcb49db2ecbe130fddac40e5428278b9033b81f324",
+      "figures": [
+        {
+          "id": "event-30f0e3b495abec8d67f08a5d",
+          "value": 87,
+          "denominator": 112,
+          "region": "Auvergne-Rhône-Alpes",
+          "phenomenon": "frost",
+          "label": "Gel météorologique attendu",
+          "period": "du 7 au 13 novembre 2026",
+          "href": "/veille?cycle=2026-11-06T06%3A00%3A00%2B00%3A00&phenomene=frost&region=Auvergne-Rh%C3%B4ne-Alpes",
+          "factId": "fact-30f0e3b495abec8d67f08a5d"
+        },
+        {
+          "id": "event-09fe5766609dc9ff6428a708",
+          "value": 35,
+          "denominator": 35,
+          "region": "Provence-Alpes-Côte d'Azur",
+          "phenomenon": "rain",
+          "label": "Pluie quotidienne importante",
+          "period": "du 7 au 13 novembre 2026",
+          "href": "/veille?cycle=2026-11-06T06%3A00%3A00%2B00%3A00&phenomene=rain&region=Provence-Alpes-C%C3%B4te%20d'Azur",
+          "factId": "fact-09fe5766609dc9ff6428a708"
+        },
+        {
+          "id": "event-5bbaa208af734624678a7e80",
+          "value": 8,
+          "denominator": 54,
+          "region": "Occitanie",
+          "phenomenon": "dry",
+          "label": "Séquence sans pluie significative",
+          "period": "du 7 au 13 novembre 2026",
+          "href": "/veille?cycle=2026-11-06T06%3A00%3A00%2B00%3A00&phenomene=dry&region=Occitanie",
+          "factId": "fact-5bbaa208af734624678a7e80"
+        }
+      ],
+      "extremes": [
+        {
+          "phenomenon": "frost",
+          "region": "Auvergne-Rhône-Alpes",
+          "value": -19.909323120117165,
+          "unit": "°C",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "provenance": [
+            "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec",
+            "7abb5d06992e2606fe3b188448cd16df1aada6520ef5c15938264f8adcb45c53",
+            "8cf0ffecacb7520dd7dfce17f49b43f942c76efdd80ff80af04c58ce00d32b0e",
+            "d33795ec21951489d637eaf442f216c3c8aa67e39e6f99708982d8c10d001abd"
+          ],
+          "quality_flags": [
+            "exploratory",
+            "land_sea_representativeness_requires_qualification",
+            "model_forecast_not_observation",
+            "publication_time_unknown",
+            "sampled_3h_then_6h_not_hourly",
+            "sampled_extrema_not_continuous_daily_extrema",
+            "source_delay_not_assessed",
+            "source_grid_not_land_masked",
+            "source_land_mask_unavailable",
+            "source_run_boundaries_sequences_not_joined",
+            "temperature_sampled_3h_not_continuous",
+            "total_area_not_agricultural_area",
+            "utc_half_open_day_extrema"
+          ],
+          "decision": "Conservé dans les faits scientifiques ; remplacé en une par une étendue territoriale documentée, sans moyenne ni surface inférée.",
+          "altitude": "Non fournie par les données de ce contrat ; aucun contexte montagneux affirmé.",
+          "supports": [
+            {
+              "id": "pra:74458",
+              "name": "GRANDES ALPES - 74",
+              "region": "Auvergne-Rhône-Alpes",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-07",
+                  "value": -19.909323120117165,
+                  "unit": "degC",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-06T06:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "temperature_sampled_3h_not_continuous"
+                  ],
+                  "provenance": "8cf0ffecacb7520dd7dfce17f49b43f942c76efdd80ff80af04c58ce00d32b0e"
+                },
+                {
+                  "date": "2026-11-08",
+                  "value": -16.808874511718727,
+                  "unit": "degC",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-06T06:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999995224,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "temperature_sampled_3h_not_continuous"
+                  ],
+                  "provenance": "7abb5d06992e2606fe3b188448cd16df1aada6520ef5c15938264f8adcb45c53"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": -11.143041992187477,
+                  "unit": "degC",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-06T06:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999995224,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "temperature_sampled_3h_not_continuous"
+                  ],
+                  "provenance": "d33795ec21951489d637eaf442f216c3c8aa67e39e6f99708982d8c10d001abd"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": -2.6387542724609148,
+                  "unit": "degC",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999991,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed",
+                    "sampled_extrema_not_continuous_daily_extrema"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": -4.173971557617165,
+                  "unit": "degC",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999991,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed",
+                    "sampled_extrema_not_continuous_daily_extrema"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": -3.5223907470702898,
+                  "unit": "degC",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999991,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed",
+                    "sampled_extrema_not_continuous_daily_extrema"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": -3.3264526367187273,
+                  "unit": "degC",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999991,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed",
+                    "sampled_extrema_not_continuous_daily_extrema"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "phenomenon": "rain",
+          "region": "Provence-Alpes-Côte d'Azur",
+          "value": 62.940158648665275,
+          "unit": "mm",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "provenance": [
+            "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec",
+            "7abb5d06992e2606fe3b188448cd16df1aada6520ef5c15938264f8adcb45c53",
+            "8cf0ffecacb7520dd7dfce17f49b43f942c76efdd80ff80af04c58ce00d32b0e",
+            "d33795ec21951489d637eaf442f216c3c8aa67e39e6f99708982d8c10d001abd"
+          ],
+          "quality_flags": [
+            "exploratory",
+            "land_sea_representativeness_requires_qualification",
+            "model_forecast_not_observation",
+            "native_24h_interval_verified",
+            "negative_source_precipitation_invalid_null_not_clamped",
+            "publication_time_unknown",
+            "sampled_3h_then_6h_not_hourly",
+            "source_delay_not_assessed",
+            "source_grid_not_land_masked",
+            "source_land_mask_unavailable",
+            "source_run_boundaries_sequences_not_joined",
+            "total_area_not_agricultural_area",
+            "utc_half_open_day_extrema"
+          ],
+          "decision": "Conservé dans les faits scientifiques ; remplacé en une par une étendue territoriale documentée, sans moyenne ni surface inférée.",
+          "altitude": "Non fournie par les données de ce contrat ; aucun contexte montagneux affirmé.",
+          "supports": [
+            {
+              "id": "pra:83247",
+              "name": "MAURES ET ESTEREL - 83",
+              "region": "Provence-Alpes-Côte d'Azur",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-07",
+                  "value": 0.10454837713939047,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-06T06:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "8cf0ffecacb7520dd7dfce17f49b43f942c76efdd80ff80af04c58ce00d32b0e"
+                },
+                {
+                  "date": "2026-11-08",
+                  "value": 3.662800977968239,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-06T06:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998421,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "7abb5d06992e2606fe3b188448cd16df1aada6520ef5c15938264f8adcb45c53"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 2.380144355944459,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-06T06:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999998421,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "d33795ec21951489d637eaf442f216c3c8aa67e39e6f99708982d8c10d001abd"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 15.958099187943821,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 2.3634760216277937,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 62.940158648665275,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 18.923163993562337,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "phenomenon": "dry",
+          "region": "Occitanie",
+          "value": 4,
+          "unit": "jours",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "provenance": [
+            "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec",
+            "7abb5d06992e2606fe3b188448cd16df1aada6520ef5c15938264f8adcb45c53",
+            "8cf0ffecacb7520dd7dfce17f49b43f942c76efdd80ff80af04c58ce00d32b0e",
+            "d33795ec21951489d637eaf442f216c3c8aa67e39e6f99708982d8c10d001abd"
+          ],
+          "quality_flags": [
+            "exploratory",
+            "land_sea_representativeness_requires_qualification",
+            "model_forecast_not_observation",
+            "native_24h_interval_verified",
+            "negative_source_precipitation_invalid_null_not_clamped",
+            "publication_time_unknown",
+            "sampled_3h_then_6h_not_hourly",
+            "source_delay_not_assessed",
+            "source_grid_not_land_masked",
+            "source_land_mask_unavailable",
+            "source_run_boundaries_sequences_not_joined",
+            "total_area_not_agricultural_area",
+            "utc_half_open_day_extrema"
+          ],
+          "decision": "Conservé dans les faits scientifiques ; remplacé en une par une étendue territoriale documentée, sans moyenne ni surface inférée.",
+          "altitude": "Non fournie par les données de ce contrat ; aucun contexte montagneux affirmé.",
+          "supports": [
+            {
+              "id": "pra:66256",
+              "name": "CERDAGNE - 66",
+              "region": "Occitanie",
+              "rule_version": "national-watch-1.0.0/agroclimatic-1.0.0",
+              "rows": [
+                {
+                  "date": "2026-11-07",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "meteofrance-arome",
+                  "model": "arome-0p025",
+                  "run": "2026-11-06T06:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 1,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "8cf0ffecacb7520dd7dfce17f49b43f942c76efdd80ff80af04c58ce00d32b0e"
+                },
+                {
+                  "date": "2026-11-08",
+                  "value": 0.001574887748559452,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-06T06:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999546,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "7abb5d06992e2606fe3b188448cd16df1aada6520ef5c15938264f8adcb45c53"
+                },
+                {
+                  "date": "2026-11-09",
+                  "value": 0.8739272552250088,
+                  "unit": "mm",
+                  "source": "meteofrance-arpege",
+                  "model": "arpege-0p1",
+                  "run": "2026-11-06T06:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999546,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "utc_half_open_day_extrema",
+                    "source_land_mask_unavailable",
+                    "land_sea_representativeness_requires_qualification",
+                    "publication_time_unknown",
+                    "native_24h_interval_verified",
+                    "negative_source_precipitation_invalid_null_not_clamped"
+                  ],
+                  "provenance": "d33795ec21951489d637eaf442f216c3c8aa67e39e6f99708982d8c10d001abd"
+                },
+                {
+                  "date": "2026-11-10",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999993,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-11",
+                  "value": 0.08941813612518731,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999993,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-12",
+                  "value": 0,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999993,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                },
+                {
+                  "date": "2026-11-13",
+                  "value": 0.5235451850107024,
+                  "unit": "mm",
+                  "source": "ecmwf-open-data",
+                  "model": "ifs-oper-0p25",
+                  "run": "2026-11-06T00:00:00Z",
+                  "nature": "forecast",
+                  "spatial_coverage": 0.9999999999999993,
+                  "temporal_coverage": 1,
+                  "quality_flags": [
+                    "total_area_not_agricultural_area",
+                    "exploratory",
+                    "model_forecast_not_observation",
+                    "source_grid_not_land_masked",
+                    "utc_half_open_day_extrema",
+                    "sampled_3h_then_6h_not_hourly",
+                    "publication_time_unknown",
+                    "source_delay_not_assessed"
+                  ],
+                  "provenance": "2e64711ecab06c4d82d114abb57d6b15e66cb06026b4c94092953785519c72ec"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "maps": [
+        {
+          "phenomenon": "frost",
+          "count": 713,
+          "available": 713,
+          "partial": 0,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": -0.08162536621091476,
+              "status": "available",
+              "state": "detected",
+              "evidence_id": "e1"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": -0.25350036621091476,
+              "status": "available",
+              "state": "detected",
+              "evidence_id": "e1"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": -0.25350036621091476,
+              "status": "available",
+              "state": "detected",
+              "evidence_id": "e1"
+            }
+          ]
+        },
+        {
+          "phenomenon": "heat",
+          "count": 713,
+          "available": 713,
+          "partial": 0,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 18.062066650390648,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e1"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 18.707620239257835,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e1"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 18.707620239257835,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e1"
+            }
+          ]
+        },
+        {
+          "phenomenon": "rain",
+          "count": 713,
+          "available": 519,
+          "partial": 194,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 9.512080159595289,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 10.283643106981012,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 9.559779580278274,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            }
+          ]
+        },
+        {
+          "phenomenon": "dry",
+          "count": 713,
+          "available": 519,
+          "partial": 194,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 2,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 2,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": 2,
+              "status": "available",
+              "state": "no_threshold_crossing",
+              "evidence_id": "e2"
+            }
+          ]
+        },
+        {
+          "phenomenon": "thi",
+          "count": 713,
+          "available": 111,
+          "partial": 602,
+          "sample": [
+            {
+              "id": "pra:01195",
+              "name": "VALLEE DE LA SAONE - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": null,
+              "status": "partial",
+              "state": "insufficient",
+              "evidence_id": "e3"
+            },
+            {
+              "id": "pra:01198",
+              "name": "DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": null,
+              "status": "partial",
+              "state": "insufficient",
+              "evidence_id": "e4"
+            },
+            {
+              "id": "pra:01201",
+              "name": "COTEAUX EN BORDURE DES DOMBES - 01",
+              "region": "Auvergne-Rhône-Alpes",
+              "value": null,
+              "status": "partial",
+              "state": "insufficient",
+              "evidence_id": "e4"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

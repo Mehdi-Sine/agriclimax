@@ -580,3 +580,266 @@
     line-height: 1.7;
   }
 }
+
+/* T32B: an embedded explorer, preserving the editorial composition. */
+.journal-pra-map {
+  margin: 0;
+  min-width: 0;
+  background: var(--surface-subtle);
+  padding: 20px;
+  align-self: start;
+}
+.journal-pra-map h2 {
+  font: 600 1.1rem/1.35 var(--font-body);
+  letter-spacing: 0;
+  margin: 15px 0 8px;
+}
+.journal-pra-map figcaption p,
+.pra-method {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.journal-pra-map .national-map {
+  height: 360px;
+  background: var(--surface-subtle);
+}
+.journal-pra-map .national-map-wrap {
+  position: relative;
+  margin: 12px 0;
+}
+.journal-pra-map .national-map-wrap > button {
+  font-size: 0.68rem;
+  padding: 7px;
+  margin: 0 6px 8px 0;
+  background: var(--surface-raised);
+  color: var(--interactive);
+  border: 1px solid var(--control-border);
+}
+.journal-pra-map .national-hover {
+  font-size: 0.72rem;
+  min-height: 3em;
+  margin: 6px 0;
+}
+.journal-pra-map .map-updating {
+  position: absolute;
+  inset: 45% 5% auto;
+  background: var(--surface-raised);
+  padding: 15px;
+  font-size: 0.8rem;
+}
+.journal-pra-map .semantic-legend {
+  font-size: 0.68rem;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+.journal-pra-map .legend-ramp {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 12px;
+}
+.journal-pra-map .legend-ramp span {
+  flex: 1;
+  min-height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--control-border);
+}
+.journal-pra-map .legend-ramp small {
+  font-size: 0.65rem;
+  background: var(--surface-raised);
+  color: var(--text-primary);
+  padding: 1px 3px;
+}
+.journal-pra-map .semantic-legend p {
+  margin-bottom: 8px;
+}
+.pra-skeleton {
+  min-height: 445px;
+  display: grid;
+  place-content: center;
+  padding: 25px;
+  background: var(--surface-subtle);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.pra-map-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 0.65rem;
+}
+.pra-map-actions button {
+  padding: 8px;
+  border: 1px solid var(--control-border);
+  background: var(--surface-raised);
+  color: var(--interactive);
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+.map-inactive .maplibregl-canvas-container {
+  pointer-events: none;
+}
+.map-inactive .maplibregl-canvas {
+  touch-action: pan-y !important;
+}
+.pra-picker {
+  display: block;
+  font-size: 0.8rem;
+  margin: 10px 0;
+}
+.pra-picker select {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 9px;
+  margin-top: 6px;
+  background: var(--surface-raised);
+  color: var(--text-primary);
+  border: 1px solid var(--control-border);
+  font: inherit;
+}
+.pra-selection {
+  border-left: 3px solid var(--brand-secondary);
+  padding: 15px;
+  margin: 15px 0;
+  background: var(--surface-raised);
+  font-size: 0.8rem;
+}
+.pra-selection h3 {
+  font-size: 1.3rem;
+}
+.pra-selection strong {
+  font-size: 1.7rem;
+}
+.pra-selection p {
+  margin: 8px 0;
+}
+.journal .figure-qualification {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+@media (max-width: 700px) {
+  .journal-pra-map {
+    padding: 16px;
+  }
+  .journal-pra-map .national-map {
+    height: 340px;
+  }
+  .pra-skeleton {
+    min-height: 445px;
+  }
+  .pra-map-actions button {
+    min-height: 44px;
+  }
+  .journal-pra-map .national-map-wrap > button {
+    min-height: 38px;
+  }
+}
+
+.journal-pra-map .pra-stage {
+  min-height: 570px;
+}
+.journal-pra-map .pra-skeleton {
+  min-height: 570px;
+}
+.pra-source {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+.journal .front-page {
+  align-items: start;
+}
+.journal .hero-copy {
+  padding-top: 15px;
+}
+.journal-pra-map .pra-stage {
+  min-height: 540px;
+}
+.journal-pra-map .pra-skeleton {
+  min-height: 540px;
+}
+.journal-pra-map .pra-legend {
+  font-size: 0.7rem;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+.pra-legend p {
+  margin-bottom: 4px;
+}
+.journal-pra-map .pra-map-method {
+  margin-top: 0;
+}
+.journal-pra-map .pra-map-method summary {
+  font-size: 0.73rem;
+  padding: 5px 0;
+}
+.journal-pra-map .national-hover {
+  min-height: 2.3em;
+}
+.journal-pra-map > a {
+  font-size: 0.8rem;
+}
+/* The three figures occupy the space below the story, beside the taller explorer. */
+.journal .front-page {
+  grid-template-areas: "copy map" "facts map";
+  gap: 25px 45px;
+  margin-bottom: 40px;
+}
+.journal .hero-copy {
+  grid-area: copy;
+}
+.journal-pra-map,
+.front-page > .empty-story {
+  grid-area: map;
+}
+.front-page > .key-facts {
+  grid-area: facts;
+  margin: 0;
+  align-self: start;
+}
+.front-page .key-facts article {
+  padding: 18px 16px 18px 0;
+}
+.front-page .key-facts article + article {
+  padding-left: 16px;
+}
+.front-page .key-facts strong {
+  font-size: 2.4rem;
+  white-space: nowrap;
+}
+.front-page .key-facts strong span {
+  font-size: 0.75rem;
+}
+.front-page .key-facts .eyebrow {
+  font-size: 0.6rem;
+  min-height: 3em;
+}
+@media (min-width: 701px) and (max-width: 1000px) {
+  .journal .front-page {
+    grid-template-areas: "copy map" "facts facts";
+    gap: 25px;
+  }
+  .front-page .key-facts strong {
+    font-size: 2.7rem;
+  }
+}
+@media (max-width: 700px) {
+  .journal .front-page {
+    grid-template-areas: "copy" "map" "facts";
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 40px;
+  }
+  .front-page .key-facts article,
+  .front-page .key-facts article + article {
+    padding: 20px 0;
+  }
+  .front-page .key-facts .eyebrow {
+    min-height: 0;
+  }
+  .front-page .key-facts strong {
+    font-size: 2.5rem;
+  }
+}

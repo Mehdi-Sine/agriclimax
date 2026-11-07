@@ -2,14 +2,8 @@ import Link from "next/link";
 import type { Contribution } from "../registry";
 import type { JournalEdition, EditorialEvent, RegionalSection } from "../model";
 import { phenomenonLabel } from "./visualizations";
-export function frenchDate(date: string) {
-  return new Intl.DateTimeFormat("fr-FR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "UTC",
-  }).format(new Date(date));
-}
+export { frenchDate } from "./editorial-dates";
+import { editorialText } from "./editorial-dates";
 export function StoryText({
   story,
   edition,
@@ -21,7 +15,11 @@ export function StoryText({
     <>
       <p className="eyebrow">{story.region}</p>
       {story.facts.map((id) => (
-        <p key={id}>{edition.evidence.facts.find((f) => f.id === id)?.text}</p>
+        <p key={id}>
+          {editorialText(
+            edition.evidence.facts.find((f) => f.id === id)?.text ?? "",
+          )}
+        </p>
       ))}
       <Link href={story.href}>Voir les données et les preuves</Link>
     </>
@@ -47,7 +45,8 @@ export function ProductionStoryCard({ section }: { section: Contribution }) {
         indicators.flatMap((i) =>
           i.facts!.map((f) => (
             <p key={f.id}>
-              {f.text} <Link href={f.href}>Voir les données</Link>
+              {editorialText(f.text)}{" "}
+              <Link href={f.href}>Voir les données</Link>
             </p>
           )),
         )
@@ -57,7 +56,7 @@ export function ProductionStoryCard({ section }: { section: Contribution }) {
       <Link href={section.href}>Explorer la filière</Link>
       <details>
         <summary>Contexte et disponibilité</summary>
-        <p>{section.limits}</p>
+        <p>{editorialText(section.limits)}</p>
         <p>
           Présence déclarée : {section.declared_pra_count ?? "non documentée"}
           {section.declared_pra_count !== null ? " PRA" : ""} · millésime{" "}
@@ -66,7 +65,7 @@ export function ProductionStoryCard({ section }: { section: Contribution }) {
         {section.indicator_inventory?.map((i) => (
           <p key={i.id}>
             {i.id} · {i.status} · {i.qualified ? "qualifié" : "non qualifié"} ·{" "}
-            {i.limits}
+            {editorialText(i.limits)}
           </p>
         ))}
       </details>
@@ -90,7 +89,7 @@ export function RegionStory({ section }: { section: RegionalSection }) {
           </p>
         </>
       ) : (
-        <p>{section.summary}</p>
+        <p>{editorialText(section.summary)}</p>
       )}
       <p className="muted">
         {section.total_pra} petites régions agricoles dans le périmètre.

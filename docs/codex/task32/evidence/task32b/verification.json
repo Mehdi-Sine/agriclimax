@@ -1,0 +1,30 @@
+{
+  "tests": {
+    "passed": 377,
+    "files": 47,
+    "real_cycles": [
+      "2026-11-07T00:00:00Z",
+      "2026-11-06T00:00:00Z",
+      "2026-11-06T06:00:00Z"
+    ]
+  },
+  "typecheck": "passed",
+  "lint": "passed",
+  "build": "passed",
+  "contracts": "passed",
+  "security_source": "passed",
+  "security_bundle": "passed",
+  "migrations": "passed",
+  "quality_tests": {
+    "python": 12,
+    "node": 8
+  },
+  "production_dependency_audit": "no known vulnerabilities",
+  "global_js_css_gzip_bytes": 648920,
+  "browser_local": {
+    "checks": 58,
+    "page_errors": 0,
+    "console_errors": 0
+  },
+  "geometry_validation": "713 identifiers and properties preserved; 0 invalid source/derived geometries"
+}

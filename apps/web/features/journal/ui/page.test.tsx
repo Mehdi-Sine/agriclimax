@@ -4,6 +4,9 @@ import { renderToReadableStream } from "react-dom/server";
 import type { JournalEdition } from "../model";
 vi.mock("../../../lib/server/journal", () => ({ journal: vi.fn() }));
 import { journal } from "../../../lib/server/journal";
+vi.mock("../../../lib/server/national-watch", () => ({
+  nationalWatch: vi.fn(),
+}));
 import Page from "../../../app/journal/page";
 const empty: JournalEdition = {
   edition_id: "test-only",
@@ -41,12 +44,14 @@ async function html() {
   return new Response(stream).text();
 }
 describe("Journal page states (synthetic)", () => {
-  beforeEach(() => vi.mocked(journal).mockReset());
+  beforeEach(() => {
+    vi.mocked(journal).mockReset();
+  });
   it("renders a quiet archived day without invented signals or visualizations", async () => {
     vi.mocked(journal).mockResolvedValue(empty);
     const result = await html();
     expect(result).toContain("Pas de signal à mettre en carte");
-    expect(result).toContain("Aucun fait saillant publiable");
+    expect(result).toContain("Aucun chiffre de une suffisamment documenté");
     expect(result).toContain("Prévisions expirées");
     expect(result).not.toContain('class="journal-map');
     expect(result).not.toContain("NaN");

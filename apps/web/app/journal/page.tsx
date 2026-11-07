@@ -4,18 +4,71 @@ import { notFound } from "next/navigation";
 import { isJournalRun } from "../../features/journal/query";
 import { journal } from "../../lib/server/journal";
 import type { JournalEdition } from "../../features/journal/model";
-import {
-  RegionalMap,
-  RegionalChart,
-} from "../../features/journal/ui/visualizations";
+import { RegionalChart } from "../../features/journal/ui/visualizations";
 import {
   frenchDate,
   StoryText,
   ProductionStoryCard,
   RegionStory,
 } from "../../features/journal/ui/stories";
+import JournalPraMap from "../../features/journal/ui/pra-map";
+import {
+  editorialText,
+  frenchCycle,
+  frenchPeriod,
+} from "../../features/journal/ui/editorial-dates";
+import { selectKeyFigures } from "../../features/journal/ui/key-figures";
+import { nationalWatch } from "../../lib/server/national-watch";
+import type { WatchSummary } from "../../features/national-watch/model";
 import "./journal.css";
 export const dynamic = "force-dynamic";
+async function EditionFigures({
+  edition,
+  references,
+}: {
+  edition: JournalEdition;
+  references: JournalEdition["key_facts"];
+}) {
+  let summary: WatchSummary | undefined;
+  if (edition.main_story) {
+    try {
+      summary = await nationalWatch(edition.source_cycles[0]);
+    } catch {
+      summary = undefined;
+    }
+  }
+  const figures = selectKeyFigures(edition, summary);
+  return (
+    <section className="key-facts" aria-label="Les faits essentiels">
+      {figures.map((figure) => (
+        <article key={figure.id}>
+          <p className="eyebrow">ÉTENDUE TERRITORIALE · {figure.region}</p>
+          <strong>
+            {figure.value}
+            <span> / {figure.denominator} PRA</span>
+          </strong>
+          <p>
+            {editorialText(figure.label)} en {figure.region}, {figure.period}.
+          </p>
+          <p className="figure-qualification">
+            PRA franchissant le critère / PRA évaluables. Pas une proportion de
+            surface agricole.
+          </p>
+          <a href={`#reference-${figure.factId}`}>
+            [{references.findIndex((f) => f.id === figure.factId) + 1}] Voir les
+            données et la source
+          </a>
+        </article>
+      ))}
+      {!figures.length && (
+        <p>
+          Aucun chiffre de une suffisamment documenté pour cette édition. Les
+          faits disponibles restent accessibles dans l’article et les preuves.
+        </p>
+      )}
+    </section>
+  );
+}
 async function JournalContent({
   searchParams,
 }: {
@@ -91,23 +144,22 @@ async function JournalContent({
       </header>
       <div className={`freshness freshness-${edition.data_freshness}`}>
         <span>{freshness}</span>
-        <span>Cycle du {frenchDate(edition.source_cycles[0])} · UTC</span>
+        <span>Cycle du {frenchCycle(edition.source_cycles[0])}</span>
       </div>
       <section id="une" className="front-page" aria-labelledby="headline">
         <div className="hero-copy">
           <p className="eyebrow">À LA UNE · FRANCE</p>
           <h1 id="headline">
-            {edition.headline.replace(": le point en", " en")}
+            {editorialText(edition.headline.replace(": le point en", " en"))}
           </h1>
           <p className="standfirst">
             {story
-              ? `Des critères météorologiques sont franchis dans les prévisions, notamment en ${story.region}. La carte compare leur répartition régionale. Aucun dommage agricole ni tendance observée n’est déduit.`
-              : edition.lead}
+              ? `Des critères météorologiques sont franchis dans les prévisions, notamment en ${story.region}. La carte montre les contrastes à la maille des petites régions agricoles. Aucun dommage agricole ni tendance observée n’est déduit.`
+              : editorialText(edition.lead)}
           </p>
           {period && (
             <p className="period">
-              Prévisions du <strong>{frenchDate(period[0])}</strong> au{" "}
-              <strong>{frenchDate(period[1])}</strong>
+              Prévisions <strong>{frenchPeriod(...period)}</strong>
             </p>
           )}
           <Link className="read-link" href={story?.href ?? "/veille"}>
@@ -115,53 +167,33 @@ async function JournalContent({
           </Link>
         </div>
         {story ? (
-          <RegionalMap
-            regions={edition.regional_sections}
+          <JournalPraMap
+            key={`${edition.source_cycles[0]}/${story.phenomenon}/${edition.provenance[0]}`}
+            run={edition.source_cycles[0]}
             phenomenon={story.phenomenon}
+            period={story.period}
+            source={edition.provenance[0]}
           />
         ) : (
           <aside className="empty-story">
             <p className="eyebrow">UNE LECTURE À NUANCER</p>
             <h2>Pas de signal à mettre en carte</h2>
             <p>
-              {edition.headline}. L’absence de fait saillant ne signifie pas une
-              absence de risque agricole.
+              {editorialText(edition.headline)}. L’absence de fait saillant ne
+              signifie pas une absence de risque agricole.
             </p>
             <a href="#regions">Consulter la couverture régionale</a>
           </aside>
         )}
-      </section>
-      <section className="key-facts" aria-label="Les faits essentiels">
-        {edition.key_facts.slice(0, 3).map((f, i) => (
-          <article key={f.id}>
-            <p className="eyebrow">
-              {f.text.includes("Minimum territorial")
-                ? "MINIMUM TERRITORIAL"
-                : f.text.includes("Maximum territorial")
-                  ? "MAXIMUM TERRITORIAL"
-                  : `FAIT ${String(i + 1).padStart(2, "0")}`}
-            </p>
-            <strong>
-              {new Intl.NumberFormat("fr-FR", {
-                maximumFractionDigits: 1,
-              }).format(f.value)}{" "}
-              <span>{f.unit}</span>
-            </strong>
-            <p>{f.text}</p>
-            <a
-              href={`#reference-${f.id}`}
-              aria-label={`Source du fait ${i + 1}`}
-            >
-              [{i + 1}] Voir la source
-            </a>
-          </article>
-        ))}
-        {!edition.key_facts.length && (
-          <p>
-            Aucun fait saillant publiable. Les données et leur couverture
-            restent consultables ci-dessous.
-          </p>
-        )}
+        <Suspense
+          fallback={
+            <section className="key-facts" aria-busy="true">
+              <p role="status">Vérification des chiffres de une…</p>
+            </section>
+          }
+        >
+          <EditionFigures edition={edition} references={references} />
+        </Suspense>
       </section>
       <section className="understand" aria-labelledby="understand">
         <div className="article-column">
@@ -170,7 +202,7 @@ async function JournalContent({
           {story ? (
             <StoryText story={story} edition={edition} />
           ) : (
-            <p>{edition.lead}</p>
+            <p>{editorialText(edition.lead)}</p>
           )}
           <h3>Ce que ces prévisions permettent de dire</h3>
           <p>
@@ -270,8 +302,7 @@ async function JournalContent({
             {references.map((f) => (
               <li id={`reference-${f.id}`} key={f.id}>
                 <p>
-                  {f.text} · du {frenchDate(f.period[0])} au{" "}
-                  {frenchDate(f.period[1])} ·{" "}
+                  {editorialText(f.text)} · {frenchPeriod(...f.period)} ·{" "}
                   <Link href={f.href}>Voir les données</Link>
                 </p>
                 <details>
