@@ -3,10 +3,12 @@
 import gzip
 import hashlib
 import json
+import sys
 from pathlib import Path
 
 import pytest
-from scripts.era5_spatial_restitution import build
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts"))
+from era5_spatial_restitution import build  # noqa: E402
 from shapely.geometry import box, mapping
 
 from agriclimax.climate.models import Dataset, ReferencePeriod

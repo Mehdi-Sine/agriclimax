@@ -18,7 +18,8 @@ from agriclimax.territories.national_daily import DATASET, REFERENCE, acquire_wi
 from agriclimax.territories.pipeline import run_batch
 from agriclimax.territories.repository import PraRepository
 from agriclimax.territories.spatial import Weight, load_reference
-from era5_spatial_restitution import NATIVE_VARIABLES, build as build_support
+from era5_spatial_restitution import NATIVE_VARIABLES
+from era5_spatial_restitution import build as build_support
 from pra_lossless_archive import pack, restore
 from pra_weather_store import ArchiveStore
 
