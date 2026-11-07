@@ -217,7 +217,7 @@ export default function NationalMap({
   useEffect(() => {
     if (!ready || !map.current || loading) return;
     const m=map.current;
-    const frame=requestAnimationFrame(()=>setRendered(false));
+    const frame=requestAnimationFrame(()=>{setRendered(false);m.triggerRepaint();});
     const byId = new Map(rows?.map((r) => [r.id, r]));
     const quantitativeById = new Map(quantitative?.values.map(r=>[r.territoryId,r]));
     const css = getComputedStyle(document.documentElement);
@@ -249,7 +249,6 @@ export default function NationalMap({
       );
       if(map.current.getSource('pra-covered'))map.current.setFeatureState({source:'pra-covered',id:f.properties.code},{color:value==null?css.getPropertyValue('--national-unavailable').trim():ink,value:value??null,quality:q?.status==='partial'?'Partiel · aire renseignée':'Disponible'});
     }
-    m.triggerRepaint();
     return()=>cancelAnimationFrame(frame);
   }, [ready, rows, contextRows, mode, selected, collection, quantitative,coveredSupport,highlighted,loading]);
 
