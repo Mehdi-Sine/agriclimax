@@ -43,3 +43,4 @@ it('requires exact 3 7 14 30-day histories and preserves forecast revisions as f
  for(const horizon of [3,7,14,30] as const){expect(compare(snapshot,undefined,horizon).status).toBe('insufficient_history');expect(compare(snapshot,{...previous,version:'other'},horizon).status).toBe('unknown');}
  const current={...snapshot,nature:'forecast' as const};const prior={...previous,nature:'forecast' as const,period:current.period};expect(compare(current,prior,7).reason).toContain('Révision des prévisions');
 });
+it('links declared productions to supported watch filters and cattle to its analysis',()=>{const e=buildEdition(fixture(),{now});expect(e.production_sections.find(p=>p.id==='wheat')?.href).toContain('/veille?production=wheat');expect(e.production_sections.find(p=>p.id==='cattle')?.href).toBe('/analyse?production=cattle');});

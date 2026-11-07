@@ -1,8 +1,8 @@
 {
-  "edition_id": "498c021556d7c45342116205aff7654df384cefe9b95c94e7f16b887efd5d843",
+  "edition_id": "7e6012d4a2bf31e2e0052859da7def6d35e88e458c697fea338b14d668257216",
   "edition_date": "2026-11-07",
   "edition_version": "journal-1.0.0",
-  "generated_at": "2026-11-07T18:37:34.396Z",
+  "generated_at": "2026-11-07T18:40:01.277Z",
   "source_cycles": [
     "2026-11-07T00:00:00+00:00"
   ],
@@ -738,7 +738,7 @@
         "event-752943d875fe67407ea6ed36",
         "event-f019f84992287df066196ae0"
       ],
-      "href": "/analyse?production=grassland",
+      "href": "/veille?production=grassland&cycle=2026-11-07T00%3A00%3A00%2B00%3A00",
       "limits": "Prairies permanentes et temporaires ; estives et landes exclues. Biomasse et humidité du sol inconnues.",
       "indicators": [],
       "indicator_inventory": []
@@ -779,7 +779,7 @@
         "event-752943d875fe67407ea6ed36",
         "event-f019f84992287df066196ae0"
       ],
-      "href": "/analyse?production=maize",
+      "href": "/veille?production=maize&cycle=2026-11-07T00%3A00%3A00%2B00%3A00",
       "limits": "Maïs grain et ensilage regroupés dans le RPG ; irrigation, variété et floraison inconnues.",
       "indicators": [],
       "indicator_inventory": []
@@ -820,7 +820,7 @@
         "event-752943d875fe67407ea6ed36",
         "event-f019f84992287df066196ae0"
       ],
-      "href": "/analyse?production=orchard",
+      "href": "/veille?production=orchard&cycle=2026-11-07T00%3A00%3A00%2B00%3A00",
       "limits": "Vergers déclarés uniquement ; fruits à coque et oliviers exclus de ce groupe. Espèce et floraison inconnues.",
       "indicators": [],
       "indicator_inventory": []
@@ -861,7 +861,7 @@
         "event-752943d875fe67407ea6ed36",
         "event-f019f84992287df066196ae0"
       ],
-      "href": "/analyse?production=vine",
+      "href": "/veille?production=vine&cycle=2026-11-07T00%3A00%3A00%2B00%3A00",
       "limits": "Stade, cépage et conduite inconnus ; aucune règle de gel de bourgeon.",
       "indicators": [],
       "indicator_inventory": []
@@ -900,7 +900,7 @@
         "event-752943d875fe67407ea6ed36",
         "event-f019f84992287df066196ae0"
       ],
-      "href": "/analyse?production=wheat",
+      "href": "/veille?production=wheat&cycle=2026-11-07T00%3A00%3A00%2B00%3A00",
       "limits": "Aucun stade ou sensibilité variétale inféré.",
       "indicators": [],
       "indicator_inventory": [
@@ -5290,6 +5290,6 @@
   "provenance": [
     "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
     "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3/national-watch-1.0.0/semantic-1.0.0/07afe77f98583d05f83f476be44bdaf3de89f77b55d9935459253c7a079a8d30",
-    "cattle/catalogue-adapter-1/thi@agroclimatic-1.0.0,thi_days@agroclimatic-1.0.0,thi_sequence@agroclimatic-1.0.0,cattle_heat@agroclimatic-1.0.0|grassland/catalogue-adapter-1/|maize/catalogue-adapter-1/|orchard/catalogue-adapter-1/|vine/catalogue-adapter-1/|wheat/catalogue-adapter-1/gdd@agroclimatic-1.0.0,hot@agroclimatic-1.0.0,hot_sequence@agroclimatic-1.0.0,frost@agroclimatic-1.0.0,frost_sequence@agroclimatic-1.0.0,rain@agroclimatic-1.0.0,heavy_rain@agroclimatic-1.0.0,dry@agroclimatic-1.0.0,dry_sequence@agroclimatic-1.0.0,temperature_mean@agroclimatic-1.1.0"
+    "cattle/catalogue-adapter-1.1/thi@agroclimatic-1.0.0,thi_days@agroclimatic-1.0.0,thi_sequence@agroclimatic-1.0.0,cattle_heat@agroclimatic-1.0.0|grassland/catalogue-adapter-1.1/|maize/catalogue-adapter-1.1/|orchard/catalogue-adapter-1.1/|vine/catalogue-adapter-1.1/|wheat/catalogue-adapter-1.1/gdd@agroclimatic-1.0.0,hot@agroclimatic-1.0.0,hot_sequence@agroclimatic-1.0.0,frost@agroclimatic-1.0.0,frost_sequence@agroclimatic-1.0.0,rain@agroclimatic-1.0.0,heavy_rain@agroclimatic-1.0.0,dry@agroclimatic-1.0.0,dry_sequence@agroclimatic-1.0.0,temperature_mean@agroclimatic-1.1.0"
   ]
 }

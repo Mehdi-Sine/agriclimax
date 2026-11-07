@@ -6,7 +6,7 @@ const origin=process.env.TASK31_ORIGIN??'http://localhost:3000',output=process.e
 const selected=new URL(origin);if(!['localhost','127.0.0.1'].includes(selected.hostname)&&!selected.hostname.endsWith('.vercel.app'))throw new Error('Unsupported origin');
 await mkdir(output,{recursive:true});
 const headers=selected.protocol==='https:'?{'x-vercel-protection-bypass':process.env.VERCEL_AUTOMATION_BYPASS_SECRET}:{};
-const report={origin,checks:[],errors:[],payload_bytes:0};
+const report={origin,tested_commit:process.env.TASK31_COMMIT??null,checks:[],errors:[],payload_bytes:0};
 const check=(name,ok)=>{report.checks.push({name,ok});if(!ok)throw new Error(name);};
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH??'/usr/bin/chromium',args:['--no-sandbox']});
 try{
