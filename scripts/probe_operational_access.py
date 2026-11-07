@@ -74,6 +74,8 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
                         record["outcome"] = "received"
         except HTTPError as error:
             record["status"] = error.code
+            record["retry_after"] = error.headers.get("Retry-After", "")
+            record["wire_bytes_read"] = 4097
             # Only a bounded, structured service exception is reported; never raw error text.
             error_body = error.read(4097)
             if len(error_body) <= 4096 and key.encode() not in error_body:
@@ -104,6 +106,7 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
             record["outcome"] = "network_or_response_error"
             if record["status"] == "binding_absent":
                 record["status"] = "network_unavailable"
+            record["wire_bytes_read"] = record.get("wire_bytes_read", limit + 1)
             content = b""
     record.update(bytes=len(content), seconds=monotonic() - started)
     return record, content
