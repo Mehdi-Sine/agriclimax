@@ -13,7 +13,7 @@
 .scale-badge,.status-pill {display:inline-block;border-radius:30px;padding:7px 12px;background:var(--surface-subtle);color:var(--brand-primary);font-size:12px;white-space:nowrap;}
 .unified-filters {background:var(--surface-raised);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;display:flex;flex-wrap:wrap;gap:12px;align-items:end;}
 .unified-product label {display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:600;min-width:0;}
-.unified-product input,.unified-product select,.unified-product button {min-height:44px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-raised);color:var(--text-primary);padding:8px 10px;max-width:100%;font:inherit;}
+.unified-product input,.unified-product select,.unified-product button {min-height:44px;border:1px solid var(--control-border);border-radius:var(--radius-sm);background:var(--surface-raised);color:var(--text-primary);padding:8px 10px;max-width:100%;font:inherit;}
 .unified-product button {cursor:pointer}.unified-product button:hover {background:var(--surface-subtle)}
 .unified-product select:disabled {color:var(--text-muted);cursor:not-allowed}
 .unified-filters input[type=number] {width:80px;}

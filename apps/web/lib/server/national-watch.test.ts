@@ -25,7 +25,7 @@ describe('national watch source/version boundaries (synthetic unit fixtures)',()
   expect(response.status).toBe(503);expect(await response.json()).toEqual({error:'VERIFIED_NATIONAL_WATCH_UNAVAILABLE'});
  });
  it('rejects repeated, unknown and malformed archival queries before reading data',async()=>{
-  for(const query of ['run=2026-02-30','run=x','run=2026-07-01&run=2026-07-02','other=1'])expect((await GET(new Request('http://localhost/api/veille?'+query))).status).toBe(400);
+  for(const query of ['run=','run=2026-02-30','run=x','run=2026-07-01&run=2026-07-02','other=1'])expect((await GET(new Request('http://localhost/api/veille?'+query))).status).toBe(400);
   expect(weather).not.toHaveBeenCalled();
  });
  it('passes an explicit archived cycle through to the verified archive reader',async()=>{

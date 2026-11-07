@@ -20,7 +20,7 @@ try{
  await page.locator('.national-map[data-ready="true"]').waitFor();
  check('rain departure uses dry deficit and blue excess',(await legend.innerText()).includes('Déficit sec, référence neutre, excédent bleu'));
  await page.screenshot({path:output+'/rain-departure.png',fullPage:true});
- await page.goto(origin+'/veille?cycle=2026-11-05',{timeout:60000});
+ await page.goto(origin+'/veille?cycle=2026-11-06T00%3A00%3A00Z',{timeout:60000});
  await page.locator('.watch-overview').waitFor({timeout:60000});
  check('archived run explicitly selected',(await page.locator('body').innerText()).includes('Cycle archivé choisi'));
  check('real old cycle independently marked stale',(await page.locator('body').innerText()).includes('Cycle ancien, de plus de 36 heures'));

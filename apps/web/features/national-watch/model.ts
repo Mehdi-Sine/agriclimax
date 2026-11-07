@@ -75,7 +75,7 @@ export function detectNational(rows:WeatherRow[],places:Place[],start:string,end
   metrics.push({pra:place.id,phenomenon:phenomenon.id,value,days:phenomenon.id==='dry'?value:count,detected,
    state:detected===null?(values.length?'insufficient':'unavailable'):detected?'detected':'no_threshold_crossing',
    sources:[...new Set(used.map(origin))].sort(),provenance:[...new Set(used.map(r=>r.provenance.checksum))].sort(),
-   quality_flags:[...new Set([...used.flatMap(r=>r.quality_flags),...(segments.length>1?['source_run_boundaries_sequences_not_joined']:[]),...(!valid?['incomplete_or_incompatible_7day_window']:[])])].sort(),
+   quality_flags:[...new Set([...used.flatMap(r=>r.quality_flags),...(segments.length>1?['source_run_boundaries_sequences_not_joined']:[]),...(!valid?['incomplete_or_incompatible_7day_window']:[]),...(used.some(r=>r.spatial_coverage>0&&r.spatial_coverage<.9999)?['partial_spatial_support_not_evaluated']:[])])].sort(),
    data_freshness:[...new Set(used.map(r=>r.data_freshness))].sort(),rule_version:`${WATCH_VERSION}/${rule.version}`});
  }
  const events:WatchEvent[]=[];
