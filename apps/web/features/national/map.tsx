@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Map as LibreMap, GeoJSONSource, ExpressionSpecification } from 'maplibre-gl';
 import type { FeatureCollection, Geometry } from 'geojson';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -52,6 +52,10 @@ export default function NationalMap({
   quantitative?: { values: (Pick<TerritorialValue, 'territoryId' | 'value' | 'normal' | 'anomaly'> & { status: TerritorialValue['status'] | AgriculturalStatus })[]; field: 'value' | 'normal' | 'anomaly'; unit: string; bounds: number[]; colors: string[] };
   geography?: { prefix: string; label: string; attribution: string };
 }) {
+  const paintIdentity=useMemo(()=>({quantitative,rows,contextRows,collection,coveredSupport,mode,selected,highlighted}),[quantitative,rows,contextRows,collection,coveredSupport,mode,selected,highlighted]);
+  const paintRef=useRef(paintIdentity);
+  const [paintedIdentity,setPaintedIdentity]=useState<typeof paintIdentity|null>(null);
+  useEffect(()=>{paintRef.current=paintIdentity;},[paintIdentity]);
   const container = useRef<HTMLDivElement>(null),
     map = useRef<LibreMap | null>(null),
     select = useRef(onSelect),
@@ -193,7 +197,7 @@ export default function NationalMap({
           });
           setReady(true);
         });
-        m.on('idle', () => { if (m.getSource('pra') && m.isSourceLoaded('pra') && (!m.getSource('pra-covered')||m.isSourceLoaded('pra-covered'))) setRendered(true); });
+        m.on('idle', () => { if (m.getSource('pra') && m.isSourceLoaded('pra') && (!m.getSource('pra-covered')||m.isSourceLoaded('pra-covered'))) {setRendered(true);setPaintedIdentity(paintRef.current);} });
         m.on('error', () => setFailed(true));
       } catch {
         if (!disposed) setFailed(true);
@@ -290,12 +294,12 @@ export default function NationalMap({
       <div
         ref={container}
         className="national-map"
-        data-ready={ready && rendered && !loading}
+        data-ready={ready && rendered && !loading && paintedIdentity===paintIdentity}
         data-feature-count={collection.features.length}
         data-covered-support-count={coveredSupport?.features.length??0}
         data-mode={mode}
       />
-      {!failed && (loading||!ready||!rendered) && <p className="map-updating" role="status" aria-live="polite">{loading?'Actualisation de la carte… Carte précédente conservée.':!ready?'Chargement des contours…':'Application des couleurs…'}</p>}
+      {!failed && (loading||!ready||!rendered||paintedIdentity!==paintIdentity) && <p className="map-updating" role="status" aria-live="polite">{loading?'Actualisation de la carte… Carte précédente conservée.':!ready?'Chargement des contours…':'Application des couleurs…'}</p>}
       {failed && (
         <p role="alert">
           Carte indisponible. La recherche permet toujours de
