@@ -2,6 +2,7 @@
 import json
 import math
 import re
+from itertools import pairwise
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -54,7 +55,7 @@ families['thermal'] = ['--map-cool', '--map-cool-light', '--map-mid', '--map-war
 for family, keys in families.items():
     for condition, matrix in matrices.items():
         transformed = [lab([max(0, min(1, sum(a*b for a, b in zip(linear(light[key]), row)))) for row in matrix]) for key in keys]
-        distances = [math.dist(a, b) for a, b in zip(transformed, transformed[1:])]
+        distances = [math.dist(a, b) for a, b in pairwise(transformed)]
         report['colour_vision'].append({'family': family, 'condition': condition, 'minimum_adjacent_delta_e76': round(min(distances), 2)})
         assert min(distances) > 5, (family, condition, distances)
 output = ROOT / 'docs/codex/task30/evidence/accessibility.json'
