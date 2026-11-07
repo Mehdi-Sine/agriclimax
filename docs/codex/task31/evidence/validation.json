@@ -1,0 +1,31 @@
+{
+  "local_tests": [
+    {
+      "report": "task31-territories-final.xml",
+      "tests": "156",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "28.471"
+    },
+    {
+      "report": "task31-final-targeted.xml",
+      "tests": "31",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "3.406"
+    }
+  ],
+  "ruff": "passed for changed Python and territorial test",
+  "mypy_strict": "passed for 11 affected modules",
+  "automation_structure": "passed",
+  "acquisition_boundary_tests": 3,
+  "remote_weather_replay": "passed; no source acquisition or storage writes",
+  "remote_era5_replay": "passed; no source acquisition or storage writes",
+  "local_real_publication": "passed; two retained national cycles, isolated filesystem transport",
+  "ci": {
+    "checks_url": "https://github.com/Mehdi-Sine/agriclimax/pull/59/checks",
+    "note": "Use the latest head SHA checks. Initial helper lint failure corrected with Python 3.12 generic syntax; final CI required."
+  }
+}

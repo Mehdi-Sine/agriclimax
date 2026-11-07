@@ -1,0 +1,332 @@
+{
+  "mode": "read_only_replay",
+  "run": "2026-11-07",
+  "validation": {
+    "source_rows": 49910,
+    "selected_rows": 32085,
+    "pra_count": 713,
+    "availability": [
+      {
+        "date": "2026-11-06",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-06",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-06",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-06",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-06",
+        "variable": "humidity",
+        "available": 178,
+        "total": 713,
+        "percent": 24.964936886395513
+      },
+      {
+        "date": "2026-11-07",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-07",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-07",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-07",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-07",
+        "variable": "humidity",
+        "available": 88,
+        "total": 713,
+        "percent": 12.342215988779804
+      },
+      {
+        "date": "2026-11-08",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-08",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-08",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-08",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-08",
+        "variable": "humidity",
+        "available": 283,
+        "total": 713,
+        "percent": 39.691444600280505
+      },
+      {
+        "date": "2026-11-09",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-09",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-09",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-09",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-09",
+        "variable": "humidity",
+        "available": 527,
+        "total": 713,
+        "percent": 73.91304347826087
+      },
+      {
+        "date": "2026-11-10",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-10",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-10",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-10",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-10",
+        "variable": "humidity",
+        "available": 426,
+        "total": 713,
+        "percent": 59.747545582047685
+      },
+      {
+        "date": "2026-11-11",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-11",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-11",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-11",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-11",
+        "variable": "humidity",
+        "available": 551,
+        "total": 713,
+        "percent": 77.27910238429172
+      },
+      {
+        "date": "2026-11-12",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-12",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-12",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-12",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-12",
+        "variable": "humidity",
+        "available": 253,
+        "total": 713,
+        "percent": 35.483870967741936
+      },
+      {
+        "date": "2026-11-13",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-13",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-13",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-13",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-13",
+        "variable": "humidity",
+        "available": 537,
+        "total": 713,
+        "percent": 75.31556802244039
+      },
+      {
+        "date": "2026-11-14",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-14",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-14",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-14",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-14",
+        "variable": "humidity",
+        "available": 692,
+        "total": 713,
+        "percent": 97.054698457223
+      }
+    ]
+  },
+  "source_requests": 0,
+  "source_bytes": 0,
+  "storage_writes": 0,
+  "storage_read_requests": 2,
+  "archive_sha256": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+  "full_reencoding_byte_identical": true
+}

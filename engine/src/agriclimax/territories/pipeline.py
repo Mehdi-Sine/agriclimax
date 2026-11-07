@@ -185,6 +185,7 @@ def run_batch(
     persist: Callable[[dict[str, Any]], None] | None = None,
     parameters: Parameters | None = None,
     timings: dict[str, float] | None = None,
+    workspace_bytes: int | None = None,
 ) -> dict[str, Any]:
     if not 0 <= max_downloads <= 4 or not 0 <= (end - start).days <= 6:
         raise ValueError("0–4 downloads, 1–7 days per bounded batch")
@@ -230,8 +231,13 @@ def run_batch(
         if output.exists()
         else None
     )
-    # Hard disk quota, including source receipts. No implicit deletion of scientific data.
-    if sum(p.stat().st_size for p in root.rglob("*") if p.is_file()) > 448 * 1024 * 1024:
+    # A serial archive-only caller may supply a conservative tracked upper bound.
+    # Reserve 1 MiB per single-day output; no source/tile writes allowed in this mode.
+    if workspace_bytes is not None and (max_downloads != 0 or start != end or parameters):
+        raise ValueError("Tracked workspace budget requires offline single-day aggregation")
+    used = (workspace_bytes + 1024**2 if workspace_bytes is not None else
+            sum(p.stat().st_size for p in root.rglob("*") if p.is_file()))
+    if used > 448 * 1024 * 1024:
         raise ValueError("512 MiB workspace quota: archive verified partitions before continuing")
     tile_points: dict[tuple[int, int], set[str]] = defaultdict(set)
     for w in weights:
@@ -417,6 +423,8 @@ def run_batch(
         envelope = previous
     else:
         atomic_write(output, json.dumps(envelope, sort_keys=True, allow_nan=False).encode())
+    if workspace_bytes is not None and len(output.read_bytes()) + 4096 > 1024**2:
+        raise ValueError("Single-day batch exceeded reserved workspace budget")
     if persist:
         retry(lambda: persist(envelope))
     complete = all(r["status"] == "available" for r in daily)

@@ -4,6 +4,7 @@ import argparse
 import gzip
 import hashlib
 import json
+import os
 import resource
 import time
 from dataclasses import asdict
@@ -24,6 +25,7 @@ Variable = Literal[
 ]
 from urllib.request import Request, urlopen
 
+from agriclimax.ingestion.source_retry import retry_read
 from agriclimax.ingestion.storage import atomic_write
 from agriclimax.territories.aggregate import Family, aggregate
 from agriclimax.territories.national_daily import REFERENCE
@@ -118,15 +120,16 @@ def main() -> None:
     acquisition_times = []
     decode_seconds = 0.0
 
-    def fetch(url: str, limit: int, headers: dict[str, str] | None = None) -> bytes:
+    def fetch_once(url: str, limit: int, headers: dict[str, str] | None = None) -> bytes:
         nonlocal calls, transferred
         if (
-            calls >= 240
-            or transferred + limit > 96 * 1024**2
+            calls >= min(240, int(os.environ.get("IFS_REQUEST_LIMIT", "240")))
+            or transferred + limit + 1 > min(96 * 1024**2, int(os.environ.get("IFS_BYTE_LIMIT", str(96 * 1024**2))))
             or time.monotonic() - started > 1200
         ):
             raise ValueError("Bounded pilot resource budget exhausted")
         calls += 1
+        transferred += limit + 1  # reserve failed/partial responses conservatively
         with urlopen(Request(url, headers=headers or {}), timeout=30) as response:
             if headers and (
                 response.status != 206
@@ -137,10 +140,17 @@ def main() -> None:
                     "Server did not honor exact range; full download refused"
                 )
             raw = response.read(limit + 1)
-        transferred += len(raw)
+        transferred += len(raw) - (limit + 1)
         if len(raw) > limit:
             raise ValueError("Source byte budget exceeded")
         return bytes(raw)
+
+    def fetch(url: str, limit: int, headers: dict[str, str] | None = None) -> bytes:
+        def wait(seconds: float) -> None:
+            if time.monotonic() - started + seconds + 30 >= 1200:
+                raise TimeoutError("IFS retry duration budget exhausted")
+            time.sleep(seconds)
+        return retry_read(lambda: fetch_once(url, limit, headers), wait)
 
     if args.offline_native:
         if not native_fields:

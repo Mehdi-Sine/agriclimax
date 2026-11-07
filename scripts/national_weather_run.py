@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import os
 import resource
 import subprocess
 import sys
@@ -12,6 +13,7 @@ from pathlib import Path
 from typing import Any
 from urllib.request import Request, urlopen
 
+from agriclimax.ingestion.source_retry import retry_read
 from agriclimax.ingestion.storage import atomic_write
 from agriclimax.territories.national_weather import (
     RULE,
@@ -88,20 +90,21 @@ def coastal_audit(
         if hashlib.sha256(raw).hexdigest() != sha.read_text():
             raise ValueError("Corrupt source land mask")
     else:
-        budget.before()
         url = ifs["source_url"] + "-0h-oper-fc.grib2"
         headers = {"Range": f"bytes={offset}-{offset + length - 1}"}
-        with urlopen(Request(url, headers=headers), timeout=30) as response:
-            if (
-                response.status != 206
-                or response.headers.get("Content-Range", "").split("/")[0]
-                != f"bytes {offset}-{offset + length - 1}"
-            ):
-                raise ValueError("Land-mask range not honored")
-            raw = response.read(length + 1)
-        budget.bytes += len(raw)
-        if len(raw) != length or budget.bytes > budget.bytes_limit:
-            raise ValueError("Land-mask source budget exceeded")
+        def read_mask() -> bytes:
+            budget.before(length + 1)
+            budget.bytes += length + 1  # reserve even failed or partial transfers
+            with urlopen(Request(url, headers=headers), timeout=20) as response:
+                if (response.status != 206 or response.headers.get("Content-Range", "").split("/")[0]
+                    != f"bytes {offset}-{offset + length - 1}"):
+                    raise ValueError("Land-mask range not honored")
+                value = response.read(length + 1)
+            if len(value) != length:
+                raise ValueError("Incomplete land-mask field")
+            budget.bytes -= 1
+            return bytes(value)
+        raw = retry_read(read_mask, budget.wait)
         atomic_write(path, raw)
         atomic_write(sha, hashlib.sha256(raw).hexdigest().encode())
     handle = ec.codes_new_from_message(raw)
@@ -202,6 +205,9 @@ def run_national(
             "--execute",
         ],
         check=True,
+        timeout=max(1, budget.seconds_limit - (time.monotonic() - budget.started) - 30),
+        env={**os.environ, "IFS_REQUEST_LIMIT": str(budget.requests_limit - budget.requests),
+             "IFS_BYTE_LIMIT": str(budget.bytes_limit - budget.bytes)},
     )
     ifs = json.loads((ifs_root / "cycle.json").read_text())
     budget.requests += ifs["metrics"]["network_requests"]
@@ -259,6 +265,8 @@ def run_national(
     atomic_write(
         root / "audits/mf-independent.json", json.dumps(audits, indent=2).encode()
     )
+    if sum(p.stat().st_size for p in root.rglob("*") if p.is_file()) > 448 * 1024**2:
+        raise RuntimeError("Weather workspace budget exceeded before publication")
     publication = (
         store.publish_weather(document)
         if store

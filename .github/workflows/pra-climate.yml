@@ -1,6 +1,6 @@
 name: Bounded PRA climate batch
 on:
-  # Registered but the national job below remains dispatch-only until DEV acceptance.
+  # GitHub schedule is best-effort; supervision reports the observed launch delay.
   schedule:
     - cron: '20 8 * * *'
   workflow_dispatch:
@@ -233,13 +233,11 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r engine/requirements-dev.lock -r engine/requirements-geo.lock -r engine/requirements-climate.lock -r engine/requirements-operational.lock
       - name: Restore verified weather checkpoints, never reacquire completed fields
-        if: inputs.checkpoint_run_id != ''
+        if: inputs.checkpoint_run_id != '' || github.event_name == 'schedule'
         env:
           GH_TOKEN: ${{ github.token }}
           PREVIOUS_RUN: ${{ inputs.checkpoint_run_id }}
-        run: |
-          [[ "$PREVIOUS_RUN" =~ ^[0-9]+$ ]]
-          gh run download "$PREVIOUS_RUN" --name national-weather-checkpoints --dir work/national-weather
+        run: python scripts/restore_daily_checkpoint.py weather work/national-weather
       - name: Bounded source preflight or authorized national cycle
         timeout-minutes: 23
         env:
@@ -277,15 +275,20 @@ jobs:
             work/national-weather/comparison.json
             work/national-weather/publication.json
             work/national-weather/audits/
+            work/national-weather/cycles/**/audits/
+            work/national-weather/cycles/**/*.failure.json
             work/national-weather/official-land-masks.json
             work/national-weather/coastal-sensitivity.json
             work/national-weather/humidity-review.json
           retention-days: 30
+      - name: Export only the selected weather cycle
+        if: always()
+        run: python scripts/weather_export_checkpoint.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: national-weather-checkpoints
-          path: work/national-weather/
+          path: work/national-weather-export/
           retention-days: 3
 
   weather-health:
@@ -306,6 +309,29 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: python scripts/pra_weather_health.py
+      - name: Collect bounded workflow metadata and non-secret receipts
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p work/daily-monitoring
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > work/daily-monitoring/run.json
+          gh api -X GET "repos/$GITHUB_REPOSITORY/actions/workflows/pra-climate.yml/runs" -f branch="$GITHUB_REF_NAME" -f event=schedule -f per_page=20 --jq '.workflow_runs' > work/daily-monitoring/history.json
+          for name in national-weather-evidence era5-archive-evidence era5-resume-1-evidence era5-resume-2-evidence; do
+            gh run download "$GITHUB_RUN_ID" --name "$name" --dir "work/daily-monitoring/$name" || true
+          done
+      - name: Independent daily workflow and publication verdict
+        if: always()
+        env:
+          PYTHONPATH: engine/src
+          DAILY_JOB_RESULTS: ${{ toJSON(needs) }}
+        run: python scripts/daily_monitoring.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: daily-monitoring
+          path: work/daily-monitoring/report.json
+          retention-days: 30
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
@@ -330,17 +356,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           PREVIOUS_RUN: ${{ inputs.checkpoint_run_id }}
         run: |
-          mkdir -p work/era5-archive
-          if [[ -n "$PREVIOUS_RUN" ]]; then
-            [[ "$PREVIOUS_RUN" =~ ^[0-9]+$ ]]
-            gh run download "$PREVIOUS_RUN" --name era5-archive-checkpoints --dir work/era5-archive
-          else
-            gh run list --workflow pra-climate.yml --branch "$GITHUB_REF_NAME" --limit 20 --json databaseId --jq '.[].databaseId' > work/prior-era-runs.txt
-            while read -r previous; do
-              [[ "$previous" == "$GITHUB_RUN_ID" ]] && continue
-              if gh run download "$previous" --name era5-archive-checkpoints --dir work/era5-archive 2>/dev/null; then break; fi
-            done < work/prior-era-runs.txt
-          fi
+          python scripts/restore_daily_checkpoint.py era5 work/era5-archive
       - name: New ERA5 day only, no database persistence
         timeout-minutes: 23
         env:
@@ -401,7 +417,7 @@ jobs:
           CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-        run: timeout --signal=TERM --kill-after=10s 22m python scripts/era5_archive_daily.py --root work/era5-archive --max-downloads 64 --execute --publish-dev
+        run: timeout --signal=TERM --kill-after=10s 22m python scripts/era5_archive_daily.py --root work/era5-archive --max-downloads 64 --resume --execute --publish-dev
       - name: Export only the current day, never accumulate prior raw grids
         if: always()
         run: python scripts/era5_export_checkpoint.py
@@ -411,6 +427,12 @@ jobs:
           name: era5-resume-1-checkpoints
           path: work/era5-archive-export/
           retention-days: 3
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: era5-resume-1-evidence
+          path: work/era5-archive/report.json
+          retention-days: 30
 
   era5-resume-2:
     needs: [era5-resume-1]
@@ -435,7 +457,7 @@ jobs:
           CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-        run: timeout --signal=TERM --kill-after=10s 22m python scripts/era5_archive_daily.py --root work/era5-archive --max-downloads 64 --execute --publish-dev
+        run: timeout --signal=TERM --kill-after=10s 22m python scripts/era5_archive_daily.py --root work/era5-archive --max-downloads 64 --resume --execute --publish-dev
       - name: Export only the current day, never accumulate prior raw grids
         if: always()
         run: python scripts/era5_export_checkpoint.py
@@ -445,3 +467,9 @@ jobs:
           name: era5-resume-2-checkpoints
           path: work/era5-archive-export/
           retention-days: 3
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: era5-resume-2-evidence
+          path: work/era5-archive/report.json
+          retention-days: 30

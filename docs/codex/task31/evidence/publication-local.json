@@ -1,0 +1,17 @@
+{
+  "scope": "real retained national cycles, isolated filesystem storage transport; no remote publication",
+  "cycles": [
+    "2026-11-06T06:00:00+00:00",
+    "2026-11-07T00:00:00+00:00"
+  ],
+  "source_failure_preserves_old_pointer": true,
+  "new_valid_cycle_published_and_read_back": true,
+  "readback_document_equal": true,
+  "replay_storage_writes": 0,
+  "invalid_cycle_storage_writes": 0,
+  "source_requests": 0,
+  "remote_storage_writes": 0,
+  "remote_storage_reads": 3,
+  "restored_pra_count": 713,
+  "restored_rows": 49910
+}

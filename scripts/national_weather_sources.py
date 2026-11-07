@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlencode
 
+from agriclimax.ingestion.source_retry import TRANSIENT
 from agriclimax.ingestion.storage import atomic_write
 from probe_operational_access import (
     MODELS,
@@ -38,12 +39,20 @@ class Budget:
     requests_limit: int = 512
     bytes_limit: int = 128 * 1024**2
     last_request: float = 0
+    workspace: Path | None = None
 
-    def before(self) -> None:
+    def wait(self, seconds: float) -> None:
+        if time.monotonic() - self.started + seconds + 20 >= self.seconds_limit:
+            raise RuntimeError("National time budget exhausted; retain checkpoints")
+        time.sleep(seconds)
+
+    def before(self, limit: int = 0) -> None:
+        if self.workspace is not None and (sum(p.stat().st_size for p in self.workspace.rglob("*") if p.is_file()) + limit > 448 * 1024**2):
+            raise RuntimeError("Weather workspace budget exhausted; retain checkpoints")
         if (
             self.requests >= self.requests_limit
-            or self.bytes >= self.bytes_limit
-            or time.monotonic() - self.started > self.seconds_limit
+            or self.bytes + limit > self.bytes_limit
+            or time.monotonic() - self.started + 21 >= self.seconds_limit
         ):
             raise RuntimeError(
                 "National cycle resource budget exhausted; retain checkpoints"
@@ -97,21 +106,34 @@ class WcsProvider:
             self.receipts[key] = receipt
             self.latest = receipt
             return body
-        self.budget.before()
-        record, body = fetch(url, self.binding, limit)
-        size = record.get("wire_bytes_read", 0)
-        if not isinstance(size, int):
-            raise TypeError("Invalid transport byte counter")
-        self.budget.bytes += size
-        if self.budget.bytes > self.budget.bytes_limit:
-            raise RuntimeError("Source byte budget exceeded")
-        if record["status"] != 200 or not body or record.get("outcome") != "received":
+        for attempt in range(3):
+            response_limit = min(limit, self.budget.bytes_limit - self.budget.bytes - 1)
+            if response_limit <= 0:
+                raise RuntimeError("Source byte budget exhausted; retain checkpoints")
+            self.budget.before(response_limit + 1)
+            record, body = fetch(url, self.binding, response_limit)
+            size = record.get("wire_bytes_read", 0)
+            if not isinstance(size, int):
+                raise TypeError("Invalid transport byte counter")
+            self.budget.bytes += size
+            if self.budget.bytes > self.budget.bytes_limit:
+                raise RuntimeError("Source byte budget exceeded")
+            if record["status"] == 200 and body and record.get("outcome") == "received":
+                break
+            record.update(attempt=attempt + 1, source=self.product, operation=operation)
             atomic_write(self.root / f"{key}.failure.json", json.dumps(record).encode())
-            raise RuntimeError(
-                f"WCS {self.product}/{operation}: HTTP {record['status']}, {record.get('outcome', 'service_error')}"
-            )
+            transient = record["status"] in TRANSIENT or record["status"] == "network_unavailable" or (record["status"] == 200 and record.get("outcome") == "network_or_response_error")
+            delay = record.get("retry_after", "")
+            if (not transient or attempt == 2
+                or delay and (not str(delay).isdigit() or int(str(delay)) > 30)):
+                raise RuntimeError(
+                    f"WCS {self.product}/{operation}: HTTP {record['status']}, {record.get('outcome', 'service_error')}"
+                )
+            self.budget.wait(max(2 ** (attempt + 1), int(str(delay or 0))))
+        (self.root / f"{key}.failure.json").unlink(missing_ok=True)
         receipt = {
             **record,
+            "url": url,
             "sha256": hashlib.sha256(body).hexdigest(),
             "acquired_at": datetime.now(UTC).isoformat(),
         }

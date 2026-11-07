@@ -31,6 +31,7 @@ def main() -> None:
     p.add_argument("--root", type=Path, default=Path("work/era5-archive"))
     p.add_argument("--max-downloads", type=int, default=64)
     p.add_argument("--replay-latest", action="store_true")
+    p.add_argument("--resume", action="store_true", help="Continue exactly the day in the restored run receipt")
     p.add_argument("--execute", action="store_true")
     p.add_argument("--publish-dev", action="store_true")
     args = p.parse_args()
@@ -46,9 +47,16 @@ def main() -> None:
     repository = PraRepository(REFERENCE, DATASET)
     anchor = date.fromisoformat(repository.catalog()["latest"])
     latest = max([anchor, *(date.fromisoformat(d) for e in catalogue["era5"] for d in e["dates"])])
-    day = args.date or (latest if args.replay_latest else latest + timedelta(days=1))
+    checkpoint = args.root / "report.json"
+    resume_day = date.fromisoformat(json.loads(checkpoint.read_text())["date"]) if args.resume and checkpoint.exists() else None
+    if args.resume and resume_day is None:
+        raise ValueError("Continuation requires an existing day receipt")
+    if args.date and resume_day and args.date != resume_day:
+        raise ValueError("Explicit date conflicts with checkpoint day")
+    day = args.date or resume_day or (latest if args.replay_latest else latest + timedelta(days=1))
     args.root.mkdir(parents=True, exist_ok=True)
     report: dict[str, Any] = {"date": str(day), "database_writes": 0, "source_requests": 0, "source_bytes": 0, "storage_writes": 0}
+    atomic_write(args.root / "report.json", json.dumps(report, indent=2).encode())
     entry = next((e for e in catalogue["era5"] if str(day) in e["dates"]), None)
     if entry:
         raw = store.blob(entry["path"], entry["sha256"])
@@ -82,7 +90,7 @@ def main() -> None:
         raise ValueError("Exactly 713 unchanged PRA required")
 
     def retrieve(request: dict[str, object], target: Path) -> None:
-        remaining = int(1320 - (monotonic() - started))
+        remaining = int(1260 - (monotonic() - started))
         if report["source_requests"] >= 128 or report["source_bytes"] + 16 * 1024**2 > 128 * 1024**2 or remaining < 10:
             raise TimeoutError("Archive-only source budget exhausted; retain checkpoints")
         report["source_requests"] += 1
@@ -96,16 +104,32 @@ def main() -> None:
 
     signal.signal(signal.SIGTERM, terminate)
     signal.signal(signal.SIGALRM, terminate)
-    signal.alarm(1320)
+    signal.alarm(1260)
     try:
+        phase_started = monotonic()
+        report["stage"] = "acquisition"
         provider = Era5LandProvider(Dataset(dataset_version=DATASET, reference_period=ReferencePeriod(start_year=1991, end_year=2020, minimum_years=24)), root / "source-cache", retrieve=retrieve, require_complete_time_axis=True)
         ready, acquired, created = acquire_windows(provider, {day: weights}, root, args.max_downloads)
         report.update({"source_groups": acquired, "new_compact_tiles": created, "status": "processing"})
+        report["acquisition_seconds"] = monotonic() - phase_started
+        atomic_write(args.root / "report.json", json.dumps(report, indent=2).encode())
+        if not ready:
+            raise TimeoutError("Source group budget reached; continue from checkpoints")
         if ready:
+            phase_started = monotonic()
+            report["stage"] = "aggregation"
+            used = sum(p.stat().st_size for p in root.rglob("*") if p.is_file())
             for territory in territories:
-                if monotonic() - started >= 1320:
+                if monotonic() - started >= 1260:
                     raise TimeoutError("Aggregation checkpoint budget exhausted")
-                run_batch(provider, territory, weights, day, day, root, max_downloads=0)
+                batch = run_batch(provider, territory, weights, day, day, root, max_downloads=0, workspace_bytes=used)
+                if batch["status"] != "replayed":
+                    directory = root / "batches" / batch["batch_key"]
+                    # Existing partial outputs are overcounted deliberately, never undercounted.
+                    used += sum(p.stat().st_size for p in directory.iterdir() if p.is_file())
+                report["completed_batches"] = report.get("completed_batches", 0) + 1
+            report["aggregation_seconds"] = monotonic() - phase_started
+            report["stage"] = "independent_restoration"
             archive = root / "exact.json.gz"
             receipt = pack(root, archive)
             restored = restore(archive, root / "verified-restore")
@@ -116,6 +140,7 @@ def main() -> None:
                 raise ValueError("Full independent restoration failed before publication")
             report.update({"status": "verified", "restored_rows": len(rows), "archive": receipt, "sha256": hashlib.sha256(archive.read_bytes()).hexdigest()})
             if args.publish_dev:
+                report["stage"] = "publication"
                 support_path = root / "support.json"
                 report["spatial_support"] = build_support(root, support_path, variables=NATIVE_VARIABLES)
                 support_document = json.loads(support_path.read_bytes())

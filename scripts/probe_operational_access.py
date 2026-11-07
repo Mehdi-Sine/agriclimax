@@ -7,6 +7,7 @@ import json
 import os
 import xml.etree.ElementTree as ET
 from datetime import UTC, datetime
+from http.client import IncompleteRead
 from pathlib import Path
 from time import monotonic
 from urllib.error import HTTPError, URLError
@@ -74,8 +75,10 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
                         record["outcome"] = "received"
         except HTTPError as error:
             record["status"] = error.code
+            record["retry_after"] = error.headers.get("Retry-After", "")
+            record["wire_bytes_read"] = min(limit, 4096) + 1
             # Only a bounded, structured service exception is reported; never raw error text.
-            error_body = error.read(4097)
+            error_body = error.read(min(limit, 4096) + 1)
             if len(error_body) <= 4096 and key.encode() not in error_body:
                 try:
                     if error.headers.get("Content-Encoding") == "gzip":
@@ -100,10 +103,11 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
                 except (ET.ParseError, ValueError, OSError, EOFError):
                     pass
             error.close()
-        except (URLError, OSError, TimeoutError, ValueError, EOFError):
+        except (URLError, OSError, TimeoutError, ValueError, EOFError, IncompleteRead):
             record["outcome"] = "network_or_response_error"
             if record["status"] == "binding_absent":
                 record["status"] = "network_unavailable"
+            record["wire_bytes_read"] = record.get("wire_bytes_read", limit + 1)
             content = b""
     record.update(bytes=len(content), seconds=monotonic() - started)
     return record, content
