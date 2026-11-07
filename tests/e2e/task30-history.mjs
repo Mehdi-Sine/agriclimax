@@ -4,7 +4,7 @@ import {protectTask30Preview} from './task30-preview.mjs';
 const origin=process.env.TASK30_ORIGIN??'http://localhost:3010',output=process.env.TASK30_OUTPUT??'docs/codex/task30/evidence/history';
 await mkdir(output,{recursive:true});
 const browser=await chromium.launch({args:['--no-sandbox','--enable-unsafe-swiftshader']});
-const report={origin,checks:[],errors:[]};
+const report={origin,tested_commit:process.env.TASK30_COMMIT??null,checks:[],errors:[]};
 const check=(name,ok)=>{report.checks.push({name,ok});if(!ok)throw new Error(name);};
 try{
  const context=await browser.newContext({viewport:{width:1440,height:1000},locale:'fr-FR'});await protectTask30Preview(context,origin);

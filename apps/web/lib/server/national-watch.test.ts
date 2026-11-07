@@ -20,6 +20,15 @@ describe('national watch source/version boundaries (synthetic unit fixtures)',()
   weather.mockResolvedValue(fixture('cache-fixture-b','2026-07-02T00:00:00Z'));
   const next=await nationalWatch();expect(next.identity).not.toBe(first.identity);expect(next.period[0]).toBe('2026-07-03');
  });
+ it('revalidates cycle identity and transfers no body for an unchanged synthesis',async()=>{
+  weather.mockResolvedValue(fixture('conditional-fixture','2026-07-01T00:00:00Z'));
+  const first=await GET(new Request('http://localhost/api/veille'));
+  const response=await GET(new Request('http://localhost/api/veille',{headers:{'If-None-Match':first.headers.get('etag')!}}));
+  expect(response.status).toBe(304);expect(await response.text()).toBe('');
+  expect(response.headers.get('cache-control')).toBe('private, no-cache');
+  weather.mockResolvedValue(fixture('conditional-new-fixture','2026-07-02T00:00:00Z'));
+  expect((await GET(new Request('http://localhost/api/veille',{headers:{'If-None-Match':first.headers.get('etag')!}}))).status).toBe(200);
+ });
  it('fails explicitly without a verified national source and never falls back to pilot/demo data',async()=>{
   weather.mockResolvedValue(null);const response=await GET(new Request('http://localhost/api/veille'));
   expect(response.status).toBe(503);expect(await response.json()).toEqual({error:'VERIFIED_NATIONAL_WATCH_UNAVAILABLE'});

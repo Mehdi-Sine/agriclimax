@@ -7,3 +7,5 @@
 Les requêtes annulées sont ignorées après résolution et parsing, y compris lorsque deux sélections se suivent rapidement. Les requêtes anciennes ne remplacent plus les sélections actuelles. `prefers-reduced-motion` coupe la rotation et les états utilisent `role=status`.
 
 Desktop : trois résumés, carte et fiche, situations en deux colonnes. Tablette/mobile : cartes de synthèse et événements empilés, fiche adaptée par les styles existants, filtres et détails accessibles. Les preuves de parcours sont dans ACCEPTANCE.md.
+
+Les cartes de veille proposent un sélecteur PRA utilisable au clavier, y compris dans la lecture historique. La sélection d’une situation zoome sur l’ensemble de ses PRA ; le bouton « Voir ce territoire » permet ensuite de cadrer une seule PRA. Les bordures de contrôle utilisent le token de contraste dédié. Contrôles de contrastes et simulations de protanopie, deutéranopie et tritanopie : `python scripts/quality/task30_cartography.py`, avec résultats dans `evidence/accessibility.json`. Ce contrôle ciblé ne constitue pas une certification WCAG complète.

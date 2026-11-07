@@ -5,7 +5,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 const origin=process.env.TASK30_ORIGIN??'http://127.0.0.1:3000',output=process.env.TASK30_OUTPUT??'docs/codex/task30/evidence/local';
 await mkdir(output,{recursive:true});
 const browser=await chromium.launch({args:['--no-sandbox','--enable-unsafe-swiftshader']});
-const report={origin,checks:[],errors:[],responses:[]};
+const report={origin,tested_commit:process.env.TASK30_COMMIT??null,checks:[],errors:[],responses:[]};
 const check=(name,ok,detail={})=>{report.checks.push({name,ok,...detail});if(!ok)throw new Error(name);};
 try{
  for(const [viewport,width,height] of [['desktop',1440,1000],['tablet',768,1000],['mobile',390,844]]){

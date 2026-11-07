@@ -20,3 +20,5 @@ Source exécutable : `features/cartography/registry.ts`. Documentation publique 
 | Production t | 1000, 10000, 100000, 1000000 | >1000000 |
 
 Exemples : 80 mm sur 7 jours reste bleu soutenu quelle que soit la distribution ; +4 °C d’anomalie est chaud, −4 froid, zéro neutre. Les divisions THI au-dessus de 72 sont des classes éditoriales, pas de nouveaux niveaux zootechniques validés. Toute révision doit changer la version et les tests.
+
+Le minimum météorologique prévu pour le gel utilise une palette froide inversée, avec bornes −10, −5, 0, 5 °C ; le bleu le plus intense correspond au froid le plus marqué. Les jours de gel conservent une palette bleue d’intensité croissante avec le nombre de jours. Les unités évitent toute confusion entre ces lectures.
