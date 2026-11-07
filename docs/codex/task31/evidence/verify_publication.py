@@ -1,4 +1,5 @@
 import json
+import tempfile
 from pathlib import Path
 from unittest.mock import patch
 from datetime import datetime
@@ -8,6 +9,8 @@ from national_weather_run import run_national
 from national_weather_sources import Budget
 from agriclimax.territories.weather_archive import decode
 
+Path("work").mkdir(exist_ok=True)
+scratch = tempfile.TemporaryDirectory(prefix="task31-publication-", dir="work")
 remote = ArchiveStore(read_only=True)
 catalogue = remote.catalogue()
 entries = sorted(catalogue['weather'], key=lambda e: e.get('run_at', e['run_date']))[-2:]
@@ -18,7 +21,7 @@ class LocalStore(ArchiveStore):
     def __init__(self):
         self.requests = self.writes = 0
         self.read_only = False
-        self.root = Path('work/task31-local-publication')
+        self.root = Path(scratch.name)
         self.root.mkdir(parents=True, exist_ok=True)
     def ensure_bucket(self):
         pass
@@ -66,3 +69,4 @@ report = {'scope': 'real retained national cycles, isolated filesystem storage t
 Path('docs/codex/task31/evidence').mkdir(parents=True, exist_ok=True)
 Path('docs/codex/task31/evidence/publication-local.json').write_text(json.dumps(report, indent=2)+'\n')
 print(json.dumps(report))
+scratch.cleanup()

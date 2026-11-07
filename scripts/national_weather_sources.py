@@ -107,8 +107,11 @@ class WcsProvider:
             self.latest = receipt
             return body
         for attempt in range(3):
-            self.budget.before(limit + 1)
-            record, body = fetch(url, self.binding, limit)
+            response_limit = min(limit, self.budget.bytes_limit - self.budget.bytes - 1)
+            if response_limit <= 0:
+                raise RuntimeError("Source byte budget exhausted; retain checkpoints")
+            self.budget.before(response_limit + 1)
+            record, body = fetch(url, self.binding, response_limit)
             size = record.get("wire_bytes_read", 0)
             if not isinstance(size, int):
                 raise TypeError("Invalid transport byte counter")

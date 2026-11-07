@@ -76,9 +76,9 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
         except HTTPError as error:
             record["status"] = error.code
             record["retry_after"] = error.headers.get("Retry-After", "")
-            record["wire_bytes_read"] = 4097
+            record["wire_bytes_read"] = min(limit, 4096) + 1
             # Only a bounded, structured service exception is reported; never raw error text.
-            error_body = error.read(4097)
+            error_body = error.read(min(limit, 4096) + 1)
             if len(error_body) <= 4096 and key.encode() not in error_body:
                 try:
                     if error.headers.get("Content-Encoding") == "gzip":

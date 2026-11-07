@@ -2,14 +2,12 @@
 import time
 from collections.abc import Callable
 from http.client import IncompleteRead
-from typing import TypeVar
 from urllib.error import HTTPError, URLError
 
-T = TypeVar("T")
 TRANSIENT = {408, 429, 500, 502, 503, 504}
 
 
-def retry_read(operation: Callable[[], T], wait: Callable[[float], None] = time.sleep) -> T:
+def retry_read[T](operation: Callable[[], T], wait: Callable[[float], None] = time.sleep) -> T:
     for attempt in range(3):
         try:
             return operation()

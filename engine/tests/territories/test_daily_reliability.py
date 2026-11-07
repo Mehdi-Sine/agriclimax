@@ -53,7 +53,7 @@ def test_wcs_retry_is_bounded_and_byte_budget_prevents_request(tmp_path):
         with pytest.raises(RuntimeError):
             provider.description("coverage")
         assert fetch.call_count == 3
-    provider = WcsProvider("arome", tmp_path, Budget(bytes_limit=2))
+    provider = WcsProvider("arome", tmp_path, Budget(bytes_limit=0))
     with patch("national_weather_sources.fetch") as fetch, pytest.raises(RuntimeError, match="budget"):
         provider.description("coverage")
     fetch.assert_not_called()
@@ -217,3 +217,11 @@ def test_wcs_real_transport_truncation_retries_without_persisting_partial(tmp_pa
     with patch("national_weather_sources.fetch", side_effect=[(record, body), ({"status": 200, "outcome": "received"}, b"complete")]), patch("national_weather_sources.time.sleep"):
         assert provider.description("coverage") == b"complete"
     assert len(list(tmp_path.rglob("*.body"))) == 1
+
+
+def test_wcs_description_respects_small_remaining_budget(tmp_path):
+    provider = WcsProvider("arome", tmp_path, Budget(bytes_limit=100))
+    with patch("national_weather_sources.fetch", return_value=({"status": 200, "outcome": "received", "wire_bytes_read": 3}, b"xml")) as fetch:
+        assert provider.description("coverage") == b"xml"
+    assert fetch.call_args.args[2] == 99
+    assert provider.budget.bytes == 3
