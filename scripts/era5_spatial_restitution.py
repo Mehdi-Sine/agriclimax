@@ -17,29 +17,20 @@ from shapely.geometry import box, mapping
 from shapely.ops import transform, unary_union
 
 RULE = "pra-observed-area-mean-90-1"
-NATIVE_VARIABLES = ("temperature", "temperature_min", "temperature_max", "precipitation")
+NATIVE_VARIABLES = (
+    "temperature",
+    "temperature_min",
+    "temperature_max",
+    "precipitation",
+)
 
 
-def build(
-    root: Path,
-    destination: Path,
-    *,
-    additional_roots: tuple[Path, ...] = (),
-    variables: tuple[str, ...] = ("temperature", "precipitation"),
-    start: str | None = None,
-    end: str | None = None,
-) -> dict[str, Any]:
-    directory = Path("config/coverage/ofb-masa-pra-2017-snapshot-20261017")
-    reference = json.loads((directory / "reference.json").read_text())
-    weights = json.loads((directory / "weights.json").read_text())
-    groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
-    for w in weights:
-        groups[w["pra_id"]].append(w)
+def native_rows(
+    roots: tuple[Path, ...], start: str | None = None, end: str | None = None
+) -> tuple[dict[tuple[str, str], dict[str, Any]], set[str], int]:
     rows: dict[tuple[str, str], dict[str, Any]] = {}
     tile_checksums: set[str] = set()
     allowed = {"temperature", "temperature_min", "temperature_max", "precipitation"}
-    if not variables or not set(variables) <= allowed:
-        raise ValueError("Unsupported native support variable")
     dataset = Dataset(
         dataset_version=DATASET,
         reference_period=ReferencePeriod(
@@ -47,7 +38,7 @@ def build(
         ),
     ).model_dump(mode="json")
     border_rows_excluded = 0
-    for checkpoint in (root, *additional_roots):
+    for checkpoint in roots:
         for path in sorted((checkpoint / "tiles").glob("*.json.gz")):
             raw = path.read_bytes()
             sha = hashlib.sha256(raw).hexdigest()
@@ -87,8 +78,8 @@ def build(
                 day = row["valid_date"]
                 if (start and day < start) or (end and day > end):
                     continue
-                key = row["cell_id"], day
-                if key in rows and rows[key] != row:
+                row_key = row["cell_id"], day
+                if row_key in rows and rows[row_key] != row:
                     raise ValueError("Overlapping source tiles disagree")
                 for variable in allowed:
                     value = row[variable]
@@ -111,7 +102,40 @@ def build(
                     <= row["temperature_max"]
                 ):
                     raise ValueError("Inconsistent native extrema")
-                rows[key] = row
+                rows[row_key] = row
+    return rows, tile_checksums, border_rows_excluded
+
+
+def build(
+    root: Path,
+    destination: Path,
+    *,
+    additional_roots: tuple[Path, ...] = (),
+    variables: tuple[str, ...] = ("temperature", "precipitation"),
+    start: str | None = None,
+    end: str | None = None,
+    pra_ids: frozenset[str] | None = None,
+) -> dict[str, Any]:
+    directory = Path("config/coverage/ofb-masa-pra-2017-snapshot-20261017")
+    reference = json.loads((directory / "reference.json").read_text())
+    weights = json.loads((directory / "weights.json").read_text())
+    if pra_ids is not None:
+        reference["features"] = [
+            f
+            for f in reference["features"]
+            if "pra:" + f["properties"]["code"] in pra_ids
+        ]
+        if len(reference["features"]) != len(pra_ids):
+            raise ValueError("Unknown selected PRA")
+        weights = [w for w in weights if w["pra_id"] in pra_ids]
+    groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for w in weights:
+        groups[w["pra_id"]].append(w)
+    if not variables or not set(variables) <= set(NATIVE_VARIABLES):
+        raise ValueError("Unsupported native support variable")
+    rows, tile_checksums, border_rows_excluded = native_rows(
+        (root, *additional_roots), start, end
+    )
     days = sorted({day for _, day in rows})
     expected_cells = {w["cell_id"] for w in weights}
     for day in days:
@@ -268,11 +292,46 @@ def build(
 
 
 if __name__ == "__main__":
+    import argparse
+    from datetime import date
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--root", action="append", type=Path)
+    parser.add_argument(
+        "--destination",
+        type=Path,
+        default=Path("apps/web/data/operational/era5-spatial-support.json"),
+    )
+    parser.add_argument(
+        "--variables",
+        nargs="+",
+        choices=NATIVE_VARIABLES,
+        default=["temperature", "precipitation"],
+    )
+    parser.add_argument("--start", type=date.fromisoformat)
+    parser.add_argument("--end", type=date.fromisoformat)
+    parser.add_argument(
+        "--pra-selection", type=Path, help="JSON array of explicit existing PRA IDs"
+    )
+    args = parser.parse_args()
+    roots = args.root or [Path("work/task26b/backfill-four")]
+    selected = (
+        json.loads(args.pra_selection.read_text()) if args.pra_selection else None
+    )
+    if selected is not None and (
+        not isinstance(selected, list) or not all(isinstance(x, str) for x in selected)
+    ):
+        parser.error("PRA selection must be a JSON array of IDs")
     print(
         json.dumps(
             build(
-                Path("work/task26b/backfill-four"),
-                Path("apps/web/data/operational/era5-spatial-support.json"),
+                roots[0],
+                args.destination,
+                additional_roots=tuple(roots[1:]),
+                variables=tuple(args.variables),
+                start=str(args.start) if args.start else None,
+                end=str(args.end) if args.end else None,
+                pra_ids=frozenset(selected) if selected is not None else None,
             )
         )
     )

@@ -157,7 +157,7 @@ def main() -> None:
             START + timedelta(days=i): weights for i in range((END - START).days + 1)
         }
         ready, groups, created = acquire_windows(
-            provider, by_day, ROOT, args.max_groups
+            provider, by_day, ROOT, args.max_groups, max_chunk_days=17
         )
         report.update(
             status="complete" if ready else "checkpoint_ready_for_resume",

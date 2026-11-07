@@ -1,0 +1,54 @@
+{
+  "source": "https://www.data.gouv.fr/api/1/datasets/6569b27598256cc583c917a7/",
+  "license": "Licence Ouverte 2.0",
+  "grid_crs": "EPSG:27572",
+  "grid_resolution_m": 8000,
+  "grid_coordinate_file_sha256": "b02181e808c384ff4d713d46c584977ef4feada4509e72d5351d6a2fc29d6379",
+  "crozon_intersecting_cells": [
+    {
+      "x_m": 84000.0,
+      "y_m": 2393000.0,
+      "PRA_area_fraction": 0.0034572800860116866
+    },
+    {
+      "x_m": 84000.0,
+      "y_m": 2385000.0,
+      "PRA_area_fraction": 0.08708774565740236
+    },
+    {
+      "x_m": 92000.0,
+      "y_m": 2393000.0,
+      "PRA_area_fraction": 0.07797981188133475
+    },
+    {
+      "x_m": 92000.0,
+      "y_m": 2385000.0,
+      "PRA_area_fraction": 0.3964932813965169
+    },
+    {
+      "x_m": 92000.0,
+      "y_m": 2377000.0,
+      "PRA_area_fraction": 0.1416713332328273
+    },
+    {
+      "x_m": 100000.0,
+      "y_m": 2385000.0,
+      "PRA_area_fraction": 0.2721827800143198
+    },
+    {
+      "x_m": 100000.0,
+      "y_m": 2377000.0,
+      "PRA_area_fraction": 0.019271446942451295
+    }
+  ],
+  "geometric_coverage_candidate": 0.9981436792108641,
+  "coordinate_max_difference_deg": 0.0009668584782964729,
+  "actual_temporal_rows_verified": false,
+  "latest_compressed_bytes": 19936780,
+  "annual_2026_compressed_bytes": 114689299,
+  "native_source_file_limit_bytes": 16777216,
+  "temperature_day": "00UTC-00UTC",
+  "precipitation_day": "06UTC-06UTC",
+  "national_data_downloaded": false,
+  "daily_document_sha256": "8f1ec72fbf765f0e480b768a54fe89338f29522172cd7b2c71045a7ae17c4f8b"
+}

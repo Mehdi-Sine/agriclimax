@@ -1,0 +1,185 @@
+{
+  "checks": [
+    {
+      "indicator": "gdd",
+      "pra": "pra:28341",
+      "expected": 73.53580009353547,
+      "actual": 73.53579900000001,
+      "primary": 73.53579900000001,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "gdd",
+      "pra": "pra:06245",
+      "expected": 90.09921582647335,
+      "actual": 90.09921582647335,
+      "primary": 90.09921582647335,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "gdd",
+      "pra": "pra:06249",
+      "expected": 106.00384080259707,
+      "actual": 106.00384080259707,
+      "primary": null,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "gdd",
+      "pra": "pra:29102",
+      "expected": null,
+      "actual": null,
+      "primary": null,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "rain",
+      "pra": "pra:28341",
+      "expected": 8.74662880349156,
+      "actual": 8.746628810399999,
+      "primary": 8.746628810399999,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "rain",
+      "pra": "pra:06245",
+      "expected": 2.3916586539722697,
+      "actual": 2.3916586539722697,
+      "primary": 2.3916586539722697,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "rain",
+      "pra": "pra:06249",
+      "expected": 1.1330640997585528,
+      "actual": 1.1330640997585528,
+      "primary": null,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "rain",
+      "pra": "pra:29102",
+      "expected": null,
+      "actual": null,
+      "primary": null,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "hot",
+      "pra": "pra:28341",
+      "expected": 0,
+      "actual": 0,
+      "primary": 0,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "hot",
+      "pra": "pra:06245",
+      "expected": 0,
+      "actual": 0,
+      "primary": null,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "hot",
+      "pra": "pra:06249",
+      "expected": 0,
+      "actual": 0,
+      "primary": null,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "hot",
+      "pra": "pra:29102",
+      "expected": null,
+      "actual": null,
+      "primary": null,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "frost",
+      "pra": "pra:28341",
+      "expected": 0,
+      "actual": 0,
+      "primary": 0,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "frost",
+      "pra": "pra:06245",
+      "expected": 0,
+      "actual": 0,
+      "primary": null,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "frost",
+      "pra": "pra:06249",
+      "expected": 0,
+      "actual": 0,
+      "primary": null,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "frost",
+      "pra": "pra:29102",
+      "expected": null,
+      "actual": null,
+      "primary": null,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "cattle_heat",
+      "pra": "pra:28341",
+      "expected": 0,
+      "actual": 0,
+      "primary": 0,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "cattle_heat",
+      "pra": "pra:06245",
+      "expected": 0,
+      "actual": 0,
+      "primary": null,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "cattle_heat",
+      "pra": "pra:06249",
+      "expected": 0,
+      "actual": 0,
+      "primary": null,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    },
+    {
+      "indicator": "cattle_heat",
+      "pra": "pra:29102",
+      "expected": null,
+      "actual": null,
+      "primary": null,
+      "version": "agroclimatic-1.2.0",
+      "passed": true
+    }
+  ],
+  "acquisitions": 0
+}
