@@ -35,7 +35,7 @@ export function parseState(params: URLSearchParams, space: Space, availableDays:
   const indicator=params.get('indicateur') ?? (space==='analyse'?'hot':'temperature');
   const def=INDICATORS.find(i=>i.id===indicator);
   if(!def) errors.push('Indicateur inconnu.');
-  const mode=params.get('mode') ?? 'value';
+  const mode=params.get('mode') ?? (['temperature','temperature_min','temperature_max'].includes(indicator)?'anomaly':'value');
   if(!['value','normal','anomaly'].includes(mode)||(!def?.reference&&mode!=='value')) errors.push('Lecture non disponible pour cet indicateur.');
   const threshold=Number(params.get('seuil') ?? def?.parameter ?? 25);
   if(!Number.isFinite(threshold)||threshold< -30||threshold>60) errors.push('Seuil attendu entre −30 et 60 °C.');

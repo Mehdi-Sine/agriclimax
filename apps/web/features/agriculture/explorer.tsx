@@ -1,4 +1,7 @@
 'use client';
+import {semanticPalette} from '../cartography/registry';
+import {usePaletteColors} from '../cartography/use-palette';
+import {SemanticLegend} from '../cartography/legend';
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { type PraCollection } from '../national/map';
@@ -12,7 +15,7 @@ export function useAgriculturalData<T>(url: string | null) {
     fetch(url, { signal: abort.signal }).then(async r => {
       if (!r.ok) throw new Error('Source indisponible pour cette sélection.');
       return r.json() as Promise<T>;
-    }).then(data => setResource({ url, data, error: null })).catch((e: unknown) => {
+    }).then(data => {if(!abort.signal.aborted)setResource({ url, data, error: null });}).catch((e: unknown) => {
       if (!abort.signal.aborted) setResource({ url, data: null, error: e instanceof Error ? e.message : 'Source indisponible.' });
     });
     return () => abort.abort();
@@ -20,7 +23,6 @@ export function useAgriculturalData<T>(url: string | null) {
   return resource.url === url ? resource : { data: null, error: null };
 }
 const fmt = (v: number | null | undefined) => v == null ? 'Indisponible' : new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 2 }).format(v);
-const TOKENS = ['--map-rain-1', '--map-rain-2', '--map-rain-3', '--map-rain-4', '--map-rain-5'];
 const GROUPS: Record<string, string> = { COP: 'Céréales, oléagineux et protéagineux', FOU: 'Fourrages et prairies', EFA: 'Bovins, porcins, ovins et caprins', EFV: 'Volailles', LAI: 'Productions laitières', VIG: 'Vignoble', RPG: 'Déclarations PAC · RPG 2025' };
 export function useAgriculturalExplorer(enabled: boolean) {
   const search = useSearchParams();
@@ -45,21 +47,14 @@ export function useAgriculturalExplorer(enabled: boolean) {
   const selected = search.get('territoire') ?? (indicator?.scale === 'pra' ? search.get('pra') ?? '' : '');
   const profile = useAgriculturalData<PraAgriculturalContext>(indicator?.scale === 'pra' && selected.startsWith('pra:') && !invalid ? `/api/agriculture?action=wheat-context&pra=${encodeURIComponent(selected)}` : null);
   const [query, setQuery] = useState('');
-  const [palette, setPalette] = useState<string[]>([]);
-  useEffect(() => {
-    const css = getComputedStyle(document.documentElement);
-    const frame = requestAnimationFrame(() => setPalette(TOKENS.map(t => css.getPropertyValue(t).trim())));
-    return () => cancelAnimationFrame(frame);
-  }, []);
+  const semantic=semanticPalette('agriculture',indicator?.unit??'');
+  const palette=usePaletteColors(semantic);
   const rows = dataset.data?.rows ?? [];
   const values = rows.map(row => {
     const v = agriculturalValue(row, indicator?.years ?? [], year);
     return { territoryId: `${indicator?.scale === 'pra' ? 'pra' : indicator?.scale === 'departement' ? 'dep' : 'reg'}:${row.code}`, value: v.value, normal: null, anomaly: null, status: v.status };
   });
-  const visibleIds = new Set(geometry.data?.features.map(f => String(f.id)) ?? []);
-  const numbers = values.flatMap(v => v.value === null || !visibleIds.has(v.territoryId) ? [] : [v.value]);
-  const low = numbers.length ? Math.min(...numbers) : 0, high = numbers.length ? Math.max(...numbers) : 0;
-  const bounds = Array.from({ length: 5 }, (_, i) => low + (high - low) * (i + 1) / 5);
+  const bounds=semantic.bounds;
   const current = rows.find(r => selected.endsWith(`:${r.code}`));
   const currentValue = agriculturalValue(current, indicator?.years ?? [], year);
   const feature = geometry.data?.features.find(f => f.id === selected);
@@ -99,7 +94,7 @@ export function useAgriculturalExplorer(enabled: boolean) {
   const mapState = <>        {!geometry.data && !geometry.error && <p role="status">Chargement des contours…</p>}
         {!dataset.data && !dataset.error && !invalid && <p role="status">Chargement des statistiques officielles…</p>}
 </>;
-  const legend = <>        <div className="unified-legend" aria-label="Légende agricole">{numbers.length > 0 && <><div className="legend-ramp">{bounds.map((b, i) => <span key={i} style={{ background: `var(${TOKENS[i]})` }}><small>{i === 0 ? `${fmt(low)} – ` : '≤ '}{fmt(b)}</small></span>)}</div><p>{indicator?.unit} · bornes calculées sur les valeurs affichées</p></>}<span className="missing-key" /> Gris : donnée indisponible, jamais un zéro déduit. Gris atténué : secret statistique. Bordure renforcée : partiel. <p>{numbers.length} territoires renseignés sur cette carte ; métropole et Corse.</p></div></>;
+  const legend=<SemanticLegend palette={semantic}/>;
   const panel = <>        {feature ? <><div className="panel-top"><span className="eyebrow">{scaleLabel} · {feature.properties.code}</span><button aria-label="Fermer la fiche agricole" onClick={() => change({ territoire: '', ...(indicator?.scale === 'pra' ? { pra: '' } : {}) })}>×</button></div><h2>{feature.properties.name}</h2>
           <div className="unified-value"><small>{label} · {year}</small><strong>{currentValue.status === 'suppressed' ? 'Secret statistique' : fmt(currentValue.value)} <em>{currentValue.value !== null ? indicator?.unit : ''}</em></strong></div>
           {indicator?.scale !== 'pra' && <p>Valeur pour {scaleLabel === 'département' ? 'le département' : 'la région'} {feature.properties.code} — non disponible à la PRA. Une PRA sélectionnée ailleurs reste un contexte de navigation.</p>}
@@ -112,9 +107,9 @@ export function useAgriculturalExplorer(enabled: boolean) {
   const mapProps = {
     selected, onSelect: select,
     geography: { prefix, label: `${geometry.data?.features.length ?? 0} ${scaleLabel}s`, attribution: indicator?.scale === 'pra' ? 'PRA · OFB / MASA · géométries source inchangées' : 'Etalab · contours administratifs 2025, 100 m · Licence Ouverte 2.0' },
-    quantitative: { values, field: 'value' as const, unit: indicator?.unit ?? '', bounds, colors: palette.length ? palette : TOKENS.map(() => 'transparent') },
+    quantitative: { values, field: 'value' as const, unit: indicator?.unit ?? '', bounds, colors: palette },
   };
-  return { filters, mapTitle, mapState, legend, panel, method, mapProps, collection: geometry.data, hasSelection: !!feature };
+  return { loading:enabled&&!invalid&&!dataset.data&&!dataset.error,error:dataset.error,filters, mapTitle, mapState, legend, panel, method, mapProps, collection: geometry.data, hasSelection: !!feature };
 }
 
 function AnnualHistory({ dataset, code }: { dataset: AgriculturalDataset; code: string }) {
