@@ -122,3 +122,10 @@ ce seul exemple de trois jours ne suffit pas. `scripts/compare_climatology.py --
 consomme un export quotidien de l'endpoint Task 11 et les fichiers normalisés,
 avec station, point grille, timestamp et reconnaissance des limites obligatoires.
 Cette commande ne requiert pas de règle agricole ni de modification de contrat.
+
+COUV-01 adds an opt-in SIM/SAFRAN adapter (`safran.py`) and checksum-verified local
+snapshot reader (`safran_archive.py`). Daily definitions and partial support stay
+explicit; these values do not replace ERA5, normals or existing indicators.
+`forecast_continuity.py` selects homogeneous forecast candidates without changing
+the operational selection or certifying coastal representativeness. See
+`docs/codex/COUV-01/ACCEPTANCE.md` for the measured limits and readiness verdicts.

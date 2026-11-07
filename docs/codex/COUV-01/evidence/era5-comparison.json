@@ -1,0 +1,68 @@
+{
+  "variable": "temperature_mean",
+  "definition": "SIM minus ERA5-Land, same UTC date, both area complete",
+  "pairs": 9030,
+  "bias_degC": -0.6604810801419795,
+  "mae_degC": 0.8741057944286509,
+  "p05_degC": -2.137467627507058,
+  "p50_degC": -0.6371387542027991,
+  "p95_abs_degC": 2.1764982127485304,
+  "min_degC": -4.391833690424422,
+  "max_degC": 4.472499553910915,
+  "extreme_cases": [
+    {
+      "pra_id": "pra:05457",
+      "date": "2026-10-26",
+      "difference_degC": 4.472499553910915
+    },
+    {
+      "pra_id": "pra:39212",
+      "date": "2026-10-29",
+      "difference_degC": -4.391833690424422
+    },
+    {
+      "pra_id": "pra:39212",
+      "date": "2026-10-31",
+      "difference_degC": -4.2617714169093475
+    },
+    {
+      "pra_id": "pra:05236",
+      "date": "2026-10-30",
+      "difference_degC": -4.183804352827146
+    },
+    {
+      "pra_id": "pra:39207",
+      "date": "2026-10-29",
+      "difference_degC": -4.160551962446829
+    },
+    {
+      "pra_id": "pra:39212",
+      "date": "2026-10-30",
+      "difference_degC": -4.155559613795123
+    },
+    {
+      "pra_id": "pra:05459",
+      "date": "2026-10-30",
+      "difference_degC": -4.012906331582676
+    },
+    {
+      "pra_id": "pra:39209",
+      "date": "2026-10-29",
+      "difference_degC": -3.9169614047873287
+    },
+    {
+      "pra_id": "pra:05231",
+      "date": "2026-10-26",
+      "difference_degC": 3.903287127812212
+    },
+    {
+      "pra_id": "pra:39209",
+      "date": "2026-10-31",
+      "difference_degC": -3.8744215648268816
+    }
+  ],
+  "rain_comparison": "refused: 06UTC versus 00UTC daily window",
+  "extrema_comparison": "refused: hourly extrema/different windows versus existing spatial extrema",
+  "independent_station_validation": false,
+  "date_alignment": "same date label and nominal 00UTC window; endpoint sampling convention remains a limitation"
+}
