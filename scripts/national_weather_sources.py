@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlencode
 
+from agriclimax.ingestion.source_retry import TRANSIENT
 from agriclimax.ingestion.storage import atomic_write
 from probe_operational_access import (
     MODELS,
@@ -19,7 +20,6 @@ from probe_operational_access import (
     field_parameters,
     xml_root,
 )
-from source_retry import TRANSIENT
 
 BBOX = (-6.0, 40.5, 10.5, 52.0)
 TILES = ((-6.0, 42.0, 8.5, 52.0), (8.0, 41.0, 10.0, 43.5))
@@ -39,6 +39,7 @@ class Budget:
     requests_limit: int = 512
     bytes_limit: int = 128 * 1024**2
     last_request: float = 0
+    workspace: Path | None = None
 
     def wait(self, seconds: float) -> None:
         if time.monotonic() - self.started + seconds + 20 >= self.seconds_limit:
@@ -46,6 +47,8 @@ class Budget:
         time.sleep(seconds)
 
     def before(self, limit: int = 0) -> None:
+        if self.workspace is not None and (sum(p.stat().st_size for p in self.workspace.rglob("*") if p.is_file()) + limit > 448 * 1024**2):
+            raise RuntimeError("Weather workspace budget exhausted; retain checkpoints")
         if (
             self.requests >= self.requests_limit
             or self.bytes + limit > self.bytes_limit
@@ -114,7 +117,7 @@ class WcsProvider:
                 raise RuntimeError("Source byte budget exceeded")
             if record["status"] == 200 and body and record.get("outcome") == "received":
                 break
-            record["attempt"] = attempt + 1
+            record.update(attempt=attempt + 1, source=self.product, operation=operation)
             atomic_write(self.root / f"{key}.failure.json", json.dumps(record).encode())
             transient = record["status"] in TRANSIENT or record["status"] == "network_unavailable" or (record["status"] == 200 and record.get("outcome") == "network_or_response_error")
             delay = record.get("retry_after", "")

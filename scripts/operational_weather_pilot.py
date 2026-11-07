@@ -25,6 +25,7 @@ Variable = Literal[
 ]
 from urllib.request import Request, urlopen
 
+from agriclimax.ingestion.source_retry import retry_read
 from agriclimax.ingestion.storage import atomic_write
 from agriclimax.territories.aggregate import Family, aggregate
 from agriclimax.territories.national_daily import REFERENCE
@@ -41,7 +42,6 @@ from agriclimax.territories.operational import (
 from agriclimax.territories.pipeline import digest
 from agriclimax.territories.spatial import load_reference
 from agriclimax.territories.weather import PraWeather, WeatherProvenance
-from source_retry import retry_read
 
 
 def main() -> None:

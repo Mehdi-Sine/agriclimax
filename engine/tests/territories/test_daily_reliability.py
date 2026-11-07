@@ -13,8 +13,9 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts"))
 from daily_monitoring import summarize
 from national_weather_sources import Budget, WcsProvider
-from source_retry import retry_read
 from weather_export_checkpoint import export
+
+from agriclimax.ingestion.source_retry import retry_read
 
 
 def test_wcs_network_interruption_then_cache_resume(tmp_path):
@@ -172,3 +173,47 @@ def test_restore_prefers_last_continuation_and_never_hides_download_error(tmp_pa
             restore("era5", tmp_path, "123")
         assert download.call_count == 1
         assert "era5-resume-1-checkpoints" in download.call_args.args[0]
+
+
+def test_era5_continuation_replays_published_day_without_advancing(tmp_path):
+    import gzip
+
+    import era5_archive_daily
+    content = json.dumps({"daily": [{"pra_id": f"pra:{i:05}", "valid_date": "2026-11-01"} for i in range(713)]})
+    archive = gzip.compress(json.dumps({"records": [{"content": content, "sha256": hashlib.sha256(content.encode()).hexdigest()}]}).encode())
+    (tmp_path / "report.json").write_text(json.dumps({"date": "2026-11-01", "status": "published"}))
+    store = Mock()
+    store.catalogue.return_value = {"era5": [{"dates": ["2026-11-01"], "path": "retained", "sha256": "test"}]}
+    store.blob.return_value = archive
+    with patch.object(sys, "argv", ["era5", "--execute", "--resume", "--root", str(tmp_path)]), patch("era5_archive_daily.resource.setrlimit"), patch("era5_archive_daily.ArchiveStore", return_value=store), patch("era5_archive_daily.PraRepository") as repository, patch("era5_archive_daily.Era5LandProvider") as provider:
+        repository.return_value.catalog.return_value = {"latest": "2026-10-31"}
+        era5_archive_daily.main()
+        provider.assert_not_called()
+        store.publish_era5.assert_not_called()
+    receipt = json.loads((tmp_path / "report.json").read_text())
+    assert receipt["date"] == "2026-11-01"
+    assert receipt["status"] == "read_only_existing_archive"
+    assert receipt["restored_rows"] == 713
+    assert receipt["source_requests"] == receipt["storage_writes"] == 0
+
+
+def test_wcs_real_transport_truncation_retries_without_persisting_partial(tmp_path):
+    from http.client import IncompleteRead
+    from unittest.mock import MagicMock
+
+    from probe_operational_access import fetch
+    response = MagicMock()
+    response.status = 200
+    response.headers = {}
+    response.read.side_effect = IncompleteRead(b"partial", 10)
+    opener = MagicMock()
+    opener.open.return_value.__enter__.return_value = response
+    with patch.dict("os.environ", {"METEOFRANCE_AROME_API_KEY": "fixture-binding"}), patch("probe_operational_access.build_opener", return_value=opener):
+        record, body = fetch("https://example.invalid/wcs", "METEOFRANCE_AROME_API_KEY", 100)
+    assert body == b""
+    assert record["outcome"] == "network_or_response_error"
+    assert record["wire_bytes_read"] == 101
+    provider = WcsProvider("arome", tmp_path, Budget())
+    with patch("national_weather_sources.fetch", side_effect=[(record, body), ({"status": 200, "outcome": "received"}, b"complete")]), patch("national_weather_sources.time.sleep"):
+        assert provider.description("coverage") == b"complete"
+    assert len(list(tmp_path.rglob("*.body"))) == 1

@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any
 from urllib.request import Request, urlopen
 
+from agriclimax.ingestion.source_retry import retry_read
 from agriclimax.ingestion.storage import atomic_write
 from agriclimax.territories.national_weather import (
     RULE,
@@ -25,7 +26,6 @@ from agriclimax.territories.weather_archive import decode, encode
 from national_weather_models import reference, wcs_models
 from national_weather_sources import Budget, preflight
 from pra_weather_store import ArchiveStore
-from source_retry import retry_read
 
 
 def coastal_audit(
@@ -265,6 +265,8 @@ def run_national(
     atomic_write(
         root / "audits/mf-independent.json", json.dumps(audits, indent=2).encode()
     )
+    if sum(p.stat().st_size for p in root.rglob("*") if p.is_file()) > 448 * 1024**2:
+        raise RuntimeError("Weather workspace budget exceeded before publication")
     publication = (
         store.publish_weather(document)
         if store

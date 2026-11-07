@@ -98,7 +98,7 @@ def main() -> None:
 
         print(json.dumps(humidity_review(args.root)))
         return
-    budget = Budget(seconds_limit=1260)
+    budget = Budget(seconds_limit=1260, workspace=args.root)
     base_root = args.root
     base_root.mkdir(parents=True, exist_ok=True)
     try:

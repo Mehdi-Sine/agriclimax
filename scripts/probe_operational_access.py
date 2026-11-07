@@ -7,6 +7,7 @@ import json
 import os
 import xml.etree.ElementTree as ET
 from datetime import UTC, datetime
+from http.client import IncompleteRead
 from pathlib import Path
 from time import monotonic
 from urllib.error import HTTPError, URLError
@@ -102,7 +103,7 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
                 except (ET.ParseError, ValueError, OSError, EOFError):
                     pass
             error.close()
-        except (URLError, OSError, TimeoutError, ValueError, EOFError):
+        except (URLError, OSError, TimeoutError, ValueError, EOFError, IncompleteRead):
             record["outcome"] = "network_or_response_error"
             if record["status"] == "binding_absent":
                 record["status"] = "network_unavailable"
