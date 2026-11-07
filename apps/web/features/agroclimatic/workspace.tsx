@@ -1,5 +1,9 @@
-"use client";
-import { useEffect, useMemo, useState } from "react";
+'use client';
+import {semanticPalette,classLabel} from '../cartography/registry';
+import {usePaletteColors} from '../cartography/use-palette';
+import {SemanticLegend} from '../cartography/legend';
+
+import { useMemo, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { ComplementNotice } from "./complement";
 import { supportPolicy } from "./observed-support";
@@ -110,32 +114,9 @@ export function useAgroclimatic(
   const data = resource.data?.data ?? [],
     current = data.find((r) => r.territoryId === pra),
     feature = collection?.features.find((f) => f.id === pra);
-  const [colors, setColors] = useState<string[]>([]),
-    [queryPra, setQueryPra] = useState("");
-  const tokens =
-    rule.unit === "mm"
-      ? [
-          "--map-rain-1",
-          "--map-rain-2",
-          "--map-rain-3",
-          "--map-rain-4",
-          "--map-rain-5",
-        ]
-      : [
-          "--map-cool",
-          "--map-cool-light",
-          "--map-mid",
-          "--map-warm-light",
-          "--map-warm",
-        ];
-  const colorKey = tokens.join(",");
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => {
-      const css = getComputedStyle(document.documentElement);
-      setColors(colorKey.split(",").map((t) => css.getPropertyValue(t).trim()));
-    });
-    return () => cancelAnimationFrame(frame);
-  }, [colorKey]);
+  const [queryPra, setQueryPra] = useState("");
+  const semantic=semanticPalette(rule.id,rule.unit,Math.round((Date.parse(end)-Date.parse(start))/86400000)+1);
+  const colors=usePaletteColors(semantic),bounds=semantic.bounds;
   function change(patch: Record<string, string>) {
     const p = new URLSearchParams(search.toString());
     for (const [k, v] of Object.entries(patch)) {
@@ -144,17 +125,6 @@ export function useAgroclimatic(
     }
     window.history.pushState(null, "", `${pathname}?${p}`);
   }
-  const values = data.flatMap((r) =>
-      (r.value ?? r.observed_value) == null
-        ? []
-        : [(r.value ?? r.observed_value)!],
-    ),
-    low = values.length ? Math.min(...values) : 0,
-    high = values.length ? Math.max(...values) : 1;
-  const bounds = Array.from(
-    { length: 5 },
-    (_, i) => low + ((high - low || 1) * (i + 1)) / 5,
-  );
   const families = [
     ...new Set(
       RULES.filter((r) => r.production === production).map((r) => r.family),
@@ -663,13 +633,13 @@ export function useAgroclimatic(
       </p>
       <div className="agro-class-distribution">
         {bounds.map((b, i) => (
-          <span key={i} style={{ borderTopColor: `var(${tokens[i]})` }}>
+          <span key={i} style={{ borderTopColor: `var(${semantic.tokens[i]})` }}>
             <span>
-              {fmt(i === 0 ? low : bounds[i - 1])} – {fmt(b)} :{" "}
+              {classLabel(semantic,i)} :{" "}
               {
                 eligible.filter(
                   (r) =>
-                    r.value! >= (i === 0 ? low : bounds[i - 1]) &&
+                    r.value! <= bounds[0] &&
                     (i === 0
                       ? r.value! <= b
                       : r.value! > bounds[i - 1] && r.value! <= b),
@@ -703,6 +673,8 @@ export function useAgroclimatic(
     </section>
   );
   return {
+    loading:active&&!resource.data&&!resource.error,
+    error:resource.error,
     filters,
     coveredSupport,
     panel,
@@ -732,22 +704,7 @@ export function useAgroclimatic(
             : `${data.filter((r) => r.value !== null && r.support_scope !== "qualified_pra_estimate").length} PRA complètes · ${data.filter((r) => r.value !== null && r.support_scope === "qualified_pra_estimate").length} estimations qualifiées ≥90% · ${data.filter((r) => r.observed_value != null && r.value === null).length} valeurs de portion seulement · ${data.filter((r) => r.complementary).length} estimation(s) complémentaire(s) en fiche. Gris : portion native absente ou résultat non calculable, jamais zéro.`}
       </p>
     ),
-    legend: (
-      <div className="unified-legend">
-        <div className="legend-ramp">
-          {bounds.map((b, i) => (
-            <span key={i} style={{ background: `var(${tokens[i]})` }}>
-              <small>≤ {fmt(b)}</small>
-            </span>
-          ))}
-        </div>
-        <p>
-          {rule.unit} · limites PRA uniformes ; surfaces colorées partielles :
-          portions réellement renseignées sur toute la période ; reste grisé.
-          Une estimation ≥90% ne constitue pas une mesure intégrale.
-        </p>
-      </div>
-    ),
+    legend: <SemanticLegend palette={semantic}/>,
     mapProps: {
       selected: pra,
       onSelect: (id: string) => change({ pra: id }),

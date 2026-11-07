@@ -69,3 +69,10 @@
   --national-anomaly-near: #d9d4c7;
   --national-anomaly-above: #c86b4a;
 }
+
+/* Semantic cartography 1.0.0: fixed classes, independent quality styling. */
+:root {
+ --map-dry-1:#f7f0d4; --map-dry-2:#e6cf78; --map-dry-3:#e8a65a; --map-dry-4:#cc713f; --map-dry-5:#a44132;
+ --map-agri-1:#edf3e6; --map-agri-2:#c5d7ad; --map-agri-3:#94b477; --map-agri-4:#628a50; --map-agri-5:#375b39;
+ --map-gdd-1:#f4efcf; --map-gdd-2:#ddd59b; --map-gdd-3:#c3ae62; --map-gdd-4:#9a843e; --map-gdd-5:#715d2e;
+}

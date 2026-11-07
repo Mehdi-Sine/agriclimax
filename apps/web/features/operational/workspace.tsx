@@ -1,4 +1,7 @@
 'use client';
+import {semanticPalette} from '../cartography/registry';
+import {usePaletteColors} from '../cartography/use-palette';
+import {SemanticLegend} from '../cartography/legend';
 import {useEffect,useMemo,useState} from 'react';
 import {usePathname,useRouter,useSearchParams} from 'next/navigation';
 import type {PraCollection} from '../national/map';
@@ -16,7 +19,7 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode,
   const selected=search.get('pra')??'pra:28341';
   const archivedRun=search.get('weather_run')??'';
   const runQuery:Record<string,string>=archivedRun?{run:archivedRun}:{};
-  const [colors,setColors]=useState<string[]>([]),[now,setNow]=useState(()=>Date.now());
+  const [now,setNow]=useState(()=>Date.now());
   useEffect(()=>{const timer=setInterval(()=>setNow(Date.now()),60000);return()=>clearInterval(timer);},[]);
   const today=new Date(now).toISOString().slice(0,10);
   function change(values:Record<string,string>){const q=new URLSearchParams(search.toString());q.delete('experimental');q.set('temporal',temporalMode);for(const [k,v] of Object.entries(values))q.set(k==='weather_date'?`${temporalMode}_date`:k,v);q.delete('weather_date');router.replace(`${pathname}?${q}`,{scroll:false});}
@@ -31,18 +34,14 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode,
   const historyResource=useResource<WeatherCycle>(hasHorizon?`/api/operational?${new URLSearchParams({...base,pra:selected})}`:null),history=historyResource.data;
   const error=catalogueResource.error??viewResource.error??historyResource.error;
   const loading=hasHorizon&&!view&&!viewResource.error;
-  useEffect(()=>{
-    const frame=requestAnimationFrame(()=>{const css=getComputedStyle(document.documentElement);setColors(['--map-cool','--map-cool-light','--map-mid','--map-warm-light','--map-warm'].map(k=>css.getPropertyValue(k).trim()));});
-    return()=>cancelAnimationFrame(frame);
-  },[]);
   const geometryKey=catalogue?.pra_ids?.join(',')??'';
   const collection=useMemo(()=>{
     if(!geometry||!geometryKey)return null;
     const ids=new Set(geometryKey.split(','));return {...geometry,features:geometry.features.filter(f=>ids.has(`pra:${f.properties.code}`))};
   },[geometry,geometryKey]);
   const rows=view?.rows??[],current=rows.find(r=>r.pra_id===selected),def=VARIABLES.find(v=>v.id===variable);
-  const finite=rows.flatMap(r=>r.value===null?[]:[r.value]),low=finite.length?Math.min(...finite):0,high=finite.length?Math.max(...finite):1;
-  const bounds=Array.from({length:5},(_,i)=>low+(high-low||1)*(i+1)/5);
+  const semantic=semanticPalette(variable,def?.unit??'');
+  const bounds=semantic.bounds,colors=usePaletteColors(semantic);
   const feature=geometry?.features.find(f=>`pra:${f.properties.code}`===selected);
   const past=!!date&&date<today;
   const stale=!!catalogue?.acquired_at&&now-Date.parse(catalogue?.acquired_at)>36*3600000;
@@ -75,7 +74,7 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode,
           {pathname==='/analyse'&&<p>Aucun score d’impact agricole calculé à partir de ces prévisions. Les références RPG/SAA et les parcours blé/bovins restent séparés.</p>}
           <details><summary>Provenance et limites</summary><p>{current?.source_id} · {current?.model} · {current?.rule_version}</p><p>{current?.quality_flags.join(' · ')}</p><p style={{overflowWrap:'anywhere'}}>Empreinte : {current?.provenance_sha256}</p></details>
         </>;
-  return {catalogue,dates,date,filters,panel,temporalMode,legend:<div className="unified-legend" aria-label="Légende météo"><div className="legend-ramp">{bounds.map((b,i)=><span key={i} style={{background:colors[i]}}><small>≤ {label(b)}</small></span>)}</div><p>{def?.unit} · gris : valeur absente ou non admissible, pas zéro.</p></div>,mapTitle:<div className="unified-map-title"><h2>{def?.label??'Variable inconnue'} · {def?.unit??''}</h2><span>{past?'Estimation issue de prévisions':'Prévision'}</span></div>,collection,mapProps:{selected,onSelect:(id:string)=>change({pra:id}),quantitative:{values:rows.map(r=>({territoryId:r.pra_id,value:r.value,normal:null,anomaly:null,status:r.status})),field:'value' as const,unit:def?.unit??'',bounds,colors}},shortcuts:<div className="unified-context">
+  return {loading,error,catalogue,dates,date,filters,panel,temporalMode,legend:<SemanticLegend palette={semantic}/>,mapTitle:<div className="unified-map-title"><h2>{def?.label??'Variable inconnue'} · {def?.unit??''}</h2><span>{past?'Estimation issue de prévisions':'Prévision'}</span></div>,collection,mapProps:{selected,onSelect:(id:string)=>change({pra:id}),quantitative:{values:rows.map(r=>({territoryId:r.pra_id,value:r.value,normal:null,anomaly:null,status:r.status})),field:'value' as const,unit:def?.unit??'',bounds,colors}},shortcuts:<div className="unified-context">
     {dates.at(-1)&&temporalMode==='recent'&&<button onClick={()=>change({weather_date:dates.at(-1)!})}>Dernière estimation</button>}
     {dates.includes(today)&&<button onClick={()=>change({weather_date:today})}>Aujourd’hui</button>}
     {[3,7].map(lead=>{const day=catalogue?.run?new Date(Date.parse(catalogue.run)+lead*86400000).toISOString().slice(0,10):'';return dates.includes(day)?<button key={lead} onClick={()=>change({weather_date:day})}>J+{lead}</button>:null;})}
