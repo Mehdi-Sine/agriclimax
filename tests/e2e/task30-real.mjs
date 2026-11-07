@@ -1,5 +1,6 @@
 // Real API/UI acceptance; synthetic routing used only for explicitly labelled failure/latency checks.
 import {chromium} from 'playwright';
+import {protectTask30Preview} from './task30-preview.mjs';
 import {mkdir,writeFile} from 'node:fs/promises';
 const origin=process.env.TASK30_ORIGIN??'http://127.0.0.1:3000',output=process.env.TASK30_OUTPUT??'docs/codex/task30/evidence/local';
 await mkdir(output,{recursive:true});
@@ -9,15 +10,10 @@ const check=(name,ok,detail={})=>{report.checks.push({name,ok,...detail});if(!ok
 try{
  for(const [viewport,width,height] of [['desktop',1440,1000],['tablet',768,1000],['mobile',390,844]]){
   const context=await browser.newContext({viewport:{width,height},locale:'fr-FR'});
-  // A bypass header is scoped to the selected Preview origin and never follows redirects.
-  if(origin.startsWith('https:'))await context.route('**/*',async route=>{
-   const request=route.request(),headers={...request.headers()};delete headers['x-vercel-protection-bypass'];
-   if(new URL(request.url()).origin===new URL(origin).origin&&process.env.VERCEL_AUTOMATION_BYPASS_SECRET)headers['x-vercel-protection-bypass']=process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
-   const response=await route.fetch({headers,maxRedirects:0});await route.fulfill({response});
-  });
+  await protectTask30Preview(context,origin);
   const page=await context.newPage();page.on('pageerror',e=>report.errors.push({viewport,message:e.message}));
   const started=Date.now();
-  await page.goto(origin+'/veille',{waitUntil:'domcontentloaded'});
+  await page.goto(origin+'/veille',{waitUntil:'domcontentloaded',timeout:60000});
   await page.getByRole('heading',{name:'La situation agroclimatique en France'}).waitFor();
   await page.locator('.watch-overview').waitFor({timeout:60000});
   await page.locator('.national-map[data-ready="true"]').waitFor({timeout:60000});
@@ -25,7 +21,7 @@ try{
   check(viewport+':713 contours',await page.locator('.national-map').getAttribute('data-feature-count')==='713');
   check(viewport+':no horizontal overflow',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   await page.screenshot({path:`${output}/${viewport}-national.png`,fullPage:true});
-  const filter=page.getByLabel('Phénomène',{exact:true});await filter.selectOption('rain');
+  const filter=page.getByLabel(/Phénomène/);await filter.selectOption('rain');
   await page.locator('.national-map[data-ready="true"]').waitFor();
   check(viewport+':rain blue',await page.locator('.legend-ramp span').last().evaluate(e=>getComputedStyle(e).backgroundColor)==='rgb(36, 83, 110)');
   const cards=page.locator('.watch-event');check(viewport+':real rain event',await cards.count()>0);
@@ -36,6 +32,7 @@ try{
   if(viewport==='desktop'){
    await page.getByRole('link',{name:'Explorer les indicateurs et la provenance'}).click();
    await page.getByRole('link',{name:'← Revenir à la veille nationale'}).click();
+   await page.waitForURL(url=>url.pathname==='/veille'&&url.searchParams.has('situation'),{timeout:60000});
    check('return preserves event',new URL(page.url()).searchParams.has('situation'));
   }
   await page.getByRole('link',{name:'Comprendre cette carte',exact:true}).first().click();

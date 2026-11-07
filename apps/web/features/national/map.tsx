@@ -254,15 +254,10 @@ export default function NationalMap({
 
   useEffect(() => {
     if (!ready || !map.current || !selected || (quantitative&&!highlighted)) return;
-    const geometry = collection.features.find(
-      (f) => f.id === selected,
-    )?.geometry;
-    const points =
-      geometry?.type === 'MultiPolygon'
-        ? geometry.coordinates.flat(2)
-        : geometry?.type === 'Polygon'
-          ? geometry.coordinates.flat()
-          : [];
+    const geometries=highlighted?.length
+      ? collection.features.filter(f=>highlighted.includes(String(f.id))).map(f=>f.geometry)
+      : collection.features.filter(f=>f.id===selected).map(f=>f.geometry);
+    const points=geometries.flatMap(geometry=>geometry.type==='MultiPolygon'?geometry.coordinates.flat(2):geometry.type==='Polygon'?geometry.coordinates.flat():[]);
     if (!points.length) return;
     const xs = points.map((p) => p[0]),
       ys = points.map((p) => p[1]);
@@ -295,7 +290,7 @@ export default function NationalMap({
       <div
         ref={container}
         className="national-map"
-        data-ready={ready && rendered}
+        data-ready={ready && rendered && !loading}
         data-feature-count={collection.features.length}
         data-covered-support-count={coveredSupport?.features.length??0}
         data-mode={mode}
