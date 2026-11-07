@@ -1,0 +1,327 @@
+{
+  "origin": "http://localhost:3001",
+  "checks": [
+    {
+      "name": "desktop HTTP 200",
+      "ok": true
+    },
+    {
+      "name": "desktop real headline",
+      "ok": true
+    },
+    {
+      "name": "desktop map",
+      "ok": true
+    },
+    {
+      "name": "desktop no overflow",
+      "ok": true
+    },
+    {
+      "name": "desktop thirteen regional comparisons",
+      "ok": true
+    },
+    {
+      "name": "desktop keyboard",
+      "ok": true
+    },
+    {
+      "name": "desktop numbered proof reachable",
+      "ok": true
+    },
+    {
+      "name": "desktop regions accessible",
+      "ok": true
+    },
+    {
+      "name": "desktop archived edition",
+      "ok": true
+    },
+    {
+      "name": "tablet HTTP 200",
+      "ok": true
+    },
+    {
+      "name": "tablet real headline",
+      "ok": true
+    },
+    {
+      "name": "tablet map",
+      "ok": true
+    },
+    {
+      "name": "tablet no overflow",
+      "ok": true
+    },
+    {
+      "name": "tablet thirteen regional comparisons",
+      "ok": true
+    },
+    {
+      "name": "tablet keyboard",
+      "ok": true
+    },
+    {
+      "name": "tablet numbered proof reachable",
+      "ok": true
+    },
+    {
+      "name": "tablet regions accessible",
+      "ok": true
+    },
+    {
+      "name": "tablet archived edition",
+      "ok": true
+    },
+    {
+      "name": "mobile HTTP 200",
+      "ok": true
+    },
+    {
+      "name": "mobile real headline",
+      "ok": true
+    },
+    {
+      "name": "mobile map",
+      "ok": true
+    },
+    {
+      "name": "mobile no overflow",
+      "ok": true
+    },
+    {
+      "name": "mobile thirteen regional comparisons",
+      "ok": true
+    },
+    {
+      "name": "mobile keyboard",
+      "ok": true
+    },
+    {
+      "name": "mobile numbered proof reachable",
+      "ok": true
+    },
+    {
+      "name": "mobile regions accessible",
+      "ok": true
+    },
+    {
+      "name": "mobile archived edition",
+      "ok": true
+    },
+    {
+      "name": "no browser errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "measurements": [
+    {
+      "name": "desktop",
+      "lcpMs": 1184,
+      "paints": [
+        {
+          "name": "first-paint",
+          "ms": 164
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 164
+        }
+      ],
+      "navigation": {
+        "name": "http://localhost:3001/journal",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 1109.5,
+        "navigationId": 5327,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "http/1.1",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.8000000000465661,
+        "domainLookupStart": 0.8000000000465661,
+        "domainLookupEnd": 0.8000000000465661,
+        "connectStart": 0.8000000000465661,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.8000000000465661,
+        "requestStart": 4.900000000023283,
+        "responseStart": 13.20000000006985,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 13.20000000006985,
+        "responseEnd": 1095,
+        "transferSize": 63671,
+        "encodedBodySize": 63371,
+        "decodedBodySize": 288828,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 1103.7000000000698,
+        "domContentLoadedEventStart": 1103.7000000000698,
+        "domContentLoadedEventEnd": 1104.2000000000698,
+        "domComplete": 1109.4000000000233,
+        "loadEventStart": 1109.5,
+        "loadEventEnd": 1109.5,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "jsBytes": 190408,
+      "geoRequests": 0
+    },
+    {
+      "name": "tablet",
+      "lcpMs": 1460,
+      "paints": [
+        {
+          "name": "first-paint",
+          "ms": 108
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 220
+        }
+      ],
+      "navigation": {
+        "name": "http://localhost:3001/journal",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 1388.8000000000466,
+        "navigationId": 4495,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "http/1.1",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 2,
+        "domainLookupStart": 2,
+        "domainLookupEnd": 2,
+        "connectStart": 2,
+        "secureConnectionStart": 0,
+        "connectEnd": 2,
+        "requestStart": 2.900000000023283,
+        "responseStart": 18.099999999976717,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 18.099999999976717,
+        "responseEnd": 1371.6999999999534,
+        "transferSize": 63671,
+        "encodedBodySize": 63371,
+        "decodedBodySize": 288828,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 1382.4000000000233,
+        "domContentLoadedEventStart": 1382.5999999999767,
+        "domContentLoadedEventEnd": 1383.1999999999534,
+        "domComplete": 1388.6999999999534,
+        "loadEventStart": 1388.8000000000466,
+        "loadEventEnd": 1388.8000000000466,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "jsBytes": 190408,
+      "geoRequests": 0
+    },
+    {
+      "name": "mobile",
+      "lcpMs": 1144,
+      "paints": [
+        {
+          "name": "first-paint",
+          "ms": 92
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 124
+        }
+      ],
+      "navigation": {
+        "name": "http://localhost:3001/journal",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 1090.8000000000466,
+        "navigationId": 8861,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "http/1.1",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 1.099999999976717,
+        "domainLookupStart": 1.099999999976717,
+        "domainLookupEnd": 1.099999999976717,
+        "connectStart": 1.099999999976717,
+        "secureConnectionStart": 0,
+        "connectEnd": 1.099999999976717,
+        "requestStart": 2.5,
+        "responseStart": 12.400000000023283,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 12.400000000023283,
+        "responseEnd": 1076.8000000000466,
+        "transferSize": 63671,
+        "encodedBodySize": 63371,
+        "decodedBodySize": 288828,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 1086.0999999999767,
+        "domContentLoadedEventStart": 1086.1999999999534,
+        "domContentLoadedEventEnd": 1086.5999999999767,
+        "domComplete": 1090.6999999999534,
+        "loadEventStart": 1090.8000000000466,
+        "loadEventEnd": 1090.8000000000466,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "jsBytes": 190408,
+      "geoRequests": 0
+    }
+  ]
+}
