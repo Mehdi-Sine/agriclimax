@@ -1,0 +1,91 @@
+{
+  "origin": "http://localhost:3000",
+  "checks": [
+    {
+      "name": "real edition API 200",
+      "ok": true
+    },
+    {
+      "name": "compact without geometries or individual metrics",
+      "ok": true
+    },
+    {
+      "name": "ETag 304",
+      "ok": true
+    },
+    {
+      "name": "invalid query 400",
+      "ok": true
+    },
+    {
+      "name": "archived edition 200",
+      "ok": true
+    },
+    {
+      "name": "old edition distinct identity",
+      "ok": true
+    },
+    {
+      "name": "desktop real headline",
+      "ok": true
+    },
+    {
+      "name": "desktop no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "desktop no geometry request",
+      "ok": true
+    },
+    {
+      "name": "desktop keyboard focus",
+      "ok": true
+    },
+    {
+      "name": "desktop all regions available",
+      "ok": true
+    },
+    {
+      "name": "desktop archived date visible",
+      "ok": true
+    },
+    {
+      "name": "mobile real headline",
+      "ok": true
+    },
+    {
+      "name": "mobile no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "mobile no geometry request",
+      "ok": true
+    },
+    {
+      "name": "mobile keyboard focus",
+      "ok": true
+    },
+    {
+      "name": "mobile all regions available",
+      "ok": true
+    },
+    {
+      "name": "mobile archived date visible",
+      "ok": true
+    },
+    {
+      "name": "no browser errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "payload_bytes": 141469,
+  "edition": {
+    "id": "498c021556d7c45342116205aff7654df384cefe9b95c94e7f16b887efd5d843",
+    "date": "2026-11-07",
+    "cycles": [
+      "2026-11-07T00:00:00+00:00"
+    ],
+    "headline": "Gel météorologique attendu : le point en Auvergne-Rhône-Alpes"
+  }
+}

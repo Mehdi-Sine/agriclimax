@@ -1,0 +1,60 @@
+{
+  "weather": [
+    {
+      "run": "2026-11-06",
+      "sha256": "62ab191f162a076003ffba79994858fcef0692b3e1f52e1abef1652f2d3c6066",
+      "method": "pra-national-weather-daily-1"
+    },
+    {
+      "run": "2026-11-06T06:00:00+00:00",
+      "sha256": "42b602fdc03b29707d423328026f216354e985e70debbc3252796335c24be724",
+      "method": "pra-national-weather-daily-1"
+    },
+    {
+      "run": "2026-11-07T00:00:00+00:00",
+      "sha256": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+      "method": "pra-national-weather-daily-1"
+    }
+  ],
+  "era5": [
+    {
+      "dates": [
+        "2026-10-19"
+      ],
+      "sha256": "2e277515347af6981b25ee67d02bd940f442d0dc618efbb106f16d9eefe3ace9"
+    },
+    {
+      "dates": [
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22",
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-26"
+      ],
+      "sha256": "b52eb1ab39cffc56774386b81e62aca94013c66b06a19bb51d05dc4b7790114a"
+    },
+    {
+      "dates": [
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "sha256": "32a3ededfdf741ed9c7b23201da256a3c2652a781f479b676770830e3c3e512c"
+    },
+    {
+      "dates": [
+        "2026-10-31"
+      ],
+      "sha256": "1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961"
+    },
+    {
+      "dates": [
+        "2026-11-01"
+      ],
+      "sha256": "cbe85befe41c1c92750db41a7d7b65f00c056ad69171b5d5357cf6fd1ee18079"
+    }
+  ]
+}
