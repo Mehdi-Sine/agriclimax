@@ -1,14 +1,33 @@
 // Real archives only; no synthetic edition is served to the browser.
 import { chromium } from "../../../../../tests/e2e/node_modules/playwright/index.mjs";
+import { protectTask30Preview } from "../../../../../tests/e2e/task30-preview.mjs";
 import { mkdir, writeFile } from "node:fs/promises";
 const origin = process.env.TASK32_ORIGIN ?? "http://localhost:3000";
+const selected = new URL(origin);
+if (
+  !(
+    ["localhost", "127.0.0.1"].includes(selected.hostname) ||
+    (selected.protocol === "https:" &&
+      selected.hostname.endsWith(".vercel.app"))
+  )
+)
+  throw new Error("Unsupported preview origin");
 const output = process.env.TASK32_OUTPUT ?? "docs/codex/task32/evidence/local";
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({
   executablePath: "/usr/bin/chromium",
   args: ["--no-sandbox"],
 });
-const report = { origin, checks: [], errors: [], measurements: [] };
+const report = {
+  origin,
+  tested_commit: process.env.TASK32_COMMIT ?? null,
+  transport: origin.startsWith("https://")
+    ? "Cloud Node fetch route (decoded response sizes)"
+    : "native browser",
+  checks: [],
+  errors: [],
+  measurements: [],
+};
 const check = (name, ok) => {
   report.checks.push({ name, ok });
   if (!ok) throw Error(name);
@@ -23,16 +42,7 @@ try {
       viewport: { width, height },
       reducedMotion: "reduce",
     });
-    if (origin.startsWith("https://"))
-      await context.route(origin + "/**", async (route) =>
-        route.continue({
-          headers: {
-            ...route.request().headers(),
-            "x-vercel-protection-bypass":
-              process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
-          },
-        }),
-      );
+    await protectTask30Preview(context, origin);
     const page = await context.newPage();
     await page.addInitScript(() => {
       new PerformanceObserver((list) => {
