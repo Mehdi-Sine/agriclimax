@@ -26,5 +26,11 @@
     "page_errors": 0,
     "console_errors": 0
   },
-  "geometry_validation": "713 identifiers and properties preserved; 0 invalid source/derived geometries"
+  "geometry_validation": "713 identifiers and properties preserved; 0 invalid source/derived geometries",
+  "browser_preview": {
+    "tested_commit": "ba65e67",
+    "checks": 58,
+    "page_errors": 0,
+    "console_errors": 0
+  }
 }

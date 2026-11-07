@@ -77,3 +77,15 @@ Installer les dépendances isolées de `tests/e2e` comme dans T32 ; serveur de b
 | mobile | 1413 ms | 1404 ms | 4385 ms | 490688 octets |
 
 Le délai de carte comprend le chargement de ses données, le scroll de recette si nécessaire et le rendu logiciel MapLibre. Il est distinct du rendu éditorial. Le titre peut précéder la scène interactive ; les chiffres possèdent leur propre bloc de chargement. La silhouette de France de fond du composant existant est aussi chargée (~328 Ko bruts) ; aucune requête de la géométrie PRA brute de 23 Mo.
+
+## Preview vérifiée
+
+Commit produit **ba65e67** : **58 contrôles réussis**, aucune erreur JavaScript ni console dans les parcours normaux. Cinq thèmes API comparés aux valeurs réelles de la veille, 713 PRA sur chaque carte, trois formats, sélection du minimum réel, cycle archivé et panne réseau de la couche. Captures et rapport dans `evidence/task32b/preview/`.
+
+| Format | Titre visible (sonde) | LCP avec relais cloud | Carte prête avec relais |
+| --- | ---: | ---: | ---: |
+| desktop | 5748 ms | 5740 ms | 9825 ms |
+| tablet | 2114 ms | 2124 ms | 5134 ms |
+| mobile | 2012 ms | 2012 ms | 5400 ms |
+
+Ces mesures distantes incluent les fonctions Vercel à froid/chaud, le relais HTTP de recette et le rendu logiciel. Le premier affichage est sensiblement plus lent que les suivants ; ce coût reste une réserve de performance à suivre en conditions réelles. Les valeurs compressées natives restent celles du tableau local. Les commits de preuve ultérieurs ne modifient pas le code du produit.
