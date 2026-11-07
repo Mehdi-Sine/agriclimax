@@ -1,15 +1,15 @@
-# Comparaison du complément littoral — résultats intermédiaires
+# Comparaison du complément littoral — comparaison finale
 
 ## Reconstruction du champ ERA5-Land voisin
 
-Essai pré-déclaré IDW4, puissance2, rayon25km, minimum3voisins, sans ajuster les paramètres après lecture des erreurs. Toutes les cellules de chaque PRA témoin sont exclues des voisins. Parmi17PRA de référence maritimes≥90% dans22/29/50/56,9PRA satisfont la contrainte de voisinage sur13jours :117comparaisons indépendantes par variable. Les208couples PRA-jour-variable sans voisins suffisants sont rejetés.
+Essai pré-déclaré IDW4, puissance2, rayon25km, minimum3voisins, sans ajuster les paramètres après lecture des erreurs. Toutes les cellules de chaque PRA témoin sont exclues des voisins. Parmi17PRA de référence maritimes≥90% dans22/29/50/56,9PRA satisfont la contrainte de voisinage sur13jours :117 comparaisons par variable avec exclusion spatiale de la PRA. Les208couples PRA-jour-variable sans voisins suffisants sont rejetés.
 
 | Variable | Biais | MAE | Erreur absolue P95 | Biais cumulé relatif absolu |
 |---|---:|---:|---:|---:|
 | Tmoy | +0,129°C |0,165°C|0,408°C|1,12%|
 | Pluie | +0,048mm/j|0,224mm/j|0,906mm/j|1,15%|
 
-Les critères exploratoires pré-déclarés sont satisfaits sur19–31octobre. Les voisins de Crozon restent dans le domaine de distance contrôlé :24,807km maximum, contre24,931km pour les témoins. Cette validation porte sur la reconstruction du champ ERA5-Land, pas une mesure indépendante en station, ni une validation agronomique ou des microclimats côtiers. L’extension2–18octobre doit encore être contrôlée avant une livraison30jours. Aucun Tmin/Tmax, événement ou THI n’est déduit des moyennes reconstituées.
+Les critères exploratoires pré-déclarés sont satisfaits sur19–31octobre. Les voisins de Crozon restent dans le domaine de distance contrôlé :24,807km maximum, contre24,931km pour les témoins. Cette validation porte sur la reconstruction du champ ERA5-Land, pas une mesure indépendante en station, ni une validation agronomique ou des microclimats côtiers. L’extension du 2 au 18 octobre a depuis été contrôlée séparément, comme détaillé ci-dessous. Aucun Tmin/Tmax, événement ou THI n’est déduit des moyennes reconstituées.
 
 ## SAFRAN/SIM officiel
 

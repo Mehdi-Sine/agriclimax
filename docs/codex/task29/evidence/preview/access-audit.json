@@ -1,0 +1,18 @@
+{
+  "commit": "6f45f4e9e306f5190af15d40aec57b5d5bdb607f",
+  "deployment_id": 7620763300,
+  "authorized_origin": "https://agriclimax-1sqddy0ok-mehdi-sines-projects.vercel.app",
+  "bind": "127.0.0.1",
+  "methods": [
+    "GET",
+    "HEAD"
+  ],
+  "tls_verified": true,
+  "redirects_followed": false,
+  "secret_transport": "official header to exact origin only; no URL or browser storage",
+  "browser_contexts_closed": true,
+  "gateway_stopped": true,
+  "temporary_authentication_state": "none persisted",
+  "cases": 77,
+  "errors": 0
+}

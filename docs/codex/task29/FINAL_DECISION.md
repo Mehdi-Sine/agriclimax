@@ -2,7 +2,7 @@
 
 ## Périmètre et état
 
-Les supports natifs du 2 au 31 octobre 2026 sont restaurés. La règle `agroclimatic-1.2.0` conserve les versions 1.0.0 et 1.1.0 et leurs résultats. Les contrôles scientifiques et la recette locale sont validés ; la recette Preview du dernier commit et ses checks GitHub restent à consigner avant verdict final.
+Les supports natifs du 2 au 31 octobre 2026 sont restaurés. La règle `agroclimatic-1.2.0` conserve les versions 1.0.0 et 1.1.0 et leurs résultats. READY pour les restitutions scientifiquement bornées ci-dessous et la recette responsive : les 77 cas Preview du commit 6f45f4e passent sans erreur sur desktop, tablette et mobile. La clôture documentaire est suivie d’une vérification du nouveau HEAD ; son reçu et les checks GitHub finaux sont consignés dans la PR #57. Aucun READY global pour les données natives indisponibles.
 
 | Famille — mêmes effectifs sur 1, 7 et 30 jours | PRA complètes | Qualifiées ≥90 % | Portions seulement | Complément distinct | Indisponibles |
 |---|---:|---:|---:|---:|---:|
@@ -31,3 +31,7 @@ Les checkpoints existants ont été récupérés en priorité. Les journées 2�
 Attention à la conservation : cet artefact expire le 14 novembre 2026 à 11:08:18 UTC ; les archives initiales expirent le 12 novembre. Les archives natives sont présentes dans le workspace et Actions, les restitutions et preuves sont versionnées. Ce n'est pas une sauvegarde native pérenne garantie.
 
 L'archivage incrémental existant calcule les nouveaux supports disponibles ; le complément utilise un certificat scientifique gelé, sans réajustement quotidien. Aucun pipeline quotidien concurrent, aucune réingestion AROME/ARPEGE/IFS et aucune modification du workflow opérationnel. Le cron quotidien non encore observé reste hors de cette Task. PR #57 conservée en draft, aucun merge ni déploiement production. Aucun verdict global de couverture native 713/713.
+
+## Recette Preview et contrôle final
+
+Captures et reçu : `evidence/preview/acceptance.json` et `access-audit.json`. Accès autorisé explicitement pour la PR #57 : passerelle 127.0.0.1, GET/HEAD, en-tête officiel uniquement vers l’origine exacte, TLS normal, aucune redirection suivie, aucun secret dans les URL ou captures, contextes fermés et passerelle arrêtée. Les 42 faux positifs de détection concernent exclusivement des empreintes SHA256 publiques de réponses ; leurs fingerprints historiques exacts sont documentés dans `.gitleaksignore`, sans exclusion de fichier ou de règle. Le test synthétique Task24 est adapté au libellé distinguant support spatial partiel et lacunes temporelles et passe ses sept cas.

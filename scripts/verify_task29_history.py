@@ -216,7 +216,7 @@ def main() -> None:
             "period": label,
             "indicator": indicator,
             "counts": dict(counts),
-            "api_response_sha256": sha,
+            "response_sha256": sha,
             "affected_pra_compared": compared,
         }
         print(label, indicator, dict(counts), flush=True)

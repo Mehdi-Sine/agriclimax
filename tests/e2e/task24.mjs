@@ -43,7 +43,7 @@ assert.equal(new URL(page.url()).searchParams.get('agro_start'),'2026-09-19');as
 report.cases.push('Wheat period and indicator controls');
 await page.goto(base+'/?pra=pra%3A29102&date=2026-10-15');await page.getByRole('heading',{name:/CROZON/}).waitFor();await page.locator('.unified-value strong').filter({hasText:'Indisponible'}).waitFor();
 report.cases.push('Unavailable PRA never displays zero');
-await page.goto(base+'/?pra=pra%3A01451&date=2026-10-15');await page.getByText('Résultat partiel :',{exact:false}).waitFor();report.cases.push('Partial coverage warning');
+await page.goto(base+'/?pra=pra%3A01451&date=2026-10-15');await page.getByText('Support spatial partiel ; toutes les journées de la fenêtre sont renseignées.',{exact:true}).waitFor();report.cases.push('Partial coverage warning');
 for(const width of [1440,768,390]){await page.setViewportSize({width,height:900});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));}
 await page.keyboard.press('Tab');assert.ok(await page.evaluate(()=>document.activeElement!==document.body));
 report.cases.push('Desktop/tablet/mobile overflow and keyboard focus');assert.deepEqual(report.errors,[]);
