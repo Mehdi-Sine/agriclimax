@@ -25,6 +25,7 @@ type PartialRow = {
   quality_flags: string[];
 };
 type SupportData = {
+  complementary?: unknown;
   rule_version: string;
   dates: string[];
   geometries: Record<
@@ -309,5 +310,19 @@ export async function periodSupportDocument(
     variable,
     rows,
     collection: { type: "FeatureCollection" as const, features },
+  };
+}
+
+export async function complementaryDocument(date: string) {
+  const data = await load(date, "temperature");
+  if (!data.complementary || !record(data.complementary)) return null;
+  return {
+    document: data.complementary,
+    archive_sha256:
+      data === baseline
+        ? baselineChecksum
+        : data === restored
+          ? restoredChecksum
+          : data.document_sha256,
   };
 }

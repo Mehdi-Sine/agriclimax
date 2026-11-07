@@ -1,3 +1,6 @@
+vi.mock("./coastal-complement", () => ({
+  coastalComplement: vi.fn().mockResolvedValue(undefined),
+}));
 import { beforeEach, expect, it, vi } from "vitest";
 vi.mock("server-only", () => ({}));
 const sources = vi.hoisted(() => ({

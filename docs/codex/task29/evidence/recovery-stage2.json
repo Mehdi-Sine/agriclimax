@@ -1,0 +1,14 @@
+{
+  "status": "stopped_checkpoint_preserved",
+  "source_requests": 21,
+  "source_bytes": 5463057,
+  "database_writes": 0,
+  "operational_acquisitions": 0,
+  "error_type": "TimeoutError",
+  "seconds": 1320.0000798689998,
+  "workspace_bytes": 8798294,
+  "run_id": 42364343347,
+  "artifact_id": 13570664482,
+  "native_tiles": 544,
+  "publication": false
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "period": "day",
+    "indicator": "temperature_mean",
+    "value": null,
+    "observed_value": null,
+    "complementary": 11.479372474500192,
+    "schema_valid": true
+  },
+  {
+    "period": "day",
+    "indicator": "gdd",
+    "value": null,
+    "observed_value": null,
+    "complementary": 11.479372474500192,
+    "schema_valid": true
+  },
+  {
+    "period": "day",
+    "indicator": "rain",
+    "value": null,
+    "observed_value": null,
+    "complementary": 0.002562998815847095,
+    "schema_valid": true
+  },
+  {
+    "period": "seven",
+    "indicator": "temperature_mean",
+    "value": null,
+    "observed_value": null,
+    "complementary": 12.83516041560911,
+    "schema_valid": true
+  },
+  {
+    "period": "seven",
+    "indicator": "gdd",
+    "value": null,
+    "observed_value": null,
+    "complementary": 89.84612290926377,
+    "schema_valid": true
+  },
+  {
+    "period": "seven",
+    "indicator": "rain",
+    "value": null,
+    "observed_value": null,
+    "complementary": 20.65919671984922,
+    "schema_valid": true
+  },
+  {
+    "period": "thirty",
+    "indicator": "temperature_mean",
+    "value": null,
+    "observed_value": null,
+    "complementary": 14.159962393208142,
+    "schema_valid": true
+  },
+  {
+    "period": "thirty",
+    "indicator": "gdd",
+    "value": null,
+    "observed_value": null,
+    "complementary": 424.79887179624427,
+    "schema_valid": true
+  },
+  {
+    "period": "thirty",
+    "indicator": "rain",
+    "value": null,
+    "observed_value": null,
+    "complementary": 119.94701040544435,
+    "schema_valid": true
+  }
+]

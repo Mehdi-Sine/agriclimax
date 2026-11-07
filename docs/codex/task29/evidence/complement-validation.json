@@ -1,0 +1,109 @@
+{
+  "eligible_reference_pra": [
+    "pra:22358",
+    "pra:22359",
+    "pra:22360",
+    "pra:22361",
+    "pra:22362",
+    "pra:29100",
+    "pra:29358",
+    "pra:29360",
+    "pra:29361",
+    "pra:29362",
+    "pra:50084",
+    "pra:50086",
+    "pra:50087",
+    "pra:50354",
+    "pra:56359",
+    "pra:56362",
+    "pra:56363"
+  ],
+  "rejected_pra_day_variable": 480,
+  "periods": {
+    "restored": {
+      "temperature": {
+        "PRA": 9,
+        "PRA_days": 117,
+        "bias": 0.12857023426442535,
+        "MAE": 0.16538409212119762,
+        "p95_absolute_error": 0.4079667724293081,
+        "absolute_relative_cumulative_bias": 0.011179018050129308,
+        "maximum_neighbor_distance_m": 24931.27162953539,
+        "maximum_extrapolation_distance_m": 22281.047396223927,
+        "maximum_extrapolated_weight_fraction": 1.0,
+        "accepted": true
+      },
+      "precipitation": {
+        "PRA": 9,
+        "PRA_days": 117,
+        "bias": 0.04797799757151822,
+        "MAE": 0.22422432207510462,
+        "p95_absolute_error": 0.9062642546022328,
+        "absolute_relative_cumulative_bias": 0.011520121915550087,
+        "maximum_neighbor_distance_m": 24931.27162953539,
+        "maximum_extrapolation_distance_m": 22281.047396223927,
+        "maximum_extrapolated_weight_fraction": 1.0,
+        "accepted": true
+      }
+    },
+    "temporal_holdout": {
+      "temperature": {
+        "PRA": 9,
+        "PRA_days": 153,
+        "bias": 0.08820475039724737,
+        "MAE": 0.14135301980837642,
+        "p95_absolute_error": 0.3598894136947699,
+        "absolute_relative_cumulative_bias": 0.00597518038354088,
+        "maximum_neighbor_distance_m": 24931.27162953539,
+        "maximum_extrapolation_distance_m": 22281.047396223927,
+        "maximum_extrapolated_weight_fraction": 1.0,
+        "accepted": true
+      },
+      "precipitation": {
+        "PRA": 9,
+        "PRA_days": 153,
+        "bias": 0.03564163554572495,
+        "MAE": 0.15571231407064312,
+        "p95_absolute_error": 0.6563296139039871,
+        "absolute_relative_cumulative_bias": 0.01993421461763761,
+        "maximum_neighbor_distance_m": 24931.27162953539,
+        "maximum_extrapolation_distance_m": 22281.047396223927,
+        "maximum_extrapolated_weight_fraction": 1.0,
+        "accepted": true
+      }
+    }
+  },
+  "pooled": {
+    "temperature": {
+      "PRA": 9,
+      "PRA_days": 270,
+      "bias": 0.1056964600730245,
+      "MAE": 0.1517664844772656,
+      "p95_absolute_error": 0.38404750436028934,
+      "absolute_relative_cumulative_bias": 0.007918030772252727,
+      "maximum_neighbor_distance_m": 24931.27162953539,
+      "maximum_extrapolation_distance_m": 22281.047396223927,
+      "maximum_extrapolated_weight_fraction": 1.0,
+      "accepted": true
+    },
+    "precipitation": {
+      "PRA": 9,
+      "PRA_days": 270,
+      "bias": 0.0409873924235687,
+      "MAE": 0.18540085087257646,
+      "p95_absolute_error": 0.7535177347690745,
+      "absolute_relative_cumulative_bias": 0.014545431067525446,
+      "maximum_neighbor_distance_m": 24931.27162953539,
+      "maximum_extrapolation_distance_m": 22281.047396223927,
+      "maximum_extrapolated_weight_fraction": 1.0,
+      "accepted": true
+    }
+  },
+  "accepted_variables": [
+    "temperature",
+    "precipitation"
+  ],
+  "reference_kind": "ERA5-Land field; no independent station validation",
+  "whole_pra_excluded": true,
+  "parameters_fit_to_errors": false
+}

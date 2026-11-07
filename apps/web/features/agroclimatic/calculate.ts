@@ -1,3 +1,4 @@
+import type { ComplementaryValue } from "./complement-model";
 import { thi } from "../cattle/thi";
 import { calendarDays } from "../national/daily-availability";
 import type { WeatherVariable } from "../operational/model";
@@ -16,6 +17,7 @@ export interface InputDay {
   quality_flags: string[];
 }
 export interface AgroResult {
+  complementary?: ComplementaryValue;
   observed_value?: number | null;
   support_id?: string | null;
   support_scope?:

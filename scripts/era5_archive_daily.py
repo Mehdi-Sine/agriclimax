@@ -18,6 +18,7 @@ from agriclimax.territories.national_daily import DATASET, REFERENCE, acquire_wi
 from agriclimax.territories.pipeline import run_batch
 from agriclimax.territories.repository import PraRepository
 from agriclimax.territories.spatial import Weight, load_reference
+from era5_coastal_complement import incremental_day
 from era5_spatial_restitution import NATIVE_VARIABLES
 from era5_spatial_restitution import build as build_support
 from pra_lossless_archive import pack, restore
@@ -118,6 +119,9 @@ def main() -> None:
                 support_path = root / "support.json"
                 report["spatial_support"] = build_support(root, support_path, variables=NATIVE_VARIABLES)
                 support_document = json.loads(support_path.read_bytes())
+                complement = incremental_day(root, str(day))
+                if complement:
+                    support_document["complementary"] = complement
                 geometry_document = {"rule_version": support_document["rule_version"], "reference_sha256": support_document["reference_sha256"], "geometries": support_document.pop("geometries")}
                 raw_geometry = gzip.compress(json.dumps(geometry_document, sort_keys=True, separators=(",", ":")).encode(), mtime=0)
                 geometry_sha = hashlib.sha256(raw_geometry).hexdigest()

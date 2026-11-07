@@ -1,4 +1,5 @@
 import "server-only";
+import { coastalComplement } from "./coastal-complement";
 import { observedSupportDay } from "./spatial-restitution";
 import {
   calculateObserved,
@@ -239,6 +240,27 @@ export async function unifiedData(
         coverage: next.spatial_coverage ?? result.coverage,
       };
     });
+  }
+  if (
+    requestedVersion !== "agroclimatic-1.0.0" &&
+    requestedVersion !== OBSERVED_RULE_VERSION &&
+    ["temperature", "gdd", "rain"].includes(id)
+  ) {
+    const rule = observedRule(
+      RULES.find(
+        (r) => r.id === (id === "temperature" ? "temperature_mean" : id),
+      )!,
+      NATIVE_RULE_VERSION,
+    );
+    const complementary = await coastalComplement(rule, start, end, threshold);
+    const crozon = data.find((r) => r.territoryId === "pra:29102");
+    if (
+      crozon &&
+      complementary &&
+      crozon.value === null &&
+      crozon.observed_value == null
+    )
+      crozon.complementary = complementary;
   }
   return {
     period: [start, end],

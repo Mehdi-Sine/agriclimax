@@ -1,4 +1,5 @@
 import "server-only";
+import { coastalComplement } from "./coastal-complement";
 import { createHash } from "node:crypto";
 import identities from "../../data/operational/pra-identities.json";
 import { RULES, type Rule } from "../../features/agroclimatic/catalogue";
@@ -398,6 +399,15 @@ export async function agroclimaticData(params: URLSearchParams) {
         threshold,
       ),
     );
+    const complementary =
+      temporal === "history" && rule!.version === NATIVE_RULE_VERSION
+        ? await coastalComplement(rule!, start, end, threshold)
+        : undefined;
+    if (complementary) {
+      const crozon = data.find((r) => r.territoryId === "pra:29102");
+      if (crozon && crozon.value === null && crozon.observed_value == null)
+        crozon.complementary = complementary;
+    }
     const payload = {
       contract_version: "agroclimatic-1",
       rule: rule!,

@@ -72,3 +72,14 @@
 .agro-class-distribution>span {border-top:8px solid var(--border);padding-top:8px;font-size:12px;line-height:1.5;}
 @media(max-width:800px){.agro-class-distribution{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){.agro-class-distribution{grid-template-columns:1fr;gap:8px}.agro-class-distribution>span{border-top-width:5px;font-size:13px}}
+
+.coastal-complement {
+  margin-block: var(--space-4);
+  padding: var(--space-4);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  border-inline-start: 3px dashed var(--brand-secondary);
+  border-radius: var(--radius-md);
+  overflow-wrap: anywhere;
+}
+.coastal-complement .unified-value { margin-block: var(--space-2); }
