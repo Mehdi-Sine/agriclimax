@@ -23,8 +23,16 @@ def summarize(now: datetime, run: dict[str, Any], jobs: dict[str, Any],
     active = [r for r in [weather, *era] if r != "skipped"]
     failed = any(r in {"failure", "cancelled", "unknown"} for r in active)
     era_effective = next((r for r in reversed(era) if r != "skipped"), "skipped")
-    consecutive = int(failed)
+    publication_ok = health.get("healthy") is True
+    reasons = []
     if failed:
+        reasons.append("workflow_stage_failed")
+    if not publication_ok:
+        reasons.append("publication_stale_invalid_or_unreadable")
+    if delay is not None and delay > 120:
+        reasons.append("schedule_delay_over_120_minutes")
+    consecutive = int(bool(reasons))
+    if reasons:
         for previous in history:
             if str(previous.get("id")) == str(run.get("id")) or previous.get("event") != "schedule":
                 continue
@@ -34,19 +42,12 @@ def summarize(now: datetime, run: dict[str, Any], jobs: dict[str, Any],
                 consecutive += 1
             else:
                 break
-    publication_ok = health.get("healthy") is True
-    reasons = []
-    if failed:
-        reasons.append("workflow_stage_failed")
-    if not publication_ok:
-        reasons.append("publication_stale_invalid_or_unreadable")
-    if delay is not None and delay > 120:
-        reasons.append("schedule_delay_over_120_minutes")
     if consecutive >= 2:
         reasons.append("consecutive_workflow_failures")
     return {
         "checked_at": now.isoformat(), "run_id": run.get("id"),
-        "publication_healthy": publication_ok, "workflow_success": not failed if active else None,
+        "publication_healthy": publication_ok, "workflow_success": not reasons,
+        "acquisition_success": not failed if active else None,
         "jobs": jobs, "era5_effective_result": era_effective,
         "era5_recovered": era[0] == "failure" and era_effective == "success",
         "published_cycle_at": health.get("published_cycle_at"),
@@ -90,6 +91,7 @@ def main() -> None:
         result["cron_delay_minutes"] = result["runner_queue_minutes"] = None
         result["causes"].append("monitoring_metadata_unavailable")
         result["notification_required"] = True
+        result["workflow_success"] = False
     atomic_write(root / "report.json", json.dumps(result, indent=2).encode())
     summary = (f"### AgriclimaX quotidien — {result['run_id']}\n\n"
                f"Publication saine : {result['publication_healthy']} ; workflow réussi : {result['workflow_success']}.\n\n"

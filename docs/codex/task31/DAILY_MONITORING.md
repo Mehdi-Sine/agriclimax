@@ -5,7 +5,7 @@ Le job final `weather-health`, exécuté même après échec des acquisitions, c
 | Axe | Preuve / règle |
 | --- | --- |
 | Dernière publication | Archive relue et validée pour 713 PRA ; pointeur présent et égal au dernier cycle vérifié ; âge du cycle entre 0 et 36 h ; acquisition non future ; ERA5 au plus sept jours ; garde Storage |
-| Traitement courant | Résultats réels de `national-weather`, `era5-archive`, `era5-resume-1`, `era5-resume-2`, incluant échec/annulation ; `null` si aucun traitement demandé |
+| Traitement courant | Résultats réels de `national-weather`, `era5-archive`, `era5-resume-1`, `era5-resume-2`, incluant échec/annulation ; `acquisition_success=null` si aucun traitement demandé ; `workflow_success` inclut aussi le verdict final de supervision |
 | ERA5 récupéré | Dernier stage non skipped réussi après échec initial ; l'échec initial reste visible dans le résultat du workflow |
 | Sources | Dernière heure de modèle et d'acquisition par source publiée ; erreurs WCS avec source, opération, statut et tentative dans les reçus du traitement |
 | Cron | `created_at` moins le créneau 08:20 UTC du même jour ; séparément, `run_started_at - created_at` pour l'attente du runner |

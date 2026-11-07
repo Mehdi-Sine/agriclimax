@@ -109,7 +109,8 @@ def test_workflow_failure_is_independent_of_healthy_publication():
     jobs = {k: {"result": "success" if k in {"national-weather", "era5-archive"} else "skipped"} for k in jobs}
     run.update(event="workflow_dispatch")
     result = summarize(datetime.now(UTC), run, jobs, {"healthy": False}, [], {})
-    assert result["workflow_success"]
+    assert result["acquisition_success"]
+    assert not result["workflow_success"]
     assert result["cron_delay_minutes"] is None
     assert result["notification_required"]
 
@@ -225,3 +226,13 @@ def test_wcs_description_respects_small_remaining_budget(tmp_path):
         assert provider.description("coverage") == b"xml"
     assert fetch.call_args.args[2] == 99
     assert provider.budget.bytes == 3
+
+
+def test_delayed_successful_acquisition_still_fails_workflow_supervision():
+    run = {"id": 1, "event": "schedule", "created_at": "2026-11-07T14:55:00Z", "run_started_at": "2026-11-07T14:55:00Z"}
+    jobs = {k: {"result": v} for k, v in zip(("national-weather", "era5-archive", "era5-resume-1", "era5-resume-2"), ("success", "success", "skipped", "skipped"), strict=True)}
+    result = summarize(datetime.now(UTC), run, jobs, {"healthy": True}, [], {})
+    assert result["publication_healthy"] and result["acquisition_success"]
+    assert not result["workflow_success"]
+    assert result["consecutive_failures_in_bounded_history"] == 1
+    assert result["causes"] == ["schedule_delay_over_120_minutes"]
