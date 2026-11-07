@@ -18,6 +18,7 @@ import {
   supportPolicy,
   STRICT_RULE_VERSION,
   OBSERVED_RULE_VERSION,
+  NATIVE_RULE_VERSION,
   type SupportedDay,
 } from "../../features/agroclimatic/observed-support";
 import { ApiError } from "./query";
@@ -81,15 +82,28 @@ export async function agroclimaticData(params: URLSearchParams) {
   const requestedVersion = params.get("rule_version");
   if (
     requestedVersion &&
-    ![STRICT_RULE_VERSION, OBSERVED_RULE_VERSION].includes(requestedVersion)
+    ![STRICT_RULE_VERSION, OBSERVED_RULE_VERSION, NATIVE_RULE_VERSION].includes(
+      requestedVersion,
+    )
   )
     throw new ApiError("INVALID_QUERY", 400);
   const useSupport =
     (params.get("temporal") ?? "history") === "history" &&
     requestedVersion !== STRICT_RULE_VERSION &&
     !!baseRule &&
-    supportPolicy(baseRule) !== null;
-  const rule = useSupport ? observedRule(baseRule!) : baseRule;
+    supportPolicy(baseRule) !== null &&
+    (requestedVersion !== OBSERVED_RULE_VERSION ||
+      [
+        "temperature_mean",
+        "gdd",
+        "rain",
+        "dry",
+        "dry_sequence",
+        "heavy_rain",
+      ].includes(baseRule.id));
+  const rule = useSupport
+    ? observedRule(baseRule!, requestedVersion ?? NATIVE_RULE_VERSION)
+    : baseRule;
   if (requestedVersion && rule && rule.version !== requestedVersion)
     throw new ApiError("INVALID_QUERY", 400);
   const temporal = params.get("temporal") ?? "history",
@@ -232,7 +246,11 @@ export async function agroclimaticData(params: URLSearchParams) {
             .filter((date) => availableDays.includes(date))
             .map(async (date) => {
               const support = useSupport
-                ? await observedSupportDay(date, rule!.variables[0])
+                ? await observedSupportDay(
+                    date,
+                    rule!.variables[0],
+                    requestedVersion === OBSERVED_RULE_VERSION,
+                  )
                 : null;
               const observed = new Map(support?.rows.map((r) => [r.pra_id, r]));
               function qualify(

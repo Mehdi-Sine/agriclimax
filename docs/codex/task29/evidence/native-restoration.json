@@ -1,0 +1,360 @@
+{
+  "tiles": 1450,
+  "unique_rows": 124905,
+  "tile_manifest_sha256": "03425f42629fc428666e45f1e2fc84ee9a5b7d1f32977996ef96e0ecf395a334",
+  "dates": {
+    "2026-10-19": {
+      "needed_cells": 6861,
+      "present_cells": 6861,
+      "valid": {
+        "temperature": 6592,
+        "temperature_min": 6592,
+        "temperature_max": 6592,
+        "precipitation": 6592
+      },
+      "invalid_order": 0
+    },
+    "2026-10-20": {
+      "needed_cells": 6861,
+      "present_cells": 6861,
+      "valid": {
+        "temperature": 6592,
+        "temperature_min": 6592,
+        "temperature_max": 6592,
+        "precipitation": 6592
+      },
+      "invalid_order": 0
+    },
+    "2026-10-21": {
+      "needed_cells": 6861,
+      "present_cells": 6861,
+      "valid": {
+        "temperature": 6592,
+        "temperature_min": 6592,
+        "temperature_max": 6592,
+        "precipitation": 6592
+      },
+      "invalid_order": 0
+    },
+    "2026-10-22": {
+      "needed_cells": 6861,
+      "present_cells": 6861,
+      "valid": {
+        "temperature": 6592,
+        "temperature_min": 6592,
+        "temperature_max": 6592,
+        "precipitation": 6592
+      },
+      "invalid_order": 0
+    },
+    "2026-10-23": {
+      "needed_cells": 6861,
+      "present_cells": 6861,
+      "valid": {
+        "temperature": 6592,
+        "temperature_min": 6592,
+        "temperature_max": 6592,
+        "precipitation": 6592
+      },
+      "invalid_order": 0
+    },
+    "2026-10-24": {
+      "needed_cells": 6861,
+      "present_cells": 6861,
+      "valid": {
+        "temperature": 6592,
+        "temperature_min": 6592,
+        "temperature_max": 6592,
+        "precipitation": 6592
+      },
+      "invalid_order": 0
+    },
+    "2026-10-25": {
+      "needed_cells": 6861,
+      "present_cells": 6861,
+      "valid": {
+        "temperature": 6592,
+        "temperature_min": 6592,
+        "temperature_max": 6592,
+        "precipitation": 6592
+      },
+      "invalid_order": 0
+    },
+    "2026-10-26": {
+      "needed_cells": 6861,
+      "present_cells": 6861,
+      "valid": {
+        "temperature": 6592,
+        "temperature_min": 6592,
+        "temperature_max": 6592,
+        "precipitation": 6592
+      },
+      "invalid_order": 0
+    },
+    "2026-10-27": {
+      "needed_cells": 6861,
+      "present_cells": 6861,
+      "valid": {
+        "temperature": 6592,
+        "temperature_min": 6592,
+        "temperature_max": 6592,
+        "precipitation": 6592
+      },
+      "invalid_order": 0
+    },
+    "2026-10-28": {
+      "needed_cells": 6861,
+      "present_cells": 6861,
+      "valid": {
+        "temperature": 6592,
+        "temperature_min": 6592,
+        "temperature_max": 6592,
+        "precipitation": 6592
+      },
+      "invalid_order": 0
+    },
+    "2026-10-29": {
+      "needed_cells": 6861,
+      "present_cells": 6861,
+      "valid": {
+        "temperature": 6592,
+        "temperature_min": 6592,
+        "temperature_max": 6592,
+        "precipitation": 6592
+      },
+      "invalid_order": 0
+    },
+    "2026-10-30": {
+      "needed_cells": 6861,
+      "present_cells": 6861,
+      "valid": {
+        "temperature": 6592,
+        "temperature_min": 6592,
+        "temperature_max": 6592,
+        "precipitation": 6592
+      },
+      "invalid_order": 0
+    },
+    "2026-10-31": {
+      "needed_cells": 6861,
+      "present_cells": 6861,
+      "valid": {
+        "temperature": 6592,
+        "temperature_min": 6592,
+        "temperature_max": 6592,
+        "precipitation": 6592
+      },
+      "invalid_order": 0
+    }
+  },
+  "raw_inclusive_overlap_difference_count": 628,
+  "raw_inclusive_overlap_examples": [
+    {
+      "key": [
+        "era5land.44.0.2.0",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature",
+        "temperature_max"
+      ]
+    },
+    {
+      "key": [
+        "era5land.44.0.2.1",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature",
+        "temperature_max"
+      ]
+    },
+    {
+      "key": [
+        "era5land.44.0.2.2",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature",
+        "temperature_max"
+      ]
+    },
+    {
+      "key": [
+        "era5land.44.0.2.3",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature",
+        "temperature_max"
+      ]
+    },
+    {
+      "key": [
+        "era5land.44.0.2.4",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature"
+      ]
+    },
+    {
+      "key": [
+        "era5land.44.0.2.5",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature",
+        "temperature_max"
+      ]
+    },
+    {
+      "key": [
+        "era5land.44.0.2.6",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature",
+        "temperature_max"
+      ]
+    },
+    {
+      "key": [
+        "era5land.44.0.2.7",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature",
+        "temperature_max"
+      ]
+    },
+    {
+      "key": [
+        "era5land.44.0.2.8",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature",
+        "temperature_max"
+      ]
+    },
+    {
+      "key": [
+        "era5land.44.0.2.9",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature",
+        "temperature_max"
+      ]
+    },
+    {
+      "key": [
+        "era5land.43.0.2.0",
+        "2026-10-19"
+      ],
+      "fields": [
+        "precipitation",
+        "temperature",
+        "temperature_max"
+      ]
+    },
+    {
+      "key": [
+        "era5land.44.0.6.0",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature",
+        "temperature_max"
+      ]
+    },
+    {
+      "key": [
+        "era5land.44.0.6.1",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature",
+        "temperature_max"
+      ]
+    },
+    {
+      "key": [
+        "era5land.44.0.6.2",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature",
+        "temperature_max"
+      ]
+    },
+    {
+      "key": [
+        "era5land.44.0.6.3",
+        "2026-10-19"
+      ],
+      "fields": [
+        "temperature",
+        "temperature_max"
+      ]
+    }
+  ],
+  "owned_cell_conflicts": 0,
+  "ownership": "half-open-one-degree-native-cell-1",
+  "border_rows_excluded": 1029,
+  "published_dates": [
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24",
+    "2026-10-25",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-10-31"
+  ],
+  "owned_tile_manifest_sha256": "bf2637ab74a627c55e21568b1f6ed7d03e70f595b24e65f752ce955ad5824b57",
+  "native_acquisition_requests": 0,
+  "archive_zips": [
+    {
+      "name": "19-replay.zip",
+      "bytes": 1986580,
+      "sha256": "35eacdf7e15980ff2c02dd401d088cfd0265b5aa2e31e9c7dd6594d384b256e1"
+    },
+    {
+      "name": "19.zip",
+      "bytes": 2012534,
+      "sha256": "0ae366459106878721d2b1c73caa6c25377814f4169ae7a84f4866883ff46821"
+    },
+    {
+      "name": "20-26-stage1.zip",
+      "bytes": 1639530,
+      "sha256": "a649636d01b9fb2acb4e3a315bff7d2dcf03aa59596b071ba5394ac594e47cfb"
+    },
+    {
+      "name": "20-26.zip",
+      "bytes": 7125805,
+      "sha256": "02b17c440b5a717c036415952ab90780da564243ac1f7f6a9cce10794a87e26c"
+    },
+    {
+      "name": "27-30-stage1.zip",
+      "bytes": 1214036,
+      "sha256": "c9ae45c5953ba8160fadcedde95777a71f23de264910538a7238aaa8f3ea9888"
+    },
+    {
+      "name": "27-30.zip",
+      "bytes": 4430816,
+      "sha256": "8ef3fcd7211aa4ccd810b11cdc4ddeb191ab124d67c7ab25c76404a37657c27d"
+    },
+    {
+      "name": "31.zip",
+      "bytes": 4597805,
+      "sha256": "654e1aa67e60cac1cf1e0822b00c3631034be705e807300ed6a894b516bb4863"
+    }
+  ]
+}

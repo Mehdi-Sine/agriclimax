@@ -37,26 +37,17 @@
     },
     "parameters": {
       "type": "object",
-      "required": [
-        "threshold"
-      ],
+      "required": ["threshold"],
       "properties": {
         "threshold": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": ["number", "null"]
         }
       },
       "additionalProperties": false
     },
     "period": {
       "type": "object",
-      "required": [
-        "start",
-        "end",
-        "timezone"
-      ],
+      "required": ["start", "end", "timezone"],
       "properties": {
         "start": {
           "type": "string"
@@ -71,20 +62,13 @@
       "additionalProperties": false
     },
     "temporal": {
-      "enum": [
-        "history",
-        "recent",
-        "forecast"
-      ]
+      "enum": ["history", "recent", "forecast"]
     },
     "source_version": {
       "type": "string"
     },
     "run": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": ["string", "null"]
     },
     "calculated_at": {
       "type": "string"
@@ -127,10 +111,7 @@
             "pattern": "^pra:[0-9AB]{5}$"
           },
           "value": {
-            "type": [
-              "number",
-              "null"
-            ]
+            "type": ["number", "null"]
           },
           "normal": {
             "type": "null"
@@ -139,17 +120,10 @@
             "type": "null"
           },
           "status": {
-            "enum": [
-              "available",
-              "partial",
-              "unavailable"
-            ]
+            "enum": ["available", "partial", "unavailable"]
           },
           "reason": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "unit": {
             "type": "string"
@@ -172,20 +146,16 @@
           "rule_version": {
             "enum": [
               "agroclimatic-1.0.0",
-              "agroclimatic-1.1.0"
+              "agroclimatic-1.1.0",
+              "agroclimatic-1.2.0"
             ]
           },
           "parameters": {
             "type": "object",
-            "required": [
-              "threshold"
-            ],
+            "required": ["threshold"],
             "properties": {
               "threshold": {
-                "type": [
-                  "number",
-                  "null"
-                ]
+                "type": ["number", "null"]
               }
             },
             "additionalProperties": false
@@ -212,17 +182,11 @@
             "const": "exploratory"
           },
           "episodes": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": ["integer", "null"],
             "minimum": 0
           },
           "longest": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": ["integer", "null"],
             "minimum": 0
           },
           "series": {
@@ -243,40 +207,22 @@
                   "type": "string"
                 },
                 "value": {
-                  "type": [
-                    "number",
-                    "null"
-                  ]
+                  "type": ["number", "null"]
                 },
                 "source": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": ["string", "null"]
                 },
                 "run": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": ["string", "null"]
                 },
                 "nature": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": ["string", "null"]
                 },
                 "temperature": {
-                  "type": [
-                    "number",
-                    "null"
-                  ]
+                  "type": ["number", "null"]
                 },
                 "support_id": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": ["string", "null"]
                 }
               },
               "additionalProperties": false
@@ -300,16 +246,10 @@
             }
           },
           "observed_value": {
-            "type": [
-              "number",
-              "null"
-            ]
+            "type": ["number", "null"]
           },
           "support_id": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "support_scope": {
             "enum": [

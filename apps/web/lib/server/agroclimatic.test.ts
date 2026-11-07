@@ -197,7 +197,7 @@ it("preserves strict 1.0.0 and publishes qualified results separately on native 
     observed_value: 10,
     support_id: "mask",
     status: "partial",
-    rule_version: "agroclimatic-1.1.0",
+    rule_version: "agroclimatic-1.2.0",
     spatial_coverage: 0.95,
     temporal_coverage: 1,
   });

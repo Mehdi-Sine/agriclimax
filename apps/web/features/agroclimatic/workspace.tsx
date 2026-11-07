@@ -459,6 +459,16 @@ export function useAgroclimatic(
           réellement renseigné.
         </p>
       )}
+      {mode === "history" &&
+        current?.observed_value != null &&
+        ["temperature_min", "temperature_max"].includes(rule.variables[0]) && (
+          <p>
+            Événement de l’extrême natif sur les seules cellules couvertes. Les
+            cellules absentes peuvent modifier l’extrême et le nombre de jours
+            de la PRA entière ; un zéro sur ce support ne prouve pas une absence
+            de chaleur ou de gel sur toute la PRA.
+          </p>
+        )}
       {mode === "history" && stateCrozon(current) && (
         <p>
           Absence de support ERA5-Land : aucun historique inventé.{" "}
@@ -487,6 +497,7 @@ export function useAgroclimatic(
       )}
       {mode === "history" &&
         current?.value === null &&
+        current?.observed_value == null &&
         ["temperature_min", "temperature_max"].includes(rule.variables[0]) && (
           <p>
             Les supports disponibles ne fournissent pas d’extrême natif vérifié
