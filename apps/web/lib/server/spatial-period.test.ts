@@ -18,8 +18,8 @@ it("reuses 67 identical Task26D masks over four complete days without painting u
     new Set(valid.collection.features.map((f) => f.properties.code)).size,
   ).toBe(67);
   const missing = await periodSupportDocument(
-    "2026-10-02",
-    "2026-10-30",
+    "2026-09-30",
+    "2026-10-29",
     "temperature",
   );
   expect(missing.verified).toBe(false);

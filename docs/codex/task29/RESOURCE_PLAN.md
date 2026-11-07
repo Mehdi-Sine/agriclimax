@@ -21,3 +21,7 @@ GitHub Actions standard d’un dépôt public et CDS existants ; aucun nouveau s
 Le premier stade utilise le découpage existant en7jours. Pour la suite, l’adaptateur ciblé peut regrouper les17jours **manquants et contigus** d’une même emprise, dans la capacité déjà offerte par `Era5LandProvider` (31jours maximum). `acquire_windows` garde7jours par défaut pour toutes les voies existantes. Le seul appel Task29 choisit17, sans traverser de mois et sans inclure une tuile/journée présente. Cela réduit le maximum froid théorique de114à38requêtes logiques ; le plan gelé de reprise garde114comme borne conservatrice, donc n’accorde aucun budget supplémentaire.
 
 Charge de valeurs d’un fichier17jours2° : environ1,44Mo float32 avant format/compression, sous la limite16Mio qui reste vérifiée au téléchargement. Les étapes restent bornées à1320s/128Mio/4Gio/448Mio. Les checkpoints journaliers et leurs clés sont inchangés ; les parties acquises au premier stade ne sont pas redemandées.
+
+## Mesure finale
+
+Trois étapes : 24 puis 21 puis 10 appels logiques, soit 55 ; respectivement 1 446 630, 5 463 057 et 1 961 470 octets de corps reçus. Les deux premières s'arrêtent aux limites temporelles prévues, la troisième termine avec succès. Dernier run 42366010270, artefact 13571358993 : 748 tuiles journalières, ZIP 9 682 683 octets, expiration le 14 novembre 2026 à 11:08:18 UTC. Aucun nouveau budget ni écriture DB. Les jours 19–31 ne sont pas réacquis. Voir les trois reçus JSON et `FINAL_DECISION.md`.

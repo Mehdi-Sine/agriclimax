@@ -1,0 +1,477 @@
+{
+  "cases": [
+    {
+      "period": "day",
+      "indicator": "gdd",
+      "counts": {
+        "complete": 645,
+        "qualified": 36,
+        "portion": 31,
+        "complementary": 1
+      },
+      "api_response_sha256": "c723f54405446da52e6ee9328b2d7531de15249ad77e1b5b3ced101b4f1319c4",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "day",
+      "indicator": "hot",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "387ef951865338d813f92e0725deda63f91e37faf1a2423e4978e763b3e8514e",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "day",
+      "indicator": "hot_sequence",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "b98e064c311dc2a59907150f87d7e948d7404193a8074f854c677646b73ebfd2",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "day",
+      "indicator": "frost",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "505edc835d878d7574614d6b2132109013779ae925a8f9d7a00eacef850526c3",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "day",
+      "indicator": "frost_sequence",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "83ab03d57b0ec4192dcb1eb579bdd3b90455da3b7411a0cde9e5d020ab86cf05",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "day",
+      "indicator": "rain",
+      "counts": {
+        "complete": 645,
+        "qualified": 36,
+        "portion": 31,
+        "complementary": 1
+      },
+      "api_response_sha256": "fbdc412926b6afabceff350d41a10bb4f9928ae222008a52cebf75d9d3ed0348",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "day",
+      "indicator": "heavy_rain",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "3557a3faf342791c08d0232fe234938127ff010975cf046cb76e5486ba3cc336",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "day",
+      "indicator": "dry",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "3c086d2452228ee34a4bc8aa3091bf82dd439949ed97140b29da665f8420cb71",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "day",
+      "indicator": "dry_sequence",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "7a5ec9a3ae3cc29f4aca25094265b0c4e28028df8debc5bb4a29d279e54c5116",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "day",
+      "indicator": "thi",
+      "counts": {
+        "unavailable": 713
+      },
+      "api_response_sha256": "b9cd0f32ae2f703f66cf5ca53531c9592833590bc3acff76183642138121aed5",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "day",
+      "indicator": "thi_days",
+      "counts": {
+        "unavailable": 713
+      },
+      "api_response_sha256": "c6672533f729dd4d6d88a3ba941c8b00429c6532de81409ca06cc9e7e79c1eee",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "day",
+      "indicator": "thi_sequence",
+      "counts": {
+        "unavailable": 713
+      },
+      "api_response_sha256": "00570a5bd6fbabb9d722bd23ed6f92de8fbcdf37aee2f74a294bcde462bf7d41",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "day",
+      "indicator": "cattle_heat",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "328938eb5eca8e7c7198584a63bd2e3b3bcf1c40eff2a0230c9fc4e4cc76d110",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "day",
+      "indicator": "temperature_mean",
+      "counts": {
+        "complete": 645,
+        "qualified": 36,
+        "portion": 31,
+        "complementary": 1
+      },
+      "api_response_sha256": "db710306b3bc82b89b9f6480f16dd0bf7993b323a08172c9b9a9684dc58536e7",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "gdd",
+      "counts": {
+        "complete": 645,
+        "qualified": 36,
+        "portion": 31,
+        "complementary": 1
+      },
+      "api_response_sha256": "b9a9e7e8262e84448596e1517dc034a07aabe8982685f54a6105737e346c4b70",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "hot",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "c2e9e75ad2b8d163f49594d9dcd8008293ff3de91061f65e4eb7e9cdc54c6ce3",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "hot_sequence",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "3776327d0eb54319ed1d65947f625a2a97ec1c5f50e8f48182c75f914cbabc5d",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "frost",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "36475110dd288d3863aa2f9206437ea9032436809cb5a3b60297f80161d87b59",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "frost_sequence",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "fdd0b3a2461525b7924ae738ea396ea9974dda748516b013d70b2690aff18005",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "rain",
+      "counts": {
+        "complete": 645,
+        "qualified": 36,
+        "portion": 31,
+        "complementary": 1
+      },
+      "api_response_sha256": "4a1a21208b356711bc131fa7d6e1bcf0d9bbe4e6cbb3bc5b3ece6f19ece0b04d",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "heavy_rain",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "99cad77b23816d455d4ad0665b8505c97225d5a2eec3a563859957978b0c9536",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "dry",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "51659c099de6a4f02a5797666df4982ef52f9b621270f22d70fef2c033ff84df",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "dry_sequence",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "7910778cf096f6f319cb7be57e1913c07ea2a14bf0205528a490a2f8fbc4aa8c",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "thi",
+      "counts": {
+        "unavailable": 713
+      },
+      "api_response_sha256": "f79dca14cf11a505055d8887b21d4ba1291fe60f57a65984ee407d236f40fad7",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "thi_days",
+      "counts": {
+        "unavailable": 713
+      },
+      "api_response_sha256": "a78d442139f8727fdbc3e2d8da5f1fc97dc4ada534e6521615f37d96f91402ae",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "thi_sequence",
+      "counts": {
+        "unavailable": 713
+      },
+      "api_response_sha256": "3d218261254a676a1aff9f26c9a4e1aba80603868d0354e5339aa4b570cae83e",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "cattle_heat",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "a538658f675cb7af1ae45c7a781bf9d7b57586e08c493dfa4d46e7e4bba1441a",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "seven",
+      "indicator": "temperature_mean",
+      "counts": {
+        "complete": 645,
+        "qualified": 36,
+        "portion": 31,
+        "complementary": 1
+      },
+      "api_response_sha256": "efe7e03c58e33c09896d466b6198560e20961501f49dfe4d24cc600fd0852e28",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "gdd",
+      "counts": {
+        "complete": 645,
+        "qualified": 36,
+        "portion": 31,
+        "complementary": 1
+      },
+      "api_response_sha256": "4b8b6e6af58b348372eaa99c0a4d286102508e9fdb32a54cf518e9b5cbc20d8d",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "hot",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "6fc5cb58730f6ac5c753eaa1959687ba647a96940548c484c664ea65b753b6b0",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "hot_sequence",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "95cb2217c86a890310e4a090581b80cb8edc7cf07fe3b5a32f0e6f55faecdd9e",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "frost",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "13e3247e93dbaf2b5b52843c3c126c7e33fe6018addb432bd88df36d77c7f22a",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "frost_sequence",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "da0f6fb75a45a0f1c20e1e36606c5643ed4ffe943f115807f13bd322b339675b",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "rain",
+      "counts": {
+        "complete": 645,
+        "qualified": 36,
+        "portion": 31,
+        "complementary": 1
+      },
+      "api_response_sha256": "0bc43bd935968854302156b4acdce645ed11ebcda639f3441fac2f2c1349acfa",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "heavy_rain",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "dc511ff6fd4addd8316946abcb1793ef155e612856b0460f3fb94f61dae282f5",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "dry",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "5d074575bbcc88aec2161b77be4fe99a9ed0778e1c3c836ced9a76eef90195a9",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "dry_sequence",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "ffce34e8b21314a0c37f9d3a7c2dcc0c83c9f206f2add847d5c3e9e1a14a1cfe",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "thi",
+      "counts": {
+        "unavailable": 713
+      },
+      "api_response_sha256": "259319d0120a41fc5ef994ffc094c9cb0a082bec0258618dfccfdaf9de798738",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "thi_days",
+      "counts": {
+        "unavailable": 713
+      },
+      "api_response_sha256": "10a247e570660813ff1a35be37cc9dfe249e5dacc4a37cf111bc11020455ef36",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "thi_sequence",
+      "counts": {
+        "unavailable": 713
+      },
+      "api_response_sha256": "a38d68d77953b01ecdb4b1deb7cdf2acef73059943689afb95a6fb3b7c250b66",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "cattle_heat",
+      "counts": {
+        "complete": 645,
+        "portion": 67,
+        "unavailable": 1
+      },
+      "api_response_sha256": "0a8dcf2a4ae54fe413a362377f9b869c79a2ca9eec613db00178a98444e402ab",
+      "affected_pra_compared": 68
+    },
+    {
+      "period": "thirty",
+      "indicator": "temperature_mean",
+      "counts": {
+        "complete": 645,
+        "qualified": 36,
+        "portion": 31,
+        "complementary": 1
+      },
+      "api_response_sha256": "c9d6202828facfb36d62e2fb18f74c3a1a7017d05a2e9186e3b4d85e4fcc4b89",
+      "affected_pra_compared": 68
+    }
+  ],
+  "matrix_rows": 29946,
+  "independent_affected_pra_comparisons": 2856,
+  "native_manifest_sha256": "7bbc623b33c0a9ab5476c0dd749e8f99a87564a60253ecac947e5ffbfa08b096",
+  "strict_versions": [
+    {
+      "period": "day",
+      "strict_1_0_values": 645
+    },
+    {
+      "period": "seven",
+      "strict_1_0_values": 645
+    },
+    {
+      "period": "thirty",
+      "strict_1_0_values": 645
+    }
+  ],
+  "previous_1_1_seven_day_values": 645,
+  "new_acquisitions": 0,
+  "database_writes": 0
+}

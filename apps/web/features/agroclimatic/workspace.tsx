@@ -444,9 +444,11 @@ export function useAgroclimatic(
             : "Réanalyse historique"}
       </p>
       <p>
-        {current
-          ? `${current.observedDays}/${current.expectedDays} journées exploitables · ${current.observedDays === current.expectedDays ? "Toutes les journées renseignées" : "Période incomplète"} · ${current.reason ?? "variables compatibles"}`
-          : "Sélection conservée ; données en cours de lecture ou indisponibles."}
+        {current?.complementary
+          ? strNativeCoverage(current)
+          : current
+            ? `${current.observedDays}/${current.expectedDays} journées exploitables · ${current.observedDays === current.expectedDays ? "Toutes les journées renseignées" : "Période incomplète"} · ${current.reason ?? "variables compatibles"}`
+            : "Sélection conservée ; données en cours de lecture ou indisponibles."}
       </p>
       {current?.complementary && (
         <ComplementNotice result={current.complementary} />
@@ -775,6 +777,14 @@ export function useAgroclimatic(
       },
     },
   };
+}
+function strNativeCoverage(current: AgroResult) {
+  return (
+    current.observedDays +
+    "/" +
+    current.expectedDays +
+    " journées natives ; la série reconstituée est présentée séparément."
+  );
 }
 function stateCrozon(current: AgroResult | undefined) {
   return current?.territoryId === "pra:29102" && current.observedDays === 0;
