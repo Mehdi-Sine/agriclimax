@@ -17,7 +17,8 @@ try{
  let mode='slow';
  await context.route('**/api/unified?*',async route=>{
   if(mode==='error'){await route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:'SIMULATED_FAILURE'})});return;}
-  const response=await route.fetch();await new Promise(r=>setTimeout(r,1800));await route.fulfill({response});
+  await new Promise(r=>setTimeout(r,1800));
+  try{await route.fallback();}catch{await route.abort('failed').catch(()=>{});}
  });
  const indicator=page.getByLabel(/Indicateur/).first();
  await indicator.selectOption('rain');

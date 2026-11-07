@@ -13,3 +13,5 @@ Catalogue extensible : `features/national-watch/productions.ts`. Calcul des phé
 Une présence exige une valeur positive publiée et disponible au niveau PRA. Une donnée agricole non qualifiée n’est pas une absence de production. Le RPG ne couvre pas exhaustivement toute l’agriculture. Les SAA restent consultables à leurs mailles départementales/régionales dans Productions.
 
 Références documentaires : FAO, *Crop yield response to water*, Irrigation and drainage paper 66 (https://www.fao.org/4/i2800e/i2800e00.htm) pour les relations générales cultures/eau ; ETCCDI (https://www.wcrp-climate.org/etccdi) pour les méthodes de comptes/séquences. Ces références n’établissent pas les seuils de dommage de cette application. Aucun seuil de stade, variété, rendement ou perte n’est ajouté.
+
+Le millésime 2025 décrit une déclaration passée : il ne prouve ni présence d’une culture sur pied à une date de 2026, ni stade phénologique. Le contexte est présenté comme une présence déclarée territoriale, sans estimation de surface touchée.

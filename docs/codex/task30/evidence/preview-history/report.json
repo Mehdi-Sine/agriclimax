@@ -1,0 +1,38 @@
+{
+  "origin": "https://agriclimax-git-codex-30-national-ag-e0481e-mehdi-sines-projects.vercel.app",
+  "checks": [
+    {
+      "name": "historical anomaly is explicit",
+      "ok": true
+    },
+    {
+      "name": "neutral class centred on zero",
+      "ok": true
+    },
+    {
+      "name": "missing reference kept distinct",
+      "ok": true
+    },
+    {
+      "name": "rain departure uses dry deficit and blue excess",
+      "ok": true
+    },
+    {
+      "name": "archived run explicitly selected",
+      "ok": true
+    },
+    {
+      "name": "real old cycle independently marked stale",
+      "ok": true
+    },
+    {
+      "name": "Crozon historical complementary restitution preserved",
+      "ok": true
+    },
+    {
+      "name": "no uncaught application errors",
+      "ok": true
+    }
+  ],
+  "errors": []
+}

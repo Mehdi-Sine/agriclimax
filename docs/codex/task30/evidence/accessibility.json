@@ -1,0 +1,180 @@
+{
+  "contrast": [
+    {
+      "theme": "light",
+      "text": "--text-primary",
+      "surface": "--surface-base",
+      "ratio": 11.03,
+      "minimum": 4.5
+    },
+    {
+      "theme": "light",
+      "text": "--text-primary",
+      "surface": "--surface-raised",
+      "ratio": 11.87,
+      "minimum": 4.5
+    },
+    {
+      "theme": "light",
+      "text": "--text-primary",
+      "surface": "--surface-subtle",
+      "ratio": 10.41,
+      "minimum": 4.5
+    },
+    {
+      "theme": "light",
+      "text": "--text-muted",
+      "surface": "--surface-base",
+      "ratio": 5.55,
+      "minimum": 4.5
+    },
+    {
+      "theme": "light",
+      "text": "--text-muted",
+      "surface": "--surface-raised",
+      "ratio": 5.97,
+      "minimum": 4.5
+    },
+    {
+      "theme": "light",
+      "text": "--text-muted",
+      "surface": "--surface-subtle",
+      "ratio": 5.24,
+      "minimum": 4.5
+    },
+    {
+      "theme": "light",
+      "text": "--control-border",
+      "surface": "--surface-raised",
+      "ratio": 3.96,
+      "minimum": 3
+    },
+    {
+      "theme": "dark",
+      "text": "--text-primary",
+      "surface": "--surface-base",
+      "ratio": 14.34,
+      "minimum": 4.5
+    },
+    {
+      "theme": "dark",
+      "text": "--text-primary",
+      "surface": "--surface-raised",
+      "ratio": 12.33,
+      "minimum": 4.5
+    },
+    {
+      "theme": "dark",
+      "text": "--text-primary",
+      "surface": "--surface-subtle",
+      "ratio": 10.36,
+      "minimum": 4.5
+    },
+    {
+      "theme": "dark",
+      "text": "--text-muted",
+      "surface": "--surface-base",
+      "ratio": 9.38,
+      "minimum": 4.5
+    },
+    {
+      "theme": "dark",
+      "text": "--text-muted",
+      "surface": "--surface-raised",
+      "ratio": 8.06,
+      "minimum": 4.5
+    },
+    {
+      "theme": "dark",
+      "text": "--text-muted",
+      "surface": "--surface-subtle",
+      "ratio": 6.77,
+      "minimum": 4.5
+    },
+    {
+      "theme": "dark",
+      "text": "--control-border",
+      "surface": "--surface-raised",
+      "ratio": 5.67,
+      "minimum": 3
+    }
+  ],
+  "colour_vision": [
+    {
+      "family": "rain",
+      "condition": "protanopia",
+      "minimum_adjacent_delta_e76": 12.67
+    },
+    {
+      "family": "rain",
+      "condition": "deuteranopia",
+      "minimum_adjacent_delta_e76": 14.27
+    },
+    {
+      "family": "rain",
+      "condition": "tritanopia",
+      "minimum_adjacent_delta_e76": 16.21
+    },
+    {
+      "family": "dry",
+      "condition": "protanopia",
+      "minimum_adjacent_delta_e76": 12.21
+    },
+    {
+      "family": "dry",
+      "condition": "deuteranopia",
+      "minimum_adjacent_delta_e76": 9.99
+    },
+    {
+      "family": "dry",
+      "condition": "tritanopia",
+      "minimum_adjacent_delta_e76": 16.52
+    },
+    {
+      "family": "agri",
+      "condition": "protanopia",
+      "minimum_adjacent_delta_e76": 16.04
+    },
+    {
+      "family": "agri",
+      "condition": "deuteranopia",
+      "minimum_adjacent_delta_e76": 16.44
+    },
+    {
+      "family": "agri",
+      "condition": "tritanopia",
+      "minimum_adjacent_delta_e76": 12.18
+    },
+    {
+      "family": "gdd",
+      "condition": "protanopia",
+      "minimum_adjacent_delta_e76": 15.67
+    },
+    {
+      "family": "gdd",
+      "condition": "deuteranopia",
+      "minimum_adjacent_delta_e76": 15.62
+    },
+    {
+      "family": "gdd",
+      "condition": "tritanopia",
+      "minimum_adjacent_delta_e76": 10.47
+    },
+    {
+      "family": "thermal",
+      "condition": "protanopia",
+      "minimum_adjacent_delta_e76": 23.96
+    },
+    {
+      "family": "thermal",
+      "condition": "deuteranopia",
+      "minimum_adjacent_delta_e76": 24.99
+    },
+    {
+      "family": "thermal",
+      "condition": "tritanopia",
+      "minimum_adjacent_delta_e76": 29.86
+    }
+  ],
+  "scope": "Token checks; numerical legends and keyboard territory selectors complement colour."
+}

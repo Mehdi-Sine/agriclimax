@@ -1,0 +1,20 @@
+{
+  "source_commit": "314dbbb",
+  "web_tests": {
+    "files": 38,
+    "passed": 311
+  },
+  "lint": "passed",
+  "production_build_including_typescript": "passed",
+  "python_quality": "ruff scripts/quality tests/quality scripts/task30_watch_geography.py passed",
+  "metadata_projection": "713 official PRA matched",
+  "client_gzip_bytes": 630037,
+  "client_budget_bytes": 2097152,
+  "source_secret_guard": "passed",
+  "bundle_secret_guard": "passed",
+  "browser_artifacts_secret_check": 41,
+  "acquisition_workflows_changed": false,
+  "schema_migrations_added": false,
+  "additional_product_dependencies": false,
+  "additional_grid_storage_bytes": 0
+}
