@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { ComplementNotice } from "./complement";
 import { supportPolicy } from "./observed-support";
 import { RULES, type Production } from "./catalogue";
 import type { AgroResult } from "./calculate";
@@ -424,6 +425,7 @@ export function useAgroclimatic(
         {production === "wheat" ? "Blé tendre" : "Bovins"} · {rule.label}
       </p>
       <div className="unified-value">
+        {current?.complementary && <small>Historique natif</small>}
         <strong>
           {fmt(current?.value ?? current?.observed_value)}{" "}
           <em>
@@ -442,23 +444,40 @@ export function useAgroclimatic(
             : "Réanalyse historique"}
       </p>
       <p>
-        {current
-          ? `${current.observedDays}/${current.expectedDays} journées exploitables · ${current.observedDays === current.expectedDays ? "Toutes les journées renseignées" : "Période incomplète"} · ${current.reason ?? "variables compatibles"}`
-          : "Sélection conservée ; données en cours de lecture ou indisponibles."}
+        {current?.complementary
+          ? strNativeCoverage(current)
+          : current
+            ? `${current.observedDays}/${current.expectedDays} journées exploitables · ${current.observedDays === current.expectedDays ? "Toutes les journées renseignées" : "Période incomplète"} · ${current.reason ?? "variables compatibles"}`
+            : "Sélection conservée ; données en cours de lecture ou indisponibles."}
       </p>
+      {current?.complementary && (
+        <ComplementNotice result={current.complementary} />
+      )}
       {current?.support_scope && current.support_scope !== "whole_pra" && (
         <p className="coastal-qualification">
-          {current.support_scope === "qualified_pra_estimate"
-            ? "Estimation qualifiée à couverture ≥90% ; moyenne calculée sur la portion renseignée."
-            : current.observed_value != null
-              ? "Valeur de la portion renseignée uniquement ; aucune valeur pour la PRA entière."
-              : "Cumul indisponible sur un support commun prouvé."}{" "}
+          {current.complementary
+            ? "Historique natif indisponible ; la reconstruction complémentaire est présentée séparément."
+            : current.support_scope === "qualified_pra_estimate"
+              ? "Estimation qualifiée à couverture ≥90% ; moyenne calculée sur la portion renseignée."
+              : current.observed_value != null
+                ? "Valeur de la portion renseignée uniquement ; aucune valeur pour la PRA entière."
+                : "Cumul indisponible sur un support commun prouvé."}{" "}
           Couverture spatiale : {fmt((current.spatial_coverage ?? 0) * 100)} % ·
           couverture temporelle : {fmt((current.temporal_coverage ?? 0) * 100)}{" "}
           %. La surface colorée représente seulement le support commun
           réellement renseigné.
         </p>
       )}
+      {mode === "history" &&
+        current?.observed_value != null &&
+        ["temperature_min", "temperature_max"].includes(rule.variables[0]) && (
+          <p>
+            Événement de l’extrême natif sur les seules cellules couvertes. Les
+            cellules absentes peuvent modifier l’extrême et le nombre de jours
+            de la PRA entière ; un zéro sur ce support ne prouve pas une absence
+            de chaleur ou de gel sur toute la PRA.
+          </p>
+        )}
       {mode === "history" && stateCrozon(current) && (
         <p>
           Absence de support ERA5-Land : aucun historique inventé.{" "}
@@ -471,7 +490,7 @@ export function useAgroclimatic(
           </button>
         </p>
       )}
-      {current?.reason && (
+      {current?.reason && !current.complementary && (
         <p role="status">
           {current.reason === "incompatible_spatial_support"
             ? "Cumul refusé : supports spatiaux différents. Aucune union des surfaces journalières n’est affichée."
@@ -487,6 +506,7 @@ export function useAgroclimatic(
       )}
       {mode === "history" &&
         current?.value === null &&
+        current?.observed_value == null &&
         ["temperature_min", "temperature_max"].includes(rule.variables[0]) && (
           <p>
             Les supports disponibles ne fournissent pas d’extrême natif vérifié
@@ -503,10 +523,30 @@ export function useAgroclimatic(
               ? "prévue"
               : mode === "recent"
                 ? "estimée"
-                : "historique"}
+                : current.complementary
+                  ? "reconstituée · estimation complémentaire"
+                  : "historique"}
           </h3>
           <Series
-            result={current}
+            result={
+              current.complementary
+                ? {
+                    ...current,
+                    series: current.complementary.series.map((row) => ({
+                      date: row.date,
+                      temperature:
+                        rule.variables[0] === "temperature"
+                          ? row.input_value
+                          : null,
+                      value: row.value,
+                      source: current.complementary!.source_id,
+                      run: null,
+                      nature: "spatial_reconstruction",
+                      support_id: current.complementary!.support_id,
+                    })),
+                  }
+                : current
+            }
             cumulative={rule.operator === "gdd"}
             rain={rule.unit === "mm" || rule.variables[0] === "precipitation"}
             threshold={
@@ -689,7 +729,7 @@ export function useAgroclimatic(
           ? `${resource.error} Vérifiez les dates (J+1 à J+7 pour la prévision) et la couverture.`
           : !resource.data
             ? "Chargement des indicateurs nationaux…"
-            : `${eligible.length}/713 valeurs PRA (dont estimations qualifiées) · ${data.filter((r) => r.observed_value != null && r.value === null).length} valeurs de portion seulement. Gris : portion absente ou résultat non calculable, jamais zéro.`}
+            : `${data.filter((r) => r.value !== null && r.support_scope !== "qualified_pra_estimate").length} PRA complètes · ${data.filter((r) => r.value !== null && r.support_scope === "qualified_pra_estimate").length} estimations qualifiées ≥90% · ${data.filter((r) => r.observed_value != null && r.value === null).length} valeurs de portion seulement · ${data.filter((r) => r.complementary).length} estimation(s) complémentaire(s) en fiche. Gris : portion native absente ou résultat non calculable, jamais zéro.`}
       </p>
     ),
     legend: (
@@ -738,6 +778,14 @@ export function useAgroclimatic(
     },
   };
 }
+function strNativeCoverage(current: AgroResult) {
+  return (
+    current.observedDays +
+    "/" +
+    current.expectedDays +
+    " journées natives ; la série reconstituée est présentée séparément."
+  );
+}
 function stateCrozon(current: AgroResult | undefined) {
   return current?.territoryId === "pra:29102" && current.observedDays === 0;
 }
@@ -782,7 +830,10 @@ function Series({
     <>
       {cumulative && (
         <>
-          <h4>Température moyenne source · °C</h4>
+          <h4>
+            Température moyenne{" "}
+            {result.complementary ? "reconstituée" : "source"} · °C
+          </h4>
           <Series
             result={{
               ...result,

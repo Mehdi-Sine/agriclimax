@@ -72,6 +72,8 @@ def acquire_windows(
     weights_by_day: dict[date, list[Any]],
     root: Path,
     maximum_groups: int,
+    *,
+    max_chunk_days: int = 7,
 ) -> tuple[bool, int, int]:
     """Group missing native tiles across adjacent days; retain daily checkpoint keys.
 
@@ -80,6 +82,8 @@ def acquire_windows(
     """
     from agriclimax.territories.pipeline import digest, write_native_tiles
 
+    if not 1 <= max_chunk_days <= 31:
+        raise ValueError("Native provider accepts at most 31 contiguous days")
     missing: dict[tuple[int, int, int], list[tuple[date, list[tuple[int, int]]]]] = {}
     for day, weights in sorted(weights_by_day.items()):
         tiles = {(math.floor(w.longitude), math.floor(w.latitude)) for w in weights}
@@ -113,12 +117,12 @@ def acquire_windows(
                         missing.setdefault((x, y, 1), []).append((day, [(x, y)]))
     acquired, created = 0, 0
     for (west, south, size), entries in sorted(missing.items()):
-        # Identical footprint plus contiguous dates; bounded by seven days and month.
+        # Identical footprint/contiguous dates; seven days by default, month always bounded.
         chunks: list[list[tuple[date, list[tuple[int, int]]]]] = []
         for entry in entries:
             if (
                 not chunks
-                or len(chunks[-1]) == 7
+                or len(chunks[-1]) == max_chunk_days
                 or entry[0] != chunks[-1][-1][0] + timedelta(days=1)
                 or entry[0].month != chunks[-1][-1][0].month
                 or entry[1] != chunks[-1][-1][1]

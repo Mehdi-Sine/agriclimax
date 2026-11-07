@@ -139,3 +139,35 @@ it("averages daily mean temperature on the stable support", () => {
     ).value,
   ).toBe(11);
 });
+it("keeps native extrema threshold counts and sequences on the observed area at any coverage", () => {
+  for (const [id, variable, values, threshold, expected] of [
+    ["hot", "temperature_max", [25, 26], 25, 1],
+    ["hot_sequence", "temperature_max", [26, 27], 25, 2],
+    ["frost", "temperature_min", [0, -1], 0, 1],
+    ["frost_sequence", "temperature_min", [-1, -2], 0, 2],
+    ["cattle_heat", "temperature_max", [25, 26], 25, 1],
+  ] as const) {
+    const rows = values.map((value, i) => ({
+      ...day(`2026-10-${30 + i}`, value, 0.99),
+      values: { [variable]: value },
+    }));
+    const r = calculateObserved(
+      "pra:06245",
+      rows,
+      "2026-10-30",
+      "2026-10-31",
+      observedRule(RULES.find((r) => r.id === id)!, "agroclimatic-1.2.0"),
+      threshold,
+    );
+    expect(r).toMatchObject({
+      value: null,
+      observed_value: expected,
+      support_scope: "observed_area",
+      spatial_coverage: 0.99,
+      temporal_coverage: 1,
+    });
+    expect(r.quality_flags).toContain(
+      "event_of_native_extreme_on_observed_support_only",
+    );
+  }
+});

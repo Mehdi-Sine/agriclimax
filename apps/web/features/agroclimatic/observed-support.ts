@@ -1,5 +1,6 @@
 import { calculate, type InputDay, type AgroResult } from "./calculate";
 import type { Rule } from "./catalogue";
+export const NATIVE_RULE_VERSION = "agroclimatic-1.2.0";
 export const OBSERVED_RULE_VERSION = "agroclimatic-1.1.0";
 export const STRICT_RULE_VERSION = "agroclimatic-1.0.0";
 export const supportPolicy = (
@@ -7,7 +8,16 @@ export const supportPolicy = (
 ): "qualified_mean" | "event_on_support" | null =>
   ["gdd", "temperature_mean", "rain"].includes(rule.id)
     ? "qualified_mean"
-    : ["dry", "dry_sequence", "heavy_rain"].includes(rule.id)
+    : [
+          "dry",
+          "dry_sequence",
+          "heavy_rain",
+          "hot",
+          "hot_sequence",
+          "frost",
+          "frost_sequence",
+          "cattle_heat",
+        ].includes(rule.id)
       ? "event_on_support"
       : null;
 export interface ObservedSupport {
@@ -20,13 +30,18 @@ export type SupportedDay = InputDay & {
   support?: ObservedSupport;
   source_coverage?: number;
 };
-export function observedRule(rule: Rule): Rule {
+export function observedRule(
+  rule: Rule,
+  version = OBSERVED_RULE_VERSION,
+): Rule {
   return {
     ...rule,
-    version: OBSERVED_RULE_VERSION,
+    version,
     quality:
       rule.quality +
-      " Support observé natif stable sur toute la période ; estimation qualifiée ≥90% uniquement pour moyennes/GDD/pluie. Événements de pluie limités à la moyenne du support.",
+      (version === NATIVE_RULE_VERSION
+        ? " Support natif stable ; estimation qualifiée ≥90% uniquement pour Tmoy/GDD/pluie. Événements et extrema natifs limités aux cellules couvertes, sans extrapolation."
+        : " Support observé natif stable sur toute la période ; estimation qualifiée ≥90% uniquement pour moyennes/GDD/pluie. Événements de pluie limités à la moyenne du support."),
     limits:
       rule.limits +
       " Les valeurs sur portion renseignée ne décrivent pas la PRA entière ; aucune normale ni anomalie reconstruite.",
@@ -114,7 +129,11 @@ export function calculateObserved(
           : []),
         ...(incompatible ? ["incompatible_spatial_support"] : []),
         ...(supportPolicy(rule) === "event_on_support"
-          ? ["event_of_spatial_mean_not_fraction_of_affected_area"]
+          ? [
+              rule.variables[0] === "precipitation"
+                ? "event_of_spatial_mean_not_fraction_of_affected_area"
+                : "event_of_native_extreme_on_observed_support_only",
+            ]
           : []),
       ]),
     ],

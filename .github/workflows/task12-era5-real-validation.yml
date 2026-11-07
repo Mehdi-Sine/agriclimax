@@ -7,13 +7,25 @@ on:
         description: Explicit authorization for legacy real acquisition and DEV persistence
         type: boolean
         default: false
+      task29_recovery:
+        description: One-off Task29 coastal recovery only; no legacy Task12 or database write
+        type: boolean
+        default: false
+      checkpoint_run_id:
+        description: Previous Task29 recovery run to resume verified source/native caches
+        type: string
+        required: false
+      recovery_groups:
+        description: Maximum existing provider groups in this bounded stage (1 to 64)
+        type: number
+        default: 16
 permissions:
   contents: read
 
 jobs:
   validate-era5:
     # Acquisitions and database writes are never ordinary CI checks.
-    if: github.event_name == 'workflow_dispatch' && inputs.allow_dev_write
+    if: github.event_name == 'workflow_dispatch' && inputs.allow_dev_write && !inputs.task29_recovery
     runs-on: ubuntu-latest
 
     steps:
@@ -83,3 +95,51 @@ jobs:
       - name: Climate tests
         run: |
           python -m pytest engine/tests/climate -v
+
+  task29-coastal-recovery:
+    # Reuse an existing dispatch-only entry point. Never runs in CI or on a schedule.
+    if: github.event_name == 'workflow_dispatch' && inputs.task29_recovery && github.ref == 'refs/heads/codex/29-historical-coastal-completion'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      actions: read
+    concurrency:
+      group: pra-climate-batches
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r engine/requirements-dev.lock -r engine/requirements-climate.lock -r engine/requirements-geo.lock
+      - name: Restore the previous Task29 checkpoint before any source request
+        if: inputs.checkpoint_run_id != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHECKPOINT_RUN_ID: ${{ inputs.checkpoint_run_id }}
+        run: |
+          [[ "$CHECKPOINT_RUN_ID" =~ ^[0-9]+$ ]]
+          if ! gh run download "$CHECKPOINT_RUN_ID" --name task29-coastal-native --dir work/task29/recovery >/dev/null 2>/tmp/task29-download.err; then
+            rm -f /tmp/task29-download.err
+            echo 'Checkpoint restoration failed; no source acquisition started'
+            exit 1
+          fi
+          rm -f /tmp/task29-download.err
+      - name: Recover only missing coastal native cells within the reviewed envelope
+        timeout-minutes: 24
+        env:
+          PYTHONPATH: engine/src
+          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
+          RECOVERY_GROUPS: ${{ inputs.recovery_groups }}
+        run: |
+          [[ "$RECOVERY_GROUPS" =~ ^[0-9]+$ ]]
+          timeout --signal=TERM --kill-after=10s 23m python scripts/era5_coastal_recovery.py --execute --max-groups "$RECOVERY_GROUPS"
+      - name: Preserve immutable native tiles and source receipts even after a bounded stop
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: task29-coastal-native
+          path: work/task29/recovery/
+          retention-days: 7
+          if-no-files-found: warn

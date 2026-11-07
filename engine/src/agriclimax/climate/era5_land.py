@@ -72,9 +72,11 @@ class Era5LandProvider:
         retrieve: Retrieve = cds_retrieve,
         *,
         require_complete_time_axis: bool = False,
+        boundary_hour_only: bool = False,
     ):
         self.dataset, self.root, self.retrieve = dataset, root, retrieve
         self.require_complete_time_axis = require_complete_time_axis
+        self.boundary_hour_only = boundary_hour_only
 
     def acquire(
         self,
@@ -101,23 +103,38 @@ class Era5LandProvider:
         # CDS request day lists form a Cartesian product; group exact dates by month.
         dates: dict[tuple[int, int], list[int]] = {}
         cursor = start
-        while cursor <= end + timedelta(days=1):
+        while cursor <= end + timedelta(days=0 if self.boundary_hour_only else 1):
             dates.setdefault((cursor.year, cursor.month), []).append(cursor.day)
             cursor += timedelta(days=1)
         files: list[Path] = []
         receipts: list[dict[str, object]] = []
+        requests: list[dict[str, object]] = []
         for (year, month), days in sorted(dates.items()):
-            request: dict[str, object] = {
-                "product_type": "reanalysis",
-                "variable": ["2m_temperature", "total_precipitation"],
-                "year": str(year),
-                "month": f"{month:02}",
-                "day": [f"{d:02}" for d in days],
-                "time": [f"{h:02}:00" for h in range(24)],
-                "area": [north, west, south, east],
-                "data_format": "netcdf",
-                "download_format": "unarchived",
-            }
+            requests.append(
+                {
+                    "product_type": "reanalysis",
+                    "variable": ["2m_temperature", "total_precipitation"],
+                    "year": str(year),
+                    "month": f"{month:02}",
+                    "day": [f"{d:02}" for d in days],
+                    "time": [f"{h:02}:00" for h in range(24)],
+                    "area": [north, west, south, east],
+                    "data_format": "netcdf",
+                    "download_format": "unarchived",
+                }
+            )
+        if self.boundary_hour_only:
+            following = end + timedelta(days=1)
+            requests.append(
+                {
+                    **requests[-1],
+                    "year": str(following.year),
+                    "month": f"{following.month:02}",
+                    "day": [f"{following.day:02}"],
+                    "time": ["00:00"],
+                }
+            )
+        for request in requests:
             identity = hashlib.sha256(
                 json.dumps(
                     {"request": request, "dataset": self.dataset.model_dump(mode="json")},

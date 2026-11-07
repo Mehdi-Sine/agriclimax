@@ -1,9 +1,12 @@
 import "server-only";
+import { coastalComplement } from "./coastal-complement";
 import { observedSupportDay } from "./spatial-restitution";
 import {
   calculateObserved,
   observedRule,
   type SupportedDay,
+  NATIVE_RULE_VERSION,
+  OBSERVED_RULE_VERSION,
 } from "../../features/agroclimatic/observed-support";
 import { RULES } from "../../features/agroclimatic/catalogue";
 import { nationalData } from "./national";
@@ -72,7 +75,11 @@ export async function unifiedData(
   const requestedVersion = params.get("rule_version");
   if (
     requestedVersion &&
-    !["agroclimatic-1.0.0", "agroclimatic-1.1.0"].includes(requestedVersion)
+    ![
+      "agroclimatic-1.0.0",
+      OBSERVED_RULE_VERSION,
+      NATIVE_RULE_VERSION,
+    ].includes(requestedVersion)
   )
     throw new ApiError("INVALID_QUERY", 400);
   if (params.has("storage") && !cold) throw new ApiError("INVALID_QUERY", 400);
@@ -124,16 +131,40 @@ export async function unifiedData(
   }));
   if (
     requestedVersion !== "agroclimatic-1.0.0" &&
-    ["temperature", "gdd", "rain"].includes(id) &&
+    [
+      "temperature",
+      "temperature_min",
+      "temperature_max",
+      "hot",
+      "frost",
+      "gdd",
+      "rain",
+    ].includes(id) &&
+    (requestedVersion !== OBSERVED_RULE_VERSION ||
+      ["temperature", "gdd", "rain"].includes(id)) &&
     data.some((r) => r.status !== "available")
   ) {
     const rule = observedRule(
-      RULES.find(
-        (r) => r.id === (id === "temperature" ? "temperature_mean" : id),
-      )!,
+      ["temperature_min", "temperature_max"].includes(id)
+        ? {
+            ...RULES.find((r) => r.id === "temperature_mean")!,
+            id,
+            variables: [definition.variable],
+            formula: definition.method,
+          }
+        : RULES.find(
+            (r) => r.id === (id === "temperature" ? "temperature_mean" : id),
+          )!,
+      requestedVersion ?? NATIVE_RULE_VERSION,
     );
     const documents = await Promise.all(
-      dates.map((date) => observedSupportDay(date, definition.variable)),
+      dates.map((date) =>
+        observedSupportDay(
+          date,
+          definition.variable,
+          requestedVersion === OBSERVED_RULE_VERSION,
+        ),
+      ),
     );
     const byDate = new Map(dates.map((date, i) => [date, documents[i]]));
     data = data.map((result) => {
@@ -209,6 +240,27 @@ export async function unifiedData(
         coverage: next.spatial_coverage ?? result.coverage,
       };
     });
+  }
+  if (
+    requestedVersion !== "agroclimatic-1.0.0" &&
+    requestedVersion !== OBSERVED_RULE_VERSION &&
+    ["temperature", "gdd", "rain"].includes(id)
+  ) {
+    const rule = observedRule(
+      RULES.find(
+        (r) => r.id === (id === "temperature" ? "temperature_mean" : id),
+      )!,
+      NATIVE_RULE_VERSION,
+    );
+    const complementary = await coastalComplement(rule, start, end, threshold);
+    const crozon = data.find((r) => r.territoryId === "pra:29102");
+    if (
+      crozon &&
+      complementary &&
+      crozon.value === null &&
+      crozon.observed_value == null
+    )
+      crozon.complementary = complementary;
   }
   return {
     period: [start, end],

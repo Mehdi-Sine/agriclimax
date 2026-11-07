@@ -21,7 +21,12 @@ export async function GET(request: Request) {
       ) ||
       !calendarDays(start, end).length ||
       calendarDays(start, end).length > 30 ||
-      !["temperature", "precipitation"].includes(variable)
+      ![
+        "temperature",
+        "temperature_min",
+        "temperature_max",
+        "precipitation",
+      ].includes(variable)
     )
       return Response.json({ error: "INVALID_QUERY" }, { status: 400 });
     return Response.json(await periodSupportDocument(start, end, variable), {

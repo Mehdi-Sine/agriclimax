@@ -1,0 +1,27 @@
+{
+  "method_version": "coastal-idw4-radius25km-p2-blocked-pra-1",
+  "source_id": "era5-land-neighbour-reconstruction",
+  "scientific_status": "exploratory",
+  "target_pra": "pra:29102",
+  "neighbors": 4,
+  "minimum_neighbors": 3,
+  "radius_m": 25000,
+  "distance_power": 2,
+  "reference_departments": ["22", "29", "50", "56"],
+  "reference_minimum_coverage": 0.9,
+  "minimum_reference_pra": 5,
+  "minimum_reference_pra_days": 65,
+  "validation_periods": {
+    "restored": ["2026-10-19", "2026-10-31"],
+    "temporal_holdout": ["2026-10-02", "2026-10-18"]
+  },
+  "limits": {
+    "temperature": {"MAE": 1, "absolute_bias": 0.5, "p95_absolute_error": 2},
+    "precipitation": {"MAE": 2, "absolute_relative_cumulative_bias": 0.15, "p95_absolute_error": 5}
+  },
+  "allowed_indicators": ["temperature_mean", "gdd", "rain"],
+  "native_coverage": 0,
+  "normal_anomaly_available": false,
+  "reference_kind": "ERA5-Land field; no independent station validation",
+  "notice": "Reconstruction spatiale exploratoire. Ni observation native de Crozon, ni mesure de parcelle. Validation relative au champ ERA5-Land, sans garantie de microclimat littoral."
+}

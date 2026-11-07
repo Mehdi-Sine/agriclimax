@@ -9,6 +9,7 @@ import {
 import { record } from "./weather-archive-codec";
 import checksums from "../../../../config/coverage/ofb-masa-pra-2017-snapshot-20261017/checksums.json";
 import source from "../../data/operational/era5-spatial-support.json";
+import restoredSource from "../../data/operational/era5-restored-support.json";
 import type { FeatureCollection, Geometry } from "geojson";
 import type { PraProperties } from "../../features/national/map";
 import type { TerritorialValue } from "../../features/unified/model";
@@ -24,6 +25,7 @@ type PartialRow = {
   quality_flags: string[];
 };
 type SupportData = {
+  complementary?: unknown;
   rule_version: string;
   dates: string[];
   geometries: Record<
@@ -34,6 +36,10 @@ type SupportData = {
   days: Record<string, Record<string, PartialRow[]>>;
 };
 const baseline = source as unknown as SupportData;
+const restored = restoredSource as unknown as SupportData;
+const restoredChecksum = createHash("sha256")
+  .update(JSON.stringify(restoredSource))
+  .digest("hex");
 const baselineChecksum = createHash("sha256")
   .update(JSON.stringify(source))
   .digest("hex");
@@ -41,7 +47,17 @@ let cached: { sha: string; data: Promise<SupportData> } | undefined;
 let geometryCache:
   | { sha: string; geometries: SupportData["geometries"] }
   | undefined;
-async function load(date: string): Promise<SupportData> {
+async function load(
+  date: string,
+  variable: string,
+  legacy = false,
+): Promise<SupportData> {
+  if (
+    !legacy &&
+    restored.dates.includes(date) &&
+    restored.days[date]?.[variable]
+  )
+    return restored;
   if (baseline.dates.includes(date)) return baseline;
   const current = await currentManifest();
   const e =
@@ -134,7 +150,7 @@ export async function qualifySpatial(
   date: string,
   variable: string,
 ): Promise<TerritorialValue[]> {
-  const data = await load(date);
+  const data = await load(date, variable);
   const partial = new Map(
     spatialRows(data, date, variable).map((r) => [r.pra_id, r]),
   );
@@ -173,13 +189,19 @@ export function validSupportQuery(params: URLSearchParams): boolean {
   );
 }
 export async function supportDocument(date: string, variable: string) {
-  const data = await load(date);
+  const data = await load(date, variable);
   const rows = spatialRows(data, date, variable);
   return {
     rule_version: data.rule_version,
     verified:
       data.dates.includes(date) &&
-      ["temperature", "precipitation"].includes(variable),
+      [
+        "temperature",
+        "temperature_min",
+        "temperature_max",
+        "precipitation",
+      ].includes(variable) &&
+      spatialRows(data, date, variable).length > 0,
     date,
     variable,
     rows,
@@ -190,8 +212,12 @@ export async function supportDocument(date: string, variable: string) {
 
 // Reuse Task26D's verified cell-mask identities; never intersect changing masks
 // from already-aggregated values or paint the union of different daily supports.
-export async function observedSupportDay(date: string, variable: string) {
-  const data = await load(date);
+export async function observedSupportDay(
+  date: string,
+  variable: string,
+  legacy = false,
+) {
+  const data = await load(date, variable, legacy);
   const identity = data as SupportData & {
     weights_sha256?: string;
     reference_sha256?: string;
@@ -202,7 +228,13 @@ export async function observedSupportDay(date: string, variable: string) {
     data === baseline ? checksums["reference.json"] : identity.reference_sha256;
   const verified =
     data.dates.includes(date) &&
-    ["temperature", "precipitation"].includes(variable) &&
+    [
+      "temperature",
+      "temperature_min",
+      "temperature_max",
+      "precipitation",
+    ].includes(variable) &&
+    spatialRows(data, date, variable).length > 0 &&
     weights === checksums["weights.json"] &&
     reference === checksums["reference.json"];
   const rows = verified ? spatialRows(data, date, variable) : [];
@@ -220,7 +252,12 @@ export async function observedSupportDay(date: string, variable: string) {
   return {
     verified,
     rows,
-    data_sha256: data === baseline ? baselineChecksum : data.document_sha256,
+    data_sha256:
+      data === baseline
+        ? baselineChecksum
+        : data === restored
+          ? restoredChecksum
+          : data.document_sha256,
     geometries: data.geometries,
     identity: `${data.rule_version}/${weights}/${reference}`,
   };
@@ -273,5 +310,19 @@ export async function periodSupportDocument(
     variable,
     rows,
     collection: { type: "FeatureCollection" as const, features },
+  };
+}
+
+export async function complementaryDocument(date: string) {
+  const data = await load(date, "temperature");
+  if (!data.complementary || !record(data.complementary)) return null;
+  return {
+    document: data.complementary,
+    archive_sha256:
+      data === baseline
+        ? baselineChecksum
+        : data === restored
+          ? restoredChecksum
+          : data.document_sha256,
   };
 }

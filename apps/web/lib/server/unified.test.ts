@@ -1,3 +1,4 @@
+vi.mock("./coastal-complement", () => ({ coastalComplement: vi.fn().mockResolvedValue(undefined) }));
 import { afterEach, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 vi.mock('server-only',()=>({}));

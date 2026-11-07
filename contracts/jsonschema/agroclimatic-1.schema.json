@@ -37,26 +37,17 @@
     },
     "parameters": {
       "type": "object",
-      "required": [
-        "threshold"
-      ],
+      "required": ["threshold"],
       "properties": {
         "threshold": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": ["number", "null"]
         }
       },
       "additionalProperties": false
     },
     "period": {
       "type": "object",
-      "required": [
-        "start",
-        "end",
-        "timezone"
-      ],
+      "required": ["start", "end", "timezone"],
       "properties": {
         "start": {
           "type": "string"
@@ -71,20 +62,13 @@
       "additionalProperties": false
     },
     "temporal": {
-      "enum": [
-        "history",
-        "recent",
-        "forecast"
-      ]
+      "enum": ["history", "recent", "forecast"]
     },
     "source_version": {
       "type": "string"
     },
     "run": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": ["string", "null"]
     },
     "calculated_at": {
       "type": "string"
@@ -127,10 +111,7 @@
             "pattern": "^pra:[0-9AB]{5}$"
           },
           "value": {
-            "type": [
-              "number",
-              "null"
-            ]
+            "type": ["number", "null"]
           },
           "normal": {
             "type": "null"
@@ -139,17 +120,10 @@
             "type": "null"
           },
           "status": {
-            "enum": [
-              "available",
-              "partial",
-              "unavailable"
-            ]
+            "enum": ["available", "partial", "unavailable"]
           },
           "reason": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "unit": {
             "type": "string"
@@ -172,20 +146,16 @@
           "rule_version": {
             "enum": [
               "agroclimatic-1.0.0",
-              "agroclimatic-1.1.0"
+              "agroclimatic-1.1.0",
+              "agroclimatic-1.2.0"
             ]
           },
           "parameters": {
             "type": "object",
-            "required": [
-              "threshold"
-            ],
+            "required": ["threshold"],
             "properties": {
               "threshold": {
-                "type": [
-                  "number",
-                  "null"
-                ]
+                "type": ["number", "null"]
               }
             },
             "additionalProperties": false
@@ -212,17 +182,11 @@
             "const": "exploratory"
           },
           "episodes": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": ["integer", "null"],
             "minimum": 0
           },
           "longest": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": ["integer", "null"],
             "minimum": 0
           },
           "series": {
@@ -243,40 +207,22 @@
                   "type": "string"
                 },
                 "value": {
-                  "type": [
-                    "number",
-                    "null"
-                  ]
+                  "type": ["number", "null"]
                 },
                 "source": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": ["string", "null"]
                 },
                 "run": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": ["string", "null"]
                 },
                 "nature": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": ["string", "null"]
                 },
                 "temperature": {
-                  "type": [
-                    "number",
-                    "null"
-                  ]
+                  "type": ["number", "null"]
                 },
                 "support_id": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": ["string", "null"]
                 }
               },
               "additionalProperties": false
@@ -300,16 +246,10 @@
             }
           },
           "observed_value": {
-            "type": [
-              "number",
-              "null"
-            ]
+            "type": ["number", "null"]
           },
           "support_id": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "support_scope": {
             "enum": [
@@ -328,6 +268,139 @@
             "type": "number",
             "minimum": 0,
             "maximum": 1
+          },
+          "complementary": {
+            "type": "object",
+            "required": [
+              "value",
+              "unit",
+              "source_id",
+              "source_kind",
+              "method_version",
+              "native_spatial_coverage",
+              "temporal_coverage",
+              "days",
+              "support_id",
+              "scientific_status",
+              "provenance",
+              "quality_flags",
+              "validation",
+              "series",
+              "rule_version",
+              "data_freshness"
+            ],
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string"
+              },
+              "source_id": {
+                "const": "era5-land-neighbour-reconstruction"
+              },
+              "source_kind": {
+                "const": "spatial_reconstruction"
+              },
+              "method_version": {
+                "type": "string"
+              },
+              "native_spatial_coverage": {
+                "const": 0
+              },
+              "temporal_coverage": {
+                "const": 1
+              },
+              "days": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 30
+              },
+              "support_id": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "scientific_status": {
+                "const": "exploratory"
+              },
+              "provenance": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "quality_flags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "validation": {
+                "type": "object",
+                "required": [
+                  "reference",
+                  "pra",
+                  "pra_days",
+                  "mae",
+                  "p95_absolute_error",
+                  "unit"
+                ],
+                "properties": {
+                  "reference": {
+                    "const": "ERA5-Land field, not an independent station"
+                  },
+                  "pra": {
+                    "type": "integer",
+                    "minimum": 5
+                  },
+                  "pra_days": {
+                    "type": "integer",
+                    "minimum": 65
+                  },
+                  "mae": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "p95_absolute_error": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "unit": {
+                    "enum": ["°C", "mm/j"]
+                  }
+                },
+                "additionalProperties": false
+              },
+              "series": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["date", "input_value", "value"],
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    },
+                    "input_value": {
+                      "type": "number"
+                    },
+                    "value": {
+                      "type": "number"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "rule_version": {
+                "const": "agroclimatic-1.2.0"
+              },
+              "data_freshness": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": false
           }
         },
         "additionalProperties": false
