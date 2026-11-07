@@ -1,7 +1,7 @@
 import { cattleRule } from '../cattle/thi';
 export const PALETTE_VERSION = 'semantic-1.0.0';
 export interface Palette {
-  id: string; family: string; nature: 'absolute'|'anomaly'|'cumulative'|'occurrence'|'category';
+  indicator:string; id: string; family: string; nature: 'absolute'|'anomaly'|'cumulative'|'occurrence'|'category';
   unit: string; bounds: number[]; tokens: string[]; classification: 'fixed-upper-inclusive';
   reference: string|null; meaning: string; justification: string; documentation: string;
   version: string; missing: string; partial: string;
@@ -12,11 +12,14 @@ const dry=[1,2,3,4,5].map(i=>`--map-dry-${i}`);
 const cold=[...rain];
 const agriculture=[1,2,3,4,5].map(i=>`--map-agri-${i}`);
 function definition(id:string,family:string,nature:Palette['nature'],unit:string,bounds:number[],tokens:string[],meaning:string,reference:string|null=null):Palette {
- return {id,family,nature,unit,bounds,tokens,meaning,reference,classification:'fixed-upper-inclusive',version:PALETTE_VERSION,
+ return {indicator:id,id,family,nature,unit,bounds,tokens,meaning,reference,classification:'fixed-upper-inclusive',version:PALETTE_VERSION,
  justification:'Convention éditoriale stable ; ces classes ne sont pas des seuils de dommage.',
  documentation:`/aide/cartes#${id}`,missing:'Gris : NULL distinct de zéro',partial:'Hachures et support renseigné ; reconstruction indiquée séparément'};
 }
 export function semanticPalette(indicator:string,unit:string,days=1,mode='value'):Palette {
+ return {...resolvePalette(indicator,unit,days,mode),indicator};
+}
+function resolvePalette(indicator:string,unit:string,days:number,mode:string):Palette {
  const temperature=['temperature','temperature_min','temperature_max','temperature_mean'].includes(indicator);
  if(mode==='anomaly')return temperature
   ? definition('temperature-anomaly','temperature','anomaly','°C',[-3,-1,1,3,Infinity],thermal,'Bleu : froid ; classe neutre centrée sur 0 °C ; chaud : orange/rouge','Normale homologue ERA5-Land 1991–2020 validée')
