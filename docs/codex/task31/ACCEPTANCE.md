@@ -16,7 +16,7 @@ Rubriques opérationnelles : blé tendre, maïs, vigne, vergers, prairies, bovin
 
 ## Vérifications
 
-- Tests unitaires de toute l'application : 337 réussites lors de la recette complète, dont lecture réelle explicite. Un test de non-régression supplémentaire vérifie les destinations adaptées aux productions.
+- Tests unitaires de toute l'application : 338 réussites lors de la recette complète, dont lecture réelle explicite. Le test de non-régression des destinations de production est inclus.
 - Tests Task31 : quinze situations demandées, reproductibilité, refus de références cassées, registre invalide, contributeur qualifié et exclusion d'un indicateur incomplet. Fixtures explicitement synthétiques, uniquement dans les tests.
 - API : paramètres invalides 400, absence d'archive 503 sans détail sensible et `no-store`, succès 200 et ETag 304, changement de classe de fraîcheur invalidant l'ETag, relecture du 6 novembre avec identité différente.
 - Lecture réelle optionnelle `TASK31_REAL=1` : compare chaque fait à l'événement Task30 source, vérifie treize régions et enregistre l'inventaire des archives.
@@ -49,6 +49,6 @@ PR draft : https://github.com/Mehdi-Sine/agriclimax/pull/60
 
 Preview : https://agriclimax-git-codex-31-agroclimati-f13fa7-mehdi-sines-projects.vercel.app/journal
 
-La recette Preview du commit initial 39c91a3 a passé les 19 contrôles API/desktop/mobile, sans erreur navigateur, sur données réelles (141 469 octets JSON). Rapports et captures dans `evidence/preview/`. Une seconde recette après correction des destinations de production est enregistrée dans le rapport final.
+La recette Preview du commit initial 39c91a3 a passé les 19 contrôles API/desktop/mobile, sans erreur navigateur, sur données réelles (141 469 octets JSON). Rapports et captures dans `evidence/preview/`. La seconde recette du commit **564ffd9**, après correction des destinations de production, réussit également les **19 contrôles** ; aucune erreur navigateur, 141676 octets JSON et identité factuelle identique à la génération locale. Le rapport et les captures enregistrés sont ceux de cette dernière recette.
 
 Les audits distants secrets, JS, Python et navigateur ainsi que contrats Python et SQL ont réussi sur le commit initial ; le job web est encore en cours au moment de cette note. Aucun merge effectué.
