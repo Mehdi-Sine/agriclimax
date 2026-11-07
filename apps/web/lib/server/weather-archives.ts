@@ -15,7 +15,7 @@ const ajv=new Ajv2020({strict:false});addFormats(ajv);
 const validRow=ajv.compile<WeatherRow>(schema);
 export type ArchiveEntry={path:string;sha256:string;bytes:number;dates:string[];run_date?:string;run_at?:string;method_version?:string;pra_count?:number};
 export type ArchiveCatalogue={version:'pra-archive-catalogue-1';weather:ArchiveEntry[];era5:ArchiveEntry[];supports?:ArchiveEntry[]};
-export type NationalWeatherDocument=JsonRecord&{rows:WeatherRow[];selected_indices:number[];run:string;acquired_at:string;pra_count:713;attribution:string;recent_estimate_status:string};
+export type NationalWeatherDocument=JsonRecord&{archive_sha256:string;rows:WeatherRow[];selected_indices:number[];run:string;acquired_at:string;pra_count:713;attribution:string;recent_estimate_status:string};
 let catalogueCache:{expires:number;value:Promise<ArchiveCatalogue|null>}|undefined;
 let cycleCache:{sha:string;value:Promise<NationalWeatherDocument>}|undefined;
 
@@ -74,7 +74,7 @@ export async function nationalWeatherDocument(requestedRun?:string):Promise<Nati
     if(!rows.every(r=>expected.has(r.pra_id))||new Set(rows.map(r=>r.pra_id)).size!==713)throw new Error('NATIONAL_WEATHER_IDENTITIES');
     const c:WeatherCycle={scope:'national',run:d.run,acquired_at:d.acquired_at,pra_count:713,rows:selected.map(i=>rows[i]),recent_estimate_status:d.recent_estimate_status,attribution:d.attribution};
     if(!completeForecastCycle(c))throw new Error('NATIONAL_WEATHER_SELECTION');
-    return {...d,rows,selected_indices:selected,run:d.run,acquired_at:d.acquired_at,pra_count:713,attribution:d.attribution,recent_estimate_status:d.recent_estimate_status} as NationalWeatherDocument;
+    return {...d,archive_sha256:latest.sha256,rows,selected_indices:selected,run:d.run,acquired_at:d.acquired_at,pra_count:713,attribution:d.attribution,recent_estimate_status:d.recent_estimate_status} as NationalWeatherDocument;
   })();
   cycleCache={sha:latest.sha256,value};void value.catch(()=>{if(cycleCache?.value===value)cycleCache=undefined;});return value;
 }

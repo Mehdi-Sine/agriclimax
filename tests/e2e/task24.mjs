@@ -15,7 +15,8 @@ page.on('pageerror',e=>report.errors.push(e.message));
 await page.route('**/api/agroclimatic?**',route=>route.fulfill({json:{data:fixture.map(r=>({...r,parameters:{threshold:25},series:[],signals:[],episodes:0,longest:0,data_freshness:['synthetic-test-only'],provenance:['synthetic-test-only']})),source_version:'synthetic-test-only',calculated_at:'2026-10-18T00:00:00Z'}}));
 await page.route('**/api/unified?**',route=>route.fulfill({json:{data:fixture}}));
 await page.route('**/api/national?**',route=>new URL(route.request().url()).searchParams.get('action')==='availability'?route.fulfill({json:{latest:'2026-10-18',days:Array.from({length:30},(_,i)=>new Date(Date.UTC(2026,8,19+i)).toISOString().slice(0,10))}}):route.fulfill({json:{data:Array.from({length:30},(_,i)=>new Date(Date.UTC(2026,8,19+i)).toISOString().slice(0,10)).flatMap(date=>['temperature','temperature_min','temperature_max','precipitation'].map(variable=>({date,variable,current_value:12,normal_1991_2020:10,anomaly:2,current_status:'available'})))}}));
-await page.goto(base+'/?date=2026-10-15');
+// This journey checks absolute polygon values; Task 30 defaults historical temperatures to anomalies.
+await page.goto(base+'/?date=2026-10-15&mode=value');
 await page.locator('.national-map[data-ready="true"]').waitFor({timeout:60000});
 await page.getByText(/PRA complètes/).waitFor();
 assert.equal(await page.getByText(/Carte indisponible/).count(),0);

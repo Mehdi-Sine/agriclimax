@@ -1,0 +1,6566 @@
+{
+  "origin": "http://localhost:3010",
+  "tested_commit": "7123eb9",
+  "checks": [
+    {
+      "name": "unchanged-cycle-conditional-response",
+      "ok": true
+    },
+    {
+      "name": "pra:28341:heat:independent-extreme",
+      "ok": true,
+      "actual": 17.566629028320335,
+      "expected": 17.566629028320335
+    },
+    {
+      "name": "pra:28341:frost:independent-extreme",
+      "ok": true,
+      "actual": -0.41820373535153976,
+      "expected": -0.41820373535153976
+    },
+    {
+      "name": "pra:28341:rain:independent-extreme",
+      "ok": true,
+      "actual": 9.152081028618491,
+      "expected": 9.152081028618491
+    },
+    {
+      "name": "pra:28341:dry:independent-sequence",
+      "ok": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "pra:06249:heat:independent-extreme",
+      "ok": true,
+      "actual": 19.553063964843773,
+      "expected": 19.553063964843773
+    },
+    {
+      "name": "pra:06249:frost:independent-extreme",
+      "ok": true,
+      "actual": 3.6973968505859602,
+      "expected": 3.6973968505859602
+    },
+    {
+      "name": "pra:06249:rain:independent-extreme",
+      "ok": true,
+      "actual": 85.30869419840538,
+      "expected": 85.30869419840538
+    },
+    {
+      "name": "pra:06249:dry:independent-sequence",
+      "ok": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "name": "pra:29102:heat:independent-extreme",
+      "ok": true,
+      "actual": 15.952630615234398,
+      "expected": 15.952630615234398
+    },
+    {
+      "name": "pra:29102:frost:independent-extreme",
+      "ok": true,
+      "actual": 4.04309997558596,
+      "expected": 4.04309997558596
+    },
+    {
+      "name": "pra:29102:rain:independent-extreme",
+      "ok": true,
+      "actual": 12.69928526694175,
+      "expected": 12.69928526694175
+    },
+    {
+      "name": "pra:29102:dry:independent-sequence",
+      "ok": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "pra:2A258:heat:independent-extreme",
+      "ok": true,
+      "actual": 21.654870605468773,
+      "expected": 21.654870605468773
+    },
+    {
+      "name": "pra:2A258:frost:independent-extreme",
+      "ok": true,
+      "actual": 3.9587341308593977,
+      "expected": 3.9587341308593977
+    },
+    {
+      "name": "pra:2A258:rain:independent-extreme",
+      "ok": true,
+      "actual": 31.693460699568867,
+      "expected": 31.693460699568867
+    },
+    {
+      "name": "pra:2A258:dry:independent-sequence",
+      "ok": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "new-cycle-changes-identity-and-period",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01195:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01198:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01201:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01215:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01216:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01446:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01449:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01451:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:02034:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:02317:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:02323:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:02328:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:02329:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:02336:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:03178:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:03425:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:03426:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:03428:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:03429:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:04233:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:04459:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:04460:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:04462:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:04466:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05231:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05232:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05235:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05236:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05237:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05239:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05457:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05459:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05461:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05463:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:06250:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07169:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07171:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07422:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07423:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07424:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07425:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07465:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:08021:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:08022:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:08315:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:08317:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:08323:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:09390:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:09392:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:09393:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:09472:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10011:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10013:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10014:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10015:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10019:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10020:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10317:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10318:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10319:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10335:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:11391:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:11392:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:11413:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:11472:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12161:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12162:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12397:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12407:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12409:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12411:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12412:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12419:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:13246:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:13466:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:13467:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:14354:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15163:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15164:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15167:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15409:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15417:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15418:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15419:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15420:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15421:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15433:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16112:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16113:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16367:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16371:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16372:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16375:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16377:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16432:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16438:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:17369:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:17375:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:17376:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18066:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18179:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18343:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18434:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18436:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18437:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18439:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19394:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19403:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19408:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19409:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19420:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19421:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19430:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19432:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19433:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21010:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21204:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21311:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21312:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21322:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21440:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21441:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21442:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21443:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:22359:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:22360:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:22361:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:22362:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:23428:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:23430:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:23431:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:23432:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:23437:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24158:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24394:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24401:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24403:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24404:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24405:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24406:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24432:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:25447:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:25449:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:25450:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:25452:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26221:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26234:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26240:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26241:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26242:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26243:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26453:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26461:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26463:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26464:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27044:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27050:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27051:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27052:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27077:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27078:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27079:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27080:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27330:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27332:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27351:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27352:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27353:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:28076:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:28334:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:28341:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:28342:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:28351:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:29100:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:29360:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30410:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30411:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30414:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30415:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30416:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30422:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30465:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31385:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31389:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31390:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31391:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31392:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31393:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31472:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32147:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32149:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32383:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32384:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32385:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32386:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32387:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32388:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33114:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33116:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33117:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33118:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33119:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33120:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33121:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33122:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33123:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33124:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33125:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33126:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33127:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33128:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33129:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33135:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33136:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33376:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33400:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33401:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33402:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33405:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33406:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:34412:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:34414:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:34415:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:34470:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:35097:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:35098:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:35099:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:35357:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:35359:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:35363:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:36434:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:36435:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:36436:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:36438:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37069:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37070:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37071:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37072:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37073:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37074:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37344:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37346:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37348:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37435:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:38199:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:38217:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:38453:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:38457:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:38465:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39203:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39206:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39207:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39209:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39212:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39446:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39447:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39449:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39451:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39452:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40133:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40134:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40145:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40378:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40379:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40380:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40382:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40387:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40388:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41065:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41068:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41075:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41341:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41343:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41346:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41350:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41351:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41434:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41435:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42168:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42170:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42189:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42190:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42191:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42192:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42193:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42425:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42445:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42465:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43172:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43177:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43417:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43418:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43423:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43424:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43425:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43427:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44104:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44105:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44107:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44356:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44363:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44368:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44373:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45063:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45067:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45338:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45339:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45340:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45341:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45342:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45343:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45439:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46159:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46160:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46394:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46396:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46407:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46408:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46409:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47156:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47157:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47378:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47394:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47398:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47399:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47400:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47401:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47402:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47404:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:48410:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:48411:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:48418:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:48419:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:49344:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:49345:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:49347:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:49356:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:49373:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:50354:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51016:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51017:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51018:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51315:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51317:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51318:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51321:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51335:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51336:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52008:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52009:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52012:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52310:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52311:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52312:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52314:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52318:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52321:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52322:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:53095:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:53096:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:53356:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:53357:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:54305:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:54306:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:54307:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:54308:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:54313:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:54316:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:55308:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:55314:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:55315:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:55316:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:56359:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:56362:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:57003:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:57004:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:57306:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:57307:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:57308:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:57473:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:58180:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:58185:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:58188:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:58340:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:58429:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:58443:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59025:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59026:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59027:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59028:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59033:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59323:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59324:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59326:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60041:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60042:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60043:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60327:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60328:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60329:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60330:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60331:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:61088:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:61351:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:61352:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:61353:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:61354:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:61355:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62023:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62024:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62030:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62031:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62032:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62039:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62040:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62324:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62326:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63165:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63166:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63173:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63174:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63175:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63176:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63181:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63417:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63421:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63425:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63426:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63427:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63428:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64140:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64141:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64142:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64143:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64379:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64380:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64381:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64382:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64386:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65146:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65148:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65150:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65381:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65383:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65386:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65387:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65389:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:66253:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:66255:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:66256:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:66257:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:66470:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:66472:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:67301:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:67302:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:67304:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:67307:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:67473:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68001:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68002:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68301:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68302:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68303:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68304:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68307:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68450:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69194:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69195:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69196:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69197:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69199:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69200:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69444:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69445:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69465:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70005:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70006:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70007:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70205:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70307:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70309:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70447:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70448:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71183:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71184:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71187:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71202:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71429:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71440:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71441:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71442:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71443:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71444:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71446:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72089:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72090:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72091:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72092:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72093:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72094:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72345:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72350:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72351:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72354:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72355:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73213:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73219:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73220:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73229:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73230:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73451:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73453:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73454:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73455:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73456:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73458:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74208:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74210:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74211:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74214:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74218:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74222:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74223:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74224:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74225:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74226:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74227:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74228:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74454:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74455:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74456:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74458:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:76048:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:76049:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:76331:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:76332:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77045:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77056:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77057:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77058:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77059:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77060:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77061:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77062:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77064:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77320:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77329:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77335:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77336:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77337:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77338:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77339:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78053:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78054:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78055:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78330:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78332:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78333:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78334:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78342:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79109:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79349:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79366:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79367:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79368:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79370:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79371:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79373:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:80035:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:80036:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:80327:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81151:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81152:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81153:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81391:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81395:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81409:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81412:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81413:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82154:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82155:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82384:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82385:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82390:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82391:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82395:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82396:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82397:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82398:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82399:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:83460:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:83468:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:84238:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:84462:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:84463:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:84464:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:84466:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:84467:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:85110:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:85366:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:85370:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:85373:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86182:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86347:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86348:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86349:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86368:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86372:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86438:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:87430:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:87431:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:87432:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88305:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88306:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88307:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88309:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88310:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88313:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88314:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89186:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89317:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89319:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89320:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89322:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89338:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89340:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89442:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89443:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:90303:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:90307:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:90448:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:90450:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:91055:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:91333:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:91337:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:91339:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:91342:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:92333:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:93329:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:93333:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:94333:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:95329:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:95330:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:95332:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:95333:temperature",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01195:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01198:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01201:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01215:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01216:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01446:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01449:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:01451:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:02034:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:02317:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:02323:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:02328:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:02329:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:02336:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:03178:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:03425:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:03426:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:03428:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:03429:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:04233:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:04459:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:04460:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:04462:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:04466:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05231:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05232:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05235:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05236:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05237:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05239:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05457:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05459:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05461:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:05463:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:06250:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07169:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07171:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07422:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07423:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07424:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07425:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:07465:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:08021:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:08022:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:08315:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:08317:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:08323:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:09390:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:09392:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:09393:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:09472:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10011:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10013:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10014:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10015:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10019:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10020:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10317:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10318:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10319:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:10335:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:11391:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:11392:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:11413:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:11472:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12161:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12162:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12397:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12407:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12409:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12411:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12412:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:12419:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:13246:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:13466:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:13467:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:14354:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15163:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15164:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15167:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15409:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15417:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15418:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15419:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15420:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15421:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:15433:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16112:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16113:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16367:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16371:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16372:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16375:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16377:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16432:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:16438:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:17369:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:17375:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:17376:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18066:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18179:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18343:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18434:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18436:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18437:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:18439:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19394:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19403:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19408:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19409:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19420:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19421:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19430:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19432:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:19433:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21010:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21204:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21311:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21312:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21322:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21440:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21441:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21442:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:21443:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:22359:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:22360:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:22361:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:22362:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:23428:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:23430:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:23431:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:23432:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:23437:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24158:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24394:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24401:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24403:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24404:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24405:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24406:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:24432:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:25447:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:25449:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:25450:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:25452:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26221:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26234:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26240:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26241:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26242:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26243:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26453:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26461:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26463:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:26464:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27044:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27050:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27051:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27052:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27077:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27078:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27079:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27080:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27330:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27332:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27351:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27352:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:27353:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:28076:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:28334:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:28341:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:28342:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:28351:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:29100:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:29360:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30410:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30411:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30414:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30415:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30416:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30422:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:30465:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31385:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31389:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31390:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31391:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31392:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31393:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:31472:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32147:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32149:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32383:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32384:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32385:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32386:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32387:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:32388:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33114:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33116:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33117:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33118:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33119:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33120:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33121:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33122:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33123:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33124:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33125:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33126:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33127:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33128:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33129:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33135:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33136:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33376:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33400:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33401:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33402:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33405:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:33406:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:34412:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:34414:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:34415:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:34470:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:35097:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:35098:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:35099:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:35357:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:35359:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:35363:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:36434:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:36435:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:36436:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:36438:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37069:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37070:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37071:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37072:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37073:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37074:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37344:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37346:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37348:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:37435:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:38199:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:38217:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:38453:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:38457:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:38465:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39203:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39206:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39207:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39209:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39212:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39446:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39447:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39449:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39451:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:39452:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40133:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40134:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40145:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40378:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40379:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40380:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40382:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40387:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:40388:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41065:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41068:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41075:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41341:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41343:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41346:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41350:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41351:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41434:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:41435:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42168:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42170:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42189:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42190:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42191:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42192:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42193:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42425:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42445:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:42465:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43172:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43177:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43417:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43418:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43423:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43424:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43425:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:43427:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44104:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44105:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44107:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44356:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44363:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44368:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:44373:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45063:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45067:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45338:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45339:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45340:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45341:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45342:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45343:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:45439:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46159:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46160:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46394:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46396:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46407:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46408:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:46409:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47156:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47157:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47378:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47394:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47398:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47399:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47400:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47401:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47402:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:47404:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:48410:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:48411:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:48418:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:48419:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:49344:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:49345:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:49347:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:49356:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:49373:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:50354:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51016:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51017:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51018:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51315:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51317:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51318:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51321:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51335:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:51336:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52008:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52009:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52012:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52310:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52311:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52312:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52314:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52318:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52321:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:52322:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:53095:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:53096:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:53356:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:53357:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:54305:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:54306:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:54307:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:54308:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:54313:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:54316:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:55308:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:55314:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:55315:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:55316:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:56359:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:56362:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:57003:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:57004:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:57306:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:57307:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:57308:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:57473:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:58180:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:58185:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:58188:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:58340:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:58429:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:58443:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59025:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59026:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59027:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59028:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59033:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59323:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59324:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:59326:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60041:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60042:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60043:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60327:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60328:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60329:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60330:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:60331:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:61088:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:61351:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:61352:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:61353:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:61354:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:61355:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62023:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62024:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62030:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62031:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62032:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62039:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62040:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62324:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:62326:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63165:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63166:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63173:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63174:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63175:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63176:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63181:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63417:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63421:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63425:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63426:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63427:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:63428:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64140:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64141:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64142:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64143:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64379:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64380:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64381:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64382:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:64386:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65146:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65148:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65150:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65381:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65383:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65386:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65387:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:65389:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:66253:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:66255:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:66256:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:66257:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:66470:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:66472:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:67301:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:67302:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:67304:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:67307:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:67473:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68001:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68002:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68301:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68302:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68303:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68304:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68307:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:68450:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69194:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69195:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69196:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69197:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69199:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69200:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69444:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69445:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:69465:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70005:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70006:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70007:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70205:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70307:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70309:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70447:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:70448:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71183:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71184:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71187:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71202:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71429:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71440:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71441:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71442:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71443:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71444:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:71446:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72089:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72090:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72091:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72092:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72093:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72094:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72345:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72350:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72351:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72354:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:72355:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73213:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73219:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73220:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73229:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73230:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73451:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73453:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73454:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73455:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73456:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:73458:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74208:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74210:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74211:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74214:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74218:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74222:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74223:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74224:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74225:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74226:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74227:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74228:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74454:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74455:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74456:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:74458:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:76048:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:76049:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:76331:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:76332:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77045:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77056:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77057:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77058:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77059:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77060:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77061:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77062:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77064:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77320:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77329:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77335:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77336:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77337:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77338:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:77339:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78053:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78054:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78055:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78330:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78332:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78333:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78334:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:78342:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79109:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79349:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79366:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79367:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79368:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79370:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79371:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:79373:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:80035:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:80036:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:80327:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81151:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81152:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81153:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81391:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81395:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81409:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81412:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:81413:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82154:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82155:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82384:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82385:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82390:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82391:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82395:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82396:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82397:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82398:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:82399:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:83460:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:83468:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:84238:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:84462:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:84463:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:84464:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:84466:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:84467:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:85110:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:85366:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:85370:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:85373:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86182:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86347:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86348:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86349:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86368:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86372:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:86438:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:87430:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:87431:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:87432:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88305:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88306:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88307:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88309:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88310:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88313:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:88314:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89186:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89317:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89319:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89320:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89322:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89338:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89340:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89442:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:89443:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:90303:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:90307:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:90448:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:90450:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:91055:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:91333:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:91337:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:91339:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:91342:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:92333:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:93329:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:93333:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:94333:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:95329:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:95330:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:95332:precipitation",
+      "ok": true
+    },
+    {
+      "name": "historical-arithmetic:pra:95333:precipitation",
+      "ok": true
+    }
+  ],
+  "timings": [
+    {
+      "path": "/api/veille",
+      "status": 200,
+      "ms": 4533,
+      "bytes": 668473
+    },
+    {
+      "path": "/api/veille",
+      "status": 200,
+      "ms": 33,
+      "bytes": 668473
+    },
+    {
+      "path": "/api/operational?experimental=weather&pra=pra:28341",
+      "status": 200,
+      "ms": 840,
+      "bytes": 72881
+    },
+    {
+      "path": "/api/operational?experimental=weather&pra=pra:06249",
+      "status": 200,
+      "ms": 36,
+      "bytes": 72752
+    },
+    {
+      "path": "/api/operational?experimental=weather&pra=pra:29102",
+      "status": 200,
+      "ms": 55,
+      "bytes": 72774
+    },
+    {
+      "path": "/api/operational?experimental=weather&pra=pra:2A258",
+      "status": 200,
+      "ms": 73,
+      "bytes": 72510
+    },
+    {
+      "path": "/api/veille?run=2026-11-06",
+      "status": 200,
+      "ms": 3282,
+      "bytes": 662654
+    },
+    {
+      "path": "/api/veille/historique",
+      "status": 200,
+      "ms": 4898,
+      "bytes": 418309
+    }
+  ],
+  "cycles": [
+    {
+      "run": "2026-11-07T00:00:00+00:00",
+      "identity": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3/national-watch-1.0.0/semantic-1.0.0/07afe77f98583d05f83f476be44bdaf3de89f77b55d9935459253c7a079a8d30",
+      "coverage": [
+        {
+          "phenomenon": "heat",
+          "evaluated": 713,
+          "affected": 0,
+          "insufficient": 0,
+          "unavailable": 0
+        },
+        {
+          "phenomenon": "frost",
+          "evaluated": 713,
+          "affected": 296,
+          "insufficient": 0,
+          "unavailable": 0
+        },
+        {
+          "phenomenon": "rain",
+          "evaluated": 713,
+          "affected": 117,
+          "insufficient": 0,
+          "unavailable": 0
+        },
+        {
+          "phenomenon": "dry",
+          "evaluated": 713,
+          "affected": 63,
+          "insufficient": 0,
+          "unavailable": 0
+        },
+        {
+          "phenomenon": "thi",
+          "evaluated": 77,
+          "affected": 0,
+          "insufficient": 634,
+          "unavailable": 2
+        }
+      ],
+      "compute_ms": 823,
+      "events": [
+        {
+          "id": "frost:Auvergne-Rhône-Alpes:2026-11-08:2026-11-14",
+          "phenomenon": "frost",
+          "region": "Auvergne-Rhône-Alpes",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": -19.80065002441404,
+          "unit": "°C",
+          "pra_ids": [
+            "pra:01195",
+            "pra:01198",
+            "pra:01201",
+            "pra:01215",
+            "pra:01216",
+            "pra:01446",
+            "pra:01449",
+            "pra:01451",
+            "pra:03178",
+            "pra:03425",
+            "pra:03426",
+            "pra:03428",
+            "pra:03429",
+            "pra:07171",
+            "pra:07423",
+            "pra:07424",
+            "pra:07425",
+            "pra:07465",
+            "pra:15164",
+            "pra:15167",
+            "pra:15417",
+            "pra:15418",
+            "pra:15419",
+            "pra:15420",
+            "pra:15421",
+            "pra:15433",
+            "pra:26234",
+            "pra:26240",
+            "pra:26242",
+            "pra:26461",
+            "pra:26463",
+            "pra:38199",
+            "pra:38453",
+            "pra:38457",
+            "pra:42168",
+            "pra:42189",
+            "pra:42190",
+            "pra:42191",
+            "pra:42192",
+            "pra:42193",
+            "pra:42425",
+            "pra:42445",
+            "pra:43172",
+            "pra:43177",
+            "pra:43417",
+            "pra:43418",
+            "pra:43423",
+            "pra:43424",
+            "pra:43425",
+            "pra:63165",
+            "pra:63166",
+            "pra:63173",
+            "pra:63174",
+            "pra:63175",
+            "pra:63176",
+            "pra:63181",
+            "pra:63417",
+            "pra:63421",
+            "pra:63425",
+            "pra:63426",
+            "pra:63427",
+            "pra:63428",
+            "pra:69194",
+            "pra:69197",
+            "pra:69199",
+            "pra:69444",
+            "pra:69465",
+            "pra:73219",
+            "pra:73229",
+            "pra:73230",
+            "pra:73453",
+            "pra:73454",
+            "pra:73456",
+            "pra:73458",
+            "pra:74208",
+            "pra:74218",
+            "pra:74222",
+            "pra:74223",
+            "pra:74224",
+            "pra:74225",
+            "pra:74226",
+            "pra:74227",
+            "pra:74228",
+            "pra:74454",
+            "pra:74458"
+          ],
+          "evaluated": 112,
+          "duration": 7,
+          "intensity": 19.80065002441404,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "frost:Provence-Alpes-Côte d'Azur:2026-11-08:2026-11-14",
+          "phenomenon": "frost",
+          "region": "Provence-Alpes-Côte d'Azur",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": -13.52428283691404,
+          "unit": "°C",
+          "pra_ids": [
+            "pra:04460",
+            "pra:05231",
+            "pra:05232",
+            "pra:05235",
+            "pra:05236",
+            "pra:05237",
+            "pra:05239",
+            "pra:05457",
+            "pra:05461",
+            "pra:05463",
+            "pra:06245",
+            "pra:06250"
+          ],
+          "evaluated": 35,
+          "duration": 7,
+          "intensity": 13.52428283691404,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "rain:Provence-Alpes-Côte d'Azur:2026-11-08:2026-11-14",
+          "phenomenon": "rain",
+          "region": "Provence-Alpes-Côte d'Azur",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 98.34531260101946,
+          "unit": "mm",
+          "pra_ids": [
+            "pra:04233",
+            "pra:04459",
+            "pra:04460",
+            "pra:04462",
+            "pra:04466",
+            "pra:05231",
+            "pra:05232",
+            "pra:05235",
+            "pra:05236",
+            "pra:05237",
+            "pra:05239",
+            "pra:05457",
+            "pra:05459",
+            "pra:05461",
+            "pra:05463",
+            "pra:06245",
+            "pra:06249",
+            "pra:06250",
+            "pra:13244",
+            "pra:13246",
+            "pra:13466",
+            "pra:13467",
+            "pra:13468",
+            "pra:13469",
+            "pra:83247",
+            "pra:83248",
+            "pra:83460",
+            "pra:83468",
+            "pra:83469",
+            "pra:84238",
+            "pra:84462",
+            "pra:84463",
+            "pra:84464",
+            "pra:84466",
+            "pra:84467"
+          ],
+          "evaluated": 35,
+          "duration": 2,
+          "intensity": 4.917265630050973,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "frost:Occitanie:2026-11-08:2026-11-14",
+          "phenomenon": "frost",
+          "region": "Occitanie",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": -3.4797271728515398,
+          "unit": "°C",
+          "pra_ids": [
+            "pra:09393",
+            "pra:09472",
+            "pra:11472",
+            "pra:12407",
+            "pra:12419",
+            "pra:31472",
+            "pra:46159",
+            "pra:48410",
+            "pra:48411",
+            "pra:48418",
+            "pra:48419",
+            "pra:65146",
+            "pra:66253",
+            "pra:66255",
+            "pra:66256",
+            "pra:66257"
+          ],
+          "evaluated": 93,
+          "duration": 4,
+          "intensity": 3.4797271728515398,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "frost:Nouvelle-Aquitaine:2026-11-08:2026-11-14",
+          "phenomenon": "frost",
+          "region": "Nouvelle-Aquitaine",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": -3.1496490478515398,
+          "unit": "°C",
+          "pra_ids": [
+            "pra:16113",
+            "pra:16371",
+            "pra:16372",
+            "pra:16432",
+            "pra:19409",
+            "pra:19420",
+            "pra:19421",
+            "pra:19430",
+            "pra:19432",
+            "pra:19433",
+            "pra:23428",
+            "pra:23430",
+            "pra:23431",
+            "pra:23432",
+            "pra:23437",
+            "pra:24403",
+            "pra:24404",
+            "pra:64142",
+            "pra:79109",
+            "pra:79349",
+            "pra:79366",
+            "pra:79367",
+            "pra:79368",
+            "pra:79371",
+            "pra:79373",
+            "pra:86182",
+            "pra:86347",
+            "pra:86348",
+            "pra:86349",
+            "pra:86368",
+            "pra:86372",
+            "pra:86438",
+            "pra:87430",
+            "pra:87432"
+          ],
+          "evaluated": 115,
+          "duration": 3,
+          "intensity": 3.1496490478515398,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "rain:Occitanie:2026-11-08:2026-11-14",
+          "phenomenon": "rain",
+          "region": "Occitanie",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 54.61233611003061,
+          "unit": "mm",
+          "pra_ids": [
+            "pra:30410",
+            "pra:30411",
+            "pra:30414",
+            "pra:30415",
+            "pra:30416",
+            "pra:30422",
+            "pra:30465",
+            "pra:30471",
+            "pra:34414",
+            "pra:34415",
+            "pra:34416",
+            "pra:34471",
+            "pra:48410"
+          ],
+          "evaluated": 93,
+          "duration": 3,
+          "intensity": 2.7306168055015307,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "frost:Bourgogne-Franche-Comté:2026-11-08:2026-11-14",
+          "phenomenon": "frost",
+          "region": "Bourgogne-Franche-Comté",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": -2.3074859619140398,
+          "unit": "°C",
+          "pra_ids": [
+            "pra:21311",
+            "pra:21440",
+            "pra:21441",
+            "pra:21442",
+            "pra:21443",
+            "pra:25447",
+            "pra:25449",
+            "pra:25450",
+            "pra:25452",
+            "pra:39207",
+            "pra:39209",
+            "pra:39212",
+            "pra:39446",
+            "pra:39449",
+            "pra:39451",
+            "pra:39452",
+            "pra:58180",
+            "pra:58185",
+            "pra:58188",
+            "pra:58429",
+            "pra:58443",
+            "pra:70006",
+            "pra:70307",
+            "pra:70309",
+            "pra:71183",
+            "pra:71184",
+            "pra:71187",
+            "pra:71202",
+            "pra:71429",
+            "pra:71440",
+            "pra:71441",
+            "pra:71442",
+            "pra:71443",
+            "pra:71444",
+            "pra:71446",
+            "pra:89186",
+            "pra:89320",
+            "pra:89338",
+            "pra:89340",
+            "pra:89442",
+            "pra:89443"
+          ],
+          "evaluated": 61,
+          "duration": 2,
+          "intensity": 2.3074859619140398,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "frost:Grand Est:2026-11-08:2026-11-14",
+          "phenomenon": "frost",
+          "region": "Grand Est",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": -2.2229675292968523,
+          "unit": "°C",
+          "pra_ids": [
+            "pra:08021",
+            "pra:08022",
+            "pra:10013",
+            "pra:10014",
+            "pra:10019",
+            "pra:10317",
+            "pra:10318",
+            "pra:10335",
+            "pra:51017",
+            "pra:51315",
+            "pra:51317",
+            "pra:51318",
+            "pra:51321",
+            "pra:51335",
+            "pra:52311",
+            "pra:52314",
+            "pra:52318",
+            "pra:52321",
+            "pra:54305",
+            "pra:54306",
+            "pra:54307",
+            "pra:54308",
+            "pra:54313",
+            "pra:54316",
+            "pra:55314",
+            "pra:55315",
+            "pra:57306",
+            "pra:57307",
+            "pra:57308",
+            "pra:57473",
+            "pra:67302",
+            "pra:67304",
+            "pra:67307",
+            "pra:67473",
+            "pra:68301",
+            "pra:68304",
+            "pra:68307",
+            "pra:88305",
+            "pra:88306",
+            "pra:88307",
+            "pra:88309",
+            "pra:88310",
+            "pra:88313",
+            "pra:88314"
+          ],
+          "evaluated": 70,
+          "duration": 3,
+          "intensity": 2.2229675292968523,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "rain:Corse:2026-11-08:2026-11-14",
+          "phenomenon": "rain",
+          "region": "Corse",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 40.144683666529396,
+          "unit": "mm",
+          "pra_ids": [
+            "pra:2A258",
+            "pra:2A259",
+            "pra:2A260",
+            "pra:2B260"
+          ],
+          "evaluated": 6,
+          "duration": 2,
+          "intensity": 2.00723418332647,
+          "production_ids": [
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "rain:Auvergne-Rhône-Alpes:2026-11-08:2026-11-14",
+          "phenomenon": "rain",
+          "region": "Auvergne-Rhône-Alpes",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 39.06870083608961,
+          "unit": "mm",
+          "pra_ids": [
+            "pra:01216",
+            "pra:07422",
+            "pra:26221",
+            "pra:26234",
+            "pra:26243",
+            "pra:26453",
+            "pra:26461",
+            "pra:26463",
+            "pra:26464",
+            "pra:38217",
+            "pra:38453",
+            "pra:38457",
+            "pra:73229",
+            "pra:73451",
+            "pra:73453",
+            "pra:73458",
+            "pra:74210",
+            "pra:74211",
+            "pra:74224",
+            "pra:74458"
+          ],
+          "evaluated": 112,
+          "duration": 2,
+          "intensity": 1.9534350418044806,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "frost:Centre-Val de Loire:2026-11-08:2026-11-14",
+          "phenomenon": "frost",
+          "region": "Centre-Val de Loire",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": -1.9260162353515398,
+          "unit": "°C",
+          "pra_ids": [
+            "pra:18066",
+            "pra:18179",
+            "pra:18343",
+            "pra:18434",
+            "pra:18436",
+            "pra:18437",
+            "pra:18439",
+            "pra:28076",
+            "pra:28341",
+            "pra:28342",
+            "pra:28351",
+            "pra:36434",
+            "pra:36435",
+            "pra:36436",
+            "pra:36438",
+            "pra:37069",
+            "pra:37070",
+            "pra:37071",
+            "pra:37072",
+            "pra:37073",
+            "pra:37074",
+            "pra:37344",
+            "pra:37346",
+            "pra:37348",
+            "pra:37435",
+            "pra:41065",
+            "pra:41068",
+            "pra:41075",
+            "pra:41341",
+            "pra:41343",
+            "pra:41346",
+            "pra:41350",
+            "pra:41351",
+            "pra:41434",
+            "pra:41435",
+            "pra:45063",
+            "pra:45067",
+            "pra:45338",
+            "pra:45340",
+            "pra:45341",
+            "pra:45343",
+            "pra:45439"
+          ],
+          "evaluated": 45,
+          "duration": 1,
+          "intensity": 1.9260162353515398,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "rain:Bourgogne-Franche-Comté:2026-11-08:2026-11-14",
+          "phenomenon": "rain",
+          "region": "Bourgogne-Franche-Comté",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 35.042509944592865,
+          "unit": "mm",
+          "pra_ids": [
+            "pra:21440",
+            "pra:21441",
+            "pra:21442",
+            "pra:21443",
+            "pra:25449",
+            "pra:25450",
+            "pra:25452",
+            "pra:39203",
+            "pra:39206",
+            "pra:39212",
+            "pra:39447",
+            "pra:58180",
+            "pra:58185",
+            "pra:58188",
+            "pra:58443",
+            "pra:71442",
+            "pra:71443",
+            "pra:89442",
+            "pra:89443"
+          ],
+          "evaluated": 61,
+          "duration": 1,
+          "intensity": 1.7521254972296432,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "rain:Centre-Val de Loire:2026-11-08:2026-11-14",
+          "phenomenon": "rain",
+          "region": "Centre-Val de Loire",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 32.047637210047,
+          "unit": "mm",
+          "pra_ids": [
+            "pra:18066",
+            "pra:18179",
+            "pra:18343",
+            "pra:18434",
+            "pra:18436",
+            "pra:18439",
+            "pra:36434",
+            "pra:36435",
+            "pra:37069",
+            "pra:37070",
+            "pra:37348",
+            "pra:37435",
+            "pra:41065",
+            "pra:41068",
+            "pra:41343",
+            "pra:41434",
+            "pra:41435",
+            "pra:45439"
+          ],
+          "evaluated": 45,
+          "duration": 2,
+          "intensity": 1.60238186050235,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "rain:Nouvelle-Aquitaine:2026-11-08:2026-11-14",
+          "phenomenon": "rain",
+          "region": "Nouvelle-Aquitaine",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 30.467874480761953,
+          "unit": "mm",
+          "pra_ids": [
+            "pra:79349",
+            "pra:79373",
+            "pra:86347",
+            "pra:86348",
+            "pra:86438"
+          ],
+          "evaluated": 115,
+          "duration": 1,
+          "intensity": 1.5233937240380977,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "frost:Pays de la Loire:2026-11-08:2026-11-14",
+          "phenomenon": "frost",
+          "region": "Pays de la Loire",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": -1.3654693603515398,
+          "unit": "°C",
+          "pra_ids": [
+            "pra:44373",
+            "pra:49344",
+            "pra:49345",
+            "pra:49347",
+            "pra:49373",
+            "pra:72089",
+            "pra:72090",
+            "pra:72091",
+            "pra:72094",
+            "pra:72345",
+            "pra:72350",
+            "pra:72351",
+            "pra:85110",
+            "pra:85368",
+            "pra:85373"
+          ],
+          "evaluated": 39,
+          "duration": 1,
+          "intensity": 1.3654693603515398,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "dry:Normandie:2026-11-08:2026-11-14",
+          "phenomenon": "dry",
+          "region": "Normandie",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 4,
+          "unit": "jours",
+          "pra_ids": [
+            "pra:14085",
+            "pra:14353",
+            "pra:14355",
+            "pra:27044",
+            "pra:27050",
+            "pra:27051",
+            "pra:27052",
+            "pra:27077",
+            "pra:27330",
+            "pra:27332",
+            "pra:27353",
+            "pra:76046",
+            "pra:76047",
+            "pra:76048",
+            "pra:76049",
+            "pra:76331",
+            "pra:76332"
+          ],
+          "evaluated": 36,
+          "duration": 4,
+          "intensity": 1.3333333333333333,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "dry:Hauts-de-France:2026-11-08:2026-11-14",
+          "phenomenon": "dry",
+          "region": "Hauts-de-France",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 4,
+          "unit": "jours",
+          "pra_ids": [
+            "pra:02328",
+            "pra:02329",
+            "pra:02336",
+            "pra:59027",
+            "pra:60041",
+            "pra:60042",
+            "pra:60043",
+            "pra:60327",
+            "pra:60328",
+            "pra:60329",
+            "pra:60330",
+            "pra:60331",
+            "pra:80035"
+          ],
+          "evaluated": 39,
+          "duration": 4,
+          "intensity": 1.3333333333333333,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "dry:Occitanie:2026-11-08:2026-11-14",
+          "phenomenon": "dry",
+          "region": "Occitanie",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 4,
+          "unit": "jours",
+          "pra_ids": [
+            "pra:32147",
+            "pra:32383",
+            "pra:32386",
+            "pra:32387",
+            "pra:46396",
+            "pra:65386",
+            "pra:65387",
+            "pra:65389"
+          ],
+          "evaluated": 93,
+          "duration": 4,
+          "intensity": 1.3333333333333333,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "dry:Île-de-France:2026-11-08:2026-11-14",
+          "phenomenon": "dry",
+          "region": "Île-de-France",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 4,
+          "unit": "jours",
+          "pra_ids": [
+            "pra:77045",
+            "pra:77056",
+            "pra:77329",
+            "pra:78332",
+            "pra:95330",
+            "pra:95332"
+          ],
+          "evaluated": 37,
+          "duration": 4,
+          "intensity": 1.3333333333333333,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "frost:Corse:2026-11-08:2026-11-14",
+          "phenomenon": "frost",
+          "region": "Corse",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": -1.2287658691406023,
+          "unit": "°C",
+          "pra_ids": [
+            "pra:2A260",
+            "pra:2B260"
+          ],
+          "evaluated": 6,
+          "duration": 1,
+          "intensity": 1.2287658691406023,
+          "production_ids": [
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "rain:Grand Est:2026-11-08:2026-11-14",
+          "phenomenon": "rain",
+          "region": "Grand Est",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 23.741568142214234,
+          "unit": "mm",
+          "pra_ids": [
+            "pra:68450"
+          ],
+          "evaluated": 70,
+          "duration": 1,
+          "intensity": 1.1870784071107117,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "rain:Pays de la Loire:2026-11-08:2026-11-14",
+          "phenomenon": "rain",
+          "region": "Pays de la Loire",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 21.845643865195388,
+          "unit": "mm",
+          "pra_ids": [
+            "pra:85110",
+            "pra:85373"
+          ],
+          "evaluated": 39,
+          "duration": 1,
+          "intensity": 1.0922821932597695,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "dry:Nouvelle-Aquitaine:2026-11-08:2026-11-14",
+          "phenomenon": "dry",
+          "region": "Nouvelle-Aquitaine",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 3,
+          "unit": "jours",
+          "pra_ids": [
+            "pra:33378",
+            "pra:40130",
+            "pra:40131",
+            "pra:40132",
+            "pra:40144",
+            "pra:40145",
+            "pra:40379",
+            "pra:40380",
+            "pra:40382",
+            "pra:64138",
+            "pra:64143",
+            "pra:64381",
+            "pra:64382",
+            "pra:64386"
+          ],
+          "evaluated": 115,
+          "duration": 3,
+          "intensity": 1,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "dry:Grand Est:2026-11-08:2026-11-14",
+          "phenomenon": "dry",
+          "region": "Grand Est",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 3,
+          "unit": "jours",
+          "pra_ids": [
+            "pra:51016",
+            "pra:51317",
+            "pra:51321",
+            "pra:51336"
+          ],
+          "evaluated": 70,
+          "duration": 3,
+          "intensity": 1,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "dry:Bretagne:2026-11-08:2026-11-14",
+          "phenomenon": "dry",
+          "region": "Bretagne",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": 3,
+          "unit": "jours",
+          "pra_ids": [
+            "pra:22362"
+          ],
+          "evaluated": 25,
+          "duration": 3,
+          "intensity": 1,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "frost:Île-de-France:2026-11-08:2026-11-14",
+          "phenomenon": "frost",
+          "region": "Île-de-France",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": -0.7902740478515398,
+          "unit": "°C",
+          "pra_ids": [
+            "pra:77058",
+            "pra:77320",
+            "pra:77335"
+          ],
+          "evaluated": 37,
+          "duration": 1,
+          "intensity": 0.7902740478515398,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        },
+        {
+          "id": "frost:Normandie:2026-11-08:2026-11-14",
+          "phenomenon": "frost",
+          "region": "Normandie",
+          "start": "2026-11-08",
+          "end": "2026-11-14",
+          "value": -0.5969146728515398,
+          "unit": "°C",
+          "pra_ids": [
+            "pra:14354",
+            "pra:61351"
+          ],
+          "evaluated": 36,
+          "duration": 1,
+          "intensity": 0.5969146728515398,
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "orchard",
+            "grassland"
+          ],
+          "data_freshness": [
+            "unknown"
+          ]
+        }
+      ]
+    },
+    {
+      "run": "2026-11-06T06:00:00+00:00",
+      "identity": "42b602fdc03b29707d423328026f216354e985e70debbc3252796335c24be724/national-watch-1.0.0/semantic-1.0.0/07afe77f98583d05f83f476be44bdaf3de89f77b55d9935459253c7a079a8d30",
+      "coverage": [
+        {
+          "phenomenon": "heat",
+          "evaluated": 713,
+          "affected": 0,
+          "insufficient": 0,
+          "unavailable": 0
+        },
+        {
+          "phenomenon": "frost",
+          "evaluated": 713,
+          "affected": 273,
+          "insufficient": 0,
+          "unavailable": 0
+        },
+        {
+          "phenomenon": "rain",
+          "evaluated": 519,
+          "affected": 92,
+          "insufficient": 194,
+          "unavailable": 0
+        },
+        {
+          "phenomenon": "dry",
+          "evaluated": 519,
+          "affected": 15,
+          "insufficient": 194,
+          "unavailable": 0
+        },
+        {
+          "phenomenon": "thi",
+          "evaluated": 111,
+          "affected": 0,
+          "insufficient": 595,
+          "unavailable": 7
+        }
+      ],
+      "compute_ms": 867
+    }
+  ],
+  "historical": {
+    "date": "2026-10-31",
+    "identity": "2026-10-31/1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961/era5land-pra1991-2020-annual-compact-v1-9babc3b9b96830d2/historical-watch-1",
+    "validated_rows": 1290,
+    "unavailable_rows": 136,
+    "crozon": [
+      {
+        "pra_id": "pra:29102",
+        "current_status": "partial",
+        "current_value": null,
+        "normal_1991_2020": null,
+        "anomaly": null,
+        "sample_years": 0,
+        "expected_years": 30,
+        "reference_coverage": 0,
+        "current_coverage": 0,
+        "status": "missing_current",
+        "normal_status": "insufficient",
+        "variable": "temperature"
+      },
+      {
+        "pra_id": "pra:29102",
+        "current_status": "partial",
+        "current_value": null,
+        "normal_1991_2020": null,
+        "anomaly": null,
+        "sample_years": 0,
+        "expected_years": 30,
+        "reference_coverage": 0,
+        "current_coverage": 0,
+        "status": "missing_current",
+        "normal_status": "insufficient",
+        "variable": "precipitation"
+      }
+    ]
+  }
+}

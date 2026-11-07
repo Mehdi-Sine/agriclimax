@@ -12,7 +12,7 @@ export function useResource<T>(url:string|null, cached=false) {
     fetch(url,{signal:controller.signal,cache:cached?'force-cache':'default'}).then(async response=>{
       if(!response.ok){const body=await response.json().catch(()=>({}));throw new Error(body.error==='NOT_CONFIGURED'?'Source non activée dans cet environnement.':'Source momentanément inaccessible.');}
       return response.json() as Promise<T>;
-    }).then(data=>setResult({key:url,data,error:null})).catch((error:unknown)=>{
+    }).then(data=>{if(!controller.signal.aborted)setResult({key:url,data,error:null});}).catch((error:unknown)=>{
       if(!controller.signal.aborted)setResult({key:url,data:null,error:error instanceof Error?error.message:'Source indisponible.'});
     });
     return ()=>controller.abort();

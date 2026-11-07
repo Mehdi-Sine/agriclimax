@@ -1,0 +1,105 @@
+{
+  "origin": "https://agriclimax-git-codex-30-national-ag-e0481e-mehdi-sines-projects.vercel.app",
+  "tested_commit": "314dbbb",
+  "checks": [
+    {
+      "name": "desktop:713 contours",
+      "ok": true
+    },
+    {
+      "name": "desktop:no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "desktop:rain blue",
+      "ok": true
+    },
+    {
+      "name": "desktop:real rain event",
+      "ok": true
+    },
+    {
+      "name": "desktop:URL context",
+      "ok": true
+    },
+    {
+      "name": "return preserves event",
+      "ok": true
+    },
+    {
+      "name": "desktop:contextual help",
+      "ok": true
+    },
+    {
+      "name": "keyboard focus",
+      "ok": true
+    },
+    {
+      "name": "tablet:713 contours",
+      "ok": true
+    },
+    {
+      "name": "tablet:no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "tablet:rain blue",
+      "ok": true
+    },
+    {
+      "name": "tablet:real rain event",
+      "ok": true
+    },
+    {
+      "name": "tablet:URL context",
+      "ok": true
+    },
+    {
+      "name": "tablet:contextual help",
+      "ok": true
+    },
+    {
+      "name": "mobile:713 contours",
+      "ok": true
+    },
+    {
+      "name": "mobile:no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "mobile:rain blue",
+      "ok": true
+    },
+    {
+      "name": "mobile:real rain event",
+      "ok": true
+    },
+    {
+      "name": "mobile:URL context",
+      "ok": true
+    },
+    {
+      "name": "mobile:contextual help",
+      "ok": true
+    },
+    {
+      "name": "no uncaught application errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "responses": [
+    {
+      "viewport": "desktop",
+      "map_ready_ms": 14226
+    },
+    {
+      "viewport": "tablet",
+      "map_ready_ms": 6470
+    },
+    {
+      "viewport": "mobile",
+      "map_ready_ms": 6922
+    }
+  ]
+}

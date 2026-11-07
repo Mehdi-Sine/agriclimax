@@ -1,9 +1,13 @@
 'use client';
+import {semanticPalette} from '../cartography/registry';
+import {usePaletteColors} from '../cartography/use-palette';
+import {SemanticLegend} from '../cartography/legend';
 import { ComplementNotice } from "../agroclimatic/complement";
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
-import NationalMap, { type PraCollection } from '../national/map';
+import {MapPresentation} from '../cartography/presentation';
+import { type PraCollection } from '../national/map';
 import { DAYS, NATIONAL, type ClimateContextRow } from '../national/model';
 import { trailingStart, type NationalAvailability } from '../national/daily-availability';
 import { AGRICULTURE, INDICATORS, RULES, parseState, type Space, type TerritorialValue } from './model';
@@ -54,17 +58,8 @@ function HistoricalWorkspace() {
     const normalize=(s:string)=>s.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
     return query.trim()?collection?.features.filter(f=>normalize(`${f.properties.name} ${f.properties.code} ${f.properties.department_name}`).includes(normalize(query))).slice(0,8)??[]:[];
   },[query,collection]);
-  const finite=values.flatMap(v=>v[state.mode]===null?[]:[v[state.mode]!]);
-  let low=finite.length?Math.min(...finite):0,high=finite.length?Math.max(...finite):1;
-  if(state.mode==='anomaly'){high=Math.max(Math.abs(low),Math.abs(high))||1;low=-high;}
-  const cssColors=state.mode==='anomaly'?['--map-cool','--map-cool-light','--map-mid','--map-warm-light','--map-warm']:def.unit==='mm'?['--map-rain-1','--map-rain-2','--map-rain-3','--map-rain-4','--map-rain-5']:['--map-cool','--map-cool-light','--map-mid','--map-warm-light','--map-warm'];
-  const [palette,setPalette]=useState<string[]>([]);
-  const colorKey=cssColors.join(',');
-  useEffect(()=>{
-    const frame=requestAnimationFrame(()=>{const css=getComputedStyle(document.documentElement);setPalette(colorKey.split(',').map(t=>css.getPropertyValue(t).trim()));});
-    return()=>cancelAnimationFrame(frame);
-  },[colorKey]);
-  const bounds=Array.from({length:5},(_,i)=>low+(high-low)*(i+1)/5);
+  const semantic=semanticPalette(def.id,def.unit,state.period?Math.round((Date.parse(state.date)-Date.parse(state.start))/86400000)+1:1,state.mode);
+  const bounds=semantic.bounds,palette=usePaletteColors(semantic);
   function change(patch:Record<string,string>,path=pathname) {
     const next=new URLSearchParams(search.toString());
     for(const [key,value] of Object.entries(patch)){if(value)next.set(key,value);else next.delete(key);}
@@ -105,12 +100,11 @@ function HistoricalWorkspace() {
 
       <div className={`unified-grid ${(space === 'productions' ? agriculture.hasSelection : !!feature)?'has-selection':''}`}>
         <section className="unified-map-card" aria-label="Exploration cartographique">
-          {space === 'productions' ? agriculture.mapTitle : analysis?agro.mapTitle:weather?operational.mapTitle:<>          <div className="unified-map-title"><strong>{title} · {def.unit}</strong><span>{`${state.period?state.start+' → ':''}${state.date} · ${state.mode==='value'?'Valeur':state.mode==='normal'?'Normale 1991–2020':'Anomalie'}`}</span></div></>}
-          {mapCollection && <NationalMap coveredSupport={analysis?agro.coveredSupport:!weather&&space!=='productions'?support.data?.collection:null} collection={mapCollection} rows={null} contextRows={null} mode="availability" {...mapProps} />}
+          {mapCollection&&<MapPresentation identity={`${pathname}/${search}/${palette.join(',')}/${source.data?values[0]?.datasetVersion??'ready':''}/${operational.catalogue?.run??''}/${mapProps.quantitative.colors.join(',')}`} loading={space === 'productions'?agriculture.loading:analysis?agro.loading:weather?operational.loading:!invalid&&!source.data&&!source.error} error={space === 'productions'?agriculture.error:analysis?agro.error:weather?operational.error:source.error} presentation={{title:(space === 'productions' ? agriculture.mapTitle : analysis?agro.mapTitle:weather?operational.mapTitle:<>          <div className="unified-map-title"><strong>{title} · {def.unit}</strong><span>{`${state.period?state.start+' → ':''}${state.date} · ${state.mode==='value'?'Valeur':state.mode==='normal'?'Normale 1991–2020':'Anomalie'}`}</span></div></>),legend:(space === 'productions' ? agriculture.legend : analysis?agro.legend:weather?operational.legend:<SemanticLegend palette={semantic}/>),map:{collection:mapCollection,rows:null,contextRows:null,mode:'availability' as const,coveredSupport:analysis?agro.coveredSupport:!weather&&space!=='productions'?support.data?.collection:null,...mapProps}}}/>}
           {space === 'productions' ? agriculture.mapState : analysis?agro.mapState:weather?<p>713 PRA · valeurs qualifiées, gris : absence de valeur exploitable.</p>:<>          {!collection&&<p role={geometry.error?'alert':'status'}>{geometry.error?'Contours indisponibles.':'Chargement des 713 contours officiels…'}</p>}
           {!invalid&&<div className="unified-source-state" role={source.error?'alert':'status'}>{source.error?<>{source.error} Aucune donnée de remplacement. <button onClick={()=>{window.location.reload();}}>Réessayer</button></>:!source.data?'Chargement des valeurs nationales…':`${values.filter(v=>v.status==='available'&&v.value!==null).length} PRA complètes · ${values.filter(v=>v.value!==null&&v.observed_value!=null).length} estimations qualifiées ≥90% · ${values.filter(v=>v.value===null&&v.observed_value!=null).length} portions seulement · ${values.filter(v=>v.value===null&&v.observed_value==null&&!v.complementary).length} sans résultat · ${values.filter(v=>v.complementary).length} estimation(s) complémentaire(s) en fiche`}</div>}
 </>}
-          {space === 'productions' ? agriculture.legend : analysis?agro.legend:weather?operational.legend:<>          <div className="unified-legend" aria-label="Légende quantitative">{finite.length>0&&!invalid?<><div className="legend-ramp">{bounds.map((b,i)=><span key={i} style={{background:`var(${cssColors[i]})`}}><small>{i===0?valueLabel(low)+' – ': '≤ '}{valueLabel(b)}</small></span>)}</div><p>{def.unit} · bornes calculées sur les valeurs affichées · surfaces et statuts : couverture qualifiée</p></>:<p>Aucune valeur cartographiée. Les contours servent uniquement de repères.</p>}<span className="missing-key"/> <small>Gris : donnée absente, aucune valeur zéro déduite</small></div></>}
+
         </section>
         <aside className="unified-panel" aria-label="Fiche territoire">
           {space === 'productions' ? agriculture.panel : analysis?agro.panel:weather?operational.panel:feature?<><div className="panel-top"><span className="eyebrow">PETITE RÉGION AGRICOLE · {feature.properties.code}</span><button aria-label="Fermer la fiche PRA" onClick={()=>change({pra:''})}>×</button></div><h2>{feature.properties.name}</h2><p>{feature.properties.department_name} · {feature.properties.region_name}</p>
@@ -134,12 +128,13 @@ function HistoricalWorkspace() {
     <a className="skip-link" href="#main">Aller à la carte et aux filtres</a>
     <header className="unified-header">
       <Link className="unified-brand" href="/" aria-label="AgriclimaX, accueil">Agriclima<span>X</span></Link>
-      <nav aria-label="Espaces produit">{([['/','Climat','climat'],['/productions','Productions agricoles','productions'],['/analyse','Analyse agroclimato','analyse']] as const).map(([path,label,key])=><Link key={key} href={spaceHref(path)} aria-current={space===key?'page':undefined}>{label}</Link>)}</nav>
-      <a className="unified-help" href="#sources">ⓘ Aide et sources</a>
+      <nav aria-label="Espaces produit"><Link href="/veille">Veille nationale</Link>{([['/','Climat','climat'],['/productions','Productions agricoles','productions'],['/analyse','Analyse agroclimato','analyse']] as const).map(([path,label,key])=><Link key={key} href={spaceHref(path)} aria-current={space===key?'page':undefined}>{label}</Link>)}</nav>
+      <Link className="unified-help" href="/aide/cartes">ⓘ Aide et sources</Link>
     </header>
     <main id="main" className="unified-main">
       <div className="unified-heading"><div><p className="eyebrow">EXPLORER LES TERRITOIRES · FRANCE MÉTROPOLITAINE ET CORSE</p><h1>{analysis?TITLES.analyse:weather?(operational.temporalMode==='recent'?'Météo récente des territoires agricoles':'Prévisions des territoires agricoles'):TITLES[space]}</h1><p>{analysis?'Blé tendre et bovins : indicateurs exploratoires, historiques et prévisionnels, à l’échelle PRA.':weather?'Données de modèles, sources et couvertures qualifiées ; les observations et normales historiques restent distinctes.':DESCRIPTIONS[space]}</p></div><span className="scale-badge">{space === 'productions' ? 'Mailles agricoles · sources officielles' : '713 PRA · contours officiels'}</span></div>
       <div className="unified-context" role={availability.error?'alert':'status'}>{availability.error?<span>Disponibilité climatique inaccessible. {availability.error}</span>:availability.data?<span>Historique ERA5-Land · dernière journée acquise · {availability.data.freshness==='stale'?'Données retardées':'Réanalyse récente'} · date source : {availability.data.source_date} UTC · acquisition : {availability.data.acquired_at??'date non exposée par le service actuel'} · mise à jour : {availability.data.updated_at??'inconnue'} (UTC)</span>:<span>Vérification de la dernière journée nationale acquise…</span>}</div>
+      {search.get('retour')?.startsWith('/veille?')&&<p><Link href={search.get('retour')!}>← Revenir à la veille nationale</Link></p>}
       {climateBody}
     </main>
   </div>;

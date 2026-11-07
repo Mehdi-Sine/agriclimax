@@ -1,8 +1,9 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Map as LibreMap, GeoJSONSource, ExpressionSpecification } from 'maplibre-gl';
 import type { FeatureCollection, Geometry } from 'geojson';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import '../national-watch/watch.css';
 import { anomalyBand, availability, type ClimateContextRow } from './model';
 import type { TerritorialValue } from '../unified/model';
 import type { AgriculturalStatus } from '../agriculture/model';
@@ -35,8 +36,12 @@ export default function NationalMap({
   onSelect,
   quantitative,
   coveredSupport,
+  highlighted,
+  loading=false,
   geography = { prefix: 'pra:', label: '713 PRA', attribution: 'PRA · OFB / MASA · contours source inchangés' },
 }: {
+  highlighted?:string[];
+  loading?:boolean;
   coveredSupport?:PraCollection|null;
   collection: PraCollection;
   rows: TerritoryRow[] | null;
@@ -47,6 +52,10 @@ export default function NationalMap({
   quantitative?: { values: (Pick<TerritorialValue, 'territoryId' | 'value' | 'normal' | 'anomaly'> & { status: TerritorialValue['status'] | AgriculturalStatus })[]; field: 'value' | 'normal' | 'anomaly'; unit: string; bounds: number[]; colors: string[] };
   geography?: { prefix: string; label: string; attribution: string };
 }) {
+  const paintIdentity=useMemo(()=>({quantitative,rows,contextRows,collection,coveredSupport,mode,selected,highlighted}),[quantitative,rows,contextRows,collection,coveredSupport,mode,selected,highlighted]);
+  const paintRef=useRef(paintIdentity);
+  const [paintedIdentity,setPaintedIdentity]=useState<typeof paintIdentity|null>(null);
+  useEffect(()=>{paintRef.current=paintIdentity;},[paintIdentity]);
   const container = useRef<HTMLDivElement>(null),
     map = useRef<LibreMap | null>(null),
     select = useRef(onSelect),
@@ -188,7 +197,7 @@ export default function NationalMap({
           });
           setReady(true);
         });
-        m.on('idle', () => { if (m.getSource('pra') && m.isSourceLoaded('pra')) setRendered(true); });
+        m.on('idle', () => { if (m.getSource('pra') && m.isSourceLoaded('pra') && (!m.getSource('pra-covered')||m.isSourceLoaded('pra-covered'))) {setRendered(true);setPaintedIdentity(paintRef.current);} });
         m.on('error', () => setFailed(true));
       } catch {
         if (!disposed) setFailed(true);
@@ -210,7 +219,9 @@ export default function NationalMap({
   }, [ready, collection]);
 
   useEffect(() => {
-    if (!ready || !map.current) return;
+    if (!ready || !map.current || loading) return;
+    const m=map.current;
+    const frame=requestAnimationFrame(()=>{setRendered(false);m.triggerRepaint();});
     const byId = new Map(rows?.map((r) => [r.id, r]));
     const quantitativeById = new Map(quantitative?.values.map(r=>[r.territoryId,r]));
     const css = getComputedStyle(document.documentElement);
@@ -237,24 +248,20 @@ export default function NationalMap({
           suppressed: q?.status === 'suppressed',
           partial: q?.status === 'partial',
           anomaly: climate?.anomaly ?? null,
-          selected: f.id === selected,
+          selected: f.id === selected || !!highlighted?.includes(String(f.id)),
         },
       );
       if(map.current.getSource('pra-covered'))map.current.setFeatureState({source:'pra-covered',id:f.properties.code},{color:value==null?css.getPropertyValue('--national-unavailable').trim():ink,value:value??null,quality:q?.status==='partial'?'Partiel · aire renseignée':'Disponible'});
     }
-  }, [ready, rows, contextRows, mode, selected, collection, quantitative,coveredSupport]);
+    return()=>cancelAnimationFrame(frame);
+  }, [ready, rows, contextRows, mode, selected, collection, quantitative,coveredSupport,highlighted,loading]);
 
   useEffect(() => {
-    if (!ready || !map.current || !selected || quantitative) return;
-    const geometry = collection.features.find(
-      (f) => f.id === selected,
-    )?.geometry;
-    const points =
-      geometry?.type === 'MultiPolygon'
-        ? geometry.coordinates.flat(2)
-        : geometry?.type === 'Polygon'
-          ? geometry.coordinates.flat()
-          : [];
+    if (!ready || !map.current || !selected || (quantitative&&!highlighted)) return;
+    const geometries=highlighted?.length
+      ? collection.features.filter(f=>highlighted.includes(String(f.id))).map(f=>f.geometry)
+      : collection.features.filter(f=>f.id===selected).map(f=>f.geometry);
+    const points=geometries.flatMap(geometry=>geometry.type==='MultiPolygon'?geometry.coordinates.flat(2):geometry.type==='Polygon'?geometry.coordinates.flat():[]);
     if (!points.length) return;
     const xs = points.map((p) => p[0]),
       ys = points.map((p) => p[1]);
@@ -265,7 +272,7 @@ export default function NationalMap({
       ],
       { padding: 45, maxZoom: 10, duration: 0 },
     );
-  }, [ready, selected, collection, quantitative]);
+  }, [ready, selected, collection, quantitative,highlighted]);
 
   return (
     <section aria-label={`Carte des ${geography.label}`} className="national-map-wrap">
@@ -287,12 +294,12 @@ export default function NationalMap({
       <div
         ref={container}
         className="national-map"
-        data-ready={ready && rendered}
+        data-ready={ready && rendered && !loading && paintedIdentity===paintIdentity}
         data-feature-count={collection.features.length}
         data-covered-support-count={coveredSupport?.features.length??0}
         data-mode={mode}
       />
-      {!ready && !failed && <p role="status">Chargement des contours · {geography.label}…</p>}
+      {!failed && (loading||!ready||!rendered||paintedIdentity!==paintIdentity) && <p className="map-updating" role="status" aria-live="polite">{loading?'Actualisation de la carte… Carte précédente conservée.':!ready?'Chargement des contours…':'Application des couleurs…'}</p>}
       {failed && (
         <p role="alert">
           Carte indisponible. La recherche permet toujours de
