@@ -1,0 +1,13 @@
+{
+  "python_tests": 350,
+  "python_status": "passed",
+  "ruff_changed_files": "passed",
+  "mypy_changed_scripts": "passed",
+  "remote_mutations": 0,
+  "artifact_download": {
+    "status": 403,
+    "classification": "access_denied_to_payload",
+    "artifact": "daily-monitoring",
+    "run_id": 42494057685
+  }
+}

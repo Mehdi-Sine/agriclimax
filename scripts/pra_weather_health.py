@@ -7,6 +7,7 @@ from pathlib import Path
 from agriclimax.ingestion.storage import atomic_write
 from agriclimax.territories.national_weather import validate_document
 from agriclimax.territories.weather_archive import decode
+from data01_daily import inspect
 from national_weather_models import reference
 from pra_weather_store import BUCKET, STORAGE_GUARD, ArchiveStore, indexed_bytes
 
@@ -49,7 +50,7 @@ def main() -> None:
         } for source in sorted({r["source_id"] for r in document["rows"]})},
         "age_hours": age,
         "freshness_limit_hours": 36,
-        "healthy": fresh_cycle(cycle, acquired, datetime.now(UTC)) and pointer_matches and era_lag is not None and 0 <= era_lag <= 7 and total_bytes < STORAGE_GUARD,
+        "healthy": fresh_cycle(cycle, acquired, datetime.now(UTC)) and pointer_matches and era_lag is not None and 0 <= era_lag <= 7 and total_bytes < STORAGE_GUARD and inspect(catalogue, datetime.now(UTC))["status"] not in {"error", "stale"},
         "published_pointer_matches_latest_verified": pointer_matches,
         "era5_latest": era_latest,
         "era5_lag_days": era_lag,
@@ -58,6 +59,11 @@ def main() -> None:
         "current_manifest_bytes": len(current_raw or b""),
         "raw_grids_in_supabase": False,
         "validation": validation,
+        "archive_identity": {"path": entry["path"], "sha256": entry["sha256"]},
+        "historical": inspect(catalogue, datetime.now(UTC)),
+        "coverage_partial": any(v["available"] < v["total"] for v in validation["availability"]),
+        "agroclimatic_status": "not_verified_by_weather_health",
+        "provider_delivery_verified": False,
         "source_requests": 0,
         "storage_writes": store.writes,
         "storage_reads": store.requests,

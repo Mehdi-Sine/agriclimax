@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-11-08T17:43:06.058319+00:00",
+  "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/processes/reanalysis-era5-land",
+  "operation": "GET metadata only",
+  "data_retrieval_authorized_by_probe": false,
+  "http_status": 200,
+  "bytes_read": 6462,
+  "within_budget": true,
+  "metadata_parseable": true,
+  "provider_data_delivery_verified": false,
+  "seconds": 5.460358599000017
+}
