@@ -1,0 +1,131 @@
+.almanach {
+  max-width: 76rem;
+  margin: auto;
+  padding: 2rem;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+.almanach header,
+.almanach header nav,
+.almanach-days {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.almanach a {
+  color: var(--interactive);
+  text-underline-offset: 0.2em;
+}
+.almanach h1 {
+  font: 600 clamp(2rem, 5vw, 3.5rem) var(--font-heading);
+  margin-block: 2rem 1rem;
+}
+.almanach h2 {
+  font-family: var(--font-heading);
+  margin-top: 2rem;
+}
+.almanach-notice {
+  padding: 1.5rem;
+  border-left: 4px solid var(--brand-secondary);
+  background: var(--surface-subtle);
+  line-height: 1.7;
+}
+.almanach-filters {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.2fr auto;
+  gap: 1rem;
+  align-items: end;
+  margin-block: 1.5rem;
+}
+.almanach label {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+}
+.almanach input,
+.almanach select,
+.almanach button {
+  font: inherit;
+  min-height: 2.75rem;
+  padding: 0.6rem;
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  color: var(--text-primary);
+  width: 100%;
+  min-width: 0;
+}
+.almanach button {
+  background: var(--interactive);
+  color: var(--on-interactive);
+  cursor: pointer;
+}
+.almanach-months {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-block: 1.5rem;
+}
+.almanach-months a {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.almanach-months [aria-current] {
+  background: var(--surface-subtle);
+  font-weight: 700;
+}
+.almanach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.almanach article {
+  padding: 1.3rem;
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
+  border-radius: var(--radius-md);
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+.almanach summary {
+  cursor: pointer;
+  padding-block: 0.5rem;
+}
+.almanach li {
+  margin-block: 0.75rem;
+  overflow-wrap: anywhere;
+}
+.almanach :focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.almanach-skip:not(:focus) {
+  position: absolute;
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.almanach footer {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 2rem;
+  line-height: 1.6;
+}
+@media (max-width: 650px) {
+  .almanach {
+    padding: 1rem;
+  }
+  .almanach-filters,
+  .almanach-grid {
+    grid-template-columns: 1fr;
+  }
+  .almanach header nav {
+    gap: 0.8rem;
+  }
+  .almanach-days a {
+    padding-block: 0.7rem;
+  }
+}

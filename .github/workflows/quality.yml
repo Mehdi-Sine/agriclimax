@@ -85,6 +85,8 @@ jobs:
       - run: MYPYPATH=engine/src:scripts python -m mypy --strict scripts/national_weather.py scripts/national_weather_sources.py scripts/national_weather_models.py scripts/national_weather_run.py scripts/pra_weather_store.py scripts/pra_weather_health.py scripts/verify_national_weather.py
       - run: python -m ruff check scripts/data01_daily.py scripts/data01_history.py scripts/data01_verify_product.py scripts/archive_legacy_pra_reads.py engine/tests/territories/test_data01_daily.py
       - run: MYPYPATH=engine/src:scripts python -m mypy --strict scripts/data01_daily.py scripts/data01_history.py scripts/data01_verify_product.py scripts/archive_legacy_pra_reads.py
+      - run: python -m ruff check engine/src/agriclimax/editorial engine/tests/editorial scripts/task33_news_links.py scripts/task33_validate.py
+      - run: MYPYPATH=engine/src python -m mypy --strict engine/src/agriclimax/editorial scripts/task33_news_links.py scripts/task33_validate.py
       - run: python scripts/check_contracts.py
       - run: python scripts/quality/check_automation.py
       - run: python -m pytest engine/tests --junitxml=work/quality/python.xml
@@ -117,6 +119,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
       - run: pnpm typecheck
+      - run: pnpm editorial:typecheck
       - run: pnpm test
       - run: pnpm build
       - run: node scripts/quality/audit-exceptions.mjs --build

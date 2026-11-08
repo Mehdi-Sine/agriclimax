@@ -1,0 +1,11 @@
+# Référentiel unique et calendrier
+
+`config/almanach/agriclimax-almanach.v1.json` est une copie octet pour octet du fichier fourni. `provenance.v1.json` conserve nom original, origine, version, taille et SHA-256 : `bc0096744936053b90358a1c2a9b6a2a90f6fe7d50a9218c41dedd99e4e399f8`.
+
+Import : 365 journées, 157 fenêtres, 38 repères fixes, 7 familles mobiles, 13 profils régionaux, 47 sources, 33 signaux. Aucune base concurrente. Les vues et listes de productions proviennent du fichier maître. La validation vérifie les dates, doublons, fenêtres (y compris interannuelles), sources, contextes mensuels, vigilances, arbitrages, références patrimoniales `CULT-*` et alias journaliers `MARR-MM-DD` vers les repères de la même date.
+
+Le résolveur accepte une date civile ou un timestamp zoné converti en Europe/Paris, un périmètre régional et une production du référentiel. Les fenêtres actives sont triées par priorité puis ID et bornées. Une région explicitement citée dans une zone exclut les autres régions ; les zones générales ou bassins non cartographiés restent indicatifs. Les profils sont affichés comme guide de recherche, jamais preuve de production présente. Une demande de production filtre les mentions exactes du référentiel, sans inventer de synonymes agronomiques.
+
+29 février : intervalles saisonniers actifs, sans copier la fiche, les traditions ni les repères du 28. Pâques : comput grégorien Meeus/Jones/Butcher, avec lundi de Pâques, Ascension et Pentecôte dérivés par décalages civils. Les six autres familles sont `annual_source_required` : aucun événement lunaire, solstice, foire ou date religieuse non vérifiée n'est placé artificiellement. Les événements astronomiques ne sont donc pas entièrement résolus dans cette livraison.
+
+Les `VEG-*` conservent `review_required`. Contextes mensuels secondaires et vigilances réglementaires restent hors faits et prescriptions. Les dictons restent culturels. `temperature_sol_si_disponible`, utilisé par les ajouts VEG mais absent du dictionnaire de 33 signaux, est conservé et signalé dans la validation ; aucun indicateur de température du sol n'est fabriqué. Toutes les fenêtres portent `publication_eligible:false` et leurs réserves.

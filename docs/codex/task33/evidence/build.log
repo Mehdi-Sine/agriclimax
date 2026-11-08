@@ -1,0 +1,67 @@
+
+> agriclimax@ build /workspace/agriclimax
+> pnpm --filter @agriclimax/web build
+
+
+> @agriclimax/web@ build /workspace/agriclimax/apps/web
+> node features/observation/prepare-worker.mjs && next build
+
+▲ Next.js 16.4.1 (Turbopack)
+✓ Running next.config.ts took 26ms
+- Experiments (use with caution):
+  ⨯ useTypeScriptCli
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 908ms
+  Running TypeScript ...
+  Finished TypeScript in 22.5s ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/36) ...
+  Generating static pages using 2 workers (9/36) 
+  Generating static pages using 2 workers (18/36) 
+  Generating static pages using 2 workers (27/36) 
+✓ Generating static pages using 2 workers (36/36) in 683ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ○ /aide/cartes
+├ ƒ /almanach
+├ ○ /analyse
+├ ƒ /api/agriculture
+├ ƒ /api/agroclimatic
+├ ƒ /api/climate/france
+├ ƒ /api/editorial-briefing/example
+├ ƒ /api/journal
+├ ƒ /api/journal/map
+├ ƒ /api/national
+├ ƒ /api/national/support
+├ ƒ /api/operational
+├ ƒ /api/risks/map
+├ ƒ /api/risks/series
+├ ƒ /api/risks/territory
+├ ƒ /api/territories
+├ ƒ /api/territories/diagnostics
+├ ƒ /api/unified
+├ ƒ /api/veille
+├ ƒ /api/veille/historique
+├ ƒ /api/weather/series
+├ ƒ /api/weather/stations
+├ ƒ /api/wheat
+├ ƒ /demo
+├ ○ /design-system
+├ ƒ /diagnostic
+├ ƒ /history
+├ ƒ /journal
+├ ○ /manifest.webmanifest
+├ ○ /productions
+├ ƒ /stations
+├ ƒ /territories
+├ ○ /veille
+└ ƒ /watch
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

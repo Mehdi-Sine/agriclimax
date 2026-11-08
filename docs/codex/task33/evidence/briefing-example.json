@@ -1,0 +1,2467 @@
+{
+  "version": "editorial-briefing-1",
+  "bundle_id": "9214f0913bd08f18ae380d0833f23e7a3494c945742b20b6559e397987a74741",
+  "edition_date": "2026-10-30",
+  "time_zone": "Europe/Paris",
+  "generated_at": "2026-11-08T17:49:51.820496Z",
+  "status": "preview",
+  "identity": {
+    "engine": "editorial-temporal-1",
+    "almanac_version": "almanach-unique-1.0.0",
+    "almanac_sha256": "bc0096744936053b90358a1c2a9b6a2a90f6fe7d50a9218c41dedd99e4e399f8",
+    "climate_fingerprint": "6a35c330f67f958a6cf86ae035f3b19ee462c928b5993278a1a056ea3c444b8f",
+    "episode_archive_sha256": "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313",
+    "forecast_edition_id": null,
+    "news_bundle_id": "7ac63076625dd9da2f5f9ee925338befb6d04d979650d2d6830346d81e547576",
+    "signal_bridge_version": "editorial-signal-bridge-1",
+    "contribution_fingerprint": "655ca34d303142fb569be4a71feb434608cadcc64cce1508176493d6696c7f52",
+    "previous_topics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "validity": {
+    "history_start": "2026-10-01",
+    "history_cutoff": "2026-10-30",
+    "history_age_days": 0,
+    "forecast_period": null,
+    "data_freshness": "fresh"
+  },
+  "national": {
+    "facts": [
+      {
+        "id": "fact-f4eca9ebef7cbfdef30841980a30ec7e30ed5a8b6691c46e55f82cc644f34cab",
+        "text": "Auvergne-Rhône-Alpes : 76 PRA avec au moins trois jours consécutifs < 1 mm/j, en réanalyse au 2026-10-30. Durée documentée maximale : 7 jours.",
+        "value": 7,
+        "unit": "jours",
+        "period": [
+          "2026-10-24",
+          "2026-10-30"
+        ],
+        "source": "era5-land",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "provenance": [
+          "6a35c330f67f958a6cf86ae035f3b19ee462c928b5993278a1a056ea3c444b8f",
+          "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313"
+        ],
+        "quality_flags": [
+          "complete_native_support_only",
+          "pra_count_not_agricultural_area"
+        ],
+        "data_freshness": [
+          "2026-11-05T20:38:53.755059+00:00"
+        ],
+        "href": "/"
+      },
+      {
+        "id": "fact-c3446ed5efb86d10a5c6e744ff49f765c1d535d4871c53f75fc6d8dd0435f61c",
+        "text": "Bourgogne-Franche-Comté : 37 PRA avec au moins trois jours consécutifs < 1 mm/j, en réanalyse au 2026-10-30. Durée documentée maximale : 5 jours.",
+        "value": 5,
+        "unit": "jours",
+        "period": [
+          "2026-10-26",
+          "2026-10-30"
+        ],
+        "source": "era5-land",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "provenance": [
+          "6a35c330f67f958a6cf86ae035f3b19ee462c928b5993278a1a056ea3c444b8f",
+          "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313"
+        ],
+        "quality_flags": [
+          "complete_native_support_only",
+          "pra_count_not_agricultural_area"
+        ],
+        "data_freshness": [
+          "2026-11-05T20:39:26.227593+00:00"
+        ],
+        "href": "/"
+      },
+      {
+        "id": "fact-ccae9cd77e34d562f9b9e245da6ec33ef00b6bff315644ba6e789c983d778ede",
+        "text": "Centre-Val de Loire : 45 PRA avec au moins trois jours consécutifs < 1 mm/j, en réanalyse au 2026-10-30. Durée documentée maximale : 5 jours.",
+        "value": 5,
+        "unit": "jours",
+        "period": [
+          "2026-10-26",
+          "2026-10-30"
+        ],
+        "source": "era5-land",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "provenance": [
+          "6a35c330f67f958a6cf86ae035f3b19ee462c928b5993278a1a056ea3c444b8f",
+          "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313"
+        ],
+        "quality_flags": [
+          "complete_native_support_only",
+          "pra_count_not_agricultural_area"
+        ],
+        "data_freshness": [
+          "2026-11-05T20:37:46.011252+00:00"
+        ],
+        "href": "/"
+      },
+      {
+        "id": "fact-586e15fcfd5f7a81aebadd77e8433568586053ab9379005bf661d78385ad4e8d",
+        "text": "Grand Est : 57 PRA avec au moins trois jours consécutifs < 1 mm/j, en réanalyse au 2026-10-30. Durée documentée maximale : 5 jours.",
+        "value": 5,
+        "unit": "jours",
+        "period": [
+          "2026-10-26",
+          "2026-10-30"
+        ],
+        "source": "era5-land",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "provenance": [
+          "6a35c330f67f958a6cf86ae035f3b19ee462c928b5993278a1a056ea3c444b8f",
+          "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313"
+        ],
+        "quality_flags": [
+          "complete_native_support_only",
+          "pra_count_not_agricultural_area"
+        ],
+        "data_freshness": [
+          "2026-11-05T20:39:23.01534+00:00"
+        ],
+        "href": "/"
+      },
+      {
+        "id": "fact-9f4e1d7fc73e94c03a49de4ce9d2f0104cc636b81c302d7c25d5a4b210848643",
+        "text": "Hauts-de-France : 34 PRA avec au moins trois jours consécutifs < 1 mm/j, en réanalyse au 2026-10-30. Durée documentée maximale : 5 jours.",
+        "value": 5,
+        "unit": "jours",
+        "period": [
+          "2026-10-26",
+          "2026-10-30"
+        ],
+        "source": "era5-land",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "provenance": [
+          "6a35c330f67f958a6cf86ae035f3b19ee462c928b5993278a1a056ea3c444b8f",
+          "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313"
+        ],
+        "quality_flags": [
+          "complete_native_support_only",
+          "pra_count_not_agricultural_area"
+        ],
+        "data_freshness": [
+          "2026-11-05T20:39:06.594964+00:00"
+        ],
+        "href": "/"
+      },
+      {
+        "id": "fact-51dcc38af1a89b3a2cd29360515d79c0dd9a3e5a61b65f80401d26147b5f1ddd",
+        "text": "Île-de-France : 37 PRA avec au moins trois jours consécutifs < 1 mm/j, en réanalyse au 2026-10-30. Durée documentée maximale : 5 jours.",
+        "value": 5,
+        "unit": "jours",
+        "period": [
+          "2026-10-26",
+          "2026-10-30"
+        ],
+        "source": "era5-land",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "provenance": [
+          "6a35c330f67f958a6cf86ae035f3b19ee462c928b5993278a1a056ea3c444b8f",
+          "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313"
+        ],
+        "quality_flags": [
+          "complete_native_support_only",
+          "pra_count_not_agricultural_area"
+        ],
+        "data_freshness": [
+          "2026-11-05T20:39:30.705728+00:00"
+        ],
+        "href": "/"
+      },
+      {
+        "id": "fact-8e994b9eeca0a319e21e8bdbccaa3bf5275a778214474fd1fe47949c85c92f5d",
+        "text": "Normandie : 25 PRA avec au moins trois jours consécutifs < 1 mm/j, en réanalyse au 2026-10-30. Durée documentée maximale : 4 jours.",
+        "value": 4,
+        "unit": "jours",
+        "period": [
+          "2026-10-27",
+          "2026-10-30"
+        ],
+        "source": "era5-land",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "provenance": [
+          "6a35c330f67f958a6cf86ae035f3b19ee462c928b5993278a1a056ea3c444b8f",
+          "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313"
+        ],
+        "quality_flags": [
+          "complete_native_support_only",
+          "pra_count_not_agricultural_area"
+        ],
+        "data_freshness": [
+          "2026-11-05T20:38:55.444118+00:00"
+        ],
+        "href": "/"
+      },
+      {
+        "id": "fact-98dd78c894fb1dc5f85045b65ae0eb706c97577a74dcc4825d7084c585839900",
+        "text": "Nouvelle-Aquitaine : 103 PRA avec au moins trois jours consécutifs < 1 mm/j, en réanalyse au 2026-10-30. Durée documentée maximale : 7 jours.",
+        "value": 7,
+        "unit": "jours",
+        "period": [
+          "2026-10-24",
+          "2026-10-30"
+        ],
+        "source": "era5-land",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "provenance": [
+          "6a35c330f67f958a6cf86ae035f3b19ee462c928b5993278a1a056ea3c444b8f",
+          "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313"
+        ],
+        "quality_flags": [
+          "complete_native_support_only",
+          "pra_count_not_agricultural_area"
+        ],
+        "data_freshness": [
+          "2026-11-05T20:39:20.995598+00:00"
+        ],
+        "href": "/"
+      },
+      {
+        "id": "fact-b036b1ca62aebdda51553646ec24b77309199e3b19d75b719a70ec366aae89f6",
+        "text": "Occitanie : 70 PRA avec au moins trois jours consécutifs < 1 mm/j, en réanalyse au 2026-10-30. Durée documentée maximale : 10 jours.",
+        "value": 10,
+        "unit": "jours",
+        "period": [
+          "2026-10-21",
+          "2026-10-30"
+        ],
+        "source": "era5-land",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "provenance": [
+          "6a35c330f67f958a6cf86ae035f3b19ee462c928b5993278a1a056ea3c444b8f",
+          "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313"
+        ],
+        "quality_flags": [
+          "complete_native_support_only",
+          "pra_count_not_agricultural_area"
+        ],
+        "data_freshness": [
+          "2026-11-05T20:39:12.366445+00:00"
+        ],
+        "href": "/"
+      },
+      {
+        "id": "fact-3f85dd142b7c8a05980aa7395a5e4e1891ac556c6da8d81cb8d104bb6713f925",
+        "text": "Pays de la Loire : 31 PRA avec au moins trois jours consécutifs < 1 mm/j, en réanalyse au 2026-10-30. Durée documentée maximale : 5 jours.",
+        "value": 5,
+        "unit": "jours",
+        "period": [
+          "2026-10-26",
+          "2026-10-30"
+        ],
+        "source": "era5-land",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "provenance": [
+          "6a35c330f67f958a6cf86ae035f3b19ee462c928b5993278a1a056ea3c444b8f",
+          "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313"
+        ],
+        "quality_flags": [
+          "complete_native_support_only",
+          "pra_count_not_agricultural_area"
+        ],
+        "data_freshness": [
+          "2026-11-05T20:39:18.01896+00:00"
+        ],
+        "href": "/"
+      },
+      {
+        "id": "fact-26c69ecdfabd3ae1c1295ada43c8850543336ba96d3b1fad3f06ae9e3104e57a",
+        "text": "Provence-Alpes-Côte d'Azur : 23 PRA avec au moins trois jours consécutifs < 1 mm/j, en réanalyse au 2026-10-30. Durée documentée maximale : 10 jours.",
+        "value": 10,
+        "unit": "jours",
+        "period": [
+          "2026-10-21",
+          "2026-10-30"
+        ],
+        "source": "era5-land",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "provenance": [
+          "6a35c330f67f958a6cf86ae035f3b19ee462c928b5993278a1a056ea3c444b8f",
+          "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313"
+        ],
+        "quality_flags": [
+          "complete_native_support_only",
+          "pra_count_not_agricultural_area"
+        ],
+        "data_freshness": [
+          "2026-11-05T20:39:15.655196+00:00"
+        ],
+        "href": "/"
+      },
+      {
+        "id": "fact-49e5f3b6f43e8170fc50959368a96b37682532745006a6843401c03264144d66",
+        "text": "Auvergne-Rhône-Alpes : 14 PRA avec Tmin < 0 °C, en réanalyse au 2026-10-30. Durée documentée maximale : 11 jours.",
+        "value": -12.5555,
+        "unit": "°C",
+        "period": [
+          "2026-10-20",
+          "2026-10-30"
+        ],
+        "source": "era5-land",
+        "rule_version": "editorial-temporal-1/frost/1",
+        "provenance": [
+          "6a35c330f67f958a6cf86ae035f3b19ee462c928b5993278a1a056ea3c444b8f",
+          "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313"
+        ],
+        "quality_flags": [
+          "complete_native_support_only",
+          "pra_count_not_agricultural_area"
+        ],
+        "data_freshness": [
+          "2026-11-05T20:38:53.755059+00:00"
+        ],
+        "href": "/"
+      },
+      {
+        "id": "4b05675f48e1244f904b35864dba2b684ed8cf5d5ec347ea181a603d8401863f",
+        "text": "France : maximum territorial gdd, 504.38019999999995 °C·j sur pra:40145, 645/713 PRA évaluables. Réanalyse descriptive ; aucune conséquence agricole déduite.",
+        "value": 504.38019999999995,
+        "unit": "°C·j",
+        "period": [
+          "2026-10-01",
+          "2026-10-30"
+        ],
+        "source": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+        "rule_version": "wheat-descriptive-2.1.0",
+        "provenance": [
+          "9abfa0f0c0ddb3b7dd2a6927c24cd4437f5ae3fb026db27ad618943505167344",
+          "f13f7800aa7b13087c180c1eed5ca3ad89420159be279ebc67b15d9e576718bb",
+          "7f10320248c0c62f1bb836ec21bce1033158ad1e7c249c3b9cffed95f2554858",
+          "a354ae0472097d9b3674f03e8b81f31251ae0bd1d019b2e02f0e741972564fe8",
+          "d38ab0c24cee9939abdf18d07fa82931e1d2710279546b5e79a5222b7e9325e7",
+          "03b8b535c5d7a34446285c375418be1a5a0e6747c9594552ddac1ef306e1c1cd",
+          "0011be72be90848b489859e32d8b025bf8539880a911d11eae6e997f459a1df4"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "coastal_representativeness_not_guaranteed"
+        ],
+        "data_freshness": [
+          "source 2026-10-01; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-02; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-03; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-04; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-05; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-06; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-07; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-08; calculated 2026-10-30T23:32:38.347199+00:00",
+          "source 2026-10-09; calculated 2026-10-30T23:32:38.347199+00:00",
+          "source 2026-10-10; calculated 2026-10-30T23:32:38.347199+00:00",
+          "source 2026-10-11; calculated 2026-10-30T23:32:38.347199+00:00",
+          "source 2026-10-12; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-13; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-14; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-15; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-16; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-17; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-18; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-19; calculated 2026-11-05T14:54:57.803393+00:00",
+          "source 2026-10-20; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-21; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-22; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-23; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-24; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-25; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-26; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-27; calculated 2026-11-05T20:37:30.77954+00:00",
+          "source 2026-10-28; calculated 2026-11-05T20:37:30.77954+00:00",
+          "source 2026-10-29; calculated 2026-11-05T20:37:30.77954+00:00",
+          "source 2026-10-30; calculated 2026-11-05T20:37:30.77954+00:00"
+        ],
+        "href": "/analyse?production=wheat"
+      },
+      {
+        "id": "72031bfafb4dad83f1ff7ca952cfcce9a8ed29cb5881288cae822dbfdcedbf31",
+        "text": "France : maximum territorial hot, 7 jours sur pra:40133, 645/713 PRA évaluables. Réanalyse descriptive ; aucune conséquence agricole déduite.",
+        "value": 7,
+        "unit": "jours",
+        "period": [
+          "2026-10-01",
+          "2026-10-30"
+        ],
+        "source": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+        "rule_version": "wheat-descriptive-2.1.0",
+        "provenance": [
+          "9abfa0f0c0ddb3b7dd2a6927c24cd4437f5ae3fb026db27ad618943505167344",
+          "ad269c39974da9fe7a6f31e2c14ee331f1c64a53d68546e9278a589d10c3eda0",
+          "822787119129a8aedcbcfa97c0d616686f27530ac1d8401c3b0c44c7ed189083",
+          "f5f5776e5d6124137b3646814d918737b350d186953d1034da88b50ead981657",
+          "a5f0a0ef9a0403b18d2c370222c959fe899ef9781da85c53536f23331ddf56c2",
+          "f980194106a5b740e17f429d7722c401617fc16bbdf23340c28c27b0b887e939",
+          "62a3deab8338ad1191368bc694ecc53dbe8bd33bebdeefa606a102503a09268e"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "coastal_representativeness_not_guaranteed"
+        ],
+        "data_freshness": [
+          "source 2026-10-01; calculated 2026-10-30T23:27:38.994104+00:00",
+          "source 2026-10-02; calculated 2026-10-30T23:27:38.994104+00:00",
+          "source 2026-10-03; calculated 2026-10-30T23:27:38.994104+00:00",
+          "source 2026-10-04; calculated 2026-10-30T23:27:38.994104+00:00",
+          "source 2026-10-05; calculated 2026-10-30T23:27:38.994104+00:00",
+          "source 2026-10-06; calculated 2026-10-30T23:27:38.994104+00:00",
+          "source 2026-10-07; calculated 2026-10-30T23:27:38.994104+00:00",
+          "source 2026-10-08; calculated 2026-10-30T23:32:36.952277+00:00",
+          "source 2026-10-09; calculated 2026-10-30T23:32:36.952277+00:00",
+          "source 2026-10-10; calculated 2026-10-30T23:32:36.952277+00:00",
+          "source 2026-10-11; calculated 2026-10-30T23:32:36.952277+00:00",
+          "source 2026-10-12; calculated 2026-10-30T23:37:56.067874+00:00",
+          "source 2026-10-13; calculated 2026-10-30T23:37:56.067874+00:00",
+          "source 2026-10-14; calculated 2026-10-30T23:37:56.067874+00:00",
+          "source 2026-10-15; calculated 2026-10-30T23:37:56.067874+00:00",
+          "source 2026-10-16; calculated 2026-10-30T23:37:56.067874+00:00",
+          "source 2026-10-17; calculated 2026-10-30T23:37:56.067874+00:00",
+          "source 2026-10-18; calculated 2026-10-30T23:37:56.067874+00:00",
+          "source 2026-10-19; calculated 2026-11-05T14:54:57.155063+00:00",
+          "source 2026-10-20; calculated 2026-11-05T19:56:53.616619+00:00",
+          "source 2026-10-21; calculated 2026-11-05T19:56:53.616619+00:00",
+          "source 2026-10-22; calculated 2026-11-05T19:56:53.616619+00:00",
+          "source 2026-10-23; calculated 2026-11-05T19:56:53.616619+00:00",
+          "source 2026-10-24; calculated 2026-11-05T19:56:53.616619+00:00",
+          "source 2026-10-25; calculated 2026-11-05T19:56:53.616619+00:00",
+          "source 2026-10-26; calculated 2026-11-05T19:56:53.616619+00:00",
+          "source 2026-10-27; calculated 2026-11-05T20:37:29.97661+00:00",
+          "source 2026-10-28; calculated 2026-11-05T20:37:29.97661+00:00",
+          "source 2026-10-29; calculated 2026-11-05T20:37:29.97661+00:00",
+          "source 2026-10-30; calculated 2026-11-05T20:37:29.97661+00:00"
+        ],
+        "href": "/analyse?production=wheat"
+      },
+      {
+        "id": "a15fbbce2d7d6d0b228c668a9b0fd113e0fb29072782ddc2811a3602a23f2824",
+        "text": "France : maximum territorial hot_sequence, 5 jours sur pra:24158, 645/713 PRA évaluables. Réanalyse descriptive ; aucune conséquence agricole déduite.",
+        "value": 5,
+        "unit": "jours",
+        "period": [
+          "2026-10-01",
+          "2026-10-30"
+        ],
+        "source": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+        "rule_version": "wheat-descriptive-2.1.0",
+        "provenance": [
+          "9abfa0f0c0ddb3b7dd2a6927c24cd4437f5ae3fb026db27ad618943505167344",
+          "eb3737f9cf8ca97c2a2ae4a3782d7cb1a31bc0e1b63882fd26efd0dab0bcab84",
+          "dbcd005ec66340d12f4a4aa021090db10f05d69e685905e94cb555e7b3ed6d90",
+          "9859e29e5895ceb532ef66660aca7776bdd17da1bb4e74cffe7ce028dc80b153",
+          "ecfba6b0e70550d13e8143264d1ddb26577b2b9e210a7af95e828247afb85e7d",
+          "70d94929daadc1796debf746439ee7b427a9f1a7559220d4113d8ce195f7f23d",
+          "cd2907ab0707d6df076412fda72eeab17813cfc05c67d07cc6eaf4ed63ae82fe"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "coastal_representativeness_not_guaranteed"
+        ],
+        "data_freshness": [
+          "source 2026-10-01; calculated 2026-10-30T23:26:36.437342+00:00",
+          "source 2026-10-02; calculated 2026-10-30T23:26:36.437342+00:00",
+          "source 2026-10-03; calculated 2026-10-30T23:26:36.437342+00:00",
+          "source 2026-10-04; calculated 2026-10-30T23:26:36.437342+00:00",
+          "source 2026-10-05; calculated 2026-10-30T23:26:36.437342+00:00",
+          "source 2026-10-06; calculated 2026-10-30T23:26:36.437342+00:00",
+          "source 2026-10-07; calculated 2026-10-30T23:26:36.437342+00:00",
+          "source 2026-10-08; calculated 2026-10-30T23:31:32.255993+00:00",
+          "source 2026-10-09; calculated 2026-10-30T23:31:32.255993+00:00",
+          "source 2026-10-10; calculated 2026-10-30T23:31:32.255993+00:00",
+          "source 2026-10-11; calculated 2026-10-30T23:31:32.255993+00:00",
+          "source 2026-10-12; calculated 2026-10-30T23:36:44.377539+00:00",
+          "source 2026-10-13; calculated 2026-10-30T23:36:44.377539+00:00",
+          "source 2026-10-14; calculated 2026-10-30T23:36:44.377539+00:00",
+          "source 2026-10-15; calculated 2026-10-30T23:36:44.377539+00:00",
+          "source 2026-10-16; calculated 2026-10-30T23:36:44.377539+00:00",
+          "source 2026-10-17; calculated 2026-10-30T23:36:44.377539+00:00",
+          "source 2026-10-18; calculated 2026-10-30T23:36:44.377539+00:00",
+          "source 2026-10-19; calculated 2026-11-05T14:54:22.920468+00:00",
+          "source 2026-10-20; calculated 2026-11-05T19:56:17.594784+00:00",
+          "source 2026-10-21; calculated 2026-11-05T19:56:17.594784+00:00",
+          "source 2026-10-22; calculated 2026-11-05T19:56:17.594784+00:00",
+          "source 2026-10-23; calculated 2026-11-05T19:56:17.594784+00:00",
+          "source 2026-10-24; calculated 2026-11-05T19:56:17.594784+00:00",
+          "source 2026-10-25; calculated 2026-11-05T19:56:17.594784+00:00",
+          "source 2026-10-26; calculated 2026-11-05T19:56:17.594784+00:00",
+          "source 2026-10-27; calculated 2026-11-05T20:36:47.309893+00:00",
+          "source 2026-10-28; calculated 2026-11-05T20:36:47.309893+00:00",
+          "source 2026-10-29; calculated 2026-11-05T20:36:47.309893+00:00",
+          "source 2026-10-30; calculated 2026-11-05T20:36:47.309893+00:00"
+        ],
+        "href": "/analyse?production=wheat"
+      },
+      {
+        "id": "a2ad3f99699d10599a9a330a3f51e12ba7076a657d23c94857dfb1c4c3be734e",
+        "text": "France : maximum territorial frost, 21 jours sur pra:73229, 645/713 PRA évaluables. Réanalyse descriptive ; aucune conséquence agricole déduite.",
+        "value": 21,
+        "unit": "jours",
+        "period": [
+          "2026-10-01",
+          "2026-10-30"
+        ],
+        "source": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+        "rule_version": "wheat-descriptive-2.1.0",
+        "provenance": [
+          "9abfa0f0c0ddb3b7dd2a6927c24cd4437f5ae3fb026db27ad618943505167344",
+          "a041e6336fd003827b21b23e64a620e99f5efe769b56ce569057cbbab147a96c",
+          "7a3db63e5635383edd9236204ddd3e755187420c89cbf419360daa9e5455a23e",
+          "eb591d73fb89c0b5d68ccda7515b8c37e214b3cae72627b20452c57c7fe32a36",
+          "981778dcac41aba6329135f4e0809cb111baf6581d44ed2e70efbca2d04a0b39",
+          "d03a1194328addd3d1b7b428fa8e7a493e8d237b90d55f5f74e5c729b097646c",
+          "74bd3274e0daf8f387097cc6be65d099fb8eb1f623bdfc91464d377aff209375"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "coastal_representativeness_not_guaranteed"
+        ],
+        "data_freshness": [
+          "source 2026-10-01; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-02; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-03; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-04; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-05; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-06; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-07; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-08; calculated 2026-10-30T23:34:34.176626+00:00",
+          "source 2026-10-09; calculated 2026-10-30T23:34:34.176626+00:00",
+          "source 2026-10-10; calculated 2026-10-30T23:34:34.176626+00:00",
+          "source 2026-10-11; calculated 2026-10-30T23:34:34.176626+00:00",
+          "source 2026-10-12; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-13; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-14; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-15; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-16; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-17; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-18; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-19; calculated 2026-11-05T14:55:59.106727+00:00",
+          "source 2026-10-20; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-21; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-22; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-23; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-24; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-25; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-26; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-27; calculated 2026-11-05T20:38:46.908363+00:00",
+          "source 2026-10-28; calculated 2026-11-05T20:38:46.908363+00:00",
+          "source 2026-10-29; calculated 2026-11-05T20:38:46.908363+00:00",
+          "source 2026-10-30; calculated 2026-11-05T20:38:46.908363+00:00"
+        ],
+        "href": "/analyse?production=wheat"
+      },
+      {
+        "id": "83d3c99e12aa04382745777dd250af6f2c244b358987730fe0d5fbb460c8b660",
+        "text": "France : maximum territorial frost_sequence, 11 jours sur pra:73229, 645/713 PRA évaluables. Réanalyse descriptive ; aucune conséquence agricole déduite.",
+        "value": 11,
+        "unit": "jours",
+        "period": [
+          "2026-10-01",
+          "2026-10-30"
+        ],
+        "source": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+        "rule_version": "wheat-descriptive-2.1.0",
+        "provenance": [
+          "9abfa0f0c0ddb3b7dd2a6927c24cd4437f5ae3fb026db27ad618943505167344",
+          "a041e6336fd003827b21b23e64a620e99f5efe769b56ce569057cbbab147a96c",
+          "7a3db63e5635383edd9236204ddd3e755187420c89cbf419360daa9e5455a23e",
+          "eb591d73fb89c0b5d68ccda7515b8c37e214b3cae72627b20452c57c7fe32a36",
+          "981778dcac41aba6329135f4e0809cb111baf6581d44ed2e70efbca2d04a0b39",
+          "d03a1194328addd3d1b7b428fa8e7a493e8d237b90d55f5f74e5c729b097646c",
+          "74bd3274e0daf8f387097cc6be65d099fb8eb1f623bdfc91464d377aff209375"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "coastal_representativeness_not_guaranteed"
+        ],
+        "data_freshness": [
+          "source 2026-10-01; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-02; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-03; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-04; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-05; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-06; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-07; calculated 2026-10-30T23:29:27.98245+00:00",
+          "source 2026-10-08; calculated 2026-10-30T23:34:34.176626+00:00",
+          "source 2026-10-09; calculated 2026-10-30T23:34:34.176626+00:00",
+          "source 2026-10-10; calculated 2026-10-30T23:34:34.176626+00:00",
+          "source 2026-10-11; calculated 2026-10-30T23:34:34.176626+00:00",
+          "source 2026-10-12; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-13; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-14; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-15; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-16; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-17; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-18; calculated 2026-10-30T23:40:00.842502+00:00",
+          "source 2026-10-19; calculated 2026-11-05T14:55:59.106727+00:00",
+          "source 2026-10-20; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-21; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-22; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-23; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-24; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-25; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-26; calculated 2026-11-05T19:58:00.185202+00:00",
+          "source 2026-10-27; calculated 2026-11-05T20:38:46.908363+00:00",
+          "source 2026-10-28; calculated 2026-11-05T20:38:46.908363+00:00",
+          "source 2026-10-29; calculated 2026-11-05T20:38:46.908363+00:00",
+          "source 2026-10-30; calculated 2026-11-05T20:38:46.908363+00:00"
+        ],
+        "href": "/analyse?production=wheat"
+      },
+      {
+        "id": "aa778375b07ffb2f9f9df23e24036339163629e0fc3a945d091eda4c8d2df607",
+        "text": "France : maximum territorial rain, 225.011779056 mm sur pra:30410, 645/713 PRA évaluables. Réanalyse descriptive ; aucune conséquence agricole déduite.",
+        "value": 225.011779056,
+        "unit": "mm",
+        "period": [
+          "2026-10-01",
+          "2026-10-30"
+        ],
+        "source": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+        "rule_version": "wheat-descriptive-2.1.0",
+        "provenance": [
+          "9abfa0f0c0ddb3b7dd2a6927c24cd4437f5ae3fb026db27ad618943505167344",
+          "80157e70d96aa35be2adb13eb4515d71e935e7c714760b5c0b28517e3d6b71f7",
+          "0cd2ca9aa8a23f2a3259a146df6167511f87aaf771c9b20c9b0cd11bd2133276",
+          "ddf9ec1a8a0e1290c0068221544071a810934528613837a4306fb1f989b9bac4",
+          "ca1d74ac76a07b408eeef35a886c4bf93699afdae1b904156a4f0c97f7b250a7",
+          "9b58da9386ed303ad0518950136944358b5124918f8d18b1a6f2291fb05fa079",
+          "5a428a165dfd103f03ef504b45401bcd16ab9f7b98b2e5109397b8bcccdcca06"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "coastal_representativeness_not_guaranteed"
+        ],
+        "data_freshness": [
+          "source 2026-10-01; calculated 2026-10-30T23:26:58.624383+00:00",
+          "source 2026-10-02; calculated 2026-10-30T23:26:58.624383+00:00",
+          "source 2026-10-03; calculated 2026-10-30T23:26:58.624383+00:00",
+          "source 2026-10-04; calculated 2026-10-30T23:26:58.624383+00:00",
+          "source 2026-10-05; calculated 2026-10-30T23:26:58.624383+00:00",
+          "source 2026-10-06; calculated 2026-10-30T23:26:58.624383+00:00",
+          "source 2026-10-07; calculated 2026-10-30T23:26:58.624383+00:00",
+          "source 2026-10-08; calculated 2026-10-30T23:31:55.518718+00:00",
+          "source 2026-10-09; calculated 2026-10-30T23:31:55.518718+00:00",
+          "source 2026-10-10; calculated 2026-10-30T23:31:55.518718+00:00",
+          "source 2026-10-11; calculated 2026-10-30T23:31:55.518718+00:00",
+          "source 2026-10-12; calculated 2026-10-30T23:37:10.073141+00:00",
+          "source 2026-10-13; calculated 2026-10-30T23:37:10.073141+00:00",
+          "source 2026-10-14; calculated 2026-10-30T23:37:10.073141+00:00",
+          "source 2026-10-15; calculated 2026-10-30T23:37:10.073141+00:00",
+          "source 2026-10-16; calculated 2026-10-30T23:37:10.073141+00:00",
+          "source 2026-10-17; calculated 2026-10-30T23:37:10.073141+00:00",
+          "source 2026-10-18; calculated 2026-10-30T23:37:10.073141+00:00",
+          "source 2026-10-19; calculated 2026-11-05T14:54:35.773913+00:00",
+          "source 2026-10-20; calculated 2026-11-05T19:56:30.937922+00:00",
+          "source 2026-10-21; calculated 2026-11-05T19:56:30.937922+00:00",
+          "source 2026-10-22; calculated 2026-11-05T19:56:30.937922+00:00",
+          "source 2026-10-23; calculated 2026-11-05T19:56:30.937922+00:00",
+          "source 2026-10-24; calculated 2026-11-05T19:56:30.937922+00:00",
+          "source 2026-10-25; calculated 2026-11-05T19:56:30.937922+00:00",
+          "source 2026-10-26; calculated 2026-11-05T19:56:30.937922+00:00",
+          "source 2026-10-27; calculated 2026-11-05T20:37:02.873133+00:00",
+          "source 2026-10-28; calculated 2026-11-05T20:37:02.873133+00:00",
+          "source 2026-10-29; calculated 2026-11-05T20:37:02.873133+00:00",
+          "source 2026-10-30; calculated 2026-11-05T20:37:02.873133+00:00"
+        ],
+        "href": "/analyse?production=wheat"
+      },
+      {
+        "id": "4271d9ee6236d373fb3964f5902f374d167735c701c736034d47cf7918b868aa",
+        "text": "France : maximum territorial heavy_rain, 4 jours sur pra:13246, 645/713 PRA évaluables. Réanalyse descriptive ; aucune conséquence agricole déduite.",
+        "value": 4,
+        "unit": "jours",
+        "period": [
+          "2026-10-01",
+          "2026-10-30"
+        ],
+        "source": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+        "rule_version": "wheat-descriptive-2.1.0",
+        "provenance": [
+          "9abfa0f0c0ddb3b7dd2a6927c24cd4437f5ae3fb026db27ad618943505167344",
+          "633d2576c67a501df7da4afc04eddeaa105ff6f24439c4d96081fabe20e0aa0e",
+          "1900059c5361eea14fc9342e93c7b43618ae63762e3d54ca5a1275111a10f2f4",
+          "ebeb4645ef7e00e7933724a33a8a708d148674392d0fd114d2923f4936daa847",
+          "46e3e76b96659a9a71a1e4bf8c2038016854e42ca705d25546c2b15321ae1d12",
+          "b401e8280cc1875942f4a3e94ba78dadf85271a48c5ed003b8bae457a0a23082",
+          "f788b2e97c08a6b45de064919c55d83cd335767801a3c18fe92589c154f36e25"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "coastal_representativeness_not_guaranteed"
+        ],
+        "data_freshness": [
+          "source 2026-10-01; calculated 2026-10-30T23:26:09.915662+00:00",
+          "source 2026-10-02; calculated 2026-10-30T23:26:09.915662+00:00",
+          "source 2026-10-03; calculated 2026-10-30T23:26:09.915662+00:00",
+          "source 2026-10-04; calculated 2026-10-30T23:26:09.915662+00:00",
+          "source 2026-10-05; calculated 2026-10-30T23:26:09.915662+00:00",
+          "source 2026-10-06; calculated 2026-10-30T23:26:09.915662+00:00",
+          "source 2026-10-07; calculated 2026-10-30T23:26:09.915662+00:00",
+          "source 2026-10-08; calculated 2026-10-30T23:31:03.750967+00:00",
+          "source 2026-10-09; calculated 2026-10-30T23:31:03.750967+00:00",
+          "source 2026-10-10; calculated 2026-10-30T23:31:03.750967+00:00",
+          "source 2026-10-11; calculated 2026-10-30T23:31:03.750967+00:00",
+          "source 2026-10-12; calculated 2026-10-30T23:36:13.848205+00:00",
+          "source 2026-10-13; calculated 2026-10-30T23:36:13.848205+00:00",
+          "source 2026-10-14; calculated 2026-10-30T23:36:13.848205+00:00",
+          "source 2026-10-15; calculated 2026-10-30T23:36:13.848205+00:00",
+          "source 2026-10-16; calculated 2026-10-30T23:36:13.848205+00:00",
+          "source 2026-10-17; calculated 2026-10-30T23:36:13.848205+00:00",
+          "source 2026-10-18; calculated 2026-10-30T23:36:13.848205+00:00",
+          "source 2026-10-19; calculated 2026-11-05T14:53:05.31888+00:00",
+          "source 2026-10-20; calculated 2026-11-05T19:56:01.478577+00:00",
+          "source 2026-10-21; calculated 2026-11-05T19:56:01.478577+00:00",
+          "source 2026-10-22; calculated 2026-11-05T19:56:01.478577+00:00",
+          "source 2026-10-23; calculated 2026-11-05T19:56:01.478577+00:00",
+          "source 2026-10-24; calculated 2026-11-05T19:56:01.478577+00:00",
+          "source 2026-10-25; calculated 2026-11-05T19:56:01.478577+00:00",
+          "source 2026-10-26; calculated 2026-11-05T19:56:01.478577+00:00",
+          "source 2026-10-27; calculated 2026-11-05T20:36:27.930517+00:00",
+          "source 2026-10-28; calculated 2026-11-05T20:36:27.930517+00:00",
+          "source 2026-10-29; calculated 2026-11-05T20:36:27.930517+00:00",
+          "source 2026-10-30; calculated 2026-11-05T20:36:27.930517+00:00"
+        ],
+        "href": "/analyse?production=wheat"
+      },
+      {
+        "id": "8911ee93bfc0419d0494a7ff8b5442db1742bcee1c1843b43ce91b566399d2b3",
+        "text": "France : maximum territorial dry, 22 jours sur pra:04462, 645/713 PRA évaluables. Réanalyse descriptive ; aucune conséquence agricole déduite.",
+        "value": 22,
+        "unit": "jours",
+        "period": [
+          "2026-10-01",
+          "2026-10-30"
+        ],
+        "source": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+        "rule_version": "wheat-descriptive-2.1.0",
+        "provenance": [
+          "9abfa0f0c0ddb3b7dd2a6927c24cd4437f5ae3fb026db27ad618943505167344",
+          "5acf66f0821ba2d2cfa042c0fbd03e940d8e6ef2f535f98cc6fa069b1303ffb1",
+          "9b4baad46f95b300b015d5932167b84c1ba044c7cacc05485cbafe321d9ff92e",
+          "bb2e99db3c5f25e38a5604ab49691a0b8e69b9f661cf05129924d61e15e7284f",
+          "831e3e1045e1b3798054cfddecf3b65351b192a692342acdc490c1420d589530",
+          "f1ea6b41f79def765f6db6e0212346ba5e180004d1e1e858bc5c6307a4e4ad48",
+          "59f498fb6631eb593de042105d3ffbd0250e347e39568af5232c474a5260ae0a"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "coastal_representativeness_not_guaranteed"
+        ],
+        "data_freshness": [
+          "source 2026-10-01; calculated 2026-10-30T23:25:48.067127+00:00",
+          "source 2026-10-02; calculated 2026-10-30T23:25:48.067127+00:00",
+          "source 2026-10-03; calculated 2026-10-30T23:25:48.067127+00:00",
+          "source 2026-10-04; calculated 2026-10-30T23:25:48.067127+00:00",
+          "source 2026-10-05; calculated 2026-10-30T23:25:48.067127+00:00",
+          "source 2026-10-06; calculated 2026-10-30T23:25:48.067127+00:00",
+          "source 2026-10-07; calculated 2026-10-30T23:25:48.067127+00:00",
+          "source 2026-10-08; calculated 2026-10-30T23:30:39.841124+00:00",
+          "source 2026-10-09; calculated 2026-10-30T23:30:39.841124+00:00",
+          "source 2026-10-10; calculated 2026-10-30T23:30:39.841124+00:00",
+          "source 2026-10-11; calculated 2026-10-30T23:30:39.841124+00:00",
+          "source 2026-10-12; calculated 2026-10-30T23:35:48.574345+00:00",
+          "source 2026-10-13; calculated 2026-10-30T23:35:48.574345+00:00",
+          "source 2026-10-14; calculated 2026-10-30T23:35:48.574345+00:00",
+          "source 2026-10-15; calculated 2026-10-30T23:35:48.574345+00:00",
+          "source 2026-10-16; calculated 2026-10-30T23:35:48.574345+00:00",
+          "source 2026-10-17; calculated 2026-10-30T23:35:48.574345+00:00",
+          "source 2026-10-18; calculated 2026-10-30T23:35:48.574345+00:00",
+          "source 2026-10-19; calculated 2026-11-05T14:09:42.275414+00:00",
+          "source 2026-10-20; calculated 2026-11-05T19:55:48.004016+00:00",
+          "source 2026-10-21; calculated 2026-11-05T19:55:48.004016+00:00",
+          "source 2026-10-22; calculated 2026-11-05T19:55:48.004016+00:00",
+          "source 2026-10-23; calculated 2026-11-05T19:55:48.004016+00:00",
+          "source 2026-10-24; calculated 2026-11-05T19:55:48.004016+00:00",
+          "source 2026-10-25; calculated 2026-11-05T19:55:48.004016+00:00",
+          "source 2026-10-26; calculated 2026-11-05T19:55:48.004016+00:00",
+          "source 2026-10-27; calculated 2026-11-05T20:36:09.928557+00:00",
+          "source 2026-10-28; calculated 2026-11-05T20:36:09.928557+00:00",
+          "source 2026-10-29; calculated 2026-11-05T20:36:09.928557+00:00",
+          "source 2026-10-30; calculated 2026-11-05T20:36:09.928557+00:00"
+        ],
+        "href": "/analyse?production=wheat"
+      },
+      {
+        "id": "00904bfc843feb215e450d23c1735c5ee19777380e65fddf6eee26704ec5bcd2",
+        "text": "France : maximum territorial dry_sequence, 12 jours sur pra:78330, 645/713 PRA évaluables. Réanalyse descriptive ; aucune conséquence agricole déduite.",
+        "value": 12,
+        "unit": "jours",
+        "period": [
+          "2026-10-01",
+          "2026-10-30"
+        ],
+        "source": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+        "rule_version": "wheat-descriptive-2.1.0",
+        "provenance": [
+          "9abfa0f0c0ddb3b7dd2a6927c24cd4437f5ae3fb026db27ad618943505167344",
+          "5970b9b45ecc241c16ab077505cddd15b128d0729a53cddfb8a1fd004fe1913a",
+          "2c30f0f07ad6ba77b9d9259bf0b133474b094259f44a2bfe1e339dbeaa6135d7",
+          "b50bf158a0bbdf3d3d8549ce295fc1584b25d8a08f0f80cb484f6852dc095f5c",
+          "8b89d76f5c2195477713acf85b1c1f72be7ec21e979e2094b35bc8f3c32bcc38",
+          "8e5507940f8e9e129ba4a52b3158758b309cd593d26035669e563f15d1f8cb29",
+          "d72103f4073f1d3b58f8033c71d156fd184c4389b61a7f1c775c1d56ff3c4115"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "coastal_representativeness_not_guaranteed"
+        ],
+        "data_freshness": [
+          "source 2026-10-01; calculated 2026-10-30T23:29:48.213492+00:00",
+          "source 2026-10-02; calculated 2026-10-30T23:29:48.213492+00:00",
+          "source 2026-10-03; calculated 2026-10-30T23:29:48.213492+00:00",
+          "source 2026-10-04; calculated 2026-10-30T23:29:48.213492+00:00",
+          "source 2026-10-05; calculated 2026-10-30T23:29:48.213492+00:00",
+          "source 2026-10-06; calculated 2026-10-30T23:29:48.213492+00:00",
+          "source 2026-10-07; calculated 2026-10-30T23:29:48.213492+00:00",
+          "source 2026-10-08; calculated 2026-10-30T23:34:54.862902+00:00",
+          "source 2026-10-09; calculated 2026-10-30T23:34:54.862902+00:00",
+          "source 2026-10-10; calculated 2026-10-30T23:34:54.862902+00:00",
+          "source 2026-10-11; calculated 2026-10-30T23:34:54.862902+00:00",
+          "source 2026-10-12; calculated 2026-10-30T23:40:23.764111+00:00",
+          "source 2026-10-13; calculated 2026-10-30T23:40:23.764111+00:00",
+          "source 2026-10-14; calculated 2026-10-30T23:40:23.764111+00:00",
+          "source 2026-10-15; calculated 2026-10-30T23:40:23.764111+00:00",
+          "source 2026-10-16; calculated 2026-10-30T23:40:23.764111+00:00",
+          "source 2026-10-17; calculated 2026-10-30T23:40:23.764111+00:00",
+          "source 2026-10-18; calculated 2026-10-30T23:40:23.764111+00:00",
+          "source 2026-10-19; calculated 2026-11-05T14:56:10.385806+00:00",
+          "source 2026-10-20; calculated 2026-11-05T19:58:11.977104+00:00",
+          "source 2026-10-21; calculated 2026-11-05T19:58:11.977104+00:00",
+          "source 2026-10-22; calculated 2026-11-05T19:58:11.977104+00:00",
+          "source 2026-10-23; calculated 2026-11-05T19:58:11.977104+00:00",
+          "source 2026-10-24; calculated 2026-11-05T19:58:11.977104+00:00",
+          "source 2026-10-25; calculated 2026-11-05T19:58:11.977104+00:00",
+          "source 2026-10-26; calculated 2026-11-05T19:58:11.977104+00:00",
+          "source 2026-10-27; calculated 2026-11-05T20:39:01.670619+00:00",
+          "source 2026-10-28; calculated 2026-11-05T20:39:01.670619+00:00",
+          "source 2026-10-29; calculated 2026-11-05T20:39:01.670619+00:00",
+          "source 2026-10-30; calculated 2026-11-05T20:39:01.670619+00:00"
+        ],
+        "href": "/analyse?production=wheat"
+      },
+      {
+        "id": "731a12b6aa45ee7cf4be63142d40b009340d992f355a21f7d3477b8c7894d69f",
+        "text": "France : maximum territorial temperature_mean, 16.812673333333333 °C sur pra:40145, 645/713 PRA évaluables. Réanalyse descriptive ; aucune conséquence agricole déduite.",
+        "value": 16.812673333333333,
+        "unit": "°C",
+        "period": [
+          "2026-10-01",
+          "2026-10-30"
+        ],
+        "source": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+        "rule_version": "wheat-descriptive-2.1.0",
+        "provenance": [
+          "9abfa0f0c0ddb3b7dd2a6927c24cd4437f5ae3fb026db27ad618943505167344",
+          "f13f7800aa7b13087c180c1eed5ca3ad89420159be279ebc67b15d9e576718bb",
+          "7f10320248c0c62f1bb836ec21bce1033158ad1e7c249c3b9cffed95f2554858",
+          "a354ae0472097d9b3674f03e8b81f31251ae0bd1d019b2e02f0e741972564fe8",
+          "d38ab0c24cee9939abdf18d07fa82931e1d2710279546b5e79a5222b7e9325e7",
+          "03b8b535c5d7a34446285c375418be1a5a0e6747c9594552ddac1ef306e1c1cd",
+          "0011be72be90848b489859e32d8b025bf8539880a911d11eae6e997f459a1df4"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "coastal_representativeness_not_guaranteed"
+        ],
+        "data_freshness": [
+          "source 2026-10-01; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-02; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-03; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-04; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-05; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-06; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-07; calculated 2026-10-30T23:27:40.119656+00:00",
+          "source 2026-10-08; calculated 2026-10-30T23:32:38.347199+00:00",
+          "source 2026-10-09; calculated 2026-10-30T23:32:38.347199+00:00",
+          "source 2026-10-10; calculated 2026-10-30T23:32:38.347199+00:00",
+          "source 2026-10-11; calculated 2026-10-30T23:32:38.347199+00:00",
+          "source 2026-10-12; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-13; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-14; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-15; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-16; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-17; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-18; calculated 2026-10-30T23:37:57.357127+00:00",
+          "source 2026-10-19; calculated 2026-11-05T14:54:57.803393+00:00",
+          "source 2026-10-20; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-21; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-22; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-23; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-24; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-25; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-26; calculated 2026-11-05T19:56:54.297557+00:00",
+          "source 2026-10-27; calculated 2026-11-05T20:37:30.77954+00:00",
+          "source 2026-10-28; calculated 2026-11-05T20:37:30.77954+00:00",
+          "source 2026-10-29; calculated 2026-11-05T20:37:30.77954+00:00",
+          "source 2026-10-30; calculated 2026-11-05T20:37:30.77954+00:00"
+        ],
+        "href": "/analyse?production=wheat"
+      }
+    ],
+    "comparisons": [
+      {
+        "id": "590ca02b7ffd27d7be7de9c10d84687a7abcc1b21ad2c9a8d5a93f2670dd672c",
+        "region": "Auvergne-Rhône-Alpes",
+        "phenomenon": "frost",
+        "horizon": 14,
+        "kind": "historical_evolution",
+        "change": {
+          "horizon": 14,
+          "status": "extension",
+          "reason": "Extension du support franchissant le critère.",
+          "nature": "reanalysis",
+          "previous_date": "2026-10-16"
+        },
+        "support_count": 112,
+        "excluded_count": 0,
+        "support_sha256": "f5c55313156989a2d2dc4f4a29e12536d1c49a22b5eb25acaf6e3a8110e1f3da",
+        "period": [
+          "2026-10-17",
+          "2026-10-30"
+        ],
+        "previous_period": [
+          "2026-10-03",
+          "2026-10-16"
+        ],
+        "provenance_sha256": "99bb1d1197fd2a84e10e4fc0747c340111c7c3924088bfdfbf5e0cca2daaa52e"
+      },
+      {
+        "id": "d7a0a992575f251564dd903dbf304b63a2d0703a3cdbb232a13d4eea6414f10b",
+        "region": "Auvergne-Rhône-Alpes",
+        "phenomenon": "dry",
+        "horizon": 14,
+        "kind": "historical_evolution",
+        "change": {
+          "horizon": 14,
+          "status": "attenuation",
+          "reason": "Réduction du support franchissant le critère.",
+          "nature": "reanalysis",
+          "previous_date": "2026-10-16"
+        },
+        "support_count": 112,
+        "excluded_count": 0,
+        "support_sha256": "e5f407278af5639da4644eb2339ebe80e9914a3be1e4dc59dfa4f4b75381b110",
+        "period": [
+          "2026-10-17",
+          "2026-10-30"
+        ],
+        "previous_period": [
+          "2026-10-03",
+          "2026-10-16"
+        ],
+        "provenance_sha256": "054ee552da18f6ef20e96637b5f7648e96d432b24c1ea48f3c37c573aa054ffc"
+      },
+      {
+        "id": "eeb195ac666940c189386246d0dad7df03ec9a81dad5f169801d34b9ebbde291",
+        "region": "Bourgogne-Franche-Comté",
+        "phenomenon": "dry",
+        "horizon": 7,
+        "kind": "historical_evolution",
+        "change": {
+          "horizon": 7,
+          "status": "extension",
+          "reason": "Extension du support franchissant le critère.",
+          "nature": "reanalysis",
+          "previous_date": "2026-10-23"
+        },
+        "support_count": 61,
+        "excluded_count": 0,
+        "support_sha256": "8bf7eb9c4382ccfa2703a7376e358c7460efb83563982c2388ff11d9430896d1",
+        "period": [
+          "2026-10-24",
+          "2026-10-30"
+        ],
+        "previous_period": [
+          "2026-10-17",
+          "2026-10-23"
+        ],
+        "provenance_sha256": "707a6a73f06d10ee39cc769229b2ecc49e217460d518ba8e3a958add99fde5e6"
+      },
+      {
+        "id": "5f67e412138eec755af5abc04265ebc54a4cc5389545705c18b041fcefb9b32e",
+        "region": "Centre-Val de Loire",
+        "phenomenon": "dry",
+        "horizon": 14,
+        "kind": "historical_evolution",
+        "change": {
+          "horizon": 14,
+          "status": "extension",
+          "reason": "Extension du support franchissant le critère.",
+          "nature": "reanalysis",
+          "previous_date": "2026-10-16"
+        },
+        "support_count": 45,
+        "excluded_count": 0,
+        "support_sha256": "dc0b919e3e8688971c010cc88d003191ed00ec7d8a12433b4a9b6286f9a71bdf",
+        "period": [
+          "2026-10-17",
+          "2026-10-30"
+        ],
+        "previous_period": [
+          "2026-10-03",
+          "2026-10-16"
+        ],
+        "provenance_sha256": "c9f209c4b869d5f3f03db9e0571ad56d38b6d5b9815c8ba0082b8e52753961ec"
+      },
+      {
+        "id": "66ba858cbc7fc7cb03797a6b956626034a6ce9399753084e8388172b0b930da8",
+        "region": "Grand Est",
+        "phenomenon": "dry",
+        "horizon": 7,
+        "kind": "historical_evolution",
+        "change": {
+          "horizon": 7,
+          "status": "extension",
+          "reason": "Extension du support franchissant le critère.",
+          "nature": "reanalysis",
+          "previous_date": "2026-10-23"
+        },
+        "support_count": 70,
+        "excluded_count": 0,
+        "support_sha256": "18f581579ac5a303eb19d8ffbb1fb669cde121167d639b1519a24f0af0ce0c40",
+        "period": [
+          "2026-10-24",
+          "2026-10-30"
+        ],
+        "previous_period": [
+          "2026-10-17",
+          "2026-10-23"
+        ],
+        "provenance_sha256": "02d36f1bcfe0cc74347d9ab4e2315f41c78539dc3d22630cf1985090a0cf4367"
+      },
+      {
+        "id": "4451c5c8da44c89c762a769c9be03ae9cd6a2384d28d0834b5dfdebc4f91d1d1",
+        "region": "Hauts-de-France",
+        "phenomenon": "dry",
+        "horizon": 14,
+        "kind": "historical_evolution",
+        "change": {
+          "horizon": 14,
+          "status": "attenuation",
+          "reason": "Comparaison descriptive homogène ; aucun dommage inféré.",
+          "nature": "reanalysis",
+          "previous_date": "2026-10-16"
+        },
+        "support_count": 34,
+        "excluded_count": 5,
+        "support_sha256": "dc594587e28f626d720ed67b412f2a6d228767f22642af19260417db5011c83c",
+        "period": [
+          "2026-10-17",
+          "2026-10-30"
+        ],
+        "previous_period": [
+          "2026-10-03",
+          "2026-10-16"
+        ],
+        "provenance_sha256": "eea8b5b4bf663d68c9e3da5410d60260c8cf8d00a9630bd2e5074f4327c38a8a"
+      },
+      {
+        "id": "3d94ad0e6ff34d4239c0b2dca5b726089461aec7bf22d9061bd5bcb7f0e098d1",
+        "region": "Normandie",
+        "phenomenon": "dry",
+        "horizon": 14,
+        "kind": "historical_evolution",
+        "change": {
+          "horizon": 14,
+          "status": "attenuation",
+          "reason": "Comparaison descriptive homogène ; aucun dommage inféré.",
+          "nature": "reanalysis",
+          "previous_date": "2026-10-16"
+        },
+        "support_count": 25,
+        "excluded_count": 11,
+        "support_sha256": "f282e1110b55bd643f6e30c071a01c1d5d2de94a37ddcda48df110323e3b96e1",
+        "period": [
+          "2026-10-17",
+          "2026-10-30"
+        ],
+        "previous_period": [
+          "2026-10-03",
+          "2026-10-16"
+        ],
+        "provenance_sha256": "fae9fe81b957968855b27e8fe540be0d2c7644b15e344f1166700231384d6347"
+      },
+      {
+        "id": "5ded00d3c6e6467b4ecafb3fcdd17dfc81cd4b0d61e209fcfabd8b1db4aa36b7",
+        "region": "Nouvelle-Aquitaine",
+        "phenomenon": "dry",
+        "horizon": 14,
+        "kind": "historical_evolution",
+        "change": {
+          "horizon": 14,
+          "status": "attenuation",
+          "reason": "Comparaison descriptive homogène ; aucun dommage inféré.",
+          "nature": "reanalysis",
+          "previous_date": "2026-10-16"
+        },
+        "support_count": 103,
+        "excluded_count": 12,
+        "support_sha256": "420cb98a5466577d01ca941088165551230267668bc3c111d0b85cdbbee5f1fb",
+        "period": [
+          "2026-10-17",
+          "2026-10-30"
+        ],
+        "previous_period": [
+          "2026-10-03",
+          "2026-10-16"
+        ],
+        "provenance_sha256": "356c9d3f426ffbb8acd3339155eef38293b91a00320715cdb0c7e6da275af4a2"
+      },
+      {
+        "id": "7831e5e77da0c26257631a6b074321c1e4afac1cebd889e7c7a95898c87dae9a",
+        "region": "Nouvelle-Aquitaine",
+        "phenomenon": "dry",
+        "horizon": 30,
+        "kind": "insufficient_history",
+        "change": {
+          "horizon": 30,
+          "status": "insufficient_history",
+          "reason": "Aucune série compatible fournie pour cet horizon.",
+          "nature": "reanalysis",
+          "previous_date": null
+        },
+        "support_count": 0,
+        "excluded_count": 115,
+        "support_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "period": [
+          "2026-10-01",
+          "2026-10-30"
+        ],
+        "previous_period": [
+          "2026-09-01",
+          "2026-09-30"
+        ],
+        "provenance_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "id": "f80e61f6f1045c60c334496815eb18b364c41a456fbe5ef26ce9c543e742a8d3",
+        "region": "Occitanie",
+        "phenomenon": "dry",
+        "horizon": 14,
+        "kind": "historical_evolution",
+        "change": {
+          "horizon": 14,
+          "status": "attenuation",
+          "reason": "Réduction du support franchissant le critère.",
+          "nature": "reanalysis",
+          "previous_date": "2026-10-16"
+        },
+        "support_count": 86,
+        "excluded_count": 7,
+        "support_sha256": "a8f792c2131005b7f2e18f3a0a3db53a1847fe31ccf0a6f80c2fffd00699e5ee",
+        "period": [
+          "2026-10-17",
+          "2026-10-30"
+        ],
+        "previous_period": [
+          "2026-10-03",
+          "2026-10-16"
+        ],
+        "provenance_sha256": "28b29cbbfa19ac5747753a14f34073060ea7183e7b8a1de33dc9a07d684dbd68"
+      },
+      {
+        "id": "24737508b76ed40cd998e570a847d2a5135b6287eb260177fa43042142e7692f",
+        "region": "Pays de la Loire",
+        "phenomenon": "dry",
+        "horizon": 14,
+        "kind": "historical_evolution",
+        "change": {
+          "horizon": 14,
+          "status": "intensification",
+          "reason": "Comparaison descriptive homogène ; aucun dommage inféré.",
+          "nature": "reanalysis",
+          "previous_date": "2026-10-16"
+        },
+        "support_count": 31,
+        "excluded_count": 8,
+        "support_sha256": "78c106ba9c7ad34aa756db26d01e14dbfbb803c20382649d83625d2e5085b0db",
+        "period": [
+          "2026-10-17",
+          "2026-10-30"
+        ],
+        "previous_period": [
+          "2026-10-03",
+          "2026-10-16"
+        ],
+        "provenance_sha256": "a0e7e5849d80703b4b28f3a5d70df934852a76c070c2aa6a3622ff7a698e8ed2"
+      },
+      {
+        "id": "6488304902e81f9e19a17eda4e3ba8155518d7548d5cfdebcd224266e97158b5",
+        "region": "Provence-Alpes-Côte d'Azur",
+        "phenomenon": "dry",
+        "horizon": 14,
+        "kind": "historical_evolution",
+        "change": {
+          "horizon": 14,
+          "status": "intensification",
+          "reason": "Comparaison descriptive homogène ; aucun dommage inféré.",
+          "nature": "reanalysis",
+          "previous_date": "2026-10-16"
+        },
+        "support_count": 27,
+        "excluded_count": 8,
+        "support_sha256": "3f14479c531af5bf5b016b7b265269c61ad9902d55c7b7d9ebbbf3223130d555",
+        "period": [
+          "2026-10-17",
+          "2026-10-30"
+        ],
+        "previous_period": [
+          "2026-10-03",
+          "2026-10-16"
+        ],
+        "provenance_sha256": "a2eae3a3e2f34a8d32550fb9f983abd26a44c28786ce13ae1534a25f217a5b33"
+      },
+      {
+        "id": "11c8e30118a612225dc619ddfc19f17cb6e67e0dfcb8bc519513f4ae179f604d",
+        "region": "Île-de-France",
+        "phenomenon": "dry",
+        "horizon": 14,
+        "kind": "historical_evolution",
+        "change": {
+          "horizon": 14,
+          "status": "attenuation",
+          "reason": "Comparaison descriptive homogène ; aucun dommage inféré.",
+          "nature": "reanalysis",
+          "previous_date": "2026-10-16"
+        },
+        "support_count": 37,
+        "excluded_count": 0,
+        "support_sha256": "455dd2e1499e402cc19698cc962f19c7a9233fa61d835248dcbe1b1e94a4ac83",
+        "period": [
+          "2026-10-17",
+          "2026-10-30"
+        ],
+        "previous_period": [
+          "2026-10-03",
+          "2026-10-16"
+        ],
+        "provenance_sha256": "74c44d976cee56044beabc8093200b1f2c16795422957e28b03ba24099a94c91"
+      }
+    ],
+    "horizon_diagnostics": [
+      {
+        "horizon": 3,
+        "comparable": 46,
+        "not_comparable": 6,
+        "insufficient_history": 0
+      },
+      {
+        "horizon": 7,
+        "comparable": 46,
+        "not_comparable": 6,
+        "insufficient_history": 0
+      },
+      {
+        "horizon": 14,
+        "comparable": 41,
+        "not_comparable": 11,
+        "insufficient_history": 0
+      },
+      {
+        "horizon": 30,
+        "comparable": 0,
+        "not_comparable": 0,
+        "insufficient_history": 52
+      }
+    ],
+    "episodes": {
+      "archive_sha256": "66887ed5e848b613565e2e7e53b7ea6d306c6b37939f05581cbd1c994738a313",
+      "total": 2734,
+      "active_at_historical_cutoff": 571,
+      "sample_ids": [
+        "000b4ac6a9e29f10f81a1fc820db53c029911273ee49f328242186c4695ba7d3",
+        "0017bcca6ca711ba033d8391008d6acc8edb3b6a352c31ba19d139c24bdfb580",
+        "0026caa52163f1bb3d520174137dc2adabc431c78e892384b4e1789740695d2b",
+        "0032f38a36a488815c1cacbfdff29ceb52e26eea40f416414d59870cab41bf01",
+        "00411679a652a5b7b91bc2be094937f14cef7d499cf120901ec67edea6b45768",
+        "0049bd9304ccce0b46ea17f8ad4bc6500f242556a3fbbeb00258b0b862a2725b",
+        "00ada23bfbd00962516a8b641f75ad60b79049ac345a9459f5479c3121a45779",
+        "00c6246262ce25dd01f471ae604dfe1d001fa5cb0658fdeb3ef0f7c5c960d2e2",
+        "00cd83dd182fd524a358a079ee0f63c0cb3f601a5568824b6fa0919e14d85b4c",
+        "00d5bac6e0315d53a701ed75eaa8807f9055d55d464ba0410972d91515f08eac",
+        "00e55827ea7129b34a6a7f213aefdb3d6ef95fa9de0b29a1acae9650a37c47df",
+        "00e9b15bb240a47e530f67deb335fffcc44c300d7477a188e07f7ee83d04f987",
+        "01249c366f2e5c4e3ded5ca527898f4f341bad5526f40152c0dc276b57234886",
+        "0127814e24a2c72673ad98099fa57bbc279a9940d5b932fb0443ea0b27b75fcf",
+        "01335b4cdf6f5c32eba32fd0b09141f7a9063cc45d37c6cca800eb2d5654cbd2",
+        "016c35505ff275277a3a7a144a604c29e97c06ae5ef00a50b1e37ef4a922de95"
+      ]
+    },
+    "coverage": {
+      "total_pra": 713,
+      "complete_pra_at_cutoff": 645,
+      "nature": "reanalysis",
+      "basis": "native_support_per_variable",
+      "proportions_are": "PRA_counts_not_agricultural_area"
+    }
+  },
+  "candidates": [
+    {
+      "id": "c121d09d219472878d39951b58d53efae9a8741fb10c2bce811fe04768073cfa",
+      "topic_key": "reanalysis/dry/Nouvelle-Aquitaine",
+      "title": "Réanalyse historique : dry en Nouvelle-Aquitaine",
+      "question": "Les pluies récentes changent-elles la lecture de la saison ?",
+      "phenomenon": "dry",
+      "regions": [
+        "Nouvelle-Aquitaine"
+      ],
+      "productions": [],
+      "production_context": [
+        "Toutes productions",
+        "Sols et grandes cultures",
+        "Abeilles"
+      ],
+      "production_context_status": "seasonal_hypothesis_not_presence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-24",
+        "2026-10-30"
+      ],
+      "evidence_ids": [
+        "fact-98dd78c894fb1dc5f85045b65ae0eb706c97577a74dcc4825d7084c585839900"
+      ],
+      "temporal_ids": [
+        "5ded00d3c6e6467b4ecafb3fcdd17dfc81cd4b0d61e209fcfabd8b1db4aa36b7"
+      ],
+      "seasonal_window_ids": [
+        "ALM-001",
+        "ALM-005",
+        "ALM-110"
+      ],
+      "news_ids": [],
+      "qualification": "proposal_requires_editorial_review",
+      "missing": [
+        "Stades et observations de terrain non fournis."
+      ],
+      "limitations": [
+        "Contexte agricole à vérifier.",
+        "Concordance de sujet uniquement, aucun effet agronomique ni stade inféré."
+      ],
+      "rationale": {
+        "fresh": true,
+        "qualified_evidence": true,
+        "temporal": true,
+        "affected_pra": 103,
+        "duration_days": 7,
+        "seasonal_match": true,
+        "documentary_matches": 0,
+        "novel": true
+      },
+      "publication_eligible": false
+    },
+    {
+      "id": "72552ba5f3f03f9d571feec8d7e5a68d4b8992f4042ad77da70f097ac20a7fb2",
+      "topic_key": "reanalysis/frost/Auvergne-Rhône-Alpes",
+      "title": "Réanalyse historique : frost en Auvergne-Rhône-Alpes",
+      "question": "Vignobles et vendanges tardives : événement local à qualifier.",
+      "phenomenon": "frost",
+      "regions": [
+        "Auvergne-Rhône-Alpes"
+      ],
+      "productions": [],
+      "production_context": [
+        "Vigne",
+        "Choux",
+        "poireau",
+        "endive",
+        "Olivier"
+      ],
+      "production_context_status": "seasonal_hypothesis_not_presence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-20",
+        "2026-10-30"
+      ],
+      "evidence_ids": [
+        "fact-49e5f3b6f43e8170fc50959368a96b37682532745006a6843401c03264144d66"
+      ],
+      "temporal_ids": [
+        "590ca02b7ffd27d7be7de9c10d84687a7abcc1b21ad2c9a8d5a93f2670dd672c"
+      ],
+      "seasonal_window_ids": [
+        "ALM-114",
+        "ALM-116",
+        "ALM-064"
+      ],
+      "news_ids": [],
+      "qualification": "proposal_requires_editorial_review",
+      "missing": [
+        "Stades et observations de terrain non fournis."
+      ],
+      "limitations": [
+        "Contexte agricole à vérifier.",
+        "Concordance de sujet uniquement, aucun effet agronomique ni stade inféré."
+      ],
+      "rationale": {
+        "fresh": true,
+        "qualified_evidence": true,
+        "temporal": true,
+        "affected_pra": 14,
+        "duration_days": 11,
+        "seasonal_match": true,
+        "documentary_matches": 0,
+        "novel": true
+      },
+      "publication_eligible": false
+    },
+    {
+      "id": "9120bbdbf931384922bc25e26dd6e319af6128fd3ef3737a1dac6de02bc25c2e",
+      "topic_key": "reanalysis/dry/Auvergne-Rhône-Alpes",
+      "title": "Réanalyse historique : dry en Auvergne-Rhône-Alpes",
+      "question": "Les pluies récentes changent-elles la lecture de la saison ?",
+      "phenomenon": "dry",
+      "regions": [
+        "Auvergne-Rhône-Alpes"
+      ],
+      "productions": [],
+      "production_context": [
+        "Toutes productions",
+        "Sols et grandes cultures",
+        "Abeilles"
+      ],
+      "production_context_status": "seasonal_hypothesis_not_presence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-24",
+        "2026-10-30"
+      ],
+      "evidence_ids": [
+        "fact-f4eca9ebef7cbfdef30841980a30ec7e30ed5a8b6691c46e55f82cc644f34cab"
+      ],
+      "temporal_ids": [
+        "d7a0a992575f251564dd903dbf304b63a2d0703a3cdbb232a13d4eea6414f10b"
+      ],
+      "seasonal_window_ids": [
+        "ALM-001",
+        "ALM-005",
+        "ALM-110"
+      ],
+      "news_ids": [],
+      "qualification": "proposal_requires_editorial_review",
+      "missing": [
+        "Stades et observations de terrain non fournis."
+      ],
+      "limitations": [
+        "Contexte agricole à vérifier.",
+        "Concordance de sujet uniquement, aucun effet agronomique ni stade inféré."
+      ],
+      "rationale": {
+        "fresh": true,
+        "qualified_evidence": true,
+        "temporal": true,
+        "affected_pra": 76,
+        "duration_days": 7,
+        "seasonal_match": true,
+        "documentary_matches": 0,
+        "novel": true
+      },
+      "publication_eligible": false
+    },
+    {
+      "id": "6f6a633c92ec33a019753667cfa0eb338956515b49242452ea338411bee22181",
+      "topic_key": "reanalysis/dry/Occitanie",
+      "title": "Réanalyse historique : dry en Occitanie",
+      "question": "Les pluies récentes changent-elles la lecture de la saison ?",
+      "phenomenon": "dry",
+      "regions": [
+        "Occitanie"
+      ],
+      "productions": [],
+      "production_context": [
+        "Toutes productions",
+        "Sols et grandes cultures",
+        "Abeilles"
+      ],
+      "production_context_status": "seasonal_hypothesis_not_presence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-21",
+        "2026-10-30"
+      ],
+      "evidence_ids": [
+        "fact-b036b1ca62aebdda51553646ec24b77309199e3b19d75b719a70ec366aae89f6"
+      ],
+      "temporal_ids": [
+        "f80e61f6f1045c60c334496815eb18b364c41a456fbe5ef26ce9c543e742a8d3"
+      ],
+      "seasonal_window_ids": [
+        "ALM-001",
+        "ALM-005",
+        "ALM-110"
+      ],
+      "news_ids": [],
+      "qualification": "proposal_requires_editorial_review",
+      "missing": [
+        "Stades et observations de terrain non fournis."
+      ],
+      "limitations": [
+        "Contexte agricole à vérifier.",
+        "Concordance de sujet uniquement, aucun effet agronomique ni stade inféré."
+      ],
+      "rationale": {
+        "fresh": true,
+        "qualified_evidence": true,
+        "temporal": true,
+        "affected_pra": 70,
+        "duration_days": 10,
+        "seasonal_match": true,
+        "documentary_matches": 0,
+        "novel": true
+      },
+      "publication_eligible": false
+    },
+    {
+      "id": "a735a09621f44345b7ef29dfa79ad65c4592bed7254567f975b3f97ec39667c3",
+      "topic_key": "reanalysis/dry/Grand Est",
+      "title": "Réanalyse historique : dry en Grand Est",
+      "question": "Les pluies récentes changent-elles la lecture de la saison ?",
+      "phenomenon": "dry",
+      "regions": [
+        "Grand Est"
+      ],
+      "productions": [],
+      "production_context": [
+        "Toutes productions",
+        "Sols et grandes cultures",
+        "Abeilles"
+      ],
+      "production_context_status": "seasonal_hypothesis_not_presence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-26",
+        "2026-10-30"
+      ],
+      "evidence_ids": [
+        "fact-586e15fcfd5f7a81aebadd77e8433568586053ab9379005bf661d78385ad4e8d"
+      ],
+      "temporal_ids": [
+        "66ba858cbc7fc7cb03797a6b956626034a6ce9399753084e8388172b0b930da8"
+      ],
+      "seasonal_window_ids": [
+        "ALM-001",
+        "ALM-005",
+        "ALM-110"
+      ],
+      "news_ids": [],
+      "qualification": "proposal_requires_editorial_review",
+      "missing": [
+        "Stades et observations de terrain non fournis."
+      ],
+      "limitations": [
+        "Contexte agricole à vérifier.",
+        "Concordance de sujet uniquement, aucun effet agronomique ni stade inféré."
+      ],
+      "rationale": {
+        "fresh": true,
+        "qualified_evidence": true,
+        "temporal": true,
+        "affected_pra": 57,
+        "duration_days": 5,
+        "seasonal_match": true,
+        "documentary_matches": 0,
+        "novel": true
+      },
+      "publication_eligible": false
+    },
+    {
+      "id": "e520038460b6da49ba94ce38d8d61c574ca44a5b9764467be4cc25eb82078046",
+      "topic_key": "reanalysis/dry/Centre-Val de Loire",
+      "title": "Réanalyse historique : dry en Centre-Val de Loire",
+      "question": "Les pluies récentes changent-elles la lecture de la saison ?",
+      "phenomenon": "dry",
+      "regions": [
+        "Centre-Val de Loire"
+      ],
+      "productions": [],
+      "production_context": [
+        "Toutes productions",
+        "Sols et grandes cultures",
+        "Abeilles"
+      ],
+      "production_context_status": "seasonal_hypothesis_not_presence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-26",
+        "2026-10-30"
+      ],
+      "evidence_ids": [
+        "fact-ccae9cd77e34d562f9b9e245da6ec33ef00b6bff315644ba6e789c983d778ede"
+      ],
+      "temporal_ids": [
+        "5f67e412138eec755af5abc04265ebc54a4cc5389545705c18b041fcefb9b32e"
+      ],
+      "seasonal_window_ids": [
+        "ALM-001",
+        "ALM-005",
+        "ALM-110"
+      ],
+      "news_ids": [],
+      "qualification": "proposal_requires_editorial_review",
+      "missing": [
+        "Stades et observations de terrain non fournis."
+      ],
+      "limitations": [
+        "Contexte agricole à vérifier.",
+        "Concordance de sujet uniquement, aucun effet agronomique ni stade inféré."
+      ],
+      "rationale": {
+        "fresh": true,
+        "qualified_evidence": true,
+        "temporal": true,
+        "affected_pra": 45,
+        "duration_days": 5,
+        "seasonal_match": true,
+        "documentary_matches": 0,
+        "novel": true
+      },
+      "publication_eligible": false
+    },
+    {
+      "id": "2943ea97aedc6b87f8735c79d5c45a43b5d3a4b0693973b08dd5b038bccda641",
+      "topic_key": "reanalysis/dry/Île-de-France",
+      "title": "Réanalyse historique : dry en Île-de-France",
+      "question": "Les pluies récentes changent-elles la lecture de la saison ?",
+      "phenomenon": "dry",
+      "regions": [
+        "Île-de-France"
+      ],
+      "productions": [],
+      "production_context": [
+        "Toutes productions",
+        "Sols et grandes cultures",
+        "Abeilles"
+      ],
+      "production_context_status": "seasonal_hypothesis_not_presence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-26",
+        "2026-10-30"
+      ],
+      "evidence_ids": [
+        "fact-51dcc38af1a89b3a2cd29360515d79c0dd9a3e5a61b65f80401d26147b5f1ddd"
+      ],
+      "temporal_ids": [
+        "11c8e30118a612225dc619ddfc19f17cb6e67e0dfcb8bc519513f4ae179f604d"
+      ],
+      "seasonal_window_ids": [
+        "ALM-001",
+        "ALM-005",
+        "ALM-110"
+      ],
+      "news_ids": [],
+      "qualification": "proposal_requires_editorial_review",
+      "missing": [
+        "Stades et observations de terrain non fournis."
+      ],
+      "limitations": [
+        "Contexte agricole à vérifier.",
+        "Concordance de sujet uniquement, aucun effet agronomique ni stade inféré."
+      ],
+      "rationale": {
+        "fresh": true,
+        "qualified_evidence": true,
+        "temporal": true,
+        "affected_pra": 37,
+        "duration_days": 5,
+        "seasonal_match": true,
+        "documentary_matches": 0,
+        "novel": true
+      },
+      "publication_eligible": false
+    },
+    {
+      "id": "bd4e2fb3be72debb893d8153a4591974948cda498928b118620543c43cf03e01",
+      "topic_key": "reanalysis/dry/Bourgogne-Franche-Comté",
+      "title": "Réanalyse historique : dry en Bourgogne-Franche-Comté",
+      "question": "Les pluies récentes changent-elles la lecture de la saison ?",
+      "phenomenon": "dry",
+      "regions": [
+        "Bourgogne-Franche-Comté"
+      ],
+      "productions": [],
+      "production_context": [
+        "Toutes productions",
+        "Sols et grandes cultures",
+        "Abeilles"
+      ],
+      "production_context_status": "seasonal_hypothesis_not_presence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-26",
+        "2026-10-30"
+      ],
+      "evidence_ids": [
+        "fact-c3446ed5efb86d10a5c6e744ff49f765c1d535d4871c53f75fc6d8dd0435f61c"
+      ],
+      "temporal_ids": [
+        "eeb195ac666940c189386246d0dad7df03ec9a81dad5f169801d34b9ebbde291"
+      ],
+      "seasonal_window_ids": [
+        "ALM-001",
+        "ALM-005",
+        "ALM-110"
+      ],
+      "news_ids": [],
+      "qualification": "proposal_requires_editorial_review",
+      "missing": [
+        "Stades et observations de terrain non fournis."
+      ],
+      "limitations": [
+        "Contexte agricole à vérifier.",
+        "Concordance de sujet uniquement, aucun effet agronomique ni stade inféré."
+      ],
+      "rationale": {
+        "fresh": true,
+        "qualified_evidence": true,
+        "temporal": true,
+        "affected_pra": 37,
+        "duration_days": 5,
+        "seasonal_match": true,
+        "documentary_matches": 0,
+        "novel": true
+      },
+      "publication_eligible": false
+    },
+    {
+      "id": "42f993d812c3534682bae02daa6b74f9fba116b382337c36b65d94d7bbc690f6",
+      "topic_key": "reanalysis/dry/Hauts-de-France",
+      "title": "Réanalyse historique : dry en Hauts-de-France",
+      "question": "Les pluies récentes changent-elles la lecture de la saison ?",
+      "phenomenon": "dry",
+      "regions": [
+        "Hauts-de-France"
+      ],
+      "productions": [],
+      "production_context": [
+        "Toutes productions",
+        "Sols et grandes cultures",
+        "Abeilles"
+      ],
+      "production_context_status": "seasonal_hypothesis_not_presence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-26",
+        "2026-10-30"
+      ],
+      "evidence_ids": [
+        "fact-9f4e1d7fc73e94c03a49de4ce9d2f0104cc636b81c302d7c25d5a4b210848643"
+      ],
+      "temporal_ids": [
+        "4451c5c8da44c89c762a769c9be03ae9cd6a2384d28d0834b5dfdebc4f91d1d1"
+      ],
+      "seasonal_window_ids": [
+        "ALM-001",
+        "ALM-005",
+        "ALM-110"
+      ],
+      "news_ids": [],
+      "qualification": "proposal_requires_editorial_review",
+      "missing": [
+        "Stades et observations de terrain non fournis."
+      ],
+      "limitations": [
+        "Contexte agricole à vérifier.",
+        "Concordance de sujet uniquement, aucun effet agronomique ni stade inféré."
+      ],
+      "rationale": {
+        "fresh": true,
+        "qualified_evidence": true,
+        "temporal": true,
+        "affected_pra": 34,
+        "duration_days": 5,
+        "seasonal_match": true,
+        "documentary_matches": 0,
+        "novel": true
+      },
+      "publication_eligible": false
+    },
+    {
+      "id": "5d69a94174c273d531d2eba838a98e270ed87a36484498d0c1ccb4ead7c3024c",
+      "topic_key": "reanalysis/dry/Pays de la Loire",
+      "title": "Réanalyse historique : dry en Pays de la Loire",
+      "question": "Les pluies récentes changent-elles la lecture de la saison ?",
+      "phenomenon": "dry",
+      "regions": [
+        "Pays de la Loire"
+      ],
+      "productions": [],
+      "production_context": [
+        "Toutes productions",
+        "Sols et grandes cultures",
+        "Abeilles"
+      ],
+      "production_context_status": "seasonal_hypothesis_not_presence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-26",
+        "2026-10-30"
+      ],
+      "evidence_ids": [
+        "fact-3f85dd142b7c8a05980aa7395a5e4e1891ac556c6da8d81cb8d104bb6713f925"
+      ],
+      "temporal_ids": [
+        "24737508b76ed40cd998e570a847d2a5135b6287eb260177fa43042142e7692f"
+      ],
+      "seasonal_window_ids": [
+        "ALM-001",
+        "ALM-005",
+        "ALM-110"
+      ],
+      "news_ids": [],
+      "qualification": "proposal_requires_editorial_review",
+      "missing": [
+        "Stades et observations de terrain non fournis."
+      ],
+      "limitations": [
+        "Contexte agricole à vérifier.",
+        "Concordance de sujet uniquement, aucun effet agronomique ni stade inféré."
+      ],
+      "rationale": {
+        "fresh": true,
+        "qualified_evidence": true,
+        "temporal": true,
+        "affected_pra": 31,
+        "duration_days": 5,
+        "seasonal_match": true,
+        "documentary_matches": 0,
+        "novel": true
+      },
+      "publication_eligible": false
+    },
+    {
+      "id": "ec64a0230cc89d7f76198d542a82944ea90dbe856abc0f829dc39cb3a48db42f",
+      "topic_key": "reanalysis/dry/Normandie",
+      "title": "Réanalyse historique : dry en Normandie",
+      "question": "Les pluies récentes changent-elles la lecture de la saison ?",
+      "phenomenon": "dry",
+      "regions": [
+        "Normandie"
+      ],
+      "productions": [],
+      "production_context": [
+        "Toutes productions",
+        "Sols et grandes cultures",
+        "Abeilles"
+      ],
+      "production_context_status": "seasonal_hypothesis_not_presence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-27",
+        "2026-10-30"
+      ],
+      "evidence_ids": [
+        "fact-8e994b9eeca0a319e21e8bdbccaa3bf5275a778214474fd1fe47949c85c92f5d"
+      ],
+      "temporal_ids": [
+        "3d94ad0e6ff34d4239c0b2dca5b726089461aec7bf22d9061bd5bcb7f0e098d1"
+      ],
+      "seasonal_window_ids": [
+        "ALM-001",
+        "ALM-005",
+        "ALM-110"
+      ],
+      "news_ids": [],
+      "qualification": "proposal_requires_editorial_review",
+      "missing": [
+        "Stades et observations de terrain non fournis."
+      ],
+      "limitations": [
+        "Contexte agricole à vérifier.",
+        "Concordance de sujet uniquement, aucun effet agronomique ni stade inféré."
+      ],
+      "rationale": {
+        "fresh": true,
+        "qualified_evidence": true,
+        "temporal": true,
+        "affected_pra": 25,
+        "duration_days": 4,
+        "seasonal_match": true,
+        "documentary_matches": 0,
+        "novel": true
+      },
+      "publication_eligible": false
+    },
+    {
+      "id": "556d2b8babb3bf10215f2c438c10e19dcffbf16010d28af6f1976cdc2c6e921a",
+      "topic_key": "reanalysis/dry/Provence-Alpes-Côte d'Azur",
+      "title": "Réanalyse historique : dry en Provence-Alpes-Côte d'Azur",
+      "question": "Les pluies récentes changent-elles la lecture de la saison ?",
+      "phenomenon": "dry",
+      "regions": [
+        "Provence-Alpes-Côte d'Azur"
+      ],
+      "productions": [],
+      "production_context": [
+        "Toutes productions",
+        "Sols et grandes cultures",
+        "Abeilles"
+      ],
+      "production_context_status": "seasonal_hypothesis_not_presence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-21",
+        "2026-10-30"
+      ],
+      "evidence_ids": [
+        "fact-26c69ecdfabd3ae1c1295ada43c8850543336ba96d3b1fad3f06ae9e3104e57a"
+      ],
+      "temporal_ids": [
+        "6488304902e81f9e19a17eda4e3ba8155518d7548d5cfdebcd224266e97158b5"
+      ],
+      "seasonal_window_ids": [
+        "ALM-001",
+        "ALM-005",
+        "ALM-110"
+      ],
+      "news_ids": [],
+      "qualification": "proposal_requires_editorial_review",
+      "missing": [
+        "Stades et observations de terrain non fournis."
+      ],
+      "limitations": [
+        "Contexte agricole à vérifier.",
+        "Concordance de sujet uniquement, aucun effet agronomique ni stade inféré."
+      ],
+      "rationale": {
+        "fresh": true,
+        "qualified_evidence": true,
+        "temporal": true,
+        "affected_pra": 23,
+        "duration_days": 10,
+        "seasonal_match": true,
+        "documentary_matches": 0,
+        "novel": true
+      },
+      "publication_eligible": false
+    }
+  ],
+  "contributions": [
+    {
+      "production": "wheat",
+      "indicator": "gdd",
+      "fact_id": "4b05675f48e1244f904b35864dba2b684ed8cf5d5ec347ea181a603d8401863f"
+    },
+    {
+      "production": "wheat",
+      "indicator": "hot",
+      "fact_id": "72031bfafb4dad83f1ff7ca952cfcce9a8ed29cb5881288cae822dbfdcedbf31"
+    },
+    {
+      "production": "wheat",
+      "indicator": "hot_sequence",
+      "fact_id": "a15fbbce2d7d6d0b228c668a9b0fd113e0fb29072782ddc2811a3602a23f2824"
+    },
+    {
+      "production": "wheat",
+      "indicator": "frost",
+      "fact_id": "a2ad3f99699d10599a9a330a3f51e12ba7076a657d23c94857dfb1c4c3be734e"
+    },
+    {
+      "production": "wheat",
+      "indicator": "frost_sequence",
+      "fact_id": "83d3c99e12aa04382745777dd250af6f2c244b358987730fe0d5fbb460c8b660"
+    },
+    {
+      "production": "wheat",
+      "indicator": "rain",
+      "fact_id": "aa778375b07ffb2f9f9df23e24036339163629e0fc3a945d091eda4c8d2df607"
+    },
+    {
+      "production": "wheat",
+      "indicator": "heavy_rain",
+      "fact_id": "4271d9ee6236d373fb3964f5902f374d167735c701c736034d47cf7918b868aa"
+    },
+    {
+      "production": "wheat",
+      "indicator": "dry",
+      "fact_id": "8911ee93bfc0419d0494a7ff8b5442db1742bcee1c1843b43ce91b566399d2b3"
+    },
+    {
+      "production": "wheat",
+      "indicator": "dry_sequence",
+      "fact_id": "00904bfc843feb215e450d23c1735c5ee19777380e65fddf6eee26704ec5bcd2"
+    },
+    {
+      "production": "wheat",
+      "indicator": "temperature_mean",
+      "fact_id": "731a12b6aa45ee7cf4be63142d40b009340d992f355a21f7d3477b8c7894d69f"
+    }
+  ],
+  "seasonal": {
+    "version": "almanach-unique-1.0.0",
+    "date": "2026-10-30",
+    "windows": [
+      {
+        "id": "ALM-001",
+        "category": "climat",
+        "title": "Le bilan hydrique à replacer dans la saison",
+        "question": "Les pluies récentes changent-elles la lecture de la saison ?",
+        "productions": [
+          "Toutes productions"
+        ],
+        "region_scope": "France, par bassin",
+        "signal_ids": [
+          "pluie_7j",
+          "pluie_30j",
+          "anomalie_pluie"
+        ],
+        "source_ids": [
+          "MF_SECH",
+          "MF_SAIS"
+        ],
+        "confidence": "indicatif",
+        "requires_verification": true,
+        "publication_eligible": false,
+        "reserve": "Dates variables selon année, bassin, variété et conduite."
+      },
+      {
+        "id": "ALM-005",
+        "category": "sol",
+        "title": "Sols agricoles : ressuyage et portance",
+        "question": "L'accès aux parcelles est-il facilité ou compliqué par la météo ?",
+        "productions": [
+          "Sols et grandes cultures"
+        ],
+        "region_scope": "France, selon sols",
+        "signal_ids": [
+          "pluie_7j",
+          "pluie_30j"
+        ],
+        "source_ids": [
+          "MF_SECH",
+          "ARV_SEMIS"
+        ],
+        "confidence": "indicatif",
+        "requires_verification": true,
+        "publication_eligible": false,
+        "reserve": "Dates variables selon année, bassin, variété et conduite."
+      },
+      {
+        "id": "ALM-110",
+        "category": "élevage",
+        "title": "Ruchers : ressources de fin de saison",
+        "question": "Floraisons tardives et pluies : quelles ressources théoriques ?",
+        "productions": [
+          "Abeilles"
+        ],
+        "region_scope": "Bassins apicoles",
+        "signal_ids": [
+          "pluie_14j",
+          "temperature"
+        ],
+        "source_ids": [
+          "APIC"
+        ],
+        "confidence": "indicatif",
+        "requires_verification": true,
+        "publication_eligible": false,
+        "reserve": "Dates variables selon année, bassin, variété et conduite."
+      },
+      {
+        "id": "ALM-114",
+        "category": "culture",
+        "title": "Vendanges tardives et conditions automnales",
+        "question": "Vignobles et vendanges tardives : événement local à qualifier.",
+        "productions": [
+          "Vigne"
+        ],
+        "region_scope": "Vignobles concernés selon cépage",
+        "signal_ids": [
+          "pluie_14j",
+          "gel"
+        ],
+        "source_ids": [
+          "VITI_GUIDE"
+        ],
+        "confidence": "indicatif",
+        "requires_verification": true,
+        "publication_eligible": false,
+        "reserve": "Dates variables selon année, bassin, variété et conduite."
+      },
+      {
+        "id": "ALM-116",
+        "category": "culture",
+        "title": "Légumes de plein hiver",
+        "question": "Froid et humidité ralentissent-ils les récoltes en plein champ ?",
+        "productions": [
+          "Choux",
+          "poireau",
+          "endive"
+        ],
+        "region_scope": "Bassins légumiers",
+        "signal_ids": [
+          "gel",
+          "pluie_7j"
+        ],
+        "source_ids": [
+          "FR_TRAV"
+        ],
+        "confidence": "indicatif",
+        "requires_verification": true,
+        "publication_eligible": false,
+        "reserve": "Dates variables selon année, bassin, variété et conduite."
+      },
+      {
+        "id": "ALM-064",
+        "category": "culture",
+        "title": "Récolte des olives et aléas automnaux",
+        "question": "Pluies d'automne ou froid perturbent-ils la cueillette dans les bassins concernés ?",
+        "productions": [
+          "Olivier"
+        ],
+        "region_scope": "Provence-Alpes-Côte d'Azur;Occitanie;Corse",
+        "signal_ids": [
+          "pluie_7j",
+          "temperature_min",
+          "orage_external"
+        ],
+        "source_ids": [
+          "FR_TRAV"
+        ],
+        "confidence": "indicatif",
+        "requires_verification": true,
+        "publication_eligible": false,
+        "reserve": "Dates variables selon année, bassin, variété et conduite."
+      }
+    ],
+    "sources": [
+      {
+        "id": "ARV_SEMIS",
+        "label": "ARVALIS — Fenêtres de semis du blé selon variété et région",
+        "url": "https://www.arvalis.fr/infos-techniques/risque-graminees-en-cereales-paille-mieux-vaut-attendre-pour-semer"
+      },
+      {
+        "id": "VITI_GUIDE",
+        "label": "IRQUALIM — Année du viticulteur",
+        "url": "https://www.irqualim.fr/wp-content/uploads/2025/05/250407_guide_vins_IRQUALIM_A4_Web-1.pdf"
+      },
+      {
+        "id": "MF_SECH",
+        "label": "Météo-France — Distinguer sécheresse météo, agricole et hydrologique",
+        "url": "https://meteofrance.com/changement-climatique/comment-le-rechauffement-climatique-accentue-les-secheresses"
+      },
+      {
+        "id": "MF_SAIS",
+        "label": "Météo-France — Définition des saisons météorologiques",
+        "url": "https://meteofrance.com/meteo-a-z/pourquoi-les-saisons-meteorologiques-different-elles-des-saisons-astronomiques"
+      },
+      {
+        "id": "APIC",
+        "label": "Calendrier indicatif des floraisons et miellées",
+        "url": "https://www.apiculture.net/blog/le-calendrier-des-miellees-n345"
+      },
+      {
+        "id": "FR_TRAV",
+        "label": "France Travail — Aperçu des récoltes saisonnières",
+        "url": "https://www.francetravail.fr/actualites/le-dossier/emplois-saisonniers/les-travaux-agricoles.html"
+      }
+    ],
+    "markers": [],
+    "unresolved_mobile_events": [
+      "Ramadan et Aïd al-Adha",
+      "Foire de Châlons, salons, événements agricoles",
+      "Saint-Vincent tournante",
+      "Publication Agreste et conjoncture",
+      "Solstices et équinoxes astronomiques",
+      "Lune rousse (repère culturel mobile)"
+    ],
+    "background_questions": []
+  },
+  "documentary": {
+    "bundle_id": "7ac63076625dd9da2f5f9ee925338befb6d04d979650d2d6830346d81e547576",
+    "weak_matches": [
+      {
+        "publication_id": "7543f6097bd193c9ab4c00ec88995aa19310e385a96bd765a38c940a6d4ecc7f",
+        "event_id": "26c69ecdfabd3ae1c1295ada43c8850543336ba96d3b1fad3f06ae9e3104e57a",
+        "axes": {
+          "temporal": "match",
+          "geographic": "unknown",
+          "production": "unknown",
+          "phenomenon": "match",
+          "thematic": "match"
+        },
+        "temporal_distance_days": 1,
+        "relation": "documentary-candidate",
+        "scientific_confirmation": false,
+        "limitation": "Rapprochement documentaire uniquement ; aucune confirmation scientifique ni dommage PRA déduit."
+      },
+      {
+        "publication_id": "7543f6097bd193c9ab4c00ec88995aa19310e385a96bd765a38c940a6d4ecc7f",
+        "event_id": "3f85dd142b7c8a05980aa7395a5e4e1891ac556c6da8d81cb8d104bb6713f925",
+        "axes": {
+          "temporal": "match",
+          "geographic": "unknown",
+          "production": "unknown",
+          "phenomenon": "match",
+          "thematic": "match"
+        },
+        "temporal_distance_days": 6,
+        "relation": "documentary-candidate",
+        "scientific_confirmation": false,
+        "limitation": "Rapprochement documentaire uniquement ; aucune confirmation scientifique ni dommage PRA déduit."
+      },
+      {
+        "publication_id": "7543f6097bd193c9ab4c00ec88995aa19310e385a96bd765a38c940a6d4ecc7f",
+        "event_id": "51dcc38af1a89b3a2cd29360515d79c0dd9a3e5a61b65f80401d26147b5f1ddd",
+        "axes": {
+          "temporal": "match",
+          "geographic": "unknown",
+          "production": "unknown",
+          "phenomenon": "match",
+          "thematic": "match"
+        },
+        "temporal_distance_days": 6,
+        "relation": "documentary-candidate",
+        "scientific_confirmation": false,
+        "limitation": "Rapprochement documentaire uniquement ; aucune confirmation scientifique ni dommage PRA déduit."
+      },
+      {
+        "publication_id": "7543f6097bd193c9ab4c00ec88995aa19310e385a96bd765a38c940a6d4ecc7f",
+        "event_id": "586e15fcfd5f7a81aebadd77e8433568586053ab9379005bf661d78385ad4e8d",
+        "axes": {
+          "temporal": "match",
+          "geographic": "unknown",
+          "production": "unknown",
+          "phenomenon": "match",
+          "thematic": "match"
+        },
+        "temporal_distance_days": 6,
+        "relation": "documentary-candidate",
+        "scientific_confirmation": false,
+        "limitation": "Rapprochement documentaire uniquement ; aucune confirmation scientifique ni dommage PRA déduit."
+      },
+      {
+        "publication_id": "7543f6097bd193c9ab4c00ec88995aa19310e385a96bd765a38c940a6d4ecc7f",
+        "event_id": "8e994b9eeca0a319e21e8bdbccaa3bf5275a778214474fd1fe47949c85c92f5d",
+        "axes": {
+          "temporal": "match",
+          "geographic": "unknown",
+          "production": "unknown",
+          "phenomenon": "match",
+          "thematic": "match"
+        },
+        "temporal_distance_days": 7,
+        "relation": "documentary-candidate",
+        "scientific_confirmation": false,
+        "limitation": "Rapprochement documentaire uniquement ; aucune confirmation scientifique ni dommage PRA déduit."
+      },
+      {
+        "publication_id": "7543f6097bd193c9ab4c00ec88995aa19310e385a96bd765a38c940a6d4ecc7f",
+        "event_id": "98dd78c894fb1dc5f85045b65ae0eb706c97577a74dcc4825d7084c585839900",
+        "axes": {
+          "temporal": "match",
+          "geographic": "unknown",
+          "production": "unknown",
+          "phenomenon": "match",
+          "thematic": "match"
+        },
+        "temporal_distance_days": 4,
+        "relation": "documentary-candidate",
+        "scientific_confirmation": false,
+        "limitation": "Rapprochement documentaire uniquement ; aucune confirmation scientifique ni dommage PRA déduit."
+      },
+      {
+        "publication_id": "7543f6097bd193c9ab4c00ec88995aa19310e385a96bd765a38c940a6d4ecc7f",
+        "event_id": "9f4e1d7fc73e94c03a49de4ce9d2f0104cc636b81c302d7c25d5a4b210848643",
+        "axes": {
+          "temporal": "match",
+          "geographic": "unknown",
+          "production": "unknown",
+          "phenomenon": "match",
+          "thematic": "match"
+        },
+        "temporal_distance_days": 6,
+        "relation": "documentary-candidate",
+        "scientific_confirmation": false,
+        "limitation": "Rapprochement documentaire uniquement ; aucune confirmation scientifique ni dommage PRA déduit."
+      },
+      {
+        "publication_id": "7543f6097bd193c9ab4c00ec88995aa19310e385a96bd765a38c940a6d4ecc7f",
+        "event_id": "b036b1ca62aebdda51553646ec24b77309199e3b19d75b719a70ec366aae89f6",
+        "axes": {
+          "temporal": "match",
+          "geographic": "unknown",
+          "production": "unknown",
+          "phenomenon": "match",
+          "thematic": "match"
+        },
+        "temporal_distance_days": 1,
+        "relation": "documentary-candidate",
+        "scientific_confirmation": false,
+        "limitation": "Rapprochement documentaire uniquement ; aucune confirmation scientifique ni dommage PRA déduit."
+      },
+      {
+        "publication_id": "7543f6097bd193c9ab4c00ec88995aa19310e385a96bd765a38c940a6d4ecc7f",
+        "event_id": "c3446ed5efb86d10a5c6e744ff49f765c1d535d4871c53f75fc6d8dd0435f61c",
+        "axes": {
+          "temporal": "match",
+          "geographic": "unknown",
+          "production": "unknown",
+          "phenomenon": "match",
+          "thematic": "match"
+        },
+        "temporal_distance_days": 6,
+        "relation": "documentary-candidate",
+        "scientific_confirmation": false,
+        "limitation": "Rapprochement documentaire uniquement ; aucune confirmation scientifique ni dommage PRA déduit."
+      },
+      {
+        "publication_id": "7543f6097bd193c9ab4c00ec88995aa19310e385a96bd765a38c940a6d4ecc7f",
+        "event_id": "ccae9cd77e34d562f9b9e245da6ec33ef00b6bff315644ba6e789c983d778ede",
+        "axes": {
+          "temporal": "match",
+          "geographic": "unknown",
+          "production": "unknown",
+          "phenomenon": "match",
+          "thematic": "match"
+        },
+        "temporal_distance_days": 6,
+        "relation": "documentary-candidate",
+        "scientific_confirmation": false,
+        "limitation": "Rapprochement documentaire uniquement ; aucune confirmation scientifique ni dommage PRA déduit."
+      },
+      {
+        "publication_id": "7543f6097bd193c9ab4c00ec88995aa19310e385a96bd765a38c940a6d4ecc7f",
+        "event_id": "f4eca9ebef7cbfdef30841980a30ec7e30ed5a8b6691c46e55f82cc644f34cab",
+        "axes": {
+          "temporal": "match",
+          "geographic": "unknown",
+          "production": "unknown",
+          "phenomenon": "match",
+          "thematic": "match"
+        },
+        "temporal_distance_days": 4,
+        "relation": "documentary-candidate",
+        "scientific_confirmation": false,
+        "limitation": "Rapprochement documentaire uniquement ; aucune confirmation scientifique ni dommage PRA déduit."
+      },
+      {
+        "publication_id": "7543f6097bd193c9ab4c00ec88995aa19310e385a96bd765a38c940a6d4ecc7f",
+        "event_id": "ffaec406042469e0a08c6ac68387bb19d209b8a83fd5aa5854bdbf4f8f7370f8",
+        "axes": {
+          "temporal": "match",
+          "geographic": "unknown",
+          "production": "unknown",
+          "phenomenon": "match",
+          "thematic": "match"
+        },
+        "temporal_distance_days": 6,
+        "relation": "documentary-candidate",
+        "scientific_confirmation": false,
+        "limitation": "Rapprochement documentaire uniquement ; aucune confirmation scientifique ni dommage PRA déduit."
+      }
+    ],
+    "publications": [
+      {
+        "id": "7543f6097bd193c9ab4c00ec88995aa19310e385a96bd765a38c940a6d4ecc7f",
+        "source_id": "draaf-nouvelle-aquitaine",
+        "publisher": "DRAAF Nouvelle-Aquitaine",
+        "title": "Écoute, soutien et accompagnement : les solutions qui existent",
+        "original_url": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/ecoute-soutien-et-accompagnement-les-solutions-qui-existent-a4453.html?mtm_campaign=rss-actus",
+        "published_at": "2026-10-20T14:35:05Z",
+        "content_type": "news",
+        "limitations": [
+          "Licence Etalab 2.0 sauf mentions contraires ; attribution et lien conservés, médias et textes complets exclus. Région de l’éditeur ≠ localisation de la publication.",
+          "Classement lexical, contexte et causalité non vérifiés.",
+          "Date de publication distincte de la période du phénomène.",
+          "Localisation documentaire inconnue ; région de l’éditeur non imputée."
+        ]
+      }
+    ],
+    "links": [],
+    "scientific_confirmation": false
+  },
+  "journal_proposals": {
+    "headline_candidate_ids": [
+      "c121d09d219472878d39951b58d53efae9a8741fb10c2bce811fe04768073cfa",
+      "72552ba5f3f03f9d571feec8d7e5a68d4b8992f4042ad77da70f097ac20a7fb2",
+      "9120bbdbf931384922bc25e26dd6e319af6128fd3ef3737a1dac6de02bc25c2e"
+    ],
+    "regional_candidate_ids": [
+      "c121d09d219472878d39951b58d53efae9a8741fb10c2bce811fe04768073cfa",
+      "72552ba5f3f03f9d571feec8d7e5a68d4b8992f4042ad77da70f097ac20a7fb2",
+      "9120bbdbf931384922bc25e26dd6e319af6128fd3ef3737a1dac6de02bc25c2e",
+      "6f6a633c92ec33a019753667cfa0eb338956515b49242452ea338411bee22181",
+      "a735a09621f44345b7ef29dfa79ad65c4592bed7254567f975b3f97ec39667c3",
+      "e520038460b6da49ba94ce38d8d61c574ca44a5b9764467be4cc25eb82078046",
+      "2943ea97aedc6b87f8735c79d5c45a43b5d3a4b0693973b08dd5b038bccda641",
+      "bd4e2fb3be72debb893d8153a4591974948cda498928b118620543c43cf03e01",
+      "42f993d812c3534682bae02daa6b74f9fba116b382337c36b65d94d7bbc690f6",
+      "5d69a94174c273d531d2eba838a98e270ed87a36484498d0c1ccb4ead7c3024c",
+      "ec64a0230cc89d7f76198d542a82944ea90dbe856abc0f829dc39cb3a48db42f",
+      "556d2b8babb3bf10215f2c438c10e19dcffbf16010d28af6f1976cdc2c6e921a"
+    ],
+    "production_fact_ids": [
+      "4b05675f48e1244f904b35864dba2b684ed8cf5d5ec347ea181a603d8401863f",
+      "72031bfafb4dad83f1ff7ca952cfcce9a8ed29cb5881288cae822dbfdcedbf31",
+      "a15fbbce2d7d6d0b228c668a9b0fd113e0fb29072782ddc2811a3602a23f2824",
+      "a2ad3f99699d10599a9a330a3f51e12ba7076a657d23c94857dfb1c4c3be734e",
+      "83d3c99e12aa04382745777dd250af6f2c244b358987730fe0d5fbb460c8b660",
+      "aa778375b07ffb2f9f9df23e24036339163629e0fc3a945d091eda4c8d2df607",
+      "4271d9ee6236d373fb3964f5902f374d167735c701c736034d47cf7918b868aa",
+      "8911ee93bfc0419d0494a7ff8b5442db1742bcee1c1843b43ce91b566399d2b3",
+      "00904bfc843feb215e450d23c1735c5ee19777380e65fddf6eee26704ec5bcd2",
+      "731a12b6aa45ee7cf4be63142d40b009340d992f355a21f7d3477b8c7894d69f"
+    ],
+    "visualizations": [],
+    "verify_before_writing": [
+      "Fraîcheur, couverture et provenance des preuves.",
+      "Présence réelle des productions et stades : données de terrain nécessaires.",
+      "Publications externes : contexte documentaire, jamais confirmation scientifique."
+    ]
+  },
+  "limitations": [
+    "Dossier préparatoire déterministe ; aucun article ni alerte généré.",
+    "Aucune moyenne non pondérée, aucun dommage, rendement ni sécheresse agricole inféré.",
+    "Épisodes à la maille PRA ; narration régionale indicative.",
+    "Deux fenêtres indépendantes de 30 jours exigent 60 journées compatibles.",
+    "Les états partiels et dates manquantes interrompent la continuité."
+  ]
+}

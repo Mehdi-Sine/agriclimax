@@ -1,0 +1,635 @@
+{
+  "longest_examples": [
+    {
+      "id": "63e9fc402153470182672ebceb09a3c3b491e4664e80ec52c9f30062e7e96208",
+      "phenomenon": "dry",
+      "nature": "reanalysis",
+      "pra_ids": [
+        "pra:92333"
+      ],
+      "regions": [
+        "Île-de-France"
+      ],
+      "documented_start": "2026-10-08",
+      "documented_end": "2026-10-19",
+      "closed_at": "2026-10-20",
+      "status": "ended",
+      "left_censored": false,
+      "duration_days": 12,
+      "value": 12,
+      "unit": "jours",
+      "signature": "c76264e77b009b8ef285e4144d6cdae7bfd162d06a23823b0bd54413d0b1ae39",
+      "rule_version": "editorial-temporal-1/dry_sequence/1",
+      "data_freshness": [
+        "2026-10-30T23:35:35.057288+00:00",
+        "2026-10-30T23:41:07.599828+00:00",
+        "2026-11-05T14:56:32.362966+00:00"
+      ],
+      "provenance": [
+        "5245914d900ebe98e051b19c81ab0be4b295840acfeb39bdd83eaf4855f43bf2",
+        "adda2890e04031c04d090978e68fb082212a534b0da369778606f80068b8d793",
+        "b4a80ba040c58912e9896f8b63988f988578d7ddd3e11aaf14c384021a765abe",
+        "c76264e77b009b8ef285e4144d6cdae7bfd162d06a23823b0bd54413d0b1ae39"
+      ],
+      "quality_flags": [
+        "24_hourly_samples_required",
+        "exploratory",
+        "publication_time_unknown",
+        "total_area_not_agricultural_area",
+        "tp_next_day_00_utc_accumulation",
+        "utc_daily_reduction"
+      ],
+      "observations": [
+        {
+          "date": "2026-10-08",
+          "value": 0.178724,
+          "fact_id": "9b7726efbfb421bb6d87473af1cc54f584a310c70397a084a69fd811e359972d"
+        },
+        {
+          "date": "2026-10-09",
+          "value": 0.542337,
+          "fact_id": "859acdf93a3188c24801a2777f174528e1a440b70b497674d6fc6e25eeed7312"
+        },
+        {
+          "date": "2026-10-10",
+          "value": 0.470833,
+          "fact_id": "d0f56674bb74fbcea10608f22ce89db083486e080fde051bcaa81444d7401c31"
+        },
+        {
+          "date": "2026-10-11",
+          "value": 0.00644193,
+          "fact_id": "4d3ca1b0f4b084f1c12ceb6fac1a190594e4d2f16a9739f44add3c87c127828e"
+        },
+        {
+          "date": "2026-10-12",
+          "value": 0.318712,
+          "fact_id": "d207d29d5fabe9badc3dca715c7a00654c480a1901dfae5ab595c977645dc9d5"
+        },
+        {
+          "date": "2026-10-13",
+          "value": 0.66297,
+          "fact_id": "1528666d6a588325406a1aa761e0910d2c0034ba0e3a7b6338bdcb5ce061b9c9"
+        },
+        {
+          "date": "2026-10-14",
+          "value": 0.0866547,
+          "fact_id": "ef634bfc8db8ec2e6f0d89ed9c3ae63542ff932c9a9115ac991185e46e472cae"
+        },
+        {
+          "date": "2026-10-15",
+          "value": 0.00044891,
+          "fact_id": "72c3fd5902789e1eca0cfb2a1837cb563d2b40a5e94474555c86b6d90fb971f2"
+        },
+        {
+          "date": "2026-10-16",
+          "value": 0.69459,
+          "fact_id": "57b4c866143593eeb8e549cff07b7267a06d30043824111eec4f33f2f4b57858"
+        },
+        {
+          "date": "2026-10-17",
+          "value": 0.0432459,
+          "fact_id": "84d1ef6dc99a91b230836b8a422ceffb98efc6554ed2db6056d79f1430ccae1b"
+        },
+        {
+          "date": "2026-10-18",
+          "value": 0.179472,
+          "fact_id": "859f295418010d0da42927b6e594b9a58889513d09fa3e8a64d300eae4f25aaf"
+        },
+        {
+          "date": "2026-10-19",
+          "value": 0.624332,
+          "fact_id": "f3c370cdc5e2b6df0e8c3163d8c53ed94389c25e165103aac2378807ccf93c5f"
+        }
+      ],
+      "limitations": [
+        "Durée documentée minimale ; bornes de l’archive et interruptions conservées.",
+        "Pas de sécheresse agricole, stade, dommage ou surface agricole déduits."
+      ],
+      "algorithm_version": "editorial-temporal-1"
+    },
+    {
+      "id": "00ada23bfbd00962516a8b641f75ad60b79049ac345a9459f5479c3121a45779",
+      "phenomenon": "frost",
+      "nature": "reanalysis",
+      "pra_ids": [
+        "pra:73229"
+      ],
+      "regions": [
+        "Auvergne-Rhône-Alpes"
+      ],
+      "documented_start": "2026-10-20",
+      "documented_end": "2026-10-30",
+      "closed_at": null,
+      "status": "ongoing_at_cutoff",
+      "left_censored": false,
+      "duration_days": 11,
+      "value": -10.8597,
+      "unit": "°C",
+      "signature": "d4ff1362b7f7b8fbbc941af233a1f50a8e5d6eae4a60739e06169f15e774fa0d",
+      "rule_version": "editorial-temporal-1/frost/1",
+      "data_freshness": [
+        "2026-11-05T19:58:00.185202+00:00",
+        "2026-11-05T20:38:46.908363+00:00"
+      ],
+      "provenance": [
+        "74bd3274e0daf8f387097cc6be65d099fb8eb1f623bdfc91464d377aff209375",
+        "d03a1194328addd3d1b7b428fa8e7a493e8d237b90d55f5f74e5c729b097646c",
+        "d4ff1362b7f7b8fbbc941af233a1f50a8e5d6eae4a60739e06169f15e774fa0d"
+      ],
+      "quality_flags": [
+        "24_hourly_samples_required",
+        "exploratory",
+        "publication_time_unknown",
+        "total_area_not_agricultural_area",
+        "tp_next_day_00_utc_accumulation",
+        "utc_daily_reduction"
+      ],
+      "observations": [
+        {
+          "date": "2026-10-20",
+          "value": -0.123389,
+          "fact_id": "d996da49988b42c4580af04449d13e2f2bf6b4893e7ed1afb722e9948742568e"
+        },
+        {
+          "date": "2026-10-21",
+          "value": -5.68076,
+          "fact_id": "26be045b5086be3f45a1e0ca088f277ff29a3ce70cf052bea9b370d32c27cf74"
+        },
+        {
+          "date": "2026-10-22",
+          "value": -9.48276,
+          "fact_id": "d0bcacd4442731236ef63836be5174a33b55b9650ca83efd895993ffa241e8cc"
+        },
+        {
+          "date": "2026-10-23",
+          "value": -7.56602,
+          "fact_id": "fc038c9603c06afac590e96934caacbb1ad82817fa1f94d5f5a7a37b20ea5e1b"
+        },
+        {
+          "date": "2026-10-24",
+          "value": -10.8597,
+          "fact_id": "c3addc96eed8e8040aa7b8045b3153172beb2d6305f6b0658e5112ce90fc236c"
+        },
+        {
+          "date": "2026-10-25",
+          "value": -6.52842,
+          "fact_id": "126f5b544a135ffa01ab7798e06d96f737789c591ec9f5ab3d6e81d1fca76d57"
+        },
+        {
+          "date": "2026-10-26",
+          "value": -9.35508,
+          "fact_id": "370c2ef54c50221f93c77958fd1960b24a8c9d24085fa5b55f96201f70925587"
+        },
+        {
+          "date": "2026-10-27",
+          "value": -2.7208,
+          "fact_id": "6f2596cea38891d4618196e5da16fdc2ef9ce7db191597ae38288105ee7ccce0"
+        },
+        {
+          "date": "2026-10-28",
+          "value": -5.35288,
+          "fact_id": "4d64d9c769eaf6573f20c13cb1c90b2e2044f48df81791a9046c18143556cbaa"
+        },
+        {
+          "date": "2026-10-29",
+          "value": -5.81772,
+          "fact_id": "bbbd9c9a66b25c5d4ec6b50e65cc267aa1331f25394915e84da686ee0f3421f3"
+        },
+        {
+          "date": "2026-10-30",
+          "value": -5.32139,
+          "fact_id": "0afff789b893237e07e0c743e5166c36fc033c703595e738c1a38d54dea5f49e"
+        }
+      ],
+      "limitations": [
+        "Durée documentée minimale ; bornes de l’archive et interruptions conservées.",
+        "Pas de sécheresse agricole, stade, dommage ou surface agricole déduits."
+      ],
+      "algorithm_version": "editorial-temporal-1"
+    },
+    {
+      "id": "02ccdd3e230a2e45097c87f52025538521c3d363d1c0ed1223efe636a004a28f",
+      "phenomenon": "heat",
+      "nature": "reanalysis",
+      "pra_ids": [
+        "pra:40378"
+      ],
+      "regions": [
+        "Nouvelle-Aquitaine"
+      ],
+      "documented_start": "2026-10-02",
+      "documented_end": "2026-10-06",
+      "closed_at": "2026-10-07",
+      "status": "ended",
+      "left_censored": false,
+      "duration_days": 5,
+      "value": 27.8595,
+      "unit": "°C",
+      "signature": "9e806b59747c1696dbeda7fbc9216e662cb1d6b894144cedbd2f82b773f9504f",
+      "rule_version": "editorial-temporal-1/hot/1",
+      "data_freshness": [
+        "2026-10-30T23:27:40.478362+00:00"
+      ],
+      "provenance": [
+        "3e9a94a6f66d4314a3ce478fe7fa2262b65358708438c4676c325b07b863177a",
+        "9e806b59747c1696dbeda7fbc9216e662cb1d6b894144cedbd2f82b773f9504f"
+      ],
+      "quality_flags": [
+        "24_hourly_samples_required",
+        "exploratory",
+        "publication_time_unknown",
+        "total_area_not_agricultural_area",
+        "tp_next_day_00_utc_accumulation",
+        "utc_daily_reduction"
+      ],
+      "observations": [
+        {
+          "date": "2026-10-02",
+          "value": 25.3856,
+          "fact_id": "95ba0314f6e2e832d81ebde74c4c0e4225ef02aadf7614e9cfca6e9648e87fc2"
+        },
+        {
+          "date": "2026-10-03",
+          "value": 26.7213,
+          "fact_id": "a457c21cd73c3bf4cc95f82a54f22dfdab98262a725dac0c63d1b012e5f22470"
+        },
+        {
+          "date": "2026-10-04",
+          "value": 25.9857,
+          "fact_id": "fef8db2fbf1f2f128360cff9f7692cfaf032f832300c0ebd3a3bd413c94e3ede"
+        },
+        {
+          "date": "2026-10-05",
+          "value": 27.8595,
+          "fact_id": "2c7a38b11adbd447b8fe50918f4396b8afb6365d46a4605f6bbe5aa3454b6489"
+        },
+        {
+          "date": "2026-10-06",
+          "value": 27.265,
+          "fact_id": "7439d0081d9728c67469904fd5fb721d3d154f5dbd0e4f4c45927eafb308cb49"
+        }
+      ],
+      "limitations": [
+        "Durée documentée minimale ; bornes de l’archive et interruptions conservées.",
+        "Pas de sécheresse agricole, stade, dommage ou surface agricole déduits."
+      ],
+      "algorithm_version": "editorial-temporal-1"
+    },
+    {
+      "id": "035b6b866c37ad9a18a91854a52f9e36c2982e61a09f22629d21a43792b72bf9",
+      "phenomenon": "rain",
+      "nature": "reanalysis",
+      "pra_ids": [
+        "pra:07171"
+      ],
+      "regions": [
+        "Auvergne-Rhône-Alpes"
+      ],
+      "documented_start": "2026-10-19",
+      "documented_end": "2026-10-20",
+      "closed_at": "2026-10-21",
+      "status": "ended",
+      "left_censored": false,
+      "duration_days": 2,
+      "value": 48.6165,
+      "unit": "mm",
+      "signature": "cff549c44da66a1805435216e5b17a419afb513b3c4c8e7479b2b212a6fcd8e7",
+      "rule_version": "editorial-temporal-1/heavy_rain/1",
+      "data_freshness": [
+        "2026-11-05T14:12:00.493522+00:00",
+        "2026-11-05T19:55:51.948549+00:00"
+      ],
+      "provenance": [
+        "16a1a4d1c59f69087413c74eb1e0c8b33d6cbac928593208b8681c6a0f3548f1",
+        "cff549c44da66a1805435216e5b17a419afb513b3c4c8e7479b2b212a6fcd8e7",
+        "efb41adb990a688b51e9fd5dc6186071bdd11ef42cc7f5990d7569301d878028"
+      ],
+      "quality_flags": [
+        "24_hourly_samples_required",
+        "exploratory",
+        "publication_time_unknown",
+        "total_area_not_agricultural_area",
+        "tp_next_day_00_utc_accumulation",
+        "utc_daily_reduction"
+      ],
+      "observations": [
+        {
+          "date": "2026-10-19",
+          "value": 28.7173,
+          "fact_id": "6a253f918b0c969573a2b41e56ed43fcc3bbe074fed850bac5a2dbc43cdd3580"
+        },
+        {
+          "date": "2026-10-20",
+          "value": 48.6165,
+          "fact_id": "7bf6fbc2f965bb6c661b3577312f935a1cf6e9f21cd77b096a287ee4920dce47"
+        }
+      ],
+      "limitations": [
+        "Durée documentée minimale ; bornes de l’archive et interruptions conservées.",
+        "Pas de sécheresse agricole, stade, dommage ou surface agricole déduits."
+      ],
+      "algorithm_version": "editorial-temporal-1"
+    }
+  ],
+  "quiet_pra_day": {
+    "scope": "one_PRA_not_a_calm_national_day",
+    "row": {
+      "batch_key": "4ac016a10ff40f845921f1368a6d2b72d15797d75736b5bd4978c3453b28ba32",
+      "computed_at": "2026-10-30T23:25:39.635971+00:00",
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected_cells": 14,
+      "identity": {
+        "dataset": {
+          "catalogue_id": "reanalysis-era5-land",
+          "dataset_version": "era5land-national-20260919-20261018-v1",
+          "doi": "10.24381/cds.e2161bac",
+          "reference_period": {
+            "end_year": 2020,
+            "minimum_years": 24,
+            "start_year": 1991
+          },
+          "resolution": "0.1 degree CDS regular grid; native approximately 9 km",
+          "source_id": "era5-land",
+          "transformation_version": "era5-land-utc-daily-1"
+        },
+        "destination": "supabase",
+        "end": "2026-10-07",
+        "method": "pra-native-1",
+        "parameters": null,
+        "pra": "pra:01195",
+        "reference_geometry_sha256": "19cb83fe0471f290e4992e471ec43fd97a096fa8570b5cd8d49ec4fa1d473386",
+        "start": "2026-10-01",
+        "weights_sha256": "e935a1b0a9b56bc84a0035012110faf5591c7904548ef4ed7fd92a2ddde17748"
+      },
+      "pra_id": "pra:01195",
+      "precipitation": 10.5074,
+      "quality_flags": [
+        "24_hourly_samples_required",
+        "exploratory",
+        "publication_time_unknown",
+        "total_area_not_agricultural_area",
+        "tp_next_day_00_utc_accumulation",
+        "utc_daily_reduction"
+      ],
+      "status": "available",
+      "temperature": 18.0789,
+      "temperature_max": 20.1145,
+      "temperature_min": 15.1098,
+      "valid_counts": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "valid_date": "2026-10-01"
+    },
+    "evidence": [
+      {
+        "date": "2026-10-01",
+        "pra": "pra:01195",
+        "region": "Auvergne-Rhône-Alpes",
+        "phenomenon": "dry",
+        "value": 10.5074,
+        "detected": false,
+        "signature": "5d67789a4825e31a65c736a56b992cd13a28b69d53dd6aaae00ecbba8a819539",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "unit": "jours",
+        "nature": "reanalysis",
+        "provenance": [
+          "4ac016a10ff40f845921f1368a6d2b72d15797d75736b5bd4978c3453b28ba32",
+          "5d67789a4825e31a65c736a56b992cd13a28b69d53dd6aaae00ecbba8a819539"
+        ],
+        "data_freshness": [
+          "2026-10-30T23:25:39.635971+00:00"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction"
+        ]
+      },
+      {
+        "date": "2026-10-01",
+        "pra": "pra:01195",
+        "region": "Auvergne-Rhône-Alpes",
+        "phenomenon": "frost",
+        "value": 15.1098,
+        "detected": false,
+        "signature": "896c8b22050109b3f25dc327885888af50dc6d16fae7bebc0aa29af119d55b8f",
+        "rule_version": "editorial-temporal-1/frost/1",
+        "unit": "°C",
+        "nature": "reanalysis",
+        "provenance": [
+          "4ac016a10ff40f845921f1368a6d2b72d15797d75736b5bd4978c3453b28ba32",
+          "896c8b22050109b3f25dc327885888af50dc6d16fae7bebc0aa29af119d55b8f"
+        ],
+        "data_freshness": [
+          "2026-10-30T23:25:39.635971+00:00"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction"
+        ]
+      },
+      {
+        "date": "2026-10-01",
+        "pra": "pra:01195",
+        "region": "Auvergne-Rhône-Alpes",
+        "phenomenon": "heat",
+        "value": 20.1145,
+        "detected": false,
+        "signature": "eef4d541fe1d84b747443905030e071e3c2a7fae67d8e7451ceaa057b6afd890",
+        "rule_version": "editorial-temporal-1/hot/1",
+        "unit": "°C",
+        "nature": "reanalysis",
+        "provenance": [
+          "4ac016a10ff40f845921f1368a6d2b72d15797d75736b5bd4978c3453b28ba32",
+          "eef4d541fe1d84b747443905030e071e3c2a7fae67d8e7451ceaa057b6afd890"
+        ],
+        "data_freshness": [
+          "2026-10-30T23:25:39.635971+00:00"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction"
+        ]
+      },
+      {
+        "date": "2026-10-01",
+        "pra": "pra:01195",
+        "region": "Auvergne-Rhône-Alpes",
+        "phenomenon": "rain",
+        "value": 10.5074,
+        "detected": false,
+        "signature": "cec8a95889af5cfc3487dc6850411efebe6f6f1b5e48a4272fb8143ec8219f20",
+        "rule_version": "editorial-temporal-1/heavy_rain/1",
+        "unit": "mm",
+        "nature": "reanalysis",
+        "provenance": [
+          "4ac016a10ff40f845921f1368a6d2b72d15797d75736b5bd4978c3453b28ba32",
+          "cec8a95889af5cfc3487dc6850411efebe6f6f1b5e48a4272fb8143ec8219f20"
+        ],
+        "data_freshness": [
+          "2026-10-30T23:25:39.635971+00:00"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction"
+        ]
+      }
+    ],
+    "ongoing_episodes": []
+  },
+  "partial_support": {
+    "pra": "pra:06245",
+    "date": "2026-10-01",
+    "evidence": [
+      {
+        "date": "2026-10-01",
+        "pra": "pra:06245",
+        "region": "Provence-Alpes-Côte d'Azur",
+        "phenomenon": "dry",
+        "value": null,
+        "detected": null,
+        "signature": "573dc60f6aef8ebce0355834f0f4bca0d3b982621f37efe7ff35eb177bc1d773",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "unit": "jours",
+        "nature": "reanalysis",
+        "provenance": [
+          "5e77734d46baf32a6a653ee0637ce5fce6e5832805cd544630dbf2cefe007e68",
+          "573dc60f6aef8ebce0355834f0f4bca0d3b982621f37efe7ff35eb177bc1d773"
+        ],
+        "data_freshness": [
+          "2026-10-30T23:25:52.637375+00:00"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "missing",
+          "missing_cells",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "partial_or_missing_native_support"
+        ]
+      },
+      {
+        "date": "2026-10-01",
+        "pra": "pra:06245",
+        "region": "Provence-Alpes-Côte d'Azur",
+        "phenomenon": "frost",
+        "value": null,
+        "detected": null,
+        "signature": "afcbd763f1b0ce486cfd253ba7ac2b81ad2e992df3110c6cca46244fc2d0f863",
+        "rule_version": "editorial-temporal-1/frost/1",
+        "unit": "°C",
+        "nature": "reanalysis",
+        "provenance": [
+          "5e77734d46baf32a6a653ee0637ce5fce6e5832805cd544630dbf2cefe007e68",
+          "afcbd763f1b0ce486cfd253ba7ac2b81ad2e992df3110c6cca46244fc2d0f863"
+        ],
+        "data_freshness": [
+          "2026-10-30T23:25:52.637375+00:00"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "missing",
+          "missing_cells",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "partial_or_missing_native_support"
+        ]
+      },
+      {
+        "date": "2026-10-01",
+        "pra": "pra:06245",
+        "region": "Provence-Alpes-Côte d'Azur",
+        "phenomenon": "heat",
+        "value": null,
+        "detected": null,
+        "signature": "a416dc44191c45530bada8500f427f143e600f69b65ce445fcdcd976fafb772b",
+        "rule_version": "editorial-temporal-1/hot/1",
+        "unit": "°C",
+        "nature": "reanalysis",
+        "provenance": [
+          "5e77734d46baf32a6a653ee0637ce5fce6e5832805cd544630dbf2cefe007e68",
+          "a416dc44191c45530bada8500f427f143e600f69b65ce445fcdcd976fafb772b"
+        ],
+        "data_freshness": [
+          "2026-10-30T23:25:52.637375+00:00"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "missing",
+          "missing_cells",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "partial_or_missing_native_support"
+        ]
+      },
+      {
+        "date": "2026-10-01",
+        "pra": "pra:06245",
+        "region": "Provence-Alpes-Côte d'Azur",
+        "phenomenon": "rain",
+        "value": null,
+        "detected": null,
+        "signature": "5e343d90894ae27cb60896041e5e8caf5077d6ccfd7f2541492cdf122b0aa014",
+        "rule_version": "editorial-temporal-1/heavy_rain/1",
+        "unit": "mm",
+        "nature": "reanalysis",
+        "provenance": [
+          "5e77734d46baf32a6a653ee0637ce5fce6e5832805cd544630dbf2cefe007e68",
+          "5e343d90894ae27cb60896041e5e8caf5077d6ccfd7f2541492cdf122b0aa014"
+        ],
+        "data_freshness": [
+          "2026-10-30T23:25:52.637375+00:00"
+        ],
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "exploratory",
+          "missing",
+          "missing_cells",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "partial_or_missing_native_support"
+        ]
+      }
+    ]
+  },
+  "crozon": {
+    "pra": "pra:29102",
+    "daily_evidence_count": 120,
+    "qualified_values": 0,
+    "episodes": 0
+  }
+}

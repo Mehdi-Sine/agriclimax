@@ -328,6 +328,11 @@ async function JournalContent({
             Dossier de preuves JSON de cette édition
           </Link>
         </details>
+        <p>
+          <Link prefetch={false} href="/almanach">
+            Almanach agricole — repères documentaires
+          </Link>
+        </p>
         <p className="footer-brand">
           AgriclimaX <span>Le Journal agroclimatique</span>
         </p>

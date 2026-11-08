@@ -1,0 +1,56 @@
+{
+  "bundle_id": "9214f0913bd08f18ae380d0833f23e7a3494c945742b20b6559e397987a74741",
+  "dates": [
+    "2026-10-01",
+    "2026-10-30"
+  ],
+  "days": 30,
+  "rows": 21390,
+  "episodes": 2734,
+  "ongoing_at_cutoff": 571,
+  "episode_types": {
+    "rain": 495,
+    "heat": 464,
+    "dry": 1658,
+    "frost": 117
+  },
+  "horizons": [
+    {
+      "horizon": 3,
+      "qualified": 46,
+      "insufficient": 0
+    },
+    {
+      "horizon": 7,
+      "qualified": 46,
+      "insufficient": 0
+    },
+    {
+      "horizon": 14,
+      "qualified": 41,
+      "insufficient": 0
+    },
+    {
+      "horizon": 30,
+      "qualified": 0,
+      "insufficient": 52
+    }
+  ],
+  "candidate_count": 12,
+  "news_links": 0,
+  "indicators": [
+    "gdd",
+    "hot",
+    "hot_sequence",
+    "frost",
+    "frost_sequence",
+    "rain",
+    "heavy_rain",
+    "dry",
+    "dry_sequence",
+    "temperature_mean"
+  ],
+  "compact_bytes": 79448,
+  "seconds": 2.72889925,
+  "rss_mb": 494.55859375
+}

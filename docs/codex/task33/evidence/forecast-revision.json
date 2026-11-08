@@ -1,0 +1,694 @@
+{
+  "cycles": [
+    "2026-11-07T00:00:00+00:00",
+    "2026-11-08T06:00:00+00:00"
+  ],
+  "archive_sha256": [
+    "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+    "b4ca62bf9b7637a8666b689028e32f5e8121a40c644dd6068caa87dbdf5e239a"
+  ],
+  "exact_three_day_pair": false,
+  "limitation": "Le comparateur T31 exige un horizon exact de 3, 7, 14 ou 30 jours. Deux cycles plus proches ne démontrent pas de tendance.",
+  "period": [
+    "2026-11-07",
+    "2026-11-13"
+  ],
+  "results": [
+    {
+      "region": "Auvergne-Rhône-Alpes",
+      "phenomenon": "heat",
+      "support": 112,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Auvergne-Rhône-Alpes",
+      "phenomenon": "rain",
+      "support": 112,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Auvergne-Rhône-Alpes",
+      "phenomenon": "frost",
+      "support": 112,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Auvergne-Rhône-Alpes",
+      "phenomenon": "dry",
+      "support": 112,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Hauts-de-France",
+      "phenomenon": "heat",
+      "support": 39,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Hauts-de-France",
+      "phenomenon": "rain",
+      "support": 39,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Hauts-de-France",
+      "phenomenon": "frost",
+      "support": 39,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Hauts-de-France",
+      "phenomenon": "dry",
+      "support": 39,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Provence-Alpes-Côte d'Azur",
+      "phenomenon": "heat",
+      "support": 35,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Provence-Alpes-Côte d'Azur",
+      "phenomenon": "rain",
+      "support": 35,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Provence-Alpes-Côte d'Azur",
+      "phenomenon": "frost",
+      "support": 35,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Provence-Alpes-Côte d'Azur",
+      "phenomenon": "dry",
+      "support": 35,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Grand Est",
+      "phenomenon": "heat",
+      "support": 70,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Grand Est",
+      "phenomenon": "rain",
+      "support": 70,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Grand Est",
+      "phenomenon": "frost",
+      "support": 70,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Grand Est",
+      "phenomenon": "dry",
+      "support": 70,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Occitanie",
+      "phenomenon": "heat",
+      "support": 93,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Occitanie",
+      "phenomenon": "rain",
+      "support": 93,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Occitanie",
+      "phenomenon": "frost",
+      "support": 93,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Occitanie",
+      "phenomenon": "dry",
+      "support": 93,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Normandie",
+      "phenomenon": "heat",
+      "support": 36,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Normandie",
+      "phenomenon": "rain",
+      "support": 36,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Normandie",
+      "phenomenon": "frost",
+      "support": 36,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Normandie",
+      "phenomenon": "dry",
+      "support": 36,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Nouvelle-Aquitaine",
+      "phenomenon": "heat",
+      "support": 115,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Nouvelle-Aquitaine",
+      "phenomenon": "rain",
+      "support": 115,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Nouvelle-Aquitaine",
+      "phenomenon": "frost",
+      "support": 115,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Nouvelle-Aquitaine",
+      "phenomenon": "dry",
+      "support": 115,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Centre-Val de Loire",
+      "phenomenon": "heat",
+      "support": 45,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Centre-Val de Loire",
+      "phenomenon": "rain",
+      "support": 45,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Centre-Val de Loire",
+      "phenomenon": "frost",
+      "support": 45,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Centre-Val de Loire",
+      "phenomenon": "dry",
+      "support": 45,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Bourgogne-Franche-Comté",
+      "phenomenon": "heat",
+      "support": 61,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Bourgogne-Franche-Comté",
+      "phenomenon": "rain",
+      "support": 61,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Bourgogne-Franche-Comté",
+      "phenomenon": "frost",
+      "support": 61,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Bourgogne-Franche-Comté",
+      "phenomenon": "dry",
+      "support": 61,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Bretagne",
+      "phenomenon": "heat",
+      "support": 25,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Bretagne",
+      "phenomenon": "rain",
+      "support": 25,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Bretagne",
+      "phenomenon": "frost",
+      "support": 25,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Bretagne",
+      "phenomenon": "dry",
+      "support": 25,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Corse",
+      "phenomenon": "heat",
+      "support": 6,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Corse",
+      "phenomenon": "rain",
+      "support": 6,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Corse",
+      "phenomenon": "frost",
+      "support": 6,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Corse",
+      "phenomenon": "dry",
+      "support": 6,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Pays de la Loire",
+      "phenomenon": "heat",
+      "support": 39,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Pays de la Loire",
+      "phenomenon": "rain",
+      "support": 39,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Pays de la Loire",
+      "phenomenon": "frost",
+      "support": 39,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Pays de la Loire",
+      "phenomenon": "dry",
+      "support": 39,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Île-de-France",
+      "phenomenon": "heat",
+      "support": 37,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Île-de-France",
+      "phenomenon": "rain",
+      "support": 37,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Île-de-France",
+      "phenomenon": "frost",
+      "support": 37,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    },
+    {
+      "region": "Île-de-France",
+      "phenomenon": "dry",
+      "support": 37,
+      "kind": "not_comparable",
+      "change": {
+        "horizon": 3,
+        "status": "unknown",
+        "reason": "Horizon non exact.",
+        "nature": "forecast",
+        "previous_date": "2026-11-07T00:00:00+00:00"
+      }
+    }
+  ]
+}
