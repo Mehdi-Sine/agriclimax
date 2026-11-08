@@ -22,7 +22,8 @@ indépendante DATA-01 reste dans le workflow ; ses échecs ne sont pas neutralis
 ## Reprises ERA5
 
 Une continuation verte seule n'est plus une preuve de récupération. Les reçus des
-tentatives doivent viser la même date ; le reçu final doit attester publication,
+tentatives doivent viser la même date et attester l'échec des tentatives précédentes
+(pas un ancien reçu déjà publié restauré depuis un checkpoint) ; le reçu final doit attester publication,
 relecture ou réparation vérifiée, 713 lignes restaurées et SHA256 valide ; cette
 journée doit être couverte par l'état de santé sain. Un plan, une attente fournisseur,
 une autre date ou un reçu absent ne suffit pas. Les deux continuations sont prises

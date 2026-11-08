@@ -24,7 +24,9 @@ def recovery_verified(era: list[str], receipts: dict[str, Any],
         latest = datetime.strptime(health["era5_latest"], "%Y-%m-%d").date()
     except (KeyError, TypeError, ValueError):
         return False
-    return (all(attempt.get("date") == day for attempt in attempts[:last])
+    return (all(attempt.get("date") == day
+                and attempt.get("status") == "failed_previous_publication_preserved"
+                for attempt in attempts[:last])
             and final.get("status") in {"published", "read_only_existing_archive", "verified_current_repaired_dev"}
             and final.get("restored_rows") == 713
             and isinstance(checksum, str) and re.fullmatch(r"[0-9a-f]{64}", checksum) is not None

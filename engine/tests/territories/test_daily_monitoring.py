@@ -96,6 +96,13 @@ def test_second_continuation_can_recover_only_the_same_failed_day():
     assert not summarize(NOW, RUN, states, HEALTH, [], receipts)["workflow_success"]
 
 
+def test_restored_old_success_receipt_is_not_proof_of_failed_acquisition_recovery():
+    receipts = recovery_receipts()
+    receipts["era5"]["status"] = "published"
+    result = summarize(NOW, RUN, jobs("success", "failure", "success", "skipped"), HEALTH, [], receipts)
+    assert not result["era5_recovered"] and not result["workflow_success"]
+
+
 def test_recovery_does_not_hide_other_failure_or_schedule_delay():
     states = jobs("failure", "failure", "success", "skipped")
     result = summarize(NOW, RUN, states, HEALTH, [], recovery_receipts())
