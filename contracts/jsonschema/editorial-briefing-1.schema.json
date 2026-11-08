@@ -256,6 +256,26 @@
                 "type": "string",
                 "minLength": 1
               },
+              "rule_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "data_freshness": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "maxItems": 100
+              },
+              "quality_flags": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "maxItems": 100
+              },
               "horizon": {
                 "enum": [
                   3,
@@ -366,6 +386,9 @@
               "id",
               "region",
               "phenomenon",
+              "rule_version",
+              "data_freshness",
+              "quality_flags",
               "horizon",
               "kind",
               "change",

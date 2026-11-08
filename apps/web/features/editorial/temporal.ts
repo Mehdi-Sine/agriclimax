@@ -153,6 +153,9 @@ export interface TemporalComparison {
     | "not_comparable"
     | "insufficient_history";
   change: Change;
+  rule_version: string;
+  data_freshness: string[];
+  quality_flags: string[];
   support_count: number;
   excluded_count: number;
   support_sha256: string;
@@ -262,8 +265,32 @@ export function compareHistory(
         const current = snapshot(currentStart, end),
           previous = exists ? snapshot(start, prevEnd) : undefined;
         const comparison = qualifiedCompare(current, previous, h);
+        const timestamps = [
+          ...new Set(
+            dates.flatMap((d) =>
+              support.flatMap(
+                (id) => indexed.get(`${d}/${id}/${p.id}`)?.data_freshness ?? [],
+              ),
+            ),
+          ),
+        ].sort();
         output.push({
           id: hash([region, p.id, h, end, support_sha256]),
+          rule_version: p.rule_version,
+          data_freshness: timestamps.length
+            ? [...new Set([timestamps[0], timestamps.at(-1)!])]
+            : [],
+          quality_flags: [
+            ...(support.length
+              ? ["common_complete_native_support"]
+              : ["no_common_qualified_support"]),
+            ...(support.length < all.length
+              ? ["excluded_pra_not_extrapolated"]
+              : []),
+            ...(comparison.kind === "insufficient_history"
+              ? ["insufficient_independent_windows"]
+              : []),
+          ],
           region,
           phenomenon: p.id,
           horizon: h,

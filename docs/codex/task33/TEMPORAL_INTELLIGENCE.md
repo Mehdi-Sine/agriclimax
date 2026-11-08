@@ -11,3 +11,5 @@ Les seuils descriptifs reprennent PHENOMENA : Tmax > 25 °C, Tmin < 0 °C, pluie
 Chaque comparaison distingue historical_evolution, forecast_revision, not_comparable et insufficient_history. Toute révision de prévision est explicitement étiquetée, quel que soit le statut retourné (y compris extension/apparition). Deux cycles n'ayant pas les mêmes validités, modèles, supports ou horizon exact ne sont pas homologués.
 
 Sur 30 jours réels : 3, 7 et 14 jours partiellement exploitables ; 30 jours de durée documentée possibles, mais comparaison de deux fenêtres de 30 jours impossible sans 60 jours. Les résultats détaillés, supports et provenance sont dans `evidence/comparisons.json.gz`. Le dossier IA conserve le plus long horizon qualifié par proposition et les diagnostics globaux des quatre horizons.
+
+Chaque comparaison conserve explicitement rule_version, data_freshness et quality_flags. La fraîcheur résume les bornes des timestamps calculés des entrées communes ; la provenance complète reste dans l’archive de comparaisons. Un support exclu ou une fenêtre insuffisante porte un flag explicite.

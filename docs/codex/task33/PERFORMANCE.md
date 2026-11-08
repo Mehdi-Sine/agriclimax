@@ -8,4 +8,4 @@ Mémoire : le replay matérialise les données et preuves dans un processus Node
 
 Aucun coût API IA, service payant ou nouveau cron. API d'exemple statique avec ETag/304 ; page Almanach rendue côté serveur, sans expédier le JSON maître au client. La taille JSON n'est pas une mesure exacte des tokens ; T35 devra mesurer son tokenizer et définir son budget modèle avant activation.
 
-Replay livré : 2.729 s, RSS 494.6 MiB, dossier compact 79,448 octets. Identité : `9214f0913bd08f18ae380d0833f23e7a3494c945742b20b6559e397987a74741`. Une seconde exécution vérifie l'idempotence ; les durées varient selon la concurrence des tests.
+Replay livré : 2.903 s, RSS 497.1 MiB, dossier compact 82,135 octets. Identité : `20dbb0cf1ead680f6f95ea86224907066efd63c27511915a4f707c1ce5fe1ac6`. Une seconde exécution vérifie l'idempotence ; les durées varient selon la concurrence des tests.

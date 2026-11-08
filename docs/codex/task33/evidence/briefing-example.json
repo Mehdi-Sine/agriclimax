@@ -1,6 +1,6 @@
 {
   "version": "editorial-briefing-1",
-  "bundle_id": "9214f0913bd08f18ae380d0833f23e7a3494c945742b20b6559e397987a74741",
+  "bundle_id": "20dbb0cf1ead680f6f95ea86224907066efd63c27511915a4f707c1ce5fe1ac6",
   "edition_date": "2026-10-30",
   "time_zone": "Europe/Paris",
   "generated_at": "2026-11-08T17:49:51.820496Z",
@@ -948,6 +948,14 @@
     "comparisons": [
       {
         "id": "590ca02b7ffd27d7be7de9c10d84687a7abcc1b21ad2c9a8d5a93f2670dd672c",
+        "rule_version": "editorial-temporal-1/frost/1",
+        "data_freshness": [
+          "2026-10-30T23:25:39.635971+00:00",
+          "2026-11-05T20:38:53.755059+00:00"
+        ],
+        "quality_flags": [
+          "common_complete_native_support"
+        ],
         "region": "Auvergne-Rhône-Alpes",
         "phenomenon": "frost",
         "horizon": 14,
@@ -974,6 +982,14 @@
       },
       {
         "id": "d7a0a992575f251564dd903dbf304b63a2d0703a3cdbb232a13d4eea6414f10b",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "data_freshness": [
+          "2026-10-30T23:25:39.635971+00:00",
+          "2026-11-05T20:38:53.755059+00:00"
+        ],
+        "quality_flags": [
+          "common_complete_native_support"
+        ],
         "region": "Auvergne-Rhône-Alpes",
         "phenomenon": "dry",
         "horizon": 14,
@@ -1000,6 +1016,14 @@
       },
       {
         "id": "eeb195ac666940c189386246d0dad7df03ec9a81dad5f169801d34b9ebbde291",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "data_freshness": [
+          "2026-10-30T23:36:35.713087+00:00",
+          "2026-11-05T20:39:26.834051+00:00"
+        ],
+        "quality_flags": [
+          "common_complete_native_support"
+        ],
         "region": "Bourgogne-Franche-Comté",
         "phenomenon": "dry",
         "horizon": 7,
@@ -1026,6 +1050,14 @@
       },
       {
         "id": "5f67e412138eec755af5abc04265ebc54a4cc5389545705c18b041fcefb9b32e",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "data_freshness": [
+          "2026-10-30T23:26:22.807224+00:00",
+          "2026-11-05T20:37:46.011252+00:00"
+        ],
+        "quality_flags": [
+          "common_complete_native_support"
+        ],
         "region": "Centre-Val de Loire",
         "phenomenon": "dry",
         "horizon": 14,
@@ -1052,6 +1084,14 @@
       },
       {
         "id": "66ba858cbc7fc7cb03797a6b956626034a6ce9399753084e8388172b0b930da8",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "data_freshness": [
+          "2026-10-30T23:35:58.241857+00:00",
+          "2026-11-05T20:39:23.01534+00:00"
+        ],
+        "quality_flags": [
+          "common_complete_native_support"
+        ],
         "region": "Grand Est",
         "phenomenon": "dry",
         "horizon": 7,
@@ -1078,6 +1118,15 @@
       },
       {
         "id": "4451c5c8da44c89c762a769c9be03ae9cd6a2384d28d0834b5dfdebc4f91d1d1",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "data_freshness": [
+          "2026-10-30T23:25:42.597564+00:00",
+          "2026-11-05T20:39:06.594964+00:00"
+        ],
+        "quality_flags": [
+          "common_complete_native_support",
+          "excluded_pra_not_extrapolated"
+        ],
         "region": "Hauts-de-France",
         "phenomenon": "dry",
         "horizon": 14,
@@ -1104,6 +1153,15 @@
       },
       {
         "id": "3d94ad0e6ff34d4239c0b2dca5b726089461aec7bf22d9061bd5bcb7f0e098d1",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "data_freshness": [
+          "2026-10-30T23:26:12.430489+00:00",
+          "2026-11-05T20:38:55.444118+00:00"
+        ],
+        "quality_flags": [
+          "common_complete_native_support",
+          "excluded_pra_not_extrapolated"
+        ],
         "region": "Normandie",
         "phenomenon": "dry",
         "horizon": 14,
@@ -1130,6 +1188,15 @@
       },
       {
         "id": "5ded00d3c6e6467b4ecafb3fcdd17dfc81cd4b0d61e209fcfabd8b1db4aa36b7",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "data_freshness": [
+          "2026-10-30T23:26:17.284333+00:00",
+          "2026-11-05T20:39:20.995598+00:00"
+        ],
+        "quality_flags": [
+          "common_complete_native_support",
+          "excluded_pra_not_extrapolated"
+        ],
         "region": "Nouvelle-Aquitaine",
         "phenomenon": "dry",
         "horizon": 14,
@@ -1156,6 +1223,13 @@
       },
       {
         "id": "7831e5e77da0c26257631a6b074321c1e4afac1cebd889e7c7a95898c87dae9a",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "data_freshness": [],
+        "quality_flags": [
+          "no_common_qualified_support",
+          "excluded_pra_not_extrapolated",
+          "insufficient_independent_windows"
+        ],
         "region": "Nouvelle-Aquitaine",
         "phenomenon": "dry",
         "horizon": 30,
@@ -1182,6 +1256,15 @@
       },
       {
         "id": "f80e61f6f1045c60c334496815eb18b364c41a456fbe5ef26ce9c543e742a8d3",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "data_freshness": [
+          "2026-10-30T23:25:58.775335+00:00",
+          "2026-11-05T20:39:12.366445+00:00"
+        ],
+        "quality_flags": [
+          "common_complete_native_support",
+          "excluded_pra_not_extrapolated"
+        ],
         "region": "Occitanie",
         "phenomenon": "dry",
         "horizon": 14,
@@ -1208,6 +1291,15 @@
       },
       {
         "id": "24737508b76ed40cd998e570a847d2a5135b6287eb260177fa43042142e7692f",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "data_freshness": [
+          "2026-10-30T23:27:54.614137+00:00",
+          "2026-11-05T20:39:18.01896+00:00"
+        ],
+        "quality_flags": [
+          "common_complete_native_support",
+          "excluded_pra_not_extrapolated"
+        ],
         "region": "Pays de la Loire",
         "phenomenon": "dry",
         "horizon": 14,
@@ -1234,6 +1326,15 @@
       },
       {
         "id": "6488304902e81f9e19a17eda4e3ba8155518d7548d5cfdebcd224266e97158b5",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "data_freshness": [
+          "2026-10-30T23:25:46.897268+00:00",
+          "2026-11-05T20:39:15.655196+00:00"
+        ],
+        "quality_flags": [
+          "common_complete_native_support",
+          "excluded_pra_not_extrapolated"
+        ],
         "region": "Provence-Alpes-Côte d'Azur",
         "phenomenon": "dry",
         "horizon": 14,
@@ -1260,6 +1361,14 @@
       },
       {
         "id": "11c8e30118a612225dc619ddfc19f17cb6e67e0dfcb8bc519513f4ae179f604d",
+        "rule_version": "editorial-temporal-1/dry_sequence/1",
+        "data_freshness": [
+          "2026-10-30T23:29:40.235498+00:00",
+          "2026-11-05T20:39:30.705728+00:00"
+        ],
+        "quality_flags": [
+          "common_complete_native_support"
+        ],
         "region": "Île-de-France",
         "phenomenon": "dry",
         "horizon": 14,
