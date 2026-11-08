@@ -102,7 +102,9 @@ def test_workflow_failure_is_independent_of_healthy_publication():
     assert not result["workflow_success"]
     assert result["cron_delay_minutes"] == 395
     assert result["runner_queue_minutes"] == 1
-    assert result["era5_recovered"]
+    # No date/hash receipt: a green continuation alone is not recovery proof.
+    assert not result["era5_recovered"]
+    assert "era5_recovery_not_verified" in result["warnings"]
     assert result["consecutive_failures_in_bounded_history"] == 2
     assert result["notification_required"]
     assert not result["consumption_complete"]

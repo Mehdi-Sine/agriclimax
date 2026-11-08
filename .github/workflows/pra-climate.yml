@@ -325,6 +325,8 @@ jobs:
         env:
           PYTHONPATH: engine/src
           DAILY_JOB_RESULTS: ${{ toJSON(needs) }}
+          # Only the explicit manual health check may omit acquisitions.
+          DAILY_MONITORING_MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'weather-health' && 'health_only' || 'daily_pipeline' }}
         run: python scripts/daily_monitoring.py
       - name: DATA-01 read-only archive continuity and freshness
         if: always()
