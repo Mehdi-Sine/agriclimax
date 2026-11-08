@@ -19,8 +19,10 @@
   "automation": "passed",
   "secret_guard": "passed",
   "migrations": "passed",
-  "client_budget_bytes": 650506,
+  "client_budget_bytes": 650510,
   "client_budget_limit_bytes": 2097152,
   "remote_writes": 0,
-  "ci": "pending draft PR checks; final status recorded separately"
+  "ci": "pending draft PR checks; final status recorded separately",
+  "preview_api": "passed HTTP 200; 713 identities, 645 native complete; 2026-10-01 through 2026-10-30",
+  "provider_station_probe": "HTTP 401 on four catalogue endpoints; authorization not established"
 }

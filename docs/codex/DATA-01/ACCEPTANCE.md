@@ -24,6 +24,9 @@ Les données récupérées sont conservées avec reçus dans `evidence/legacy` e
 bootstrap serveur versionné. `MANIFEST.sha256` vérifie les preuves livrées. Le
 produit calculé compressé est restitué sans perte et possède un oracle indépendant.
 Aucune fixture n'est présentée comme validation opérationnelle.
+La preview Vercel du commit applicatif `ce5941a` a également répondu HTTP 200 :
+713 identités, 645 résultats natifs complets, ~4,03 Mo, ~6,06 s à froid sur
+01–30/10. Le reçu `preview.json` conserve l'origine et le deployment ID.
 
 ## Fiabilité et limites d'exécution
 
@@ -37,7 +40,9 @@ aucune lacune Storage interne, disponibilité fournisseur non certifiée.
 Le preflight actuel échoue avec `binding_absent` pour AROME/GetCapabilities : les
 bindings météo AROME/ARPEGE ne figurent pas dans les capacités disponibles. Il ne
 s'agit pas d'une preuve de non-livraison fournisseur. Les clés stations ne sont
-pas substituées. Les variables GitHub ne sont pas lisibles (403). L'artefact
+pas substituées. La sonde complémentaire retourne HTTP 401 sur les quatre
+catalogues stations/climatologie testés malgré les bindings configurés ; leurs
+autorisations effectives restent à rétablir. Les variables GitHub ne sont pas lisibles (403). L'artefact
 historique Task29 est catalogué mais son payload est refusé (403). Les journaux
 Actions lus n'ont pas fourni de familles d'erreur interprétables dans la collecte
 bornée ; les raisons exactes des anciens échecs ne sont pas inventées.

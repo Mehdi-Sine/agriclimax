@@ -87,3 +87,12 @@ Un arrêt entre catalogue et current exige la réparation DEV explicite document
 Checkpoints ERA/météo : trois jours ; anciens batches : sept jours ; preuves de
 supervision : trente jours. Cela ne remplace jamais Storage. Aucune purge n'est
 ajoutée ; les objets orphelins éventuels après interruption restent conservés.
+
+## Vérification complémentaire des accès
+
+La sonde lecture seule existante a été exécutée le 08/11 après le preflight :
+AROME et ARPEGE `binding_absent` ; catalogues observations v1, observations v2,
+paquet observations v2 et climatologie quotidienne : **HTTP 401**. La présence de
+liaisons stations ne suffit donc pas à démontrer leur autorisation effective.
+Les dates fournisseur stationnelles ne peuvent pas être certifiées dans cette
+session. Reçu sans secrets : `evidence/provider-access.json`.
