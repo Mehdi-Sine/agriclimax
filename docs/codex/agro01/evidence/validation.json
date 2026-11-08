@@ -1,0 +1,999 @@
+{
+  "executed_at": "2026-11-07T22:23:24.461Z",
+  "version": "wheat-descriptive-2.0.0",
+  "archive_dates": [
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24",
+    "2026-10-25",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-10-31",
+    "2026-11-01"
+  ],
+  "latest_historical": "2026-11-01",
+  "forecast_cycle": "2026-11-07T00:00:00+00:00",
+  "source_hash": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+  "independent": {
+    "cases": 35890,
+    "by_kind": {
+      "real_reanalysis": 21390,
+      "real_forecast": 14260,
+      "synthetic_complete": 30,
+      "synthetic_gap": 30,
+      "synthetic_missing": 30,
+      "synthetic_source": 30,
+      "synthetic_run": 30,
+      "synthetic_support": 30,
+      "synthetic_partial": 30,
+      "synthetic_boundary": 30
+    },
+    "max_absolute_error": 2.842170943040401e-14,
+    "tolerance": "abs 1e-9 or relative 1e-12",
+    "mismatches": []
+  },
+  "sample_places": [
+    {
+      "id": "pra:28341",
+      "name": "BEAUCE DUNOISE - 28",
+      "region": "Centre-Val de Loire"
+    },
+    {
+      "id": "pra:03425",
+      "name": "MONTAGNE BOURDONNAISE - 03",
+      "region": "Auvergne-Rhône-Alpes"
+    },
+    {
+      "id": "pra:29102",
+      "name": "PRESQU ILE DE CROZON - 29",
+      "region": "Bretagne"
+    },
+    {
+      "id": "pra:2A258",
+      "name": "LITTORAL CORSE - 2A",
+      "region": "Corse"
+    },
+    {
+      "id": "pra:06249",
+      "name": "LITTORAL NICOIS - 06",
+      "region": "Provence-Alpes-Côte d'Azur"
+    }
+  ],
+  "resources": {
+    "elapsed_ms": 20226.76863,
+    "rss_before": 92094464,
+    "rss_after": 1364840448,
+    "peak_rss_bytes": 1567678464,
+    "summary_bytes": 133861,
+    "edition_bytes": 246199,
+    "raw_forecast_rows": 49910
+  },
+  "coverage": [
+    {
+      "indicator": "gdd",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 307.17655600000035
+    },
+    {
+      "indicator": "hot",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 307.17655600000035
+    },
+    {
+      "indicator": "hot_sequence",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 307.17655600000035
+    },
+    {
+      "indicator": "frost",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 307.17655600000035
+    },
+    {
+      "indicator": "frost_sequence",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 307.17655600000035
+    },
+    {
+      "indicator": "rain",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 307.17655600000035
+    },
+    {
+      "indicator": "heavy_rain",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 307.17655600000035
+    },
+    {
+      "indicator": "dry",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 307.17655600000035
+    },
+    {
+      "indicator": "dry_sequence",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 307.17655600000035
+    },
+    {
+      "indicator": "temperature_mean",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 307.17655600000035
+    },
+    {
+      "indicator": "gdd",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 679.3768089999994
+    },
+    {
+      "indicator": "hot",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 679.3768089999994
+    },
+    {
+      "indicator": "hot_sequence",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 679.3768089999994
+    },
+    {
+      "indicator": "frost",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 679.3768089999994
+    },
+    {
+      "indicator": "frost_sequence",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 679.3768089999994
+    },
+    {
+      "indicator": "rain",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 679.3768089999994
+    },
+    {
+      "indicator": "heavy_rain",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 679.3768089999994
+    },
+    {
+      "indicator": "dry",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 679.3768089999994
+    },
+    {
+      "indicator": "dry_sequence",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 679.3768089999994
+    },
+    {
+      "indicator": "temperature_mean",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 645,
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 679.3768089999994
+    },
+    {
+      "indicator": "gdd",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 712,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_period": 645,
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 1898.4959309999995
+    },
+    {
+      "indicator": "hot",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 712,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_period": 645,
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 1898.4959309999995
+    },
+    {
+      "indicator": "hot_sequence",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 712,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_period": 645,
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 1898.4959309999995
+    },
+    {
+      "indicator": "frost",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 712,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_period": 645,
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 1898.4959309999995
+    },
+    {
+      "indicator": "frost_sequence",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 712,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_period": 645,
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 1898.4959309999995
+    },
+    {
+      "indicator": "rain",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 712,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_period": 645,
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 1898.4959309999995
+    },
+    {
+      "indicator": "heavy_rain",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 712,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_period": 645,
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 1898.4959309999995
+    },
+    {
+      "indicator": "dry",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 712,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_period": 645,
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 1898.4959309999995
+    },
+    {
+      "indicator": "dry_sequence",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 712,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_period": 645,
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 1898.4959309999995
+    },
+    {
+      "indicator": "temperature_mean",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 712,
+      "unavailable": 1,
+      "reasons": {
+        "incomplete_period": 645,
+        "incomplete_source_support": 67,
+        "variable_unavailable": 1
+      },
+      "compute_batch_ms": 1898.4959309999995
+    },
+    {
+      "indicator": "gdd",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 713,
+      "complete": 713,
+      "partial": 0,
+      "unavailable": 0,
+      "reasons": {},
+      "compute_batch_ms": 192.38176600000043
+    },
+    {
+      "indicator": "hot",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 713,
+      "complete": 713,
+      "partial": 0,
+      "unavailable": 0,
+      "reasons": {},
+      "compute_batch_ms": 192.38176600000043
+    },
+    {
+      "indicator": "hot_sequence",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 713,
+      "complete": 713,
+      "partial": 0,
+      "unavailable": 0,
+      "reasons": {},
+      "compute_batch_ms": 192.38176600000043
+    },
+    {
+      "indicator": "frost",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 713,
+      "complete": 713,
+      "partial": 0,
+      "unavailable": 0,
+      "reasons": {},
+      "compute_batch_ms": 192.38176600000043
+    },
+    {
+      "indicator": "frost_sequence",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 713,
+      "complete": 713,
+      "partial": 0,
+      "unavailable": 0,
+      "reasons": {},
+      "compute_batch_ms": 192.38176600000043
+    },
+    {
+      "indicator": "rain",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 713,
+      "complete": 713,
+      "partial": 0,
+      "unavailable": 0,
+      "reasons": {},
+      "compute_batch_ms": 192.38176600000043
+    },
+    {
+      "indicator": "heavy_rain",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 713,
+      "complete": 713,
+      "partial": 0,
+      "unavailable": 0,
+      "reasons": {},
+      "compute_batch_ms": 192.38176600000043
+    },
+    {
+      "indicator": "dry",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 713,
+      "complete": 713,
+      "partial": 0,
+      "unavailable": 0,
+      "reasons": {},
+      "compute_batch_ms": 192.38176600000043
+    },
+    {
+      "indicator": "dry_sequence",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 713,
+      "complete": 713,
+      "partial": 0,
+      "unavailable": 0,
+      "reasons": {},
+      "compute_batch_ms": 192.38176600000043
+    },
+    {
+      "indicator": "temperature_mean",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 713,
+      "complete": 713,
+      "partial": 0,
+      "unavailable": 0,
+      "reasons": {},
+      "compute_batch_ms": 192.38176600000043
+    },
+    {
+      "indicator": "gdd",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 0,
+      "unavailable": 713,
+      "reasons": {
+        "incompatible_or_missing_support_metadata": 713
+      },
+      "compute_batch_ms": 339.4956089999996
+    },
+    {
+      "indicator": "hot",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 0,
+      "unavailable": 713,
+      "reasons": {
+        "incompatible_or_missing_support_metadata": 713
+      },
+      "compute_batch_ms": 339.4956089999996
+    },
+    {
+      "indicator": "hot_sequence",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 0,
+      "unavailable": 713,
+      "reasons": {
+        "incompatible_or_missing_support_metadata": 713
+      },
+      "compute_batch_ms": 339.4956089999996
+    },
+    {
+      "indicator": "frost",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 0,
+      "unavailable": 713,
+      "reasons": {
+        "incompatible_or_missing_support_metadata": 713
+      },
+      "compute_batch_ms": 339.4956089999996
+    },
+    {
+      "indicator": "frost_sequence",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 0,
+      "unavailable": 713,
+      "reasons": {
+        "incompatible_or_missing_support_metadata": 713
+      },
+      "compute_batch_ms": 339.4956089999996
+    },
+    {
+      "indicator": "rain",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 0,
+      "unavailable": 713,
+      "reasons": {
+        "incompatible_or_missing_support_metadata": 713
+      },
+      "compute_batch_ms": 339.4956089999996
+    },
+    {
+      "indicator": "heavy_rain",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 0,
+      "unavailable": 713,
+      "reasons": {
+        "incompatible_or_missing_support_metadata": 713
+      },
+      "compute_batch_ms": 339.4956089999996
+    },
+    {
+      "indicator": "dry",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 0,
+      "unavailable": 713,
+      "reasons": {
+        "incompatible_or_missing_support_metadata": 713
+      },
+      "compute_batch_ms": 339.4956089999996
+    },
+    {
+      "indicator": "dry_sequence",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 0,
+      "unavailable": 713,
+      "reasons": {
+        "incompatible_or_missing_support_metadata": 713
+      },
+      "compute_batch_ms": 339.4956089999996
+    },
+    {
+      "indicator": "temperature_mean",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "total": 713,
+      "evaluable": 0,
+      "complete": 0,
+      "partial": 0,
+      "unavailable": 713,
+      "reasons": {
+        "incompatible_or_missing_support_metadata": 713
+      },
+      "compute_batch_ms": 339.4956089999996
+    }
+  ]
+}

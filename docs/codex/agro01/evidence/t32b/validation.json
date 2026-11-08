@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-08",
+  "main": "60842d2610da90b712f94d068a867a2818023fd4",
+  "merge": "a28b1e1",
+  "typescript": {
+    "passed": 393,
+    "skippedOptIn": 4
+  },
+  "python": {
+    "passed": 341,
+    "existingWarnings": 63
+  },
+  "quality": {
+    "python": 12,
+    "node": 8
+  },
+  "lint": "passed",
+  "typecheck": "passed",
+  "build": "passed",
+  "contracts": "passed",
+  "migrations": "passed",
+  "sourceSecurity": "passed",
+  "bundleSecurity": "passed",
+  "clientSecrets": "passed",
+  "gzipBytes": 648920,
+  "productionAudit": "no known vulnerabilities",
+  "browserToolingAudit": "no known vulnerabilities",
+  "pythonAudit": "no known vulnerabilities in six CI lockfiles",
+  "allClassJsAudit": {
+    "highCritical": 0,
+    "moderate": 1,
+    "advisory": "GHSA-g3hv-75wg-m249",
+    "package": "minimatch@10.2.6",
+    "scope": "existing ESLint development dependency"
+  },
+  "gitleaks": "passed; full history",
+  "browser": {
+    "map": 58,
+    "wheat": 105,
+    "pageErrors": 0
+  },
+  "scienceChanges": false,
+  "t32bUiChanges": false
+}

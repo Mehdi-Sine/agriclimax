@@ -1,0 +1,87 @@
+{
+  "origin": "https://agriclimax-git-codex-agro-01-wheat-8f23a1-mehdi-sines-projects.vercel.app",
+  "commit": "03535b28e35563ff6cb4134c46ffcdb050d3c7e9",
+  "checks": [
+    {
+      "name": "latest",
+      "status": 200,
+      "elapsed_ms": 6992.052143999899,
+      "bytes": 246199,
+      "edition_id": "364d084e65ca1964db64fd8d2db8577e99104cacaa8cc850e48d255a3befacb9",
+      "cycle": [
+        "2026-11-07T00:00:00+00:00"
+      ],
+      "wheat_indicators": 10,
+      "wheat_facts": 18,
+      "regions": 13
+    },
+    {
+      "name": "repeat",
+      "status": 200,
+      "elapsed_ms": 984.1208990001178,
+      "bytes": 246199,
+      "edition_id": "364d084e65ca1964db64fd8d2db8577e99104cacaa8cc850e48d255a3befacb9",
+      "cycle": [
+        "2026-11-07T00:00:00+00:00"
+      ],
+      "wheat_indicators": 10,
+      "wheat_facts": 18,
+      "regions": 13
+    },
+    {
+      "name": "old",
+      "status": 200,
+      "elapsed_ms": 5034.734493000087,
+      "bytes": 230233,
+      "edition_id": "f85cdaed0af1002ecfc0d42557e00b5e71e477415534f61bfeaad741753c2d6a",
+      "cycle": [
+        "2026-11-06T06:00:00+00:00"
+      ],
+      "wheat_indicators": 10,
+      "wheat_facts": 18,
+      "regions": 13
+    },
+    {
+      "name": "invalid-date",
+      "status": 400
+    },
+    {
+      "name": "conditional",
+      "status": 304
+    }
+  ],
+  "example_fact": {
+    "id": "wheat-8e9499092e374e6d7e0a5871",
+    "text": "France — 713/713 PRA complètes. Somme de températures : maximum parmi les PRA évaluables, 16.26 °C·j dans COTE BASQUE - 64 (pra:64138), du 2026-11-08 au 2026-11-08 ; prévision. Descriptif exploratoire ; aucun stade, dommage ou rendement déduit. Représentativité littorale non garantie.",
+    "value": 16.25649344838484,
+    "unit": "°C·j",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "source": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+    "rule_version": "wheat-descriptive-2.0.0",
+    "provenance": [
+      "ed370aa25381e6ad40c6d962e2a31f0cb01240b0a813546a79d7f83c8d5eb08c",
+      "https://doi.org/10.1016/S0168-1923(97)00027-0",
+      "meteofrance-arome/2026-11-07T00:00:00Z/ba283dcac8b929d8675641e4203c4eb4a3829dad52db869e480bd1f9c687d9d1"
+    ],
+    "quality_flags": [
+      "total_area_not_agricultural_area",
+      "exploratory",
+      "model_forecast_not_observation",
+      "utc_half_open_day_extrema",
+      "source_land_mask_unavailable",
+      "land_sea_representativeness_requires_qualification",
+      "publication_time_unknown",
+      "temperature_sampled_3h_not_continuous",
+      "descriptive_only_no_agronomic_risk",
+      "exploratory_descriptive_publication",
+      "agronomic_interpretation_not_validated"
+    ],
+    "data_freshness": [
+      "unknown"
+    ],
+    "href": "/analyse?production=wheat&agro=gdd&temporal=forecast&agro_start=2026-11-08&agro_end=2026-11-08&weather_run=2026-11-07T00%3A00%3A00%2B00%3A00&pra=pra%3A64138"
+  }
+}

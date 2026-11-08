@@ -1,0 +1,15 @@
+# Prochaines priorités scientifiques du blé
+
+| Proposition | Calcul immédiat | Référence/données manquantes | Condition avant interprétation agronomique |
+|---|---|---|---|
+| Somme thermique sur fenêtre explicitement renseignée | Oui, base déclarée ; 1–30 j dans la voie nationale actuelle | Fenêtre plus longue : archives continues et politique versionnée ; date de semis réellement connue pour somme depuis semis | Modèle validé pour variété, vernalisation et photopériode ; observations de stades, validation indépendante locale |
+| Cumuls de pluie 1/7/30 j | Oui si archives complètes et support homogène ; 30 j indisponibles ici | Prolonger la rétention/complétude existante avant extension ; pas de nouvelle acquisition automatique dans AGRO-01 | Pluie ≠ eau disponible à la culture ; sol, évapotranspiration, réserves et enracinement requis pour stress hydrique |
+| Déficit de pluie à normale comparable | Non qualifié ici | Normale quotidienne ou fenêtre homologuée complète, même support, unité, calendrier, méthode et durée de référence ; réanalyse et prévision à comparer avec méthode défendable | Validation du lien entre déficit météorologique et exposition réelle du blé ; aucune déduction automatique de dommage |
+| Persistance sans pluie significative | Oui descriptivement, support/initialisation stables | Archives au-delà des bornes pour suivre un épisode continu ; pas de raccordement de cycles prévisionnels | État hydrique du sol et stade nécessaires pour sécheresse agricole |
+| Exposition au froid/chaleur | Oui pour comptes et séquences descriptives, extrema échantillonnés | Échantillonnage horaire/continu, température au couvert/organes, références variété/stade | Calibration des seuils, durée d'exposition et événements de dommage réellement observés |
+| Fenêtres théoriques de développement | Dates explicites fournies possibles, jamais stade déduit de la seule date | Observations phénologiques ou fournisseur `ValidatedPhenologyProvider` avec modèle/version/référence et validation locale | Validation multi-annuelle et multi-régionale ; ne pas transformer GDD base 0 en stade |
+| Indicateur de bilan hydrique | Non | Sol, réserve utile, ET0/ETc, enracinement, irrigation, phénologie ; validation de chacune des sources | Modèle et paramètres validés avant de parler de stress ou de rendement |
+
+Priorité 1 : compléter une profondeur historique homogène de trente jours et qualifier les supports littoraux, en réutilisant les archives existantes. Priorité 2 : références climatiques homologues et protocole de comparaison prévision/réanalyse. Priorité 3 : partenariat agronomique pour stades observés et calibration des interprétations ; rester sur quelques mesures démontrées avant d'étendre le catalogue.
+
+La présence RPG peut seulement documenter une exposition déclarée millésimée. Aucune variété, date de semis, surface effectivement sur pied ou stade courant ne peut en être inféré. Une moyenne non pondérée de PRA ne devient pas une moyenne climatique régionale ; toute estimation de surfaces affectées demanderait un croisement spatial et une méthodologie explicitement validés.

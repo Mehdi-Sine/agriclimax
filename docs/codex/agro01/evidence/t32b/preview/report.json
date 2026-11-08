@@ -1,0 +1,382 @@
+{
+  "origin": "https://agriclimax-git-codex-agro-01-wheat-8f23a1-mehdi-sines-projects.vercel.app",
+  "tested_commit": "a6f82c4",
+  "transport": "Cloud Node proxy (decoded response sizes)",
+  "checks": [
+    {
+      "name": "frost 713 PRA",
+      "ok": true
+    },
+    {
+      "name": "frost exact national metric values",
+      "ok": true
+    },
+    {
+      "name": "frost ETag",
+      "ok": true
+    },
+    {
+      "name": "heat 713 PRA",
+      "ok": true
+    },
+    {
+      "name": "heat exact national metric values",
+      "ok": true
+    },
+    {
+      "name": "heat ETag",
+      "ok": true
+    },
+    {
+      "name": "rain 713 PRA",
+      "ok": true
+    },
+    {
+      "name": "rain exact national metric values",
+      "ok": true
+    },
+    {
+      "name": "rain ETag",
+      "ok": true
+    },
+    {
+      "name": "dry 713 PRA",
+      "ok": true
+    },
+    {
+      "name": "dry exact national metric values",
+      "ok": true
+    },
+    {
+      "name": "dry ETag",
+      "ok": true
+    },
+    {
+      "name": "thi 713 PRA",
+      "ok": true
+    },
+    {
+      "name": "thi exact national metric values",
+      "ok": true
+    },
+    {
+      "name": "thi ETag",
+      "ok": true
+    },
+    {
+      "name": "archived map differs in real values and provenance",
+      "ok": true
+    },
+    {
+      "name": "desktop real 713-PRA canvas",
+      "ok": true
+    },
+    {
+      "name": "desktop correct theme",
+      "ok": true
+    },
+    {
+      "name": "desktop no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "desktop three qualified key figures",
+      "ok": true
+    },
+    {
+      "name": "desktop natural editorial dates",
+      "ok": true
+    },
+    {
+      "name": "desktop official PRA selection",
+      "ok": true
+    },
+    {
+      "name": "desktop explorer keeps exact cycle and PRA",
+      "ok": true
+    },
+    {
+      "name": "desktop explicit touch activation",
+      "ok": true
+    },
+    {
+      "name": "desktop no raw 23MB geometry",
+      "ok": true
+    },
+    {
+      "name": "desktop no duplicate data requests on selection",
+      "ok": true
+    },
+    {
+      "name": "desktop archived map context",
+      "ok": true
+    },
+    {
+      "name": "desktop old selection cleared",
+      "ok": true
+    },
+    {
+      "name": "desktop keyboard focus",
+      "ok": true
+    },
+    {
+      "name": "tablet real 713-PRA canvas",
+      "ok": true
+    },
+    {
+      "name": "tablet correct theme",
+      "ok": true
+    },
+    {
+      "name": "tablet no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "tablet three qualified key figures",
+      "ok": true
+    },
+    {
+      "name": "tablet natural editorial dates",
+      "ok": true
+    },
+    {
+      "name": "tablet official PRA selection",
+      "ok": true
+    },
+    {
+      "name": "tablet explorer keeps exact cycle and PRA",
+      "ok": true
+    },
+    {
+      "name": "tablet explicit touch activation",
+      "ok": true
+    },
+    {
+      "name": "tablet no raw 23MB geometry",
+      "ok": true
+    },
+    {
+      "name": "tablet no duplicate data requests on selection",
+      "ok": true
+    },
+    {
+      "name": "tablet archived map context",
+      "ok": true
+    },
+    {
+      "name": "tablet old selection cleared",
+      "ok": true
+    },
+    {
+      "name": "tablet keyboard focus",
+      "ok": true
+    },
+    {
+      "name": "mobile real 713-PRA canvas",
+      "ok": true
+    },
+    {
+      "name": "mobile correct theme",
+      "ok": true
+    },
+    {
+      "name": "mobile no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "mobile three qualified key figures",
+      "ok": true
+    },
+    {
+      "name": "mobile natural editorial dates",
+      "ok": true
+    },
+    {
+      "name": "mobile official PRA selection",
+      "ok": true
+    },
+    {
+      "name": "mobile explorer keeps exact cycle and PRA",
+      "ok": true
+    },
+    {
+      "name": "mobile explicit touch activation",
+      "ok": true
+    },
+    {
+      "name": "mobile no raw 23MB geometry",
+      "ok": true
+    },
+    {
+      "name": "mobile no duplicate data requests on selection",
+      "ok": true
+    },
+    {
+      "name": "mobile archived map context",
+      "ok": true
+    },
+    {
+      "name": "mobile old selection cleared",
+      "ok": true
+    },
+    {
+      "name": "mobile keyboard focus",
+      "ok": true
+    },
+    {
+      "name": "absent historical cycle returns no-store 503",
+      "ok": true
+    },
+    {
+      "name": "map network failure preserves real title and facts",
+      "ok": true
+    },
+    {
+      "name": "no browser errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "measurements": [
+    {
+      "name": "desktop",
+      "mapReadyMs": 11107,
+      "headlineVisibleMs": 7125,
+      "lcpMs": 7164,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 7032
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 7164
+        }
+      ],
+      "jsBytes": 1717455,
+      "resources": [
+        {
+          "url": "/api/journal/map",
+          "bytes": 123550,
+          "duration": 244.69999999995343
+        },
+        {
+          "url": "/maps/journal-pra-v1.geojson",
+          "bytes": 2549501,
+          "duration": 1009
+        },
+        {
+          "url": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "bytes": 508314,
+          "duration": -28.199999999953434
+        }
+      ]
+    },
+    {
+      "name": "tablet",
+      "mapReadyMs": 5608,
+      "headlineVisibleMs": 2211,
+      "lcpMs": 2196,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 2128
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 2196
+        }
+      ],
+      "jsBytes": 1717455,
+      "resources": [
+        {
+          "url": "/api/journal/map",
+          "bytes": 123550,
+          "duration": 667.8999999999069
+        },
+        {
+          "url": "/maps/journal-pra-v1.geojson",
+          "bytes": 2549501,
+          "duration": 717.3999999999069
+        },
+        {
+          "url": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "bytes": 508314,
+          "duration": -6.399999999906868
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "mapReadyMs": 7223,
+      "headlineVisibleMs": 4316,
+      "lcpMs": 7332,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 4204
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 4288
+        }
+      ],
+      "jsBytes": 1611986,
+      "resources": [
+        {
+          "url": "/api/journal/map",
+          "bytes": 123550,
+          "duration": 260.60000000009313
+        },
+        {
+          "url": "/maps/journal-pra-v1.geojson",
+          "bytes": 2549501,
+          "duration": 290.0999999999767
+        },
+        {
+          "url": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "bytes": 508314,
+          "duration": -4.699999999953434
+        }
+      ]
+    }
+  ],
+  "api": [
+    {
+      "phenomenon": "frost",
+      "run": "2026-11-07T00:00:00+00:00",
+      "source": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+      "rows": 713,
+      "bytes": 123550
+    },
+    {
+      "phenomenon": "heat",
+      "run": "2026-11-07T00:00:00+00:00",
+      "source": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+      "rows": 713,
+      "bytes": 126996
+    },
+    {
+      "phenomenon": "rain",
+      "run": "2026-11-07T00:00:00+00:00",
+      "source": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+      "rows": 713,
+      "bytes": 124928
+    },
+    {
+      "phenomenon": "dry",
+      "run": "2026-11-07T00:00:00+00:00",
+      "source": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+      "rows": 713,
+      "bytes": 114058
+    },
+    {
+      "phenomenon": "thi",
+      "run": "2026-11-07T00:00:00+00:00",
+      "source": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+      "rows": 713,
+      "bytes": 114655
+    }
+  ]
+}
