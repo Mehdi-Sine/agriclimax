@@ -1,0 +1,10 @@
+{
+  "rule": "generic-api-key",
+  "file": "docs/codex/task33/evidence/real-cases.json",
+  "line": 337,
+  "field": "quiet_pra_day.row.batch_key",
+  "is_64_character_hex_digest": true,
+  "matches_archived_batch_identity": true,
+  "matches_independently_recomputed_identity_sha256": true,
+  "exception_scope": "one exact commit/file/rule/line fingerprint"
+}

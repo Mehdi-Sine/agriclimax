@@ -21,6 +21,8 @@ Les archives réelles de prévision disponibles ne permettent pas un couple à h
 
 Le CLI actuel exploite l'historique local DATA-01. Il prépare l'archivage et expose l'extension contrôlée des épisodes, sans nouveau stockage de production ni batch quotidien activé. La nouveauté éditoriale peut recevoir des topic_keys antérieurs via le moteur ; le replay initial part d'une liste vide.
 
+Le déploiement Preview est vérifié sur son origine Vercel par le même scénario Chromium. Voir PREVIEW.md et evidence/preview/report.json. Le faux positif Gitleaks sur une empreinte publique de lot est expliqué dans SECURITY.md ; exception limitée à un fingerprint, sans désactiver de règle.
+
 ## Verdict
 
 Fondations déterministes utilisables pour développer T35 en Preview, avec preuves et réserves explicites. Ce n'est pas une autorisation de publication IA autonome. Avant activation : alimenter l'historique courant et 60 jours compatibles, ajouter les sources annuelles des mobiles, charger l'état antérieur des épisodes et des sujets, qualifier les correspondances documentaires, fixer un budget de tokens mesuré, puis intégrer la rédaction IA avec EvidenceBundle, traçabilité et revue éditoriale. Aucun cron ni appel OpenAI n'est activé par T33.
