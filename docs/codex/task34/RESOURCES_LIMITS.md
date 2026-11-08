@@ -1,0 +1,15 @@
+# Ressources et limites
+
+Aucun service payant ajouté, aucune dépendance runtime nouvelle, aucun secret utilisé. Collecte locale en batch uniquement. Pilote : 152 524 octets reçus, 20,059 s cumulées, 130 publications uniques, 118 723 octets de documents gzip nouveaux et 13 933 octets pour le reçu ; export de revue gzip 44 585 octets. Le rejeu local du même bundle n’ajoute aucun octet documentaire. Détails : `evidence/metrics.json`.
+
+Ordre de grandeur conservateur dérivé de ce pilote, en supposant à tort que tous ses documents changent quotidiennement : environ 12 Mo à 3 mois, 48 Mo à 12 mois, 97 Mo à 24 mois pour objets et reçus. La déduplication des jours stables réduit la part documentaire ; davantage de sources/révisions augmente le volume. Les événements embarqués dans les reçus dominent une partie du coût. Ce ne sont pas des devis de stockage et le prototype reste local. Pas de politique de suppression, aucun engagement de conservation cloud avant intégration de stockage objet et supervision.
+
+La couverture est initialement régionale et institutionnelle (six éditeurs/sept flux), sans représentativité nationale exhaustive. Les instituts prioritaires, la presse, le ministère national et Agreste restent à intégrer après résolution des accès et droits. Aucun abonnement, anti-robot, login ou restriction contourné. La disponibilité des flux ne vaut pas accord de réutilisation des articles. La date de revue des droits expire à 90 jours ; les mentions particulières et changements de conditions demandent une revue humaine.
+
+Le classement lexical est volontairement conservateur et imparfait : négations, périphrases, homonymes, thèmes forestiers et dossiers annuels BSV. Un rejet n’est pas une preuve d’absence d’intérêt agronomique ; un contexte utile n’est pas une validation. Le corpus réel donne 17 contextes et aucune pertinence haute après correction du faux positif « mais/maïs ».
+
+Sur les événements archivés disponibles, zéro rapprochement contemporain à 14 jours, sept candidats de contexte à 19 jours, issus d’une même publication. Ils ne sont pas sept confirmations indépendantes. Aucun cas réel de concordance complète des cinq axes n’a été obtenu. Il faut observer de nouvelles publications autorisées ou étendre la diversité des sources, sans assouplir les règles pour fabriquer un succès.
+
+Les timeouts bornent les opérations socket et lectures, pas un SLA global DNS/proxy. Prévoir un timeout et une concurrence de job au moment de l’orchestration. Le registre est une entrée administrateur de confiance ; un système acceptant des URL de visiteurs demanderait une autre architecture réseau. La durée cumulée du pilote n’est pas un benchmark sous charge ; mémoire maximale de la collecte non instrumentée.
+
+Avant T35 : prévoir stockage objet durable, sélection explicite du dernier reçu, fraîcheur et cutoff éditorial, affichage des attributions/limites et revue humaine des droits spécifiques. N’activer aucun horaire ni publication dans T34. Les branches OPS-01 restent indépendantes.

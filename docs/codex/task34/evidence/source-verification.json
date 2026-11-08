@@ -1,0 +1,664 @@
+{
+  "verified_at": "2026-11-08T17:49:51.820496+00:00",
+  "draaf": [
+    {
+      "url": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "status": 200,
+      "bytes": 17677,
+      "sha256": "ec9367563846ca9335d7edb16c67a76f6901831cdfb494b5a618bb55efc83b0d",
+      "checked_at": "2026-11-08T17:46:24.076049+00:00",
+      "license": false,
+      "title": "DRAAF Auvergne-Rh&#244;ne-Alpes",
+      "excerpt": " DRAAF Auvergne-Rhône-Alpes https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr fr DRAAF Auvergne"
+    },
+    {
+      "url": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "status": 200,
+      "bytes": 480,
+      "sha256": "ce2e04cac70186286a04eb270788740279c02429e6a42e8d7facbcceabd8e6f0",
+      "checked_at": "2026-11-08T17:46:23.382403+00:00",
+      "license": false,
+      "title": null,
+      "excerpt": "# robots.txt # @url: https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr User-agent: * Allow: /lo"
+    },
+    {
+      "url": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/mentions-legales-a2.html",
+      "status": 200,
+      "bytes": 47650,
+      "sha256": "5cdde3f5bd1b34b01049579c5c6b7b3996a27040ffb26558185fa33cf8752c5b",
+      "checked_at": "2026-11-08T17:46:24.365665+00:00",
+      "license": true,
+      "title": "Mentions l&eacute;gales | DRAAF Auvergne-Rh&ocirc;ne-Alpes",
+      "excerpt": ".fr Plan du site Mentions légales Accessibilité : partiellement conforme Contacts Flux RSS Paramètres d'affichage Fermer Paramètres d’affichage Choisissez un thème pour personnaliser l’apparence du site. Thème clair Thème sombre Système Utilise les paramètres système Sauf mention contraire, tous les contenus de ce site sont sous licence etalab-2.0 "
+    },
+    {
+      "url": "https://draaf.grand-est.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "status": 200,
+      "bytes": 18186,
+      "sha256": "29cecf30d29238e1648a86abc283080dd18a607f4fb7c3e3c9d1d34c5a0635ca",
+      "checked_at": "2026-11-08T17:46:23.547522+00:00",
+      "license": false,
+      "title": "DRAAF Grand Est",
+      "excerpt": " DRAAF Grand Est https://draaf.grand-est.agriculture.gouv.fr fr DRAAF Grand Est https://draaf.grand-"
+    },
+    {
+      "url": "https://draaf.grand-est.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "status": 200,
+      "bytes": 458,
+      "sha256": "2f3543e692f170de3ff1be9b5ac58ecf4d2a98eb43871dcf30e7902f31a2c701",
+      "checked_at": "2026-11-08T17:46:23.551192+00:00",
+      "license": false,
+      "title": null,
+      "excerpt": "# robots.txt # @url: https://draaf.grand-est.agriculture.gouv.fr User-agent: * Allow: /local/cache-c"
+    },
+    {
+      "url": "https://draaf.grand-est.agriculture.gouv.fr/mentions-legales-a24.html",
+      "status": 200,
+      "bytes": 46361,
+      "sha256": "190f38c03c28cf90de4b0fa1cf49aab53b3b216fc3a5503411e0761bc2820192",
+      "checked_at": "2026-11-08T17:46:23.378281+00:00",
+      "license": true,
+      "title": "Mentions l&eacute;gales | DRAAF Grand Est",
+      "excerpt": "site Glossaire Mentions légales Flux RSS Votre avis Accessibilité : partiellement conforme Paramètres d'affichage Fermer Paramètres d’affichage Choisissez un thème pour personnaliser l’apparence du site. Thème clair Thème sombre Système Utilise les paramètres système Sauf mention contraire, tous les contenus de ce site sont sous licence etalab-2.0 "
+    },
+    {
+      "url": "https://draaf.paca.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "status": 200,
+      "bytes": 14876,
+      "sha256": "a9572edfbaadc12a49223f49c58002d364f4de8e7da6c73884ab8c4373f0450b",
+      "checked_at": "2026-11-08T17:46:24.204009+00:00",
+      "license": false,
+      "title": "DRAAF PACA",
+      "excerpt": " DRAAF PACA https://draaf.paca.agriculture.gouv.fr Site officiel du service régional du ministère en"
+    },
+    {
+      "url": "https://draaf.paca.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "status": 200,
+      "bytes": 448,
+      "sha256": "40c4b06b406b56e5019dab16d89207f36e6562b11f8194b0439eed8760bd42bc",
+      "checked_at": "2026-11-08T17:46:23.904231+00:00",
+      "license": false,
+      "title": null,
+      "excerpt": "# robots.txt # @url: https://draaf.paca.agriculture.gouv.fr User-agent: * Allow: /local/cache-css/ A"
+    },
+    {
+      "url": "https://draaf.paca.agriculture.gouv.fr/mentions-legales-a20.html",
+      "status": 200,
+      "bytes": 45260,
+      "sha256": "5d8a700c6a83bf964e5118e4715a3acec48a329e107a9f14c265d73c8e59e07a",
+      "checked_at": "2026-11-08T17:46:24.448211+00:00",
+      "license": true,
+      "title": "Mentions l&eacute;gales | DRAAF PACA",
+      "excerpt": "vis sur le site de la DRAAF PACA Accessibilité : partiellement conforme Infos par flux RSS Paramètres d'affichage Fermer Paramètres d’affichage Choisissez un thème pour personnaliser l’apparence du site. Thème clair Thème sombre Système Utilise les paramètres système Sauf mention contraire, tous les contenus de ce site sont sous licence etalab-2.0 "
+    },
+    {
+      "url": "https://draaf.hauts-de-france.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "status": 200,
+      "bytes": 16586,
+      "sha256": "b091318d5e92625f0764cb9c66b8c147b21bd74592c0e18cd0d2ba48cd366e96",
+      "checked_at": "2026-11-08T17:46:24.279115+00:00",
+      "license": false,
+      "title": "DRAAF Hauts-de-France",
+      "excerpt": " DRAAF Hauts-de-France https://draaf.hauts-de-france.agriculture.gouv.fr fr DRAAF Hauts-de-France ht"
+    },
+    {
+      "url": "https://draaf.hauts-de-france.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "status": 200,
+      "bytes": 470,
+      "sha256": "dc3e6219d3c44020608230bd10f4d5256c9fe70093f3597b11a9bf461abd299c",
+      "checked_at": "2026-11-08T17:46:24.444075+00:00",
+      "license": false,
+      "title": null,
+      "excerpt": "# robots.txt # @url: https://draaf.hauts-de-france.agriculture.gouv.fr User-agent: * Allow: /local/c"
+    },
+    {
+      "url": "https://draaf.hauts-de-france.agriculture.gouv.fr/mentions-legales-a103.html",
+      "status": 200,
+      "bytes": 46717,
+      "sha256": "c446ccf010d9c6d97563b786a0c740b7e48850089bb7a2bdae007ceebcbe6988",
+      "checked_at": "2026-11-08T17:46:24.706169+00:00",
+      "license": true,
+      "title": "Mentions l&eacute;gales | DRAAF Hauts-de-France",
+      "excerpt": "data.gouv.fr Plan du site Mentions légales Flux RSS Accessibilité : partiellement conforme Paramètres d'affichage Fermer Paramètres d’affichage Choisissez un thème pour personnaliser l’apparence du site. Thème clair Thème sombre Système Utilise les paramètres système Sauf mention contraire, tous les contenus de ce site sont sous licence etalab-2.0 "
+    },
+    {
+      "url": "https://draaf.bretagne.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "status": 200,
+      "bytes": 24892,
+      "sha256": "37d202cf08897403eddaf03fd24328d104432b35a8d8231c4b54dc474c0a9ad0",
+      "checked_at": "2026-11-08T17:46:24.844560+00:00",
+      "license": false,
+      "title": "DRAAF Bretagne",
+      "excerpt": " DRAAF Bretagne https://draaf.bretagne.agriculture.gouv.fr Site officiel du service régional du mini"
+    },
+    {
+      "url": "https://draaf.bretagne.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "status": 200,
+      "bytes": 456,
+      "sha256": "bd1d8952e4e8c9e5aa50d416c30e012ab7c7f93e81b2b5058d32848af880429e",
+      "checked_at": "2026-11-08T17:46:25.010999+00:00",
+      "license": false,
+      "title": null,
+      "excerpt": "# robots.txt # @url: https://draaf.bretagne.agriculture.gouv.fr User-agent: * Allow: /local/cache-cs"
+    },
+    {
+      "url": "https://draaf.bretagne.agriculture.gouv.fr/mentions-legales-a2.html",
+      "status": 200,
+      "bytes": 46167,
+      "sha256": "1ed697b59d64ff070d8a7b220f9007a3d121228473ec21e1364e4ef0811c3245",
+      "checked_at": "2026-11-08T17:46:25.257983+00:00",
+      "license": true,
+      "title": "Mentions l&eacute;gales | DRAAF Bretagne",
+      "excerpt": "ibilité : partiellement conforme Contacts Votre avis sur le site Internet nous intéresse ! Paramètres d'affichage Fermer Paramètres d’affichage Choisissez un thème pour personnaliser l’apparence du site. Thème clair Thème sombre Système Utilise les paramètres système Sauf mention contraire, tous les contenus de ce site sont sous licence etalab-2.0 "
+    },
+    {
+      "url": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "status": 200,
+      "bytes": 26781,
+      "sha256": "902c9d9000a83c1c76556582c43e69b2ac96cd8e20c316fd5fab152056220fb1",
+      "checked_at": "2026-11-08T17:46:25.135253+00:00",
+      "license": false,
+      "title": "DRAAF Nouvelle-Aquitaine",
+      "excerpt": " DRAAF Nouvelle-Aquitaine https://draaf.nouvelle-aquitaine.agriculture.gouv.fr Site officiel du serv"
+    },
+    {
+      "url": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "status": 200,
+      "bytes": 476,
+      "sha256": "3a0428404415e7dfee3f92e073324861b256375368d06970a090a85521f728cf",
+      "checked_at": "2026-11-08T17:46:25.286796+00:00",
+      "license": false,
+      "title": null,
+      "excerpt": "# robots.txt # @url: https://draaf.nouvelle-aquitaine.agriculture.gouv.fr User-agent: * Allow: /loca"
+    },
+    {
+      "url": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/mentions-legales-a119.html",
+      "status": 200,
+      "bytes": 46103,
+      "sha256": "0f5056693ce72a54fe2afd7416d1707a345df1cec71911866308446f324a2fca",
+      "checked_at": "2026-11-08T17:46:25.475343+00:00",
+      "license": true,
+      "title": "Mentions L&eacute;gales | DRAAF Nouvelle-Aquitaine",
+      "excerpt": "site Glossaire Mentions Légales Flux RSS Votre avis Accessibilité : partiellement conforme Paramètres d'affichage Fermer Paramètres d’affichage Choisissez un thème pour personnaliser l’apparence du site. Thème clair Thème sombre Système Utilise les paramètres système Sauf mention contraire, tous les contenus de ce site sont sous licence etalab-2.0 "
+    },
+    {
+      "url": "https://draaf.grand-est.agriculture.gouv.fr/spip.php?page=backend&id_rubrique=75",
+      "status": 200,
+      "bytes": 30280,
+      "sha256": "f07ad0f30f10dc5c37363efbe47e759db36fe502e1ea5785e5fd806e12e21466",
+      "checked_at": "2026-11-08T17:46:25.248774+00:00",
+      "license": false,
+      "title": "DRAAF Grand Est - Bulletins de Sant&#233; du V&#233;g&#233;tal (BSV)",
+      "excerpt": " DRAAF Grand Est - Bulletins de Santé du Végétal (BSV) https://draaf.grand-est.agriculture.gouv.fr/ "
+    }
+  ],
+  "other_candidates": [
+    {
+      "url": "https://www.vignevin.com/feed/",
+      "error": "HTTP Error 500: Internal Server Error",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://www.vignevin.com/mentions-legales/",
+      "final": "https://www.vignevin.com/mentions-legales/",
+      "status": 200,
+      "bytes": 124046,
+      "sha256": "e6f0d3ea192673fcc25d8d52e5f181f9746afcc2ec0973f5145748b7aeaa0138",
+      "type": "text/html; charset=UTF-8",
+      "seconds": 0.81,
+      "preview": " document.documentElement.className = 'js'; $(function() { $(\".navigation\").each(function() { new ResponsiveNav($(this), 600); }); }); Mentions légales - Institut Français de la Vigne et du Vin {{heading}} Chargement… @media(min-width:1200px){ .wcpt-",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://www.cirad.fr/rss/actualites",
+      "final": "https://www.cirad.fr/rss/actualites",
+      "status": 200,
+      "bytes": 16296,
+      "sha256": "d133dffc8b13608f15e7d1389169925960a6d24d00092fda0c08e3022a461105",
+      "type": "application/xhtml+xml",
+      "seconds": 1.17,
+      "preview": " Actualités générales Fri, 06 Nov 2026 11:16:51 +0100 Podcast | Le désintérêt des institutions - S.9 Ép. 6 https://www.cirad.fr/les-actualites-du-cirad/actualites/2026/podcast-le-desinteret-des-institutions Dans le secteur agricole, les femmes ont mo",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://www.cirad.fr/mentions-legales",
+      "final": "https://www.cirad.fr/mentions-legales",
+      "status": 200,
+      "bytes": 84242,
+      "sha256": "f6bdb4d59adb410fd08c8b1853d01a6f057d0e5d5e5fd01b42475bd064cbed0d",
+      "type": "text/html; charset=UTF-8",
+      "seconds": 1.57,
+      "preview": " Mentions légales | Cirad (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insert",
+      "rights_excerpt": [
+        "e la propri&eacute;t&eacute; intellectuelle (droits d'auteur, bases de donn&eacute;es, logiciels, marques, etc.). Toute reproduction, repr&eacute;sentation ou adaptation totale ou partielle du site par une personne physique ou morale, par quelque proc&eacute;d&eacute; que ce soit, sans l'autorisatio",
+        ";on sanctionn&eacute; par les articles L. 343-1 et suivants du Code de la propri&eacute;t&eacute; intellectuelle. Toute reproduction totale ou partielle des marques et logos du CIRAD r&eacute;alis&eacute;e sans son autorisation expresse est interdite en application des articles L. 713-2 et suivants "
+      ]
+    },
+    {
+      "url": "https://agriculture.gouv.fr/rss.xml",
+      "final": "https://agriculture.gouv.fr/rss.xml",
+      "status": 200,
+      "bytes": 29038,
+      "sha256": "a78abe374d6cc37fc571c45b3b19fda3cb88b8740468510d8c9f5d7b76f03540",
+      "type": "application/rss+xml; charset=utf-8",
+      "seconds": 0.5,
+      "preview": " Ministère de l'Agriculture, de la Souveraineté alimentaire et de la Forêt https://agriculture.gouv.fr/ fr La situation de la fièvre catarrhale ovine (FCO) en France https://agriculture.gouv.fr/la-situation-de-la-fievre-catarrhale-ovine-fco-en-france",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://agriculture.gouv.fr/rss_publications.xml",
+      "final": "https://agriculture.gouv.fr/rss_publications.xml",
+      "status": 200,
+      "bytes": 12688,
+      "sha256": "d85483f82217bd668168ef2384a8bdfebb1d14fe5fce0399ea930ea17ff4abd2",
+      "type": "application/rss+xml; charset=utf-8",
+      "seconds": 0.58,
+      "preview": " Ministère de l'Agriculture, de la Souveraineté alimentaire et de la Forêt - Enseignemment https://agriculture.gouv.fr/ fr Évaluation de l’Observatoire de la mortalité et des affaiblissements de l’abeille mellifère (OMAA) https://agriculture.gouv.fr/",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://agriculture.gouv.fr/mentions-legales",
+      "final": "https://agriculture.gouv.fr/mentions-legales",
+      "status": 200,
+      "bytes": 49587,
+      "sha256": "e8f82349d3e2a5eb600bf3813e33a3b1530167d749f2a5b6278bb0cea1c0516b",
+      "type": "text/html; charset=UTF-8",
+      "seconds": 0.7,
+      "preview": " var _paq = _paq || [];(function(){var u=((\"https:\" == document.location.protocol) ? \"https://mtmt.agriculture.gouv.fr/\" : \"https://mtmt.agriculture.gouv.fr/\");_paq.push([\"setSiteId\", \"9\"]);_paq.push([\"setTrackerUrl\", u+\"matomo.php\"]);_paq.push([\"set",
+      "rights_excerpt": [
+        "aitement des données à caractère personnel Gestionnaire des statistiques Cookies Prestataire d’hébergement Utilisation, reproduction et droits d’auteur Établissement de liens Responsabilité Utilisation des réseaux sociaux Informations sur l’éditeur Ministère de l’Agriculture, de l’Agro-alimentaire e",
+        "Villeneuve d'Asq. Tél. : 03 28 80 03 00 assure l’hébergement et l’infogérance du site agriculture.gouv.fr. Utilisation, reproduction et droits d’auteur Tous les contenus présents sur le site du ministère sont couverts par le droit d’auteur, à l’exception de documents « officiels » : discours, commun"
+      ]
+    },
+    {
+      "url": "https://www.terre-net.fr/rss",
+      "final": "https://www.terre-net.fr/rss",
+      "status": 200,
+      "bytes": 21424,
+      "sha256": "e2f384fd276b5da44f5589c43aed733b63415d994c074bbe14ee28774be3cc79",
+      "type": "text/xml; charset=utf-8",
+      "seconds": 1.46,
+      "preview": " Terre-net.fr https://www.terre-net.fr/rss Toute l'actualité de Terre-net.fr (c) NGPA 2026 fr Après la sécheresse, l'unique sucrerie d'Alsace tourne au ralenti https://www.terre-net.fr/betterave/article/905775/apres-la-secheresse-l-unique-sucrerie-d-",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://www.terre-net.fr/mentions-legales/p77",
+      "final": "https://www.terre-net.fr/mentions-legales/p77",
+      "status": 200,
+      "bytes": 68131,
+      "sha256": "73bb1d2bd8d5f8f157ae4eaff56b092da030932a14d81ff1010e37de7335722a",
+      "type": "text/html; charset=utf-8",
+      "seconds": 1.46,
+      "preview": " var cookieWallConfig = { urlAbo_Anonymous: \"https://www.ngpa-abonnements.com/site/ngpa/tn-offres-ngpa/fr/abo/page-titre.html?utm_source=site.tn&utm_medium=Didomi&utm_campaign=CMP&at_medIum=site.tn&at_format=Didomi&at_campaign=CMP\", urlAbo_AuthNonAbo",
+      "rights_excerpt": [
+        "cute;e Albert Caquot, 51100 Reims (T&eacute;l : 03 26 79 30 05). &nbsp; IV PROPRI&Eacute;T&Eacute; INTELLECTUELLE Toute reproduction ou repr&eacute;sentation non autoris&eacute;e des informations de ce&nbsp; Site &nbsp;est interdite. Les courtes citations dans un but d&rsquo;exemple et d&rsquo;illus",
+        "eacute;ment &agrave; l&rsquo;indication lisible de la source &laquo; terre-net.fr &raquo;. Toute repr&eacute;sentation, reproduction ou exploitation int&eacute;grale ou partielle, que ce soit &agrave; titre gratuit ou on&eacute;reux faite sans le consentement de l&rsquo;auteur et de l&rsquo;&eacute;"
+      ]
+    },
+    {
+      "url": "https://www.reussir.fr/rss.xml",
+      "final": "https://www.reussir.fr/rss.xml",
+      "status": 200,
+      "bytes": 20504,
+      "sha256": "3b4b2cff021f5a45697993d0f7b93d7179f8fb13583c2f9d9202bb8a95466fc6",
+      "type": "application/xml;charset=UTF-8",
+      "seconds": 2.46,
+      "preview": " fr-FR Sun, 08 Nov 2026 13:24:15 +0100 https://www.reussir.fr/articles/les-restrictions-deau-allegees-mais-la-vigilance-reste-de-mise Sun, 08 Nov 2026 09:55:23 +0100 8df26209-9db4-49e5-a934-c31e2dfbe356 sécheresse, eau, Creuse, Massif central https:/",
+      "rights_excerpt": [
+        "58234e-687d-44f1-8eb3-752a1143b923 drone, pulvérisation https://www.reussir.fr/articles/prix-des-poules-pondeuses-et-de-reproduction-cotation-realisee-le-6-novembre-2026 Sun, 08 Nov 2026 09:00:00 +0100 46ccac4b-debf-48f6-a823-4d02ef634c50 cotation, poule pondeuse https://www.reussir.fr/articles/comm"
+      ]
+    },
+    {
+      "url": "https://www.reussir.fr/mentions-legales",
+      "final": "https://www.reussir.fr/articles/mentions-legales",
+      "status": 200,
+      "bytes": 403348,
+      "sha256": "f8bdaf565936059270df0fac8df5ad87092a722b2b049ff90b43d10cf3d1b027",
+      "type": "text/html; charset=utf-8",
+      "seconds": 2.18,
+      "preview": " Mentions légales var _rm = window._rm = window._rm || [];_rm[\"contentId\"] = \"cc1135d4-2f97-4afb-b91d-7c4c6c946f66\"; {\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Réussir\",\"url\":\"https://www.reussir.fr\",\"sameAs\":[\"https://www.facebook.co",
+      "rights_excerpt": [
+        "tantielle, du contenu des bases de données figurant au site auquel vous accédez ainsi que d’en faire l’extraction ou la réutilisation répétée et systématique de parties qualitativement et quantitativement non substantielles lorsque ces opérations excèdent manifestement les conditions d’utilisation n",
+        "vement non substantielles lorsque ces opérations excèdent manifestement les conditions d’utilisation normale. Droits de reproduction &amp; droits d’auteur Toute reproduction même partielle d’éléments graphiques ou de contenu du site reussir.fr/fruits-legumes est strictement interdite sans autorisati"
+      ]
+    },
+    {
+      "url": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "final": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "status": 200,
+      "bytes": 17677,
+      "sha256": "ec9367563846ca9335d7edb16c67a76f6901831cdfb494b5a618bb55efc83b0d",
+      "type": "text/xml; charset=utf-8",
+      "seconds": 1.76,
+      "preview": " DRAAF Auvergne-Rh&#244;ne-Alpes https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr fr DRAAF Auvergne-Rh&#244;ne-Alpes https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/spip.php?page=site&amp;id_syndic=0 https://draaf.auvergne-rhone-alpes.ag",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/mentions-legales-a2.html",
+      "final": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/mentions-legales-a2.html",
+      "status": 200,
+      "bytes": 47650,
+      "sha256": "5cdde3f5bd1b34b01049579c5c6b7b3996a27040ffb26558185fa33cf8752c5b",
+      "type": "text/html; charset=utf-8",
+      "seconds": 0.8,
+      "preview": " Mentions l&eacute;gales | DRAAF Auvergne-Rh&ocirc;ne-Alpes var mediabox_settings={\"auto_detect\":true,\"ns\":\"box\",\"tt_img\":false,\"sel_g\":\"#documents_portfolio a[type='image\\/jpeg'],#documents_portfolio a[type='image\\/png'],#documents_portfolio a[type=",
+      "rights_excerpt": [
+        "personnel Prestataire d&rsquo;h&eacute;bergement Suivi des statistiques de consultation du site Droit d&rsquo;auteur La reproduction de contenus &Eacute;tablissement de liens Cr&eacute;dits photos et illustrations Acc&egrave;s au site Acceptation des conditions d&rsquo;utilisation Fermer Direction r",
+        "nts officiels&nbsp;&raquo;&nbsp;: discours, communiqu&eacute;s, arr&ecirc;t&eacute;s, circulaires, notes de service. La reproduction de contenus Le demandeur s&rsquo;engage&nbsp;: &nbsp;&agrave; respecter l&rsquo;int&eacute;grit&eacute; des donn&eacute;es mises &agrave; sa disposition, en veillant &"
+      ]
+    },
+    {
+      "url": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/robots.txt",
+      "final": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "status": 200,
+      "bytes": 480,
+      "sha256": "ce2e04cac70186286a04eb270788740279c02429e6a42e8d7facbcceabd8e6f0",
+      "type": "text/plain; charset=utf-8",
+      "seconds": 0.72,
+      "preview": "# robots.txt # @url: https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr User-agent: * Allow: /local/cache-css/ Allow: /local/cache-js/ Noindex: /local/ Noindex: /plugins-dist/ Noindex: /plugins/ Noindex: /squelettes-dist/ Noindex: /squelettes/ Di",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://draaf.grand-est.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "final": "https://draaf.grand-est.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "status": 200,
+      "bytes": 18186,
+      "sha256": "29cecf30d29238e1648a86abc283080dd18a607f4fb7c3e3c9d1d34c5a0635ca",
+      "type": "text/xml; charset=utf-8",
+      "seconds": 0.76,
+      "preview": " DRAAF Grand Est https://draaf.grand-est.agriculture.gouv.fr fr DRAAF Grand Est https://draaf.grand-est.agriculture.gouv.fr/spip.php?page=site&amp;id_syndic=0 https://draaf.grand-est.agriculture.gouv.fr Les maladies voyagent aussi https://draaf.grand",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://draaf.grand-est.agriculture.gouv.fr/mentions-legales-a24.html",
+      "final": "https://draaf.grand-est.agriculture.gouv.fr/mentions-legales-a24.html",
+      "status": 200,
+      "bytes": 46361,
+      "sha256": "190f38c03c28cf90de4b0fa1cf49aab53b3b216fc3a5503411e0761bc2820192",
+      "type": "text/html; charset=utf-8",
+      "seconds": 0.73,
+      "preview": " Mentions l&eacute;gales | DRAAF Grand Est const agripop_enable=1;var agripop_enable_cookie=1;const expireTime=0; Acc&eacute;der au contenu Acc&eacute;der au menu Acc&eacute;der &agrave; la recherche Acc&eacute;der au footer Pr&eacute;fet de la r&eac",
+      "rights_excerpt": [
+        "ve; caract&egrave;re personnel Prestataire d&rsquo;h&eacute;bergement Suivi des statistiques de consultation du site La reproduction de contenus &Eacute;tablissement de liens Cr&eacute;dits photos et illustrations Acceptation des conditions d&rsquo;utilisation Fermer Direction r&eacute;gionale de l&",
+        "on sur ce site web. Pour cela, cochez la case ci apr&egrave;s qui d&eacute;posera un cookie d&rsquo;exclusion&nbsp;: La reproduction de contenus Le demandeur s&rsquo;engage&nbsp;: &agrave; respecter l&rsquo;int&eacute;grit&eacute; des donn&eacute;es mises &agrave; sa disposition, en veillant &agrave"
+      ]
+    },
+    {
+      "url": "https://draaf.grand-est.agriculture.gouv.fr/robots.txt",
+      "final": "https://draaf.grand-est.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "status": 200,
+      "bytes": 458,
+      "sha256": "2f3543e692f170de3ff1be9b5ac58ecf4d2a98eb43871dcf30e7902f31a2c701",
+      "type": "text/plain; charset=utf-8",
+      "seconds": 0.84,
+      "preview": "# robots.txt # @url: https://draaf.grand-est.agriculture.gouv.fr User-agent: * Allow: /local/cache-css/ Allow: /local/cache-js/ Noindex: /local/ Noindex: /plugins-dist/ Noindex: /plugins/ Noindex: /squelettes-dist/ Noindex: /squelettes/ Disallow: /ec",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://draaf.paca.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "final": "https://draaf.paca.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "status": 200,
+      "bytes": 14876,
+      "sha256": "a9572edfbaadc12a49223f49c58002d364f4de8e7da6c73884ab8c4373f0450b",
+      "type": "text/xml; charset=utf-8",
+      "seconds": 0.7,
+      "preview": " DRAAF PACA https://draaf.paca.agriculture.gouv.fr Site officiel du service régional du ministère en charge de l'agriculture fr DRAAF PACA https://draaf.paca.agriculture.gouv.fr/spip.php?page=site&amp;id_syndic=0 https://draaf.paca.agriculture.gouv.f",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://draaf.paca.agriculture.gouv.fr/mentions-legales-a2.html",
+      "error": "HTTP Error 404: Not Found",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://draaf.paca.agriculture.gouv.fr/robots.txt",
+      "final": "https://draaf.paca.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "status": 200,
+      "bytes": 448,
+      "sha256": "40c4b06b406b56e5019dab16d89207f36e6562b11f8194b0439eed8760bd42bc",
+      "type": "text/plain; charset=utf-8",
+      "seconds": 0.67,
+      "preview": "# robots.txt # @url: https://draaf.paca.agriculture.gouv.fr User-agent: * Allow: /local/cache-css/ Allow: /local/cache-js/ Noindex: /local/ Noindex: /plugins-dist/ Noindex: /plugins/ Noindex: /squelettes-dist/ Noindex: /squelettes/ Disallow: /ecrire/",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://draaf.hauts-de-france.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "final": "https://draaf.hauts-de-france.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "status": 200,
+      "bytes": 16586,
+      "sha256": "b091318d5e92625f0764cb9c66b8c147b21bd74592c0e18cd0d2ba48cd366e96",
+      "type": "text/xml; charset=utf-8",
+      "seconds": 1.67,
+      "preview": " DRAAF Hauts-de-France https://draaf.hauts-de-france.agriculture.gouv.fr fr DRAAF Hauts-de-France https://draaf.hauts-de-france.agriculture.gouv.fr/spip.php?page=site&amp;id_syndic=0 https://draaf.hauts-de-france.agriculture.gouv.fr Testez et donnez ",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://draaf.hauts-de-france.agriculture.gouv.fr/mentions-legales-a2.html",
+      "final": "https://draaf.hauts-de-france.agriculture.gouv.fr/mentions-legales-a2.html",
+      "status": 200,
+      "bytes": 43971,
+      "sha256": "bfecf21c8fd4cae72196bc31b5faabbbef07f7087cd3166f4ac3a5315e83438b",
+      "type": "text/html; charset=utf-8",
+      "seconds": 1.31,
+      "preview": " Picardie - Plan R&eacute;gional de l&rsquo;Agriculture Durable - Actualisation Octobre 2015 | DRAAF Hauts-de-France const agripop_enable=1;var agripop_enable_cookie=1;const expireTime=0; Acc&eacute;der au contenu Acc&eacute;der au menu Acc&eacute;de",
+      "rights_excerpt": [
+        "t&egrave;me Utilise les param&egrave;tres syst&egrave;me Sauf mention contraire, tous les contenus de ce site sont sous licence etalab-2.0 "
+      ]
+    },
+    {
+      "url": "https://draaf.hauts-de-france.agriculture.gouv.fr/robots.txt",
+      "final": "https://draaf.hauts-de-france.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "status": 200,
+      "bytes": 470,
+      "sha256": "dc3e6219d3c44020608230bd10f4d5256c9fe70093f3597b11a9bf461abd299c",
+      "type": "text/plain; charset=utf-8",
+      "seconds": 1.12,
+      "preview": "# robots.txt # @url: https://draaf.hauts-de-france.agriculture.gouv.fr User-agent: * Allow: /local/cache-css/ Allow: /local/cache-js/ Noindex: /local/ Noindex: /plugins-dist/ Noindex: /plugins/ Noindex: /squelettes-dist/ Noindex: /squelettes/ Disallo",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://www.vignevin.com/robots.txt",
+      "final": "https://www.vignevin.com/robots.txt",
+      "status": 200,
+      "bytes": 35,
+      "sha256": "797b5a838afc63c18fbe9ee731b1508613fcf5f6b9af7a877ddb844d18421db1",
+      "type": "text/plain; charset=UTF-8",
+      "seconds": 0.22,
+      "preview": "User-agent: Bytespider Disallow: /",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://www.cirad.fr/robots.txt",
+      "final": "https://www.cirad.fr/robots.txt",
+      "status": 200,
+      "bytes": 57,
+      "sha256": "56b402cbdfdebe9e5f2cfc5688b153a630b4542b1316f4c190d5b9757ec7b62f",
+      "type": "text/plain; charset=UTF-8",
+      "seconds": 0.17,
+      "preview": "User-agent: * Disallow: /content/download/ Disallow: /*?*",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://agriculture.gouv.fr/robots.txt",
+      "final": "https://agriculture.gouv.fr/robots.txt",
+      "status": 200,
+      "bytes": 2005,
+      "sha256": "17f7b0b22f4a02e7b9d4b252bf47b78870c738d7f35dcfdb043b02470e347603",
+      "type": "text/plain",
+      "seconds": 0.18,
+      "preview": "# # robots.txt # # This file is to prevent the crawling and indexing of certain parts # of your site by web crawlers and spiders run by sites like Yahoo! # and Google. By telling these \"robots\" where not to go on your site, # you save bandwidth and s",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://www.terre-net.fr/robots.txt",
+      "final": "https://www.terre-net.fr/robots.txt",
+      "status": 200,
+      "bytes": 7189,
+      "sha256": "19798faf5681eceb93c591c00aa15e1892c71483c8e57ab88bca63711088afd3",
+      "type": "text/plain; charset=utf-8",
+      "seconds": 0.29,
+      "preview": "User-agent: facebookexternalhit Allow: / Sitemap: https://www.terre-net.fr/article/sitemapindex # ============================================================ # Bots malveillants / scrapers / outils d'extraction (interdits) # ========================",
+      "rights_excerpt": []
+    },
+    {
+      "url": "https://www.reussir.fr/robots.txt",
+      "final": "https://www.reussir.fr/robots.txt",
+      "status": 200,
+      "bytes": 403,
+      "sha256": "f6c738f7ec904c8fe2fac320b3872eb000e86fe7d94cbfb8b1f82f1c6d3a80c9",
+      "type": "text/plain; charset=UTF-8",
+      "seconds": 0.44,
+      "preview": "# Front routes that should not be crawled or indexed. User-agent: * Crawl-delay: 10 Allow: / Disallow: /auth/ Disallow: /compte/ Disallow: /api/ Disallow: /admin/ Disallow: /*?Itemid= Sitemap: https://www.reussir.fr/sitemap.xml Sitemap: https://www.r",
+      "rights_excerpt": []
+    }
+  ],
+  "discovery": [
+    {
+      "url": "https://idele.fr/flux-rss",
+      "status": 200,
+      "bytes": 5351,
+      "links": []
+    },
+    {
+      "url": "https://www.arvalis.fr",
+      "status": 200,
+      "bytes": 146604,
+      "links": [
+        "/mentions-legales"
+      ]
+    },
+    {
+      "url": "https://www.vignevin.com",
+      "status": 200,
+      "bytes": 221204,
+      "links": [
+        "https://www.vignevin.com/feed/",
+        "https://www.vignevin.com/comments/feed/",
+        "/mentions-legales/"
+      ]
+    },
+    {
+      "url": "https://www.ctifl.fr",
+      "status": 200,
+      "bytes": 192784,
+      "links": [
+        "/mentions-legales"
+      ]
+    },
+    {
+      "url": "https://www.itavi.asso.fr",
+      "status": 200,
+      "bytes": 43569,
+      "links": [
+        "/page/mentions-legales"
+      ]
+    },
+    {
+      "url": "https://agriculture.gouv.fr",
+      "status": 200,
+      "bytes": 68883,
+      "links": [
+        "https://agriculture.gouv.fr/rss.xml",
+        "https://agriculture.gouv.fr/rss_presse.xml",
+        "https://agriculture.gouv.fr/rss_publications.xml",
+        "/rss.xml",
+        "/mentions-legales"
+      ]
+    },
+    {
+      "url": "https://agreste.agriculture.gouv.fr",
+      "status": 200,
+      "bytes": 116349,
+      "links": []
+    },
+    {
+      "url": "https://www.terre-net.fr",
+      "status": 200,
+      "bytes": 108847,
+      "links": [
+        "https://www.terre-net.fr/rss",
+        "/syndicalisme-agricole/article/905036/aides-eau-avec-2-3-milliards-de-pertes-en-mais-l-agpm-appelle-a-un-sursaut",
+        "/mentions-legales/p77"
+      ]
+    },
+    {
+      "url": "https://www.reussir.fr",
+      "status": 200,
+      "bytes": 572228,
+      "links": [
+        "https://www.reussir.fr/rss.xml",
+        "/annonces-legales",
+        "/annonces-legales",
+        "/articles/comment-faire-travailler-legalement-ses-parents-retraites-sur-lexploitation-agricole",
+        "https://www.reussir.fr/mentions-legales"
+      ]
+    },
+    {
+      "url": "https://www.cirad.fr/flux-rss",
+      "status": 200,
+      "bytes": 75049,
+      "links": [
+        "https://www.cirad.fr/flux-rss",
+        "https://www.cirad.fr/en/rss-feeds",
+        "https://www.cirad.fr/es/accueil/flux-rss",
+        "https://www.cirad.fr/flux-rss",
+        "https://www.cirad.fr/pt/accueil/flux-rss",
+        "/flux-rss",
+        "/en/rss-feeds",
+        "https://www.cirad.fr/flux-rss/",
+        "/assets/cirad/dist/icons.99aa69ef.svg#icon-rss",
+        "/flux-rss",
+        "/en/rss-feeds",
+        "https://www.cirad.fr/flux-rss/",
+        "/assets/cirad/dist/icons.99aa69ef.svg#icon-rss",
+        "https://bsky.app/intent/compose?text=Flux RSS%20:%20https://www.cirad.fr/flux-rss",
+        "https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.cirad.fr/flux-rss&amp;amp;t=Flux RSS",
+        "https://www.facebook.com/sharer/sharer.php?u=https://www.cirad.fr/flux-rss&amp;amp;t=Flux RSS",
+        "mailto:?subject=&amp;body=https://www.cirad.fr/flux-rss",
+        "https://www.cirad.fr/rss/actualites",
+        "https://www.cirad.fr/rss/agenda",
+        "https://www.cirad.fr/rss/presse",
+        "https://www.cirad.fr/rss/actualites-dr-afrique-australe-et-madagascar",
+        "https://www.cirad.fr/rss/actualites-dr-afrique-centrale",
+        "https://www.cirad.fr/rss/actualites-dr-afrique-de-l-ouest-foret-et-savane-humide",
+        "https://www.cirad.fr/rss/actualites-dr-afrique-ouest-zone-seche",
+        "https://www.cirad.fr/rss/actualites-dr-antilles-guyane-et-zone-caraibe",
+        "https://www.cirad.fr/rss/actualites-dr-asie-du-sud-est-continentale",
+        "https://www.cirad.fr/rss/actualites-dr-asie-du-sud-est-insulaire",
+        "https://www.cirad.fr/rss/actualites-dr-bresil-et-pays-du-cone-sud",
+        "https://www.cirad.fr/rss/actualites-dr-mediterranee-et-moyen-orient",
+        "https://www.cirad.fr/rss/actualites-dr-amerique-latine",
+        "https://www.cirad.fr/rss/actualites-dr-reunion-mayotte-et-ocean-indien",
+        "https://www.cirad.fr/flux-rss/",
+        "/assets/cirad/dist/icons.99aa69ef.svg#icon-rss",
+        "/mentions-legales"
+      ]
+    },
+    {
+      "url": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/flux-rss-a484.html",
+      "status": 200,
+      "bytes": 41790,
+      "links": [
+        "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/flux-rss-a484.html",
+        "http://www.facebook.com/sharer.php?u=https%3A%2F%2Fdraaf.auvergne-rhone-alpes.agriculture.gouv.fr%2Fflux-rss-a484.html&amp;t=Flux%20RSS",
+        "http://twitter.com/share?text=Flux%20RSS&amp;url=https%3A%2F%2Fdraaf.auvergne-rhone-alpes.agriculture.gouv.fr%2Fflux-rss-a484.html",
+        "http://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fdraaf.auvergne-rhone-alpes.agriculture.gouv.fr%2Fflux-rss-a484.html&amp;title=Flux%20RSS",
+        "mentions-legales-a2.html",
+        "flux-rss-a484.html"
+      ]
+    },
+    {
+      "url": "https://draaf.grand-est.agriculture.gouv.fr/flux-rss-a271.html",
+      "status": 200,
+      "bytes": 42328,
+      "links": [
+        "https://draaf.grand-est.agriculture.gouv.fr/flux-rss-a271.html",
+        "http://www.facebook.com/sharer.php?u=https%3A%2F%2Fdraaf.grand-est.agriculture.gouv.fr%2Fflux-rss-a271.html&amp;t=Flux%20RSS",
+        "http://twitter.com/share?text=Flux%20RSS&amp;url=https%3A%2F%2Fdraaf.grand-est.agriculture.gouv.fr%2Fflux-rss-a271.html",
+        "http://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fdraaf.grand-est.agriculture.gouv.fr%2Fflux-rss-a271.html&amp;title=Flux%20RSS",
+        "mentions-legales-a24.html",
+        "flux-rss-a271.html"
+      ]
+    }
+  ]
+}
