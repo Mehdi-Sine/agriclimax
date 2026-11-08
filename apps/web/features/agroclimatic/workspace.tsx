@@ -72,6 +72,7 @@ export function useAgroclimatic(
   const pra = search.get("pra") ?? "";
   const query = new URLSearchParams({
     indicator: rule.id,
+    ...(search.get("rule_version") ? {rule_version: search.get("rule_version")!} : {}),
     temporal: mode,
     start,
     end,
@@ -434,8 +435,7 @@ export function useAgroclimatic(
                 : "Cumul indisponible sur un support commun prouvé."}{" "}
           Couverture spatiale : {fmt((current.spatial_coverage ?? 0) * 100)} % ·
           couverture temporelle : {fmt((current.temporal_coverage ?? 0) * 100)}{" "}
-          %. La surface colorée représente seulement le support commun
-          réellement renseigné.
+          %. {current.quality ? "Le contour officiel reste entier et tramé ; la valeur décrit seulement le support renseigné." : "La surface colorée représente seulement le support commun réellement renseigné."}
         </p>
       )}
       {mode === "history" &&
@@ -676,7 +676,7 @@ export function useAgroclimatic(
     loading:active&&!resource.data&&!resource.error,
     error:resource.error,
     filters,
-    coveredSupport,
+    coveredSupport: data.some(r => r.quality) ? null : coveredSupport,
     panel,
     summary,
     mapTitle: (
@@ -704,7 +704,7 @@ export function useAgroclimatic(
             : `${data.filter((r) => r.value !== null && r.support_scope !== "qualified_pra_estimate").length} PRA complètes · ${data.filter((r) => r.value !== null && r.support_scope === "qualified_pra_estimate").length} estimations qualifiées ≥90% · ${data.filter((r) => r.observed_value != null && r.value === null).length} valeurs de portion seulement · ${data.filter((r) => r.complementary).length} estimation(s) complémentaire(s) en fiche. Gris : portion native absente ou résultat non calculable, jamais zéro.`}
       </p>
     ),
-    legend: <SemanticLegend palette={semantic}/>,
+    legend: <><SemanticLegend palette={semantic}/><p>Trame : support partiel. La valeur décrit uniquement la portion renseignée, sans extrapolation à toute la PRA.</p></>,
     mapProps: {
       selected: pra,
       onSelect: (id: string) => change({ pra: id }),
@@ -712,7 +712,7 @@ export function useAgroclimatic(
         values: data.map((r) => ({
           ...r,
           value:
-            r.support_id &&
+            !r.quality && r.support_id &&
             !coveredSupport?.features.some(
               (f) => f.properties.support_id === r.support_id,
             )

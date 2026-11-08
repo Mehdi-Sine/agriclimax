@@ -1,3 +1,5 @@
+import {calculateQualified, coverageRule, UNIFIED_AGRO_VERSION, type QualifiedDay} from "../../features/climate-quality/calculate";
+import {forecastSupport, applyObservedSupport} from "./climate-quality";
 import "server-only";
 import { coastalComplement } from "./coastal-complement";
 import { createHash } from "node:crypto";
@@ -81,9 +83,10 @@ export async function agroclimaticData(params: URLSearchParams) {
     throw new ApiError("INVALID_QUERY", 400);
   const baseRule = RULES.find((r) => r.id === params.get("indicator"));
   const requestedVersion = params.get("rule_version");
+  const unified = !requestedVersion || requestedVersion === UNIFIED_AGRO_VERSION;
   if (
     requestedVersion &&
-    ![STRICT_RULE_VERSION, OBSERVED_RULE_VERSION, NATIVE_RULE_VERSION].includes(
+    ![STRICT_RULE_VERSION, OBSERVED_RULE_VERSION, NATIVE_RULE_VERSION, UNIFIED_AGRO_VERSION].includes(
       requestedVersion,
     )
   )
@@ -102,7 +105,7 @@ export async function agroclimaticData(params: URLSearchParams) {
         "dry_sequence",
         "heavy_rain",
       ].includes(baseRule.id));
-  const rule = useSupport
+  const rule = unified && baseRule ? coverageRule(baseRule) : useSupport
     ? observedRule(baseRule!, requestedVersion ?? NATIVE_RULE_VERSION)
     : baseRule;
   if (requestedVersion && rule && rule.version !== requestedVersion)
@@ -188,7 +191,7 @@ export async function agroclimaticData(params: URLSearchParams) {
   if (hit && hit.expires > Date.now()) return project(await hit.value);
   const value = compute();
   async function compute() {
-    const grouped = new Map<string, SupportedDay[]>();
+    const grouped = new Map<string, (SupportedDay & QualifiedDay)[]>();
     if (document) {
       const selected = document.selected_indices
         .map((i) => document.rows[i])
@@ -201,9 +204,9 @@ export async function agroclimaticData(params: URLSearchParams) {
         daily.set(key, list);
       }
       for (const rows of daily.values()) {
-        const first = rows[0],
-          needed = rows.filter((r) => rule!.variables.includes(r.variable));
-        const row: SupportedDay = {
+        const needed = rows.filter((r) => rule!.variables.includes(r.variable));
+        const first = needed[0] ?? rows[0];
+        const row: SupportedDay & QualifiedDay = {
           pra: first.pra_id,
           date: first.valid_date,
           values: Object.fromEntries(needed.map((r) => [r.variable, r.value])),
@@ -214,12 +217,13 @@ export async function agroclimaticData(params: URLSearchParams) {
                   `${r.source_id}/${r.model_run_at}/${r.valid_from}/${r.valid_to}`,
               ),
             ).size === 1,
+          climate_support: forecastSupport(needed),
           complete:
             needed.length === rule!.variables.length &&
             needed.every(
               (r) =>
-                r.status === "available" &&
-                r.spatial_coverage >= 0.9999 &&
+                (r.status === "available" || (unified && r.status === "partial" && r.value !== null)) &&
+                (unified ? r.spatial_coverage > 0 : r.spatial_coverage >= 0.9999) &&
                 r.temporal_coverage === 1,
             ),
           source: first.source_id,
@@ -255,9 +259,10 @@ export async function agroclimaticData(params: URLSearchParams) {
                 : null;
               const observed = new Map(support?.rows.map((r) => [r.pra_id, r]));
               function qualify(
-                row: SupportedDay,
+                row: SupportedDay & QualifiedDay,
                 sourceCoverage: number | undefined,
               ) {
+                if (unified && support) return applyObservedSupport(row, sourceCoverage, support, rule!.variables[0]);
                 const p = observed.get(row.pra);
                 if (
                   row.complete ||
@@ -304,9 +309,10 @@ export async function agroclimaticData(params: URLSearchParams) {
                   const variables = rule!.variables.filter(
                     (v) => v !== "humidity",
                   );
-                  const row: SupportedDay = {
+                  const row: SupportedDay & QualifiedDay = {
                     pra: saved.pra_id,
                     date,
+                    climate_support: saved.identity && [saved.identity.method, saved.identity.reference_geometry_sha256, saved.identity.weights_sha256, saved.identity.dataset].every(Boolean) ? {id: JSON.stringify([saved.identity.method, saved.identity.reference_geometry_sha256, saved.identity.weights_sha256, saved.identity.dataset]), fraction: saved.coverage[fields.indexOf(variables[0])], temporal_complete: saved.expected_cells > 0 && variables.every(v => saved.valid_counts[fields.indexOf(v)] === saved.expected_cells), mask: "native_valid_cells", method: String(saved.identity.method ?? "")} : undefined,
                     source_coverage:
                       saved.coverage[fields.indexOf(variables[0])],
                     values: Object.fromEntries(
@@ -352,9 +358,10 @@ export async function agroclimaticData(params: URLSearchParams) {
                   variable: p.variable,
                   row: p.rows.find((r) => r.pra_id === pra),
                 }));
-                const row: SupportedDay = {
+                const row: SupportedDay & QualifiedDay = {
                   pra,
                   date,
+                  climate_support: {id: `${NATIONAL.dataset}/pra-native-1`, fraction: selected[0]?.row?.current_coverage ?? 0, temporal_complete: selected.every(p => p.row?.current_status === "available"), mask: "native_valid_cells", method: "pra-native-1"},
                   source_coverage: selected[0]?.row?.current_coverage ?? 0,
                   values: Object.fromEntries(
                     selected.map((p) => [
@@ -390,7 +397,7 @@ export async function agroclimaticData(params: URLSearchParams) {
     }
     const began = performance.now();
     const data = identities.ids.map((pra) =>
-      (useSupport ? calculateObserved : calculate)(
+      (unified ? calculateQualified : useSupport ? calculateObserved : calculate)(
         pra,
         grouped.get(pra) ?? [],
         start,

@@ -1,3 +1,4 @@
+import {calculateQualified, UNIFIED_AGRO_VERSION} from "../../features/climate-quality/calculate";
 import "server-only";
 import { coastalComplement } from "./coastal-complement";
 import { observedSupportDay } from "./spatial-restitution";
@@ -73,12 +74,14 @@ export async function unifiedData(
   ];
   const cold = params.get("storage") === "cold";
   const requestedVersion = params.get("rule_version");
+  const unified = !requestedVersion || requestedVersion === UNIFIED_AGRO_VERSION;
   if (
     requestedVersion &&
     ![
       "agroclimatic-1.0.0",
       OBSERVED_RULE_VERSION,
       NATIVE_RULE_VERSION,
+      UNIFIED_AGRO_VERSION,
     ].includes(requestedVersion)
   )
     throw new ApiError("INVALID_QUERY", 400);
@@ -142,7 +145,7 @@ export async function unifiedData(
     ].includes(id) &&
     (requestedVersion !== OBSERVED_RULE_VERSION ||
       ["temperature", "gdd", "rain"].includes(id)) &&
-    data.some((r) => r.status !== "available")
+    (unified || data.some((r) => r.status !== "available"))
   ) {
     const rule = observedRule(
       ["temperature_min", "temperature_max"].includes(id)
@@ -155,7 +158,7 @@ export async function unifiedData(
         : RULES.find(
             (r) => r.id === (id === "temperature" ? "temperature_mean" : id),
           )!,
-      requestedVersion ?? NATIVE_RULE_VERSION,
+      unified ? UNIFIED_AGRO_VERSION : requestedVersion ?? NATIVE_RULE_VERSION,
     );
     const documents = await Promise.all(
       dates.map((date) =>
@@ -168,9 +171,9 @@ export async function unifiedData(
     );
     const byDate = new Map(dates.map((date, i) => [date, documents[i]]));
     data = data.map((result) => {
-      if (result.status === "available") return result;
+      if (!unified && result.status === "available") return result;
       const native = grouped.get(result.territoryId) ?? [];
-      const inputs: SupportedDay[] = native.map((r) => {
+      const inputs: (SupportedDay & import("../../features/climate-quality/calculate").QualifiedDay)[] = native.map((r) => {
         const doc = byDate.get(r.date!)!,
           p = doc.rows.find((p) => p.pra_id === result.territoryId);
         const valid =
@@ -185,6 +188,7 @@ export async function unifiedData(
         return {
           pra: result.territoryId,
           date: r.date!,
+          climate_support: valid ? {id: p!.support_id!, identity: `${doc.identity}/${p!.support_id}`, fraction: p!.coverage, temporal_complete: p!.temporal_coverage === 1, mask: "native_valid_cells" as const, method: p!.rule_version} : {id: `${NATIONAL.dataset}/pra-native-1`, fraction: r.current_coverage ?? 0, temporal_complete: r.current_status === "available", mask: "native_valid_cells" as const, method: "pra-native-1"},
           source_coverage: r.current_coverage ?? 0,
           values: {
             [definition.variable]: valid ? p!.observed_value : r.current_value,
@@ -215,7 +219,7 @@ export async function unifiedData(
             : {}),
         };
       });
-      const next = calculateObserved(
+      const next = (unified ? calculateQualified : calculateObserved)(
         result.territoryId,
         inputs,
         start,
@@ -226,6 +230,8 @@ export async function unifiedData(
       return {
         ...result,
         ...next,
+        normal: next.quality?.state === "native_complete" ? result.normal : next.normal,
+        anomaly: next.quality?.state === "native_complete" ? result.anomaly : next.anomaly,
         observed_series: next.series.map((r) => ({
           date: r.date,
           value:
@@ -242,6 +248,7 @@ export async function unifiedData(
     });
   }
   if (
+    !unified &&
     requestedVersion !== "agroclimatic-1.0.0" &&
     requestedVersion !== OBSERVED_RULE_VERSION &&
     ["temperature", "gdd", "rain"].includes(id)

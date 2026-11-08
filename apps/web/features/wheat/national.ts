@@ -1,3 +1,4 @@
+import {calculateCoverageWheat, coverageWheatPublishable, COVERAGE_WHEAT_VERSION, coverageQualification} from "./coverage";
 import { createHash } from "node:crypto";
 import type { Place } from "../national-watch/model";
 import type { Rule } from "../agroclimatic/catalogue";
@@ -18,6 +19,8 @@ export interface WheatCoverage {
   partial: number;
   unavailable: number;
   reasons: Record<string, number>;
+  observed_partial?: number;
+  qualified_estimate?: number;
 }
 export interface WheatTerritorySummary {
   territory: string;
@@ -30,6 +33,7 @@ export interface WheatTerritorySummary {
     provenance: string[];
     quality_flags: string[];
     data_freshness: string[];
+    quality?: import("../climate-quality/policy").CoverageQuality;
   } | null;
 }
 export interface WheatSummary {
@@ -88,7 +92,7 @@ export function summarizeWheat(
   ];
   const indicators = rules.map((rule) => {
     const data = places.map((p) =>
-      calculateWheat(p.id, inputs[p.id] ?? [], ...period, rule),
+      (rule.version === COVERAGE_WHEAT_VERSION ? calculateCoverageWheat : calculateWheat)(p.id, inputs[p.id] ?? [], ...period, rule),
     );
     results[rule.id] = data;
     return {
@@ -103,7 +107,7 @@ export function summarizeWheat(
               territory === "France" ||
               placeById.get(r.territoryId)!.region === territory,
           ),
-          valid = selected.filter((r) => isPublishable(rule, r));
+          valid = selected.filter((r) => (rule.version === COVERAGE_WHEAT_VERSION ? coverageWheatPublishable : isPublishable)(rule, r));
         const reasons: Record<string, number> = {};
         for (const r of selected)
           if (r.reason) reasons[r.reason] = (reasons[r.reason] ?? 0) + 1;
@@ -116,7 +120,9 @@ export function summarizeWheat(
           coverage: {
             total: selected.length,
             evaluable: valid.length,
-            complete: valid.length,
+            complete: valid.filter(r => !r.quality || r.quality.state === "native_complete").length,
+            ...(rule.version === COVERAGE_WHEAT_VERSION ? {observed_partial: selected.filter(r => r.quality?.state === "observed_partial").length,
+            qualified_estimate: selected.filter(r => r.quality?.state === "qualified_estimate").length} : {}),
             partial: selected.filter((r) => r.status === "partial").length,
             unavailable: selected.filter((r) => r.status === "unavailable")
               .length,
@@ -134,6 +140,7 @@ export function summarizeWheat(
                 provenance: max.provenance,
                 quality_flags: max.quality_flags,
                 data_freshness: max.data_freshness,
+                ...(max.quality ? {quality: max.quality} : {}),
               }
             : null,
         };
@@ -141,12 +148,12 @@ export function summarizeWheat(
     };
   });
   const core = {
-    version: WHEAT_VERSION,
+    version: rules[0]?.version ?? WHEAT_VERSION,
     source_version: source.version,
     nature: source.nature,
     run: source.run,
     period,
-    qualification,
+    qualification: rules[0]?.version === COVERAGE_WHEAT_VERSION ? coverageQualification : qualification,
     indicators,
   };
   return { summary: { ...core, identity: digest(core) }, results };

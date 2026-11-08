@@ -1,4 +1,6 @@
 'use client';
+import {weatherQualityKey} from '../climate-quality/adapters';
+import {qualityLabel} from '../climate-quality/policy';
 import {semanticPalette} from '../cartography/registry';
 import {usePaletteColors} from '../cartography/use-palette';
 import {SemanticLegend} from '../cartography/legend';
@@ -40,6 +42,7 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode,
     const ids=new Set(geometryKey.split(','));return {...geometry,features:geometry.features.filter(f=>ids.has(`pra:${f.properties.code}`))};
   },[geometry,geometryKey]);
   const rows=view?.rows??[],current=rows.find(r=>r.pra_id===selected),def=VARIABLES.find(v=>v.id===variable);
+  const currentQuality=current&&view?.coverage_quality?view.coverage_quality.definitions[view.coverage_quality.lookup[weatherQualityKey(current)]]:undefined;
   const semantic=semanticPalette(variable,def?.unit??'');
   const bounds=semantic.bounds,colors=usePaletteColors(semantic);
   const feature=geometry?.features.find(f=>`pra:${f.properties.code}`===selected);
@@ -66,6 +69,7 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode,
         {!loading&&hasHorizon&&<p>{catalogue?.pra_count} PRA référencées · {available} valeurs calculées · {partial} supports partiels · {rows.filter(r=>r.status==='unavailable').length} indisponibles. La présence des contours ne signifie pas une couverture complète.</p>}
 </>;
   const panel=<><h2>{feature?.properties.name??selected}</h2><p data-testid="weather-value">{label(current?.value)} {def?.unit??''}</p><p>Support de calcul : {current?status[current.status]:'Indisponible'} · cellules météo renseignées {label(current?current.spatial_coverage*100:null)} % · temporelle {label(current?current.temporal_coverage*100:null)} %.</p>
+          {currentQuality&&<p>{qualityLabel(currentQuality)}. {currentQuality.state==='observed_partial'?"Portion renseignée uniquement ; aucune généralisation à toute la PRA.":"La complétude numérique ne garantit pas la représentativité terrestre."}</p>}
           {coastal&&<p>{coastal.physical_land_mask_available?`Fraction de terre du masque officiel ${coastalKey?.toUpperCase()}, pondérée sur les cellules : ${label(coastal.source_land_fraction==null?null:coastal.source_land_fraction*100)} %. Ce masque ne corrige pas les valeurs. Une valeur numérique ne garantit pas une représentativité terrestre validée.`:`Masque terre/mer du modèle indisponible. Centres situés dans le référentiel territorial : ${label(coastal.centre_inside_reference_fraction==null?null:coastal.centre_inside_reference_fraction*100)} % du poids ; indicateur géométrique, pas une mesure de surface terrestre.`}</p>}
           {coastal?.source_land_fraction!=null&&coastal.source_land_fraction<.5&&<p role="status">Le masque indique un support majoritairement maritime. Ce résultat ne constitue pas une température terrestre validée.</p>}
           <p>Validité : {current?.valid_from??'—'} → {current?.valid_to??'—'} · échéance fin H+{current?.lead_hours??'—'}.</p>
@@ -74,7 +78,7 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode,
           {pathname==='/analyse'&&<p>Aucun score d’impact agricole calculé à partir de ces prévisions. Les références RPG/SAA et les parcours blé/bovins restent séparés.</p>}
           <details><summary>Provenance et limites</summary><p>{current?.source_id} · {current?.model} · {current?.rule_version}</p><p>{current?.quality_flags.join(' · ')}</p><p style={{overflowWrap:'anywhere'}}>Empreinte : {current?.provenance_sha256}</p></details>
         </>;
-  return {loading,error,catalogue,dates,date,filters,panel,temporalMode,legend:<SemanticLegend palette={semantic}/>,mapTitle:<div className="unified-map-title"><h2>{def?.label??'Variable inconnue'} · {def?.unit??''}</h2><span>{past?'Estimation issue de prévisions':'Prévision'}</span></div>,collection,mapProps:{selected,onSelect:(id:string)=>change({pra:id}),quantitative:{values:rows.map(r=>({territoryId:r.pra_id,value:r.value,normal:null,anomaly:null,status:r.status})),field:'value' as const,unit:def?.unit??'',bounds,colors}},shortcuts:<div className="unified-context">
+  return {loading,error,catalogue,dates,date,filters,panel,temporalMode,legend:<SemanticLegend palette={semantic}/>,mapTitle:<div className="unified-map-title"><h2>{def?.label??'Variable inconnue'} · {def?.unit??''}</h2><span>{past?'Estimation issue de prévisions':'Prévision'}</span></div>,collection,mapProps:{selected,onSelect:(id:string)=>change({pra:id}),quantitative:{values:rows.map(r=>{const q=view?.coverage_quality?.definitions[view.coverage_quality.lookup[weatherQualityKey(r)]];return {territoryId:r.pra_id,value:q&&!q.indicator_eligible?null:r.value,normal:null,anomaly:null,status:q?.state==='observed_partial'?'partial' as const:r.status};}),field:'value' as const,unit:def?.unit??'',bounds,colors}},shortcuts:<div className="unified-context">
     {dates.at(-1)&&temporalMode==='recent'&&<button onClick={()=>change({weather_date:dates.at(-1)!})}>Dernière estimation</button>}
     {dates.includes(today)&&<button onClick={()=>change({weather_date:today})}>Aujourd’hui</button>}
     {[3,7].map(lead=>{const day=catalogue?.run?new Date(Date.parse(catalogue.run)+lead*86400000).toISOString().slice(0,10):'';return dates.includes(day)?<button key={lead} onClick={()=>change({weather_date:day})}>J+{lead}</button>:null;})}

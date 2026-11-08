@@ -1,0 +1,25 @@
+{
+  "executed_at": "2026-11-08T11:24:17.862Z",
+  "renderer": "headless Chromium SwiftShader",
+  "cache": "existing local production server; resource caches warm",
+  "cases": [
+    {
+      "version": "agroclimatic-1.2.0",
+      "navigation_to_map_ready_ms": 15384.718383,
+      "geometries": 713,
+      "numeric_values": 712,
+      "partial_values": 67,
+      "clipped_overlay": 67,
+      "js_heap_bytes": 131035249
+    },
+    {
+      "version": "agroclimatic-1.3.0",
+      "navigation_to_map_ready_ms": 12771.947605000001,
+      "geometries": 713,
+      "numeric_values": 712,
+      "partial_values": 67,
+      "clipped_overlay": 0,
+      "js_heap_bytes": 346020458
+    }
+  ]
+}

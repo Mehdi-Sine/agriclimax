@@ -2,7 +2,7 @@ import 'server-only';
 import geography from '../../data/operational/pra-watch-places.json';
 import {nationalWeatherDocument} from './weather-archives';
 import {datasets,sources} from './agriculture-index';
-import {detectNational,packMetrics,PHENOMENA,WATCH_VERSION,type Place,type WatchSummary,type ProductionPresence} from '../../features/national-watch/model';
+import {detectQualifiedNational,packMetrics,PHENOMENA,WATCH_VERSION,type Place,type WatchSummary,type ProductionPresence} from '../../features/national-watch/model';
 import {PRODUCTIONS} from '../../features/national-watch/productions';
 import {PALETTE_VERSION} from '../../features/cartography/registry';
 const cache=new Map<string,Promise<WatchSummary>>();
@@ -17,7 +17,7 @@ export async function nationalWatch(requestedRun?:string):Promise<WatchSummary>{
   const places:Place[]=geography.places;
   if(places.length!==713||new Set(places.map(p=>p.id)).size!==713||places.some(p=>!p.region))throw new Error('INVALID_WATCH_GEOGRAPHY');
   const start=new Date(Date.parse(document.run)+86400000).toISOString().slice(0,10),end=new Date(Date.parse(document.run)+7*86400000).toISOString().slice(0,10);
-  const {metrics,events}=detectNational(document.selected_indices.map(i=>document.rows[i]),places,start,end);
+  const {metrics,events}=detectQualifiedNational(document.selected_indices.map(i=>document.rows[i]),places,start,end);
   const productions:ProductionPresence[]=await Promise.all(PRODUCTIONS.map(async production=>{
    const data=await Promise.all(production.groups.map(g=>datasets[`rpg-group-${g}-surf-pra`]()));
    const known=places.filter(p=>data.every(d=>{const r=d.rows.find(r=>r.code===p.id.slice(4));return r?.statuses[0]==='available'&&r.values[0]!=null;})).map(p=>p.id);

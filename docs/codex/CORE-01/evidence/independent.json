@@ -1,0 +1,29 @@
+{
+  "cases": 35650,
+  "scalar_comparisons": 71300,
+  "mismatches": [],
+  "maximum_absolute_error": 2.842170943040401e-14,
+  "threshold_sensitivity": {
+    "0.8": {
+      "partial_candidates": 55,
+      "certified_estimates": 0
+    },
+    "0.85": {
+      "partial_candidates": 47,
+      "certified_estimates": 0
+    },
+    "0.9": {
+      "partial_candidates": 36,
+      "certified_estimates": 0
+    },
+    "0.95": {
+      "partial_candidates": 22,
+      "certified_estimates": 0
+    },
+    "0.99": {
+      "partial_candidates": 9,
+      "certified_estimates": 0
+    }
+  },
+  "limits": "Adapter-input arithmetic verification; no station calibration, no fresh reaggregation of raw ERA cells."
+}

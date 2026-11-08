@@ -1,5 +1,6 @@
 import {
   PHENOMENA,
+  watchMapReading,
   type Phenomenon,
   type WatchSummary,
   type WatchEvidence,
@@ -60,11 +61,13 @@ export interface JournalMapData {
     name: string;
     region: string;
     value: number | null;
+    quality?: import("../../climate-quality/policy").CoverageQuality;
     status: "available" | "partial" | "unavailable";
     state: string;
     evidence_id: string;
   }[];
   evidence: Record<string, WatchEvidence>;
+  quality?: import("../../national-watch/model").WatchSummary["quality"];
 }
 export function journalMapData(
   summary: WatchSummary,
@@ -85,20 +88,13 @@ export function journalMapData(
     if (!m || !summary.evidence[m.evidence_id])
       throw Error("JOURNAL_MAP_EVIDENCE");
     const e = summary.evidence[m.evidence_id];
+    const reading = watchMapReading(m, e, summary.quality);
     evidence[m.evidence_id] = e;
-    const available =
-      m.detected !== null && m.value !== null && Number.isFinite(m.value);
     return {
       id: p.id,
       name: p.name,
       region: p.region,
-      value: available ? m.value : null,
-      status: available
-        ? ("available" as const)
-        : m.state === "insufficient" ||
-            e.quality_flags.includes("partial_spatial_support_not_evaluated")
-          ? ("partial" as const)
-          : ("unavailable" as const),
+      ...reading,
       state: m.state,
       evidence_id: m.evidence_id,
     };
@@ -112,6 +108,7 @@ export function journalMapData(
     rule_version: summary.version,
     rows,
     evidence,
+    ...(summary.quality ? {quality: summary.quality} : {}),
   };
 }
 export function sameMapContext(

@@ -1,4 +1,5 @@
 "use client";
+import {qualityForEvidence} from "../../national-watch/model";
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState, useMemo } from "react";
 import type { PraCollection } from "../../national/map";
@@ -225,6 +226,7 @@ export default function JournalPraMap({
                     ? "Valeur non évaluable"
                     : `${new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 1 }).format(place.value)} ${theme.unit}`}
                 </strong>
+                {place.quality?.state === "observed_partial" && <p>Valeur sur support observé uniquement ({((place.quality.evidence.fraction ?? 0)*100).toFixed(1)} %). Aucune conclusion sur la PRA entière ; valeur exclue des chiffres clés.</p>}
                 <p>
                   {place.status === "available"
                     ? "Disponible · fenêtre temporelle complète selon le moteur"
@@ -251,6 +253,7 @@ export default function JournalPraMap({
                   <summary>Qualité et provenance</summary>
                   <p>{evidence?.rule_version}</p>
                   <p>{evidence?.quality_flags.join(" · ")}</p>
+                  {evidence?.quality_ids?.map((id,i) => {const q=qualityForEvidence(evidence,current?.data.quality,i);return q ? <p key={`${id}/${i}`}>Segment {i+1} : {q.state} · couverture numérique {((q.evidence.fraction??0)*100).toFixed(1)} % · {q.evidence.available_days}/{q.evidence.expected_days} jours · méthode {q.evidence.method}. Masque : {q.evidence.mask}.</p> : null;})}
                   <p>Fraîcheur : {evidence?.data_freshness.join(", ")}</p>
                   <p>{evidence?.provenance.join(" · ")}</p>
                   <p>

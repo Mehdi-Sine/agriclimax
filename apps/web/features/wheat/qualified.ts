@@ -37,6 +37,7 @@ export const qualification = {
   limits: WHEAT_LIMITS,
 };
 export interface WheatDay extends InputDay {
+  climate_support?: import("../climate-quality/calculate").QualifiedDay["climate_support"];
   support_key: string;
   spatial_coverage: number;
   temporal_coverage: number;

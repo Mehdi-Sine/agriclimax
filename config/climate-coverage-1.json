@@ -1,0 +1,28 @@
+{
+  "version": "climate-coverage-1.0.0",
+  "complete_tolerance": 0.0001,
+  "estimate_minimum_fraction": 0.9,
+  "families": {
+    "mean_sum": {
+      "observed": true,
+      "estimate": true
+    },
+    "extreme_event": {
+      "observed": true,
+      "estimate": false
+    },
+    "sequence": {
+      "observed": true,
+      "estimate": false
+    },
+    "normal_anomaly": {
+      "observed": false,
+      "estimate": false
+    },
+    "specific": {
+      "observed": false,
+      "estimate": false
+    }
+  },
+  "estimate_certificates": {}
+}

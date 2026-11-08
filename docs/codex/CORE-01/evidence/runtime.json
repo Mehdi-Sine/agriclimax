@@ -1,0 +1,21 @@
+{
+  "executed_at": "2026-11-08T11:15:03.224Z",
+  "archive_sha256": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+  "archive_read_validate_ms": 2779.491728,
+  "wheat_compute_ms": 1899.5993559999997,
+  "wheat_memoized_ms": 0.021644000000378583,
+  "watch_compute_ms": 1254.9171379999998,
+  "initial_rss_bytes": 124436480,
+  "loaded_rss_bytes": 419426304,
+  "final_rss_bytes": 501129216,
+  "peak_rss_bytes": 501129216,
+  "wheat_summary_bytes": 214116,
+  "watch_packed_bytes": 3462345,
+  "watch_summary_bytes": 3643887,
+  "watch_parts": {
+    "metrics": 567569,
+    "evidence": 2890155,
+    "quality": 4586,
+    "quality_count": 10
+  }
+}

@@ -123,6 +123,7 @@ it("replays verified daily archives without reading normals or acquiring any sou
   );
   const result = await agroclimaticData(
     new URLSearchParams({
+      rule_version: "agroclimatic-1.2.0",
       indicator: "rain",
       start: "2026-10-30",
       end: "2026-10-31",
@@ -193,7 +194,7 @@ it("preserves strict 1.0.0 and publishes qualified results separately on native 
       batch_key: "immutable-batch",
     })),
   );
-  const q = { indicator: "gdd", start: "2026-09-20", end: "2026-09-21", pra };
+  const q = {rule_version: "agroclimatic-1.2.0", indicator: "gdd", start: "2026-09-20", end: "2026-09-21", pra };
   const current = await agroclimaticData(new URLSearchParams(q));
   expect(current.data[0]).toMatchObject({
     value: 10,

@@ -9,7 +9,7 @@ export type WeatherRow = {
 };
 export type WeatherModel = 'selected'|'arome'|'arpege'|'ifs';
 export type CoastalQualification={native_cells:number;physical_land_mask_available:boolean;centre_inside_reference_fraction?:number;source_land_fraction?:number|null};
-export type WeatherCycle = {run:string|null;acquired_at:string|null;pra_count:number;rows:WeatherRow[];recent_estimate_status:string;attribution:string;scope?:'pilot'|'national';available_dates?:string[];all_dates?:string[];available_runs?:string[];pra_ids?:string[];models?:{id:WeatherModel;label:string}[];selected_model?:WeatherModel;coastal_qualification?:Record<string,CoastalQualification>};
+export type WeatherCycle = {coverage_quality?: import("../climate-quality/adapters").WeatherQualityBundle;run:string|null;acquired_at:string|null;pra_count:number;rows:WeatherRow[];recent_estimate_status:string;attribution:string;scope?:'pilot'|'national';available_dates?:string[];all_dates?:string[];available_runs?:string[];pra_ids?:string[];models?:{id:WeatherModel;label:string}[];selected_model?:WeatherModel;coastal_qualification?:Record<string,CoastalQualification>};
 export const VARIABLES: {id:WeatherVariable;label:string;unit:string}[] = [
   {id:'temperature',label:'Température moyenne estimée',unit:'°C'},
   {id:'temperature_min',label:'Minimum échantillonné',unit:'°C'},
