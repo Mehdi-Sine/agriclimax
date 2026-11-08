@@ -1,0 +1,169 @@
+{
+  "version": "news-sources-1",
+  "sources": [
+    {
+      "id": "draaf-auvergne-rhone-alpes",
+      "publisher": "DRAAF Auvergne-Rhône-Alpes",
+      "feed_url": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "robots_url": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "allowed_hosts": [
+        "draaf.auvergne-rhone-alpes.agriculture.gouv.fr"
+      ],
+      "enabled": true,
+      "rights_url": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/mentions-legales-a2.html",
+      "rights_checked_at": "2026-11-08",
+      "rights": "etalab-2.0-metadata",
+      "summary_allowed": true,
+      "publisher_region": "Auvergne-Rhône-Alpes",
+      "content_type": "news",
+      "limitation": "Licence Etalab 2.0 sauf mentions contraires ; attribution et lien conservés, médias et textes complets exclus. Région de l’éditeur ≠ localisation de la publication."
+    },
+    {
+      "id": "draaf-grand-est",
+      "publisher": "DRAAF Grand Est",
+      "feed_url": "https://draaf.grand-est.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "robots_url": "https://draaf.grand-est.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "allowed_hosts": [
+        "draaf.grand-est.agriculture.gouv.fr"
+      ],
+      "enabled": true,
+      "rights_url": "https://draaf.grand-est.agriculture.gouv.fr/mentions-legales-a24.html",
+      "rights_checked_at": "2026-11-08",
+      "rights": "etalab-2.0-metadata",
+      "summary_allowed": true,
+      "publisher_region": "Grand Est",
+      "content_type": "news",
+      "limitation": "Licence Etalab 2.0 sauf mentions contraires ; attribution et lien conservés, médias et textes complets exclus. Région de l’éditeur ≠ localisation de la publication."
+    },
+    {
+      "id": "draaf-paca",
+      "publisher": "DRAAF Provence-Alpes-Côte d’Azur",
+      "feed_url": "https://draaf.paca.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "robots_url": "https://draaf.paca.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "allowed_hosts": [
+        "draaf.paca.agriculture.gouv.fr"
+      ],
+      "enabled": true,
+      "rights_url": "https://draaf.paca.agriculture.gouv.fr/mentions-legales-a20.html",
+      "rights_checked_at": "2026-11-08",
+      "rights": "etalab-2.0-metadata",
+      "summary_allowed": true,
+      "publisher_region": "Provence-Alpes-Côte d’Azur",
+      "content_type": "news",
+      "limitation": "Licence Etalab 2.0 sauf mentions contraires ; attribution et lien conservés, médias et textes complets exclus. Région de l’éditeur ≠ localisation de la publication."
+    },
+    {
+      "id": "draaf-hauts-de-france",
+      "publisher": "DRAAF Hauts-de-France",
+      "feed_url": "https://draaf.hauts-de-france.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "robots_url": "https://draaf.hauts-de-france.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "allowed_hosts": [
+        "draaf.hauts-de-france.agriculture.gouv.fr"
+      ],
+      "enabled": true,
+      "rights_url": "https://draaf.hauts-de-france.agriculture.gouv.fr/mentions-legales-a103.html",
+      "rights_checked_at": "2026-11-08",
+      "rights": "etalab-2.0-metadata",
+      "summary_allowed": true,
+      "publisher_region": "Hauts-de-France",
+      "content_type": "news",
+      "limitation": "Licence Etalab 2.0 sauf mentions contraires ; attribution et lien conservés, médias et textes complets exclus. Région de l’éditeur ≠ localisation de la publication."
+    },
+    {
+      "id": "draaf-bretagne",
+      "publisher": "DRAAF Bretagne",
+      "feed_url": "https://draaf.bretagne.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "robots_url": "https://draaf.bretagne.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "allowed_hosts": [
+        "draaf.bretagne.agriculture.gouv.fr"
+      ],
+      "enabled": true,
+      "rights_url": "https://draaf.bretagne.agriculture.gouv.fr/mentions-legales-a2.html",
+      "rights_checked_at": "2026-11-08",
+      "rights": "etalab-2.0-metadata",
+      "summary_allowed": true,
+      "publisher_region": "Bretagne",
+      "content_type": "news",
+      "limitation": "Licence Etalab 2.0 sauf mentions contraires ; attribution et lien conservés, médias et textes complets exclus. Région de l’éditeur ≠ localisation de la publication."
+    },
+    {
+      "id": "draaf-nouvelle-aquitaine",
+      "publisher": "DRAAF Nouvelle-Aquitaine",
+      "feed_url": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/spip.php?page=backend-actu",
+      "robots_url": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "allowed_hosts": [
+        "draaf.nouvelle-aquitaine.agriculture.gouv.fr"
+      ],
+      "enabled": true,
+      "rights_url": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/mentions-legales-a119.html",
+      "rights_checked_at": "2026-11-08",
+      "rights": "etalab-2.0-metadata",
+      "summary_allowed": true,
+      "publisher_region": "Nouvelle-Aquitaine",
+      "content_type": "news",
+      "limitation": "Licence Etalab 2.0 sauf mentions contraires ; attribution et lien conservés, médias et textes complets exclus. Région de l’éditeur ≠ localisation de la publication."
+    },
+    {
+      "id": "draaf-grand-est-bsv",
+      "publisher": "DRAAF Grand Est",
+      "feed_url": "https://draaf.grand-est.agriculture.gouv.fr/spip.php?page=backend&id_rubrique=75",
+      "robots_url": "https://draaf.grand-est.agriculture.gouv.fr/spip.php?page=robots.txt",
+      "allowed_hosts": [
+        "draaf.grand-est.agriculture.gouv.fr"
+      ],
+      "enabled": true,
+      "rights_url": "https://draaf.grand-est.agriculture.gouv.fr/mentions-legales-a24.html",
+      "rights_checked_at": "2026-11-08",
+      "rights": "etalab-2.0-metadata",
+      "summary_allowed": true,
+      "publisher_region": "Grand Est",
+      "content_type": "plant-health-bulletin",
+      "limitation": "Licence Etalab 2.0 sauf mentions contraires ; attribution et lien conservés, médias et textes complets exclus. Région de l’éditeur ≠ localisation de la publication."
+    },
+    {
+      "id": "ifv",
+      "publisher": "Institut Français de la Vigne et du Vin",
+      "feed_url": "https://www.vignevin.com/feed/",
+      "robots_url": "https://www.vignevin.com/robots.txt",
+      "allowed_hosts": [
+        "www.vignevin.com"
+      ],
+      "enabled": false,
+      "rights_url": "https://www.vignevin.com/mentions-legales/",
+      "rights_checked_at": "2026-11-08",
+      "rights": "permission-required",
+      "summary_allowed": false,
+      "limitation": "Flux annoncé mais HTTP 500 ; droits de reprise non établis."
+    },
+    {
+      "id": "terre-net",
+      "publisher": "Terre-net",
+      "feed_url": "https://www.terre-net.fr/rss",
+      "robots_url": "https://www.terre-net.fr/robots.txt",
+      "allowed_hosts": [
+        "www.terre-net.fr"
+      ],
+      "enabled": false,
+      "rights_url": "https://www.terre-net.fr/mentions-legales/p77",
+      "rights_checked_at": "2026-11-08",
+      "rights": "permission-required",
+      "summary_allowed": false,
+      "limitation": "Flux accessible ; extraction systématique et réutilisation à autoriser par l’éditeur."
+    },
+    {
+      "id": "reussir",
+      "publisher": "Réussir",
+      "feed_url": "https://www.reussir.fr/rss.xml",
+      "robots_url": "https://www.reussir.fr/robots.txt",
+      "allowed_hosts": [
+        "www.reussir.fr"
+      ],
+      "enabled": false,
+      "rights_url": "https://www.reussir.fr/articles/mentions-legales",
+      "rights_checked_at": "2026-11-08",
+      "rights": "permission-required",
+      "summary_allowed": false,
+      "limitation": "Flux accessible ; droits de reproduction et extraction systématique réservés."
+    }
+  ]
+}

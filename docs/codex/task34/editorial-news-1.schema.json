@@ -1,0 +1,541 @@
+{
+  "$defs": {
+    "Duplicate": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "feed_sha256": {
+          "title": "Feed Sha256",
+          "type": "string"
+        },
+        "publication_id": {
+          "title": "Publication Id",
+          "type": "string"
+        },
+        "related_id": {
+          "title": "Related Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "same-url",
+            "possible-republication"
+          ],
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "feed_sha256",
+        "publication_id",
+        "related_id",
+        "kind"
+      ],
+      "title": "Duplicate",
+      "type": "object"
+    },
+    "Event": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "phenomenon": {
+          "title": "Phenomenon",
+          "type": "string"
+        },
+        "region": {
+          "title": "Region",
+          "type": "string"
+        },
+        "period": {
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Period",
+          "type": "array"
+        },
+        "production_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Production Ids",
+          "type": "array"
+        },
+        "provenance": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Provenance",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "phenomenon",
+        "region",
+        "period",
+        "production_ids",
+        "provenance"
+      ],
+      "title": "Event",
+      "type": "object"
+    },
+    "Link": {
+      "additionalProperties": false,
+      "properties": {
+        "publication_id": {
+          "title": "Publication Id",
+          "type": "string"
+        },
+        "event_id": {
+          "title": "Event Id",
+          "type": "string"
+        },
+        "axes": {
+          "additionalProperties": {
+            "enum": [
+              "match",
+              "unknown",
+              "mismatch"
+            ],
+            "type": "string"
+          },
+          "title": "Axes",
+          "type": "object"
+        },
+        "temporal_distance_days": {
+          "title": "Temporal Distance Days",
+          "type": "integer"
+        },
+        "relation": {
+          "enum": [
+            "documentary-candidate",
+            "documentary-overlap",
+            "documentary-background"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "scientific_confirmation": {
+          "const": false,
+          "default": false,
+          "title": "Scientific Confirmation",
+          "type": "boolean"
+        },
+        "limitation": {
+          "default": "Rapprochement documentaire uniquement ; aucune confirmation scientifique ni dommage PRA déduit.",
+          "title": "Limitation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "publication_id",
+        "event_id",
+        "axes",
+        "temporal_distance_days",
+        "relation"
+      ],
+      "title": "Link",
+      "type": "object"
+    },
+    "Publication": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "revision": {
+          "title": "Revision",
+          "type": "string"
+        },
+        "content_fingerprint": {
+          "title": "Content Fingerprint",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "publisher": {
+          "title": "Publisher",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 600,
+          "title": "Title",
+          "type": "string"
+        },
+        "original_url": {
+          "title": "Original Url",
+          "type": "string"
+        },
+        "canonical_url": {
+          "title": "Canonical Url",
+          "type": "string"
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Published At"
+        },
+        "collected_at": {
+          "format": "date-time",
+          "title": "Collected At",
+          "type": "string"
+        },
+        "author": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Author"
+        },
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Categories",
+          "type": "array"
+        },
+        "summary": {
+          "anyOf": [
+            {
+              "maxLength": 600,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Summary"
+        },
+        "content_type": {
+          "enum": [
+            "news",
+            "plant-health-bulletin",
+            "technical-publication"
+          ],
+          "title": "Content Type",
+          "type": "string"
+        },
+        "productions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Productions",
+          "type": "array"
+        },
+        "regions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Regions",
+          "type": "array"
+        },
+        "phenomena": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Phenomena",
+          "type": "array"
+        },
+        "themes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Themes",
+          "type": "array"
+        },
+        "relevance": {
+          "enum": [
+            "high",
+            "context",
+            "rejected"
+          ],
+          "title": "Relevance",
+          "type": "string"
+        },
+        "classification_evidence": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Classification Evidence",
+          "type": "object"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "qualifier_version": {
+          "default": "documentary-keywords-1",
+          "title": "Qualifier Version",
+          "type": "string"
+        },
+        "feed_sha256": {
+          "title": "Feed Sha256",
+          "type": "string"
+        },
+        "rights_url": {
+          "title": "Rights Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "revision",
+        "content_fingerprint",
+        "source_id",
+        "publisher",
+        "title",
+        "original_url",
+        "canonical_url",
+        "published_at",
+        "collected_at",
+        "categories",
+        "content_type",
+        "productions",
+        "regions",
+        "phenomena",
+        "themes",
+        "relevance",
+        "classification_evidence",
+        "limitations",
+        "feed_sha256",
+        "rights_url"
+      ],
+      "title": "Publication",
+      "type": "object"
+    },
+    "SourceResult": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "ok",
+            "unavailable",
+            "disabled"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Error"
+        },
+        "feed_sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Feed Sha256"
+        },
+        "robots_sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Robots Sha256"
+        },
+        "bytes_received": {
+          "default": 0,
+          "title": "Bytes Received",
+          "type": "integer"
+        },
+        "attempts": {
+          "default": 0,
+          "title": "Attempts",
+          "type": "integer"
+        },
+        "elapsed_seconds": {
+          "default": 0,
+          "title": "Elapsed Seconds",
+          "type": "number"
+        },
+        "parsed": {
+          "default": 0,
+          "title": "Parsed",
+          "type": "integer"
+        },
+        "rejected_entries": {
+          "default": 0,
+          "title": "Rejected Entries",
+          "type": "integer"
+        },
+        "truncated": {
+          "default": false,
+          "title": "Truncated",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "source_id",
+        "status"
+      ],
+      "title": "SourceResult",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": "editorial-news-1",
+      "default": "editorial-news-1",
+      "title": "Version",
+      "type": "string"
+    },
+    "bundle_id": {
+      "title": "Bundle Id",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "registry_sha256": {
+      "title": "Registry Sha256",
+      "type": "string"
+    },
+    "qualifier_version": {
+      "default": "documentary-keywords-1",
+      "title": "Qualifier Version",
+      "type": "string"
+    },
+    "matching_version": {
+      "const": "documentary-match-1",
+      "default": "documentary-match-1",
+      "title": "Matching Version",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/SourceResult"
+      },
+      "title": "Sources",
+      "type": "array"
+    },
+    "publications": {
+      "items": {
+        "$ref": "#/$defs/Publication"
+      },
+      "title": "Publications",
+      "type": "array"
+    },
+    "duplicates": {
+      "items": {
+        "$ref": "#/$defs/Duplicate"
+      },
+      "title": "Duplicates",
+      "type": "array"
+    },
+    "events": {
+      "items": {
+        "$ref": "#/$defs/Event"
+      },
+      "title": "Events",
+      "type": "array"
+    },
+    "event_archive_sha256": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Event Archive Sha256"
+    },
+    "links": {
+      "items": {
+        "$ref": "#/$defs/Link"
+      },
+      "title": "Links",
+      "type": "array"
+    },
+    "background_links": {
+      "items": {
+        "$ref": "#/$defs/Link"
+      },
+      "title": "Background Links",
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    }
+  },
+  "required": [
+    "bundle_id",
+    "generated_at",
+    "registry_sha256",
+    "sources",
+    "publications",
+    "duplicates",
+    "events",
+    "event_archive_sha256",
+    "links",
+    "background_links",
+    "limitations"
+  ],
+  "title": "EditorialNewsBundle",
+  "type": "object"
+}

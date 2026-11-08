@@ -1,0 +1,36 @@
+{
+  "bundle_id": "7ac63076625dd9da2f5f9ee925338befb6d04d979650d2d6830346d81e547576",
+  "new_document_bytes": 118723,
+  "receipt_bytes": 13933,
+  "documents": 130,
+  "sources": {
+    "draaf-auvergne-rhone-alpes": "ok",
+    "draaf-grand-est": "ok",
+    "draaf-paca": "ok",
+    "draaf-hauts-de-france": "ok",
+    "draaf-bretagne": "ok",
+    "draaf-nouvelle-aquitaine": "ok",
+    "draaf-grand-est-bsv": "ok",
+    "ifv": "disabled",
+    "terre-net": "disabled",
+    "reussir": "disabled"
+  },
+  "useful": 17,
+  "links": 0,
+  "replay": {
+    "new_document_bytes": 0,
+    "receipt_bytes": 13933,
+    "documents": 130
+  },
+  "elapsed_source_seconds": 20.059,
+  "bytes_received": 152524,
+  "background_links": 7,
+  "relevance_counts": {
+    "context": 17,
+    "rejected": 113
+  },
+  "duplicates": 6,
+  "event_count": 27,
+  "bundle_json_bytes": 314571,
+  "bundle_gzip_bytes": 44585
+}
