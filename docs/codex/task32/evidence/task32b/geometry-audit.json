@@ -1,0 +1,15 @@
+{
+  "features": 713,
+  "identifiers_and_properties_preserved": true,
+  "closed_rings": true,
+  "corsica_preserved": true,
+  "angular_area_ratio_min": 0.9716616258508172,
+  "angular_area_ratio_max": 1.0265860311068,
+  "note": "Angular geometry diagnostic only, not agricultural areas. Shared topology simplified once by mapshaper 0.6.113, interval=250 metres keep-shapes; three intersections repaired before export. Minor coastline detail omitted; use full explorer for detailed borders.",
+  "source_bytes": 23818871,
+  "source_gzip": 9710368,
+  "derived_bytes": 2549501,
+  "derived_gzip": 705590,
+  "source_sha256": "99546efa11416d658369d3ee86bf24f7a42958ae8da233af677040eebba44fdb",
+  "derived_sha256": "db7a4df024d909c5e1004da34cf44a440ebfa3d5df2b8c8c9135074d570cd497"
+}

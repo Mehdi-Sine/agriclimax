@@ -1,0 +1,329 @@
+{
+  "origin": "https://agriclimax-git-codex-32-journal-edi-b8193c-mehdi-sines-projects.vercel.app",
+  "tested_commit": "8a53773",
+  "transport": "Cloud Node fetch route (decoded response sizes)",
+  "checks": [
+    {
+      "name": "desktop HTTP 200",
+      "ok": true
+    },
+    {
+      "name": "desktop real headline",
+      "ok": true
+    },
+    {
+      "name": "desktop map",
+      "ok": true
+    },
+    {
+      "name": "desktop no overflow",
+      "ok": true
+    },
+    {
+      "name": "desktop thirteen regional comparisons",
+      "ok": true
+    },
+    {
+      "name": "desktop keyboard",
+      "ok": true
+    },
+    {
+      "name": "desktop numbered proof reachable",
+      "ok": true
+    },
+    {
+      "name": "desktop regions accessible",
+      "ok": true
+    },
+    {
+      "name": "desktop archived edition",
+      "ok": true
+    },
+    {
+      "name": "tablet HTTP 200",
+      "ok": true
+    },
+    {
+      "name": "tablet real headline",
+      "ok": true
+    },
+    {
+      "name": "tablet map",
+      "ok": true
+    },
+    {
+      "name": "tablet no overflow",
+      "ok": true
+    },
+    {
+      "name": "tablet thirteen regional comparisons",
+      "ok": true
+    },
+    {
+      "name": "tablet keyboard",
+      "ok": true
+    },
+    {
+      "name": "tablet numbered proof reachable",
+      "ok": true
+    },
+    {
+      "name": "tablet regions accessible",
+      "ok": true
+    },
+    {
+      "name": "tablet archived edition",
+      "ok": true
+    },
+    {
+      "name": "mobile HTTP 200",
+      "ok": true
+    },
+    {
+      "name": "mobile real headline",
+      "ok": true
+    },
+    {
+      "name": "mobile map",
+      "ok": true
+    },
+    {
+      "name": "mobile no overflow",
+      "ok": true
+    },
+    {
+      "name": "mobile thirteen regional comparisons",
+      "ok": true
+    },
+    {
+      "name": "mobile keyboard",
+      "ok": true
+    },
+    {
+      "name": "mobile numbered proof reachable",
+      "ok": true
+    },
+    {
+      "name": "mobile regions accessible",
+      "ok": true
+    },
+    {
+      "name": "mobile archived edition",
+      "ok": true
+    },
+    {
+      "name": "no browser errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "measurements": [
+    {
+      "name": "desktop",
+      "lcpMs": 6156,
+      "paints": [
+        {
+          "name": "first-paint",
+          "ms": 5756
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 5788
+        }
+      ],
+      "navigation": {
+        "name": "https://agriclimax-git-codex-32-journal-edi-b8193c-mehdi-sines-projects.vercel.app/journal",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 7709.399999999907,
+        "navigationId": 9010,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 1.099999999976717,
+        "domainLookupStart": 1.099999999976717,
+        "domainLookupEnd": 1.099999999976717,
+        "connectStart": 1.099999999976717,
+        "secureConnectionStart": 1.099999999976717,
+        "connectEnd": 1.099999999976717,
+        "requestStart": 1.099999999976717,
+        "responseStart": 4808.599999999977,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 4808.599999999977,
+        "transferSize": 289403,
+        "encodedBodySize": 289103,
+        "decodedBodySize": 289103,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 5782,
+        "domContentLoadedEventStart": 5782,
+        "domContentLoadedEventEnd": 5782.099999999977,
+        "domComplete": 7709.29999999993,
+        "loadEventStart": 7709.399999999907,
+        "loadEventEnd": 7709.399999999907,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "jsBytes": 617588,
+      "geoRequests": 0
+    },
+    {
+      "name": "tablet",
+      "lcpMs": 2324,
+      "paints": [
+        {
+          "name": "first-paint",
+          "ms": 1952
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 1980
+        }
+      ],
+      "navigation": {
+        "name": "https://agriclimax-git-codex-32-journal-edi-b8193c-mehdi-sines-projects.vercel.app/journal",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 3986.5,
+        "navigationId": 7940,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 1.900000000023283,
+        "domainLookupStart": 1.900000000023283,
+        "domainLookupEnd": 1.900000000023283,
+        "connectStart": 1.900000000023283,
+        "secureConnectionStart": 1.900000000023283,
+        "connectEnd": 1.900000000023283,
+        "requestStart": 1.900000000023283,
+        "responseStart": 1672.1999999999534,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 1672.1999999999534,
+        "transferSize": 289403,
+        "encodedBodySize": 289103,
+        "decodedBodySize": 289103,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 1975.1999999999534,
+        "domContentLoadedEventStart": 1975.3000000000466,
+        "domContentLoadedEventEnd": 1975.3000000000466,
+        "domComplete": 3986.4000000000233,
+        "loadEventStart": 3986.5,
+        "loadEventEnd": 3986.5,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "jsBytes": 617588,
+      "geoRequests": 0
+    },
+    {
+      "name": "mobile",
+      "lcpMs": 1980,
+      "paints": [
+        {
+          "name": "first-paint",
+          "ms": 1896
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 1980
+        }
+      ],
+      "navigation": {
+        "name": "https://agriclimax-git-codex-32-journal-edi-b8193c-mehdi-sines-projects.vercel.app/journal",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 3370.79999999993,
+        "navigationId": 4172,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.6999999999534339,
+        "domainLookupStart": 0.6999999999534339,
+        "domainLookupEnd": 0.6999999999534339,
+        "connectStart": 0.6999999999534339,
+        "secureConnectionStart": 0.6999999999534339,
+        "connectEnd": 0.6999999999534339,
+        "requestStart": 0.6999999999534339,
+        "responseStart": 1631.0999999999767,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 1631.0999999999767,
+        "transferSize": 289403,
+        "encodedBodySize": 289103,
+        "decodedBodySize": 289103,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 1968.5999999999767,
+        "domContentLoadedEventStart": 1968.5999999999767,
+        "domContentLoadedEventEnd": 1968.6999999999534,
+        "domComplete": 3370.5999999999767,
+        "loadEventStart": 3370.79999999993,
+        "loadEventEnd": 3370.79999999993,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "jsBytes": 617588,
+      "geoRequests": 0
+    }
+  ]
+}
