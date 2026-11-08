@@ -1,0 +1,1343 @@
+{
+  "executed_at": "2026-11-08T11:34:28.664Z",
+  "archive_dates": [
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24",
+    "2026-10-25",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-10-31",
+    "2026-11-01"
+  ],
+  "forecast_run": "2026-11-07T00:00:00+00:00",
+  "forecast_sha256": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+  "archive_entries": [
+    {
+      "bytes": 258289,
+      "dates": [
+        "2026-10-19"
+      ],
+      "path": "era5/2e277515347af6981b25ee67d02bd940f442d0dc618efbb106f16d9eefe3ace9.json.gz",
+      "sha256": "2e277515347af6981b25ee67d02bd940f442d0dc618efbb106f16d9eefe3ace9"
+    },
+    {
+      "bytes": 474556,
+      "dates": [
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22",
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-26"
+      ],
+      "path": "era5/b52eb1ab39cffc56774386b81e62aca94013c66b06a19bb51d05dc4b7790114a.json.gz",
+      "sha256": "b52eb1ab39cffc56774386b81e62aca94013c66b06a19bb51d05dc4b7790114a"
+    },
+    {
+      "bytes": 351528,
+      "dates": [
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "path": "era5/32a3ededfdf741ed9c7b23201da256a3c2652a781f479b676770830e3c3e512c.json.gz",
+      "sha256": "32a3ededfdf741ed9c7b23201da256a3c2652a781f479b676770830e3c3e512c"
+    },
+    {
+      "bytes": 284028,
+      "dates": [
+        "2026-10-31"
+      ],
+      "path": "era5/1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961.json.gz",
+      "sha256": "1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961"
+    },
+    {
+      "bytes": 232333,
+      "dates": [
+        "2026-11-01"
+      ],
+      "path": "era5/cbe85befe41c1c92750db41a7d7b65f00c056ad69171b5d5357cf6fd1ee18079.json.gz",
+      "sha256": "cbe85befe41c1c92750db41a7d7b65f00c056ad69171b5d5357cf6fd1ee18079"
+    }
+  ],
+  "regressions": [],
+  "counts": [
+    {
+      "usage": "wheat",
+      "indicator": "gdd",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 399.1264190000011
+    },
+    {
+      "usage": "wheat",
+      "indicator": "hot",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 399.1264190000011
+    },
+    {
+      "usage": "wheat",
+      "indicator": "hot_sequence",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 399.1264190000011
+    },
+    {
+      "usage": "wheat",
+      "indicator": "frost",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 399.1264190000011
+    },
+    {
+      "usage": "wheat",
+      "indicator": "frost_sequence",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 399.1264190000011
+    },
+    {
+      "usage": "wheat",
+      "indicator": "rain",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 399.1264190000011
+    },
+    {
+      "usage": "wheat",
+      "indicator": "heavy_rain",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 399.1264190000011
+    },
+    {
+      "usage": "wheat",
+      "indicator": "dry",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 399.1264190000011
+    },
+    {
+      "usage": "wheat",
+      "indicator": "dry_sequence",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 399.1264190000011
+    },
+    {
+      "usage": "wheat",
+      "indicator": "temperature_mean",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 399.1264190000011
+    },
+    {
+      "usage": "wheat",
+      "indicator": "gdd",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 694.4046789999993
+    },
+    {
+      "usage": "wheat",
+      "indicator": "hot",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 694.4046789999993
+    },
+    {
+      "usage": "wheat",
+      "indicator": "hot_sequence",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 694.4046789999993
+    },
+    {
+      "usage": "wheat",
+      "indicator": "frost",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 694.4046789999993
+    },
+    {
+      "usage": "wheat",
+      "indicator": "frost_sequence",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 694.4046789999993
+    },
+    {
+      "usage": "wheat",
+      "indicator": "rain",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 694.4046789999993
+    },
+    {
+      "usage": "wheat",
+      "indicator": "heavy_rain",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 694.4046789999993
+    },
+    {
+      "usage": "wheat",
+      "indicator": "dry",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 694.4046789999993
+    },
+    {
+      "usage": "wheat",
+      "indicator": "dry_sequence",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 694.4046789999993
+    },
+    {
+      "usage": "wheat",
+      "indicator": "temperature_mean",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 645,
+        "complete": 645,
+        "partial": 67,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "compute_ms": 694.4046789999993
+    },
+    {
+      "usage": "wheat",
+      "indicator": "gdd",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 712,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_period": 645,
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "unavailable": 713
+      },
+      "compute_ms": 1920.3139019999999
+    },
+    {
+      "usage": "wheat",
+      "indicator": "hot",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 712,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_period": 645,
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "unavailable": 713
+      },
+      "compute_ms": 1920.3139019999999
+    },
+    {
+      "usage": "wheat",
+      "indicator": "hot_sequence",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 712,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_period": 645,
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "unavailable": 713
+      },
+      "compute_ms": 1920.3139019999999
+    },
+    {
+      "usage": "wheat",
+      "indicator": "frost",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 712,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_period": 645,
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "unavailable": 713
+      },
+      "compute_ms": 1920.3139019999999
+    },
+    {
+      "usage": "wheat",
+      "indicator": "frost_sequence",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 712,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_period": 645,
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "unavailable": 713
+      },
+      "compute_ms": 1920.3139019999999
+    },
+    {
+      "usage": "wheat",
+      "indicator": "rain",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 712,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_period": 645,
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "unavailable": 713
+      },
+      "compute_ms": 1920.3139019999999
+    },
+    {
+      "usage": "wheat",
+      "indicator": "heavy_rain",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 712,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_period": 645,
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "unavailable": 713
+      },
+      "compute_ms": 1920.3139019999999
+    },
+    {
+      "usage": "wheat",
+      "indicator": "dry",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 712,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_period": 645,
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "unavailable": 713
+      },
+      "compute_ms": 1920.3139019999999
+    },
+    {
+      "usage": "wheat",
+      "indicator": "dry_sequence",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 712,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_period": 645,
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "unavailable": 713
+      },
+      "compute_ms": 1920.3139019999999
+    },
+    {
+      "usage": "wheat",
+      "indicator": "temperature_mean",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "nature": "reanalysis",
+      "run": null,
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 712,
+        "unavailable": 1,
+        "reasons": {
+          "incomplete_period": 645,
+          "incomplete_source_support": 67,
+          "variable_unavailable": 1
+        }
+      },
+      "after": {
+        "unavailable": 713
+      },
+      "compute_ms": 1920.3139019999999
+    },
+    {
+      "usage": "wheat",
+      "indicator": "gdd",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 713,
+        "complete": 713,
+        "partial": 0,
+        "unavailable": 0,
+        "reasons": {}
+      },
+      "after": {
+        "native_complete": 713
+      },
+      "compute_ms": 307.1016090000012
+    },
+    {
+      "usage": "wheat",
+      "indicator": "hot",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 713,
+        "complete": 713,
+        "partial": 0,
+        "unavailable": 0,
+        "reasons": {}
+      },
+      "after": {
+        "native_complete": 713
+      },
+      "compute_ms": 307.1016090000012
+    },
+    {
+      "usage": "wheat",
+      "indicator": "hot_sequence",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 713,
+        "complete": 713,
+        "partial": 0,
+        "unavailable": 0,
+        "reasons": {}
+      },
+      "after": {
+        "native_complete": 713
+      },
+      "compute_ms": 307.1016090000012
+    },
+    {
+      "usage": "wheat",
+      "indicator": "frost",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 713,
+        "complete": 713,
+        "partial": 0,
+        "unavailable": 0,
+        "reasons": {}
+      },
+      "after": {
+        "native_complete": 713
+      },
+      "compute_ms": 307.1016090000012
+    },
+    {
+      "usage": "wheat",
+      "indicator": "frost_sequence",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 713,
+        "complete": 713,
+        "partial": 0,
+        "unavailable": 0,
+        "reasons": {}
+      },
+      "after": {
+        "native_complete": 713
+      },
+      "compute_ms": 307.1016090000012
+    },
+    {
+      "usage": "wheat",
+      "indicator": "rain",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 713,
+        "complete": 713,
+        "partial": 0,
+        "unavailable": 0,
+        "reasons": {}
+      },
+      "after": {
+        "native_complete": 713
+      },
+      "compute_ms": 307.1016090000012
+    },
+    {
+      "usage": "wheat",
+      "indicator": "heavy_rain",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 713,
+        "complete": 713,
+        "partial": 0,
+        "unavailable": 0,
+        "reasons": {}
+      },
+      "after": {
+        "native_complete": 713
+      },
+      "compute_ms": 307.1016090000012
+    },
+    {
+      "usage": "wheat",
+      "indicator": "dry",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 713,
+        "complete": 713,
+        "partial": 0,
+        "unavailable": 0,
+        "reasons": {}
+      },
+      "after": {
+        "native_complete": 713
+      },
+      "compute_ms": 307.1016090000012
+    },
+    {
+      "usage": "wheat",
+      "indicator": "dry_sequence",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 713,
+        "complete": 713,
+        "partial": 0,
+        "unavailable": 0,
+        "reasons": {}
+      },
+      "after": {
+        "native_complete": 713
+      },
+      "compute_ms": 307.1016090000012
+    },
+    {
+      "usage": "wheat",
+      "indicator": "temperature_mean",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 713,
+        "complete": 713,
+        "partial": 0,
+        "unavailable": 0,
+        "reasons": {}
+      },
+      "after": {
+        "native_complete": 713
+      },
+      "compute_ms": 307.1016090000012
+    },
+    {
+      "usage": "wheat",
+      "indicator": "gdd",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 0,
+        "unavailable": 713,
+        "reasons": {
+          "incompatible_or_missing_support_metadata": 713
+        }
+      },
+      "after": {
+        "unknown": 713
+      },
+      "compute_ms": 873.8394049999988
+    },
+    {
+      "usage": "wheat",
+      "indicator": "hot",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 0,
+        "unavailable": 713,
+        "reasons": {
+          "incompatible_or_missing_support_metadata": 713
+        }
+      },
+      "after": {
+        "unknown": 713
+      },
+      "compute_ms": 873.8394049999988
+    },
+    {
+      "usage": "wheat",
+      "indicator": "hot_sequence",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 0,
+        "unavailable": 713,
+        "reasons": {
+          "incompatible_or_missing_support_metadata": 713
+        }
+      },
+      "after": {
+        "unknown": 713
+      },
+      "compute_ms": 873.8394049999988
+    },
+    {
+      "usage": "wheat",
+      "indicator": "frost",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 0,
+        "unavailable": 713,
+        "reasons": {
+          "incompatible_or_missing_support_metadata": 713
+        }
+      },
+      "after": {
+        "unknown": 713
+      },
+      "compute_ms": 873.8394049999988
+    },
+    {
+      "usage": "wheat",
+      "indicator": "frost_sequence",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 0,
+        "unavailable": 713,
+        "reasons": {
+          "incompatible_or_missing_support_metadata": 713
+        }
+      },
+      "after": {
+        "unknown": 713
+      },
+      "compute_ms": 873.8394049999988
+    },
+    {
+      "usage": "wheat",
+      "indicator": "rain",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 0,
+        "unavailable": 713,
+        "reasons": {
+          "incompatible_or_missing_support_metadata": 713
+        }
+      },
+      "after": {
+        "unknown": 713
+      },
+      "compute_ms": 873.8394049999988
+    },
+    {
+      "usage": "wheat",
+      "indicator": "heavy_rain",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 0,
+        "unavailable": 713,
+        "reasons": {
+          "incompatible_or_missing_support_metadata": 713
+        }
+      },
+      "after": {
+        "unknown": 713
+      },
+      "compute_ms": 873.8394049999988
+    },
+    {
+      "usage": "wheat",
+      "indicator": "dry",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 0,
+        "unavailable": 713,
+        "reasons": {
+          "incompatible_or_missing_support_metadata": 713
+        }
+      },
+      "after": {
+        "unknown": 713
+      },
+      "compute_ms": 873.8394049999988
+    },
+    {
+      "usage": "wheat",
+      "indicator": "dry_sequence",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 0,
+        "unavailable": 713,
+        "reasons": {
+          "incompatible_or_missing_support_metadata": 713
+        }
+      },
+      "after": {
+        "unknown": 713
+      },
+      "compute_ms": 873.8394049999988
+    },
+    {
+      "usage": "wheat",
+      "indicator": "temperature_mean",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "nature": "forecast",
+      "run": "2026-11-07T00:00:00+00:00",
+      "before": {
+        "total": 713,
+        "evaluable": 0,
+        "complete": 0,
+        "partial": 0,
+        "unavailable": 713,
+        "reasons": {
+          "incompatible_or_missing_support_metadata": 713
+        }
+      },
+      "after": {
+        "unknown": 713
+      },
+      "compute_ms": 873.8394049999988
+    }
+  ],
+  "resources": {
+    "total_ms": 40060.492518,
+    "rss_initial": 121085952,
+    "rss_final": 1265983488,
+    "peak_rss_bytes": 1306873856,
+    "watch_bytes": 3462345,
+    "matrix_rows": 35650
+  }
+}

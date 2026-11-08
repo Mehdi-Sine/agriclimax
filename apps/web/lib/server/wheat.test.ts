@@ -10,6 +10,7 @@ vi.mock("./weather-archives", () => ({
   archivedEra5Day: archive.daily,
   archiveCatalogue: archive.catalogue,
   nationalWeatherDocument: archive.weather,
+  currentManifest: vi.fn().mockResolvedValue(null),
 }));
 import {
   forecastWheatInputs,

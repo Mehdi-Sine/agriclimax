@@ -1,3 +1,4 @@
+import {weatherQualityBundle} from "../../../features/climate-quality/adapters";
 import 'server-only';
 import {completeForecastCycle,VARIABLES,type WeatherCycle,type WeatherModel,type WeatherRow,type CoastalQualification} from '../../../features/operational/model';
 import pilot from '../../../data/operational/cycle.json';
@@ -39,6 +40,7 @@ export async function GET(request:Request){
     // while a selected-PRA history remains bounded to 45 rows. Whole archives stay private.
     const effectiveDate=national&&!pra&&!p.has('catalogue')?(date??(dates.includes(national.run.slice(0,10))?national.run.slice(0,10):dates[0])):date;
     const effectiveVariable=national&&!pra&&!p.has('catalogue')?(variable??'temperature'):variable;
-    return Response.json({...cycle,coastal_qualification:qualification,available_dates:dates,all_dates:national?[...new Set(national.rows.map(r=>r.valid_date))].sort():dates,pra_ids:ids,rows:p.get('catalogue')==='1'?[]:rows.filter(r=>(!effectiveDate||r.valid_date===effectiveDate)&&(!effectiveVariable||r.variable===effectiveVariable)&&(!pra||r.pra_id===pra))},{headers:{'Cache-Control':'no-store'}});
+    const selectedRows=p.get('catalogue')==='1'?[]:rows.filter(r=>(!effectiveDate||r.valid_date===effectiveDate)&&(!effectiveVariable||r.variable===effectiveVariable)&&(!pra||r.pra_id===pra));
+    return Response.json({...cycle,coverage_quality:weatherQualityBundle(selectedRows),coastal_qualification:qualification,available_dates:dates,all_dates:national?[...new Set(national.rows.map(r=>r.valid_date))].sort():dates,pra_ids:ids,rows:selectedRows},{headers:{'Cache-Control':'no-store'}});
   }catch{return Response.json({error:'VERIFIED_WEATHER_SOURCE_UNAVAILABLE'},{status:503,headers:{'Cache-Control':'no-store'}});}
 }

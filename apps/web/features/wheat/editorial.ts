@@ -1,3 +1,4 @@
+import {COVERAGE_WHEAT_VERSION, coverageWheatRules} from "./coverage";
 import { createHash } from "node:crypto";
 import type {
   Contributor,
@@ -18,7 +19,7 @@ export function WheatEditorialContributor(
     .join("/");
   return {
     id: "wheat",
-    version: `${WHEAT_VERSION}/${identities || failure}`,
+    version: `${[...new Set(snapshots.map(s=>s.version))].sort().join("+") || COVERAGE_WHEAT_VERSION}/${identities || failure}`,
     contribute(s) {
       const presence = s.productions.find((p) => p.id === "wheat");
       const matching = snapshots.filter(
@@ -29,9 +30,9 @@ export function WheatEditorialContributor(
               i.territories.find((t) => t.territory === "France")?.coverage
                 .total === 713,
           ) &&
-          w.qualification.version === WHEAT_VERSION &&
+          [WHEAT_VERSION, COVERAGE_WHEAT_VERSION].includes(w.qualification.version) &&
           w.qualification.scientific_status === "exploratory" &&
-          w.version === WHEAT_VERSION &&
+          [WHEAT_VERSION, COVERAGE_WHEAT_VERSION].includes(w.version) &&
           w.nature === "forecast" &&
           w.run === s.run &&
           w.source_version === s.source_version &&
@@ -44,7 +45,7 @@ export function WheatEditorialContributor(
       const indicators: Indicator[] = matching.flatMap((w) =>
         w.indicators
           .filter((i) =>
-            wheatRules.some(
+            [...wheatRules, ...coverageWheatRules].some(
               (r) =>
                 r.id === i.id &&
                 r.unit === i.unit &&
@@ -88,7 +89,7 @@ export function WheatEditorialContributor(
                 !Number.isFinite(m.value) ||
                 !m.provenance.length ||
                 !m.data_freshness.length ||
-                c.complete <= 0 ||
+                c.evaluable <= 0 ||
                 c.total < c.complete ||
                 c.complete + c.partial + c.unavailable !== c.total
               )
@@ -101,7 +102,7 @@ export function WheatEditorialContributor(
                   )
                   .digest("hex")
                   .slice(0, 24);
-              const coverage = `${c.complete}/${c.total} PRA complètes`;
+              const coverage = w.version === COVERAGE_WHEAT_VERSION ? `${c.evaluable}/${c.total} PRA évaluables (${c.complete} supports complets, ${c.qualified_estimate ?? 0} estimations qualifiées)` : `${c.complete}/${c.total} PRA complètes`;
               const descriptive =
                 i.threshold !== null && i.id !== "gdd"
                   ? `${t.positive_pra} PRA avec au moins un jour franchissant le seuil descriptif (${coverage}). `
@@ -109,12 +110,12 @@ export function WheatEditorialContributor(
               return [
                 {
                   id,
-                  text: `${t.territory} — ${descriptive}${wheatRules.find((r) => r.id === i.id)!.label} : maximum parmi les PRA évaluables, ${m.value.toFixed(2)} ${i.unit} dans ${m.name} (${m.pra}), du ${w.period[0]} au ${w.period[1]} ; prévision. Descriptif exploratoire ; aucun stade, dommage ou rendement déduit. Représentativité littorale non garantie.`,
+                  text: `${t.territory} — ${descriptive}${wheatRules.find((r) => r.id === i.id)!.label} : maximum parmi les PRA évaluables, ${m.value.toFixed(2)} ${i.unit} dans ${m.name} (${m.pra}), du ${w.period[0]} au ${w.period[1]} ; prévision. Descriptif exploratoire ; aucun stade, dommage ou rendement déduit. ${m.quality?.state === "qualified_estimate" ? "Estimation territoriale qualifiée, méthode et certificat accessibles dans les preuves. " : ""}Représentativité littorale non garantie.`,
                   value: m.value,
                   unit: i.unit,
                   period: w.period,
                   source: w.source_version,
-                  rule_version: WHEAT_VERSION,
+                  rule_version: w.version,
                   provenance: [w.identity, i.reference, ...m.provenance],
                   quality_flags: [
                     ...m.quality_flags,
@@ -128,7 +129,7 @@ export function WheatEditorialContributor(
             });
             return {
               id: `${i.id}:${w.period.join("/")}`,
-              version: WHEAT_VERSION,
+              version: w.version,
               period: w.period,
               scale: "pra" as const,
               quality:

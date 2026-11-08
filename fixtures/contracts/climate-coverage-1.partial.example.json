@@ -1,0 +1,23 @@
+{
+  "version": "climate-coverage-1.0.0",
+  "state": "observed_partial",
+  "numeric_value": true,
+  "scope": "observed_area",
+  "scientific_status": "exploratory",
+  "indicator_eligible": true,
+  "journal_eligible": false,
+  "reason": "observed_area_only",
+  "evidence": {
+    "fraction": 0.5,
+    "support_id": "synthetic-contract-example-only",
+    "mask": "native_valid_cells",
+    "represented_area_m2": null,
+    "expected_days": 7,
+    "available_days": 7,
+    "continuous": true,
+    "homogeneous": true,
+    "method": "synthetic-contract-example-1",
+    "estimate_certificate": null,
+    "reference_compatible": false
+  }
+}

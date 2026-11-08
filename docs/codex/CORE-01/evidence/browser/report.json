@@ -1,0 +1,188 @@
+{
+  "executed_at": "2026-11-08T11:35:47.568Z",
+  "origin": "http://127.0.0.1:3002",
+  "synthetic": false,
+  "checks": [
+    {
+      "name": "desktop",
+      "kind": "climate",
+      "version": "before",
+      "geometries": 713,
+      "covered_overlay": 67,
+      "no_overflow": true
+    },
+    {
+      "name": "desktop",
+      "kind": "climate",
+      "version": "after",
+      "geometries": 713,
+      "covered_overlay": 0,
+      "no_overflow": true
+    },
+    {
+      "name": "desktop",
+      "kind": "analysis",
+      "version": "before",
+      "geometries": 713,
+      "covered_overlay": 67,
+      "no_overflow": true
+    },
+    {
+      "name": "desktop",
+      "kind": "analysis",
+      "version": "after",
+      "geometries": 713,
+      "covered_overlay": 0,
+      "no_overflow": true
+    },
+    {
+      "name": "desktop",
+      "pra": "pra:29102",
+      "value": null,
+      "observed": null,
+      "quality": "unavailable"
+    },
+    {
+      "name": "desktop",
+      "pra": "pra:13244",
+      "value": null,
+      "observed": 12.30973650611163,
+      "quality": "observed_partial"
+    },
+    {
+      "name": "desktop",
+      "pra": "pra:2A258",
+      "value": null,
+      "observed": 12.572694984231227,
+      "quality": "observed_partial"
+    },
+    {
+      "name": "desktop",
+      "pra": "pra:2B260",
+      "value": null,
+      "observed": 8.227117819671836,
+      "quality": "observed_partial"
+    },
+    {
+      "name": "desktop",
+      "pra": "pra:28341",
+      "value": 8.173658,
+      "observed": null,
+      "quality": "native_complete"
+    },
+    {
+      "name": "desktop",
+      "pra": "pra:05236",
+      "value": 3.998847,
+      "observed": null,
+      "quality": "native_complete"
+    },
+    {
+      "name": "desktop",
+      "kind": "journal-map",
+      "geometries": 713,
+      "segment_proofs": true
+    },
+    {
+      "name": "desktop",
+      "kind": "watch-map",
+      "geometries": 713
+    },
+    {
+      "name": "desktop",
+      "kind": "journal",
+      "no_overflow": true
+    },
+    {
+      "name": "mobile",
+      "kind": "climate",
+      "version": "before",
+      "geometries": 713,
+      "covered_overlay": 67,
+      "no_overflow": true
+    },
+    {
+      "name": "mobile",
+      "kind": "climate",
+      "version": "after",
+      "geometries": 713,
+      "covered_overlay": 0,
+      "no_overflow": true
+    },
+    {
+      "name": "mobile",
+      "kind": "analysis",
+      "version": "before",
+      "geometries": 713,
+      "covered_overlay": 67,
+      "no_overflow": true
+    },
+    {
+      "name": "mobile",
+      "kind": "analysis",
+      "version": "after",
+      "geometries": 713,
+      "covered_overlay": 0,
+      "no_overflow": true
+    },
+    {
+      "name": "mobile",
+      "pra": "pra:29102",
+      "value": null,
+      "observed": null,
+      "quality": "unavailable"
+    },
+    {
+      "name": "mobile",
+      "pra": "pra:13244",
+      "value": null,
+      "observed": 12.30973650611163,
+      "quality": "observed_partial"
+    },
+    {
+      "name": "mobile",
+      "pra": "pra:2A258",
+      "value": null,
+      "observed": 12.572694984231227,
+      "quality": "observed_partial"
+    },
+    {
+      "name": "mobile",
+      "pra": "pra:2B260",
+      "value": null,
+      "observed": 8.227117819671836,
+      "quality": "observed_partial"
+    },
+    {
+      "name": "mobile",
+      "pra": "pra:28341",
+      "value": 8.173658,
+      "observed": null,
+      "quality": "native_complete"
+    },
+    {
+      "name": "mobile",
+      "pra": "pra:05236",
+      "value": 3.998847,
+      "observed": null,
+      "quality": "native_complete"
+    },
+    {
+      "name": "mobile",
+      "kind": "journal-map",
+      "geometries": 713,
+      "segment_proofs": true
+    },
+    {
+      "name": "mobile",
+      "kind": "watch-map",
+      "geometries": 713
+    },
+    {
+      "name": "mobile",
+      "kind": "journal",
+      "no_overflow": true
+    }
+  ],
+  "errors": []
+}

@@ -296,6 +296,8 @@ export default function NationalMap({
         className="national-map"
         data-ready={ready && rendered && !loading && paintedIdentity===paintIdentity}
         data-feature-count={collection.features.length}
+        data-quantitative-count={quantitative?.values.filter(v => v[quantitative.field] !== null).length ?? 0}
+        data-partial-value-count={quantitative?.values.filter(v => v.status === "partial" && v[quantitative.field] !== null).length ?? 0}
         data-covered-support-count={coveredSupport?.features.length??0}
         data-mode={mode}
       />

@@ -1,3 +1,6 @@
+import {forecastSupport, enrichHistoricalInputs} from "./climate-quality";
+import {coverageWheatRules, COVERAGE_WHEAT_VERSION, coverageQualification} from "../../features/wheat/coverage";
+import type {QualifiedDay} from "../../features/climate-quality/calculate";
 import "server-only";
 import { unstable_cache } from "next/cache";
 import { createHash } from "node:crypto";
@@ -67,6 +70,7 @@ export function forecastWheatInputs(
         (r) => `${r.source_id}/${r.model_run_at}/${r.provenance_sha256}`,
       ),
       quality_flags: rows.flatMap((r) => r.quality_flags),
+      climate_support: forecastSupport(rows),
       support_key: rows
         .map(
           (r) =>
@@ -121,6 +125,7 @@ export function historicalWheatInputs(
         ...r.quality_flags,
         "coastal_representativeness_not_guaranteed",
       ],
+      climate_support: support.every(Boolean) ? {id: hash(support), fraction: r.coverage[index], temporal_complete: r.expected_cells > 0 && r.valid_counts[index] === r.expected_cells, mask: "native_valid_cells", method: String(i.method)} : undefined,
       support_key: support.every(Boolean) ? hash(support) : "",
       spatial_coverage: r.coverage[index],
       temporal_coverage:
@@ -141,12 +146,13 @@ export function computeWheatBatch(
     run: string | null;
   },
   inputs: (rule: Rule) => Record<string, WheatDay[]>,
+  rules: Rule[] = wheatRules,
 ) {
   const inputCache = new Map<string, Record<string, WheatDay[]>>();
   const indicators: WheatSummary["indicators"] = [];
   const results: ReturnType<typeof summarizeWheat>["results"] = {};
   // Each variable has its own spatial/provenance identity. Keep calculations separate while sharing I/O.
-  for (const rule of wheatRules) {
+  for (const rule of rules) {
     const variableKey = rule.variables.join();
     let one = inputCache.get(variableKey);
     if (!one) {
@@ -158,22 +164,22 @@ export function computeWheatBatch(
     results[rule.id] = all.results[rule.id];
   }
   const core = {
-    version: WHEAT_VERSION,
+    version: rules[0]?.version ?? WHEAT_VERSION,
     source_version: source.version,
     nature: source.nature,
     run: source.run,
     period,
-    qualification,
+    qualification: rules[0]?.version === COVERAGE_WHEAT_VERSION ? coverageQualification : qualification,
     indicators,
   };
   return { summary: { ...core, identity: hash(core) }, results };
 }
-const RULE_IDENTITY = hash([wheatRules, qualification]);
+const RULE_IDENTITY = hash([coverageWheatRules, coverageQualification]);
 const cache = new Map<string, Promise<WheatSummary[]>>();
 export async function wheatForecast(
   document: NationalWeatherDocument,
 ): Promise<WheatSummary[]> {
-  const key = `${document.archive_sha256}/${WHEAT_VERSION}/${RULE_IDENTITY}`,
+  const key = `${document.archive_sha256}/${COVERAGE_WHEAT_VERSION}/${RULE_IDENTITY}`,
     hit = cache.get(key);
   if (hit) return hit;
   const task = Promise.resolve().then(() => {
@@ -198,6 +204,7 @@ export async function wheatForecast(
             run: document.run,
           },
           (rule) => forecastWheatInputs(document, rule, wheatPeriod(...period)),
+          coverageWheatRules,
         ).summary,
     );
   });
@@ -217,6 +224,11 @@ export async function wheatHistory(period: [string, string]) {
   for (const date of dates)
     if (entries.some((e) => e.dates.includes(date)))
       rows.push(...((await archivedEra5Day(date)) ?? []));
+  const enriched = new Map<string, Record<string, QualifiedDay[]>>();
+  for (const rule of coverageWheatRules) {
+    const key = rule.variables.join();
+    if (!enriched.has(key)) enriched.set(key, await enrichHistoricalInputs(historicalWheatInputs(rows, rule), rule));
+  }
   return computeWheatBatch(
     period,
     {
@@ -224,7 +236,8 @@ export async function wheatHistory(period: [string, string]) {
       nature: "reanalysis",
       run: null,
     },
-    (rule) => historicalWheatInputs(rows, rule),
+    (rule) => enriched.get(rule.variables.join()) as Record<string, WheatDay[]>,
+    coverageWheatRules,
   );
 }
 export async function latestWheatForecast(run?: string) {
@@ -232,7 +245,7 @@ export async function latestWheatForecast(run?: string) {
   if (!d) throw new Error("NO_VERIFIED_WHEAT_CYCLE");
   return unstable_cache(
     () => wheatForecast(d),
-    ["wheat-cycle", d.archive_sha256, WHEAT_VERSION, RULE_IDENTITY],
+    ["wheat-cycle", d.archive_sha256, COVERAGE_WHEAT_VERSION, RULE_IDENTITY],
     { revalidate: false },
   )();
 }

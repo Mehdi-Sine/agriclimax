@@ -37,17 +37,26 @@
     },
     "parameters": {
       "type": "object",
-      "required": ["threshold"],
+      "required": [
+        "threshold"
+      ],
       "properties": {
         "threshold": {
-          "type": ["number", "null"]
+          "type": [
+            "number",
+            "null"
+          ]
         }
       },
       "additionalProperties": false
     },
     "period": {
       "type": "object",
-      "required": ["start", "end", "timezone"],
+      "required": [
+        "start",
+        "end",
+        "timezone"
+      ],
       "properties": {
         "start": {
           "type": "string"
@@ -62,13 +71,20 @@
       "additionalProperties": false
     },
     "temporal": {
-      "enum": ["history", "recent", "forecast"]
+      "enum": [
+        "history",
+        "recent",
+        "forecast"
+      ]
     },
     "source_version": {
       "type": "string"
     },
     "run": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "calculated_at": {
       "type": "string"
@@ -111,7 +127,10 @@
             "pattern": "^pra:[0-9AB]{5}$"
           },
           "value": {
-            "type": ["number", "null"]
+            "type": [
+              "number",
+              "null"
+            ]
           },
           "normal": {
             "type": "null"
@@ -120,10 +139,17 @@
             "type": "null"
           },
           "status": {
-            "enum": ["available", "partial", "unavailable"]
+            "enum": [
+              "available",
+              "partial",
+              "unavailable"
+            ]
           },
           "reason": {
-            "type": ["string", "null"]
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "unit": {
             "type": "string"
@@ -147,15 +173,21 @@
             "enum": [
               "agroclimatic-1.0.0",
               "agroclimatic-1.1.0",
-              "agroclimatic-1.2.0"
+              "agroclimatic-1.2.0",
+              "agroclimatic-1.3.0"
             ]
           },
           "parameters": {
             "type": "object",
-            "required": ["threshold"],
+            "required": [
+              "threshold"
+            ],
             "properties": {
               "threshold": {
-                "type": ["number", "null"]
+                "type": [
+                  "number",
+                  "null"
+                ]
               }
             },
             "additionalProperties": false
@@ -182,11 +214,17 @@
             "const": "exploratory"
           },
           "episodes": {
-            "type": ["integer", "null"],
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 0
           },
           "longest": {
-            "type": ["integer", "null"],
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 0
           },
           "series": {
@@ -207,22 +245,40 @@
                   "type": "string"
                 },
                 "value": {
-                  "type": ["number", "null"]
+                  "type": [
+                    "number",
+                    "null"
+                  ]
                 },
                 "source": {
-                  "type": ["string", "null"]
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "run": {
-                  "type": ["string", "null"]
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "nature": {
-                  "type": ["string", "null"]
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "temperature": {
-                  "type": ["number", "null"]
+                  "type": [
+                    "number",
+                    "null"
+                  ]
                 },
                 "support_id": {
-                  "type": ["string", "null"]
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "additionalProperties": false
@@ -246,10 +302,16 @@
             }
           },
           "observed_value": {
-            "type": ["number", "null"]
+            "type": [
+              "number",
+              "null"
+            ]
           },
           "support_id": {
-            "type": ["string", "null"]
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "support_scope": {
             "enum": [
@@ -366,7 +428,10 @@
                     "minimum": 0
                   },
                   "unit": {
-                    "enum": ["°C", "mm/j"]
+                    "enum": [
+                      "\u00b0C",
+                      "mm/j"
+                    ]
                   }
                 },
                 "additionalProperties": false
@@ -375,7 +440,11 @@
                 "type": "array",
                 "items": {
                   "type": "object",
-                  "required": ["date", "input_value", "value"],
+                  "required": [
+                    "date",
+                    "input_value",
+                    "value"
+                  ],
                   "properties": {
                     "date": {
                       "type": "string"
@@ -401,6 +470,135 @@
               }
             },
             "additionalProperties": false
+          },
+          "quality": {
+            "title": "Additive climate quality; identity and provenance remain on the enclosing versioned result",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "version",
+              "state",
+              "numeric_value",
+              "scope",
+              "scientific_status",
+              "indicator_eligible",
+              "journal_eligible",
+              "reason",
+              "evidence"
+            ],
+            "properties": {
+              "version": {
+                "const": "climate-coverage-1.0.0"
+              },
+              "state": {
+                "enum": [
+                  "native_complete",
+                  "observed_partial",
+                  "qualified_estimate",
+                  "unavailable",
+                  "unknown"
+                ]
+              },
+              "numeric_value": {
+                "type": "boolean"
+              },
+              "scope": {
+                "enum": [
+                  "whole_pra",
+                  "observed_area",
+                  "unavailable"
+                ]
+              },
+              "scientific_status": {
+                "const": "exploratory"
+              },
+              "indicator_eligible": {
+                "type": "boolean"
+              },
+              "journal_eligible": {
+                "type": "boolean"
+              },
+              "reason": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "evidence": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "fraction",
+                  "support_id",
+                  "mask",
+                  "represented_area_m2",
+                  "expected_days",
+                  "available_days",
+                  "continuous",
+                  "homogeneous",
+                  "method",
+                  "estimate_certificate",
+                  "reference_compatible"
+                ],
+                "properties": {
+                  "fraction": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1.0001
+                  },
+                  "support_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "mask": {
+                    "enum": [
+                      "physical_land",
+                      "geometric_proxy",
+                      "native_valid_cells",
+                      "unknown"
+                    ]
+                  },
+                  "represented_area_m2": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0
+                  },
+                  "expected_days": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "available_days": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "continuous": {
+                    "type": "boolean"
+                  },
+                  "homogeneous": {
+                    "type": "boolean"
+                  },
+                  "method": {
+                    "type": "string"
+                  },
+                  "estimate_certificate": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "reference_compatible": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
           }
         },
         "additionalProperties": false

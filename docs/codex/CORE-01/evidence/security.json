@@ -1,0 +1,42 @@
+{
+  "executed_at": "2026-11-08T11:40:41.628364+00:00",
+  "source_secret_guard": "passed",
+  "client_bundle_guard": "passed",
+  "audit_threshold": "high",
+  "vulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 1,
+    "high": 0,
+    "critical": 0
+  },
+  "lockfile_changed": false,
+  "advisories": [
+    {
+      "package": "minimatch",
+      "severity": "moderate",
+      "url": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+      "patched_versions": ">=11.0.1",
+      "scope": "pre-existing ESLint dependency chain"
+    }
+  ],
+  "existing_exception_policy": {
+    "exception": "GHSA-vfj7-8cjw-p6xm",
+    "paths": [
+      {
+        "project": "@agriclimax/web",
+        "group": "devDependencies",
+        "chain": [
+          "eslint-config-next",
+          "@next/eslint-plugin-next",
+          "fast-glob",
+          "micromatch",
+          "braces"
+        ],
+        "version": "3.0.3"
+      }
+    ],
+    "productionBracesPaths": 0,
+    "serverTracesChecked": 37
+  }
+}

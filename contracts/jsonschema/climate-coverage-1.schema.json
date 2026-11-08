@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agriclimax.fr/contracts/climate-coverage-1.schema.json",
+  "title": "Additive climate quality; identity and provenance remain on the enclosing versioned result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "state",
+    "numeric_value",
+    "scope",
+    "scientific_status",
+    "indicator_eligible",
+    "journal_eligible",
+    "reason",
+    "evidence"
+  ],
+  "properties": {
+    "version": {
+      "const": "climate-coverage-1.0.0"
+    },
+    "state": {
+      "enum": [
+        "native_complete",
+        "observed_partial",
+        "qualified_estimate",
+        "unavailable",
+        "unknown"
+      ]
+    },
+    "numeric_value": {
+      "type": "boolean"
+    },
+    "scope": {
+      "enum": [
+        "whole_pra",
+        "observed_area",
+        "unavailable"
+      ]
+    },
+    "scientific_status": {
+      "const": "exploratory"
+    },
+    "indicator_eligible": {
+      "type": "boolean"
+    },
+    "journal_eligible": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fraction",
+        "support_id",
+        "mask",
+        "represented_area_m2",
+        "expected_days",
+        "available_days",
+        "continuous",
+        "homogeneous",
+        "method",
+        "estimate_certificate",
+        "reference_compatible"
+      ],
+      "properties": {
+        "fraction": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1.0001
+        },
+        "support_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mask": {
+          "enum": [
+            "physical_land",
+            "geometric_proxy",
+            "native_valid_cells",
+            "unknown"
+          ]
+        },
+        "represented_area_m2": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "expected_days": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "available_days": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "continuous": {
+          "type": "boolean"
+        },
+        "homogeneous": {
+          "type": "boolean"
+        },
+        "method": {
+          "type": "string"
+        },
+        "estimate_certificate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reference_compatible": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

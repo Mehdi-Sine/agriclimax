@@ -17,6 +17,7 @@ export interface InputDay {
   quality_flags: string[];
 }
 export interface AgroResult {
+  quality?: import("../climate-quality/policy").CoverageQuality;
   complementary?: ComplementaryValue;
   observed_value?: number | null;
   support_id?: string | null;

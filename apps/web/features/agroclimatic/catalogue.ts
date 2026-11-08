@@ -13,6 +13,7 @@ export type Operator =
   | "thiAbove"
   | "thiLongest";
 export interface Rule {
+  coverage_family?: import("../climate-quality/policy").Family;
   id: string;
   version: string;
   production: Production;

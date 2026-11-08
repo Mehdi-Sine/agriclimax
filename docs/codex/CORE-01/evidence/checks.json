@@ -1,0 +1,94 @@
+{
+  "web": {
+    "passed": true,
+    "tests": 400,
+    "opt_in_skipped": 6
+  },
+  "python_engine": {
+    "passed": true,
+    "tests": 342
+  },
+  "quality_python": {
+    "passed": true,
+    "tests": 21
+  },
+  "quality_node": {
+    "passed": true,
+    "tests": 8
+  },
+  "typecheck": {
+    "passed": true
+  },
+  "lint": {
+    "passed": true
+  },
+  "production_build": {
+    "passed": true
+  },
+  "ruff_new_modules": {
+    "passed": true
+  },
+  "mypy_strict_new_module": {
+    "passed": true
+  },
+  "security_sources_and_bundle": {
+    "passed": true
+  },
+  "audit_high_critical": {
+    "passed": true,
+    "moderate_preexisting": 1
+  },
+  "migration_and_workflow_guards": {
+    "passed": true
+  },
+  "real_archive_validation": {
+    "passed": true,
+    "cases": 35650
+  },
+  "independent_arithmetic": {
+    "cases": 35650,
+    "scalar_comparisons": 71300,
+    "mismatches": [],
+    "maximum_absolute_error": 2.842170943040401e-14,
+    "threshold_sensitivity": {
+      "0.8": {
+        "partial_candidates": 55,
+        "certified_estimates": 0
+      },
+      "0.85": {
+        "partial_candidates": 47,
+        "certified_estimates": 0
+      },
+      "0.9": {
+        "partial_candidates": 36,
+        "certified_estimates": 0
+      },
+      "0.95": {
+        "partial_candidates": 22,
+        "certified_estimates": 0
+      },
+      "0.99": {
+        "partial_candidates": 9,
+        "certified_estimates": 0
+      }
+    },
+    "limits": "Adapter-input arithmetic verification; no station calibration, no fresh reaggregation of raw ERA cells."
+  },
+  "browser": {
+    "passed": true,
+    "checks": 26,
+    "renderer": "Chromium SwiftShader, local production build"
+  },
+  "no_production_writes": true,
+  "no_workflow_or_cron_changes": true,
+  "no_merge": true,
+  "historical_series_real": {
+    "passed": true,
+    "partial_pra": 67,
+    "windows_days": [
+      1,
+      7
+    ],
+    "native_reference_path_preserved": true
+  }
+}
