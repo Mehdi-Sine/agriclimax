@@ -83,6 +83,8 @@ jobs:
       - run: python -m ruff check scripts/era5_*.py scripts/operational_land_masks.py scripts/coastal_model_review.py scripts/operational_humidity_review.py
       - run: MYPYPATH=engine/src:scripts python -m mypy --strict scripts/era5_*.py scripts/operational_land_masks.py scripts/coastal_model_review.py scripts/operational_humidity_review.py
       - run: MYPYPATH=engine/src:scripts python -m mypy --strict scripts/national_weather.py scripts/national_weather_sources.py scripts/national_weather_models.py scripts/national_weather_run.py scripts/pra_weather_store.py scripts/pra_weather_health.py scripts/verify_national_weather.py
+      - run: python -m ruff check scripts/data01_daily.py scripts/data01_history.py scripts/data01_verify_product.py scripts/archive_legacy_pra_reads.py engine/tests/territories/test_data01_daily.py
+      - run: MYPYPATH=engine/src:scripts python -m mypy --strict scripts/data01_daily.py scripts/data01_history.py scripts/data01_verify_product.py scripts/archive_legacy_pra_reads.py
       - run: python scripts/check_contracts.py
       - run: python scripts/quality/check_automation.py
       - run: python -m pytest engine/tests --junitxml=work/quality/python.xml

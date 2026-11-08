@@ -326,11 +326,20 @@ jobs:
           PYTHONPATH: engine/src
           DAILY_JOB_RESULTS: ${{ toJSON(needs) }}
         run: python scripts/daily_monitoring.py
+      - name: DATA-01 read-only archive continuity and freshness
+        if: always()
+        env:
+          PYTHONPATH: engine/src:scripts
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: python scripts/data01_daily.py --output work/daily-monitoring/archive-continuity.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: daily-monitoring
-          path: work/daily-monitoring/report.json
+          path: |
+            work/daily-monitoring/report.json
+            work/daily-monitoring/archive-continuity.json
           retention-days: 30
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()

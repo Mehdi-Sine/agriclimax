@@ -1,0 +1,40 @@
+{
+  "assumptions": {
+    "era_daily_bytes": 300000,
+    "forecast_daily_bytes": 560000,
+    "compressed_index_growth_bytes_per_day": 300,
+    "public_storage_dollars_per_gb_month": 0.0213
+  },
+  "projection": [
+    {
+      "months": 3,
+      "days": 91,
+      "climate_bytes": 78260000,
+      "index_reserve_bytes": 3439072,
+      "total_bytes": 86003125,
+      "mib": 82.01897144317627,
+      "illustrative_storage_dollars_per_month_over_quota": 0.0018318665625,
+      "within_900_mib_guard": true
+    },
+    {
+      "months": 12,
+      "days": 365,
+      "climate_bytes": 313900000,
+      "index_reserve_bytes": 43797080,
+      "total_bytes": 362001133,
+      "mib": 345.231183052063,
+      "illustrative_storage_dollars_per_month_over_quota": 0.007710624132899999,
+      "within_900_mib_guard": true
+    },
+    {
+      "months": 24,
+      "days": 730,
+      "climate_bytes": 627800000,
+      "index_reserve_bytes": 167529160,
+      "total_bytes": 799633213,
+      "mib": 762.5896577835083,
+      "illustrative_storage_dollars_per_month_over_quota": 0.0170321874369,
+      "within_900_mib_guard": true
+    }
+  ]
+}

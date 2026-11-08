@@ -2,6 +2,7 @@ import {forecastSupport, enrichHistoricalInputs} from "./climate-quality";
 import {coverageWheatRules, COVERAGE_WHEAT_VERSION, coverageQualification} from "../../features/wheat/coverage";
 import type {QualifiedDay} from "../../features/climate-quality/calculate";
 import "server-only";
+import {climateHistoryWindow} from "./climate-history";
 import { unstable_cache } from "next/cache";
 import { createHash } from "node:crypto";
 import geography from "../../data/operational/pra-watch-places.json";
@@ -19,8 +20,6 @@ import {
 } from "../../features/wheat/national";
 import {
   nationalWeatherDocument,
-  archivedEra5Day,
-  archiveCatalogue,
   type NationalWeatherDocument,
   type ArchivedDaily,
 } from "./weather-archives";
@@ -215,15 +214,15 @@ export async function wheatForecast(
   });
   return task;
 }
+const historyCache = new Map<string, Promise<ReturnType<typeof computeWheatBatch>>>();
 export async function wheatHistory(period: [string, string]) {
-  const dates = wheatPeriod(...period),
-    catalogue = await archiveCatalogue();
-  const entries =
-    catalogue?.era5.filter((e) => e.dates.some((d) => dates.includes(d))) ?? [];
-  const rows: ArchivedDaily[] = [];
-  for (const date of dates)
-    if (entries.some((e) => e.dates.includes(date)))
-      rows.push(...((await archivedEra5Day(date)) ?? []));
+  const dates = wheatPeriod(...period);
+  const history = await climateHistoryWindow(dates);
+  const identity = hash([period, history.version, RULE_IDENTITY]);
+  const hit = historyCache.get(identity);
+  if (hit) return hit;
+  const task = (async () => {
+  const rows = history.rows;
   const enriched = new Map<string, Record<string, QualifiedDay[]>>();
   for (const rule of coverageWheatRules) {
     const key = rule.variables.join();
@@ -232,13 +231,19 @@ export async function wheatHistory(period: [string, string]) {
   return computeWheatBatch(
     period,
     {
-      version: hash(entries.map((e) => e.sha256)),
+      version: history.version,
       nature: "reanalysis",
       run: null,
     },
     (rule) => enriched.get(rule.variables.join()) as Record<string, WheatDay[]>,
     coverageWheatRules,
   );
+  })();
+  // One heavy historical result per process; the workflow exports compact per-cycle products.
+  historyCache.clear();
+  historyCache.set(identity, task);
+  void task.catch(() => {if (historyCache.get(identity) === task) historyCache.delete(identity);});
+  return task;
 }
 export async function latestWheatForecast(run?: string) {
   const d = await nationalWeatherDocument(run);

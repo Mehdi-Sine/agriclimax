@@ -1,0 +1,15 @@
+{
+  "http_status": 200,
+  "bytes": 4026828,
+  "seconds": 6.416000877999977,
+  "period": {
+    "start": "2026-10-01",
+    "end": "2026-10-30",
+    "timezone": "UTC"
+  },
+  "source_version": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+  "identities": 713,
+  "native_complete": 645,
+  "remote_writes": 0,
+  "origin": "local next production build"
+}

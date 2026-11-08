@@ -1,0 +1,82 @@
+[
+  {
+    "name": "daily",
+    "conclusion": "failure",
+    "started_at": "2026-11-07T14:18:37Z",
+    "completed_at": "2026-11-07T14:18:59Z",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-11-07T14:18:38Z",
+        "completed_at": "2026-11-07T14:18:39Z"
+      },
+      {
+        "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-11-07T14:18:39Z",
+        "completed_at": "2026-11-07T14:18:46Z"
+      },
+      {
+        "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-11-07T14:18:46Z",
+        "completed_at": "2026-11-07T14:18:46Z"
+      },
+      {
+        "name": "Run python -m pip install -r engine/requirements-dev.lock",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-11-07T14:18:46Z",
+        "completed_at": "2026-11-07T14:18:54Z"
+      },
+      {
+        "name": "Ingest, validate, persist, compute and publish",
+        "status": "completed",
+        "conclusion": "failure",
+        "number": 5,
+        "started_at": "2026-11-07T14:18:54Z",
+        "completed_at": "2026-11-07T14:18:55Z"
+      },
+      {
+        "name": "Non-secret receipts and stage logs, including failures",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6,
+        "started_at": "2026-11-07T14:18:55Z",
+        "completed_at": "2026-11-07T14:18:56Z"
+      },
+      {
+        "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 11,
+        "started_at": "2026-11-07T14:18:56Z",
+        "completed_at": "2026-11-07T14:18:56Z"
+      },
+      {
+        "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 12,
+        "started_at": "2026-11-07T14:18:56Z",
+        "completed_at": "2026-11-07T14:18:57Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 13,
+        "started_at": "2026-11-07T14:18:57Z",
+        "completed_at": "2026-11-07T14:18:57Z"
+      }
+    ]
+  }
+]

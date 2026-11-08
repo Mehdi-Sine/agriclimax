@@ -1,0 +1,16 @@
+{
+  "base_main": "10d9dbfd394bcff4441e3d6e1fd7ce8b5a4b72a8",
+  "couv01_reviewed_commit": "ec7927d794d1f4986bc4ab1d6df39094834e6a1f",
+  "files": {
+    "scripts/archive_legacy_pra_reads.py": "fd9e36e6318fd45025e898ff5bdd4594727028d384c1598ce23609e916630169",
+    "scripts/data01_history.py": "a0353e85111434bf73d58b5f92bf78154050d6a416594a7486f084e6f84706a4",
+    "scripts/data01_daily.py": "c4a105023deefc4e2272d589663f98c446666ccc6692a59556d0b6700ce76030",
+    "scripts/data01_verify_product.py": "01882f25c8722ae5f7a60fd5e2671bba7d7641a1105882ceaad0d85012893c1b",
+    "apps/web/data/operational/legacy-era5.json": "187276824ba856539848f7567a5fd58f2f075619ebd68826b59cf5a189e9f340"
+  },
+  "supabase_docs_reviewed": [
+    "https://supabase.com/changelog.md",
+    "https://supabase.com/docs/guides/storage/uploads/standard-uploads",
+    "https://supabase.com/docs/guides/platform/manage-your-usage/storage-size"
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "executed_at": "2026-11-08T12:43:52.877Z",
+  "cases": [
+    {
+      "replay_ms": 0.38955799999985175,
+      "length": 1,
+      "period": [
+        "2026-10-01",
+        "2026-10-01"
+      ],
+      "series": "legacy-rpc-1",
+      "version": "a575eab871b9f2987c1593962279894d9f4c739c4f82ef91a969544f8105f18f",
+      "elapsed_ms": 3161.3408419999996,
+      "result_bytes": 11731111,
+      "indicators": [
+        {
+          "id": "gdd",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "hot",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "hot_sequence",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "frost",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "frost_sequence",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "rain",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "heavy_rain",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "dry",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "dry_sequence",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "temperature_mean",
+          "complete": 645,
+          "observed_partial": 0
+        }
+      ]
+    },
+    {
+      "replay_ms": 3.4870120000005045,
+      "length": 7,
+      "period": [
+        "2026-10-01",
+        "2026-10-07"
+      ],
+      "series": "legacy-rpc-1",
+      "version": "fc22574b87aa3404258a69905ad2dba3ac59f2385dd9fd7870295d221dc5630f",
+      "elapsed_ms": 757.5227690000002,
+      "result_bytes": 25080010,
+      "indicators": [
+        {
+          "id": "gdd",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "hot",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "hot_sequence",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "frost",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "frost_sequence",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "rain",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "heavy_rain",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "dry",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "dry_sequence",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "temperature_mean",
+          "complete": 645,
+          "observed_partial": 0
+        }
+      ]
+    },
+    {
+      "replay_ms": 0.295071999999891,
+      "length": 14,
+      "period": [
+        "2026-10-01",
+        "2026-10-14"
+      ],
+      "series": "legacy-rpc-1",
+      "version": "e82fe6102ffe8d3a45bf1643246c4ea5054401b14bfff5e37717fe81ee7adbe9",
+      "elapsed_ms": 1111.1470740000004,
+      "result_bytes": 41442356,
+      "indicators": [
+        {
+          "id": "gdd",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "hot",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "hot_sequence",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "frost",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "frost_sequence",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "rain",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "heavy_rain",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "dry",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "dry_sequence",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "temperature_mean",
+          "complete": 645,
+          "observed_partial": 0
+        }
+      ]
+    },
+    {
+      "replay_ms": 0.598839999998745,
+      "length": 30,
+      "period": [
+        "2026-10-01",
+        "2026-10-30"
+      ],
+      "series": "legacy-rpc-1",
+      "version": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "elapsed_ms": 6434.015871,
+      "result_bytes": 77663580,
+      "indicators": [
+        {
+          "id": "gdd",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "hot",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "hot_sequence",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "frost",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "frost_sequence",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "rain",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "heavy_rain",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "dry",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "dry_sequence",
+          "complete": 645,
+          "observed_partial": 0
+        },
+        {
+          "id": "temperature_mean",
+          "complete": 645,
+          "observed_partial": 0
+        }
+      ]
+    }
+  ],
+  "coastalCounts": [
+    {
+      "id": "temperature_mean",
+      "complete": 645,
+      "partial": 67
+    },
+    {
+      "id": "gdd",
+      "complete": 645,
+      "partial": 67
+    },
+    {
+      "id": "rain",
+      "complete": 645,
+      "partial": 67
+    }
+  ],
+  "compressedProduct": {
+    "bytes": 2068733,
+    "sha256": "2866c5015ba1bd03ccd88d9f703c13d1904317a75c56803fd9f37afed0b099c6",
+    "format": "climate-history-product-1; lossless dictionary + gzip",
+    "nodes": 203203,
+    "json_bytes": 11807267
+  },
+  "agro": {
+    "ms": 1207.0551960000012,
+    "bytes": 4026836,
+    "complete": 645
+  },
+  "total_ms": 20739.836314,
+  "peak_rss_bytes": 1246294016,
+  "remote_writes": 0,
+  "source_acquisitions": 0
+}

@@ -1,6 +1,7 @@
 import {calculateQualified, coverageRule, UNIFIED_AGRO_VERSION, type QualifiedDay} from "../../features/climate-quality/calculate";
 import {forecastSupport, applyObservedSupport} from "./climate-quality";
 import "server-only";
+import {climateHistoryWindow} from "./climate-history";
 import { coastalComplement } from "./coastal-complement";
 import { createHash } from "node:crypto";
 import identities from "../../data/operational/pra-identities.json";
@@ -165,6 +166,8 @@ export async function agroclimaticData(params: URLSearchParams) {
     )
       throw new ApiError("INVALID_QUERY", 400);
   }
+  const historical = temporal === "history" && unified ? await climateHistoryWindow(dates) : null;
+  const historyByDate = new Map(dates.map(date => [date, historical?.rows.filter(row => row.valid_date === date) ?? []]));
   // Weather archives already verify checksums. Cache keys include the complete immutable input identity.
   const version = document
     ? createHash("sha256")
@@ -177,7 +180,7 @@ export async function agroclimaticData(params: URLSearchParams) {
           ]),
         )
         .digest("hex")
-    : NATIONAL.dataset;
+    : historical?.version ?? NATIONAL.dataset;
   const key = JSON.stringify([
     rule.version,
     rule.id,
@@ -297,7 +300,7 @@ export async function agroclimaticData(params: URLSearchParams) {
                   quality_flags: [...row.quality_flags, ...p.quality_flags],
                 };
               }
-              const archived = await archivedEra5Day(date);
+              const archived = historical ? historyByDate.get(date)! : await archivedEra5Day(date);
               if (archived) {
                 for (const saved of archived) {
                   const fields = [

@@ -1,0 +1,21 @@
+{
+  "status": "failed_previous_publication_preserved",
+  "run": "2026-11-08T00:00:00+00:00",
+  "error_type": "RuntimeError",
+  "source_requests": 1,
+  "source_bytes": 0,
+  "seconds": 0.0028165389999230683,
+  "source_failures": [
+    {
+      "url": "https://public-api.meteofrance.fr/public/arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/GetCapabilities?service=WCS&version=2.0.1&request=GetCapabilities&language=eng",
+      "credential_binding": "METEOFRANCE_AROME_API_KEY",
+      "status": "binding_absent",
+      "bytes": 0,
+      "seconds": 4.588999900079216e-06,
+      "attempt": 1,
+      "source": "arome",
+      "operation": "GetCapabilities"
+    }
+  ],
+  "consumption_complete": true
+}
