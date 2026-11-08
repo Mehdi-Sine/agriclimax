@@ -37,7 +37,7 @@ try {
       const paragraphs = await card.locator(':scope > p').allTextContents();
       check(name + ' every qualified fact visible ' + requested, facts.every(f => paragraphs.some(p => p.includes(f.text.split(', du ')[0]))));
       check(name + ' descriptive reserves and French dates ' + requested, !(await card.innerText()).match(/\b\d{4}-\d{2}-\d{2}\b/) && (await card.innerText()).includes('aucun stade, dommage ou rendement déduit'));
-      await page.locator('#filieres').evaluate(e => e.scrollIntoView());
+      await card.evaluate(e => e.scrollIntoView({ block: 'start' }));
       await page.screenshot({ path: `${output}/${name}-${requested ? 'archived' : 'current'}-integration.png` });
       await card.scrollIntoViewIfNeeded();
       await card.screenshot({ path: `${output}/${name}-${requested ? 'archived' : 'current'}-wheat.png` });

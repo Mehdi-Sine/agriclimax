@@ -54,3 +54,11 @@ Les premiers essais d'installation ont nécessité un cache local au workspace, 
 ![Filières T32B avec le contributeur blé](evidence/t32b/wheat/desktop-current-integration.png)
 
 [Carte PRA et une conservées](evidence/t32b/map/desktop-front-page.png) · [Intégration mobile](evidence/t32b/wheat/mobile-current-integration.png) · [Carte complète du blé](evidence/t32b/wheat/desktop-current-wheat.png) · [Preuve dépliée](evidence/t32b/wheat/desktop-current-proof.png)
+
+## Vérification complémentaire de la nouvelle preview
+
+La preview Vercel du commit applicatif `a6f82c4` est disponible : https://agriclimax-git-codex-agro-01-wheat-8f23a1-mehdi-sines-projects.vercel.app/journal. Les **58 contrôles navigateur T32B passent également à distance**, sans erreur page ou console : [rapport](evidence/t32b/preview/report.json). Les deux cycles API renvoient **10 indicateurs / 18 faits**, avec les mêmes identités d'édition que le build local : [résultats API](evidence/t32b/preview/wheat-api.json).
+
+Le premier appel API distant a renvoyé le Journal sans enrichissement blé ; les appels suivants publient bien les dix indicateurs et dix-huit faits. Cette observation confirme la reprise après indisponibilité, sans permettre d'attribuer à elle seule le premier repli à un timeout plutôt qu'à un échec d'archive. Le plafond serveur de 1 500 ms reste inchangé.
+
+CI sur `a6f82c4` : Security audits réussie ; jobs Quality Python et SQL public/extensions réussis. Le job `guards` a été interrompu par un HTTP 504 pendant le téléchargement d'Actionlint 1.7.7, avant exécution du binaire. Aucun défaut de workflow n'est déduit de ce téléchargement échoué. Le même téléchargement est indisponible lors du contrôle local complémentaire ; les garde-fous sources, migrations et les suites qualité exécutés séparément réussissent. Le job web distant est encore en cours au relevé. Ces statuts distants sont distincts des validations locales complètes ci-dessus.
