@@ -1,9 +1,32 @@
 // Offline archive reading only. No model call and no credentials required.
+import { protectTask30Preview } from "./task30-preview.mjs";
 import { existsSync } from "node:fs";
 import { chromium } from "./node_modules/playwright/index.mjs";
 import { mkdir, writeFile } from "node:fs/promises";
 const origin = process.env.TASK35_ORIGIN ?? "http://127.0.0.1:3002",
   out = process.env.TASK35_OUTPUT ?? "docs/codex/task35/evidence/browser";
+const selected = new URL(origin);
+if (
+  !(
+    ["localhost", "127.0.0.1"].includes(selected.hostname) &&
+    selected.protocol === "http:"
+  ) &&
+  !(selected.protocol === "https:" && selected.hostname.endsWith(".vercel.app"))
+)
+  throw Error("Unsupported Preview origin");
+const headers =
+  selected.protocol === "https:" && process.env.VERCEL_AUTOMATION_BYPASS_SECRET
+    ? {
+        "x-vercel-protection-bypass":
+          process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
+      }
+    : {};
+const api = (path) =>
+  fetch(origin + path, {
+    headers,
+    redirect: "error",
+    signal: AbortSignal.timeout(60000),
+  });
 await mkdir(out, { recursive: true });
 const report = {
   origin,
@@ -35,6 +58,7 @@ try {
     ["mobile", { width: 390, height: 844 }],
   ]) {
     const page = await browser.newPage({ viewport, locale: "fr-FR" });
+    await protectTask30Preview(page.context(), origin);
     page.on("pageerror", (e) => report.errors.push(String(e)));
     page.on("request", (r) => {
       if (new URL(r.url()).hostname.endsWith("openai.com"))
@@ -82,17 +106,14 @@ try {
     );
     check(
       name + " real snapshot API",
-      (
-        await page.request.get(origin + "/api/journal-preview?date=2026-11-08")
-      ).ok(),
+      (await api("/api/journal-preview?date=2026-11-08")).ok,
     );
     const archive = await (
-      await page.request.get(origin + "/api/journal-preview?date=2026-11-08")
+      await api("/api/journal-preview?date=2026-11-08")
     ).json();
     const map = await (
-      await page.request.get(
-        origin +
-          `/api/journal-preview/map?id=${archive.edition_id}&map=${archive.draft.illustration_ids[0]}`,
+      await api(
+        `/api/journal-preview/map?id=${archive.edition_id}&map=${archive.draft.illustration_ids[0]}`,
       )
     ).json();
     check(

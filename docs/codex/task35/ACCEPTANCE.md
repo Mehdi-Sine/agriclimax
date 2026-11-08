@@ -41,3 +41,12 @@ Le modèle reste `unconfigured` tant qu'aucun modèle accessible et tarif réel 
 Le rapprochement T34 réellement disponible est trop faible pour une citation : rubrique presse omise. L'Almanach enrichit les questions saisonnières mais ne prouve aucun stade réel. La journée calme est une fixture unitaire, pas une journée réelle présentée comme vérifiée.
 
 Le store financier est local/DEV : T36 doit imposer un volume ou backend durable unique et partagé, entretenir les tarifs, réconcilier les appels ambigus, organiser la revue humaine, raccorder le manifeste atomique de publication et tester la disponibilité à 06 h 30 Europe/Paris plusieurs nuits. Aucune publication ni programmation de production n'est activée. Ne pas merger automatiquement.
+
+## Preview distante et contrôle de l'historique Git
+
+Preview vérifiée en HTTP 200 :
+https://agriclimax-git-codex-35-ai-editoria-2f6f88-mehdi-sines-projects.vercel.app/journal/preview
+
+Les mêmes 28 contrôles passent sur Vercel en desktop et mobile, avec sélection PRA, navigation historique et date absente, aucune erreur JavaScript et aucun appel OpenAI. Captures et rapport : `evidence/preview/`. Reproduction cloud : `NODE_USE_ENV_PROXY=1 TASK35_ORIGIN=<origine Preview> TASK35_OUTPUT=work/task35/preview node tests/e2e/task35.mjs` ; le secret de contournement Vercel reste limité à l'origine HTTPS explicitement choisie et n'est ni affiché ni archivé.
+
+Le premier scan Gitleaks historique a classé deux descripteurs éditoriaux publics de T33 comme clés génériques. Ils ont été comparés exactement à la construction déterministe nature/phénomène/région des candidats ; preuve sans valeur sensible dans `evidence/secret-scan-review.json`. L'exclusion ajoute uniquement l'empreinte historique commit/fichier/règle/ligne concernée, sans exclusion de chemin, de règle ou de commit futur. Le scan historique complet repasse sans détection après cette vérification. Le rapport final de CI est accessible dans la PR draft #71.

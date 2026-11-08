@@ -13,3 +13,5 @@ L'identité combine date, bundle, prompt, modèle, configuration, mode et révis
 Timeout, transport ambigu, refus ou métadonnées insuffisantes : réservation conservée et état `outcome_unknown`, aucune relance payante automatique. Le verrou laissé après crash exige réconciliation manuelle ; ne pas le supprimer pour « réessayer ». Le stockage doit être unique et durable : plusieurs répertoires ou volumes indépendants ne constituent pas un budget global.
 
 Projet OpenAI recommandé : clé restreinte, modèles autorisés, limites de débit, alertes et budget projet. Ces réglages ne remplacent pas le plafond applicatif. Coût réel T35 : **0 €**. Les tarifs 1 €/million en entrée et 5 €/million en sortie des fixtures sont fictifs et réservés aux tests, sans recommandation commerciale.
+
+À raison de 31 éditions au plafond initial de 0,15 €, le maximum théorique quotidien représente 4,65 €. Révisions et comparaisons restent soumises au plafond global de 5 €, elles ne créent pas de budget supplémentaire implicite. Cette borne financière ne constitue pas une estimation de tarif pour un modèle non encore choisi.
