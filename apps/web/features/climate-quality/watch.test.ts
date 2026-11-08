@@ -1,4 +1,5 @@
 import {it,expect} from 'vitest';
+import {forecastSupport} from './adapters';
 import {detectQualifiedNational,packMetrics,qualityForEvidence,type WatchSummary} from '../national-watch/model';
 import {journalMapData} from '../journal/ui/map-data';
 import type {WeatherRow} from '../operational/model';
@@ -18,6 +19,9 @@ it('rejects a grid break within one forecast segment',()=>{
  const a=row('2026-11-08',1),b={...row('2026-11-09',1),grid_version:'different'};
  const m=detectQualifiedNational([a,b],geography.places,'2026-11-08','2026-11-09').metrics.find(m=>m.pra===a.pra_id&&m.phenomenon==='frost')!;
  expect(m.value).toBeNull();expect(m.observed_value).toBeNull();expect(m.detected).toBeNull();
+ const t={...a,variable:'temperature' as const},h={...a,variable:'humidity' as const,unit:'%' as const};
+ expect(forecastSupport([t,h])).toBeDefined();
+ for(const incompatible of [{...h,rule_version:'other'},{...h,nature:'analysis' as const},{...h,provenance:{...h.provenance,reference_version:'other'}}]) expect(forecastSupport([t,incompatible])).toBeUndefined();
 });
 
 it('preserves exact fractions when native-complete quality templates are deduplicated',()=>{

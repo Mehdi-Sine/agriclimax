@@ -32,7 +32,9 @@ describe("CORE-01 scientific boundaries and cross-language contract",()=>{
  it("rejects support breaks, temporal gaps and missing THI humidity without inventing zero",()=>{
   const row={pra:"synthetic",date:"2026-01-01",values:{temperature:0},complete:true,compatible:true,source:"synthetic",run:null,nature:"reanalysis",freshness:"synthetic",provenance:["synthetic"],quality_flags:[],climate_support:{id:"synthetic",fraction:.95,temporal_complete:true,mask:"native_valid_cells" as const,method:"synthetic"}};
   const rule=RULES.find(r=>r.id==='temperature_mean')!;
-  expect(calculateQualified(row.pra,[row],row.date,row.date,rule,null).observed_value).toBe(0);
+  const zero=calculateQualified(row.pra,[row],row.date,row.date,rule,null);
+  expect(zero.observed_value).toBe(0);expect(zero.series[0].support_id).toBe("synthetic");
+  expect(calculateQualified(row.pra,[{...row,nature:"analysis"}],row.date,row.date,rule,null).observed_value).toBe(0);
   const gap=calculateQualified(row.pra,[row],row.date,"2026-01-02",rule,null);expect(gap.value).toBeNull();expect(gap.observed_value).toBeNull();
   expect(calculateQualified(row.pra,[row,{...row,date:"2026-01-02",climate_support:{...row.climate_support,id:"other"}}],row.date,"2026-01-02",rule,null).observed_value).toBeNull();
   expect(calculateQualified(row.pra,[row],row.date,row.date,RULES.find(r=>r.id==='thi')!,null).value).toBeNull();

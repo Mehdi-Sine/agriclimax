@@ -25,7 +25,7 @@ export function calculateQualified(pra: string, rows: QualifiedDay[], start: str
   const dates = calendarDays(start, end);
   const supportKeys = new Set(rows.map(r => r.climate_support ? r.climate_support.identity ?? r.climate_support.id : undefined));
   const fractions = rows.map(r => r.climate_support?.fraction ?? NaN);
-  const metadata = rows.every(r => r.source && r.freshness && r.provenance.length > 0 && ["forecast", "forecast_based_recent_estimate", "reanalysis", "observation"].includes(r.nature) && (r.nature !== "forecast" || (r.run !== null && Number.isFinite(Date.parse(r.run)))) && r.climate_support?.method);
+  const metadata = rows.every(r => r.source && r.freshness && r.provenance.length > 0 && ["forecast", "forecast_based_recent_estimate", "reanalysis", "observation", "analysis"].includes(r.nature) && (r.nature !== "forecast" || (r.run !== null && Number.isFinite(Date.parse(r.run)))) && r.climate_support?.method);
   const stable = metadata && supportKeys.size === 1 && !supportKeys.has(undefined) && fractions.every(f => Number.isFinite(f) && Math.abs(f - fractions[0]) < 1e-7);
   const prepared = rows.map(r => ({...r, compatible: r.compatible && stable, complete: r.complete && !!r.climate_support?.temporal_complete}));
   const calculated = calculate(pra, prepared, start, end, rule, threshold);
@@ -49,6 +49,7 @@ export function calculateQualified(pra: string, rows: QualifiedDay[], start: str
     status: quality.state === "native_complete" ? "available" : rows.some(r => r.complete || (r.climate_support?.fraction ?? 0) > 0) ? "partial" : "unavailable",
     reason: eligible ? quality.reason : calculated.reason ?? quality.reason,
     signals: eligible ? calculated.signals : [],
+    series: calculated.series.map(day => ({...day, support_id: rows.find(row => row.date === day.date)?.climate_support?.id ?? null})),
     quality_flags: [...new Set([...calculated.quality_flags, ...(quality.reason ? [quality.reason] : []), ...(descriptive ? ["observed_area_not_whole_pra", "no_homologous_normal_or_anomaly"] : [])])],
   };
 }

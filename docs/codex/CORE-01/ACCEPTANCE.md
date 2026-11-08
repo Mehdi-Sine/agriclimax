@@ -105,3 +105,9 @@ le nouveau parcours supprime les 67 géométries de surcouche découpée. Deux m
 séquentielles ne démontrent pas une accélération universelle ; le heap JavaScript
 n'a pas été forcé au GC et ne permet pas une comparaison mémoire avant/après.
 La mémoire serveur est mesurée séparément dans `runtime.json`.
+
+Contrôle des courbes historiques : les journées des supports partiels portent
+leur identifiant stable dans `series`. La recette réelle exige une série
+observée complète pour chaque portion éligible sur 1/7 jours ; les PRA natives
+complètes gardent leur historique et leurs références, sans série de substitution.
+Les captures de séries partielles sont vérifiées par un point quotidien réel.

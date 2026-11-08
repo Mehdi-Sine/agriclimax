@@ -40,7 +40,7 @@ export interface WheatSummary {
   version: string;
   identity: string;
   source_version: string;
-  nature: "forecast" | "reanalysis" | "observation";
+  nature: "forecast" | "reanalysis" | "observation" | "analysis";
   run: string | null;
   period: [string, string];
   qualification: typeof qualification;

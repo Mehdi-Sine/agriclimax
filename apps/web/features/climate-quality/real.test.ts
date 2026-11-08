@@ -64,6 +64,7 @@ it.skipIf(process.env.CORE01_REAL!=="1")("CORE-01 real 713 PRA read-only accepta
   const before=await unifiedData(new URLSearchParams({start,end:latest,indicator,rule_version:'agroclimatic-1.2.0'}));
   const after=await unifiedData(new URLSearchParams({start,end:latest,indicator}));
   expect(after.data).toHaveLength(713);
+  for(const row of after.data){if(row.quality?.state==='observed_partial'){expect(row.observed_series).toHaveLength(n);expect(row.observed_series!.every(day=>day.value!==null)).toBe(true);}if(row.quality?.state==='native_complete')expect(row.observed_series).toBeUndefined();}
   integration.push({usage:'climate',indicator,period:[start,latest],before_bytes:Buffer.byteLength(JSON.stringify(before)),after_bytes:Buffer.byteLength(JSON.stringify(after)),before:before.data.map(r=>({pra:r.territoryId,value:r.value,observed:r.observed_value})),after:after.data.map(r=>({pra:r.territoryId,value:r.value,observed:r.observed_value,quality:r.quality}))});
  }
  const agro=await agroclimaticData(new URLSearchParams({indicator:'temperature_mean',start:latest,end:latest}));

@@ -232,7 +232,7 @@ export async function unifiedData(
         ...next,
         normal: next.quality?.state === "native_complete" ? result.normal : next.normal,
         anomaly: next.quality?.state === "native_complete" ? result.anomaly : next.anomaly,
-        observed_series: next.series.map((r) => ({
+        ...(next.quality?.state === "native_complete" ? {} : {observed_series: next.series.map((r) => ({
           date: r.date,
           value:
             r.support_id &&
@@ -241,7 +241,7 @@ export async function unifiedData(
                 ? r.temperature
                 : r.value
               : null,
-        })),
+        }))}),
         provenance: next.provenance.join(" · "),
         coverage: next.spatial_coverage ?? result.coverage,
       };

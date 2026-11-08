@@ -39,7 +39,7 @@ it('aggregates two real-contract paginated national dates into 713 bounded DTOs'
  return Response.json({status:'available',data:Array.from({length:count},(_,i)=>({...base,current_status:'available',current_coverage:1,current_value:p.p_date==='2026-10-17'?2:3,normal_1991_2020:1,pra_id:`pra:${String(after+i+1).padStart(5,'0')}`})),next_cursor:after+count<713?`pra:${String(after+count).padStart(5,'0')}`:null});
  });
  const result=await unifiedData(new URLSearchParams({start:'2026-10-17',end:'2026-10-18',indicator:'rain'}),f);
- expect(result.data).toHaveLength(713);expect(result.data[0]).toMatchObject({value:5,normal:2,anomaly:3,status:'available',expectedDays:2});expect(f).toHaveBeenCalledTimes(16);
+ expect(result.data).toHaveLength(713);expect(result.data[0].observed_series).toBeUndefined();expect(result.data[0]).toMatchObject({value:5,normal:2,anomaly:3,status:'available',expectedDays:2});expect(f).toHaveBeenCalledTimes(16);
 });
 it('rejects invalid ranges before upstream reads',async()=>{
  configure();const f=vi.fn<typeof fetch>();

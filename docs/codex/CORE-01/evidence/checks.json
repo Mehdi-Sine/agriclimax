@@ -13,7 +13,8 @@
     "tests": 21
   },
   "quality_node": {
-    "passed": true
+    "passed": true,
+    "tests": 8
   },
   "typecheck": {
     "passed": true
@@ -80,5 +81,14 @@
   },
   "no_production_writes": true,
   "no_workflow_or_cron_changes": true,
-  "no_merge": true
+  "no_merge": true,
+  "historical_series_real": {
+    "passed": true,
+    "partial_pra": 67,
+    "windows_days": [
+      1,
+      7
+    ],
+    "native_reference_path_preserved": true
+  }
 }

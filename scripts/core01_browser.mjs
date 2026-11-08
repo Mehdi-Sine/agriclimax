@@ -25,6 +25,7 @@ try{
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'no horizontal overflow');
    const body=await page.locator('body').innerText();
    if(version==='after')assert(/portion|support renseigné|support observé/.test(body));
+   if(version==='after'&&kind==='climate'){await page.locator('.unified-chart circle').waitFor();assert.equal(await page.locator('.unified-chart circle').count(),1);await page.locator('.unified-chart').screenshot({path:`${output}/${name}-climate-after-series.png`});}
    report.checks.push({name,kind,version,geometries:713,covered_overlay:covered,no_overflow:true});
   }
   for(const pra of ['pra:29102','pra:13244','pra:2A258','pra:2B260','pra:28341','pra:05236']){

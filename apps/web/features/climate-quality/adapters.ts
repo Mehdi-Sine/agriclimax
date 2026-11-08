@@ -6,7 +6,7 @@ export function forecastSupport(rows: WeatherRow[]): QualifiedDay["climate_suppo
   const keys = rows.map(r => `${r.source_id}/${r.nature}/${r.model}/${r.model_run_at}/${r.grid_version}/${r.weights_sha256}/${r.rule_version}/${r.provenance.reference_version}/${r.unit}`);
   if (rows.some(r => !r.source_id || !r.provenance?.reference_version || !r.grid_version || !r.weights_sha256 || !r.model || !r.rule_version || (r.nature === "forecast" && (!r.model_run_at || !Number.isFinite(Date.parse(r.model_run_at)))))) return undefined;
   // Multi-variable methods need the same model, grid, weights, run and daily interval.
-  const pairKeys = new Set(rows.map(r => `${r.source_id}/${r.model}/${r.model_run_at}/${r.grid_version}/${r.weights_sha256}/${r.valid_from}/${r.valid_to}`));
+  const pairKeys = new Set(rows.map(r => `${r.source_id}/${r.nature}/${r.model}/${r.model_run_at}/${r.grid_version}/${r.weights_sha256}/${r.rule_version}/${r.provenance.reference_version}/${r.valid_from}/${r.valid_to}`));
   if (pairKeys.size !== 1) return undefined;
   return {id: [...new Set(rows.map(r=>r.weights_sha256))].sort().join("|"), identity: [...new Set(keys)].sort().join("|"), fraction: Math.min(...rows.map(r => r.spatial_coverage)), temporal_complete: rows.every(r => r.temporal_coverage === 1), mask: "unknown", method: rows.map(r => r.rule_version).sort().join("|")};
 }
