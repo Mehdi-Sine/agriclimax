@@ -1,4 +1,8 @@
 import { it, expect } from "vitest";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { ProductionStoryCard } from "../journal/ui/stories";
+import { editorialText } from "../journal/ui/editorial-dates";
 import { summarizeWheat, verifyWheatSummary } from "./national";
 import { WheatEditorialContributor } from "./editorial";
 import { WHEAT_VERSION, wheatRules, type WheatDay } from "./qualified";
@@ -66,6 +70,45 @@ const read = (snapshots = [batch.summary]) =>
     ...defaultContributors.filter((c) => c.id !== "wheat"),
     WheatEditorialContributor(snapshots),
   ]);
+it("renders qualified wheat through the T32B card with exact periods, links and limitations", () => {
+  const edition = buildEdition(watch, { now: run, registry: read() });
+  const section = edition.production_sections.find((p) => p.id === "wheat")!;
+  const html = renderToStaticMarkup(createElement(ProductionStoryCard, { section }));
+  expect(html).toContain("Blé tendre");
+  expect(html).not.toContain("Pas encore de fait");
+  expect(html).toContain("le 8 novembre 2026");
+  for (const indicator of section.indicators) {
+    for (const fact of indicator.facts!) {
+      expect(edition.evidence.facts).toContainEqual(fact);
+      const url = new URL(fact.href, "https://example.test");
+      expect(url.searchParams.get("agro_start")).toBe(indicator.period[0]);
+      expect(url.searchParams.get("agro_end")).toBe(indicator.period[1]);
+      expect(url.searchParams.get("weather_run")).toBe(watch.run);
+      expect(url.searchParams.get("pra")).toMatch(/^pra:/);
+      expect(editorialText(fact.text)).not.toMatch(/\d{4}-\d{2}-\d{2}/);
+      expect(fact.data_freshness.length).toBeGreaterThan(0);
+      expect(fact.provenance.length).toBeGreaterThan(0);
+    }
+  }
+  expect(html).toContain("aucun stade, dommage ou rendement déduit");
+  expect(html).toContain("Contexte et disponibilité");
+  expect(edition.key_facts).toEqual(buildEdition(watch, { now: run }).key_facts);
+});
+it("keeps out-of-window snapshots unavailable in T32B without leaking their facts", () => {
+  for (const summary of [
+    { ...watch, period: ["2026-11-09", "2026-11-14"] as [string, string] },
+    { ...watch, period: ["2026-11-01", "2026-11-07"] as [string, string] },
+  ]) {
+    const edition = buildEdition(summary, { now: run, registry: read() });
+    const section = edition.production_sections.find((p) => p.id === "wheat")!;
+    const html = renderToStaticMarkup(createElement(ProductionStoryCard, { section }));
+    expect(section.indicators).toEqual([]);
+    expect(section.indicator_inventory).toHaveLength(10);
+    expect(section.indicator_inventory!.every((i) => i.status === "unavailable")).toBe(true);
+    expect(html).toContain("Pas encore de fait agroclimatique qualifié");
+    expect(edition.evidence.facts.some((f) => f.rule_version === WHEAT_VERSION)).toBe(false);
+  }
+});
 it("publishes descriptive wheat facts using the unmodified T31 public contracts", () => {
   const registry = read(),
     edition = buildEdition(watch, { now: run, registry });

@@ -1,5 +1,7 @@
 # Acceptation AGRO-01
 
+Actualisation du 8 novembre 2026 : [intégration sur T32B / PR #61, recette réelle et captures](T32B_INTEGRATION.md). Les résultats ci-dessous décrivent la recette scientifique initiale du 7 novembre ; le rapport T32B porte les contrôles de la branche synchronisée.
+
 ## Décision et périmètre
 
 Les dix indicateurs nationaux blé sont techniquement qualifiés pour une **publication climatique descriptive conditionnelle** sous `wheat-descriptive-2.0.0`. Ils restent tous exploratoires, sans interprétation agronomique validée. Les noyaux et anciennes versions ne sont pas remplacés. Le Journal reçoit réellement des faits blé par le registre T31 ; aucun composant UI, fichier réservé T32, contrat public, workflow ou schéma Supabase modifié. Aucun merge ni déploiement de production.

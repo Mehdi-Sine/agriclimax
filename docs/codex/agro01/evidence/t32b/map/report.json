@@ -1,0 +1,382 @@
+{
+  "origin": "http://127.0.0.1:3002",
+  "tested_commit": null,
+  "transport": "native browser",
+  "checks": [
+    {
+      "name": "frost 713 PRA",
+      "ok": true
+    },
+    {
+      "name": "frost exact national metric values",
+      "ok": true
+    },
+    {
+      "name": "frost ETag",
+      "ok": true
+    },
+    {
+      "name": "heat 713 PRA",
+      "ok": true
+    },
+    {
+      "name": "heat exact national metric values",
+      "ok": true
+    },
+    {
+      "name": "heat ETag",
+      "ok": true
+    },
+    {
+      "name": "rain 713 PRA",
+      "ok": true
+    },
+    {
+      "name": "rain exact national metric values",
+      "ok": true
+    },
+    {
+      "name": "rain ETag",
+      "ok": true
+    },
+    {
+      "name": "dry 713 PRA",
+      "ok": true
+    },
+    {
+      "name": "dry exact national metric values",
+      "ok": true
+    },
+    {
+      "name": "dry ETag",
+      "ok": true
+    },
+    {
+      "name": "thi 713 PRA",
+      "ok": true
+    },
+    {
+      "name": "thi exact national metric values",
+      "ok": true
+    },
+    {
+      "name": "thi ETag",
+      "ok": true
+    },
+    {
+      "name": "archived map differs in real values and provenance",
+      "ok": true
+    },
+    {
+      "name": "desktop real 713-PRA canvas",
+      "ok": true
+    },
+    {
+      "name": "desktop correct theme",
+      "ok": true
+    },
+    {
+      "name": "desktop no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "desktop three qualified key figures",
+      "ok": true
+    },
+    {
+      "name": "desktop natural editorial dates",
+      "ok": true
+    },
+    {
+      "name": "desktop official PRA selection",
+      "ok": true
+    },
+    {
+      "name": "desktop explorer keeps exact cycle and PRA",
+      "ok": true
+    },
+    {
+      "name": "desktop explicit touch activation",
+      "ok": true
+    },
+    {
+      "name": "desktop no raw 23MB geometry",
+      "ok": true
+    },
+    {
+      "name": "desktop no duplicate data requests on selection",
+      "ok": true
+    },
+    {
+      "name": "desktop archived map context",
+      "ok": true
+    },
+    {
+      "name": "desktop old selection cleared",
+      "ok": true
+    },
+    {
+      "name": "desktop keyboard focus",
+      "ok": true
+    },
+    {
+      "name": "tablet real 713-PRA canvas",
+      "ok": true
+    },
+    {
+      "name": "tablet correct theme",
+      "ok": true
+    },
+    {
+      "name": "tablet no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "tablet three qualified key figures",
+      "ok": true
+    },
+    {
+      "name": "tablet natural editorial dates",
+      "ok": true
+    },
+    {
+      "name": "tablet official PRA selection",
+      "ok": true
+    },
+    {
+      "name": "tablet explorer keeps exact cycle and PRA",
+      "ok": true
+    },
+    {
+      "name": "tablet explicit touch activation",
+      "ok": true
+    },
+    {
+      "name": "tablet no raw 23MB geometry",
+      "ok": true
+    },
+    {
+      "name": "tablet no duplicate data requests on selection",
+      "ok": true
+    },
+    {
+      "name": "tablet archived map context",
+      "ok": true
+    },
+    {
+      "name": "tablet old selection cleared",
+      "ok": true
+    },
+    {
+      "name": "tablet keyboard focus",
+      "ok": true
+    },
+    {
+      "name": "mobile real 713-PRA canvas",
+      "ok": true
+    },
+    {
+      "name": "mobile correct theme",
+      "ok": true
+    },
+    {
+      "name": "mobile no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "mobile three qualified key figures",
+      "ok": true
+    },
+    {
+      "name": "mobile natural editorial dates",
+      "ok": true
+    },
+    {
+      "name": "mobile official PRA selection",
+      "ok": true
+    },
+    {
+      "name": "mobile explorer keeps exact cycle and PRA",
+      "ok": true
+    },
+    {
+      "name": "mobile explicit touch activation",
+      "ok": true
+    },
+    {
+      "name": "mobile no raw 23MB geometry",
+      "ok": true
+    },
+    {
+      "name": "mobile no duplicate data requests on selection",
+      "ok": true
+    },
+    {
+      "name": "mobile archived map context",
+      "ok": true
+    },
+    {
+      "name": "mobile old selection cleared",
+      "ok": true
+    },
+    {
+      "name": "mobile keyboard focus",
+      "ok": true
+    },
+    {
+      "name": "absent historical cycle returns no-store 503",
+      "ok": true
+    },
+    {
+      "name": "map network failure preserves real title and facts",
+      "ok": true
+    },
+    {
+      "name": "no browser errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "measurements": [
+    {
+      "name": "desktop",
+      "mapReadyMs": 7713,
+      "headlineVisibleMs": 4112,
+      "lcpMs": 4304,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 1012
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 1012
+        }
+      ],
+      "jsBytes": 490688,
+      "resources": [
+        {
+          "url": "/api/journal/map",
+          "bytes": 123550,
+          "duration": 950.1999999999825
+        },
+        {
+          "url": "/maps/journal-pra-v1.geojson",
+          "bytes": 698230,
+          "duration": 1045.6000000000058
+        },
+        {
+          "url": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "bytes": 144769,
+          "duration": -7.5
+        }
+      ]
+    },
+    {
+      "name": "tablet",
+      "mapReadyMs": 2966,
+      "headlineVisibleMs": 1037,
+      "lcpMs": 1024,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 272
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 292
+        }
+      ],
+      "jsBytes": 490688,
+      "resources": [
+        {
+          "url": "/api/journal/map",
+          "bytes": 123550,
+          "duration": 591.7999999999884
+        },
+        {
+          "url": "/maps/journal-pra-v1.geojson",
+          "bytes": 698230,
+          "duration": 622.2000000000116
+        },
+        {
+          "url": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "bytes": 144769,
+          "duration": 3.1000000000058208
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "mapReadyMs": 3794,
+      "headlineVisibleMs": 1297,
+      "lcpMs": 3968,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 204
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 204
+        }
+      ],
+      "jsBytes": 490688,
+      "resources": [
+        {
+          "url": "/api/journal/map",
+          "bytes": 123550,
+          "duration": 917.2999999999884
+        },
+        {
+          "url": "/maps/journal-pra-v1.geojson",
+          "bytes": 698230,
+          "duration": 185.70000000001164
+        },
+        {
+          "url": "/maps/maplibre/maplibre-gl-worker.mjs",
+          "bytes": 144769,
+          "duration": 1.7999999999883585
+        }
+      ]
+    }
+  ],
+  "api": [
+    {
+      "phenomenon": "frost",
+      "run": "2026-11-07T00:00:00+00:00",
+      "source": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+      "rows": 713,
+      "bytes": 123550
+    },
+    {
+      "phenomenon": "heat",
+      "run": "2026-11-07T00:00:00+00:00",
+      "source": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+      "rows": 713,
+      "bytes": 126996
+    },
+    {
+      "phenomenon": "rain",
+      "run": "2026-11-07T00:00:00+00:00",
+      "source": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+      "rows": 713,
+      "bytes": 124928
+    },
+    {
+      "phenomenon": "dry",
+      "run": "2026-11-07T00:00:00+00:00",
+      "source": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+      "rows": 713,
+      "bytes": 114058
+    },
+    {
+      "phenomenon": "thi",
+      "run": "2026-11-07T00:00:00+00:00",
+      "source": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+      "rows": 713,
+      "bytes": 114655
+    }
+  ]
+}

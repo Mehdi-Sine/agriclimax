@@ -1,0 +1,611 @@
+{
+  "origin": "http://127.0.0.1:3002",
+  "synthetic": false,
+  "checks": [
+    {
+      "name": "Journal API 200 null",
+      "ok": true
+    },
+    {
+      "name": "ten available qualified wheat indicators null",
+      "ok": true
+    },
+    {
+      "name": "all wheat facts in evidence null",
+      "ok": true
+    },
+    {
+      "name": "periods contained in edition and exact analysis links null",
+      "ok": true
+    },
+    {
+      "name": "seven-day unavailable inventory preserved null",
+      "ok": true
+    },
+    {
+      "name": "stable Journal ETag null",
+      "ok": true
+    },
+    {
+      "name": "desktop every qualified fact visible null",
+      "ok": true
+    },
+    {
+      "name": "desktop descriptive reserves and French dates null",
+      "ok": true
+    },
+    {
+      "name": "desktop unavailable inventory accessible null",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-8e9499092e374e6d7e0a5871",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-a553085972a926040bffcf8c",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-97a56256dd0da56840399e62",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-f680a789a1fac84fa37a0c30",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-6553d87f2d9698d62536622a",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-a8b1da95a17fe44416d5bbca",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-9c386068b5603f500e75de80",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-7e811a3353d13e2a35999b57",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-0c20d067fd30dc629f80778f",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-dbe9a4c7ee15d49b5a7c5842",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-8021349ca2aa19a0a602c6a8",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-1229249c1a2961616b7ea0ab",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-e7ee0f9802eca4a89b6c6f46",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-43c7e70ed3fb7bf612f81367",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-8a3fdfc68a2df149d69452ff",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-1ff8853a231f7dac1520ca08",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-c8210c58dc60ab513d77b352",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-40750cf9d9d9147dd2f5025f",
+      "ok": true
+    },
+    {
+      "name": "desktop rule and provenance visible null",
+      "ok": true
+    },
+    {
+      "name": "desktop no overflow null",
+      "ok": true
+    },
+    {
+      "name": "mobile every qualified fact visible null",
+      "ok": true
+    },
+    {
+      "name": "mobile descriptive reserves and French dates null",
+      "ok": true
+    },
+    {
+      "name": "mobile unavailable inventory accessible null",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-8e9499092e374e6d7e0a5871",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-a553085972a926040bffcf8c",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-97a56256dd0da56840399e62",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-f680a789a1fac84fa37a0c30",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-6553d87f2d9698d62536622a",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-a8b1da95a17fe44416d5bbca",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-9c386068b5603f500e75de80",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-7e811a3353d13e2a35999b57",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-0c20d067fd30dc629f80778f",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-dbe9a4c7ee15d49b5a7c5842",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-8021349ca2aa19a0a602c6a8",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-1229249c1a2961616b7ea0ab",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-e7ee0f9802eca4a89b6c6f46",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-43c7e70ed3fb7bf612f81367",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-8a3fdfc68a2df149d69452ff",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-1ff8853a231f7dac1520ca08",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-c8210c58dc60ab513d77b352",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-40750cf9d9d9147dd2f5025f",
+      "ok": true
+    },
+    {
+      "name": "mobile rule and provenance visible null",
+      "ok": true
+    },
+    {
+      "name": "mobile no overflow null",
+      "ok": true
+    },
+    {
+      "name": "Journal API 200 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "ten available qualified wheat indicators 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "all wheat facts in evidence 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "periods contained in edition and exact analysis links 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "seven-day unavailable inventory preserved 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "stable Journal ETag 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "desktop every qualified fact visible 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "desktop descriptive reserves and French dates 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "desktop unavailable inventory accessible 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-7cf5ea772a7ee20029084f3e",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-0399b624034e912830371059",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-ac255c345f61a0cce82f5ffa",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-ae8b30b587588c858e77659d",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-e8265c61714cf0d44908a88c",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-67532442d108a878f431916a",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-3982d60693a51f8a4b3c1fc2",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-eca3b9ded7fda4567e17f01a",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-938069bdebbec7c51ef102b0",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-adb6caff976fc965c09ee271",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-9ff98e21797d21cb32e9d754",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-cad78dbe10136e90ba6aeb18",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-e919891cb56863c8ef839f3b",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-3433b45465e11ba68dffdeb8",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-bf158126e93fbc6380570aaa",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-487deb5772a66e4a1d4c76b6",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-9921c13b4607165bb7402165",
+      "ok": true
+    },
+    {
+      "name": "desktop proof reference wheat-a03edf1d17bde456129b9dfb",
+      "ok": true
+    },
+    {
+      "name": "desktop rule and provenance visible 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "desktop no overflow 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "mobile every qualified fact visible 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "mobile descriptive reserves and French dates 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "mobile unavailable inventory accessible 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-7cf5ea772a7ee20029084f3e",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-0399b624034e912830371059",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-ac255c345f61a0cce82f5ffa",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-ae8b30b587588c858e77659d",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-e8265c61714cf0d44908a88c",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-67532442d108a878f431916a",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-3982d60693a51f8a4b3c1fc2",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-eca3b9ded7fda4567e17f01a",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-938069bdebbec7c51ef102b0",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-adb6caff976fc965c09ee271",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-9ff98e21797d21cb32e9d754",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-cad78dbe10136e90ba6aeb18",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-e919891cb56863c8ef839f3b",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-3433b45465e11ba68dffdeb8",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-bf158126e93fbc6380570aaa",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-487deb5772a66e4a1d4c76b6",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-9921c13b4607165bb7402165",
+      "ok": true
+    },
+    {
+      "name": "mobile proof reference wheat-a03edf1d17bde456129b9dfb",
+      "ok": true
+    },
+    {
+      "name": "mobile rule and provenance visible 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "mobile no overflow 2026-11-06T00:00:00Z",
+      "ok": true
+    },
+    {
+      "name": "no browser page errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "cycles": [
+    {
+      "run": "2026-11-07T00:00:00+00:00",
+      "edition": "364d084e65ca1964db64fd8d2db8577e99104cacaa8cc850e48d255a3befacb9",
+      "wheatIndicators": 10,
+      "facts": 18,
+      "periods": [
+        "2026-11-08/2026-11-08"
+      ],
+      "unavailable": [
+        {
+          "id": "gdd:2026-11-08/2026-11-14",
+          "period": [
+            "2026-11-08",
+            "2026-11-14"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "hot:2026-11-08/2026-11-14",
+          "period": [
+            "2026-11-08",
+            "2026-11-14"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "hot_sequence:2026-11-08/2026-11-14",
+          "period": [
+            "2026-11-08",
+            "2026-11-14"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "frost:2026-11-08/2026-11-14",
+          "period": [
+            "2026-11-08",
+            "2026-11-14"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "frost_sequence:2026-11-08/2026-11-14",
+          "period": [
+            "2026-11-08",
+            "2026-11-14"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "rain:2026-11-08/2026-11-14",
+          "period": [
+            "2026-11-08",
+            "2026-11-14"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "heavy_rain:2026-11-08/2026-11-14",
+          "period": [
+            "2026-11-08",
+            "2026-11-14"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "dry:2026-11-08/2026-11-14",
+          "period": [
+            "2026-11-08",
+            "2026-11-14"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "dry_sequence:2026-11-08/2026-11-14",
+          "period": [
+            "2026-11-08",
+            "2026-11-14"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "temperature_mean:2026-11-08/2026-11-14",
+          "period": [
+            "2026-11-08",
+            "2026-11-14"
+          ],
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "run": "2026-11-06T00:00:00+00:00",
+      "edition": "ab9828ea649dea19f376b5c9c6614262d91bf4e562fd830365e5d5858f19bcee",
+      "wheatIndicators": 10,
+      "facts": 18,
+      "periods": [
+        "2026-11-07/2026-11-07"
+      ],
+      "unavailable": [
+        {
+          "id": "gdd:2026-11-07/2026-11-13",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "hot:2026-11-07/2026-11-13",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "hot_sequence:2026-11-07/2026-11-13",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "frost:2026-11-07/2026-11-13",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "frost_sequence:2026-11-07/2026-11-13",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "rain:2026-11-07/2026-11-13",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "heavy_rain:2026-11-07/2026-11-13",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "dry:2026-11-07/2026-11-13",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "dry_sequence:2026-11-07/2026-11-13",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "status": "unavailable"
+        },
+        {
+          "id": "temperature_mean:2026-11-07/2026-11-13",
+          "period": [
+            "2026-11-07",
+            "2026-11-13"
+          ],
+          "status": "unavailable"
+        }
+      ]
+    }
+  ]
+}
