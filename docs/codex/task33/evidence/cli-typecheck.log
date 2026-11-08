@@ -1,0 +1,3 @@
+
+> agriclimax@ editorial:typecheck /workspace/agriclimax
+> pnpm --filter @agriclimax/web exec tsc --project ../../scripts/tsconfig.task33.json

@@ -18,7 +18,10 @@
     "test-integration": "node tests/e2e/integration.mjs",
     "smoke": "python scripts/quality/smoke.py",
     "test-e2e-live": "node tests/e2e/live-risk.mjs",
-    "test-e2e-daily": "node tests/e2e/daily-risk.mjs"
+    "test-e2e-daily": "node tests/e2e/daily-risk.mjs",
+    "editorial:generate": "NODE_OPTIONS=--conditions=react-server apps/web/node_modules/.bin/tsx scripts/task33_briefing.ts",
+    "editorial:validate": "NODE_OPTIONS=--conditions=react-server apps/web/node_modules/.bin/tsx scripts/task33_briefing.ts --validate",
+    "editorial:typecheck": "pnpm --filter @agriclimax/web exec tsc --project ../../scripts/tsconfig.task33.json"
   },
   "engines": {
     "node": ">=20.9",

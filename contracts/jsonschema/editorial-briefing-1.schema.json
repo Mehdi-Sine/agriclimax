@@ -1,0 +1,1304 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://agriclimax.fr/contracts/editorial-briefing-1",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": "editorial-briefing-1"
+    },
+    "bundle_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "edition_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "time_zone": {
+      "const": "Europe/Paris"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "enum": [
+        "preview",
+        "insufficient_data"
+      ]
+    },
+    "identity": {
+      "type": "object",
+      "properties": {
+        "engine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "almanac_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "almanac_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "climate_fingerprint": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "episode_archive_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "forecast_edition_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "news_bundle_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "signal_bridge_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contribution_fingerprint": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "previous_topics_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "engine",
+        "almanac_version",
+        "almanac_sha256",
+        "climate_fingerprint",
+        "episode_archive_sha256",
+        "forecast_edition_id",
+        "news_bundle_id",
+        "signal_bridge_version",
+        "contribution_fingerprint",
+        "previous_topics_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "validity": {
+      "type": "object",
+      "properties": {
+        "history_start": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "history_cutoff": {
+          "type": "string",
+          "format": "date"
+        },
+        "history_age_days": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "forecast_period": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "data_freshness": {
+          "enum": [
+            "fresh",
+            "stale"
+          ]
+        }
+      },
+      "required": [
+        "history_start",
+        "history_cutoff",
+        "history_age_days",
+        "forecast_period",
+        "data_freshness"
+      ],
+      "additionalProperties": false
+    },
+    "national": {
+      "type": "object",
+      "properties": {
+        "facts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "period": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1
+              },
+              "rule_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "provenance": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "maxItems": 100
+              },
+              "quality_flags": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "maxItems": 100
+              },
+              "data_freshness": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "maxItems": 100
+              },
+              "href": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "text",
+              "value",
+              "unit",
+              "period",
+              "source",
+              "rule_version",
+              "provenance",
+              "quality_flags",
+              "data_freshness",
+              "href"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 60
+        },
+        "comparisons": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "region": {
+                "type": "string",
+                "minLength": 1
+              },
+              "phenomenon": {
+                "type": "string",
+                "minLength": 1
+              },
+              "rule_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "data_freshness": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "maxItems": 100
+              },
+              "quality_flags": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "maxItems": 100
+              },
+              "horizon": {
+                "enum": [
+                  3,
+                  7,
+                  14,
+                  30
+                ]
+              },
+              "kind": {
+                "enum": [
+                  "historical_evolution",
+                  "forecast_revision",
+                  "not_comparable",
+                  "insufficient_history"
+                ]
+              },
+              "change": {
+                "type": "object",
+                "properties": {
+                  "horizon": {
+                    "enum": [
+                      3,
+                      7,
+                      14,
+                      30
+                    ]
+                  },
+                  "status": {
+                    "enum": [
+                      "appearance",
+                      "maintained",
+                      "intensification",
+                      "extension",
+                      "attenuation",
+                      "disappearance",
+                      "unknown",
+                      "insufficient_history"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "nature": {
+                    "enum": [
+                      "reanalysis",
+                      "forecast",
+                      "observation"
+                    ]
+                  },
+                  "previous_date": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "horizon",
+                  "status",
+                  "reason",
+                  "nature",
+                  "previous_date"
+                ],
+                "additionalProperties": false
+              },
+              "support_count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "excluded_count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "support_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "period": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "previous_period": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "provenance_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            },
+            "required": [
+              "id",
+              "region",
+              "phenomenon",
+              "rule_version",
+              "data_freshness",
+              "quality_flags",
+              "horizon",
+              "kind",
+              "change",
+              "support_count",
+              "excluded_count",
+              "support_sha256",
+              "period",
+              "previous_period",
+              "provenance_sha256"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 64
+        },
+        "horizon_diagnostics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "horizon": {
+                "enum": [
+                  3,
+                  7,
+                  14,
+                  30
+                ]
+              },
+              "comparable": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "not_comparable": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "insufficient_history": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "horizon",
+              "comparable",
+              "not_comparable",
+              "insufficient_history"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 4
+        },
+        "episodes": {
+          "type": "object",
+          "properties": {
+            "archive_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "active_at_historical_cutoff": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "sample_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "archive_sha256",
+            "total",
+            "active_at_historical_cutoff",
+            "sample_ids"
+          ],
+          "additionalProperties": false
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "total_pra": {
+              "const": 713
+            },
+            "complete_pra_at_cutoff": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "nature": {
+              "const": "reanalysis"
+            },
+            "basis": {
+              "const": "native_support_per_variable"
+            },
+            "proportions_are": {
+              "const": "PRA_counts_not_agricultural_area"
+            }
+          },
+          "required": [
+            "total_pra",
+            "complete_pra_at_cutoff",
+            "nature",
+            "basis",
+            "proportions_are"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "facts",
+        "comparisons",
+        "horizon_diagnostics",
+        "episodes",
+        "coverage"
+      ],
+      "additionalProperties": false
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "topic_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1
+          },
+          "phenomenon": {
+            "type": "string",
+            "minLength": 1
+          },
+          "regions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 100
+          },
+          "productions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 100
+          },
+          "production_context": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 100
+          },
+          "production_context_status": {
+            "const": "seasonal_hypothesis_not_presence"
+          },
+          "nature": {
+            "enum": [
+              "forecast",
+              "reanalysis"
+            ]
+          },
+          "period": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 100
+          },
+          "temporal_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 100
+          },
+          "seasonal_window_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 100
+          },
+          "news_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 100
+          },
+          "qualification": {
+            "enum": [
+              "proposal_requires_editorial_review"
+            ]
+          },
+          "missing": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 100
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 100
+          },
+          "rationale": {
+            "type": "object",
+            "properties": {
+              "fresh": {
+                "type": "boolean"
+              },
+              "qualified_evidence": {
+                "type": "boolean"
+              },
+              "temporal": {
+                "type": "boolean"
+              },
+              "affected_pra": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "duration_days": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "seasonal_match": {
+                "type": "boolean"
+              },
+              "documentary_matches": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "novel": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "fresh",
+              "qualified_evidence",
+              "temporal",
+              "affected_pra",
+              "duration_days",
+              "seasonal_match",
+              "documentary_matches",
+              "novel"
+            ],
+            "additionalProperties": false
+          },
+          "publication_eligible": {
+            "const": false
+          }
+        },
+        "required": [
+          "id",
+          "topic_key",
+          "title",
+          "question",
+          "phenomenon",
+          "regions",
+          "productions",
+          "production_context",
+          "production_context_status",
+          "nature",
+          "period",
+          "evidence_ids",
+          "temporal_ids",
+          "seasonal_window_ids",
+          "news_ids",
+          "qualification",
+          "missing",
+          "limitations",
+          "rationale",
+          "publication_eligible"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 12
+    },
+    "contributions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "production": {
+            "type": "string",
+            "minLength": 1
+          },
+          "indicator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fact_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "production",
+          "indicator",
+          "fact_id"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 20
+    },
+    "seasonal": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "date": {
+          "type": "string",
+          "minLength": 1
+        },
+        "windows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "category": {
+                "type": "string",
+                "minLength": 1
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "question": {
+                "type": "string",
+                "minLength": 1
+              },
+              "productions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "maxItems": 100
+              },
+              "region_scope": {
+                "type": "string",
+                "minLength": 1
+              },
+              "signal_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "maxItems": 100
+              },
+              "source_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "maxItems": 100
+              },
+              "confidence": {
+                "type": "string",
+                "minLength": 1
+              },
+              "requires_verification": {
+                "const": true
+              },
+              "publication_eligible": {
+                "const": false
+              },
+              "reserve": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "category",
+              "title",
+              "question",
+              "productions",
+              "region_scope",
+              "signal_ids",
+              "source_ids",
+              "confidence",
+              "requires_verification",
+              "publication_eligible",
+              "reserve"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 40
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "url"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 47
+        },
+        "markers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "qualification": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "qualification"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 100
+        },
+        "unresolved_mobile_events": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 100
+        },
+        "background_questions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "window_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "question": {
+                "type": "string",
+                "minLength": 1
+              },
+              "publication_eligible": {
+                "const": false
+              }
+            },
+            "required": [
+              "window_id",
+              "question",
+              "publication_eligible"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 2
+        }
+      },
+      "required": [
+        "version",
+        "date",
+        "windows",
+        "sources",
+        "markers",
+        "unresolved_mobile_events",
+        "background_questions"
+      ],
+      "additionalProperties": false
+    },
+    "documentary": {
+      "type": "object",
+      "properties": {
+        "bundle_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "weak_matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "publication_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "event_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "axes": {
+                "type": "object",
+                "properties": {
+                  "temporal": {
+                    "enum": [
+                      "match",
+                      "unknown",
+                      "mismatch"
+                    ]
+                  },
+                  "geographic": {
+                    "enum": [
+                      "match",
+                      "unknown",
+                      "mismatch"
+                    ]
+                  },
+                  "production": {
+                    "enum": [
+                      "match",
+                      "unknown",
+                      "mismatch"
+                    ]
+                  },
+                  "phenomenon": {
+                    "enum": [
+                      "match",
+                      "unknown",
+                      "mismatch"
+                    ]
+                  },
+                  "thematic": {
+                    "enum": [
+                      "match",
+                      "unknown",
+                      "mismatch"
+                    ]
+                  }
+                },
+                "required": [
+                  "temporal",
+                  "geographic",
+                  "production",
+                  "phenomenon",
+                  "thematic"
+                ],
+                "additionalProperties": false
+              },
+              "temporal_distance_days": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "relation": {
+                "enum": [
+                  "documentary-candidate",
+                  "documentary-overlap",
+                  "documentary-background"
+                ]
+              },
+              "scientific_confirmation": {
+                "const": false
+              },
+              "limitation": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "publication_id",
+              "event_id",
+              "axes",
+              "temporal_distance_days",
+              "relation",
+              "scientific_confirmation",
+              "limitation"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 20
+        },
+        "publications": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "publisher": {
+                "type": "string",
+                "minLength": 1
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "original_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "published_at": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "content_type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "limitations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "maxItems": 100
+              }
+            },
+            "required": [
+              "id",
+              "source_id",
+              "publisher",
+              "title",
+              "original_url",
+              "published_at",
+              "content_type",
+              "limitations"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 20
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "publication_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "event_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "axes": {
+                "type": "object",
+                "properties": {
+                  "temporal": {
+                    "enum": [
+                      "match",
+                      "unknown",
+                      "mismatch"
+                    ]
+                  },
+                  "geographic": {
+                    "enum": [
+                      "match",
+                      "unknown",
+                      "mismatch"
+                    ]
+                  },
+                  "production": {
+                    "enum": [
+                      "match",
+                      "unknown",
+                      "mismatch"
+                    ]
+                  },
+                  "phenomenon": {
+                    "enum": [
+                      "match",
+                      "unknown",
+                      "mismatch"
+                    ]
+                  },
+                  "thematic": {
+                    "enum": [
+                      "match",
+                      "unknown",
+                      "mismatch"
+                    ]
+                  }
+                },
+                "required": [
+                  "temporal",
+                  "geographic",
+                  "production",
+                  "phenomenon",
+                  "thematic"
+                ],
+                "additionalProperties": false
+              },
+              "temporal_distance_days": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "relation": {
+                "enum": [
+                  "documentary-candidate",
+                  "documentary-overlap",
+                  "documentary-background"
+                ]
+              },
+              "scientific_confirmation": {
+                "const": false
+              },
+              "limitation": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "publication_id",
+              "event_id",
+              "axes",
+              "temporal_distance_days",
+              "relation",
+              "scientific_confirmation",
+              "limitation"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 40
+        },
+        "scientific_confirmation": {
+          "const": false
+        }
+      },
+      "required": [
+        "bundle_id",
+        "weak_matches",
+        "publications",
+        "links",
+        "scientific_confirmation"
+      ],
+      "additionalProperties": false
+    },
+    "journal_proposals": {
+      "type": "object",
+      "properties": {
+        "headline_candidate_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 3
+        },
+        "regional_candidate_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 12
+        },
+        "production_fact_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 20
+        },
+        "visualizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "existing_watch_map"
+              },
+              "href": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "maxItems": 100
+              }
+            },
+            "required": [
+              "kind",
+              "href",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 3
+        },
+        "verify_before_writing": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 100
+        }
+      },
+      "required": [
+        "headline_candidate_ids",
+        "regional_candidate_ids",
+        "production_fact_ids",
+        "visualizations",
+        "verify_before_writing"
+      ],
+      "additionalProperties": false
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "maxItems": 100
+    }
+  },
+  "required": [
+    "version",
+    "bundle_id",
+    "edition_date",
+    "time_zone",
+    "generated_at",
+    "status",
+    "identity",
+    "validity",
+    "national",
+    "candidates",
+    "contributions",
+    "seasonal",
+    "documentary",
+    "journal_proposals",
+    "limitations"
+  ],
+  "additionalProperties": false
+}

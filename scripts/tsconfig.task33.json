@@ -1,0 +1,20 @@
+{
+  "extends": "../apps/web/tsconfig.json",
+  "compilerOptions": {
+    "incremental": false,
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "../apps/web/node_modules/@types"
+    ]
+  },
+  "include": [
+    "task33_briefing.ts",
+    "task33_verify_forecast.ts",
+    "task33_cases.ts"
+  ],
+  "exclude": [
+    "../node_modules"
+  ]
+}

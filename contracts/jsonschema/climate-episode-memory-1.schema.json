@@ -1,0 +1,194 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": "climate-episode-memory-1"
+    },
+    "cutoff": {
+      "type": "string",
+      "format": "date"
+    },
+    "episodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "phenomenon": {
+            "enum": [
+              "dry",
+              "rain",
+              "frost",
+              "heat"
+            ]
+          },
+          "nature": {
+            "const": "reanalysis"
+          },
+          "pra_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 1
+          },
+          "regions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 1
+          },
+          "documented_start": {
+            "type": "string",
+            "format": "date"
+          },
+          "documented_end": {
+            "type": "string",
+            "format": "date"
+          },
+          "closed_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "enum": [
+              "ongoing_at_cutoff",
+              "ended",
+              "continuity_unconfirmed"
+            ]
+          },
+          "left_censored": {
+            "type": "boolean"
+          },
+          "duration_days": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 60
+          },
+          "value": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1
+          },
+          "signature": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rule_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "data_freshness": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 100
+          },
+          "provenance": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 150
+          },
+          "quality_flags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 100
+          },
+          "observations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "value": {
+                  "type": "number"
+                },
+                "fact_id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "date",
+                "value",
+                "fact_id"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 60
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 100
+          },
+          "algorithm_version": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "phenomenon",
+          "nature",
+          "pra_ids",
+          "regions",
+          "documented_start",
+          "documented_end",
+          "closed_at",
+          "status",
+          "left_censored",
+          "duration_days",
+          "value",
+          "unit",
+          "signature",
+          "rule_version",
+          "data_freshness",
+          "provenance",
+          "quality_flags",
+          "observations",
+          "limitations",
+          "algorithm_version"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 60000
+    }
+  },
+  "required": [
+    "version",
+    "cutoff",
+    "episodes"
+  ],
+  "additionalProperties": false
+}
