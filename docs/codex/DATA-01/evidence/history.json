@@ -1,0 +1,645 @@
+{
+  "executed_at": "2026-11-08T12:35:22.582921+00:00",
+  "source_revision": "DATA-01-1",
+  "remote_writes": 0,
+  "storage_catalogue": {
+    "era5": [
+      {
+        "bytes": 258289,
+        "dates": [
+          "2026-10-19"
+        ],
+        "path": "era5/2e277515347af6981b25ee67d02bd940f442d0dc618efbb106f16d9eefe3ace9.json.gz",
+        "sha256": "2e277515347af6981b25ee67d02bd940f442d0dc618efbb106f16d9eefe3ace9"
+      },
+      {
+        "bytes": 474556,
+        "dates": [
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26"
+        ],
+        "path": "era5/b52eb1ab39cffc56774386b81e62aca94013c66b06a19bb51d05dc4b7790114a.json.gz",
+        "sha256": "b52eb1ab39cffc56774386b81e62aca94013c66b06a19bb51d05dc4b7790114a"
+      },
+      {
+        "bytes": 351528,
+        "dates": [
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30"
+        ],
+        "path": "era5/32a3ededfdf741ed9c7b23201da256a3c2652a781f479b676770830e3c3e512c.json.gz",
+        "sha256": "32a3ededfdf741ed9c7b23201da256a3c2652a781f479b676770830e3c3e512c"
+      },
+      {
+        "bytes": 284028,
+        "dates": [
+          "2026-10-31"
+        ],
+        "path": "era5/1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961.json.gz",
+        "sha256": "1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961"
+      },
+      {
+        "bytes": 232333,
+        "dates": [
+          "2026-11-01"
+        ],
+        "path": "era5/cbe85befe41c1c92750db41a7d7b65f00c056ad69171b5d5357cf6fd1ee18079.json.gz",
+        "sha256": "cbe85befe41c1c92750db41a7d7b65f00c056ad69171b5d5357cf6fd1ee18079"
+      }
+    ],
+    "land_masks": {
+      "bytes": 14934,
+      "dates": [],
+      "method_version": "pra-official-model-land-fraction-1",
+      "path": "support/4b5f52fea7ca4b7d18fa4511ae05cd7b56aeb7e793166aee45a15b4e318fc67c.json.gz",
+      "sha256": "4b5f52fea7ca4b7d18fa4511ae05cd7b56aeb7e793166aee45a15b4e318fc67c"
+    },
+    "supports": [
+      {
+        "bytes": 8198,
+        "dates": [
+          "2026-10-31"
+        ],
+        "geometry_entry": {
+          "bytes": 983425,
+          "dates": [],
+          "path": "support/af891d8b40efc5960b1ff4a07a1b9e5b189cb645cb8752ca1283cfa7e2ca7c75.json.gz",
+          "sha256": "af891d8b40efc5960b1ff4a07a1b9e5b189cb645cb8752ca1283cfa7e2ca7c75"
+        },
+        "method_version": "pra-observed-area-mean-90-1",
+        "path": "support/b7b121d8aed7612aaa139475cd0982a9d87febdaf8feffb5e31ed2bb683ef354.json.gz",
+        "sha256": "b7b121d8aed7612aaa139475cd0982a9d87febdaf8feffb5e31ed2bb683ef354"
+      },
+      {
+        "bytes": 12946,
+        "dates": [
+          "2026-11-01"
+        ],
+        "geometry_entry": {
+          "bytes": 983425,
+          "dates": [],
+          "path": "support/af891d8b40efc5960b1ff4a07a1b9e5b189cb645cb8752ca1283cfa7e2ca7c75.json.gz",
+          "sha256": "af891d8b40efc5960b1ff4a07a1b9e5b189cb645cb8752ca1283cfa7e2ca7c75"
+        },
+        "method_version": "pra-observed-area-mean-90-1",
+        "path": "support/8d1ca11beabf6e5240aeadeae583cc9dc6237f2ea292b9e309e929c66d0c1a2c.json.gz",
+        "sha256": "8d1ca11beabf6e5240aeadeae583cc9dc6237f2ea292b9e309e929c66d0c1a2c"
+      }
+    ],
+    "version": "pra-archive-catalogue-1",
+    "weather": [
+      {
+        "bytes": 562843,
+        "dates": [
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-07",
+          "2026-11-08",
+          "2026-11-09",
+          "2026-11-10",
+          "2026-11-11",
+          "2026-11-12",
+          "2026-11-13"
+        ],
+        "method_version": "pra-national-weather-daily-1",
+        "path": "weather/62ab191f162a076003ffba79994858fcef0692b3e1f52e1abef1652f2d3c6066.json.gz",
+        "pra_count": 713,
+        "run_date": "2026-11-06",
+        "sha256": "62ab191f162a076003ffba79994858fcef0692b3e1f52e1abef1652f2d3c6066"
+      },
+      {
+        "bytes": 562520,
+        "dates": [
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-07",
+          "2026-11-08",
+          "2026-11-09",
+          "2026-11-10",
+          "2026-11-11",
+          "2026-11-12",
+          "2026-11-13"
+        ],
+        "method_version": "pra-national-weather-daily-1",
+        "path": "weather/42b602fdc03b29707d423328026f216354e985e70debbc3252796335c24be724.json.gz",
+        "pra_count": 713,
+        "run_at": "2026-11-06T06:00:00+00:00",
+        "run_date": "2026-11-06",
+        "sha256": "42b602fdc03b29707d423328026f216354e985e70debbc3252796335c24be724"
+      },
+      {
+        "bytes": 558453,
+        "dates": [
+          "2026-11-06",
+          "2026-11-07",
+          "2026-11-08",
+          "2026-11-09",
+          "2026-11-10",
+          "2026-11-11",
+          "2026-11-12",
+          "2026-11-13",
+          "2026-11-14"
+        ],
+        "method_version": "pra-national-weather-daily-1",
+        "path": "weather/f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3.json.gz",
+        "pra_count": 713,
+        "run_at": "2026-11-07T00:00:00+00:00",
+        "run_date": "2026-11-07",
+        "sha256": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3"
+      }
+    ]
+  },
+  "storage_verified": [
+    {
+      "bytes": 258289,
+      "dates": [
+        "2026-10-19"
+      ],
+      "path": "era5/2e277515347af6981b25ee67d02bd940f442d0dc618efbb106f16d9eefe3ace9.json.gz",
+      "sha256": "2e277515347af6981b25ee67d02bd940f442d0dc618efbb106f16d9eefe3ace9",
+      "verified": true,
+      "envelope_dates": [
+        "2026-10-19",
+        "2026-10-20"
+      ]
+    },
+    {
+      "bytes": 474556,
+      "dates": [
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22",
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-26"
+      ],
+      "path": "era5/b52eb1ab39cffc56774386b81e62aca94013c66b06a19bb51d05dc4b7790114a.json.gz",
+      "sha256": "b52eb1ab39cffc56774386b81e62aca94013c66b06a19bb51d05dc4b7790114a",
+      "verified": true,
+      "envelope_dates": [
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22",
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-26"
+      ]
+    },
+    {
+      "bytes": 351528,
+      "dates": [
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "path": "era5/32a3ededfdf741ed9c7b23201da256a3c2652a781f479b676770830e3c3e512c.json.gz",
+      "sha256": "32a3ededfdf741ed9c7b23201da256a3c2652a781f479b676770830e3c3e512c",
+      "verified": true,
+      "envelope_dates": [
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30"
+      ]
+    },
+    {
+      "bytes": 284028,
+      "dates": [
+        "2026-10-31"
+      ],
+      "path": "era5/1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961.json.gz",
+      "sha256": "1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961",
+      "verified": true,
+      "envelope_dates": [
+        "2026-10-31"
+      ]
+    },
+    {
+      "bytes": 232333,
+      "dates": [
+        "2026-11-01"
+      ],
+      "path": "era5/cbe85befe41c1c92750db41a7d7b65f00c056ad69171b5d5357cf6fd1ee18079.json.gz",
+      "sha256": "cbe85befe41c1c92750db41a7d7b65f00c056ad69171b5d5357cf6fd1ee18079",
+      "verified": true,
+      "envelope_dates": [
+        "2026-11-01"
+      ]
+    }
+  ],
+  "indexed_bytes": 4304053,
+  "days": [
+    {
+      "bytes": 73374,
+      "complete_pra": 645,
+      "date": "2026-10-01",
+      "sha256": "3b6709481cb65a6c20498d9af5804a7ed5afef6b2de297c22e555f0090aa2a9d",
+      "adapter_sha256": "7b2bacab1335c56e960476822f8095ec1a17de4348404ad5b5528316a2f0290c",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73217,
+      "complete_pra": 645,
+      "date": "2026-10-02",
+      "sha256": "4b4c04fe7ca739f59acfef97213e8bcecb5a9efebbfc1c0453232e255ea3a707",
+      "adapter_sha256": "b056475c9dde1f6aa381e502f4372799fb682a429d963a50177b80aa6c9f37d1",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73488,
+      "complete_pra": 645,
+      "date": "2026-10-03",
+      "sha256": "734f01396f516c1b4736fa7b3b8bd2e4125b72a64557343968eb7e972b7c4a8c",
+      "adapter_sha256": "5f9609856d3bbe07495905a0890900bc71e0d5d12df5dec80aceb988fced8acd",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73529,
+      "complete_pra": 645,
+      "date": "2026-10-04",
+      "sha256": "94e5c67ccd45eb662d233164c24aabe26f3f9e551b004f31d4df1859851e1c3f",
+      "adapter_sha256": "3d576a32000461360204742b7e7448284692dedf9b2cfb4c5b2ffde108833f81",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 72647,
+      "complete_pra": 645,
+      "date": "2026-10-05",
+      "sha256": "605f69614855487b006f0f1003f0571ac7dd8e341975b63d926fafed2f2c72f6",
+      "adapter_sha256": "6235b75054192b482c4738e16abb77199d0167715489d8ff390e9270d2f9751e",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73257,
+      "complete_pra": 645,
+      "date": "2026-10-06",
+      "sha256": "0099e07510c8d96216a16ad1177c2758afd62d25447fb4e10b71d143d3c20280",
+      "adapter_sha256": "20cecdeb461458f9bddae07cf7a645d15c4d18d5425c557f3a32275a1a727352",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73548,
+      "complete_pra": 645,
+      "date": "2026-10-07",
+      "sha256": "dc8b1762e29216f1b091b018c6abbf36310c56711cc9d0e3f2efb5536b0b9890",
+      "adapter_sha256": "65eeb27cd9abc0db10f42f7525ce4d385b4ba29a124bea5ff0a95fed393d7457",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73792,
+      "complete_pra": 645,
+      "date": "2026-10-08",
+      "sha256": "0188465a643483e9d9317e0390f20a82898689643e1ee856d4aede6f4c21fe80",
+      "adapter_sha256": "c04077ad9e2af7da74f028705cbeb2d9662cc85dc72cb5428a9d0c693143197a",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 74002,
+      "complete_pra": 645,
+      "date": "2026-10-09",
+      "sha256": "5d6a9f3a31074c8c753a1f46e1c0398d906a91a7a6b08b7571e70e5b47ea55b5",
+      "adapter_sha256": "c94e496288e695a36c3e647a7da1e2917eca2c1e073b688d1278a7d63ab7dd82",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73635,
+      "complete_pra": 645,
+      "date": "2026-10-10",
+      "sha256": "a10a88fcfd3f833f2f9be09957261266b7324172f33a67c4dd496f7258528098",
+      "adapter_sha256": "dd768135064272e72e4aeab619cdaea95f7d027166df3ec83c100de99d6d1d3f",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73705,
+      "complete_pra": 645,
+      "date": "2026-10-11",
+      "sha256": "c5179d86b0f95db7504bd2ab198109f2c6209d0e9ee64b963ed8b3b8a81d4816",
+      "adapter_sha256": "043b899ecb007e51d2f2a9e61bdd90c76a71a2c417faefabe9042fb8bb8d6365",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73236,
+      "complete_pra": 645,
+      "date": "2026-10-12",
+      "sha256": "0cd387a1be0b9c9c274f1122663b5e32e5fb80131e8a4d314157d018ea343286",
+      "adapter_sha256": "14e9c8cd0161b3949f700b6665e9dd0f92b2fe009a8f6e0ecce157fc705e7cde",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73617,
+      "complete_pra": 645,
+      "date": "2026-10-13",
+      "sha256": "f8b22190e137106c806ade03ca2fbd742c7af01f7f733d9aee3660d8af09129c",
+      "adapter_sha256": "c738a2f9f6b8bb188dff96e9987d551d8ebced23993c5114d6a32ad7a40e04f5",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73606,
+      "complete_pra": 645,
+      "date": "2026-10-14",
+      "sha256": "fbb397b6003fa4b418502945e91049f75de66e6bdc5ea77b48ed23a2a3c50325",
+      "adapter_sha256": "2a260a32d9e8c2261938f3831f9692cd61e553d1ec6290509af737abf477cc54",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73225,
+      "complete_pra": 645,
+      "date": "2026-10-15",
+      "sha256": "a1f576f85e7e73fb7cd6194f736e0192e4f284cfd40dd0de75033ef1bf1faf62",
+      "adapter_sha256": "b6bc958e3673a63914d2c69746ae32a16ad8dbb4505e7e9e2c15d1907ab8d26a",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73552,
+      "complete_pra": 645,
+      "date": "2026-10-16",
+      "sha256": "07f9611cfe2c708babf217474b2216b07bcbb797d8313e26c4d25063f8924a2e",
+      "adapter_sha256": "13ca1b8f17cf38132441db0ebe55c4cdce743654314a1e5fa1cb99ded4146179",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73973,
+      "complete_pra": 645,
+      "date": "2026-10-17",
+      "sha256": "6ba539cd031d981be4489e1cb5b5575e78b4a9182eb7da5d4c18d68a0618d653",
+      "adapter_sha256": "af65bf86aaa365d40f7c67bde5007f7edfb9b8a4ec250fe6e91bf00d59ed4647",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 74048,
+      "complete_pra": 645,
+      "date": "2026-10-18",
+      "sha256": "144eed731938e97aed9458aba2049098d120158d9ec46816a941944107f292d8",
+      "adapter_sha256": "26049f0b57b881578d77eb5dfa4480d3345383f9b4760238e894f7ae9c3aa96e",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73846,
+      "complete_pra": 645,
+      "date": "2026-10-19",
+      "sha256": "11efbd82712501e6a75747cfcd5825f8629a5604e01ac10da0602bb177f1da81",
+      "adapter_sha256": "983b0afbe028692ff613d83b316639f9ca9f0aaa5efa6fa7c2d72e0354cefc1e",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73722,
+      "complete_pra": 645,
+      "date": "2026-10-20",
+      "sha256": "c082b20593a5b5b1b6858e0bc948ecce70569098e214438286d4ccff997f909c",
+      "adapter_sha256": "742d3073e2387efe1e6ef0bbcb2de2b72ae89b552b03563ec9745f0c38f144b3",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73788,
+      "complete_pra": 645,
+      "date": "2026-10-21",
+      "sha256": "039a8b89da749cc400d6c851538ff4c1b9c495d8ddd19afec47173ca770d9d57",
+      "adapter_sha256": "b5248e5e15cf4dbfc915d377470d4ac2b9e5e3f61a5bc0d001d2030f06ad35bb",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73748,
+      "complete_pra": 645,
+      "date": "2026-10-22",
+      "sha256": "dedbc4dbffaef4bd8db661f016d7d31ce3da136e05a2e1971cfccae2dca71b5a",
+      "adapter_sha256": "425d1c2e2957d5e1701715fbb0be1c5826cc38d2b4dc82e7408d1e8c5bf97cfb",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73847,
+      "complete_pra": 645,
+      "date": "2026-10-23",
+      "sha256": "2ac9131de582580fdb4bc06ea9cbed6589e44b4bc3dc215e6313344e3c41e5ff",
+      "adapter_sha256": "470eee98474e311f7c4090c4eee805f0f1d0c363c7b2c091615481bbacdb9d22",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73995,
+      "complete_pra": 645,
+      "date": "2026-10-24",
+      "sha256": "53b5673f2b8f971c4fab8b5248b2061ba24d0e19c1a579bc4112f5f8a60b345a",
+      "adapter_sha256": "36cdbd8f94b700e45a129dd2470b4a6d06dc75f5be8fd799fe3fdd343f6c9181",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73688,
+      "complete_pra": 645,
+      "date": "2026-10-25",
+      "sha256": "99d435e6772a045429df5b148484d867af305fe578c1daa7bb672517612e26dc",
+      "adapter_sha256": "68b22381477ac0ff144b34d2df9dd6d069011e7b97c36b86b9ceabc8ad4cf7d0",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73698,
+      "complete_pra": 645,
+      "date": "2026-10-26",
+      "sha256": "d2a6cb120c9aa7466d95bd99d5e5b2ef74410e0ab0af06e9010900d1647262d0",
+      "adapter_sha256": "5c12dd58040929a23237d6a1ff74e3393591f04bce9a6fc39713c3de3008c823",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73414,
+      "complete_pra": 645,
+      "date": "2026-10-27",
+      "sha256": "8f9d74c439fc78115c5b2838ecfe803fe0de5f6d97fcf8100fe6ac5c3a63245f",
+      "adapter_sha256": "c1f922039250d09f0e4d0358ee8c77666353d85a0cb586984095da1325a0e355",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 73461,
+      "complete_pra": 645,
+      "date": "2026-10-28",
+      "sha256": "7112ac20643e7faa34e2e55656df44194823f255209933c1637ef8ff69068161",
+      "adapter_sha256": "26560e60fe421883e05e6cb622acd35cd5505efc89ee5e8590eee2c39a452889",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 72093,
+      "complete_pra": 645,
+      "date": "2026-10-29",
+      "sha256": "e32b7f6c2b05777b0ad603130827234ed0d33f533070b2e4ced1ea755fee8fc3",
+      "adapter_sha256": "0aa7f3e9bbb9e531dd193f361dd68482ba4ad4fa643177366c8a0db3d03932ee",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    },
+    {
+      "bytes": 72109,
+      "complete_pra": 645,
+      "date": "2026-10-30",
+      "sha256": "7dba897e2f1e4e9d6e201093299ef299b68df37118a87ef6136b7c62aebe4c35",
+      "adapter_sha256": "79f0a01da1f0fa49f761e3b1ea5ac777015ad75d06d01dd77937024c73b3947a",
+      "complete": 645,
+      "partial": 67,
+      "unavailable": 1
+    }
+  ],
+  "overlap_rows": 8556,
+  "identity_matches": 21390,
+  "conflicts": [
+    {
+      "day": "2026-10-19",
+      "pra": "pra:01195",
+      "field": "temperature",
+      "legacy": 11.1386,
+      "modern": 11.138571007819134
+    },
+    {
+      "day": "2026-10-19",
+      "pra": "pra:01195",
+      "field": "temperature_min",
+      "legacy": 7.89907,
+      "modern": 7.899072265625023
+    },
+    {
+      "day": "2026-10-19",
+      "pra": "pra:01195",
+      "field": "temperature_max",
+      "legacy": 16.1117,
+      "modern": 16.111718750000023
+    },
+    {
+      "day": "2026-10-19",
+      "pra": "pra:01195",
+      "field": "precipitation",
+      "legacy": 4.64319,
+      "modern": 4.643190737322046
+    },
+    {
+      "day": "2026-10-19",
+      "pra": "pra:01198",
+      "field": "temperature",
+      "legacy": 11.4315,
+      "modern": 11.431506459500325
+    },
+    {
+      "day": "2026-10-19",
+      "pra": "pra:01198",
+      "field": "temperature_min",
+      "legacy": 8.2311,
+      "modern": 8.231103515625023
+    },
+    {
+      "day": "2026-10-19",
+      "pra": "pra:01198",
+      "field": "temperature_max",
+      "legacy": 16.4301,
+      "modern": 16.430078125000023
+    },
+    {
+      "day": "2026-10-19",
+      "pra": "pra:01198",
+      "field": "precipitation",
+      "legacy": 3.26133,
+      "modern": 3.2613318829156417
+    },
+    {
+      "day": "2026-10-19",
+      "pra": "pra:01201",
+      "field": "temperature",
+      "legacy": 11.5747,
+      "modern": 11.57468469056286
+    },
+    {
+      "day": "2026-10-19",
+      "pra": "pra:01201",
+      "field": "temperature_min",
+      "legacy": 8.14523,
+      "modern": 8.145227050781273
+    },
+    {
+      "day": "2026-10-19",
+      "pra": "pra:01201",
+      "field": "temperature_max",
+      "legacy": 16.3988,
+      "modern": 16.398828125000023
+    },
+    {
+      "day": "2026-10-19",
+      "pra": "pra:01201",
+      "field": "precipitation",
+      "legacy": 2.35393,
+      "modern": 2.353929863539241
+    }
+  ],
+  "differing_scalars": 32665,
+  "max_difference_by_field": {
+    "temperature": 5.04139771955181e-05,
+    "temperature_min": 4.999999997679083e-05,
+    "temperature_max": 5.019531247896225e-05,
+    "precipitation": 0.000346823867246826,
+    "coverage": 4.778610181999099e-07
+  },
+  "complete_intersection": 645,
+  "seconds": 13.00390922500003,
+  "read_storage_requests": 6,
+  "bootstrap_bytes": 3576876,
+  "float4_equal_scalars": 32519,
+  "max_difference_among_float4_equal_scalars": 2.1428717360549854e-06
+}

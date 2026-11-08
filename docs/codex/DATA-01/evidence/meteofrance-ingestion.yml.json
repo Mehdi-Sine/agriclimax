@@ -1,0 +1,110 @@
+[
+  {
+    "id": 42179450077,
+    "event": "workflow_dispatch",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-06T07:13:27Z",
+    "run_started_at": "2026-11-06T07:13:27Z",
+    "updated_at": "2026-11-06T07:13:58Z",
+    "head_branch": "codex/26-national-daily-climate",
+    "head_sha": "e54f2e4be9283ad5e8e7dde899303e760af54163",
+    "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42179450077"
+  },
+  {
+    "id": 42179095223,
+    "event": "workflow_dispatch",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-06T07:10:11Z",
+    "run_started_at": "2026-11-06T07:10:11Z",
+    "updated_at": "2026-11-06T07:10:42Z",
+    "head_branch": "codex/26-national-daily-climate",
+    "head_sha": "a27c1753b7f87fe175eb9753343b70ce0db17608",
+    "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42179095223"
+  },
+  {
+    "id": 42119650544,
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-05T22:13:34Z",
+    "run_started_at": "2026-11-05T22:16:13Z",
+    "updated_at": "2026-11-05T22:17:09Z",
+    "head_branch": "codex/26-national-daily-climate",
+    "head_sha": "cdbb6e6d836956a366a6d8a9a9437cba932674f9",
+    "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42119650544"
+  },
+  {
+    "id": 42119199723,
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-05T22:10:32Z",
+    "run_started_at": "2026-11-05T22:10:32Z",
+    "updated_at": "2026-11-05T22:11:23Z",
+    "head_branch": "codex/26-national-daily-climate",
+    "head_sha": "ff4461f3ffec6f8fe5c6d5325648dcb02df0c823",
+    "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42119199723"
+  },
+  {
+    "id": 42118851755,
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-05T22:08:10Z",
+    "run_started_at": "2026-11-05T22:08:10Z",
+    "updated_at": "2026-11-05T22:08:36Z",
+    "head_branch": "codex/26-national-daily-climate",
+    "head_sha": "a3f554cd8266a9418902f0680c27a80967032608",
+    "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42118851755"
+  },
+  {
+    "id": 42117900963,
+    "event": "workflow_dispatch",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-05T22:01:44Z",
+    "run_started_at": "2026-11-05T22:01:44Z",
+    "updated_at": "2026-11-05T22:02:46Z",
+    "head_branch": "codex/26-national-daily-climate",
+    "head_sha": "ce70b8ae831304b3d39870aa605664d81000859d",
+    "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42117900963"
+  },
+  {
+    "id": 42089606819,
+    "event": "workflow_dispatch",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-05T18:59:53Z",
+    "run_started_at": "2026-11-05T18:59:53Z",
+    "updated_at": "2026-11-05T19:00:19Z",
+    "head_branch": "codex/26-national-daily-climate",
+    "head_sha": "653b3892bb322a3856282003ba7af24dd1d81b42",
+    "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42089606819"
+  },
+  {
+    "id": 38893722424,
+    "event": "workflow_dispatch",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-10-16T11:25:52Z",
+    "run_started_at": "2026-10-16T11:25:52Z",
+    "updated_at": "2026-10-16T11:26:28Z",
+    "head_branch": "main",
+    "head_sha": "1f59a5fff407d625fa131c80aefd6b34c8b0f157",
+    "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/38893722424"
+  },
+  {
+    "id": 38737904481,
+    "event": "schedule",
+    "status": "completed",
+    "conclusion": "skipped",
+    "created_at": "2026-10-15T12:51:44Z",
+    "run_started_at": "2026-10-15T12:51:44Z",
+    "updated_at": "2026-10-15T12:51:45Z",
+    "head_branch": "main",
+    "head_sha": "6c77faf4cf5d80508cbb34ce7e776d9230508f87",
+    "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/38737904481"
+  }
+]

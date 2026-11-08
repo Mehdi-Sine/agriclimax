@@ -1,0 +1,11 @@
+{
+  "version": "data01-monitor-1",
+  "checked_at": "2026-11-08T12:35:34.277719+00:00",
+  "latest_reanalysis": "2026-11-01",
+  "lag_days": 7,
+  "missing_dates": [],
+  "status": "within_conservative_reanalysis_window",
+  "provider_delivery_verified": false,
+  "remote_writes": 0,
+  "deadline_utc": "2026-11-08T05:30:00+00:00"
+}

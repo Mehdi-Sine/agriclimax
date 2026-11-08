@@ -1,0 +1,28 @@
+{
+  "executed_at": "2026-11-08",
+  "python_tests": {
+    "passed": 348,
+    "warnings": 63
+  },
+  "web_tests": {
+    "passed": 403,
+    "skipped": 7
+  },
+  "real_history_test": "passed; 1/7/14/30 days, 713 PRA, 10 wheat indicators; agro API 30 days; partial PRA 7 days",
+  "focused_reliability_tests": 26,
+  "typecheck": "passed",
+  "lint": "passed",
+  "production_build": "passed",
+  "mypy_strict": "passed; six scripts",
+  "ruff": "passed",
+  "contracts": "passed",
+  "automation": "passed",
+  "secret_guard": "passed",
+  "migrations": "passed",
+  "client_budget_bytes": 650510,
+  "client_budget_limit_bytes": 2097152,
+  "remote_writes": 0,
+  "ci": "pending draft PR checks; final status recorded separately",
+  "preview_api": "passed HTTP 200; 713 identities, 645 native complete; 2026-10-01 through 2026-10-30",
+  "provider_station_probe": "HTTP 401 on four catalogue endpoints; authorization not established"
+}

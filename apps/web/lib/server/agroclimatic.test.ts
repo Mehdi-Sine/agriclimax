@@ -3,6 +3,7 @@ vi.mock("./coastal-complement", () => ({
 }));
 import { beforeEach, expect, it, vi } from "vitest";
 vi.mock("server-only", () => ({}));
+vi.mock("./climate-history", () => ({climateHistoryWindow: vi.fn().mockResolvedValue(null)}));
 const sources = vi.hoisted(() => ({
   weather: vi.fn(),
   archived: vi.fn(),

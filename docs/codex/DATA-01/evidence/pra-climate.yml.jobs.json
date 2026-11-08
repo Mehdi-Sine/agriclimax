@@ -1,0 +1,406 @@
+[
+  {
+    "name": "national-weather",
+    "conclusion": "failure",
+    "started_at": "2026-11-07T14:55:30Z",
+    "completed_at": "2026-11-07T15:05:10Z",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-11-07T14:55:30Z",
+        "completed_at": "2026-11-07T14:55:31Z"
+      },
+      {
+        "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-11-07T14:55:31Z",
+        "completed_at": "2026-11-07T14:55:36Z"
+      },
+      {
+        "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-11-07T14:55:36Z",
+        "completed_at": "2026-11-07T14:55:36Z"
+      },
+      {
+        "name": "Run python -m pip install -r engine/requirements-dev.lock -r engine/requirements-geo.lock -r engine/requirements-climate.lock -r engine/requirements-operational.lock",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-11-07T14:55:36Z",
+        "completed_at": "2026-11-07T14:55:57Z"
+      },
+      {
+        "name": "Restore verified weather checkpoints, never reacquire completed fields",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 5,
+        "started_at": "2026-11-07T14:55:57Z",
+        "completed_at": "2026-11-07T14:55:57Z"
+      },
+      {
+        "name": "Bounded source preflight or authorized national cycle",
+        "status": "completed",
+        "conclusion": "failure",
+        "number": 6,
+        "started_at": "2026-11-07T14:55:57Z",
+        "completed_at": "2026-11-07T15:05:02Z"
+      },
+      {
+        "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7,
+        "started_at": "2026-11-07T15:05:02Z",
+        "completed_at": "2026-11-07T15:05:03Z"
+      },
+      {
+        "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8,
+        "started_at": "2026-11-07T15:05:03Z",
+        "completed_at": "2026-11-07T15:05:08Z"
+      },
+      {
+        "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 15,
+        "started_at": "2026-11-07T15:05:08Z",
+        "completed_at": "2026-11-07T15:05:08Z"
+      },
+      {
+        "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 16,
+        "started_at": "2026-11-07T15:05:08Z",
+        "completed_at": "2026-11-07T15:05:09Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 17,
+        "started_at": "2026-11-07T15:05:09Z",
+        "completed_at": "2026-11-07T15:05:09Z"
+      }
+    ]
+  },
+  {
+    "name": "operational-pilot",
+    "conclusion": "skipped",
+    "started_at": "2026-11-07T14:55:28Z",
+    "completed_at": "2026-11-07T14:55:28Z",
+    "steps": []
+  },
+  {
+    "name": "batch",
+    "conclusion": "skipped",
+    "started_at": "2026-11-07T14:55:28Z",
+    "completed_at": "2026-11-07T14:55:28Z",
+    "steps": []
+  },
+  {
+    "name": "national-daily",
+    "conclusion": "skipped",
+    "started_at": "2026-11-07T14:55:28Z",
+    "completed_at": "2026-11-07T14:55:28Z",
+    "steps": []
+  },
+  {
+    "name": "era5-archive",
+    "conclusion": "failure",
+    "started_at": "2026-11-07T15:05:12Z",
+    "completed_at": "2026-11-07T15:27:42Z",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-11-07T15:05:12Z",
+        "completed_at": "2026-11-07T15:05:13Z"
+      },
+      {
+        "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-11-07T15:05:13Z",
+        "completed_at": "2026-11-07T15:05:18Z"
+      },
+      {
+        "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-11-07T15:05:18Z",
+        "completed_at": "2026-11-07T15:05:18Z"
+      },
+      {
+        "name": "Run python -m pip install -r engine/requirements-dev.lock -r engine/requirements-climate.lock -r engine/requirements-geo.lock -r engine/requirements-operational.lock",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-11-07T15:05:18Z",
+        "completed_at": "2026-11-07T15:05:37Z"
+      },
+      {
+        "name": "Resume immutable archive-only checkpoints",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5,
+        "started_at": "2026-11-07T15:05:37Z",
+        "completed_at": "2026-11-07T15:05:38Z"
+      },
+      {
+        "name": "New ERA5 day only, no database persistence",
+        "status": "completed",
+        "conclusion": "failure",
+        "number": 6,
+        "started_at": "2026-11-07T15:05:38Z",
+        "completed_at": "2026-11-07T15:27:38Z"
+      },
+      {
+        "name": "Export only the current day, never accumulate prior raw grids",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7,
+        "started_at": "2026-11-07T15:27:38Z",
+        "completed_at": "2026-11-07T15:27:38Z"
+      },
+      {
+        "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8,
+        "started_at": "2026-11-07T15:27:38Z",
+        "completed_at": "2026-11-07T15:27:40Z"
+      },
+      {
+        "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 9,
+        "started_at": "2026-11-07T15:27:40Z",
+        "completed_at": "2026-11-07T15:27:41Z"
+      },
+      {
+        "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 17,
+        "started_at": "2026-11-07T15:27:41Z",
+        "completed_at": "2026-11-07T15:27:41Z"
+      },
+      {
+        "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 18,
+        "started_at": "2026-11-07T15:27:41Z",
+        "completed_at": "2026-11-07T15:27:41Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 19,
+        "started_at": "2026-11-07T15:27:41Z",
+        "completed_at": "2026-11-07T15:27:41Z"
+      }
+    ]
+  },
+  {
+    "name": "era5-resume-1",
+    "conclusion": "success",
+    "started_at": "2026-11-07T15:27:44Z",
+    "completed_at": "2026-11-07T15:28:54Z",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-11-07T15:27:45Z",
+        "completed_at": "2026-11-07T15:27:45Z"
+      },
+      {
+        "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-11-07T15:27:45Z",
+        "completed_at": "2026-11-07T15:27:50Z"
+      },
+      {
+        "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-11-07T15:27:50Z",
+        "completed_at": "2026-11-07T15:27:51Z"
+      },
+      {
+        "name": "Run python -m pip install -r engine/requirements-dev.lock -r engine/requirements-climate.lock -r engine/requirements-geo.lock -r engine/requirements-operational.lock",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-11-07T15:27:51Z",
+        "completed_at": "2026-11-07T15:28:12Z"
+      },
+      {
+        "name": "Resume the immediately preceding bounded stage",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5,
+        "started_at": "2026-11-07T15:28:12Z",
+        "completed_at": "2026-11-07T15:28:14Z"
+      },
+      {
+        "name": "Continue one archive day without re-ingesting validated history",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6,
+        "started_at": "2026-11-07T15:28:14Z",
+        "completed_at": "2026-11-07T15:28:50Z"
+      },
+      {
+        "name": "Export only the current day, never accumulate prior raw grids",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7,
+        "started_at": "2026-11-07T15:28:50Z",
+        "completed_at": "2026-11-07T15:28:50Z"
+      },
+      {
+        "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8,
+        "started_at": "2026-11-07T15:28:50Z",
+        "completed_at": "2026-11-07T15:28:52Z"
+      },
+      {
+        "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 15,
+        "started_at": "2026-11-07T15:28:52Z",
+        "completed_at": "2026-11-07T15:28:52Z"
+      },
+      {
+        "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 16,
+        "started_at": "2026-11-07T15:28:52Z",
+        "completed_at": "2026-11-07T15:28:53Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 17,
+        "started_at": "2026-11-07T15:28:53Z",
+        "completed_at": "2026-11-07T15:28:53Z"
+      }
+    ]
+  },
+  {
+    "name": "weather-health",
+    "conclusion": "success",
+    "started_at": "2026-11-07T15:28:56Z",
+    "completed_at": "2026-11-07T15:29:31Z",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-11-07T15:28:57Z",
+        "completed_at": "2026-11-07T15:28:58Z"
+      },
+      {
+        "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-11-07T15:28:58Z",
+        "completed_at": "2026-11-07T15:29:06Z"
+      },
+      {
+        "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-11-07T15:29:06Z",
+        "completed_at": "2026-11-07T15:29:06Z"
+      },
+      {
+        "name": "Run python -m pip install -r engine/requirements-dev.lock -r engine/requirements-geo.lock -r engine/requirements-operational.lock",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-11-07T15:29:06Z",
+        "completed_at": "2026-11-07T15:29:17Z"
+      },
+      {
+        "name": "Read-only archive freshness and integrity",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5,
+        "started_at": "2026-11-07T15:29:17Z",
+        "completed_at": "2026-11-07T15:29:26Z"
+      },
+      {
+        "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6,
+        "started_at": "2026-11-07T15:29:26Z",
+        "completed_at": "2026-11-07T15:29:28Z"
+      },
+      {
+        "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 11,
+        "started_at": "2026-11-07T15:29:28Z",
+        "completed_at": "2026-11-07T15:29:28Z"
+      },
+      {
+        "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 12,
+        "started_at": "2026-11-07T15:29:28Z",
+        "completed_at": "2026-11-07T15:29:28Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 13,
+        "started_at": "2026-11-07T15:29:28Z",
+        "completed_at": "2026-11-07T15:29:28Z"
+      }
+    ]
+  },
+  {
+    "name": "era5-resume-2",
+    "conclusion": "skipped",
+    "started_at": "2026-11-07T15:28:54Z",
+    "completed_at": "2026-11-07T15:28:54Z",
+    "steps": []
+  }
+]

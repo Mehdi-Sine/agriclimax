@@ -18,6 +18,7 @@ from agriclimax.territories.national_daily import DATASET, REFERENCE, acquire_wi
 from agriclimax.territories.pipeline import run_batch
 from agriclimax.territories.repository import PraRepository
 from agriclimax.territories.spatial import Weight, load_reference
+from data01_daily import next_day
 from era5_coastal_complement import incremental_day
 from era5_spatial_restitution import NATIVE_VARIABLES
 from era5_spatial_restitution import build as build_support
@@ -53,7 +54,16 @@ def main() -> None:
         raise ValueError("Continuation requires an existing day receipt")
     if args.date and resume_day and args.date != resume_day:
         raise ValueError("Explicit date conflicts with checkpoint day")
-    day = args.date or resume_day or (latest if args.replay_latest else latest + timedelta(days=1))
+    planned, planning_status = next_day(
+        {date.fromisoformat(d) for e in catalogue["era5"] for d in e["dates"]},
+        anchor, datetime.now(UTC).date(),
+    )
+    day = args.date or resume_day or (latest if args.replay_latest else planned)
+    if day is None:
+        args.root.mkdir(parents=True, exist_ok=True)
+        atomic_write(args.root / "report.json", json.dumps({"status": planning_status,
+                     "database_writes": 0, "storage_writes": 0, "source_requests": 0}).encode())
+        return
     args.root.mkdir(parents=True, exist_ok=True)
     report: dict[str, Any] = {"date": str(day), "database_writes": 0, "source_requests": 0, "source_bytes": 0, "storage_writes": 0}
     atomic_write(args.root / "report.json", json.dumps(report, indent=2).encode())
@@ -71,11 +81,16 @@ def main() -> None:
         report["restored_rows"] = len(selected)
         report["archive_sha256"] = entry["sha256"]
         report["status"] = "read_only_existing_archive"
+        if args.publish_dev:
+            # Explicit DEV repair after interruption between catalogue and pointer.
+            store.publish_current(catalogue)
+            report["storage_writes"] = store.writes
+            report["status"] = "verified_current_repaired_dev"
         atomic_write(args.root / "report.json", json.dumps(report, indent=2).encode())
         print(json.dumps(report))
         return
-    if day <= latest:
-        raise ValueError("Do not reacquire existing national history")
+    if day <= anchor:
+        raise ValueError("Do not reacquire existing legacy national history")
     if day > datetime.now(UTC).date() - timedelta(days=6):
         report["status"] = "not_yet_available_by_conservative_publication_ceiling"
         atomic_write(args.root / "report.json", json.dumps(report, indent=2).encode())

@@ -3,6 +3,7 @@
 No schema/role changes, no table writes, no deletion, no raw meteorological grids.
 """
 
+import gzip
 import hashlib
 import json
 import os
@@ -34,7 +35,7 @@ def indexed_bytes(catalogue: dict[str, Any]) -> int:
     mask = catalogue.get("land_masks")
     if mask:
         objects[mask["path"]] = int(mask["bytes"])
-    return sum(objects.values())
+    return sum(objects.values()) + int(catalogue.get("retained_index_bytes_upper_bound", 0))
 
 
 class ArchiveStore:
@@ -132,10 +133,30 @@ class ArchiveStore:
             else {"version": "pra-archive-catalogue-1", "weather": [], "era5": []}
         )
 
+    def checkpoint_catalogue(self, catalogue: dict[str, Any]) -> str:
+        """Durable revision before moving any mutable pointer; no deletion/upsert."""
+        raw = gzip.compress(json.dumps(catalogue, sort_keys=True, separators=(",", ":")).encode(), mtime=0)
+        checksum = hashlib.sha256(raw).hexdigest()
+        path = f"catalogues/{checksum}.json.gz"
+        self.put_immutable(path, raw)
+        return path
+
+    def reserve_index_revisions(self, catalogue: dict[str, Any]) -> None:
+        # Conservative persisted charge for previous/new snapshots, mutable index and pointer.
+        # Replays never reserve again. No historical object is purged when the guard stops writes.
+        compressed = gzip.compress(json.dumps(catalogue, sort_keys=True, separators=(",", ":")).encode(), mtime=0)
+        # The prior catalogue already has a snapshot after the first publication.
+        factor = 1 if "retained_index_bytes_upper_bound" in catalogue else 2
+        cost = factor * len(compressed) + 4096
+        if indexed_bytes(catalogue) + cost > STORAGE_GUARD:
+            raise ValueError("Archive index retention guard exceeded")
+        catalogue["retained_index_bytes_upper_bound"] = int(catalogue.get("retained_index_bytes_upper_bound", 0)) + cost
+
     def publish_current(self, catalogue: dict[str, Any]) -> None:
+        revision = self.checkpoint_catalogue(catalogue)
         weather = sorted(catalogue["weather"], key=lambda e: e.get("run_at", e["run_date"]))
         era5 = sorted(catalogue["era5"], key=lambda e: max(e["dates"]))
-        current = {"version": "pra-current-1", "weather": weather[-1:] , "era5": era5[-1:], "era5_dates": sorted({d for e in era5 for d in e["dates"]}), "supports": catalogue.get("supports", [])[-1:], "land_masks": catalogue.get("land_masks")}
+        current = {"version": "pra-current-1", "catalogue_revision": revision, "weather": weather[-1:] , "era5": era5[-1:], "era5_dates": sorted({d for e in era5 for d in e["dates"]}), "supports": catalogue.get("supports", [])[-1:], "land_masks": catalogue.get("land_masks")}
         raw = json.dumps(current, sort_keys=True).encode()
         if self.request(f"object/{BUCKET}/current.json") == raw:
             return
@@ -199,8 +220,10 @@ class ArchiveStore:
         projected = indexed_bytes(catalogue) + len(raw)
         if projected > STORAGE_GUARD:
             raise ValueError("Archive storage guard exceeded")
+        self.checkpoint_catalogue(catalogue)
         self.put_immutable(entry["path"], raw)
         catalogue["weather"].append(entry)
+        self.reserve_index_revisions(catalogue)
         # A single workflow concurrency group serializes catalogue updates. Blob is immutable and verified first.
         self.request(
             f"object/{BUCKET}/catalogue.json",
@@ -232,10 +255,12 @@ class ArchiveStore:
         projected = indexed_bytes(catalogue) + len(raw) + (int(support["bytes"]) + int(support["geometry_entry"]["bytes"]) if support else 0)
         if projected > STORAGE_GUARD:
             raise ValueError("Archive storage guard exceeded")
+        self.checkpoint_catalogue(catalogue)
         self.put_immutable(entry["path"], raw)
         catalogue["era5"].append(entry)
         if support is not None:
             catalogue.setdefault("supports", []).append(support)
+        self.reserve_index_revisions(catalogue)
         self.request(
             f"object/{BUCKET}/catalogue.json",
             "POST",

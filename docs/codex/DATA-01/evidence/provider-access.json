@@ -1,0 +1,48 @@
+{
+  "observed_at": "2026-11-08",
+  "results": [
+    {
+      "product": "arome",
+      "operation": "GetCapabilities",
+      "status": "binding_absent",
+      "outcome": null
+    },
+    {
+      "product": "arpege",
+      "operation": "GetCapabilities",
+      "status": "binding_absent",
+      "outcome": null
+    },
+    {
+      "product": null,
+      "operation": "GetCoverage",
+      "status": "skipped_requires_both_model_capabilities",
+      "outcome": null
+    },
+    {
+      "product": "observations-v1",
+      "operation": "catalogue",
+      "status": 401,
+      "outcome": null
+    },
+    {
+      "product": "observations-v2",
+      "operation": "catalogue",
+      "status": 401,
+      "outcome": null
+    },
+    {
+      "product": "package-observations-v2",
+      "operation": "catalogue",
+      "status": 401,
+      "outcome": null
+    },
+    {
+      "product": "climatology",
+      "operation": "catalogue",
+      "status": 401,
+      "outcome": null
+    }
+  ],
+  "remote_writes": 0
+}

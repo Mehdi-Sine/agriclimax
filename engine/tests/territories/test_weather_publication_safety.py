@@ -33,7 +33,7 @@ def test_current_manifest_failure_retains_original_verified_pointer():
         store = ArchiveStore()
         catalogue = {"weather": [{"run_date": "2026-11-06"}], "era5": []}
         prior = copy.deepcopy(catalogue)
-        with patch.object(store, "request", side_effect=[old, RuntimeError("simulated transport failure")]) as requests, pytest.raises(RuntimeError, match="simulated"):
+        with patch.object(store, "checkpoint_catalogue", return_value="catalogues/test.json"), patch.object(store, "request", side_effect=[old, RuntimeError("simulated transport failure")]) as requests, pytest.raises(RuntimeError, match="simulated"):
             store.publish_current(catalogue)
         assert requests.call_args_list[0].args[0].endswith("current.json")
         assert catalogue == prior

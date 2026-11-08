@@ -1,0 +1,32 @@
+{
+  "daily-live.yml": {
+    "run_id": 42380985594,
+    "log_read_succeeded": true,
+    "markers": {
+      "HTTP Error 401": 0,
+      "HTTP Error 403": 0,
+      "HTTP Error 429": 0,
+      "TimeoutError": 0,
+      "Source group budget reached": 0,
+      "Missing GitHub Actions secret": 0,
+      "RuntimeError": 0,
+      "ValueError": 0,
+      "timed out": 0
+    }
+  },
+  "pra-climate.yml": {
+    "run_id": 42383862996,
+    "log_read_succeeded": true,
+    "markers": {
+      "HTTP Error 401": 0,
+      "HTTP Error 403": 0,
+      "HTTP Error 429": 0,
+      "TimeoutError": 0,
+      "Source group budget reached": 0,
+      "Missing GitHub Actions secret": 0,
+      "RuntimeError": 0,
+      "ValueError": 0,
+      "timed out": 0
+    }
+  }
+}
