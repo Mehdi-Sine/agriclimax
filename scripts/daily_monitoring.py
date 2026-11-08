@@ -27,6 +27,8 @@ def summarize(now: datetime, run: dict[str, Any], jobs: dict[str, Any],
     reasons = []
     if failed:
         reasons.append("workflow_stage_failed")
+    if not active:
+        reasons.append("no_acquisition_stage_executed")
     if not publication_ok:
         reasons.append("publication_stale_invalid_or_unreadable")
     if delay is not None and delay > 120:
@@ -46,6 +48,16 @@ def summarize(now: datetime, run: dict[str, Any], jobs: dict[str, Any],
         reasons.append("consecutive_workflow_failures")
     return {
         "checked_at": now.isoformat(), "run_id": run.get("id"),
+        "processing_elapsed_seconds": max(0., (now - started).total_seconds()),
+        "processing_duration_basis": "monitor check minus workflow start; includes queue between jobs",
+        "stage_seconds": {key: r.get("seconds") for key, r in receipts.items()},
+        "archive_identity": health.get("archive_identity"),
+        "historical": health.get("historical"),
+        "coverage": health.get("validation"),
+        "coverage_partial": health.get("coverage_partial"),
+        "agroclimatic_status": health.get("agroclimatic_status", "unknown"),
+        "provider_delivery_verified": health.get("provider_delivery_verified", False),
+        "degraded_mode": "retain_last_valid_publication" if reasons else None,
         "publication_healthy": publication_ok, "workflow_success": not reasons,
         "acquisition_success": not failed if active else None,
         "jobs": jobs, "era5_effective_result": era_effective,

@@ -1,0 +1,8 @@
+{
+  "exit_code": 1,
+  "response": {
+    "message": "Resource not accessible by integration",
+    "documentation_url": "https://docs.github.com/rest/actions/variables#list-repository-variables",
+    "status": "403"
+  }
+}

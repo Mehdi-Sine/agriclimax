@@ -1,0 +1,15 @@
+{
+  "base": "c837fcd",
+  "date": "2026-11-08",
+  "environment_variables_ready": [
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "SUPABASE_SECRET_KEY",
+    "METEOFRANCE_OBSERVATIONS_API_KEY",
+    "METEOFRANCE_CLIMATOLOGY_API_KEY",
+    "CDSAPI_KEY"
+  ],
+  "model_bindings_declared": false,
+  "remote_writes_authorized": false,
+  "network_policy": "unrestricted/enforced",
+  "observations_current": true
+}
