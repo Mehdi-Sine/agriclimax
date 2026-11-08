@@ -1,0 +1,101 @@
+
+> agriclimax@ build /workspace/agriclimax
+> pnpm --filter @agriclimax/web build
+
+
+> @agriclimax/web@ build /workspace/agriclimax/apps/web
+> node features/observation/prepare-worker.mjs && next build
+
+▲ Next.js 16.4.1 (Turbopack)
+✓ Running next.config.ts took 47ms
+- Experiments (use with caution):
+  ⨯ useTypeScriptCli
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.0s
+  Running TypeScript ...
+  Finished TypeScript in 44s ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/38) ...
+  Generating static pages using 2 workers (9/38)
+  Generating static pages using 2 workers (18/38)
+  Generating static pages using 2 workers (28/38)
+✓ Generating static pages using 2 workers (38/38) in 1666ms
+Turbopack build encountered 1 warning:
+./apps/web/features/editorial-ai/archive.ts:61:17
+Warning: Dynamic filesystem access causes tracing of the whole project
+  59 |     mkdirSync(root, { recursive: true });
+  60 |     for (const d of ["runs", "editions", "diagnostics"])
+> 61 |       mkdirSync(join(root, d), { recursive: true });
+     |                 ^^^^^^^^^^^^^
+  62 |   }
+  63 |   lock() {
+  64 |     const p = join(this.root, "budget.lock");
+
+Static analysis determined that this filesystem access causes the whole project to be traced and included in the output.
+This is usually unintentional and leads to all source files (including the public folder) to be deployed as part of the server code.
+This can slow down deployments or lead to failures when size limits are exceeded.
+To resolve this, you can
+- make sure the path is statically scoped to some subfolder, for example path.join(process.cwd(), 'data', bar), or
+- only use them in development, or
+- opt out by adding an ignore comment to the highlighted call: path.join(/*turbopackIgnore: true*/ ...), or
+- remove them.
+
+Import traces:
+  App Route:
+    ./apps/web/features/editorial-ai/archive.ts
+    ./apps/web/lib/server/editorial-preview.ts
+    ./apps/web/app/api/journal-preview/map/route.ts
+
+  Server Component:
+    ./apps/web/features/editorial-ai/archive.ts
+    ./apps/web/lib/server/editorial-preview.ts
+    ./apps/web/app/journal/preview/page.tsx
+
+
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ○ /aide/cartes
+├ ƒ /almanach
+├ ○ /analyse
+├ ƒ /api/agriculture
+├ ƒ /api/agroclimatic
+├ ƒ /api/climate/france
+├ ƒ /api/editorial-briefing/example
+├ ƒ /api/journal
+├ ƒ /api/journal-preview
+├ ƒ /api/journal-preview/map
+├ ƒ /api/journal/map
+├ ƒ /api/national
+├ ƒ /api/national/support
+├ ƒ /api/operational
+├ ƒ /api/risks/map
+├ ƒ /api/risks/series
+├ ƒ /api/risks/territory
+├ ƒ /api/territories
+├ ƒ /api/territories/diagnostics
+├ ƒ /api/unified
+├ ƒ /api/veille
+├ ƒ /api/veille/historique
+├ ƒ /api/weather/series
+├ ƒ /api/weather/stations
+├ ƒ /api/wheat
+├ ƒ /demo
+├ ○ /design-system
+├ ƒ /diagnostic
+├ ƒ /history
+├ ƒ /journal
+├ ƒ /journal/preview
+├ ○ /manifest.webmanifest
+├ ○ /productions
+├ ƒ /stations
+├ ƒ /territories
+├ ○ /veille
+└ ƒ /watch
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

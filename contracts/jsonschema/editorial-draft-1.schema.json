@@ -1,0 +1,519 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "bundle_id",
+    "edition_date",
+    "main_candidate_id",
+    "decision",
+    "alternatives",
+    "secondary_candidate_ids",
+    "headline",
+    "lead",
+    "article",
+    "key_figures",
+    "regions",
+    "productions",
+    "news_ids",
+    "illustration_ids",
+    "limitations"
+  ],
+  "properties": {
+    "version": {
+      "const": "editorial-draft-1"
+    },
+    "bundle_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 6000
+    },
+    "edition_date": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 6000
+    },
+    "main_candidate_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "evidence_ids",
+        "seasonal_ids",
+        "kind"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 6000
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 40
+        },
+        "seasonal_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 40
+        },
+        "kind": {
+          "enum": [
+            "fact",
+            "context",
+            "question",
+            "limitation"
+          ]
+        }
+      }
+    },
+    "alternatives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "candidate_id",
+          "reason"
+        ],
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 6000
+          },
+          "reason": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "text",
+              "evidence_ids",
+              "seasonal_ids",
+              "kind"
+            ],
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 6000
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "maxItems": 40
+              },
+              "seasonal_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "maxItems": 40
+              },
+              "kind": {
+                "enum": [
+                  "fact",
+                  "context",
+                  "question",
+                  "limitation"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "maxItems": 12
+    },
+    "secondary_candidate_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 40
+    },
+    "headline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "evidence_ids",
+        "seasonal_ids",
+        "kind"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 6000
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 40
+        },
+        "seasonal_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 40
+        },
+        "kind": {
+          "enum": [
+            "fact",
+            "context",
+            "question",
+            "limitation"
+          ]
+        }
+      }
+    },
+    "lead": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "evidence_ids",
+        "seasonal_ids",
+        "kind"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 6000
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 40
+        },
+        "seasonal_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 40
+        },
+        "kind": {
+          "enum": [
+            "fact",
+            "context",
+            "question",
+            "limitation"
+          ]
+        }
+      }
+    },
+    "article": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "text",
+          "evidence_ids",
+          "seasonal_ids",
+          "kind"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 6000
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 40
+          },
+          "seasonal_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 40
+          },
+          "kind": {
+            "enum": [
+              "fact",
+              "context",
+              "question",
+              "limitation"
+            ]
+          }
+        }
+      },
+      "maxItems": 16
+    },
+    "key_figures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fact_id",
+          "value",
+          "unit",
+          "period",
+          "region",
+          "pra_id",
+          "nature",
+          "scope"
+        ],
+        "properties": {
+          "fact_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 6000
+          },
+          "value": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 6000
+          },
+          "period": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 6000
+            },
+            "maxItems": 2
+          },
+          "region": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pra_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "nature": {
+            "enum": [
+              "forecast",
+              "reanalysis",
+              "descriptive"
+            ]
+          },
+          "scope": {
+            "enum": [
+              "pra",
+              "regional_sample",
+              "national_sample"
+            ]
+          }
+        }
+      },
+      "maxItems": 3
+    },
+    "regions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "region",
+          "blocks"
+        ],
+        "properties": {
+          "region": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 6000
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "text",
+                "evidence_ids",
+                "seasonal_ids",
+                "kind"
+              ],
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 6000
+                },
+                "evidence_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 40
+                },
+                "seasonal_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 40
+                },
+                "kind": {
+                  "enum": [
+                    "fact",
+                    "context",
+                    "question",
+                    "limitation"
+                  ]
+                }
+              }
+            },
+            "maxItems": 4
+          }
+        }
+      },
+      "maxItems": 13
+    },
+    "productions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "production_id",
+          "blocks"
+        ],
+        "properties": {
+          "production_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 6000
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "text",
+                "evidence_ids",
+                "seasonal_ids",
+                "kind"
+              ],
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 6000
+                },
+                "evidence_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 40
+                },
+                "seasonal_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 40
+                },
+                "kind": {
+                  "enum": [
+                    "fact",
+                    "context",
+                    "question",
+                    "limitation"
+                  ]
+                }
+              }
+            },
+            "maxItems": 4
+          }
+        }
+      },
+      "maxItems": 20
+    },
+    "news_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 40
+    },
+    "illustration_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 40
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "text",
+          "evidence_ids",
+          "seasonal_ids",
+          "kind"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 6000
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 40
+          },
+          "seasonal_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 40
+          },
+          "kind": {
+            "enum": [
+              "fact",
+              "context",
+              "question",
+              "limitation"
+            ]
+          }
+        }
+      },
+      "maxItems": 12
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EditorialDraft v1"
+}
