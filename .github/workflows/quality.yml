@@ -12,7 +12,7 @@ concurrency:
 jobs:
   guards:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -29,15 +29,14 @@ jobs:
       - run: python -m coverage report --data-file=work/quality/.coverage --fail-under=80
       - run: python scripts/quality/security.py
       - run: python scripts/quality/migrations.py
-      - name: Actionlint (pinned binary and checksum)
+      - uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5
+        with:
+          go-version: '1.26.10'
+          cache: false
+      - name: Actionlint (verified release or checksum-verified Go module)
         shell: bash
         run: |
-          mkdir -p work/actionlint
-          curl --fail --location --silent --show-error -o work/actionlint/archive.tar.gz https://github.com/rhysd/actionlint/releases/download/v1.7.7/actionlint_1.7.7_linux_amd64.tar.gz
-          cd work/actionlint
-          echo '023070a287cd8cccd71515fedc843f1985bf96c436b7effaecce67290e7e0757  archive.tar.gz' | sha256sum --check
-          tar -xzf archive.tar.gz actionlint
-          cd ../..
+          bash scripts/quality/install-go-tool.sh actionlint work/actionlint
           work/actionlint/actionlint -shellcheck= .github/workflows/*.yml
       - name: Existing migrations are immutable
         if: github.event_name == 'pull_request'

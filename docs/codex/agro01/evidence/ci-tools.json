@@ -1,0 +1,14 @@
+{
+  "actionlint_valid": 0,
+  "actionlint_invalid": 1,
+  "gitleaks_valid": 0,
+  "gitleaks_invalid": 1,
+  "unit_tests": 20,
+  "node_quality_tests": 8,
+  "quality_guard_coverage_percent": 82,
+  "official_archive_valid": "passed (cached official Gitleaks 8.24.2 archive)",
+  "official_archive_corrupted": "exit 1; no fallback and no installed binary",
+  "actionlint_fallback": "four real HTTP 504 responses then exact Go module build",
+  "gitleaks_fallback": "four real HTTP 504 responses then exact Go module build",
+  "application_changes": false
+}
