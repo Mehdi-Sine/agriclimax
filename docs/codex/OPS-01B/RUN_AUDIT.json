@@ -1,0 +1,229 @@
+[
+  {
+    "id": 42508300423,
+    "run_number": 34,
+    "head_sha": "6a9c6f29460f97ee710bedd839b3df3c7746915e",
+    "event": "workflow_dispatch",
+    "created_at": "2026-11-08T18:06:32Z",
+    "run_started_at": "2026-11-08T18:06:32Z",
+    "conclusion": "failure",
+    "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42508300423",
+    "jobs": [
+      {
+        "id": 128815646343,
+        "name": "weather-health",
+        "conclusion": "failure",
+        "started_at": "2026-11-08T18:06:35Z",
+        "completed_at": "2026-11-08T18:07:06Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42508300423/job/128815646343",
+        "failed_steps": [
+          "Independent daily workflow and publication verdict"
+        ],
+        "successful_health_step": true
+      },
+      {
+        "id": 128815646875,
+        "name": "era5-resume-1",
+        "conclusion": "skipped",
+        "started_at": "2026-11-08T18:06:33Z",
+        "completed_at": "2026-11-08T18:06:33Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42508300423/job/128815646875",
+        "failed_steps": [],
+        "successful_health_step": false
+      },
+      {
+        "id": 128815646916,
+        "name": "national-weather",
+        "conclusion": "skipped",
+        "started_at": "2026-11-08T18:06:34Z",
+        "completed_at": "2026-11-08T18:06:33Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42508300423/job/128815646916",
+        "failed_steps": [],
+        "successful_health_step": false
+      },
+      {
+        "id": 128815647556,
+        "name": "era5-resume-2",
+        "conclusion": "skipped",
+        "started_at": "2026-11-08T18:06:34Z",
+        "completed_at": "2026-11-08T18:06:33Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42508300423/job/128815647556",
+        "failed_steps": [],
+        "successful_health_step": false
+      },
+      {
+        "id": 128815681719,
+        "name": "era5-archive",
+        "conclusion": "skipped",
+        "started_at": "2026-11-08T18:06:42Z",
+        "completed_at": "2026-11-08T18:06:33Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42508300423/job/128815681719",
+        "failed_steps": [],
+        "successful_health_step": false
+      }
+    ],
+    "failed_log_collection": {
+      "exit_code": 0,
+      "stdout_bytes": 3503,
+      "stderr_bytes": 0
+    }
+  },
+  {
+    "id": 42494057685,
+    "run_number": 33,
+    "head_sha": "10d9dbfd394bcff4441e3d6e1fd7ce8b5a4b72a8",
+    "event": "schedule",
+    "created_at": "2026-11-08T15:17:33Z",
+    "run_started_at": "2026-11-08T15:17:33Z",
+    "conclusion": "failure",
+    "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42494057685",
+    "observed_schedule_delay_minutes": 417.55,
+    "jobs": [
+      {
+        "id": 128772382273,
+        "name": "national-weather",
+        "conclusion": "success",
+        "started_at": "2026-11-08T15:17:36Z",
+        "completed_at": "2026-11-08T15:29:13Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42494057685/job/128772382273",
+        "failed_steps": [],
+        "successful_health_step": false
+      },
+      {
+        "id": 128775450159,
+        "name": "era5-archive",
+        "conclusion": "failure",
+        "started_at": "2026-11-08T15:29:15Z",
+        "completed_at": "2026-11-08T15:50:53Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42494057685/job/128775450159",
+        "failed_steps": [
+          "New ERA5 day only, no database persistence"
+        ],
+        "successful_health_step": false,
+        "failure_annotations": [
+          "Process completed with exit code 1."
+        ]
+      },
+      {
+        "id": 128780965372,
+        "name": "era5-resume-1",
+        "conclusion": "success",
+        "started_at": "2026-11-08T15:50:55Z",
+        "completed_at": "2026-11-08T15:52:36Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42494057685/job/128780965372",
+        "failed_steps": [],
+        "successful_health_step": false
+      },
+      {
+        "id": 128781397995,
+        "name": "weather-health",
+        "conclusion": "failure",
+        "started_at": "2026-11-08T15:52:38Z",
+        "completed_at": "2026-11-08T15:53:20Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42494057685/job/128781397995",
+        "failed_steps": [
+          "Independent daily workflow and publication verdict"
+        ],
+        "successful_health_step": true,
+        "failure_annotations": [
+          "Process completed with exit code 1."
+        ]
+      },
+      {
+        "id": 128781399437,
+        "name": "era5-resume-2",
+        "conclusion": "skipped",
+        "started_at": "2026-11-08T15:52:36Z",
+        "completed_at": "2026-11-08T15:52:36Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42494057685/job/128781399437",
+        "failed_steps": [],
+        "successful_health_step": false
+      }
+    ],
+    "failed_log_collection": {
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    "raw_job_logs_access": "denied (HTTP 403); annotation-only root-cause limits"
+  },
+  {
+    "id": 42383862996,
+    "run_number": 32,
+    "head_sha": "f7eebc5aefa06746c9dd572dd5b68565de47c443",
+    "event": "schedule",
+    "created_at": "2026-11-07T14:55:27Z",
+    "run_started_at": "2026-11-07T14:55:27Z",
+    "conclusion": "failure",
+    "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42383862996",
+    "observed_schedule_delay_minutes": 395.45,
+    "jobs": [
+      {
+        "id": 128436981702,
+        "name": "national-weather",
+        "conclusion": "failure",
+        "started_at": "2026-11-07T14:55:30Z",
+        "completed_at": "2026-11-07T15:05:10Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42383862996/job/128436981702",
+        "failed_steps": [
+          "Bounded source preflight or authorized national cycle"
+        ],
+        "successful_health_step": false,
+        "failure_annotations": [
+          "Process completed with exit code 1."
+        ]
+      },
+      {
+        "id": 128439337405,
+        "name": "era5-archive",
+        "conclusion": "failure",
+        "started_at": "2026-11-07T15:05:12Z",
+        "completed_at": "2026-11-07T15:27:42Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42383862996/job/128439337405",
+        "failed_steps": [
+          "New ERA5 day only, no database persistence"
+        ],
+        "successful_health_step": false,
+        "failure_annotations": [
+          "Process completed with exit code 124."
+        ]
+      },
+      {
+        "id": 128444862127,
+        "name": "era5-resume-1",
+        "conclusion": "success",
+        "started_at": "2026-11-07T15:27:44Z",
+        "completed_at": "2026-11-07T15:28:54Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42383862996/job/128444862127",
+        "failed_steps": [],
+        "successful_health_step": false
+      },
+      {
+        "id": 128445142345,
+        "name": "weather-health",
+        "conclusion": "success",
+        "started_at": "2026-11-07T15:28:56Z",
+        "completed_at": "2026-11-07T15:29:31Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42383862996/job/128445142345",
+        "failed_steps": [],
+        "successful_health_step": true
+      },
+      {
+        "id": 128445143118,
+        "name": "era5-resume-2",
+        "conclusion": "skipped",
+        "started_at": "2026-11-07T15:28:54Z",
+        "completed_at": "2026-11-07T15:28:54Z",
+        "html_url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/42383862996/job/128445143118",
+        "failed_steps": [],
+        "successful_health_step": false
+      }
+    ],
+    "failed_log_collection": {
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    "raw_job_logs_access": "denied (HTTP 403); annotation-only root-cause limits"
+  }
+]

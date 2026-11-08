@@ -102,7 +102,9 @@ def test_workflow_failure_is_independent_of_healthy_publication():
     assert not result["workflow_success"]
     assert result["cron_delay_minutes"] == 395
     assert result["runner_queue_minutes"] == 1
-    assert result["era5_recovered"]
+    # No date/hash receipt: a green continuation alone is not recovery proof.
+    assert not result["era5_recovered"]
+    assert "era5_recovery_not_verified" in result["warnings"]
     assert result["consecutive_failures_in_bounded_history"] == 2
     assert result["notification_required"]
     assert not result["consumption_complete"]
@@ -236,3 +238,27 @@ def test_delayed_successful_acquisition_still_fails_workflow_supervision():
     assert not result["workflow_success"]
     assert result["consecutive_failures_in_bounded_history"] == 1
     assert result["causes"] == ["schedule_delay_over_120_minutes"]
+
+
+def test_ops01_skipped_chain_is_not_successful_acquisition():
+    run = {"id": 1, "event": "workflow_dispatch", "created_at": "2026-11-08T08:20:00Z", "run_started_at": "2026-11-08T08:21:00Z"}
+    jobs = {k: {"result": "skipped"} for k in ("national-weather", "era5-archive", "era5-resume-1", "era5-resume-2")}
+    result = summarize(datetime(2026, 11, 8, 8, 25, tzinfo=UTC), run, jobs, {"healthy": True}, [], {})
+    assert result["acquisition_success"] is None
+    assert not result["workflow_success"]
+    assert result["causes"] == ["no_acquisition_stage_executed"]
+    assert result["degraded_mode"] == "retain_last_valid_publication"
+    assert result["processing_elapsed_seconds"] == 240
+
+
+def test_ops01_diagnostic_keeps_archive_and_variable_coverage():
+    run = {"id": 1, "event": "workflow_dispatch", "created_at": "2026-11-08T08:20:00Z", "run_started_at": "2026-11-08T08:21:00Z"}
+    jobs = {k: {"result": "success" if k == "national-weather" else "skipped"} for k in ("national-weather", "era5-archive", "era5-resume-1", "era5-resume-2")}
+    health = {"healthy": True, "archive_identity": {"path": "weather/day.gz", "sha256": "abc"}, "historical": {"missing_dates": []}, "validation": {"pra_count": 713}, "coverage_partial": True}
+    result = summarize(datetime.now(UTC), run, jobs, health, [], {"weather": {"seconds": 123}})
+    assert result["archive_identity"] == health["archive_identity"]
+    assert result["coverage_partial"] is True
+    assert result["coverage"]["pra_count"] == 713
+    assert result["stage_seconds"] == {"weather": 123}
+    assert result["provider_delivery_verified"] is False
+    assert result["agroclimatic_status"] == "unknown"
