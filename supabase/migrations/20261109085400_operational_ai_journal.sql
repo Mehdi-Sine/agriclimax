@@ -12,6 +12,7 @@ create table agriclimax_private.editorial_snapshots (
  quality text not null check(quality in ('fresh','fallback_valid','insufficient')),
  frozen_at timestamptz not null,
  body jsonb not null,
+ serialized text not null check(serialized::jsonb=body and octet_length(serialized)<=2097152),
  created_at timestamptz not null default now()
 );
 create table agriclimax_private.editorial_runs (
@@ -30,6 +31,7 @@ create table agriclimax_private.editorial_archives (
  edition_date date not null,
  checksum text not null check(checksum ~ '^[a-f0-9]{64}$'),
  body jsonb not null check(octet_length(body::text) <= 2097152),
+ serialized text not null check(serialized::jsonb=body and octet_length(serialized)<=2097152),
  created_at timestamptz not null default now()
 );
 create table agriclimax_private.editorial_publications (
@@ -76,7 +78,7 @@ language plpgsql security invoker set search_path = '' set statement_timeout='8s
 declare
  d date := coalesce((p_payload->>'edition_date')::date,(now() at time zone 'Europe/Paris')::date);
  ident text := p_payload->>'id';
- item jsonb; previous jsonb; r agriclimax_private.editorial_acquisitions%rowtype;
+ item jsonb; previous jsonb; raw text; r agriclimax_private.editorial_acquisitions%rowtype;
  ctl agriclimax_private.editorial_control%rowtype;
  s agriclimax_private.editorial_snapshots%rowtype;
  cost_bound numeric; actual numeric; used numeric;
@@ -89,20 +91,22 @@ begin
  end if;
  if p_action='control' then return to_jsonb(ctl); end if;
  if p_action='snapshot_read' then
-  select body into item from agriclimax_private.editorial_snapshots where edition_date=d; return item;
+  select to_jsonb(serialized) into item from agriclimax_private.editorial_snapshots where edition_date=d; return item;
  elsif p_action='freeze' then
-  item:=p_payload->'snapshot';
-  if (item->>'edition_date')::date<>d or item->>'id' !~ '^[a-f0-9]{64}$'
+  item:=p_payload->'snapshot'; raw:=p_payload->>'snapshot_json';
+  if raw is null or raw::jsonb is distinct from item then raise exception 'SNAPSHOT_SERIALIZATION'; end if;
+  if (item->>'edition_date')::date is distinct from d or item->>'id' !~ '^[a-f0-9]{64}$'
      or (item->>'frozen_at')::timestamptz > now()+interval '1 minute'
      or (item->>'cutoff_at')::timestamptz <> ((d::text||' 05:40')::timestamp at time zone 'Europe/Paris')
      or (item->>'frozen_at')::timestamptz < (item->>'cutoff_at')::timestamptz
      or item->>'version'<>'daily-editorial-snapshot-1' then raise exception 'SNAPSHOT_CONTRACT'; end if;
-  insert into agriclimax_private.editorial_snapshots(edition_date,id,quality,frozen_at,body)
-   values(d,item->>'id',item->>'quality',(item->>'frozen_at')::timestamptz,item)
+  insert into agriclimax_private.editorial_snapshots(edition_date,id,quality,frozen_at,body,serialized)
+   values(d,item->>'id',item->>'quality',(item->>'frozen_at')::timestamptz,item,raw)
    on conflict(edition_date) do nothing;
   select body into previous from agriclimax_private.editorial_snapshots where edition_date=d;
   if previous<>item then raise exception 'IMMUTABLE_SNAPSHOT_CONFLICT'; end if;
-  return previous;
+  select to_jsonb(serialized) into item from agriclimax_private.editorial_snapshots where edition_date=d;
+  return item;
  elsif p_action='reserve' then
   -- Global financial lock ends before the HTTP call. Uncertain reservations remain charged.
   perform pg_catalog.pg_advisory_xact_lock(360035);
@@ -111,8 +115,8 @@ begin
   if not ctl.ai_enabled then raise exception 'AI_DISABLED'; end if;
   if s.id is null or s.quality='insufficient' or s.id<>p_payload->>'snapshot_id'
     then raise exception 'QUALIFIED_FROZEN_SNAPSHOT_REQUIRED'; end if;
-  if item->>'month'<>to_char(now() at time zone 'UTC','YYYY-MM') or cost_bound is null or cost_bound<=0 or cost_bound>.15
-    or item->>'state'<>'reserved' or item->>'id'<>ident or (item->>'edition_date')::date<>d
+  if item->>'month' is distinct from to_char(now() at time zone 'UTC','YYYY-MM') or cost_bound is null or cost_bound<=0 or cost_bound>.15
+    or item->>'state' is distinct from 'reserved' or item->>'id' is distinct from ident or (item->>'edition_date')::date is distinct from d
     then raise exception 'RESERVATION_CONTRACT'; end if;
   if exists(select 1 from agriclimax_private.editorial_runs where state in ('reserved','running','outcome_unknown'))
     then raise exception 'UNRECONCILED_GENERATION'; end if;
@@ -124,10 +128,12 @@ begin
  elsif p_action='run_write' then
   item:=p_payload->'run'; actual:=nullif(item->>'actual_eur','')::numeric;
   select body into previous from agriclimax_private.editorial_runs where id=ident for update;
-  if previous is null or (previous->>'state' not in ('reserved','running') and previous<>item)
-    or item->>'id'<>ident or item->>'month'<>previous->>'month'
-    or item->>'edition_date'<>previous->>'edition_date'
-    or (item->>'reserved_eur')::numeric<>(previous->>'reserved_eur')::numeric
+  if previous is null or (previous->>'state' not in ('reserved','running') and previous<>item and not
+       (previous->>'state'=item->>'state' and previous-'archive_id'=item-'archive_id'
+        and item->>'archive_id' is not distinct from ident and exists(select 1 from agriclimax_private.editorial_archives where id=ident)))
+    or item->>'id' is distinct from ident or item->>'month' is distinct from previous->>'month'
+    or item->>'edition_date' is distinct from previous->>'edition_date'
+    or (item->>'reserved_eur')::numeric is distinct from (previous->>'reserved_eur')::numeric
     then raise exception 'INVALID_RUN_TRANSITION'; end if;
   update agriclimax_private.editorial_runs set state=item->>'state',actual_eur=actual,body=item,updated_at=now() where id=ident;
   return item;
@@ -136,28 +142,30 @@ begin
  elsif p_action='run_read' then
   select body into item from agriclimax_private.editorial_runs where id=ident; return item;
  elsif p_action='archive_read' then
-  select body into item from agriclimax_private.editorial_archives where id=ident; return item;
+  select to_jsonb(serialized) into item from agriclimax_private.editorial_archives where id=ident; return item;
  elsif p_action='archive_save' then
-  item:=p_payload->'archive';
+  item:=p_payload->'archive'; raw:=p_payload->>'archive_json';
+  if raw is null or raw::jsonb is distinct from item then raise exception 'ARCHIVE_SERIALIZATION'; end if;
   select * into s from agriclimax_private.editorial_snapshots where edition_date=(item->>'date')::date;
-  if item->>'edition_id'<>ident or item->>'mode'='simulation'
-    or item->'briefing'<>s.body->'briefing' then raise exception 'ARCHIVE_CONTRACT'; end if;
-  insert into agriclimax_private.editorial_archives(id,edition_date,checksum,body)
-   values(ident,(item->>'date')::date,item->>'checksum',item) on conflict(id) do nothing;
+  if s.id is null or item->>'edition_id' is distinct from ident or coalesce(item->>'mode','') not in ('live','fallback')
+    or item->'briefing' is distinct from s.body->'briefing' then raise exception 'ARCHIVE_CONTRACT'; end if;
+  insert into agriclimax_private.editorial_archives(id,edition_date,checksum,body,serialized)
+   values(ident,(item->>'date')::date,item->>'checksum',item,raw) on conflict(id) do nothing;
   select body into previous from agriclimax_private.editorial_archives where id=ident;
   if previous<>item then raise exception 'IMMUTABLE_ARCHIVE_CONFLICT'; end if;
-  return previous;
+  select to_jsonb(serialized) into item from agriclimax_private.editorial_archives where id=ident;
+  return item;
  elsif p_action='promote' then
   -- Caller verifies SHA and map bindings again after archive readback. SQL repeats status gates.
   perform pg_catalog.pg_advisory_xact_lock(360036);
   select body into item from agriclimax_private.editorial_archives where id=ident;
   select * into s from agriclimax_private.editorial_snapshots where edition_date=(item->>'date')::date;
   if not ctl.publication_enabled then raise exception 'PUBLICATION_DISABLED'; end if;
-  if item is null or item->>'checksum'<>p_payload->>'checksum'
+  if item is null or item->>'checksum' is distinct from p_payload->>'checksum'
     or item->>'mode' is distinct from 'live'
     or (item->>'status' is distinct from 'validated_automatically' and not
        (item->>'status'='needs_editorial_review' and length(coalesce(p_payload->>'reviewed_by',''))>=3))
-    or item->'validation'->>'status' not in ('validated_automatically','needs_editorial_review')
+    or coalesce(item->'validation'->>'status','') not in ('validated_automatically','needs_editorial_review')
     or jsonb_array_length(item->'validation'->'errors')<>0
     or not exists(select 1 from agriclimax_private.editorial_runs where id=ident and state='completed')
     then raise exception 'PUBLICATION_REJECTED'; end if;
@@ -165,7 +173,7 @@ begin
    values((item->>'date')::date,ident,s.id,p_payload->>'reviewed_by') on conflict(edition_date) do nothing;
   return jsonb_build_object('published',true,'id',ident);
  elsif p_action='published' then
-  select coalesce(jsonb_agg(a.body order by p.edition_date desc),'[]') into item
+  select coalesce(jsonb_agg(to_jsonb(a.serialized) order by p.edition_date desc),'[]') into item
    from agriclimax_private.editorial_publications p join agriclimax_private.editorial_archives a on a.id=p.archive_id;
   return item;
  elsif p_action='claim' then

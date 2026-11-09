@@ -11,7 +11,7 @@ import { adaptHistory, compareHistory, reconstructEpisodes, hash } from "../apps
 import { buildBriefing, briefingEvents, type BriefingInput, type NewsContext } from "../apps/web/features/editorial/briefing";
 import { parisDate } from "../apps/web/features/editorial/almanac";
 import { freezeSnapshot, verifySnapshot, cutoffUTC, selectCycles, modelFamily, POLICY, type Cycle, type DailyEditorialSnapshot } from "../apps/web/features/nightly/snapshot";
-import { editorialRPC, SupabaseEditorialStore, promoteEdition } from "../apps/web/features/editorial-ai/supabase-store";
+import { editorialRPC, SupabaseEditorialStore, promoteEdition, publishedEditions } from "../apps/web/features/editorial-ai/supabase-store";
 import { generate } from "../apps/web/features/editorial-ai/generate";
 import type { Archive } from "../apps/web/features/editorial-ai/model";
 import { liveConfig, shortContextLimit } from "../apps/web/features/editorial-ai/live-pricing";
@@ -27,7 +27,7 @@ async function prepare() {
   const began=performance.now();
   const now = new Date().toISOString();
   const cutoff = cutoffUTC(date);
-  const previous=command==="prepare-offline"?[]:await editorialRPC<Archive[]>("published");
+  const previous:Archive[]=command==="prepare-offline"?[]:await publishedEditions();
   const prior=previous.filter(a=>a.date<date).sort((a,b)=>b.date.localeCompare(a.date))[0];
   const previousTopicKeys=prior?.briefing.candidates.filter(c=>[prior.draft.main_candidate_id,...prior.draft.secondary_candidate_ids].includes(c.id)).map(c=>c.topic_key)??[];
   const catalogue = await archiveCatalogue();
@@ -126,7 +126,7 @@ async function main() {
   let snapshot = await editorialRPC<DailyEditorialSnapshot|null>("snapshot_read",{edition_date:date});
   if(!snapshot && ["prepare","run"].includes(command)) {
     snapshot=await prepare();
-    await editorialRPC("freeze",{edition_date:date,snapshot});
+    await editorialRPC("freeze",{edition_date:date,snapshot,snapshot_json:JSON.stringify(snapshot)});
     const restored=await editorialRPC<DailyEditorialSnapshot>("snapshot_read",{edition_date:date});
     verifySnapshot(restored);
     if(restored.id!==snapshot.id) throw Error("SNAPSHOT_READBACK");

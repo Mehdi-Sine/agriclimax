@@ -3,20 +3,20 @@
 > node features/observation/prepare-worker.mjs && next build
 
 ▲ Next.js 16.4.1 (Turbopack)
-✓ Running next.config.ts took 28ms
+✓ Running next.config.ts took 70ms
 - Experiments (use with caution):
   ⨯ useTypeScriptCli
 
   Creating an optimized production build ...
-✓ Compiled successfully in 7.7s
+✓ Compiled successfully in 2.6s
   Running TypeScript ...
-  Finished TypeScript in 26.3s ...
+  Finished TypeScript in 24.9s ...
   Collecting page data using 2 workers ...
   Generating static pages using 2 workers (0/41) ...
   Generating static pages using 2 workers (10/41)
   Generating static pages using 2 workers (20/41)
   Generating static pages using 2 workers (30/41)
-✓ Generating static pages using 2 workers (41/41) in 794ms
+✓ Generating static pages using 2 workers (41/41) in 677ms
 Turbopack build encountered 1 warning:
 ./apps/web/features/editorial-ai/archive.ts:73:17
 Warning: Dynamic filesystem access causes tracing of the whole project

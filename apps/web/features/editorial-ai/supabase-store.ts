@@ -17,7 +17,13 @@ export async function editorialRPC<T>(action: string, payload: unknown = {}): Pr
   if (!response.ok) throw Error("EDITORIAL_RPC_FAILED");
   const raw = await response.text();
   if (Buffer.byteLength(raw) > 16 * 1024 ** 2) throw Error("EDITORIAL_RESPONSE_BUDGET");
-  return JSON.parse(raw) as T;
+  const value:unknown=JSON.parse(raw);
+  // JSONB changes object key order. Immutable documents are transported as exact JSON text.
+  if(["snapshot_read","freeze","archive_read","archive_save"].includes(action))
+    return (typeof value==="string"?JSON.parse(value):value) as T;
+  if(action==="published" && Array.isArray(value))
+    return value.map(v=>typeof v==="string"?JSON.parse(v):v) as T;
+  return value as T;
 }
 export class SupabaseEditorialStore implements GenerationStore {
   constructor(readonly snapshotId: string) {}
@@ -34,7 +40,7 @@ export class SupabaseEditorialStore implements GenerationStore {
   }
   async save(archive: Archive) {
     verifyArchive(archive);
-    await editorialRPC("archive_save", { id: archive.edition_id, archive });
+    await editorialRPC("archive_save", { id: archive.edition_id, archive, archive_json:JSON.stringify(archive) });
     const restored = await this.read(archive.edition_id);
     if (!restored || restored.checksum !== archive.checksum) throw Error("ARCHIVE_READBACK_FAILED");
   }

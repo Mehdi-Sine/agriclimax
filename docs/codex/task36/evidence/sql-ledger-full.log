@@ -12,6 +12,7 @@ CREATE TABLE
 CREATE TABLE
 CREATE TABLE
 DO
+REVOKE
 GRANT
 CREATE FUNCTION
 REVOKE
@@ -31,6 +32,14 @@ DO
  {"id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "month": "2026-11", "scope": "daily", "state": "outcome_unknown", "actual_eur": null, "edition_date": "2026-11-09", "reserved_eur": 0.15}
 (1 row)
 
+RESET
+INSERT 0 1
+SET
+                                                                                                                                          agriclimax_editorial
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "month": "2026-11", "scope": "daily", "state": "outcome_unknown", "actual_eur": null, "archive_id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "edition_date": "2026-11-09", "reserved_eur": 0.15}
+(1 row)
+
 DO
 RESET
 SET
@@ -41,6 +50,11 @@ BEGIN
 UPDATE 1
 INSERT 0 34
 INSERT 0 33
+SET
+DO
+RESET
+ROLLBACK
+BEGIN
 SET
 DO
 RESET

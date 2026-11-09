@@ -7,8 +7,8 @@ container = sys.argv[1]
 base = ['docker','--host=unix:///var/run/docker.sock','exec','-i',container,'psql','-U','postgres','-v','ON_ERROR_STOP=1']
 setup = """
 update agriclimax_private.editorial_control set ai_enabled=true;
-insert into agriclimax_private.editorial_snapshots(edition_date,id,quality,frozen_at,body)
-values(current_date,repeat('a',64),'fresh',now(),'{}');
+insert into agriclimax_private.editorial_snapshots(edition_date,id,quality,frozen_at,body,serialized)
+values(current_date,repeat('a',64),'fresh',now(),'{}','{}');
 """
 subprocess.run(base, input=setup, text=True, check=True, capture_output=True)
 

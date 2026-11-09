@@ -24,7 +24,7 @@ localement, mais n’est pas déclaré opérationnel sans nuit distante.
 | Niveau | Résultat constaté |
 |---|---|
 | Implémenté | propriétaire nocturne, baux et cooldown, contrôle DB, sélection, gel, store SQL, archive/promotion, lecture Journal datée, verdicts et protocole |
-| Testé localement | 193 tests TypeScript, 4 tests Python de reprise, 47 tests station/daily, 24 tests qualité ; PostgreSQL 17 et deux connexions concurrentes ; build, typecheck, lint, actionlint, contrats, guards ; navigateur 6 combinaisons |
+| Testé localement | 196 tests TypeScript, 4 tests Python de reprise, 47 tests station/daily, 24 tests qualité ; PostgreSQL 17 et deux connexions concurrentes ; build, typecheck, lint, actionlint, contrats, guards ; navigateur 6 combinaisons |
 | DEV distant en lecture seule | catalogue réel, 4 cycles accessibles ; sélection du 8/11 pour édition 9/11 ; 15 jours ERA5, 10 695 lignes, 713 identités ; 12 faits T33 |
 | Vercel Preview distant | GET /journal/preview : HTTP 200, simulation explicitement marquée, aucune génération déclenchée ; ne valide pas le backend opérationnel |
 | DEV distant modifié | **aucun** : migration refusée par revue automatique ; aucun Cron/pg_net/Vault/dispatch installé |
@@ -67,7 +67,8 @@ Aucun response_id ni token réellement facturé. Source : `evidence/offline-budg
 Limites : archive SQL 2 Mio ; entrées compressées Storage 8 Mio ; baux 25 min,
 travail source 22 min, 8 tentatives et cooldown >= 30 min. Plafonds Actions : job
 acquisition 26 min / rédaction 25 min ; installation et files GitHub incluses dans
-le budget horaire à mesurer. Supabase Free constaté, stockage/quota réels après
+le budget horaire à mesurer. Supabase Free constaté ; taille DB lue sans mutation : 164 542 131 octets (~157 Mio).
+Le dépôt GitHub est public ; minutes réelles et stockage/quota après
 activation non mesurés. Les screenshots sont des previews existantes simulées,
 visiblement marquées ; ils ne représentent pas un premier article réel.
 

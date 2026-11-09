@@ -14,6 +14,11 @@ se termine **avant** HTTP. Un coût inconnu conserve toute la réservation. Les
 incohérences d’usage et interruptions nécessitent réconciliation manuelle, jamais
 un second appel automatique. Aucun remboursement supposé après timeout.
 
+Snapshots et archives conservent le **texte JSON exact**, vérifié contre la colonne
+jsonb utilisée pour les requêtes. jsonb réordonne les clés : recalculer directement
+les empreintes T33/T35 sur sa restitution serait incorrect. Les RPC rendent le
+texte exact, parsé et revérifié côté serveur (tests SQL et TypeScript dédiés).
+
 Les archives JSON restent immuables en Postgres (limite 2 Mio), avec vérification
 T35 et lecture retour ; Storage porte les entrées scientifiques compressées.
 Le manifeste de publication est séparé du texte original et promu atomiquement.
