@@ -66,6 +66,9 @@ do $$ declare t text; begin
   execute format('grant select,insert,update on agriclimax_private.%I to service_role',t);
  end loop;
 end $$;
+revoke update on agriclimax_private.editorial_snapshots,
+ agriclimax_private.editorial_archives, agriclimax_private.editorial_publications,
+ agriclimax_private.editorial_diagnostics from service_role;
 grant usage on schema agriclimax_private to service_role;
 
 create function public.agriclimax_editorial(p_action text,p_payload jsonb default '{}') returns jsonb

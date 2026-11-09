@@ -79,14 +79,7 @@ begin
   foreach t in array array['agriclimax_private.pra_climatology_releases'::regclass,
     'agriclimax_private.pra_climatology_support'::regclass,
     'agriclimax_private.pra_climatology_normals'::regclass,
-    'agriclimax_private.pra_climatology_daily'::regclass,
-    'agriclimax_private.editorial_control'::regclass,
-    'agriclimax_private.editorial_snapshots'::regclass,
-    'agriclimax_private.editorial_runs'::regclass,
-    'agriclimax_private.editorial_archives'::regclass,
-    'agriclimax_private.editorial_publications'::regclass,
-    'agriclimax_private.editorial_acquisitions'::regclass,
-    'agriclimax_private.editorial_diagnostics'::regclass] loop
+    'agriclimax_private.pra_climatology_daily'::regclass] loop
     if not (select relrowsecurity and relforcerowsecurity from pg_class where oid=t)
       or not has_table_privilege('service_role',t,'SELECT,INSERT')
       or has_table_privilege('service_role',t,'UPDATE,DELETE') then
