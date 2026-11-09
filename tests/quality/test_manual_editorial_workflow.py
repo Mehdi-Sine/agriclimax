@@ -1,4 +1,4 @@
-"""Policy guard: manual model GET only; paid jobs must never run on ephemeral CI."""
+"""Legacy filesystem trials stay blocked; shared DEV requires explicit owner authorization."""
 import unittest
 
 import yaml
@@ -37,3 +37,14 @@ class ManualEditorialWorkflowTest(unittest.TestCase):
         self.assertNotIn('uses', step)
         self.assertIn('EPHEMERAL_CI_GENERATION_DISABLED', step['run'])
         self.assertIn('exit 78', step['run'])
+
+    def test_shared_trial_is_owner_scoped_and_publication_disabled(self):
+        job = self.workflow['jobs']['shared-dev']
+        self.assertIn('github.actor == github.repository_owner',job['if'])
+        self.assertIn('codex/36-operational-ai-journal',job['if'])
+        self.assertEqual(job['environment'],'editorial-ai-dev')
+        step = next(s for s in job['steps'] if 'MODE' in s.get('env',{}))
+        self.assertEqual(step['env']['AGRICLIMAX_PUBLICATION_ENABLED'],'false')
+        self.assertIn("inputs.authorized_snapshot != ''",step['env']['AGRICLIMAX_AI_ENABLED'])
+        self.assertIn('qualify',step['run'])
+        self.assertIn('--authorize-snapshot',step['run'])

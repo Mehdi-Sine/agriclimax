@@ -64,6 +64,12 @@ class ArchiveStore:
         body: bytes | None = None,
         upsert: bool = False,
     ) -> bytes:
+        lease = os.environ.get("AGRICLIMAX_ACQUISITION_LEASE_TOKEN")
+        if method != "GET" and lease:
+            from task36_nightly import rpc
+            if rpc("lease_valid", {"edition_date": os.environ["AGRICLIMAX_ACQUISITION_DATE"],
+                                  "source": os.environ["AGRICLIMAX_ACQUISITION_SOURCE"], "token": lease}) is not True:
+                raise RuntimeError("ACQUISITION_LEASE_LOST")
         if self.read_only and method != "GET":
             raise RuntimeError("Read-only archive transport forbids remote mutations")
         if not re.fullmatch(r"[a-zA-Z0-9_./-]+", path) or ".." in path:

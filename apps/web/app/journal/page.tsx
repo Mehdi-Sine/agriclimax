@@ -1,3 +1,5 @@
+import { EditorialPreview } from "../../features/editorial-ai/preview";
+import { parisDate } from "../../features/editorial/almanac";
 import Link from "next/link";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
@@ -22,6 +24,7 @@ import { nationalWatch } from "../../lib/server/national-watch";
 import type { WatchSummary } from "../../features/national-watch/model";
 import "./journal.css";
 export const dynamic = "force-dynamic";
+export const metadata={robots:{index:false,follow:false}};
 async function EditionFigures({
   edition,
   references,
@@ -72,9 +75,20 @@ async function EditionFigures({
 async function JournalContent({
   searchParams,
 }: {
-  searchParams: Promise<{ run?: string }>;
+  searchParams: Promise<{ run?: string; date?: string;id?:string }>;
 }) {
-  const { run } = await searchParams;
+  const { run, date, id } = await searchParams;
+  if(!run) {
+    let editions;
+    try {
+      const { operationalEditions }=await import("../../lib/server/editorial-published");
+      editions=await operationalEditions();
+    } catch {
+      return <main className="journal"><h1>Le Journal agroclimatique</h1><p role="status">Lecture des archives momentanément indisponible.</p></main>;
+    }
+    const selected=date||id ? editions.find(e=>(!date||e.date===date)&&(!id||e.edition_id===id)) : editions[0];
+    return <>{!date && editions[0]?.date!==parisDate(new Date().toISOString()) && <p role="status">L’édition du jour est retardée. La dernière édition consultable conserve sa date réelle.</p>}<EditorialPreview edition={selected} editions={editions} published /></>;
+  }
   if (run !== undefined && !isJournalRun(run)) notFound();
   let edition: JournalEdition;
   try {
@@ -342,7 +356,7 @@ async function JournalContent({
 }
 
 export default function Page(props: {
-  searchParams: Promise<{ run?: string }>;
+  searchParams: Promise<{ run?: string; date?: string;id?:string }>;
 }) {
   return (
     <Suspense

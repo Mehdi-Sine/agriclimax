@@ -1,0 +1,97 @@
+{
+  "pra_count": 713,
+  "crozon": [
+    {
+      "pra_id": "pra:29102",
+      "variable": "temperature",
+      "value": 12.245730277967569,
+      "status": "available",
+      "quality_flags": [
+        "total_area_not_agricultural_area",
+        "exploratory",
+        "model_forecast_not_observation",
+        "utc_half_open_day_extrema",
+        "source_land_mask_unavailable",
+        "land_sea_representativeness_requires_qualification",
+        "publication_time_unknown",
+        "temperature_sampled_3h_not_continuous"
+      ],
+      "spatial_coverage": 1,
+      "temporal_coverage": 1
+    },
+    {
+      "pra_id": "pra:29102",
+      "variable": "temperature_min",
+      "value": 9.048623657226585,
+      "status": "available",
+      "quality_flags": [
+        "total_area_not_agricultural_area",
+        "exploratory",
+        "model_forecast_not_observation",
+        "utc_half_open_day_extrema",
+        "source_land_mask_unavailable",
+        "land_sea_representativeness_requires_qualification",
+        "publication_time_unknown",
+        "temperature_sampled_3h_not_continuous"
+      ],
+      "spatial_coverage": 1,
+      "temporal_coverage": 1
+    },
+    {
+      "pra_id": "pra:29102",
+      "variable": "temperature_max",
+      "value": 14.674371337890648,
+      "status": "available",
+      "quality_flags": [
+        "total_area_not_agricultural_area",
+        "exploratory",
+        "model_forecast_not_observation",
+        "utc_half_open_day_extrema",
+        "source_land_mask_unavailable",
+        "land_sea_representativeness_requires_qualification",
+        "publication_time_unknown",
+        "temperature_sampled_3h_not_continuous"
+      ],
+      "spatial_coverage": 1,
+      "temporal_coverage": 1
+    },
+    {
+      "pra_id": "pra:29102",
+      "variable": "precipitation",
+      "value": 12.330044866641488,
+      "status": "available",
+      "quality_flags": [
+        "total_area_not_agricultural_area",
+        "exploratory",
+        "model_forecast_not_observation",
+        "utc_half_open_day_extrema",
+        "source_land_mask_unavailable",
+        "land_sea_representativeness_requires_qualification",
+        "publication_time_unknown",
+        "native_24h_interval_verified",
+        "negative_source_precipitation_invalid_null_not_clamped"
+      ],
+      "spatial_coverage": 1,
+      "temporal_coverage": 1
+    },
+    {
+      "pra_id": "pra:29102",
+      "variable": "humidity",
+      "value": 81.79527371601287,
+      "status": "available",
+      "quality_flags": [
+        "total_area_not_agricultural_area",
+        "exploratory",
+        "model_forecast_not_observation",
+        "utc_half_open_day_extrema",
+        "source_land_mask_unavailable",
+        "land_sea_representativeness_requires_qualification",
+        "publication_time_unknown",
+        "native_relative_humidity_percent",
+        "out_of_range_samples_invalid_null_not_clamped"
+      ],
+      "spatial_coverage": 1,
+      "temporal_coverage": 1
+    }
+  ]
+}

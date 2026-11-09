@@ -1,0 +1,21 @@
+BEGIN
+UPDATE 1
+INSERT 0 1
+SET
+                                                                                             agriclimax_editorial
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "month": "2026-11", "scope": "daily", "state": "reserved", "actual_eur": null, "edition_date": "2026-11-09", "reserved_eur": 0.15}
+(1 row)
+
+DO
+                                                                                                 agriclimax_editorial
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "month": "2026-11", "scope": "daily", "state": "outcome_unknown", "actual_eur": null, "edition_date": "2026-11-09", "reserved_eur": 0.15}
+(1 row)
+
+DO
+RESET
+SET
+DO
+RESET
+ROLLBACK

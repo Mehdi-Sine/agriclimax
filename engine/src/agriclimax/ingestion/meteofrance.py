@@ -52,6 +52,15 @@ class MeteoFranceAccessError(FatalProviderError):
     """Safe message names the required variable and HTTP status, never its value."""
 
 
+class MeteoFranceTransportError(RuntimeError):
+    """Safe status/cooldown metadata, no URL, key or upstream response body."""
+
+    def __init__(self, status: int, retry_after: str = "") -> None:
+        super().__init__(f"MeteoFrance HTTP {status}")
+        self.http_status = status
+        self.retry_after = retry_after[:128]
+
+
 class NoRedirect(HTTPRedirectHandler):
     def redirect_request(
         self, req: Request, fp: IO[bytes], code: int, msg: str, headers: HTTPMessage, newurl: str
@@ -107,10 +116,11 @@ class MeteoFranceClient:
                     raise MeteoFranceAccessError(
                         f"{self.variable}: HTTP {error.code}; subscription {self.prefix} required"
                     ) from None
-                if error.code not in {408, 429, 500, 502, 503, 504} or attempt == 2:
-                    raise RuntimeError(f"MeteoFrance HTTP {error.code}") from None
                 delay = error.headers.get("Retry-After", "") if error.headers else ""
-                self.sleep(min(float(delay), 30) if delay.isdigit() else 2**attempt)
+                if (error.code not in {408, 429, 500, 502, 503, 504} or attempt == 2
+                    or delay and (not delay.isdigit() or int(delay) > 30)):
+                    raise MeteoFranceTransportError(error.code, delay) from None
+                self.sleep(max(float(delay or 0), 2**attempt))
             except (URLError, TimeoutError, OSError):
                 if attempt == 2:
                     raise RuntimeError("MeteoFrance network unavailable") from None
@@ -276,7 +286,7 @@ class MeteoFranceProvider:
                 if station not in self.archives and station not in self.failures:
                     try:
                         self.archives[station] = self.archive(station)
-                    except MeteoFranceAccessError:
+                    except (MeteoFranceAccessError, MeteoFranceTransportError):
                         raise
                     except RuntimeError:
                         self.failures.add(station)
@@ -319,7 +329,7 @@ class MeteoFranceProvider:
                             "format": "json",
                         },
                     )
-                except MeteoFranceAccessError:
+                except (MeteoFranceAccessError, MeteoFranceTransportError):
                     raise
                 except RuntimeError:
                     self.failures.add(station)

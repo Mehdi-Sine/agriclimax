@@ -8,8 +8,6 @@ on:
       to:
         description: Last UTC date (inclusive)
         type: string
-  schedule:
-    - cron: '20 6 * * *'
 permissions:
   contents: read
 concurrency:

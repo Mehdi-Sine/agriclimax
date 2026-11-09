@@ -3,6 +3,7 @@ import schema from "../../../../contracts/jsonschema/editorial-draft-1.schema.js
 import places from "../../data/operational/pra-watch-places.json";
 import { assertBriefing } from "../editorial/validate";
 import { hash } from "../editorial/temporal";
+import {numericTokens,unsupportedFrenchDate,unqualifiedAssertion} from "./scientific-language";
 import {
   allBlocks,
   type EditorialDraft,
@@ -128,9 +129,9 @@ export function validateDraft(
       .map((f) => `${f.text} ${f.value} ${f.period.join(" ")}`)
       .join(" ")
       .replace(/,/g, ".");
-    const numbers = normalized.match(/-?\d+(?:\.\d+)?/g) ?? [];
-    const allowedNumbers = new Set(allowed.match(/-?\d+(?:\.\d+)?/g) ?? []);
-    if (numbers.some((n) => !allowedNumbers.has(n)))
+    const numbers = numericTokens(normalized);
+    const allowedNumbers = new Set(numericTokens(allowed));
+    if (numbers.some((n) => !allowedNumbers.has(n))||unsupportedFrenchDate(text,allowed))
       errors.push("TEXT_NUMBER_OR_DATE");
     const citedCandidates = b.candidates.filter((c) =>
       c.evidence_ids.some((id) => block.evidence_ids.includes(id)),
@@ -148,9 +149,7 @@ export function validateDraft(
     if (/\bpra[:\s-]*\d+/i.test(text))
       errors.push("TEXT_PRA_REQUIRES_EXPLICIT_PROOF");
     if (
-      /(?:caus[eé]|entra[iî]n|provoqu|perte de rendement|dommages? agricoles?|mortalit[eé]|maladie|ont sem[eé]|sont en floraison|vendanges? (?:achev|r[eé]alis)|risque (?:[a-zà-ÿ]+ )?(?:agronomique|[eé]lev[eé]))/i.test(
-        text,
-      )
+      unqualifiedAssertion(text,/(?:caus[eé]|entra[iî]n|provoqu|perte de rendement|dommages? agricoles?|mortalit[eé]|maladie|ont sem[eé]|sont en floraison|vendanges? (?:achev|r[eé]alis)|risque (?:[a-zà-ÿ]+ )?(?:agronomique|[eé]lev[eé]))/i)
     )
       errors.push("UNPROVEN_AGRONOMY");
     if (
@@ -166,7 +165,7 @@ export function validateDraft(
       errors.push("DOCUMENTARY_CONFIRMATION");
     if (
       citedCandidates.some((c) => c.nature === "forecast") &&
-      /(?:observ[eé]|a [eé]t[eé] mesur[eé])/i.test(text)
+      unqualifiedAssertion(text,/(?:observ[eé]|a [eé]t[eé] mesur[eé])/i)
     )
       errors.push("FORECAST_AS_OBSERVATION");
     if (
@@ -185,10 +184,10 @@ export function validateDraft(
         text,
       )
     )
-      errors.push("SEASON_AS_OBSERVATION");
+      {if(block.kind==="fact"||(/semis|r[eé]colte|vendange|floraison|mise [aà] l.herbe/i.test(text)&&unqualifiedAssertion(text,/(?:sont|est|ont [eé]t[eé]).{0,20}(?:termin|achev|r[eé]alis|commenc|en cours|en floraison)/i))) errors.push("SEASON_AS_OBSERVATION");else review.add("SEASONAL_CONTEXT_REVIEW");}
     if (
-      (text.includes("°C") && !fs.some((f) => f?.unit.includes("°C"))) ||
-      (/\bmm(?:\/j)?\b/.test(text) && !fs.some((f) => f?.unit.includes("mm")))
+      (text.includes("°C") && !fs.some((f) => f?.unit.includes("°C")||f?.text.includes("°C"))) ||
+      (/\bmm(?:\/j)?\b/.test(text) && !fs.some((f) => f?.unit.includes("mm")||/\bmm(?:\/j)?\b/.test(f?.text??"")))
     )
       errors.push("TEXT_UNIT");
     // Exact source text can be verified deterministically. New prose always requires editorial review.

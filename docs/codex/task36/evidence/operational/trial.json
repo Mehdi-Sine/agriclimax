@@ -1,0 +1,13 @@
+{
+  "workflow_run": 42646091222,
+  "commit": "5e42ebf",
+  "openai_response_received": true,
+  "workflow_conclusion": "failure",
+  "failure_reason": "DRAFT_REJECTED",
+  "new_provider_calls": 1,
+  "additional_calls_during_recovery": 0,
+  "original_http400_preserved": true,
+  "financial_gates_active": false,
+  "scientific_validator_changed": false,
+  "publications": 0
+}

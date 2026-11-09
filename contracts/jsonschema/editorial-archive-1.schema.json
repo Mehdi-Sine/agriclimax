@@ -1999,7 +1999,10 @@
               "type": "string"
             },
             "usage": {
-              "type": "object",
+              "type": [
+                "object",
+                "null"
+              ],
               "additionalProperties": false,
               "required": [
                 "input_tokens",
@@ -2022,7 +2025,10 @@
               }
             },
             "cost_eur": {
-              "type": "number",
+              "type": [
+                "number",
+                "null"
+              ],
               "minimum": 0
             },
             "duration_ms": {

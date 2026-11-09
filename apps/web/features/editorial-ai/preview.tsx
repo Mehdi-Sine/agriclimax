@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { Archive, Block } from "./model";
+import type {ConsultableEdition} from "./consultable";
 import { frenchDate } from "../journal/ui/stories";
-import { editorialText, frenchPeriod } from "../journal/ui/editorial-dates";
+import { editorialText, frenchPeriod, frenchCycle } from "../journal/ui/editorial-dates";
 import JournalPraMap from "../journal/ui/pra-map";
 function Text({ block }: { block: Block }) {
   return (
@@ -21,11 +22,19 @@ function Text({ block }: { block: Block }) {
 export function EditorialPreview({
   edition: a,
   editions,
+  published = false,
+  personalStatus,
 }: {
-  edition: Archive | undefined;
-  editions: Archive[];
+  edition: Archive|ConsultableEdition|undefined;
+  editions: (Archive|ConsultableEdition)[];
+  published?: boolean;
+  personalStatus?: string;
 }) {
   const d = a?.draft;
+  const cycles=[...new Set(a?.briefing.national.facts.flatMap(f=>{try{const cycle=new URL(f.href,"https://agriclimax.invalid").searchParams.get("cycle");return cycle&&Number.isFinite(Date.parse(cycle))?[cycle]:[];}catch{return [];}})??[])];
+  const base=personalStatus?"/journal/personnel":published?"/journal":"/journal/preview";
+  const api=personalStatus?"/api/journal/personnel":published?"/api/journal/edition":"/api/journal-preview";
+  const mapApi=personalStatus?"/api/journal/personnel/map":published?"/api/journal/edition-map":"/api/journal-preview/map";
   return (
     <main className="journal">
       <header className="masthead">
@@ -33,7 +42,7 @@ export function EditorialPreview({
           <span>
             {a ? `ÉDITION DU ${frenchDate(a.date)}` : "ARCHIVES DU JOURNAL"}
           </span>
-          <span>France métropolitaine & Corse · Preview expérimentale</span>
+          <span>France métropolitaine & Corse · {personalStatus ? "Espace personnel" : published ? "Journal IA" : "Preview expérimentale"}</span>
         </div>
         <div className="masthead-title">
           <Link href="/journal">
@@ -54,8 +63,8 @@ export function EditorialPreview({
         </nav>
       </header>
       <section className="editorial-note" aria-label="Archives">
-        <h2>Les éditions en Preview</h2>
-        <form action="/journal/preview">
+        <h2>{personalStatus ? "Vos brouillons IA archivés" : published ? "Les éditions archivées" : "Les éditions en Preview"}</h2>
+        <form action={base}>
           <label htmlFor="edition-date">Choisir une date </label>
           <input
             id="edition-date"
@@ -68,7 +77,7 @@ export function EditorialPreview({
         <nav aria-label="Éditions archivées">
           {editions.map((e) => (
             <p key={e.edition_id}>
-              <Link href={`/journal/preview?date=${e.date}&id=${e.edition_id}`}>
+              <Link href={`${base}?date=${e.date}&id=${e.edition_id}`}>
                 {frenchDate(e.date)} · Révision {e.revision}
               </Link>
             </p>
@@ -77,7 +86,7 @@ export function EditorialPreview({
       </section>
       {!a || !d ? (
         <section className="empty-story">
-          <h1>Aucune édition archivée à cette date</h1>
+          <h1>{personalStatus?"Aucun brouillon IA vérifié à cette date":"Aucune édition archivée à cette date"}</h1>
           <p>Choisissez une édition disponible dans les archives.</p>
         </section>
       ) : (
@@ -89,10 +98,14 @@ export function EditorialPreview({
                 : a.mode === "fallback"
                   ? "ÉDITION DE SECOURS · Rédaction déterministe."
                   : "Rédigé avec assistance IA."}{" "}
-              Revue éditoriale requise. Archive historique : ne décrit pas la
-              situation actuelle.
+              {personalStatus ? personalStatus : published ? "Édition expérimentale — contenu IA non entièrement vérifié" : "Revue éditoriale requise. Archive historique : ne décrit pas la situation actuelle."}
             </p>
           </aside>
+          {published&&<details className="editorial-note"><summary>Réserves scientifiques de cette édition</summary>
+            <p>Consultable ne signifie pas scientifiquement validée ou approuvée.</p>
+            <p>Contrôles enregistrés : {a.validation.errors.join(" · ")||"aucune erreur détectée"}.</p>
+            {"assessment" in a&&<p>Réexamen actuel : {[...a.assessment.errors,...a.assessment.review].join(" · ")||"aucune réserve automatique"}.</p>}
+          </details>}
           <section className="front-page" aria-labelledby="headline">
             <div className="hero-copy">
               <p className="eyebrow">À LA UNE · FRANCE</p>
@@ -111,7 +124,7 @@ export function EditorialPreview({
                     phenomenon={m.phenomenon}
                     period={m.period}
                     source={m.data.source}
-                    archiveUrl={`/api/journal-preview/map?id=${a.edition_id}&map=${m.id}`}
+                    archiveUrl={`${mapApi}?id=${a.edition_id}&map=${m.id}`}
                   />
                 ))
             ) : (
@@ -119,9 +132,8 @@ export function EditorialPreview({
                 <p className="eyebrow">LA CARTE DU DOSSIER</p>
                 <h2>Aucune carte compatible archivée</h2>
                 <p>
-                  Les preuves de ce replay historique ne contiennent pas de
-                  carte qualifiée pour cette période. Aucune carte actuelle ne
-                  leur est substituée.
+                  Aucune carte compatible n’a été archivée pour cette édition.
+                  Aucune carte actuelle ne lui est substituée.
                 </p>
               </aside>
             )}
@@ -240,6 +252,8 @@ export function EditorialPreview({
           <footer id="sources">
             <p className="eyebrow">LA RIGUEUR DERRIÈRE LE RÉCIT</p>
             <h2>Sources & méthodes</h2>
+            {cycles.length>0&&<p>Cycles de prévision : {cycles.map(frenchCycle).join(" · ")}.</p>}
+            <p>Historique disponible jusqu’au {frenchDate(a.briefing.validity.history_cutoff)}. Prévisions : {frenchPeriod(a.briefing.validity.forecast_period?.[0]??a.date,a.briefing.validity.forecast_period?.[1]??a.date)}.</p>
             {d.limitations.map((b, i) => (
               <Text key={i} block={b} />
             ))}
@@ -255,7 +269,7 @@ export function EditorialPreview({
               </p>
               <p>
                 Dossier {a.briefing.bundle_id} · {a.generated_at} UTC ·{" "}
-                {a.prompt_version}
+                {"prompt_version" in a?a.prompt_version:"Archive éditoriale consultable"}
               </p>
               <ol>
                 {a.briefing.national.facts.map((f) => (
@@ -273,7 +287,7 @@ export function EditorialPreview({
                   {w.title} — {w.question} Contexte théorique, à vérifier.
                 </p>
               ))}
-              <Link href={`/api/journal-preview?id=${a.edition_id}`}>
+              <Link href={`${api}?id=${a.edition_id}`}>
                 Archive JSON et preuves de cette édition
               </Link>
             </details>

@@ -1,13 +1,13 @@
 import 'server-only';
 import geography from '../../data/operational/pra-watch-places.json';
-import {nationalWeatherDocument} from './weather-archives';
+import {nationalWeatherDocument,type NationalWeatherDocument} from './weather-archives';
 import {datasets,sources} from './agriculture-index';
 import {detectQualifiedNational,packMetrics,PHENOMENA,WATCH_VERSION,type Place,type WatchSummary,type ProductionPresence} from '../../features/national-watch/model';
 import {PRODUCTIONS} from '../../features/national-watch/productions';
 import {PALETTE_VERSION} from '../../features/cartography/registry';
 const cache=new Map<string,Promise<WatchSummary>>();
-export async function nationalWatch(requestedRun?:string):Promise<WatchSummary>{
- const document=await nationalWeatherDocument(requestedRun);
+export async function nationalWatch(requestedRun?:string,pinned?:NationalWeatherDocument):Promise<WatchSummary>{
+ const document=pinned??await nationalWeatherDocument(requestedRun);
  if(!document)throw new Error('NO_VERIFIED_NATIONAL_CYCLE');
  const source=document.archive_sha256;
  const identity=`${source}/${WATCH_VERSION}/${PALETTE_VERSION}/${sources.find(s=>s.source_id.includes('rpg'))?.sha256??'rpg-2025'}`;

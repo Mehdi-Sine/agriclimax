@@ -60,10 +60,10 @@ export function currentManifest():Promise<CurrentManifest|null>{
  currentCache={expires:Date.now()+60000,value};void value.catch(()=>{if(currentCache?.value===value)currentCache=undefined;});return value;
 }
 export async function archiveBlob(e:ArchiveEntry):Promise<Uint8Array>{const raw=await storage(e.path,8*1024**2);if(!raw||raw.length!==e.bytes||createHash('sha256').update(raw).digest('hex')!==e.sha256)throw new Error('ARCHIVE_CHECKSUM');return raw;}
-export async function nationalWeatherDocument(requestedRun?:string):Promise<NationalWeatherDocument|null>{
+export async function nationalWeatherDocument(requestedRun?:string, expectedSha?:string):Promise<NationalWeatherDocument|null>{
   const current=requestedRun?null:await currentManifest();
   const catalogue=current??await archiveCatalogue();
-  const latest=catalogue?.weather.filter(e=>e.method_version==='pra-national-weather-daily-1'&&(!requestedRun||(requestedRun.includes('T')?Date.parse(e.run_at??e.run_date+'T00:00:00Z')===Date.parse(requestedRun):e.run_date===requestedRun))&&typeof e.run_date==='string'&&isCalendarDate(e.run_date)).sort((a,b)=>(b.run_at??b.run_date!).localeCompare(a.run_at??a.run_date!))[0];
+  const latest=catalogue?.weather.filter(e=>e.method_version==='pra-national-weather-daily-1'&&(!expectedSha||e.sha256===expectedSha)&&(!requestedRun||(requestedRun.includes('T')?Date.parse(e.run_at??e.run_date+'T00:00:00Z')===Date.parse(requestedRun):e.run_date===requestedRun))&&typeof e.run_date==='string'&&isCalendarDate(e.run_date)).sort((a,b)=>(b.run_at??b.run_date!).localeCompare(a.run_at??a.run_date!))[0];
   if(!latest)return null;
   if(cycleCache?.sha===latest.sha256)return cycleCache.value;
   const value=(async()=>{
@@ -102,10 +102,10 @@ async function exactRecords(e:ArchiveEntry):Promise<JsonRecord[]>{
   if(exactCache.size>=3)exactCache.delete(exactCache.keys().next().value!);
   exactCache.set(e.sha256,promise);void promise.catch(()=>{if(exactCache.get(e.sha256)===promise)exactCache.delete(e.sha256);});return promise;
 }
-export async function archivedEra5Day(date:string):Promise<ArchivedDaily[]|null>{
+export async function archivedEra5Day(date:string, pinnedEntry?:ArchiveEntry):Promise<ArchivedDaily[]|null>{
   if(!isCalendarDate(date))throw new Error('ARCHIVE_DATE');
-  const current=await currentManifest();
-  const e=current?.era5.find(e=>e.dates.includes(date))??(await archiveCatalogue())?.era5.find(e=>e.dates.includes(date));if(!e)return null;
+  const current=pinnedEntry?null:await currentManifest();
+  const e=pinnedEntry??current?.era5.find(e=>e.dates.includes(date))??(await archiveCatalogue())?.era5.find(e=>e.dates.includes(date));if(!e)return null;
   const rows:ArchivedDaily[]=[];
   for(const output of await exactRecords(e)){
     for(const row of output.daily as unknown[])if(record(row)&&row.valid_date===date){

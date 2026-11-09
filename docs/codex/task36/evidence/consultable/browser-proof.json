@@ -1,0 +1,40 @@
+[
+  {
+    "device": "desktop",
+    "status": 200,
+    "no_auth": true,
+    "real_title": true,
+    "lead": true,
+    "experimental_notice": true,
+    "recorded_five_alerts": true,
+    "visible_reserves": true,
+    "consultable": true,
+    "scientifically_validated": false,
+    "private_metadata_absent": true,
+    "historical_cycles": true,
+    "historic_maps": 0,
+    "noindex": true,
+    "horizontal_overflow": false,
+    "date_navigation": true,
+    "no_current_map_substitution": true
+  },
+  {
+    "device": "mobile",
+    "status": 200,
+    "no_auth": true,
+    "real_title": true,
+    "lead": true,
+    "experimental_notice": true,
+    "recorded_five_alerts": true,
+    "visible_reserves": true,
+    "consultable": true,
+    "scientifically_validated": false,
+    "private_metadata_absent": true,
+    "historical_cycles": true,
+    "historic_maps": 0,
+    "noindex": true,
+    "horizontal_overflow": false,
+    "date_navigation": true,
+    "no_current_map_substitution": true
+  }
+]

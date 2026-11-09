@@ -3,30 +3,50 @@ import schema from "../../../../contracts/jsonschema/editorial-draft-1.schema.js
 import type { AIConfig } from "./config";
 import type { Usage } from "./model";
 import { INSTRUCTIONS } from "./prompt";
+import {randomUUID} from "node:crypto";
+import {auditSchema, rejectionReason, sha256} from "./request-audit";
+export interface RequestMetadata {client_request_id:string;request_sha256:string;schema_sha256:string;model:string;max_output_tokens:number;started_at:string}
 export interface ProviderResult {
   draft: unknown;
   model: string;
   response_id: string;
-  usage: Usage;
+  usage: Usage|null;
 }
 export type Provider = (
   payload: string,
   config: AIConfig,
+  context?: {beforeRequest:(metadata:RequestMetadata)=>Promise<void>;usageOptional?:boolean},
 ) => Promise<ProviderResult>;
+export interface HTTPDiagnostic {status:number;code:string|null;type:string|null;param:string|null;request_id:string|null;client_request_id:string;reason:string;schema_context:string[]|null}
 export class ProviderFailure extends Error {
   constructor(
     public code: string,
     public ambiguous = true,
     public evidence?: ProviderResult,
+    public diagnostic?: HTTPDiagnostic,
   ) {
     super(code);
   }
+}
+/** Wire-only normalization: keep const/enum semantics while supplying explicit scalar types. */
+export function providerSchema<T>(value:T):T {
+  if(Array.isArray(value)) return value.map(providerSchema) as T;
+  if(value===null||typeof value!=="object") return value;
+  const object=Object.fromEntries(Object.entries(value).map(([k,v])=>[k,providerSchema(v)]));
+  if("const" in object) {object.enum=[object.const];delete object.const;}
+  if(!("type" in object)&&Array.isArray(object.enum)&&object.enum.length) {
+    const types=[...new Set(object.enum.map(v=>v===null?"null":typeof v))];
+    if(types.length===1&&["string","number","boolean","null"].includes(types[0])) object.type=types[0];
+  }
+  return object as T;
 }
 export function requestBody(payload: string, c: AIConfig) {
   // Official Responses API, strict structured output, no tools and no implicit retries.
   const { $schema: dialect, title, ...outputSchema } = schema;
   void dialect;
   void title;
+  const normalized=providerSchema(outputSchema);
+  auditSchema(normalized);
   return {
     model: c.model,
     store: false,
@@ -45,7 +65,7 @@ export function requestBody(payload: string, c: AIConfig) {
         type: "json_schema",
         name: "EditorialDraft",
         strict: true,
-        schema: outputSchema,
+        schema: normalized,
       },
     },
   };
@@ -61,7 +81,9 @@ export function openAIProvider(
   key: string,
   transport: typeof fetch = fetch,
 ): Provider {
-  return async (payload, c) => {
+  return async (payload, c, context) => {
+    const body=requestBody(payload,c), serialized=JSON.stringify(body), clientRequestId=randomUUID();
+    await context?.beforeRequest({client_request_id:clientRequestId,request_sha256:sha256(serialized),schema_sha256:sha256(JSON.stringify(body.text.format.schema)),model:c.model,max_output_tokens:c.max_output_tokens,started_at:new Date().toISOString()});
     let response: Response;
     try {
       response = await transport("https://api.openai.com/v1/responses", {
@@ -70,15 +92,25 @@ export function openAIProvider(
         headers: {
           Authorization: `Bearer ${key}`,
           "Content-Type": "application/json",
+          "X-Client-Request-Id": clientRequestId,
         },
-        body: JSON.stringify(requestBody(payload, c)),
+        body: serialized,
         signal: AbortSignal.timeout(c.timeout_ms),
       });
     } catch {
       throw new ProviderFailure("PROVIDER_TIMEOUT_OR_TRANSPORT");
     }
-    if (!response.ok)
-      throw new ProviderFailure(`PROVIDER_HTTP_${response.status}`);
+    if (!response.ok) {
+      let error:Record<string,unknown>={};
+      try {const body:unknown=await response.json();
+        if(body&&typeof body==="object"&&"error" in body&&body.error&&typeof body.error==="object") error=body.error as Record<string,unknown>;
+      } catch { /* No raw body or credential-bearing provider message enters diagnostics. */ }
+      const safe=(v:unknown)=>typeof v==="string"&&/^[a-zA-Z0-9_.\[\]-]{1,160}$/.test(v)&&!/^sk[-_]|bearer/i.test(v)&&(!key||!v.includes(key))?v:null;
+      throw new ProviderFailure(`PROVIDER_HTTP_${response.status}`,true,undefined,{
+        status:response.status,code:safe(error.code),type:safe(error.type),param:safe(error.param),request_id:safe(response.headers.get("x-request-id")),
+        client_request_id:clientRequestId,...rejectionReason(error.message,body.text.format.schema),
+      });
+    }
     let data: {
       status?: string;
       id?: string;
@@ -132,15 +164,15 @@ export function openAIProvider(
       );
     if (content.some((c) => c.type === "refusal"))
       throw new ProviderFailure("PROVIDER_REFUSAL", true, evidence);
-    if (texts.length !== 1 || !data.id || !data.model || !data.usage)
+    if (texts.length !== 1 || !data.id || !data.model || (!data.usage&&!context?.usageOptional))
       throw new ProviderFailure("PROVIDER_MISSING_METADATA", true, evidence);
-    if (!validUsage) throw new ProviderFailure("PROVIDER_INVALID_USAGE");
+    if (!validUsage&&!context?.usageOptional) throw new ProviderFailure("PROVIDER_INVALID_USAGE");
     try {
       return {
         draft: JSON.parse(texts[0].text!),
         model: data.model,
         response_id: data.id,
-        usage: usage!,
+        usage: validUsage?usage!:null,
       };
     } catch {
       throw new ProviderFailure("PROVIDER_MALFORMED", true, evidence);

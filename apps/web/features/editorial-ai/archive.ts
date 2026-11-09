@@ -41,6 +41,18 @@ export interface Run {
   error: string | null;
   archive_id: string | null;
 }
+type MaybePromise<T> = T | Promise<T>;
+/** Shared generation boundary; network calls never hold a SQL transaction. */
+export interface GenerationStore {
+  lock(): MaybePromise<() => MaybePromise<void>>;
+  readRun(id: string): MaybePromise<Run | null>;
+  read(id: string): MaybePromise<Archive | null>;
+  runs(): MaybePromise<Run[]>;
+  writeRun(run: Run): MaybePromise<void>;
+  diagnostic(id: string, value: unknown): MaybePromise<void>;
+  save(archive: Archive): MaybePromise<void>;
+  reserveAtomic?(run: Run): Promise<void>;
+}
 const ajv = new Ajv({ strict: true });
 addFormats(ajv);
 const archiveCheck = ajv.compile<Archive>(archiveSchema);
@@ -154,7 +166,7 @@ export class EditorialStore {
 export function sealArchive(a: Omit<Archive, "checksum">): Archive {
   return { ...a, checksum: hash(a) };
 }
-export function verifyArchive(value: unknown): asserts value is Archive {
+export function verifyArchive(value: unknown,revalidate=true): asserts value is Archive {
   if (!archiveCheck(value)) throw Error("ARCHIVE_CONTRACT");
   const a = value;
   const { checksum, ...body } = a;
@@ -180,10 +192,10 @@ export function verifyArchive(value: unknown): asserts value is Archive {
   if (a.status !== a.validation.status && a.status !== "draft")
     throw Error("ARCHIVE_STATUS");
   const v = validateDraft(a.draft, a.briefing, a.illustrations);
-  if (
+  if (revalidate && (
     a.validation.status !== v.status ||
     JSON.stringify(a.validation.errors) !== JSON.stringify(v.errors)
-  )
+  ))
     throw Error("ARCHIVE_VALIDATION");
   if (a.illustrations.some((i) => hash(i.data) !== i.sha256))
     throw Error("ARCHIVE_MAP_INTEGRITY");

@@ -356,7 +356,7 @@ it("an incomplete paid response preserves actual usage but never retries automat
   };
   const a = await generate(options);
   expect(a.mode).toBe("fallback");
-  expect(a.receipt?.usage.output_tokens).toBe(6000);
+  expect(a.receipt?.usage?.output_tokens).toBe(6000);
   expect(a.receipt?.cost_eur).toBeGreaterThan(0);
   expect(store.runs()[0].state).toBe("outcome_unknown");
   await generate(options);

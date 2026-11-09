@@ -12,6 +12,8 @@ def export(root: Path, destination: Path) -> dict[str, object]:
     if not report_path.exists():
         return {"exported": False, "reason": "no_run_report"}
     report = json.loads(report_path.read_text())
+    if not report.get("date"):
+        return {"exported": False, "reason": "no_new_archive_day"}
     day = report["date"]
     if not isinstance(day, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", day):
         raise ValueError("Reviewed checkpoint date required")

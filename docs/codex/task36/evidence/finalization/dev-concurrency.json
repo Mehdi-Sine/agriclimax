@@ -1,0 +1,46 @@
+{
+  "concurrent_lock_contention_verified": true,
+  "paid_calls": 0,
+  "observations": [
+    {
+      "financial_lock_available": true,
+      "runs": 0,
+      "control": {
+        "singleton": true,
+        "ai_enabled": false,
+        "acquisition_enabled": false,
+        "publication_enabled": false
+      }
+    },
+    {
+      "financial_lock_available": true,
+      "runs": 0,
+      "control": {
+        "singleton": true,
+        "ai_enabled": false,
+        "acquisition_enabled": false,
+        "publication_enabled": false
+      }
+    },
+    {
+      "financial_lock_available": true,
+      "runs": 0,
+      "control": {
+        "singleton": true,
+        "ai_enabled": false,
+        "acquisition_enabled": false,
+        "publication_enabled": false
+      }
+    },
+    {
+      "financial_lock_available": false,
+      "runs": 0,
+      "control": {
+        "singleton": true,
+        "ai_enabled": false,
+        "acquisition_enabled": false,
+        "publication_enabled": false
+      }
+    }
+  ]
+}

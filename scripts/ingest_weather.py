@@ -6,7 +6,12 @@ from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
 from agriclimax.ingestion.climatology import percentiles
-from agriclimax.ingestion.meteofrance import MVP_STATIONS, MeteoFranceProvider
+from agriclimax.ingestion.meteofrance import (
+    MVP_STATIONS,
+    MeteoFranceAccessError,
+    MeteoFranceProvider,
+    MeteoFranceTransportError,
+)
 from agriclimax.ingestion.pipeline import run
 from agriclimax.ingestion.providers import (
     DemoWeatherProvider,
@@ -19,6 +24,15 @@ from agriclimax.ingestion.storage import (
     atomic_write,
 )
 from agriclimax.ingestion.supabase import SupabaseStationRepository
+
+
+def record_source_failure(root: Path, error: Exception) -> None:
+    """Only safe supplier metadata, never an exception body, header set or credential."""
+    value: dict[str, object] = {"error_type": type(error).__name__,
+                               "permanent_auth_failure": isinstance(error, MeteoFranceAccessError)}
+    if isinstance(error, MeteoFranceTransportError):
+        value.update(http_status=error.http_status, retry_after=error.retry_after)
+    atomic_write(root / "source-failure.json", json.dumps(value).encode())
 
 
 def main() -> int:
@@ -80,6 +94,7 @@ def main() -> int:
                 None if args.dry_run else SupabaseStationRepository(live.stations)
             )
         except (FatalProviderError, ValueError, RuntimeError) as error:
+            record_source_failure(args.root, error)
             print(
                 str(error)
             )  # Adapter errors are intentionally safe, never upstream bodies.
@@ -95,6 +110,7 @@ def main() -> int:
             max_age=timedelta(hours=args.max_age_hours),
         )
     except FatalProviderError as error:
+        record_source_failure(args.root, error)
         print(str(error))
         return 1
     if (

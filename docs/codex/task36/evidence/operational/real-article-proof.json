@@ -1,0 +1,21 @@
+{
+  "id": "dc7d8613160ff4eb03533d49a17c52911c39d60cf268b68a2d8f9f14b2c0ea08",
+  "date": "2026-11-09",
+  "checksum": "e1f6d85baaa74237ff9d94be5b97dd4f2234f4969f2773ecc63e6f4a03cfa4da",
+  "response_id": "resp_08b02fb3b0d429b7016af1e83df37487d1ac9933f11573aacd",
+  "usage": {
+    "input_tokens": 14845,
+    "output_tokens": 1689,
+    "reasoning_tokens": 44
+  },
+  "cost_estimate_eur": 0.025619,
+  "scientific_status": "rejected",
+  "errors": [
+    "SEASON_AS_OBSERVATION",
+    "TEXT_NUMBER_OR_DATE",
+    "UNPROVEN_AGRONOMY",
+    "TEXT_UNIT",
+    "FORECAST_AS_OBSERVATION"
+  ],
+  "provider_calls_during_archive": 0
+}

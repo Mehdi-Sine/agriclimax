@@ -9,7 +9,8 @@ on:
         description: Last UTC archive date (default yesterday, with seven-day correction window)
         type: string
   schedule:
-    - cron: '40 7 * * *'
+    - cron: '45 2 * * *'
+      timezone: Europe/Paris
 permissions:
   contents: read
 concurrency:
@@ -18,7 +19,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   daily:
-    if: github.event_name == 'workflow_dispatch' || vars.AGRICLIMAX_DAILY_ENABLED == 'true'
+    if: vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && (github.event_name == 'workflow_dispatch' || (vars.AGRICLIMAX_DAILY_ENABLED == 'true' && vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true'))
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:

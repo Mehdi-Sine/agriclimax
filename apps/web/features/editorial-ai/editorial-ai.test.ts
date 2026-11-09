@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { mkdtempSync, rmSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdtempSync, rmSync, readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import example from "../../../../docs/codex/task33/evidence/briefing-example.json";
@@ -48,6 +48,29 @@ const result = (): ProviderResult => ({
   model: "test-model",
   response_id: "test-response",
   usage: { input_tokens: 200, output_tokens: 300, reasoning_tokens: 20 },
+});
+describe("request correlation, archive and conservative HTTP failure accounting",()=>{
+  it("persists correlation before transport and retains successful tokens/text in the verified archive",async()=>{
+    const s=store();
+    const fetcher=vi.fn().mockImplementation(async()=>{
+      const diagnostics=readdirSync(join(s.root,"diagnostics")).map(f=>JSON.parse(readFileSync(join(s.root,"diagnostics",f),"utf8")));
+      expect(diagnostics.some(v=>v.kind==="provider_request"&&v.run_id&&v.metadata.client_request_id)).toBe(true);
+      return Response.json({status:"completed",id:"resp_synthetic",model:"test-model",usage:{input_tokens:200,output_tokens:300,output_tokens_details:{reasoning_tokens:20}},output:[{type:"message",content:[{type:"output_text",text:JSON.stringify(d())}]}]});
+    });
+    const archive=await generate({briefing:b,config:config(),store:s,mode:"live",provider:openAIProvider("synthetic-only",fetcher)});
+    expect(fetcher).toHaveBeenCalledTimes(1);expect(archive.mode).toBe("live");expect(archive.receipt?.usage).toEqual({input_tokens:200,output_tokens:300,reasoning_tokens:20});
+    expect(archive.receipt?.cost_eur).toBe(.0017);expect(s.read(archive.edition_id)?.draft).toEqual(d());expect(s.readRun(archive.edition_id)?.state).toBe("completed");
+  });
+  it("archives only a fallback on HTTP rejection and keeps its reservation plus sanitized correlated diagnostics",async()=>{
+    const s=store(),fetcher=vi.fn().mockResolvedValue(Response.json({error:{code:"invalid_json_schema",param:"text.format.schema",message:"In context=('properties', 'article', 'items'), 'type' is required. sk-sensitive-fixture"}},{status:400,headers:{"x-request-id":"req_synthetic"}}));
+    const archive=await generate({briefing:b,config:config(),store:s,mode:"live",provider:openAIProvider("synthetic-only",fetcher)});
+    const run=s.readRun(archive.edition_id)!;
+    expect(run.state).toBe("outcome_unknown");expect(run.actual_eur).toBeNull();expect(run.reserved_eur).toBeGreaterThan(0);expect(archive.mode).toBe("fallback");expect(archive.receipt).toBeNull();
+    const diagnostics=readdirSync(join(s.root,"diagnostics")).map(f=>JSON.parse(readFileSync(join(s.root,"diagnostics",f),"utf8")));
+    const request=diagnostics.find(v=>v.kind==="provider_request"),failure=diagnostics.find(v=>v.kind==="provider_http_error");
+    expect(failure.run_id).toBe(run.id);expect(failure.diagnostic.client_request_id).toBe(request.metadata.client_request_id);expect(failure.diagnostic.reason).toBe("SCHEMA_TYPE_REQUIRED");
+    expect(JSON.stringify(diagnostics)).not.toContain("sk-sensitive-fixture");expect(fetcher).toHaveBeenCalledTimes(1);
+  });
 });
 describe("independent checks across the entire rendered edition", () => {
   it("accepts the real T33 replay with explicit semantic review", () =>
@@ -254,7 +277,7 @@ describe("single paid request and durable spending controls", () => {
     expect((await generate(o)).checksum).toBe(a.checksum);
     expect(provider).toHaveBeenCalledTimes(1);
     expect(s.runs()[0].actual_eur).toBe(cost(200, 300, config().pricing));
-    expect(a.receipt?.usage.reasoning_tokens).toBe(20);
+    expect(a.receipt?.usage?.reasoning_tokens).toBe(20);
   });
   it("blocks concurrent callers before provider invocation", async () => {
     const s = store();
