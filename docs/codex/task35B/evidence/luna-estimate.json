@@ -1,0 +1,19 @@
+{
+  "model": "gpt-6-luna",
+  "month": "2026-11",
+  "pricing_version": "openai-editorial-pricing-2026-11-09",
+  "input_bytes": 82167,
+  "input_token_upper_bound": 100552,
+  "max_output_tokens": 6000,
+  "reserved_eur": 0.014361,
+  "edition_cap_eur": 0.15,
+  "monthly_cap_eur": 5,
+  "accounted_month_eur": null,
+  "available_month_eur": null,
+  "blockers": [],
+  "allowed": false,
+  "financial_state": "not_read_offline_estimate_only",
+  "bundle_id": "20dbb0cf1ead680f6f95ea86224907066efd63c27511915a4f707c1ce5fe1ac6",
+  "project_access": "not_checked",
+  "generation_calls": 0
+}

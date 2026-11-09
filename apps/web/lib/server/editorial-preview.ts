@@ -6,12 +6,18 @@ import {
   readArchives,
   verifyArchive,
 } from "../../features/editorial-ai/archive";
+import { previewApproved } from "../../features/editorial-ai/preview-approval";
 import type { Archive } from "../../features/editorial-ai/model";
 let cache: Archive[] | undefined;
 // Explicit frozen manifest, exact byte decoding. No provider/generator in any read path.
 export function previewEditions(): Archive[] {
   const local = process.env.AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR;
-  if (local) return readArchives(local).filter((a) => a.status !== "rejected");
+  if (local)
+    return readArchives(local).filter(
+      (a) =>
+        a.status !== "rejected" &&
+        (a.mode !== "live" || previewApproved(local, a)),
+    );
   if (!cache) {
     if (manifest.version !== "editorial-preview-pack-1")
       throw Error("PREVIEW_PACK_VERSION");

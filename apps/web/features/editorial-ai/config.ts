@@ -7,6 +7,7 @@ export interface Pricing {
   verified_at: string;
 }
 export interface AIConfig {
+  request_profile?: "gpt6-standard-explicit-cache";
   enabled: boolean;
   model: string;
   max_output_tokens: number;
@@ -74,9 +75,14 @@ export function checkConfig(c: AIConfig) {
   if (
     !Number.isInteger(c.max_output_tokens) ||
     c.max_output_tokens > 16000 ||
+    c.max_output_tokens <= 0 ||
+    ![c.monthly_budget_eur, c.max_edition_eur, c.timeout_ms].every(
+      Number.isFinite,
+    ) ||
     c.monthly_budget_eur > 5 ||
     c.monthly_budget_eur <= 0 ||
     c.max_edition_eur <= 0 ||
+    c.max_edition_eur > 0.15 ||
     c.timeout_ms <= 0 ||
     [c.pricing.input_eur_per_million, c.pricing.output_eur_per_million].some(
       (v) => !Number.isFinite(v) || v <= 0,

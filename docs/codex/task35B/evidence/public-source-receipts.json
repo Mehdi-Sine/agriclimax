@@ -1,0 +1,31 @@
+{
+  "verified_at": "2026-11-09",
+  "generation_calls": 0,
+  "project_access_checked": false,
+  "sources": {
+    "terra-model": {
+      "url": "https://developers.openai.com/api/docs/models/gpt-6.1-terra.md",
+      "sha256": "6a73b3e2e941fbe3813636d5bd2d653ff190e49cc3692eaf8daa3bb125c877f8"
+    },
+    "luna-model": {
+      "url": "https://developers.openai.com/api/docs/models/gpt-6-luna.md",
+      "sha256": "e3578e39ea91fde7045e386ba3863fa621dbf9a31d44e0cd569b74822721223b"
+    },
+    "api-pricing": {
+      "url": "https://developers.openai.com/api/docs/pricing.md",
+      "sha256": "f1ade44afc62fd8a12dd6e199bcecaa989a94c9b691aa620a34e1504ff62ff57"
+    },
+    "prompt-caching": {
+      "url": "https://developers.openai.com/api/docs/guides/prompt-caching.md",
+      "sha256": "58b38fa712a1bb7bdbc53b5357408903fb668dca82d141e5cacf92e672986487"
+    },
+    "structured-outputs": {
+      "url": "https://developers.openai.com/api/docs/guides/structured-outputs.md",
+      "sha256": "dcd211d602a85c8573033559384424d6ebc86af73a844e752822ed868d82032b"
+    },
+    "ecb": {
+      "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+      "sha256": "84cba0d3dcc8f88bf78af2141786404ae391d545eac5c37f9dc67af9a7c9d615"
+    }
+  }
+}

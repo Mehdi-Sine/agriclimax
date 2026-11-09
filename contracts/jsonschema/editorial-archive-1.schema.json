@@ -2058,6 +2058,9 @@
           "type": "integer",
           "minimum": 1,
           "maximum": 16000
+        },
+        "request_profile": {
+          "const": "gpt6-standard-explicit-cache"
         }
       }
     },

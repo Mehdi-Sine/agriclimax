@@ -88,7 +88,11 @@ export interface Archive {
   validation: Validation;
   receipt: Receipt | null;
   prompt_sha256: string;
-  parameters: { model: string; max_output_tokens: number };
+  parameters: {
+    model: string;
+    max_output_tokens: number;
+    request_profile?: "gpt6-standard-explicit-cache";
+  };
   checksum: string;
 }
 export const allBlocks = (d: EditorialDraft): Block[] => [

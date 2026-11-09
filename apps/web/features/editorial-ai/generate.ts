@@ -13,7 +13,8 @@ import { checkConfig, cost, type AIConfig } from "./config";
 import { EditorialStore, sealArchive, type Run } from "./archive";
 import { validateDraft, assertDraft } from "./validate";
 import { fallbackDraft } from "./fallback";
-import { inputTokenBound, ProviderFailure, type Provider } from "./provider";
+import { ProviderFailure, type Provider } from "./provider";
+import { BudgetRefusal, budgetReport, editorialPayload } from "./budget";
 import { INSTRUCTIONS } from "./prompt";
 export interface GenerateOptions {
   briefing: EditorialBriefingBundle;
@@ -90,13 +91,7 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
     }
     const now = o.now ?? new Date().toISOString(),
       month = now.slice(0, 7);
-    const payload = JSON.stringify({
-      briefing: b,
-      illustrations: assets.map(({ data, ...a }) => {
-        void data;
-        return a;
-      }),
-    });
+    const payload = editorialPayload(b, assets);
     const run: Run = {
       edition_date: b.edition_date,
       scope: o.experiment?.id ?? "daily",
@@ -118,11 +113,8 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
         )
       )
         throw Error("UNRECONCILED_GENERATION");
-      const bound = cost(
-        inputTokenBound(payload, c),
-        c.max_output_tokens,
-        c.pricing,
-      );
+      const report = budgetReport(payload, c, runs, now);
+      const bound = report.reserved_eur;
       if (o.experiment) {
         const spent = runs
           .filter((r) => r.month === month && r.scope === o.experiment!.id)
@@ -141,7 +133,7 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
         run.state = "budget_exceeded";
         run.error = "BUDGET_EXCEEDED";
         o.store.writeRun(run);
-        throw Error("BUDGET_EXCEEDED");
+        throw new BudgetRefusal(report);
       }
       run.state = "reserved";
       run.reserved_eur = bound;
@@ -188,6 +180,36 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
           error instanceof ProviderFailure
             ? error.code
             : "PROVIDER_OUTCOME_REQUIRES_RECONCILIATION";
+        if (error instanceof ProviderFailure && error.evidence) {
+          const e = error.evidence;
+          const accounted = cost(
+            e.usage.input_tokens,
+            e.usage.output_tokens,
+            c.pricing,
+          );
+          if (
+            e.model === c.model &&
+            Object.values(e.usage).every(
+              (v) => Number.isSafeInteger(v) && v >= 0,
+            ) &&
+            accounted <= run.reserved_eur
+          ) {
+            receipt = {
+              model: e.model,
+              response_id: e.response_id,
+              usage: e.usage,
+              cost_eur: accounted,
+              duration_ms: Math.round(performance.now() - started),
+              pricing_version: c.pricing.version,
+            };
+            run.actual_eur = accounted;
+          }
+          o.store.diagnostic(id, {
+            provider_error: run.error,
+            evidence: e,
+            receipt,
+          });
+        }
         o.store.writeRun(run);
         draft = fallbackDraft(b);
         mode = "fallback";
@@ -222,7 +244,11 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
       validation,
       receipt,
       prompt_sha256: hash(INSTRUCTIONS),
-      parameters: { model: c.model, max_output_tokens: c.max_output_tokens },
+      parameters: {
+        model: c.model,
+        max_output_tokens: c.max_output_tokens,
+        ...(c.request_profile ? { request_profile: c.request_profile } : {}),
+      },
     });
     o.store.save(archive);
     if (!["outcome_unknown", "validation_failed"].includes(run.state))

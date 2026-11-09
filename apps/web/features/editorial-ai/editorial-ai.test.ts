@@ -25,7 +25,7 @@ const config = (): AIConfig => ({
   ...readConfig({}),
   enabled: true,
   model: "test-model",
-  max_edition_eur: 1,
+  max_edition_eur: 0.15,
   pricing: {
     version: "test-eur-1",
     model: "test-model",
