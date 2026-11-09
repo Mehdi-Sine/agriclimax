@@ -51,7 +51,7 @@ explicitement arrêtée. Aucune nuit complète mesurée ; disponibilité à obse
 
 ## Recette locale de la version prête à déployer
 
-571 tests TypeScript passés, 7 ignorés ; cinq tests Python de reprise, tests SQL
+572 tests TypeScript passés, 7 ignorés ; cinq tests Python de reprise, tests SQL
 avec concurrence, lint/typecheck/build réussis. `/journal` et la navigation datée
 rendent le texte réel sur desktop/mobile sans authentification, sans débordement,
 avec réserve expérimentale, cinq contrôles historiques dépliables et noindex.
@@ -71,3 +71,5 @@ et notices scientifiques séparées, sans approbation matinale. Aucun cron, acqu
 ou appel IA quotidien n’est activé. Le domaine normal doit encore recevoir ce déploiement.
 
 L’intégration Vercel a été découverte comme disponible mais non installée ; elle a été proposée pour permettre une promotion autorisée. Sans raccordement confirmé, la promotion Production reste une action propriétaire. La copie de secours réutilise le pack gzip/base64 des archives historiques pour garantir les nombres exacts.
+
+Un relancement automatique sur le vrai dossier du jour a renvoyé already_consultable, sans clé OpenAI, sans nouvelle admission et avec paid_calls=0. Le mode qualif du workflow existant exécute aussi le passage sans IA. Une lecture limitée à la copie retenue est signalée distinctement pour vérifier le raccordement quotidien partagé.

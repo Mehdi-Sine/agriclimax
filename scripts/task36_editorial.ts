@@ -152,6 +152,11 @@ async function main() {
   }
   if(command!=="run") throw Error("UNKNOWN_NIGHTLY_COMMAND");
   if(process.env.AGRICLIMAX_AI_ENABLED!=="true") {output({status:"data_ready_ai_disabled",snapshot_id:snapshot.id,quality:snapshot.quality,paid_calls:0});return;}
+  if(!process.argv.includes("--authorize-snapshot")) {
+    const {operationalEditions}=await import("../apps/web/lib/server/editorial-published");
+    const existing=(await operationalEditions()).find(a=>a.date===date);
+    if(existing){output({status:"already_consultable",id:existing.edition_id,checksum:existing.checksum,paid_calls:0});return;}
+  }
   const authorized=process.argv.indexOf("--authorize-snapshot");
   if(authorized>=0&&process.argv[authorized+1]!==snapshot.id) throw Error("EXACT_SNAPSHOT_AUTHORIZATION_REQUIRED");
   const key=process.env.OPENAI_API_KEY;

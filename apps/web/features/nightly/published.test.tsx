@@ -38,12 +38,13 @@ describe("published read path (synthetic manifest)",()=>{
   expect(e.headers.get("etag")).toBe(`"${a.content_sha256}"`);
   expect((await editionGET(new Request(`http://local/api/journal/edition?id=${a.edition_id}`,{headers:{"if-none-match":e.headers.get("etag")!}}))).status).toBe(304);
  });
- it("opens the selected historical archive ID, preserving its own map cycle",async()=>{
+ it("opens the historical archive ID without substituting the latest edition's map",async()=>{
   const editions=publicFixtures();vi.mocked(operationalEditions).mockResolvedValue(editions);
   const old=editions[1];
   const stream=await renderToReadableStream(<Page searchParams={Promise.resolve({id:old.edition_id})}/>);await stream.allReady;
   const html=await new Response(stream).text();
-  expect(html).toContain(`data-cycle="${old.illustrations[0].cycle}"`);
+  expect(html).toContain("ÉDITION DU 30 octobre 2026");
+  expect(html).toContain("Aucune carte compatible archivée");
   expect(html).not.toContain(`data-cycle="${editions[0].illustrations[0].cycle}"`);
  });
  it("health identifies a delayed edition instead of inventing today",async()=>{

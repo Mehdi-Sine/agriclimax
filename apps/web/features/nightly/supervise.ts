@@ -38,6 +38,7 @@ export async function supervise() {
       }
       const response=await fetch(new URL("/api/journal/availability",url),{cache:"no-store",redirect:"error",signal:AbortSignal.timeout(10000),headers});
       const data:unknown=await response.json();
+      if(data&&typeof data==="object"&&"storage" in data&&data.storage!=="shared_archive") notices.push("RETAINED_COPY_SHARED_ARCHIVE_NOT_REACHED");
       const page=await fetch(new URL("/journal",url),{cache:"no-store",redirect:"error",signal:AbortSignal.timeout(10000),headers});
       const expected=edition;
       pageStatus=response.ok&&page.ok&&!!expected&&typeof data==="object"&&data!==null&&"checksum" in data&&data.checksum===expected.checksum?"verified":"unavailable";
