@@ -21,7 +21,7 @@ export async function editorialRPC<T>(action: string, payload: unknown = {}): Pr
   // JSONB changes object key order. Immutable documents are transported as exact JSON text.
   if(["snapshot_read","freeze","archive_read","archive_save"].includes(action))
     return (typeof value==="string"?JSON.parse(value):value) as T;
-  if(action==="published" && Array.isArray(value))
+  if(["published","private_editions"].includes(action) && Array.isArray(value))
     return value.map(v=>typeof v==="string"?JSON.parse(v):v) as T;
   return value as T;
 }
@@ -55,11 +55,11 @@ export async function publishedEditions(): Promise<Archive[]> {
   editions.forEach(verifyArchive);
   return editions;
 }
-export async function promoteEdition(id: string, review?: {checksum:string;reviewer:string}) {
+export async function promoteEdition(id: string) {
   const a = await new SupabaseEditorialStore("").read(id);
-  if (!a || a.mode !== "live" || (a.status !== "validated_automatically" && !(a.status === "needs_editorial_review" && review?.checksum === a.checksum && review.reviewer.trim().length >= 3))) throw Error("PUBLICATION_REJECTED");
+  if (!a || a.mode !== "live" || !["validated_automatically","needs_editorial_review"].includes(a.status)) throw Error("PUBLICATION_REJECTED");
   if (a.illustrations.some(i => !a.briefing.national.facts.some(f => i.evidence_ids.includes(f.id)) ||
     !a.briefing.national.facts.filter(f => i.evidence_ids.includes(f.id)).every(f => f.period[0] >= i.period[0] && f.period[1] <= i.period[1])))
     throw Error("PUBLICATION_MAP_BINDING");
-  return editorialRPC("promote", { id, checksum: a.checksum, reviewed_by:review?.reviewer??null });
+  return editorialRPC("promote", { id, checksum: a.checksum });
 }

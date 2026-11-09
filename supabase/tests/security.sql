@@ -54,7 +54,7 @@ begin
   select count(*) into n from pg_class c join pg_namespace s on s.oid=c.relnamespace
     where s.nspname in ('public','agriclimax_private') and c.relkind='r'
       and c.relname <> 'spatial_ref_sys' and c.relrowsecurity and c.relforcerowsecurity;
-  if n <> 41 then raise exception 'Expected 41 RLS tables, got %', n; end if;
+  if n <> 42 then raise exception 'Expected 42 RLS tables, got %', n; end if;
   foreach t in array array['public.risk_results'::regclass, 'public.grid_cells'::regclass,
     'agriclimax_private.observations'::regclass, 'agriclimax_private.rule_versions'::regclass,
     'agriclimax_private.parameter_versions'::regclass, 'agriclimax_private.run_manifests'::regclass,
@@ -70,7 +70,8 @@ begin
     'agriclimax_private.editorial_archives'::regclass,
     'agriclimax_private.editorial_publications'::regclass,
     'agriclimax_private.editorial_acquisitions'::regclass,
-    'agriclimax_private.editorial_diagnostics'::regclass] loop
+    'agriclimax_private.editorial_diagnostics'::regclass,
+    'agriclimax_private.editorial_reviews'::regclass] loop
     if has_table_privilege('anon', t, 'SELECT,INSERT,UPDATE,DELETE')
       or has_table_privilege('authenticated', t, 'SELECT,INSERT,UPDATE,DELETE') then
       raise exception 'Client table privilege leak: %', t;

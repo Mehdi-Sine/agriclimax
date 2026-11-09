@@ -15,9 +15,17 @@ on:
     inputs:
       stage:
         type: choice
-        options: [acquire, prepare, preflight, run, report]
+        options: [acquire, prepare, preflight, qualify, run, report]
         default: report
         description: Explicit operational stage; run may make one reserved paid call
+      authorized_snapshot:
+        type: string
+        description: Exact frozen snapshot ID authorizing one manual paid trial, maximum EUR 0.15
+        required: false
+      model:
+        type: choice
+        options: [gpt-6.1-terra, gpt-6-luna]
+        default: gpt-6.1-terra
 permissions:
   contents: read
   actions: read
@@ -26,7 +34,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   plan:
-    if: vars.AGRICLIMAX_NIGHTLY_ENABLED == 'true' && vars.AGRICLIMAX_NIGHTLY_KILL_SWITCH != 'true'
+    if: (github.event_name == 'workflow_dispatch' && github.actor == github.repository_owner) || (github.event_name == 'schedule' && vars.AGRICLIMAX_NIGHTLY_ENABLED == 'true' && vars.AGRICLIMAX_NIGHTLY_KILL_SWITCH != 'true')
     runs-on: ubuntu-latest
     outputs:
       stage: ${{ steps.clock.outputs.stage }}
@@ -43,6 +51,25 @@ jobs:
           stage=os.environ.get('REQUESTED_STAGE') or ('acquire' if '02:15'<=now<'05:25' else 'run' if '05:40'<=now<'06:30' else 'report')
           with open(os.environ['GITHUB_OUTPUT'],'a') as f: f.write('stage='+stage+'\n')
           PY
+      - name: Repository acquisition bindings and switches, metadata only
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          METEOFRANCE_CLIMATOLOGY_API_KEY: ${{ secrets.METEOFRANCE_CLIMATOLOGY_API_KEY }}
+          METEOFRANCE_OBSERVATIONS_API_KEY: ${{ secrets.METEOFRANCE_OBSERVATIONS_API_KEY }}
+          METEOFRANCE_AROME_API_KEY: ${{ secrets.METEOFRANCE_AROME_API_KEY }}
+          METEOFRANCE_ARPEGE_API_KEY: ${{ secrets.METEOFRANCE_ARPEGE_API_KEY }}
+          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
+          NIGHTLY_ENABLED: ${{ vars.AGRICLIMAX_NIGHTLY_ENABLED }}
+          NIGHTLY_KILL_SWITCH: ${{ vars.AGRICLIMAX_NIGHTLY_KILL_SWITCH }}
+          AI_ENABLED: ${{ vars.AGRICLIMAX_AI_ENABLED }}
+          PUBLICATION_ENABLED: ${{ vars.AGRICLIMAX_PUBLICATION_ENABLED }}
+        run: |
+          python - <<'PYTHON'
+          import os,json
+          names=['NEXT_PUBLIC_SUPABASE_URL','SUPABASE_SECRET_KEY','METEOFRANCE_CLIMATOLOGY_API_KEY','METEOFRANCE_OBSERVATIONS_API_KEY','METEOFRANCE_AROME_API_KEY','METEOFRANCE_ARPEGE_API_KEY','CDSAPI_KEY']
+          print(json.dumps({'repository_bindings_present':{n:bool(os.environ.get(n)) for n in names},'switches':{n:os.environ.get(n)=='true' for n in ['NIGHTLY_ENABLED','NIGHTLY_KILL_SWITCH','AI_ENABLED','PUBLICATION_ENABLED']}}))
+          PYTHON
   acquire:
     needs: plan
     if: needs.plan.outputs.stage == 'acquire'
@@ -119,16 +146,20 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          AGRICLIMAX_AI_ENABLED: ${{ vars.AGRICLIMAX_AI_ENABLED }}
-          AGRICLIMAX_PUBLICATION_ENABLED: ${{ vars.AGRICLIMAX_PUBLICATION_ENABLED }}
-          AGRICLIMAX_EDITORIAL_MODEL: ${{ vars.AGRICLIMAX_EDITORIAL_MODEL || 'gpt-6-luna' }}
+          AGRICLIMAX_AI_ENABLED: ${{ github.event_name == 'workflow_dispatch' && inputs.stage == 'run' && inputs.authorized_snapshot != '' && 'true' || vars.AGRICLIMAX_AI_ENABLED }}
+          AGRICLIMAX_PUBLICATION_ENABLED: ${{ github.event_name == 'schedule' && vars.AGRICLIMAX_PUBLICATION_ENABLED || 'false' }}
+          AGRICLIMAX_EDITORIAL_MODEL: ${{ inputs.model || vars.AGRICLIMAX_EDITORIAL_MODEL || 'gpt-6-luna' }}
           AGRICLIMAX_JOURNAL_HEALTH_URL: ${{ vars.AGRICLIMAX_JOURNAL_HEALTH_URL }}
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
           STAGE: ${{ needs.plan.outputs.stage }}
-        run: pnpm editorial:nightly "$STAGE"
+          AUTHORIZED_SNAPSHOT: ${{ inputs.authorized_snapshot }}
+        run: |
+          args=("$STAGE")
+          if [[ -n "$AUTHORIZED_SNAPSHOT" ]]; then args+=(--authorize-snapshot "$AUTHORIZED_SNAPSHOT"); fi
+          pnpm editorial:nightly "${args[@]}"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: t36-editorial-${{ github.run_id }}
-          path: work/task36/*.json
+          path: work/task36/receipt.json
           retention-days: 21

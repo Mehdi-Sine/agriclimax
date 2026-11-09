@@ -22,7 +22,14 @@ const command = process.argv[2] ?? "preflight";
 const date = parisDate(new Date().toISOString());
 const out = "work/task36";
 mkdirSync(out,{recursive:true});
-function output(value: unknown) { writeFileSync(join(out,command+".json"),JSON.stringify(value,null,2)+"\n"); console.log(JSON.stringify(value)); }
+function output(value: unknown) {
+  writeFileSync(join(out,command+".json"),JSON.stringify(value,null,2)+"\n");
+  const result=value as Record<string,unknown>;
+  const receipt={command,status:result.status??result.quality??"completed",edition_id:result.id??null,snapshot_id:result.snapshot_id??null};
+  writeFileSync(join(out,"receipt.json"),JSON.stringify(receipt));
+  // Detailed operational reports remain in the private Supabase diagnostic store.
+  console.log(JSON.stringify(command==="report"?receipt:value));
+}
 async function prepare() {
   const began=performance.now();
   const now = new Date().toISOString();
@@ -116,15 +123,19 @@ async function prepare() {
 }
 async function main() {
   if(command==="report") { output(await supervise()); return; }
-  if(command==="promote") { const i=process.argv.indexOf("--review-checksum"), r=process.argv.indexOf("--reviewer");
-    output(await promoteEdition(process.argv[3]??"",i>=0 && r>=0 ? {checksum:process.argv[i+1],reviewer:process.argv[r+1]}:undefined)); return; }
+  if(command==="promote") { output(await promoteEdition(process.argv[3]??"")); return; }
+  if(command==="approve"||command==="reject") {
+    const i=process.argv.indexOf("--review-checksum"),r=process.argv.indexOf("--reviewer");
+    if(i<0||r<0) throw Error("EXPLICIT_EDITORIAL_REVIEW_REQUIRED");
+    output(await editorialRPC("review",{id:process.argv[3],checksum:process.argv[i+1],reviewer:process.argv[r+1],decision:command==="approve"?"approved":"rejected"}));return;
+  }
   if(command==="prepare-offline") {
     // Real remote archive reads, local snapshot only: no financial, schema or publication mutation.
     const snapshot=await prepare();
     output(snapshot); return;
   }
   let snapshot = await editorialRPC<DailyEditorialSnapshot|null>("snapshot_read",{edition_date:date});
-  if(!snapshot && ["prepare","run"].includes(command)) {
+  if(!snapshot && ["prepare","run","qualify"].includes(command)) {
     snapshot=await prepare();
     await editorialRPC("freeze",{edition_date:date,snapshot,snapshot_json:JSON.stringify(snapshot)});
     const restored=await editorialRPC<DailyEditorialSnapshot>("snapshot_read",{edition_date:date});
@@ -139,9 +150,14 @@ async function main() {
   const store = new SupabaseEditorialStore(snapshot.id);
   const report = budgetReport(editorialPayload(snapshot.briefing),config,await store.runs());
   if(report.input_token_upper_bound>shortContextLimit(config.model)) throw Error("UNQUALIFIED_LONG_CONTEXT_PRICING");
-  if(command==="preflight") { output({snapshot_id:snapshot.id,...report,api_key_present:!!process.env.OPENAI_API_KEY}); return; }
+  if(command==="preflight"||command==="qualify") {
+    output({snapshot_id:snapshot.id,quality:snapshot.quality,facts:snapshot.briefing.national.facts.length,...report,
+      api_key_present:!!process.env.OPENAI_API_KEY,control:await editorialRPC("control"),paid_calls:0});return;
+  }
   if(command!=="run") throw Error("UNKNOWN_NIGHTLY_COMMAND");
-  if(process.env.AGRICLIMAX_AI_ENABLED!=="true") throw Error("AI_DISABLED");
+  if(process.env.AGRICLIMAX_AI_ENABLED!=="true") {output({status:"data_ready_ai_disabled",snapshot_id:snapshot.id,quality:snapshot.quality,paid_calls:0});return;}
+  const authorized=process.argv.indexOf("--authorize-snapshot");
+  if(authorized>=0&&process.argv[authorized+1]!==snapshot.id) throw Error("EXACT_SNAPSHOT_AUTHORIZATION_REQUIRED");
   const key=process.env.OPENAI_API_KEY;
   if(!key) throw Error("OPENAI_API_KEY_MISSING");
   await verifyModel(key,config.model);

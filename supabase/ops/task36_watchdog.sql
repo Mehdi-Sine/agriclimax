@@ -1,7 +1,6 @@
 -- Light supervisor, with no scientific calculation and no OpenAI access.
 -- Vault token is an Actions:write fine-grained token scoped to this repository.
-create extension if not exists pg_cron;
-create extension if not exists pg_net with schema extensions;
+-- Prerequisites pg_cron / pg_net are installed separately; Vault already exists.
 create function agriclimax_private.editorial_watchdog() returns jsonb
 language plpgsql security invoker set search_path='' as $$
 declare
@@ -20,8 +19,8 @@ begin
  if exists(select 1 from agriclimax_private.editorial_acquisitions where edition_date=d and state='running' and lease_until<now()) then alerts:=alerts||'"workflow_stalled"'::jsonb; end if;
  if exists(select 1 from agriclimax_private.editorial_acquisitions where edition_date=d and state in ('degraded','no_new_data','retryable_failure','permanent_failure')) then alerts:=alerts||'"acquisition_incomplete"'::jsonb; end if;
  if local_now::time>=time '05:40' and not exists(select 1 from agriclimax_private.editorial_snapshots where edition_date=d) then alerts:=alerts||'"snapshot_missing"'::jsonb; end if;
- if local_now::time>=time '06:30' and not exists(select 1 from agriclimax_private.editorial_publications where edition_date=d) then alerts:=alerts||'"edition_missing"'::jsonb; end if;
- if exists(select 1 from agriclimax_private.editorial_archives a left join agriclimax_private.editorial_publications p on p.archive_id=a.id where a.edition_date=d and p.archive_id is null) then alerts:=alerts||'"archive_not_promoted"'::jsonb; end if;
+ if local_now::time>=time '06:30' and not exists(select 1 from agriclimax_private.editorial_archives a join agriclimax_private.editorial_runs r on r.id=a.id where a.edition_date=d and r.state='completed' and a.body->>'mode'='live' and a.body->'validation'->>'status' in ('validated_automatically','needs_editorial_review') and jsonb_array_length(a.body->'validation'->'errors')=0) then alerts:=alerts||'"private_edition_missing"'::jsonb; end if;
+ if exists(select 1 from agriclimax_private.editorial_archives a join agriclimax_private.editorial_reviews er on er.archive_id=a.id and er.decision='approved' left join agriclimax_private.editorial_publications p on p.archive_id=a.id where a.edition_date=d and p.archive_id is null) then alerts:=alerts||'"archive_not_promoted"'::jsonb; end if;
  stage:=case when local_now::time<time '05:25' then 'acquire' when local_now::time<time '06:30' then 'run' else 'report' end;
  -- 05:25–05:40 is the quiet interval before the immutable cutoff.
  if local_now::time>=time '05:25' and local_now::time<time '05:40' then stage:='report'; end if;
@@ -45,3 +44,4 @@ end $$;
 revoke all on function agriclimax_private.editorial_watchdog() from public,anon,authenticated,service_role;
 -- Runs as database owner; no HTTP generation. Switch is off until personal activation.
 select cron.schedule('agriclimax-t36-watchdog','*/15 * * * *','select agriclimax_private.editorial_watchdog()');
+select cron.alter_job(job_id:=jobid,active:=false) from cron.job where jobname='agriclimax-t36-watchdog';

@@ -22,12 +22,17 @@ export function EditorialPreview({
   edition: a,
   editions,
   published = false,
+  personalStatus,
 }: {
   edition: Archive | undefined;
   editions: Archive[];
   published?: boolean;
+  personalStatus?: string;
 }) {
   const d = a?.draft;
+  const base=personalStatus?"/journal/personnel":published?"/journal":"/journal/preview";
+  const api=personalStatus?"/api/journal/personnel":published?"/api/journal/edition":"/api/journal-preview";
+  const mapApi=personalStatus?"/api/journal/personnel/map":published?"/api/journal/edition-map":"/api/journal-preview/map";
   return (
     <main className="journal">
       <header className="masthead">
@@ -35,7 +40,7 @@ export function EditorialPreview({
           <span>
             {a ? `ÉDITION DU ${frenchDate(a.date)}` : "ARCHIVES DU JOURNAL"}
           </span>
-          <span>France métropolitaine & Corse · {published ? "Journal IA" : "Preview expérimentale"}</span>
+          <span>France métropolitaine & Corse · {personalStatus ? "Espace personnel" : published ? "Journal IA" : "Preview expérimentale"}</span>
         </div>
         <div className="masthead-title">
           <Link href="/journal">
@@ -56,8 +61,8 @@ export function EditorialPreview({
         </nav>
       </header>
       <section className="editorial-note" aria-label="Archives">
-        <h2>{published ? "Les éditions archivées" : "Les éditions en Preview"}</h2>
-        <form action={published ? "/journal" : "/journal/preview"}>
+        <h2>{personalStatus ? "Vos brouillons IA archivés" : published ? "Les éditions archivées" : "Les éditions en Preview"}</h2>
+        <form action={base}>
           <label htmlFor="edition-date">Choisir une date </label>
           <input
             id="edition-date"
@@ -70,7 +75,7 @@ export function EditorialPreview({
         <nav aria-label="Éditions archivées">
           {editions.map((e) => (
             <p key={e.edition_id}>
-              <Link href={`${published ? "/journal" : "/journal/preview"}?date=${e.date}&id=${e.edition_id}`}>
+              <Link href={`${base}?date=${e.date}&id=${e.edition_id}`}>
                 {frenchDate(e.date)} · Révision {e.revision}
               </Link>
             </p>
@@ -91,7 +96,7 @@ export function EditorialPreview({
                 : a.mode === "fallback"
                   ? "ÉDITION DE SECOURS · Rédaction déterministe."
                   : "Rédigé avec assistance IA."}{" "}
-              {published ? "Édition validée et archivée. Les dates des cycles et les limites figurent dans les preuves." : "Revue éditoriale requise. Archive historique : ne décrit pas la situation actuelle."}
+              {personalStatus ? personalStatus : published ? "Édition validée et archivée. Les dates des cycles et les limites figurent dans les preuves." : "Revue éditoriale requise. Archive historique : ne décrit pas la situation actuelle."}
             </p>
           </aside>
           <section className="front-page" aria-labelledby="headline">
@@ -112,7 +117,7 @@ export function EditorialPreview({
                     phenomenon={m.phenomenon}
                     period={m.period}
                     source={m.data.source}
-                    archiveUrl={`${published ? "/api/journal/edition-map" : "/api/journal-preview/map"}?id=${a.edition_id}&map=${m.id}`}
+                    archiveUrl={`${mapApi}?id=${a.edition_id}&map=${m.id}`}
                   />
                 ))
             ) : (
@@ -274,7 +279,7 @@ export function EditorialPreview({
                   {w.title} — {w.question} Contexte théorique, à vérifier.
                 </p>
               ))}
-              <Link href={`${published ? "/api/journal/edition" : "/api/journal-preview"}?id=${a.edition_id}`}>
+              <Link href={`${api}?id=${a.edition_id}`}>
                 Archive JSON et preuves de cette édition
               </Link>
             </details>
