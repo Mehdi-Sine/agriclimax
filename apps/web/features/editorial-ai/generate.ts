@@ -148,6 +148,9 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
       const started = performance.now();
       try {
         const result = await o.provider!(payload, c);
+        // Retain the actual assistant output and whitelisted receipt before any model/usage gate.
+        // A rejected result must remain reconcilable without a second paid request.
+        await o.store.diagnostic(hash([id,"provider-response"]), {kind:"provider_response",result});
         const actual = cost(
           result.usage.input_tokens,
           result.usage.output_tokens,
