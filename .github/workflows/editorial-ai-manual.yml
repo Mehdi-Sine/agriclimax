@@ -1,0 +1,60 @@
+name: Manual editorial AI verification
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "verify-model is read-only; generate-once is blocked on ephemeral runners"
+        required: true
+        default: verify-model
+        type: choice
+        options: [verify-model, generate-once]
+      model:
+        description: "Candidate model; availability is checked against the owner's project"
+        required: true
+        default: gpt-6.1-terra
+        type: choice
+        options: [gpt-6.1-terra, gpt-6-luna]
+permissions:
+  contents: read
+concurrency:
+  group: editorial-ai-manual-verification
+  cancel-in-progress: false
+jobs:
+  verify-model:
+    if: >-
+      github.actor == github.repository_owner &&
+      github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
+      inputs.mode == 'verify-model'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: editorial-ai-dev
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+        with:
+          version: 10.0.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Verify model access, no generation
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          EDITORIAL_VERIFY_MODEL: ${{ inputs.model }}
+        run: pnpm editorial-ai:live verify-model --model "$EDITORIAL_VERIFY_MODEL" --output work/task35B/model-access.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: editorial-model-access-receipt
+          path: work/task35B/model-access.json
+          retention-days: 7
+  generate-once-disabled:
+    if: inputs.mode == 'generate-once'
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Paid generation requires a qualified persistent DEV host
+        run: |
+          echo 'EPHEMERAL_CI_GENERATION_DISABLED: no secret loaded and no provider request made. Use the owner-operated persistent DEV procedure in docs/codex/task35B/RUNBOOK.md.'
+          exit 78

@@ -16,3 +16,5 @@ T36 devra : acquisition → calcul qualifié → T33 → T34 déjà préparé �
 À raccorder : disque durable ou transaction/verrou distribué unique, secret OpenAI de projet restreint, tarifs entretenus, réconciliation opérateur des dépenses ambiguës, manifeste atomique des éditions approuvées, conservation/rétention, supervision et stratégie dernière édition publiée avec signal de fraîcheur. Aucun cron, workflow de production ni déploiement automatique modifié par T35.
 
 `dailyPlan` expose la cible 06 h 30 Paris, le cutoff UTC fourni par le futur ordonnanceur, la fraîcheur séparée observation/prévision, l'état après cutoff/insuffisant/dégradé et l'identité de repli. Le plan conserve `publication_enabled:false`. Une révision locale peut être demandée avec `--revision N --supersedes SHA256` ; aucun écrasement de l'original.
+
+T35B remplace la procédure d'appel réel : l'ancien `--live-authorized` est bloqué pour empêcher un nouveau chemin `--store` de réinitialiser le budget. Utiliser uniquement `editorial-ai:live` et le protocole de l'hôte DEV persistant dans `../task35B/RUNBOOK.md`. La simulation T35 reste disponible.

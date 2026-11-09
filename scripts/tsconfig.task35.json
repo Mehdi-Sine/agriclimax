@@ -1,4 +1,8 @@
 {
   "extends": "./tsconfig.task33.json",
-  "include": ["task35_editorial.ts", "task35_cases.ts"]
+  "include": [
+    "task35_editorial.ts",
+    "task35_cases.ts",
+    "task35b_live.ts"
+  ]
 }

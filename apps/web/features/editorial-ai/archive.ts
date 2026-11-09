@@ -80,7 +80,28 @@ export class EditorialStore {
   readRun(id: string): Run | null {
     if (!validId(id)) throw Error("INVALID_ID");
     const p = join(this.root, "runs", id + ".json");
-    return existsSync(p) ? (JSON.parse(readFileSync(p, "utf8")) as Run) : null;
+    if (!existsSync(p)) return null;
+    const r = JSON.parse(readFileSync(p, "utf8")) as Run;
+    if (
+      r.id !== id ||
+      !/^\d{4}-\d{2}$/.test(r.month) ||
+      !Number.isFinite(r.reserved_eur) ||
+      r.reserved_eur < 0 ||
+      (r.actual_eur !== null &&
+        (!Number.isFinite(r.actual_eur) || r.actual_eur < 0)) ||
+      ![
+        "not_started",
+        "reserved",
+        "running",
+        "completed",
+        "validation_failed",
+        "provider_error",
+        "outcome_unknown",
+        "budget_exceeded",
+      ].includes(r.state)
+    )
+      throw Error("CORRUPT_FINANCIAL_LEDGER");
+    return r;
   }
   writeRun(run: Run) {
     if (!validId(run.id)) throw Error("INVALID_ID");
@@ -147,6 +168,11 @@ export function verifyArchive(value: unknown): asserts value is Archive {
     a.revision < 1
   )
     throw Error("ARCHIVE_INTEGRITY");
+  if (
+    a.mode === "live" &&
+    (!a.receipt || a.receipt.model !== a.parameters.model)
+  )
+    throw Error("LIVE_ARCHIVE_MISSING_PROVIDER_RECEIPT");
   assertBriefing(a.briefing);
   assertDraft(a.draft);
   if (a.status === "published" || a.status === "approved")
