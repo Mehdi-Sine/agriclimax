@@ -75,7 +75,7 @@ export function checkConfig(c: AIConfig) {
   if (
     !Number.isInteger(c.max_output_tokens) ||
     c.max_output_tokens > 16000 ||
-    c.max_output_tokens <= 0 ||
+    c.max_output_tokens < 16 ||
     ![c.monthly_budget_eur, c.max_edition_eur, c.timeout_ms].every(
       Number.isFinite,
     ) ||

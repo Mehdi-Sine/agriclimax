@@ -9,3 +9,9 @@ La PR #73 reste draft sur `codex/36-operational-ai-journal`. Aucun merge ni acti
 5. **Preuves** : qualification réelle sans appel payant [42609550528](https://github.com/Mehdi-Sine/agriclimax/actions/runs/42609550528), tentative réelle [42610453514](https://github.com/Mehdi-Sine/agriclimax/actions/runs/42610453514), preuves assainies dans `evidence/finalization/`. Ce dernier workflow historique est vert parce que le fallback était traité comme succès : son résultat fournisseur est un échec. La CLI corrigée sort désormais en erreur pour ce cas. Tests locaux : 203 passés, 2 ignorés ; build, lint et typecheck réussis, recette SQL ciblée réussie. Aucune nuit avec nouvelles acquisitions ni cycle IA réussi n'est revendiqué.
 
 L'espace personnel `/journal/personnel` utilise la maquette existante, avec authentification propriétaire et réponses privées sans cache. Il distingue brouillon techniquement vérifié, décision éditoriale et publication. Une tentative échouée affiche son statut et sa provision, sans fausse prose IA. La dernière édition publique valide reste conservée. Aucune décision éditoriale ni publication n'a été créée pendant cette recette.
+
+Revue ciblée complémentaire : [FIRST_REAL_AI_EDITION.md](FIRST_REAL_AI_EDITION.md)
+détaille le contrôle de la requête, les diagnostics corrélés et la proposition de
+rapprochement propriétaire. Aucun second appel, aucune écriture du registre financier,
+aucune modification de l'unicité quotidienne. Le prochain essai devra utiliser un
+nouveau dossier quotidien réel après preuve et autorisation ; aucun retry du 9 novembre.

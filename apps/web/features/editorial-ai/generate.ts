@@ -147,7 +147,9 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
       await o.store.writeRun(run);
       const started = performance.now();
       try {
-        const result = await o.provider!(payload, c);
+        const result = await o.provider!(payload, c,{beforeRequest:async metadata=>{
+          await o.store.diagnostic(hash([id,"provider-request"]),{kind:"provider_request",run_id:id,metadata});
+        }});
         // Retain the actual assistant output and whitelisted receipt before any model/usage gate.
         // A rejected result must remain reconcilable without a second paid request.
         await o.store.diagnostic(hash([id,"provider-response"]), {kind:"provider_response",result});
@@ -184,7 +186,7 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
             ? error.code
             : "PROVIDER_OUTCOME_REQUIRES_RECONCILIATION";
         if(error instanceof ProviderFailure && error.diagnostic)
-          await o.store.diagnostic(hash([id,"http-failure"]),{kind:"provider_http_error",diagnostic:error.diagnostic});
+          await o.store.diagnostic(hash([id,"http-failure"]),{kind:"provider_http_error",run_id:id,diagnostic:error.diagnostic});
         if (error instanceof ProviderFailure && error.evidence) {
           const e = error.evidence;
           const accounted = cost(

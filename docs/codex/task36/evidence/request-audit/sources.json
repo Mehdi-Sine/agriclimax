@@ -1,0 +1,21 @@
+{
+  "reviewed_on": "2026-11-09",
+  "documents": {
+    "model": {
+      "url": "https://developers.openai.com/api/docs/models/gpt-6.1-terra.md",
+      "sha256": "6a73b3e2e941fbe3813636d5bd2d653ff190e49cc3692eaf8daa3bb125c877f8"
+    },
+    "structured": {
+      "url": "https://developers.openai.com/api/docs/guides/structured-outputs.md",
+      "sha256": "dcd211d602a85c8573033559384424d6ebc86af73a844e752822ed868d82032b"
+    },
+    "caching": {
+      "url": "https://developers.openai.com/api/docs/guides/prompt-caching.md",
+      "sha256": "58b38fa712a1bb7bdbc53b5357408903fb668dca82d141e5cacf92e672986487"
+    },
+    "responses": {
+      "url": "https://developers.openai.com/api/reference/resources/responses/methods/create.md",
+      "sha256": "7b932c1bc50cad8bc4a8069055f041e6ce8c967eecc41f21c288e4033cca54bc"
+    }
+  }
+}

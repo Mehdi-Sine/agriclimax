@@ -17,6 +17,9 @@ import type { Archive } from "../apps/web/features/editorial-ai/model";
 import { liveConfig, shortContextLimit } from "../apps/web/features/editorial-ai/live-pricing";
 import { openAIProvider, verifyModel } from "../apps/web/features/editorial-ai/provider";
 import { budgetReport, editorialPayload } from "../apps/web/features/editorial-ai/budget";
+import {assertNewDailyTrial,reconciliationPlan,type ReconciliationEvidence} from "../apps/web/features/editorial-ai/reconciliation";
+import {sha256} from "../apps/web/features/editorial-ai/request-audit";
+import type {Run} from "../apps/web/features/editorial-ai/archive";
 import geography from "../apps/web/data/operational/pra-watch-places.json";
 const command = process.argv[2] ?? "preflight";
 const date = parisDate(new Date().toISOString());
@@ -122,6 +125,20 @@ async function prepare() {
   return freezeSnapshot(date,[],null,now);
 }
 async function main() {
+  if(command==="reconcile-plan") {
+    const flag=process.argv.indexOf("--evidence");
+    if(flag<0 || !process.argv[flag+1]) throw Error("VERIFIABLE_OWNER_EVIDENCE_REQUIRED");
+    const evidence=JSON.parse(readFileSync(process.argv[flag+1],"utf8")) as ReconciliationEvidence&{evidence_file:string};
+    if(!evidence.evidence_file) throw Error("PRIVATE_EVIDENCE_FILE_REQUIRED");
+    const {evidence_file,...metadata}=evidence;
+    if(sha256(readFileSync(evidence_file))!==metadata.evidence_sha256) throw Error("EVIDENCE_CHECKSUM_MISMATCH");
+    const run=await editorialRPC<Run|null>("run_read",{id:metadata.run_id});
+    if(!run) throw Error("RECONCILIATION_RUN_MISMATCH");
+    const plan=reconciliationPlan(run,metadata);
+    const sqlPath=join(out,"owner-reconciliation.sql");
+    writeFileSync(sqlPath,plan.sql,{mode:0o600});
+    output({status:"owner_review_required",run_id:run.id,sql_path:sqlPath,sql_sha256:sha256(plan.sql),ledger_modified:false,paid_calls:0});return;
+  }
   if(command==="report") { output(await supervise()); return; }
   if(command==="promote") { output(await promoteEdition(process.argv[3]??"")); return; }
   if(command==="approve"||command==="reject") {
@@ -156,6 +173,8 @@ async function main() {
   }
   if(command!=="run") throw Error("UNKNOWN_NIGHTLY_COMMAND");
   if(process.env.AGRICLIMAX_AI_ENABLED!=="true") {output({status:"data_ready_ai_disabled",snapshot_id:snapshot.id,quality:snapshot.quality,paid_calls:0});return;}
+  // A new manual attempt must use a genuine new daily dossier, never a changed scope/date on the old edition.
+  if(process.argv.includes("--authorize-snapshot")) assertNewDailyTrial(await store.runs(),date);
   const authorized=process.argv.indexOf("--authorize-snapshot");
   if(authorized>=0&&process.argv[authorized+1]!==snapshot.id) throw Error("EXACT_SNAPSHOT_AUTHORIZATION_REQUIRED");
   const key=process.env.OPENAI_API_KEY;

@@ -3,6 +3,9 @@ import schema from "../../../../contracts/jsonschema/editorial-draft-1.schema.js
 import type { AIConfig } from "./config";
 import type { Usage } from "./model";
 import { INSTRUCTIONS } from "./prompt";
+import {randomUUID} from "node:crypto";
+import {auditSchema, rejectionReason, sha256} from "./request-audit";
+export interface RequestMetadata {client_request_id:string;request_sha256:string;schema_sha256:string;model:string;max_output_tokens:number;started_at:string}
 export interface ProviderResult {
   draft: unknown;
   model: string;
@@ -12,8 +15,9 @@ export interface ProviderResult {
 export type Provider = (
   payload: string,
   config: AIConfig,
+  context?: {beforeRequest:(metadata:RequestMetadata)=>Promise<void>},
 ) => Promise<ProviderResult>;
-export interface HTTPDiagnostic {status:number;code:string|null;type:string|null;param:string|null;request_id:string|null}
+export interface HTTPDiagnostic {status:number;code:string|null;type:string|null;param:string|null;request_id:string|null;client_request_id:string;reason:string;schema_context:string[]|null}
 export class ProviderFailure extends Error {
   constructor(
     public code: string,
@@ -41,6 +45,8 @@ export function requestBody(payload: string, c: AIConfig) {
   const { $schema: dialect, title, ...outputSchema } = schema;
   void dialect;
   void title;
+  const normalized=providerSchema(outputSchema);
+  auditSchema(normalized);
   return {
     model: c.model,
     store: false,
@@ -59,7 +65,7 @@ export function requestBody(payload: string, c: AIConfig) {
         type: "json_schema",
         name: "EditorialDraft",
         strict: true,
-        schema: providerSchema(outputSchema),
+        schema: normalized,
       },
     },
   };
@@ -75,7 +81,9 @@ export function openAIProvider(
   key: string,
   transport: typeof fetch = fetch,
 ): Provider {
-  return async (payload, c) => {
+  return async (payload, c, context) => {
+    const body=requestBody(payload,c), serialized=JSON.stringify(body), clientRequestId=randomUUID();
+    await context?.beforeRequest({client_request_id:clientRequestId,request_sha256:sha256(serialized),schema_sha256:sha256(JSON.stringify(body.text.format.schema)),model:c.model,max_output_tokens:c.max_output_tokens,started_at:new Date().toISOString()});
     let response: Response;
     try {
       response = await transport("https://api.openai.com/v1/responses", {
@@ -84,8 +92,9 @@ export function openAIProvider(
         headers: {
           Authorization: `Bearer ${key}`,
           "Content-Type": "application/json",
+          "X-Client-Request-Id": clientRequestId,
         },
-        body: JSON.stringify(requestBody(payload, c)),
+        body: serialized,
         signal: AbortSignal.timeout(c.timeout_ms),
       });
     } catch {
@@ -96,9 +105,10 @@ export function openAIProvider(
       try {const body:unknown=await response.json();
         if(body&&typeof body==="object"&&"error" in body&&body.error&&typeof body.error==="object") error=body.error as Record<string,unknown>;
       } catch { /* No raw body or credential-bearing provider message enters diagnostics. */ }
-      const safe=(v:unknown)=>typeof v==="string"&&/^[a-zA-Z0-9_.\[\]-]{1,160}$/.test(v)?v:null;
+      const safe=(v:unknown)=>typeof v==="string"&&/^[a-zA-Z0-9_.\[\]-]{1,160}$/.test(v)&&!/^sk[-_]|bearer/i.test(v)&&(!key||!v.includes(key))?v:null;
       throw new ProviderFailure(`PROVIDER_HTTP_${response.status}`,true,undefined,{
         status:response.status,code:safe(error.code),type:safe(error.type),param:safe(error.param),request_id:safe(response.headers.get("x-request-id")),
+        client_request_id:clientRequestId,...rejectionReason(error.message,body.text.format.schema),
       });
     }
     let data: {
