@@ -26,6 +26,7 @@ localement, mais n’est pas déclaré opérationnel sans nuit distante.
 | Implémenté | propriétaire nocturne, baux et cooldown, contrôle DB, sélection, gel, store SQL, archive/promotion, lecture Journal datée, verdicts et protocole |
 | Testé localement | 193 tests TypeScript, 4 tests Python de reprise, 47 tests station/daily, 24 tests qualité ; PostgreSQL 17 et deux connexions concurrentes ; build, typecheck, lint, actionlint, contrats, guards ; navigateur 6 combinaisons |
 | DEV distant en lecture seule | catalogue réel, 4 cycles accessibles ; sélection du 8/11 pour édition 9/11 ; 15 jours ERA5, 10 695 lignes, 713 identités ; 12 faits T33 |
+| Vercel Preview distant | GET /journal/preview : HTTP 200, simulation explicitement marquée, aucune génération déclenchée ; ne valide pas le backend opérationnel |
 | DEV distant modifié | **aucun** : migration refusée par revue automatique ; aucun Cron/pg_net/Vault/dispatch installé |
 | Production activée | **aucune** ; aucune publication publique, aucun merge |
 | Exploitation nocturne démontrée | **aucune** ; recette 14–21 jours à commencer après qualification |
@@ -101,3 +102,5 @@ Un appel interrompu après archivage mais avant état completed exige réconcili
 manuelle : aucune relance payante ne contourne ce garde-fou.
 
 La tâche reste une **PR draft à qualifier**, pas une mise en service terminée.
+
+Validation SQL complète locale supplémentaire : limitée par l’espace disque Docker du runtime (image PostGIS + copie du conteneur). Les tests PostgreSQL ciblés passent ; la matrice PostGIS complète est exécutée dans GitHub Actions.

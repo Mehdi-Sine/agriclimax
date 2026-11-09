@@ -17,6 +17,9 @@ checksum exact ; les dates d’acquisition/calcul postérieures au cutoff sont e
 sa référence input_archive est explicitement null. Cette preuve n’est **pas** un
 snapshot partagé déployé. `prepare` / `run` vérifient stockage puis gel SQL avant IA.
 
+Les clés des sujets réellement publiés la veille alimentent la nouveauté T33 ; la
+référence de cette édition antérieure est conservée dans le lot gelé.
+
 Les arrivées tardives sont réservées au prochain dossier/explorateur. Aucune lecture
 météo dans le prompt, aucun accès IA aux calculateurs. En cas d’insuffisance, le
 snapshot reste diagnostiquable ; le Journal garde sa dernière édition datée.

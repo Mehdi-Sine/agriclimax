@@ -13,7 +13,8 @@ import { parisDate } from "../apps/web/features/editorial/almanac";
 import { freezeSnapshot, verifySnapshot, cutoffUTC, selectCycles, modelFamily, POLICY, type Cycle, type DailyEditorialSnapshot } from "../apps/web/features/nightly/snapshot";
 import { editorialRPC, SupabaseEditorialStore, promoteEdition } from "../apps/web/features/editorial-ai/supabase-store";
 import { generate } from "../apps/web/features/editorial-ai/generate";
-import { liveConfig } from "../apps/web/features/editorial-ai/live-pricing";
+import type { Archive } from "../apps/web/features/editorial-ai/model";
+import { liveConfig, shortContextLimit } from "../apps/web/features/editorial-ai/live-pricing";
 import { openAIProvider, verifyModel } from "../apps/web/features/editorial-ai/provider";
 import { budgetReport, editorialPayload } from "../apps/web/features/editorial-ai/budget";
 import geography from "../apps/web/data/operational/pra-watch-places.json";
@@ -26,6 +27,9 @@ async function prepare() {
   const began=performance.now();
   const now = new Date().toISOString();
   const cutoff = cutoffUTC(date);
+  const previous=command==="prepare-offline"?[]:await editorialRPC<Archive[]>("published");
+  const prior=previous.filter(a=>a.date<date).sort((a,b)=>b.date.localeCompare(a.date))[0];
+  const previousTopicKeys=prior?.briefing.candidates.filter(c=>[prior.draft.main_candidate_id,...prior.draft.secondary_candidate_ids].includes(c.id)).map(c=>c.topic_key)??[];
   const catalogue = await archiveCatalogue();
   if(!catalogue) throw Error("NO_REAL_CATALOGUE");
   const candidates = [...catalogue.weather].sort((a,b)=>(b.run_at??b.run_date!).localeCompare(a.run_at??a.run_date!));
@@ -80,7 +84,7 @@ async function prepare() {
     let news = newsPath>=0 ? JSON.parse(readFileSync(process.argv[newsPath+1],"utf8")) as NewsContext : archivedNews;
     if(news && Date.parse(news.generated_at)>Date.parse(cutoff)) news=undefined;
     const base:BriefingInput={date,generated_at:now,history_cutoff:historyCutoff,
-      source_fingerprint:hash([entry,historyEntries]),history,comparisons,episodes,episode_archive_sha256:hash(episodes),edition};
+      source_fingerprint:hash([entry,historyEntries]),history,comparisons,episodes,episode_archive_sha256:hash(episodes),edition,previous_topic_keys:previousTopicKeys};
     if(news) {
       const events=briefingEvents(base);
       const matched=spawnSync(process.env.PYTHON??"python",["scripts/task33_news_links.py"],{
@@ -96,7 +100,7 @@ async function prepare() {
     if(selected.quality==="fallback_valid") briefing.limitations.push("Cycle antérieur encore valide : ne pas affirmer une évolution observée sans nouvelle observation comparable.");
     briefing.bundle_id=hash({...briefing,bundle_id:undefined});
     // Immutable inputs retained alongside snapshot. Existing methods are reused without changing science.
-    const inputs = {catalogue,document:doc,history:rows,episodes,comparisons,news:news??null};
+    const inputs = {catalogue,document:doc,history:rows,episodes,comparisons,news:news??null,previous_edition:prior?{id:prior.edition_id,date:prior.date,checksum:prior.checksum}:null};
     writeFileSync(join(out,"frozen-inputs.json"),JSON.stringify(inputs));
     const snapshot = freezeSnapshot(date,cycles,briefing,now);
     snapshot.input_archive = command==="prepare-offline" ? null : await archiveInputs(inputs);
@@ -134,6 +138,7 @@ async function main() {
   const config = liveConfig(process.env.AGRICLIMAX_EDITORIAL_MODEL??"gpt-6-luna",6000);
   const store = new SupabaseEditorialStore(snapshot.id);
   const report = budgetReport(editorialPayload(snapshot.briefing),config,await store.runs());
+  if(report.input_token_upper_bound>shortContextLimit(config.model)) throw Error("UNQUALIFIED_LONG_CONTEXT_PRICING");
   if(command==="preflight") { output({snapshot_id:snapshot.id,...report,api_key_present:!!process.env.OPENAI_API_KEY}); return; }
   if(command!=="run") throw Error("UNKNOWN_NIGHTLY_COMMAND");
   if(process.env.AGRICLIMAX_AI_ENABLED!=="true") throw Error("AI_DISABLED");
