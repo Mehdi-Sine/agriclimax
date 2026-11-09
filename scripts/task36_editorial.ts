@@ -23,7 +23,7 @@ mkdirSync(out,{recursive:true});
 function output(value: unknown) {
   writeFileSync(join(out,command+".json"),JSON.stringify(value,null,2)+"\n");
   const result=value as Record<string,unknown>;
-  const receipt={command,status:result.status??result.quality??"completed",edition_id:result.id??null,snapshot_id:result.snapshot_id??null};
+  const receipt={command,status:result.status??result.quality??"completed",edition_id:result.id??null,snapshot_id:result.snapshot_id??null,error:result.error??null};
   writeFileSync(join(out,"receipt.json"),JSON.stringify(receipt));
   // Detailed operational reports remain in the private Supabase diagnostic store.
   console.log(JSON.stringify(command==="report"?receipt:value));
@@ -164,4 +164,4 @@ async function main() {
   if(archive.mode!=="live"||!archive.receipt) {process.exitCode=2;return;}
   if(process.env.AGRICLIMAX_PUBLICATION_ENABLED==="true") await promoteEdition(archive.edition_id);
 }
-main().catch(error=>{output({error:error instanceof Error && /^[A-Z][A-Z0-9_]+$/.test(error.message)?error.message:"NIGHTLY_FAILED",automatic_paid_retry:false});process.exitCode=1;});
+main().catch(error=>{output({status:"failed",error:error instanceof Error && /^[A-Z][A-Z0-9_]+$/.test(error.message)?error.message:"NIGHTLY_FAILED",automatic_paid_retry:false});process.exitCode=1;});
