@@ -11,7 +11,12 @@ from urllib.error import HTTPError, URLError
 
 from agriclimax.cattle.station import station_exposure
 from agriclimax.cattle.thi import load_rule
-from agriclimax.ingestion.meteofrance import MeteoFranceProvider, Station
+from agriclimax.ingestion.meteofrance import (
+    MeteoFranceAccessError,
+    MeteoFranceProvider,
+    MeteoFranceTransportError,
+    Station,
+)
 from agriclimax.ingestion.models import DayBatch, Provenance
 from agriclimax.ingestion.normalize import normalize
 from agriclimax.ingestion.providers import SourcePayload
@@ -184,6 +189,11 @@ def run_daily(
     except Exception as error:  # noqa: BLE001 - safe CLI boundary, no upstream messages
         # Explicit allowlist: never serialize exceptions, their attributes or tracebacks.
         failure = {**diagnostic, "error_type": type(error).__name__}
+        if isinstance(error, MeteoFranceTransportError):
+            report["http_status"] = error.http_status
+            report["retry_after"] = error.retry_after
+        elif isinstance(error, MeteoFranceAccessError):
+            report["permanent_auth_failure"] = True
         report.update(failure)
         print(json.dumps(failure))
         report["failed_stage"] = report["stage"]

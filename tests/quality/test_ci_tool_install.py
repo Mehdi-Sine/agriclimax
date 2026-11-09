@@ -45,7 +45,7 @@ elif name == 'go':
         (cache / 'go.mod').chmod(0o444)
         cache.chmod(0o555)
     else:
-        module, version = {'actionlint': ('github.com/rhysd/actionlint', 'v1.7.7'),
+        module, version = {'actionlint': ('github.com/rhysd/actionlint', 'v1.7.12'),
                            'gitleaks': ('github.com/zricethezav/gitleaks/v8', 'v8.24.2')}[tool]
         if mode == 'wrong-version': version = 'v0.0.0'
         print('\tmod\t' + module + '\t' + version + '\th1:synthetic-test-only')
@@ -85,8 +85,8 @@ class CiToolInstall(unittest.TestCase):
 
     def test_official_releases_remain_pinned_and_verified_before_extraction(self):
         for tool, version, digest in (
-            ('actionlint', 'v1.7.7',
-             '023070a287cd8cccd71515fedc843f1985bf96c436b7effaecce67290e7e0757'),
+            ('actionlint', 'v1.7.12',
+             '8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8'),
             ('gitleaks', 'v8.24.2',
              'fa0500f6b7e41d28791ebc680f5dd9899cd42b58629218a5f041efa899151a8e'),
         ):
@@ -121,7 +121,7 @@ class CiToolInstall(unittest.TestCase):
 
     def test_unavailable_release_builds_exact_module_with_unavoidable_sumdb(self):
         for tool, package in (
-            ('actionlint', 'github.com/rhysd/actionlint/cmd/actionlint@v1.7.7'),
+            ('actionlint', 'github.com/rhysd/actionlint/cmd/actionlint@v1.7.12'),
             ('gitleaks', 'github.com/zricethezav/gitleaks/v8@v8.24.2'),
         ):
             with self.subTest(tool=tool):

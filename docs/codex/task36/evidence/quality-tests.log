@@ -1,0 +1,29 @@
+test_ci_workflows_have_no_live_source_or_database_credentials (test_acquisition_boundaries.AcquisitionBoundaries.test_ci_workflows_have_no_live_source_or_database_credentials) ... ok
+test_dispatch_inputs_stay_within_platform_limit (test_acquisition_boundaries.AcquisitionBoundaries.test_dispatch_inputs_stay_within_platform_limit) ... ok
+test_legacy_real_smoke_requires_explicit_dev_write_authorization (test_acquisition_boundaries.AcquisitionBoundaries.test_legacy_real_smoke_requires_explicit_dev_write_authorization) ... ok
+test_quality_workflows_reject_write_permissions_and_invalid_steps (test_automation.Automation.test_quality_workflows_reject_write_permissions_and_invalid_steps) ... ok
+test_yaml_on_stays_a_string_and_duplicates_fail (test_automation.Automation.test_yaml_on_stays_a_string_and_duplicates_fail) ... ok
+test_checksum_and_extraction_errors_do_not_fall_back_or_leave_stale_binary (test_ci_tool_install.CiToolInstall.test_checksum_and_extraction_errors_do_not_fall_back_or_leave_stale_binary) ... ok
+test_go_retry_is_bounded_and_recovers (test_ci_tool_install.CiToolInstall.test_go_retry_is_bounded_and_recovers) ... ok
+test_official_releases_remain_pinned_and_verified_before_extraction (test_ci_tool_install.CiToolInstall.test_official_releases_remain_pinned_and_verified_before_extraction) ... ok
+test_total_outage_is_explicit_failure_not_a_stale_success (test_ci_tool_install.CiToolInstall.test_total_outage_is_explicit_failure_not_a_stale_success) ... ok
+test_unavailable_release_builds_exact_module_with_unavoidable_sumdb (test_ci_tool_install.CiToolInstall.test_unavailable_release_builds_exact_module_with_unavoidable_sumdb) ... ok
+test_unknown_tools_are_not_installable (test_ci_tool_install.CiToolInstall.test_unknown_tools_are_not_installable) ... ok
+test_workflows_keep_scanners_unconditional_and_blocking_with_original_options (test_ci_tool_install.CiToolInstall.test_workflows_keep_scanners_unconditional_and_blocking_with_original_options) ... ok
+test_wrong_go_build_version_is_rejected (test_ci_tool_install.CiToolInstall.test_wrong_go_build_version_is_rejected) ... ok
+test_new_cycle_drop_and_gap (test_core01_monitor.CoverageMonitorTest.test_new_cycle_drop_and_gap) ... ok
+test_budget_rejects_missing_or_excessive_assets (test_guards.Guards.test_budget_rejects_missing_or_excessive_assets) ... ok
+test_bundle_is_required_and_secret_sentinel_fails (test_guards.Guards.test_bundle_is_required_and_secret_sentinel_fails) ... ok
+test_migrations_cannot_change_or_go_backwards (test_guards.Guards.test_migrations_cannot_change_or_go_backwards) ... ok
+test_obvious_secrets_and_supabase_jwt (test_guards.Guards.test_obvious_secrets_and_supabase_jwt) ... ok
+test_source_client_boundary_and_safe_reporting (test_guards.Guards.test_source_client_boundary_and_safe_reporting) ... ok
+test_dispatch_is_the_only_event (test_manual_editorial_workflow.ManualEditorialWorkflowTest.test_dispatch_is_the_only_event) ... ok
+test_ephemeral_generation_has_no_secret_checkout_or_provider (test_manual_editorial_workflow.ManualEditorialWorkflowTest.test_ephemeral_generation_has_no_secret_checkout_or_provider) ... ok
+test_owner_and_default_branch_are_required_for_verification (test_manual_editorial_workflow.ManualEditorialWorkflowTest.test_owner_and_default_branch_are_required_for_verification) ... ok
+test_preflight_reports_names_without_values_and_keeps_log (test_meteofrance_operations.MeteoFranceOperations.test_preflight_reports_names_without_values_and_keeps_log) ... ok
+test_tee_preserves_cli_failure_and_manual_range_arguments (test_meteofrance_operations.MeteoFranceOperations.test_tee_preserves_cli_failure_and_manual_range_arguments) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 2.039s
+
+OK

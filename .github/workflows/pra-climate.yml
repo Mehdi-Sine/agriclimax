@@ -2,7 +2,8 @@ name: Bounded PRA climate batch
 on:
   # GitHub schedule is best-effort; supervision reports the observed launch delay.
   schedule:
-    - cron: '20 8 * * *'
+    - cron: '15 2 * * *'
+      timezone: Europe/Paris
   workflow_dispatch:
     inputs:
       mode:
@@ -51,7 +52,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   batch:
-    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'batch'
+    if: vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && (github.event_name == 'workflow_dispatch' && inputs.mode == 'batch')
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -98,7 +99,7 @@ jobs:
           if-no-files-found: warn
   national-daily:
     # Deliberately no variable can enable scheduling before reviewed DEV acceptance.
-    if: github.event_name == 'workflow_dispatch' && (inputs.mode == 'daily-pilot' || inputs.mode == 'national-daily')
+    if: vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && (github.event_name == 'workflow_dispatch' && (inputs.mode == 'daily-pilot' || inputs.mode == 'national-daily'))
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -170,7 +171,7 @@ jobs:
 
   operational-pilot:
     # Manual twelve-PRA capture only; never enables a national forecast schedule.
-    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'operational-pilot'
+    if: vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && (github.event_name == 'workflow_dispatch' && inputs.mode == 'operational-pilot')
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -223,7 +224,7 @@ jobs:
           if-no-files-found: warn
 
   national-weather:
-    if: (github.event_name == 'workflow_dispatch' && (inputs.mode == 'weather-preflight' || inputs.mode == 'weather-national' || inputs.mode == 'weather-masks' || inputs.mode == 'weather-coastal-review' || inputs.mode == 'weather-humidity-review' || (inputs.mode == 'daily-dev-check' && inputs.execute && inputs.national_authorized && inputs.publish_dev))) || (github.event_name == 'schedule' && vars.PRA_CLIMATE_DAILY_DEV_ENABLED == 'true' && vars.PRA_CLIMATE_DAILY_KILL_SWITCH != 'true')
+    if: vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && ((github.event_name == 'workflow_dispatch' && (inputs.mode == 'weather-preflight' || inputs.mode == 'weather-national' || inputs.mode == 'weather-masks' || inputs.mode == 'weather-coastal-review' || inputs.mode == 'weather-humidity-review' || (inputs.mode == 'daily-dev-check' && inputs.execute && inputs.national_authorized && inputs.publish_dev))) || (github.event_name == 'schedule' && vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && vars.PRA_CLIMATE_DAILY_DEV_ENABLED == 'true' && vars.PRA_CLIMATE_DAILY_KILL_SWITCH != 'true'))
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -294,7 +295,7 @@ jobs:
   weather-health:
     needs: [national-weather, era5-archive, era5-resume-1, era5-resume-2]
     # Default-branch schedules only; off until independent DEV acceptance.
-    if: always() && ((github.event_name == 'workflow_dispatch' && (inputs.mode == 'weather-health' || inputs.mode == 'daily-dev-check')) || (github.event_name == 'schedule' && (vars.PRA_WEATHER_DEV_HEALTH_ENABLED == 'true' || vars.PRA_CLIMATE_DAILY_DEV_ENABLED == 'true')))
+    if: always() && ((github.event_name == 'workflow_dispatch' && (inputs.mode == 'weather-health' || inputs.mode == 'daily-dev-check')) || (github.event_name == 'schedule' && vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && (vars.PRA_WEATHER_DEV_HEALTH_ENABLED == 'true' || vars.PRA_CLIMATE_DAILY_DEV_ENABLED == 'true')))
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -352,7 +353,7 @@ jobs:
 
   era5-archive:
     needs: [national-weather]
-    if: always() && ((github.event_name == 'workflow_dispatch' && (inputs.mode == 'era5-archive' || inputs.mode == 'daily-dev-check') && inputs.national_authorized) || (github.event_name == 'schedule' && vars.PRA_CLIMATE_DAILY_DEV_ENABLED == 'true' && vars.PRA_CLIMATE_DAILY_KILL_SWITCH != 'true'))
+    if: vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && (always() && ((github.event_name == 'workflow_dispatch' && (inputs.mode == 'era5-archive' || inputs.mode == 'daily-dev-check') && inputs.national_authorized) || (github.event_name == 'schedule' && vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && vars.PRA_CLIMATE_DAILY_DEV_ENABLED == 'true' && vars.PRA_CLIMATE_DAILY_KILL_SWITCH != 'true')))
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -380,7 +381,7 @@ jobs:
           REPLAY_LATEST: ${{ inputs.mode == 'daily-dev-check' }}
           EXECUTE: ${{ github.event_name == 'schedule' || inputs.execute }}
           PUBLISH: ${{ github.event_name == 'schedule' || inputs.publish_dev }}
-          MAX_DOWNLOADS: ${{ github.event_name == 'schedule' && '64' || inputs.daily_downloads }}
+          MAX_DOWNLOADS: ${{ github.event_name == 'schedule' && vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && '64' || inputs.daily_downloads }}
         run: |
           set -euo pipefail
           args=(--root work/era5-archive --max-downloads "$MAX_DOWNLOADS")
@@ -407,7 +408,7 @@ jobs:
 
   era5-resume-1:
     needs: [era5-archive]
-    if: always() && needs.era5-archive.result == 'failure' && github.event_name == 'schedule' && vars.PRA_CLIMATE_DAILY_DEV_ENABLED == 'true' && vars.PRA_CLIMATE_DAILY_KILL_SWITCH != 'true'
+    if: vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && (always() && needs.era5-archive.result == 'failure' && github.event_name == 'schedule' && vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && vars.PRA_CLIMATE_DAILY_DEV_ENABLED == 'true' && vars.PRA_CLIMATE_DAILY_KILL_SWITCH != 'true')
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -447,7 +448,7 @@ jobs:
 
   era5-resume-2:
     needs: [era5-resume-1]
-    if: always() && needs.era5-resume-1.result == 'failure' && github.event_name == 'schedule' && vars.PRA_CLIMATE_DAILY_DEV_ENABLED == 'true' && vars.PRA_CLIMATE_DAILY_KILL_SWITCH != 'true'
+    if: vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && (always() && needs.era5-resume-1.result == 'failure' && github.event_name == 'schedule' && vars.AGRICLIMAX_NIGHTLY_ENABLED != 'true' && vars.PRA_CLIMATE_DAILY_DEV_ENABLED == 'true' && vars.PRA_CLIMATE_DAILY_KILL_SWITCH != 'true')
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:

@@ -1,3 +1,5 @@
+import { EditorialPreview } from "../../features/editorial-ai/preview";
+import { parisDate } from "../../features/editorial/almanac";
 import Link from "next/link";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
@@ -72,9 +74,20 @@ async function EditionFigures({
 async function JournalContent({
   searchParams,
 }: {
-  searchParams: Promise<{ run?: string }>;
+  searchParams: Promise<{ run?: string; date?: string }>;
 }) {
-  const { run } = await searchParams;
+  const { run, date } = await searchParams;
+  if(!run && process.env.AGRICLIMAX_JOURNAL_PUBLISHED_READ === "true") {
+    let editions;
+    try {
+      const { operationalEditions }=await import("../../lib/server/editorial-published");
+      editions=await operationalEditions();
+    } catch {
+      return <main className="journal"><h1>Le Journal agroclimatique</h1><p role="status">Lecture des archives momentanément indisponible.</p></main>;
+    }
+    const selected=date ? editions.find(e=>e.date===date) : editions[0];
+    return <>{!date && editions[0]?.date!==parisDate(new Date().toISOString()) && <p role="status">L’édition du jour est retardée. La dernière édition validée conserve sa date réelle.</p>}<EditorialPreview edition={selected} editions={editions} published /></>;
+  }
   if (run !== undefined && !isJournalRun(run)) notFound();
   let edition: JournalEdition;
   try {
@@ -342,7 +355,7 @@ async function JournalContent({
 }
 
 export default function Page(props: {
-  searchParams: Promise<{ run?: string }>;
+  searchParams: Promise<{ run?: string; date?: string }>;
 }) {
   return (
     <Suspense

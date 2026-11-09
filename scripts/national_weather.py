@@ -104,6 +104,19 @@ def main() -> None:
     try:
         if args.latest_available:
             run = latest_available_run(base_root, datetime.now(UTC), budget)
+        if args.mode == "national" and args.publish_dev:
+            from pra_weather_store import ArchiveStore
+            existing = next((e for e in ArchiveStore(read_only=True).catalogue()["weather"]
+                             if e.get("run_at") == run.isoformat()
+                             and e.get("method_version") == "pra-national-weather-daily-1"), None)
+            if existing:
+                # Existing qualified cycle is immutable; verify bytes before skipping acquisition/calculation.
+                ArchiveStore(read_only=True).blob(existing["path"], existing["sha256"])
+                result = {"status": "no_new_data", "run": run.isoformat(), "archive": existing,
+                          "source_requests": budget.requests, "source_bytes": budget.bytes, "inserted": False}
+                atomic_write(base_root / "report.json", json.dumps(result).encode())
+                print(json.dumps(result))
+                return
         # Keep per-cycle IFS indices/ranges isolated; WCS content keys already include run.
         cycle_root = base_root / "cycles" / run.strftime("%Y%m%dT%H")
         legacy_index = base_root / "ifs/0.index"

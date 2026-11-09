@@ -10,7 +10,7 @@ import {
   type Illustration,
 } from "./model";
 import { checkConfig, cost, type AIConfig } from "./config";
-import { EditorialStore, sealArchive, type Run } from "./archive";
+import { sealArchive, type Run, type GenerationStore } from "./archive";
 import { validateDraft, assertDraft } from "./validate";
 import { fallbackDraft } from "./fallback";
 import { ProviderFailure, type Provider } from "./provider";
@@ -19,7 +19,7 @@ import { INSTRUCTIONS } from "./prompt";
 export interface GenerateOptions {
   briefing: EditorialBriefingBundle;
   config: AIConfig;
-  store: EditorialStore;
+  store: GenerationStore;
   mode: "simulation" | "live";
   provider?: Provider;
   simulation?: unknown;
@@ -55,19 +55,18 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
     o.supersedes ?? null,
     o.experiment?.id ?? "daily",
   ]);
-  const release = o.store.lock();
+  const release = await o.store.lock();
   try {
-    const prior = o.store.readRun(id);
+    const prior = await o.store.readRun(id);
     if (prior) {
       if (prior.archive_id) {
-        const archive = o.store.read(prior.archive_id);
+        const archive = await o.store.read(prior.archive_id);
         if (archive) return archive;
       }
       throw Error("ALREADY_ATTEMPTED_RECONCILIATION_REQUIRED");
     }
     if (o.mode === "live" && !o.experiment && revision === 1) {
-      const existing = o.store
-        .runs()
+      const existing = (await o.store.runs())
         .find(
           (r) =>
             r.edition_date === b.edition_date &&
@@ -75,13 +74,13 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
             r.archive_id,
         );
       if (existing) {
-        const archive = o.store.read(existing.archive_id!);
+        const archive = await o.store.read(existing.archive_id!);
         if (archive?.briefing.bundle_id === b.bundle_id) return archive;
         throw Error("DAILY_EDITION_EXISTS_USE_REVISION");
       }
     }
     if (revision !== 1) {
-      const parent = o.supersedes ? o.store.read(o.supersedes) : null;
+      const parent = o.supersedes ? await o.store.read(o.supersedes) : null;
       if (
         !parent ||
         parent.date !== b.edition_date ||
@@ -106,7 +105,7 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
     if (o.mode === "live") {
       checkConfig(c);
       if (!o.provider) throw Error("API_KEY_OR_PROVIDER_MISSING");
-      const runs = o.store.runs();
+      const runs = await o.store.runs();
       if (
         runs.some((r) =>
           ["running", "reserved", "outcome_unknown"].includes(r.state),
@@ -132,19 +131,20 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
       if (bound > c.max_edition_eur || used + bound > c.monthly_budget_eur) {
         run.state = "budget_exceeded";
         run.error = "BUDGET_EXCEEDED";
-        o.store.writeRun(run);
+        if (!o.store.reserveAtomic) await o.store.writeRun(run);
         throw new BudgetRefusal(report);
       }
       run.state = "reserved";
       run.reserved_eur = bound;
-      o.store.writeRun(run);
+      if (o.store.reserveAtomic) await o.store.reserveAtomic(run);
+      else await o.store.writeRun(run);
     }
     let draft: unknown = o.simulation ?? fallbackDraft(b),
       receipt: Archive["receipt"] = null,
       mode: Archive["mode"] = o.mode;
     if (o.mode === "live") {
       run.state = "running";
-      o.store.writeRun(run);
+      await o.store.writeRun(run);
       const started = performance.now();
       try {
         const result = await o.provider!(payload, c);
@@ -204,13 +204,13 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
             };
             run.actual_eur = accounted;
           }
-          o.store.diagnostic(id, {
+          await o.store.diagnostic(id, {
             provider_error: run.error,
             evidence: e,
             receipt,
           });
         }
-        o.store.writeRun(run);
+        await o.store.writeRun(run);
         draft = fallbackDraft(b);
         mode = "fallback";
       }
@@ -220,7 +220,7 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
       run.error = "DRAFT_REJECTED:" + validation.errors.join(",");
       run.state = "validation_failed";
       // Retain rejected payload separately for diagnosis, never render it.
-      o.store.diagnostic(id, { draft, validation, receipt });
+      await o.store.diagnostic(id, { draft, validation, receipt });
       draft = fallbackDraft(b);
       validation = validateDraft(draft, b);
       mode = "fallback";
@@ -250,13 +250,13 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
         ...(c.request_profile ? { request_profile: c.request_profile } : {}),
       },
     });
-    o.store.save(archive);
+    await o.store.save(archive);
     if (!["outcome_unknown", "validation_failed"].includes(run.state))
       run.state = "completed";
     run.archive_id = id;
-    o.store.writeRun(run);
+    await o.store.writeRun(run);
     return archive;
   } finally {
-    release();
+    await release();
   }
 }

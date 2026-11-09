@@ -1,0 +1,47 @@
+{
+  "scope": "local preview, no real publication",
+  "results": [
+    {
+      "label": "desktop",
+      "state": "latest",
+      "status": 200,
+      "overflow": false,
+      "openaiRequests": 0
+    },
+    {
+      "label": "desktop",
+      "state": "historical",
+      "status": 200,
+      "overflow": false,
+      "openaiRequests": 0
+    },
+    {
+      "label": "desktop",
+      "state": "absent",
+      "status": 200,
+      "overflow": false,
+      "openaiRequests": 0
+    },
+    {
+      "label": "mobile",
+      "state": "latest",
+      "status": 200,
+      "overflow": false,
+      "openaiRequests": 0
+    },
+    {
+      "label": "mobile",
+      "state": "historical",
+      "status": 200,
+      "overflow": false,
+      "openaiRequests": 0
+    },
+    {
+      "label": "mobile",
+      "state": "absent",
+      "status": 200,
+      "overflow": false,
+      "openaiRequests": 0
+    }
+  ]
+}

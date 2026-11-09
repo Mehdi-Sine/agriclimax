@@ -8,12 +8,13 @@ from pathlib import Path
 
 
 def restore(kind: str, destination: Path, selected: str = "") -> dict[str, object]:
-    names = (["national-weather-checkpoints"] if kind == "weather" else
+    nightly = os.environ.get("AGRICLIMAX_CHECKPOINT_OWNER") == "t36"
+    names = (["t36-forecast-checkpoints"] if nightly and kind == "weather" else ["t36-era5-checkpoints"] if nightly else ["national-weather-checkpoints"] if kind == "weather" else
              ["era5-resume-2-checkpoints", "era5-resume-1-checkpoints", "era5-archive-checkpoints"])
     if selected and not selected.isdigit():
         raise ValueError("Numeric checkpoint run ID required")
     runs = ([selected] if selected else json.loads(subprocess.check_output([
-        "gh", "run", "list", "--workflow", "pra-climate.yml", "--branch",
+        "gh", "run", "list", "--workflow", ("operational-journal.yml" if nightly else "pra-climate.yml"), "--branch",
         os.environ["GITHUB_REF_NAME"], "--limit", "20", "--json", "databaseId",
         "--jq", "map(.databaseId | tostring)",
     ])))
