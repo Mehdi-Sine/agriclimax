@@ -12,14 +12,9 @@ import { buildBriefing, briefingEvents, type BriefingInput, type NewsContext } f
 import { parisDate } from "../apps/web/features/editorial/almanac";
 import { freezeSnapshot, verifySnapshot, cutoffUTC, selectCycles, modelFamily, POLICY, type Cycle, type DailyEditorialSnapshot } from "../apps/web/features/nightly/snapshot";
 import { editorialRPC, SupabaseEditorialStore, promoteEdition, publishedEditions } from "../apps/web/features/editorial-ai/supabase-store";
-import { generate } from "../apps/web/features/editorial-ai/generate";
+import {generateOperational,operationalConfig} from "../apps/web/features/editorial-ai/generate-operational";
 import type { Archive } from "../apps/web/features/editorial-ai/model";
-import { liveConfig, shortContextLimit } from "../apps/web/features/editorial-ai/live-pricing";
 import { openAIProvider, verifyModel } from "../apps/web/features/editorial-ai/provider";
-import { budgetReport, editorialPayload } from "../apps/web/features/editorial-ai/budget";
-import {assertNewDailyTrial,reconciliationPlan,type ReconciliationEvidence} from "../apps/web/features/editorial-ai/reconciliation";
-import {sha256} from "../apps/web/features/editorial-ai/request-audit";
-import type {Run} from "../apps/web/features/editorial-ai/archive";
 import geography from "../apps/web/data/operational/pra-watch-places.json";
 const command = process.argv[2] ?? "preflight";
 const date = parisDate(new Date().toISOString());
@@ -125,20 +120,6 @@ async function prepare() {
   return freezeSnapshot(date,[],null,now);
 }
 async function main() {
-  if(command==="reconcile-plan") {
-    const flag=process.argv.indexOf("--evidence");
-    if(flag<0 || !process.argv[flag+1]) throw Error("VERIFIABLE_OWNER_EVIDENCE_REQUIRED");
-    const evidence=JSON.parse(readFileSync(process.argv[flag+1],"utf8")) as ReconciliationEvidence&{evidence_file:string};
-    if(!evidence.evidence_file) throw Error("PRIVATE_EVIDENCE_FILE_REQUIRED");
-    const {evidence_file,...metadata}=evidence;
-    if(sha256(readFileSync(evidence_file))!==metadata.evidence_sha256) throw Error("EVIDENCE_CHECKSUM_MISMATCH");
-    const run=await editorialRPC<Run|null>("run_read",{id:metadata.run_id});
-    if(!run) throw Error("RECONCILIATION_RUN_MISMATCH");
-    const plan=reconciliationPlan(run,metadata);
-    const sqlPath=join(out,"owner-reconciliation.sql");
-    writeFileSync(sqlPath,plan.sql,{mode:0o600});
-    output({status:"owner_review_required",run_id:run.id,sql_path:sqlPath,sql_sha256:sha256(plan.sql),ledger_modified:false,paid_calls:0});return;
-  }
   if(command==="report") { output(await supervise()); return; }
   if(command==="promote") { output(await promoteEdition(process.argv[3]??"")); return; }
   if(command==="approve"||command==="reject") {
@@ -163,24 +144,20 @@ async function main() {
   verifySnapshot(snapshot);
   if(command==="prepare") { output({snapshot_id:snapshot.id,quality:snapshot.quality,date}); return; }
   if(snapshot.quality==="insufficient" || !snapshot.briefing) { output({status:"insufficient",paid_calls:0,previous_retained:true}); return; }
-  const config = liveConfig(process.env.AGRICLIMAX_EDITORIAL_MODEL??"gpt-6-luna",6000);
+  const config = operationalConfig(process.env.AGRICLIMAX_EDITORIAL_MODEL??"gpt-6.1-terra");
   const store = new SupabaseEditorialStore(snapshot.id);
-  const report = budgetReport(editorialPayload(snapshot.briefing),config,await store.runs());
-  if(report.input_token_upper_bound>shortContextLimit(config.model)) throw Error("UNQUALIFIED_LONG_CONTEXT_PRICING");
   if(command==="preflight"||command==="qualify") {
-    output({snapshot_id:snapshot.id,quality:snapshot.quality,facts:snapshot.briefing.national.facts.length,...report,
+    output({snapshot_id:snapshot.id,quality:snapshot.quality,facts:snapshot.briefing.national.facts.length,model:config.model,financial_control:"openai_project",
       api_key_present:!!process.env.OPENAI_API_KEY,control:await editorialRPC("control"),paid_calls:0});return;
   }
   if(command!=="run") throw Error("UNKNOWN_NIGHTLY_COMMAND");
   if(process.env.AGRICLIMAX_AI_ENABLED!=="true") {output({status:"data_ready_ai_disabled",snapshot_id:snapshot.id,quality:snapshot.quality,paid_calls:0});return;}
-  // A new manual attempt must use a genuine new daily dossier, never a changed scope/date on the old edition.
-  if(process.argv.includes("--authorize-snapshot")) assertNewDailyTrial(await store.runs(),date);
   const authorized=process.argv.indexOf("--authorize-snapshot");
   if(authorized>=0&&process.argv[authorized+1]!==snapshot.id) throw Error("EXACT_SNAPSHOT_AUTHORIZATION_REQUIRED");
   const key=process.env.OPENAI_API_KEY;
   if(!key) throw Error("OPENAI_API_KEY_MISSING");
   await verifyModel(key,config.model);
-  const archive=await generate({briefing:snapshot.briefing,config,store,mode:"live",provider:openAIProvider(key)});
+  const archive=await generateOperational({briefing:snapshot.briefing,config,store,provider:openAIProvider(key),manualRetry:authorized>=0});
   const run=await store.readRun(archive.edition_id);
   output({id:archive.edition_id,mode:archive.mode,status:archive.mode==="live"?archive.status:"provider_failed",
     validation_status:archive.status,receipt:archive.receipt,checksum:archive.checksum,run_state:run?.state,error:run?.error??null});

@@ -10,12 +10,12 @@ export interface ProviderResult {
   draft: unknown;
   model: string;
   response_id: string;
-  usage: Usage;
+  usage: Usage|null;
 }
 export type Provider = (
   payload: string,
   config: AIConfig,
-  context?: {beforeRequest:(metadata:RequestMetadata)=>Promise<void>},
+  context?: {beforeRequest:(metadata:RequestMetadata)=>Promise<void>;usageOptional?:boolean},
 ) => Promise<ProviderResult>;
 export interface HTTPDiagnostic {status:number;code:string|null;type:string|null;param:string|null;request_id:string|null;client_request_id:string;reason:string;schema_context:string[]|null}
 export class ProviderFailure extends Error {
@@ -164,15 +164,15 @@ export function openAIProvider(
       );
     if (content.some((c) => c.type === "refusal"))
       throw new ProviderFailure("PROVIDER_REFUSAL", true, evidence);
-    if (texts.length !== 1 || !data.id || !data.model || !data.usage)
+    if (texts.length !== 1 || !data.id || !data.model || (!data.usage&&!context?.usageOptional))
       throw new ProviderFailure("PROVIDER_MISSING_METADATA", true, evidence);
-    if (!validUsage) throw new ProviderFailure("PROVIDER_INVALID_USAGE");
+    if (!validUsage&&!context?.usageOptional) throw new ProviderFailure("PROVIDER_INVALID_USAGE");
     try {
       return {
         draft: JSON.parse(texts[0].text!),
         model: data.model,
         response_id: data.id,
-        usage: usage!,
+        usage: validUsage?usage!:null,
       };
     } catch {
       throw new ProviderFailure("PROVIDER_MALFORMED", true, evidence);

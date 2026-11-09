@@ -17,10 +17,10 @@ on:
         type: choice
         options: [acquire, prepare, preflight, qualify, run, report]
         default: report
-        description: Explicit operational stage; run may make one reserved paid call
+        description: Explicit operational stage; run may make one operationally locked call
       authorized_snapshot:
         type: string
-        description: Exact frozen snapshot ID authorizing one manual paid trial, maximum EUR 0.15
+        description: Exact frozen snapshot ID authorizing one manual trial; spending controlled in OpenAI
         required: false
       model:
         type: choice

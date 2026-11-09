@@ -1,3 +1,24 @@
+# Décision propriétaire — budget géré dans OpenAI
+
+Les réservations, plafonds applicatifs et rapprochements financiers ne conditionnent
+plus T36. Le parcours actif utilise `generateOperational` et un verrou par date :
+tentatives distinctes, reprise manuelle après erreur pour la même date, aucune
+relance automatique, aucune régénération d’une édition techniquement validée.
+L’ancien HTTP 400 et ses montants historiques restent inchangés. Les tokens et
+coûts sont des métadonnées facultatives ; le coût calculé est une estimation,
+jamais une facture prétendument retournée par Responses.
+
+Migration ciblée `20261109152744_editorial_operational_attempts.sql` appliquée en DEV :
+contrainte financière retirée, index unique sur les tentatives actives par date et
+RPC invoker service-only dédiée. Aucun nouveau tableau, aucune activation quotidienne
+ni publication publique. Tests : 558 tests locaux passés, recette SQL et deux vraies
+connexions concurrentes locales (une seule admission), contrôle DEV avec rollback.
+Le dossier réel du 9 novembre conserve son snapshot et sa date pour l’essai autorisé.
+
+Les consignes comptables ci-dessous sont historiques et ne s’appliquent plus.
+
+<details><summary>Historique antérieur à la décision propriétaire</summary>
+
 # État actualisé — recette DEV du 9 novembre
 
 Extensions installées séparément : pg_cron 1.6.4 (migration distante 20261109112047), pg_net 0.20.4 (20261109112115). Vault 0.3.1 était présent. Watchdog installé séparément (20261109112139), job */15 UTC inactif avec filtre Europe/Paris ; probe outside_window, aucun dispatch. Vault ne contient aucun secret. Le contrôle 06:30 porte sur le brouillon privé techniquement valide ; une relecture en attente n'est pas une promotion défaillante. Installer séparément le token propriétaire limité Actions:write avant toute activation. Cadence 30 minutes et contrôles 06:30/06:45/07:00 testés en code, non mesurés sur une nuit. outcome_unknown interdit toute reprise payante automatique.
@@ -42,5 +63,7 @@ aucune installation distante effectuée. Cadence <= 1 contrôle/15 min et un job
 court ; mesurer temps DB, stockage et consommation Actions avant activation.
 La revue automatique a refusé le déploiement groupé (schéma, droits, Cron, Vault
 et dispatch externe). Aucun contournement : déploiement et dispatch non démontrés.
+
+</details>
 
 </details>

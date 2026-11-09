@@ -277,7 +277,7 @@ describe("single paid request and durable spending controls", () => {
     expect((await generate(o)).checksum).toBe(a.checksum);
     expect(provider).toHaveBeenCalledTimes(1);
     expect(s.runs()[0].actual_eur).toBe(cost(200, 300, config().pricing));
-    expect(a.receipt?.usage.reasoning_tokens).toBe(20);
+    expect(a.receipt?.usage?.reasoning_tokens).toBe(20);
   });
   it("blocks concurrent callers before provider invocation", async () => {
     const s = store();

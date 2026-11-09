@@ -65,8 +65,8 @@ export interface Usage {
 export interface Receipt {
   model: string;
   response_id: string;
-  usage: Usage;
-  cost_eur: number;
+  usage: Usage|null;
+  cost_eur: number|null;
   duration_ms: number;
   pricing_version: string;
 }

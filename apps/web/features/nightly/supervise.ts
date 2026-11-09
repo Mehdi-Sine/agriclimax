@@ -15,7 +15,6 @@ export interface OperationalReport {
 export async function supervise() {
   const now=new Date().toISOString(), date=parisDate(now);
   const report=await editorialRPC<OperationalReport>("report",{edition_date:date});
-  const allRuns=await editorialRPC<Run[]>("runs");
   const today=report.snapshots.find(s=>s.edition_date===date);
   const publication=report.publications.find(p=>p.edition_date===date);
   const [drafts,reviews]=await Promise.all([personalEditions(),personalReviews()]);
@@ -51,11 +50,11 @@ export async function supervise() {
     } catch {pageStatus="unavailable";}
   }
   if(pageStatus!=="verified") alerts.push("PAGE_"+pageStatus.toUpperCase());
-  if(report.runs.some(r=>r.state==="outcome_unknown")) alerts.push("OPENAI_RECONCILIATION_REQUIRED");
+  if(!privateEdition&&report.runs.some(r=>r.state==="outcome_unknown")) alerts.push("OPENAI_ATTEMPT_FAILED");
   const result={observed_at:now,date,quality:today?.quality??"insufficient",sources:today?.sources??[],
     acquisitions:report.acquisitions.filter(a=>a.edition_date===date),
     generated:report.runs.filter(r=>r.edition_date===date),publication:publication??null,page_status:pageStatus,
-    accounted_month_eur:allRuns.filter(r=>r.month===now.slice(0,7)).reduce((s,r)=>s+(r.actual_eur??r.reserved_eur),0),alerts,
+    alerts,
     private_edition:privateEdition?{id:privateEdition.edition_id,date:privateEdition.date,checksum:privateEdition.checksum,status:privateEdition.status,editorial_decision:review?.decision??"pending"}:null,
     notices,previous_retained:!publication,paid_calls:0};
   await editorialRPC("diagnostic",{edition_date:date,id:hash([date,now.slice(0,16),"service-verdict"]),body:result});

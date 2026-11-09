@@ -1,3 +1,24 @@
+# Décision propriétaire — budget géré dans OpenAI
+
+Les réservations, plafonds applicatifs et rapprochements financiers ne conditionnent
+plus T36. Le parcours actif utilise `generateOperational` et un verrou par date :
+tentatives distinctes, reprise manuelle après erreur pour la même date, aucune
+relance automatique, aucune régénération d’une édition techniquement validée.
+L’ancien HTTP 400 et ses montants historiques restent inchangés. Les tokens et
+coûts sont des métadonnées facultatives ; le coût calculé est une estimation,
+jamais une facture prétendument retournée par Responses.
+
+Migration ciblée `20261109152744_editorial_operational_attempts.sql` appliquée en DEV :
+contrainte financière retirée, index unique sur les tentatives actives par date et
+RPC invoker service-only dédiée. Aucun nouveau tableau, aucune activation quotidienne
+ni publication publique. Tests : 558 tests locaux passés, recette SQL et deux vraies
+connexions concurrentes locales (une seule admission), contrôle DEV avec rollback.
+Le dossier réel du 9 novembre conserve son snapshot et sa date pour l’essai autorisé.
+
+Les consignes comptables ci-dessous sont historiques et ne s’appliquent plus.
+
+<details><summary>Historique antérieur à la décision propriétaire</summary>
+
 # Premier essai réel — échec conservé
 
 Le secret OpenAI existant a été confirmé présent par GitHub Actions ; aucune nouvelle clé n'est nécessaire. Le modèle qualifié gpt-6.1-terra a reçu un unique appel autorisé à partir du dossier réel T33 du 9 novembre.
@@ -113,3 +134,5 @@ build production réussi. Recette de la transaction de rapprochement sur Postgre
 avec justificatif **synthétique local uniquement**, audit avant/après vérifié et refus
 SQL d'une deuxième tentative à la même date ; rollback final. Cette fixture ne
 constitue pas un justificatif financier pour DEV et n'a jamais été appliquée en DEV.
+
+</details>

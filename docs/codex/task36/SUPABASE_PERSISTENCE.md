@@ -1,3 +1,24 @@
+# Décision propriétaire — budget géré dans OpenAI
+
+Les réservations, plafonds applicatifs et rapprochements financiers ne conditionnent
+plus T36. Le parcours actif utilise `generateOperational` et un verrou par date :
+tentatives distinctes, reprise manuelle après erreur pour la même date, aucune
+relance automatique, aucune régénération d’une édition techniquement validée.
+L’ancien HTTP 400 et ses montants historiques restent inchangés. Les tokens et
+coûts sont des métadonnées facultatives ; le coût calculé est une estimation,
+jamais une facture prétendument retournée par Responses.
+
+Migration ciblée `20261109152744_editorial_operational_attempts.sql` appliquée en DEV :
+contrainte financière retirée, index unique sur les tentatives actives par date et
+RPC invoker service-only dédiée. Aucun nouveau tableau, aucune activation quotidienne
+ni publication publique. Tests : 558 tests locaux passés, recette SQL et deux vraies
+connexions concurrentes locales (une seule admission), contrôle DEV avec rollback.
+Le dossier réel du 9 novembre conserve son snapshot et sa date pour l’essai autorisé.
+
+Les consignes comptables ci-dessous sont historiques et ne s’appliquent plus.
+
+<details><summary>Historique antérieur à la décision propriétaire</summary>
+
 # État actualisé — recette DEV du 9 novembre
 
 Migration initiale appliquée séparément en DEV, version distante 20261109110405 ; fichier source 20261109085400_operational_ai_journal.sql inchangé. Migration de relecture source 20261109111202_editorial_personal_review.sql, version distante 20261109111836. Huit tables privées RLS forcée, aucun SELECT anon/authenticated ; wrapper public invoker exécutable uniquement par service_role, coeur déplacé en schéma privé. Archives texte exact relues et SHA vérifiés ; réserve/doublon testés avec rollback et contention réelle observée. Ne pas rejouer aveuglément db push : conserver la correspondance des versions distantes. Tous les interrupteurs restent faux.
@@ -38,5 +59,7 @@ Déploiement DEV **non effectué** : revue automatique refusée. Les tests Postg
 17 sont locaux et jetables ; ils ne démontrent pas PostgREST/Vault/Cron distants.
 Aucun seed synthétique n’a été exécuté sur DEV. Les RPC de contrôle et les tables
 financières restent à qualifier à distance après accord sur la migration.
+
+</details>
 
 </details>

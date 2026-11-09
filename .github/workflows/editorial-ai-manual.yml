@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "Model verification, shared DEV qualification or one owner-authorized SQL-reserved trial"
+        description: "Model verification, shared DEV qualification or one owner-authorized operationally locked trial"
         required: true
         default: verify-model
         type: choice
@@ -86,7 +86,7 @@ jobs:
           python-version: '3.12'
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - run: python -m pip install -r engine/requirements-dev.lock
-      - name: Shared DEV qualification; no paid retry or public publication
+      - name: Shared DEV qualification; one manual attempt, no public publication
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || vars.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}

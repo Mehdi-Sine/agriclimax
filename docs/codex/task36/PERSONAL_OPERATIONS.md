@@ -1,3 +1,24 @@
+# Décision propriétaire — budget géré dans OpenAI
+
+Les réservations, plafonds applicatifs et rapprochements financiers ne conditionnent
+plus T36. Le parcours actif utilise `generateOperational` et un verrou par date :
+tentatives distinctes, reprise manuelle après erreur pour la même date, aucune
+relance automatique, aucune régénération d’une édition techniquement validée.
+L’ancien HTTP 400 et ses montants historiques restent inchangés. Les tokens et
+coûts sont des métadonnées facultatives ; le coût calculé est une estimation,
+jamais une facture prétendument retournée par Responses.
+
+Migration ciblée `20261109152744_editorial_operational_attempts.sql` appliquée en DEV :
+contrainte financière retirée, index unique sur les tentatives actives par date et
+RPC invoker service-only dédiée. Aucun nouveau tableau, aucune activation quotidienne
+ni publication publique. Tests : 558 tests locaux passés, recette SQL et deux vraies
+connexions concurrentes locales (une seule admission), contrôle DEV avec rollback.
+Le dossier réel du 9 novembre conserve son snapshot et sa date pour l’essai autorisé.
+
+Les consignes comptables ci-dessous sont historiques et ne s’appliquent plus.
+
+<details><summary>Historique antérieur à la décision propriétaire</summary>
+
 # Mise en service contrôlée
 
 État DEV et preuves : voir [ACCEPTANCE.md](ACCEPTANCE.md). Aucun merge automatique.
@@ -17,3 +38,5 @@ set acquisition_enabled=false, ai_enabled=false, publication_enabled=false
 where singleton;
 ```
 Arrêt serveur : `AGRICLIMAX_AI_ENABLED=false`, `AGRICLIMAX_PUBLICATION_ENABLED=false`, `AGRICLIMAX_NIGHTLY_KILL_SWITCH=true`. Désactiver aussi le cron pour arrêter les dispatchs. Zéro nuit de disponibilité mesurée ; recette 14–21 nuits à réaliser.
+
+</details>

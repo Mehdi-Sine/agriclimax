@@ -10,7 +10,7 @@ export async function editorialRPC<T>(action: string, payload: unknown = {}): Pr
   const url = new URL(base);
   if (url.protocol !== "https:" || url.username || url.password || url.pathname !== "/" || url.search || url.hash)
     throw Error("EDITORIAL_STORE_ORIGIN");
-  url.pathname = "/rest/v1/rpc/agriclimax_editorial";
+  url.pathname = "/rest/v1/rpc/"+(["attempt_claim","attempt_write"].includes(action)?"agriclimax_editorial_attempt":"agriclimax_editorial");
   const response = await fetch(url, { method: "POST", redirect: "error", cache: "no-store",
     signal: AbortSignal.timeout(12000), headers: { apikey: key, "Content-Type": "application/json" },
     body: JSON.stringify({ p_action: action, p_payload: payload }) });
@@ -31,6 +31,8 @@ export class SupabaseEditorialStore implements GenerationStore {
   lock() { return () => {}; }
   async readRun(id: string) { return editorialRPC<Run | null>("run_read", { id }); }
   async runs() { return editorialRPC<Run[]>("runs"); }
+  async claimAttempt(run:Run,manualRetry:boolean) {return editorialRPC<Run>("attempt_claim",{edition_date:run.edition_date,snapshot_id:this.snapshotId,run,manual_retry:manualRetry});}
+  async finishAttempt(run:Run) {await editorialRPC("attempt_write",{run});}
   async reserveAtomic(run: Run) {
     await editorialRPC("reserve", { id: run.id, edition_date: run.edition_date, snapshot_id: this.snapshotId, run });
   }
