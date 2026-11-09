@@ -1,3 +1,12 @@
+# État courant — premier texte OpenAI reçu
+
+Voir [FIRST_REAL_AI_EDITION.md](FIRST_REAL_AI_EDITION.md) et [ACCEPTANCE.md](ACCEPTANCE.md).
+Les contrôles comptables antérieurs ne s’appliquent plus à T36. Le texte réel du
+9 novembre est archivé pour inspection privée, avec rejet scientifique visible et
+publication interdite. Aucune activation quotidienne ni fusion effectuée.
+
+<details><summary>Conception et constats antérieurs (supplantés par l’état courant)</summary>
+
 # Décision propriétaire — budget géré dans OpenAI
 
 Les réservations, plafonds applicatifs et rapprochements financiers ne conditionnent
@@ -63,6 +72,8 @@ aucune installation distante effectuée. Cadence <= 1 contrôle/15 min et un job
 court ; mesurer temps DB, stockage et consommation Actions avant activation.
 La revue automatique a refusé le déploiement groupé (schéma, droits, Cron, Vault
 et dispatch externe). Aucun contournement : déploiement et dispatch non démontrés.
+
+</details>
 
 </details>
 

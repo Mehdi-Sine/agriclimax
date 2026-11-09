@@ -1,36 +1,14 @@
-# Décision propriétaire — budget géré dans OpenAI
+# Recette T36 — état après essai réel
 
-Les réservations, plafonds applicatifs et rapprochements financiers ne conditionnent
-plus T36. Le parcours actif utilise `generateOperational` et un verrou par date :
-tentatives distinctes, reprise manuelle après erreur pour la même date, aucune
-relance automatique, aucune régénération d’une édition techniquement validée.
-L’ancien HTTP 400 et ses montants historiques restent inchangés. Les tokens et
-coûts sont des métadonnées facultatives ; le coût calculé est une estimation,
-jamais une facture prétendument retournée par Responses.
+1. **DEV** : registre, RLS et RPC appliqués séparément ; migration ciblée des tentatives opérationnelles 20261109152744 appliquée. Aucun tableau ajouté, historique HTTP400 intact, aucun contrôle comptable dans la génération T36. Admission manuelle même date testée sur le vrai snapshot avec rollback ; deux connexions locales concurrentes : une admission, une refusée.
+2. **OpenAI réel** : réponse complète obtenue dans le run 42646091222, 14845 tokens entrée /1689 sortie, estimation 0,025619 €. Le texte et ses sources sont archivés en DEV et proposés à l’inspection propriétaire dans la maquette actuelle. **Rejet scientifique conservé : cinq contrôles bloquants, aucune approbation ni publication.**
+3. **Exploitation** : gel et réutilisation des archives réelles vérifiés ; passage sans IA réexercé sans appel. L’espace personnel distingue désormais réponse reçue rejetée, brouillon validé techniquement et approbation éditoriale. Le Journal public reste inchangé.
+4. **Restant** : revue scientifique du texte ; fusion manuelle après CI ; NIGHTLY et contrôles DB quotidiens à activer après configuration health/bypass Vercel. Aucun approbateur obligatoire editorial-ai-dev. Watchdog inactif et Vault sans token ; configurer son token séparément si utilisé. Aucune nouvelle clé OpenAI ni pièce comptable requise.
+5. **Limite réelle** : aucune nuit complète mesurée, aucun engagement de disponibilité entre 06:30 et 07:00. Reprises à 30 minutes, planning Paris et contrôles sont implémentés/testés, puis doivent être observés en exploitation réelle.
 
-Migration ciblée `20261109152744_editorial_operational_attempts.sql` appliquée en DEV :
-contrainte financière retirée, index unique sur les tentatives actives par date et
-RPC invoker service-only dédiée. Aucun nouveau tableau, aucune activation quotidienne
-ni publication publique. Tests : 558 tests locaux passés, recette SQL et deux vraies
-connexions concurrentes locales (une seule admission), contrôle DEV avec rollback.
-Le dossier réel du 9 novembre conserve son snapshot et sa date pour l’essai autorisé.
+[Preuve de l’essai et détails](FIRST_REAL_AI_EDITION.md), preuves assainies dans
+`evidence/operational/`. PR #73 conservée sur sa branche, sans merge automatique.
 
-Essai réel autorisé : résultat et preuve à compléter après l’unique exécution manuelle.
-
-# Recette DEV — 9 novembre 2026
-
-La PR #73 reste draft sur `codex/36-operational-ai-journal`. Aucun merge ni activation de main.
-
-1. **Déployé et testé en DEV** : migration opérationnelle seule, puis migration de relecture privée ; huit tables privées avec RLS forcée, RPC invoker réservée au service. Réservation transactionnelle et refus de doublon testés avec rollback ; contention du verrou financier observée sur deux connexions réelles. Dossier T33 réel gelé et archive Storage relue avec contrôle SHA. Installation séparée pg_cron 1.6.4 et pg_net 0.20.4 ; Vault 0.3.1 préexistant ; watchdog installé mais inactif, aucun dispatch. Acquisition, IA et publication désactivées.
-2. **Premier appel réel** : tentative unique autorisée gpt-6.1-terra, plafond 0,15 €, provision 0,094549 €. HTTP 400, aucun article réel, aucun response_id ni token récupéré. Coût réel inconnu ; état `outcome_unknown`, provision conservée. Aucun deuxième appel. Le fallback archivé n'est pas présenté comme article IA et ne peut être publié.
-3. **Blocages** : réconcilier la tentative OpenAI avant toute nouvelle génération payante ; raison précise du 400 perdue dans l'ancien traitement d'erreur. Renseigner séparément Vault `agriclimax_t36_github_dispatch_token` (token propriétaire limité Actions:write au dépôt), et réutiliser le secret Vercel existant dans `editorial-ai-dev` sous `VERCEL_AUTOMATION_BYPASS_SECRET`. Configurer l'origine health. Zéro nuit complète mesurée.
-4. **Fusion et activation minimales** : relire la PR et les CI du dernier commit, fusion manuelle seulement. Configurer les prérequis ci-dessus ; activer ensuite NIGHTLY et l'acquisition DB pour une première nuit sans IA, anciens writers cédant la main. Activer séparément le cron seulement après présence du workflow sur main. IA après réconciliation et nouvelle autorisation bornée ; publication toujours séparée après relecture/checksum. Mesurer 06:30, 06:45 et 07:00 avant toute conclusion de disponibilité.
-5. **Preuves** : qualification réelle sans appel payant [42609550528](https://github.com/Mehdi-Sine/agriclimax/actions/runs/42609550528), tentative réelle [42610453514](https://github.com/Mehdi-Sine/agriclimax/actions/runs/42610453514), preuves assainies dans `evidence/finalization/`. Ce dernier workflow historique est vert parce que le fallback était traité comme succès : son résultat fournisseur est un échec. La CLI corrigée sort désormais en erreur pour ce cas. Tests locaux : 203 passés, 2 ignorés ; build, lint et typecheck réussis, recette SQL ciblée réussie. Aucune nuit avec nouvelles acquisitions ni cycle IA réussi n'est revendiqué.
-
-L'espace personnel `/journal/personnel` utilise la maquette existante, avec authentification propriétaire et réponses privées sans cache. Il distingue brouillon techniquement vérifié, décision éditoriale et publication. Une tentative échouée affiche son statut et sa provision, sans fausse prose IA. La dernière édition publique valide reste conservée. Aucune décision éditoriale ni publication n'a été créée pendant cette recette.
-
-Revue ciblée complémentaire : [FIRST_REAL_AI_EDITION.md](FIRST_REAL_AI_EDITION.md)
-détaille le contrôle de la requête, les diagnostics corrélés et la proposition de
-rapprochement propriétaire. Aucun second appel, aucune écriture du registre financier,
-aucune modification de l'unicité quotidienne. Le prochain essai devra utiliser un
-nouveau dossier quotidien réel après preuve et autorisation ; aucun retry du 9 novembre.
+Validation finale locale : **559 tests passés, 7 ignorés**, lint, typecheck et build
+réussis. Aucun appel fournisseur dans ces tests. Le workflow manuel réel est rouge
+pour rejet scientifique ; cela ne représente pas un nouvel échec HTTP.

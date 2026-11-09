@@ -1,3 +1,12 @@
+# État courant — premier texte OpenAI reçu
+
+Voir [FIRST_REAL_AI_EDITION.md](FIRST_REAL_AI_EDITION.md) et [ACCEPTANCE.md](ACCEPTANCE.md).
+Les contrôles comptables antérieurs ne s’appliquent plus à T36. Le texte réel du
+9 novembre est archivé pour inspection privée, avec rejet scientifique visible et
+publication interdite. Aucune activation quotidienne ni fusion effectuée.
+
+<details><summary>Conception et constats antérieurs (supplantés par l’état courant)</summary>
+
 # Décision propriétaire — budget géré dans OpenAI
 
 Les réservations, plafonds applicatifs et rapprochements financiers ne conditionnent
@@ -59,6 +68,8 @@ Déploiement DEV **non effectué** : revue automatique refusée. Les tests Postg
 17 sont locaux et jetables ; ils ne démontrent pas PostgREST/Vault/Cron distants.
 Aucun seed synthétique n’a été exécuté sur DEV. Les RPC de contrôle et les tables
 financières restent à qualifier à distance après accord sur la migration.
+
+</details>
 
 </details>
 

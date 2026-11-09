@@ -25,6 +25,7 @@ export async function supervise() {
   if(!today) alerts.push("SNAPSHOT_MISSING");
   if(today?.quality==="insufficient") alerts.push("INSUFFICIENT_DATA");
   if(!privateEdition) alerts.push("PRIVATE_EDITION_MISSING");
+  else if(privateEdition.validation.status==="rejected") alerts.push("SCIENTIFIC_REVIEW_BLOCKED");
   else if(!review) notices.push("EDITORIAL_REVIEW_PENDING");
   else if(review.decision==="rejected") notices.push("EDITORIAL_REJECTED");
   else if(!publication) notices.push("APPROVED_NOT_PUBLIC");

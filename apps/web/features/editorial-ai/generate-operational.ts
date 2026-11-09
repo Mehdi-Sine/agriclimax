@@ -47,8 +47,6 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
   const validation=validateDraft(result.draft,b,[]);
   if(validation.status==="rejected") {
    await o.store.diagnostic(hash([run.id,"validation"]),{kind:"scientific_validation",run_id:run.id,validation});
-   run.state="validation_failed";run.error="DRAFT_REJECTED";
-   await o.store.finishAttempt(run);throw Error("DRAFT_REJECTED");
   }
   assertDraft(result.draft);
   const estimate=result.usage?cost(result.usage.input_tokens,result.usage.output_tokens,c.pricing):null;
@@ -57,8 +55,9 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
    receipt:{model:result.model,response_id:result.response_id,usage:result.usage,cost_eur:estimate,duration_ms:Math.round(performance.now()-started),pricing_version:c.pricing.version},
    prompt_sha256:hash(INSTRUCTIONS),parameters:{model:c.model,max_output_tokens:c.max_output_tokens,request_profile:c.request_profile}});
   await o.store.save(archive);
-  run.state="completed";run.archive_id=archive.edition_id;run.actual_eur=estimate;
+  run.state=validation.status==="rejected"?"validation_failed":"completed";run.error=validation.status==="rejected"?"DRAFT_REJECTED":null;run.archive_id=archive.edition_id;run.actual_eur=estimate;
   await o.store.finishAttempt(run);
+  if(validation.status==="rejected") throw Error("DRAFT_REJECTED");
   return archive;
  } catch(error) {
   if(run.state==="running") {

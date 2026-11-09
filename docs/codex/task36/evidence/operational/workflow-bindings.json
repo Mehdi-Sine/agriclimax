@@ -1,0 +1,19 @@
+{
+  "bindings_present": {
+    "NEXT_PUBLIC_SUPABASE_URL": true,
+    "SUPABASE_SECRET_KEY": true,
+    "OPENAI_API_KEY": true,
+    "VERCEL_AUTOMATION_BYPASS_SECRET": false,
+    "METEOFRANCE_CLIMATOLOGY_API_KEY": true,
+    "METEOFRANCE_OBSERVATIONS_API_KEY": true,
+    "METEOFRANCE_AROME_API_KEY": true,
+    "METEOFRANCE_ARPEGE_API_KEY": true,
+    "CDSAPI_KEY": true
+  },
+  "switches": {
+    "NIGHTLY_ENABLED": false,
+    "NIGHTLY_KILL_SWITCH": false,
+    "LEGACY_PRA_ENABLED": true,
+    "LEGACY_DAILY_ENABLED": true
+  }
+}

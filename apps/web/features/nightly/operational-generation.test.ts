@@ -27,9 +27,9 @@ describe("project-managed OpenAI spending and operational attempts",()=>{
   for(let i=0;i<2;i++) await expect(generateOperational({briefing,config,store:s.api,provider,manualRetry:true})).rejects.toThrow("PROVIDER_HTTP_400");
   expect(provider).toHaveBeenCalledTimes(2);expect(s.runs[0].id).not.toBe(s.runs[1].id);expect(s.runs.every(r=>r.edition_date===briefing.edition_date&&r.state==="outcome_unknown")).toBe(true);expect(s.archives.size).toBe(0);
  });
- it("preserves rejected scientific output privately without making it an edition",async()=>{
+ it("archives rejected scientific output for owner inspection without admitting it for publication",async()=>{
   const s=store(),config=operationalConfig("gpt-6.1-terra"),provider=vi.fn().mockResolvedValue({draft:{...simulated.draft,bundle_id:"invented"},model:config.model,response_id:"resp_synthetic",usage:{input_tokens:1,output_tokens:1,reasoning_tokens:0}});
   await expect(generateOperational({briefing,config,store:s.api,provider,manualRetry:true})).rejects.toThrow("DRAFT_REJECTED");
-  expect(s.archives.size).toBe(0);expect(s.runs[0].state).toBe("validation_failed");expect(s.api.diagnostic).toHaveBeenCalled();
+  expect(s.archives.size).toBe(1);expect([...s.archives.values()][0].validation.status).toBe("rejected");expect(s.runs[0].state).toBe("validation_failed");expect(s.api.diagnostic).toHaveBeenCalled();
  });
 });

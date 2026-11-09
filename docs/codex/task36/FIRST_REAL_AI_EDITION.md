@@ -1,138 +1,76 @@
-# Décision propriétaire — budget géré dans OpenAI
+# Premier vrai texte OpenAI — 9 novembre 2026
 
-Les réservations, plafonds applicatifs et rapprochements financiers ne conditionnent
-plus T36. Le parcours actif utilise `generateOperational` et un verrou par date :
-tentatives distinctes, reprise manuelle après erreur pour la même date, aucune
-relance automatique, aucune régénération d’une édition techniquement validée.
-L’ancien HTTP 400 et ses montants historiques restent inchangés. Les tokens et
-coûts sont des métadonnées facultatives ; le coût calculé est une estimation,
-jamais une facture prétendument retournée par Responses.
+**L’appel OpenAI a réussi. Le texte est archivé et consultable en privé avec un
+rejet scientifique visible ; il n’est ni approuvé ni publiable.** Aucun fallback
+n’est présenté comme article. Aucun deuxième appel n’a été fait après cette réponse.
 
-Migration ciblée `20261109152744_editorial_operational_attempts.sql` appliquée en DEV :
-contrainte financière retirée, index unique sur les tentatives actives par date et
-RPC invoker service-only dédiée. Aucun nouveau tableau, aucune activation quotidienne
-ni publication publique. Tests : 558 tests locaux passés, recette SQL et deux vraies
-connexions concurrentes locales (une seule admission), contrôle DEV avec rollback.
-Le dossier réel du 9 novembre conserve son snapshot et sa date pour l’essai autorisé.
+- [Workflow manuel 42646091222](https://github.com/Mehdi-Sine/agriclimax/actions/runs/42646091222), commit 5e42ebf, modèle gpt-6.1-terra.
+- Tentative distincte `dc7d8613160ff4eb03533d49a17c52911c39d60cf268b68a2d8f9f14b2c0ea08`, même date éditoriale **2026-11-09**, même dossier réel T33 (12 faits) et snapshot `9a80aa650e29356b01095854d6ae4d546d1c7ad70ee42325805af3178c1f01c7`.
+- Réponse `resp_08b02fb3b0d429b7016af1e83df37487d1ac9933f11573aacd` : **14 845 tokens entrée, 1 689 sortie, dont 44 de raisonnement**.
+- Estimation diagnostique conservatrice : **0,025619 €** ; Responses ne retourne aucun montant facturé. Le suivi financier appartient exclusivement au projet OpenAI du propriétaire.
+- Requête envoyée à **16:35:24 Europe/Paris**, réponse reçue environ 22 secondes plus tard. Ce n’est pas une mesure de disponibilité matinale.
+- Archive JSON privée relue et SHA vérifié : `e1f6d85baaa74237ff9d94be5b97dd4f2234f4969f2773ecc63e6f4a03cfa4da`. Texte intégral, références, dossier, reçu, tokens et paramètres sont conservés en Supabase DEV ; aucune prose privée dans Git ou les artefacts CI publics.
 
-Les consignes comptables ci-dessous sont historiques et ne s’appliquent plus.
+## Résultat scientifique conservé
 
-<details><summary>Historique antérieur à la décision propriétaire</summary>
+Le workflow est rouge avec `DRAFT_REJECTED`, **après une réponse OpenAI réussie**.
+Les contrôles ont signalé : SEASON_AS_OBSERVATION, TEXT_NUMBER_OR_DATE,
+UNPROVEN_AGRONOMY, TEXT_UNIT, FORECAST_AS_OBSERVATION. Le validateur n’a pas été
+assoupli pour cette réponse. Son statut reste validation_failed/rejected.
 
-# Premier essai réel — échec conservé
+La réponse complète était déjà persistée avant validation. Elle a été transférée
+sans nouvel appel vers l’archive immuable, avec contrôle SHA et rattachement au
+même run. L’archivage des futures sorties conformes au schéma mais rejetées
+scientifiquement intervient désormais directement avant le signalement d’échec.
+L’espace `/journal/personnel` permet cette inspection propriétaire, avec codes
+bloquants affichés et mention « approbation et publication interdites ». Le RPC
+privé d’éditions validées et le Journal public continuent à exclure ces sorties.
+Un essai réel du RPC de revue en DEV a confirmé EDITORIAL_REVIEW_REJECTED ; zéro
+approbation et zéro publication. Aucun chiffre ou affirmation n’est approuvé automatiquement.
 
-Le secret OpenAI existant a été confirmé présent par GitHub Actions ; aucune nouvelle clé n'est nécessaire. Le modèle qualifié gpt-6.1-terra a reçu un unique appel autorisé à partir du dossier réel T33 du 9 novembre.
+## Fin des blocages comptables
 
-- Run Actions : 42610453514 ; run financier `9da626c533c6e928ee5d768a21b79a4d1fe290e6356345a2faac3f8e73a0e671`.
-- Résultat : `PROVIDER_HTTP_400`, `outcome_unknown`, provision 0,094549 €, coût réel et tokens inconnus.
-- Aucun article réel ni reçu OpenAI. Archive de fallback seulement, exclue de la lecture des brouillons IA et de la publication.
-- IA arrêtée immédiatement ; aucune seconde requête. Ne pas effacer le run ni ramener arbitrairement son coût à zéro.
+Décision propriétaire : aucune consommation visible dans son dashboard pour
+l’ancien HTTP400. Cette déclaration n’a entraîné aucune réécriture de l’historique.
+L’ancien run `9da626c533c6e928ee5d768a21b79a4d1fe290e6356345a2faac3f8e73a0e671`
+reste inchangé avec son état et ses anciennes métadonnées. Aucun justificatif ni
+rapprochement ne conditionne un nouvel appel T36.
 
-L'ancien code ne conservait pas le corps de rejet : la cause exacte reste indéterminée. Le code conserve désormais uniquement code/type/param/request_id assainis, sans message brut ni secret. Le schéma envoyé normalise const/enum avec type explicite ; c'est une correction hors ligne testée, **pas une cause prouvée du HTTP 400 ni une correction validée par un nouvel appel**. La réponse réussie future est archivée avant validation du modèle/usage.
+Le parcours actif utilise `generateOperational` et la RPC service-only
+`agriclimax_editorial_attempt`. Les réservations, sommes mensuelles, plafonds et
+blocages outcome_unknown ont quitté ce parcours. Le champ historique reserved_eur
+vaut zéro pour les nouvelles tentatives ; il n’est pas une réservation financière.
+Une tentative active par date est garantie par verrou transactionnel et index
+unique partiel. Une édition live techniquement validée est réutilisée sans appel.
+Une erreur autorise une nouvelle tentative **manuelle** distincte pour la même date ;
+une reprise automatique est refusée. Les outils financiers T35 historiques ne sont
+pas utilisés par T36 ; `reconcile-plan` a été retiré du CLI actif.
 
-Le propriétaire doit rapprocher les journaux et la facturation OpenAI de la tentative avant une nouvelle autorisation bornée. Les gardes financières et l'unicité quotidienne ne doivent pas être contournées. Aucun texte simulé n'est livré comme premier article.
+## Requête qualifiée
 
-## Revue ciblée de la requête — 9 novembre, après l'échec
+Le schéma Responses normalisé a été effectivement accepté pour cette requête :
+racine object, objets fermés, champs tous requis, types explicites des const/enum,
+nullable explicite et text.format json_schema strict. Reasoning low, service tier
+default, cache explicit/30m sans breakpoint et 6 000 tokens sortie. L’ancien rejet
+HTTP400 reste sans cause précise connue ; il n’a pas été reproduit.
+Les diagnostics assainis code/type/param/request_id et UUID client restent actifs.
+Les tokens et coûts facultatifs ne bloquent pas la génération ni les appels futurs.
 
-Frontières concernées : adaptateur Responses et schéma de transport, diagnostics privés,
-préflight du batch manuel, proposition de rapprochement financier. Aucun changement
-scientifique, aucune migration, aucune activation de cron/IA quotidienne/publication.
+## Suite quotidienne
 
-Audit documentaire et local de `requestBody` :
+Le gel, l’archive des entrées, la réutilisation de prévisions encore valables et le
+passage `run` avec IA désactivée ont été réexercés sur le vrai dossier. Ce test ne
+représente pas une nouvelle acquisition nocturne. Planning Europe/Paris : première
+acquisition 02:15, reprises 30 minutes jusqu’à 05:15, gel/rédaction 05:40, contrôles
+06:30/06:45/07:00. Les baux/cooldowns et la concurrence sont testés ; zéro nuit réelle
+complète mesurée.
 
-| Élément | Constat |
-|---|---|
-| Endpoint et entrée | POST `/v1/responses`, `instructions`, message user/input_text ; pas de tools, température, ancien response_format ou relance HTTP |
-| Sortie | `text.format={type:json_schema,name:EditorialDraft,strict:true,schema:…}` ; store=false |
-| Schéma normalisé | 13 objets, 62 propriétés, profondeur 7, 39 valeurs enum ; toutes les propriétés requises, objets fermés, racine object ; nullable explicite conservé |
-| Normalisation | 11 nœuds const/enum sans type reçoivent le type scalaire explicite ; contrat canonique intact. Aucune autre incompatibilité identifiée dans ce schéma documenté pour le modèle de base |
-| Modèle | Terra documente Responses, structured outputs et reasoning low ; 1 050 000 tokens de contexte et 128 000 de sortie maximum |
-| Tokens | 6 000 sortie, raisonnement inclus ; borne entrée réelle revue 56 130, sous seuil tarifaire prudent 272 000. Le minimum Responses 16 est maintenant vérifié dans checkConfig |
-| Coût | standard/default, cache explicit/30m sans breakpoint : aucun cache write ; prix conservateurs existants, plafond 0,15 €/édition et 5 €/mois inchangés |
-| Préflight DEV sans appel | Dossier réel inchangé, provision existante 0,094549 € comptée ; nouvelle estimation 0,094743 €, `allowed=false`, UNRECONCILED_GENERATION |
-
-La normalisation est suffisante pour les incompatibilités **identifiées hors ligne**.
-Elle ne prouve pas l'acceptation d'un prochain POST ni la cause du HTTP 400 initial.
-Les refus, réponses incomplètes et usages invalides restent des échecs, sans deuxième appel.
-
-Sources officielles consultées : [Terra](https://developers.openai.com/api/docs/models/gpt-6.1-terra),
-[Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs),
-[Responses create](https://developers.openai.com/api/reference/resources/responses/methods/create),
-[cache](https://developers.openai.com/api/docs/guides/prompt-caching),
-[identifiants de requête](https://developers.openai.com/api/reference/overview).
-Les empreintes des documents lus et du schéma figurent dans `evidence/request-audit/`.
-
-Avant transport, les prochaines tentatives enregistrent dans les diagnostics privés :
-run_id, horodatage UTC, modèle, limite sortie, SHA de la requête et du schéma,
-UUID transmis par X-Client-Request-Id. Si cet enregistrement échoue, aucun POST.
-Les rejets conservent statut/code/type/param/x-request-id, catégorie de cause et
-chemin de schéma limité au vocabulaire du contrat. Aucun message brut, prompt, clé
-ou en-tête Authorization n'entre dans ce diagnostic. Les causes non reconnues sont
-explicitement UNCLASSIFIED_PROVIDER_REJECTION, à rapprocher avec le request_id,
-sans inventer une explication. Les sorties réussies et reçus sont conservés en
-archive privée avant toute admission dans `/journal/personnel`.
-
-## Rapprochement propriétaire à effectuer
-
-Tentative ciblée : run Actions **42610453514**, commit d805ee6 ; étape de requête
-entre **12:37:24 et 12:37:33 Europe/Paris**, soit 11:37:24–11:37:33 UTC, le 9 novembre.
-Registre mis à jour à 11:37:33.840190 UTC. Modèle gpt-6.1-terra ; aucun response_id
-ni request_id ancien disponible. `store=false` ne permet pas de supposer que le texte
-pourrait être récupéré depuis le registre Responses.
-
-Le propriétaire doit isoler la requête dans son projet/clé et fournir une référence
-vérifiable de rejet sans usage, ou consommation/tokens/reçu et montant attribuables.
-[Usage](https://developers.openai.com/api/reference/resources/admin/subresources/organization/subresources/usage/methods/completions)
-permet des agrégats minute par projet/clé/modèle ;
-[Costs](https://developers.openai.com/api/reference/resources/admin/subresources/organization/subresources/usage/methods/costs)
-utilise des agrégats journaliers. Un total journalier ou l'absence provisoire d'une
-ligne ne démontre pas à lui seul le coût de cet appel. Vérifier délais, pagination,
-autres requêtes et conversion USD/EUR. Ces données nécessitent l'accès propriétaire ;
-aucune nouvelle clé de génération n'est demandée. Sans attribution fiable, conserver
-`outcome_unknown` et la provision entière.
-
-Après vérification du justificatif privé, préparer un fichier hors dépôt contenant :
-`run_id`, `verified_by`, `source_reference`, `evidence_file`, `evidence_sha256`,
-`finding` (`rejected_without_usage` ou `consumption_confirmed`), `actual_eur`,
-`input_tokens`, `output_tokens`, `response_id` (null uniquement pour rejet sans usage).
-Aucune valeur zéro préremplie ne constitue une preuve. Le SHA assure l'intégrité du
-fichier ; le propriétaire doit vérifier sa provenance et son attribution.
-
-```bash
-pnpm editorial:nightly reconcile-plan --evidence /chemin/prive/rapprochement.json
-```
-
-Cette commande lit le registre et vérifie le SHA du justificatif ; **elle n'exécute
-aucune écriture SQL ni aucun appel OpenAI**. Elle prépare `work/task36/owner-reconciliation.sql`
-(mode 0600) pour revue propriétaire. La transaction proposée exige tous les contrôles
-arrêtés, prend le verrou financier, compare le registre entier à son état attendu,
-ajoute un diagnostic privé avant/après/proof, puis comptabilise uniquement le montant
-justifié. Elle conserve id, date, mois, scope, erreur HTTP400, réserve historique et
-archive de fallback. L'état terminal validation_failed indique l'absence d'article,
-pas une approbation scientifique. Si le coût dépasse la réserve, si le justificatif
-est ambigu ou si la ligne a changé, arrêter : pas de libération automatique.
-
-## Nouvel essai, seulement après rapprochement et autorisation distincte
-
-L'unicité SQL sur edition_date reste inchangée. Le dossier du 9 novembre est déjà
-tenté : aucun changement de scope, aucune suppression, aucune fausse date, aucun
-nouveau modèle ou revision pour contourner cette règle. Le prochain essai utilisera
-le **prochain véritable dossier quotidien qualifié**, avec sa date réelle et son
-snapshot exact, après rapprochement. Le préflight manuel refuse explicitement un
-jour déjà tenté et tout résultat inconnu, avant accès modèle ou génération.
-
-Le propriétaire devra autoriser le nouveau snapshot exact, gpt-6.1-terra et le plafond
-0,15 €. Le workflow manuel existant `generate-shared-once` porte cette autorisation ;
-le contrôle IA SQL devra être armé ponctuellement puis arrêté dans une opération
-séparée. Pas d'activation quotidienne ; publication=false, cron inactif. En cas de
-succès : reçu/tokens/coût, texte, preuves et SHA relus en DEV, affichage privé vérifié ;
-relecture éditoriale et publication publique restent indépendantes. Aucun nouvel
-essai payant effectué dans cette revue, faute de justificatif propriétaire.
-
-Validation locale : **555 tests passés, 7 ignorés**, lint et typecheck réussis,
-build production réussi. Recette de la transaction de rapprochement sur PostgreSQL 17
-avec justificatif **synthétique local uniquement**, audit avant/après vérifié et refus
-SQL d'une deuxième tentative à la même date ; rollback final. Cette fixture ne
-constitue pas un justificatif financier pour DEV et n'a jamais été appliquée en DEV.
-
-</details>
+Avant exploitation : revue scientifique du texte, fusion manuelle de la PR #73,
+activation du propriétaire nocturne NIGHTLY pour faire céder les anciens writers,
+configuration de l’origine health et réutilisation du secret Vercel existant dans
+editorial-ai-dev. Les secrets Supabase/OpenAI/MF/CDS sont présents ; l’environnement
+n’a pas d’approbation humaine obligatoire. Le watchdog installé reste inactif ; son
+jeton Vault Actions:write est requis uniquement pour son dispatch indépendant.
+Activation acquisition, IA quotidienne et cron à effectuer séparément après fusion
+et qualification d’une nuit. Publication publique désactivée ; la dernière édition
+publique reste inchangée. Aucune garantie 06:30–07:00 avant mesures réelles.

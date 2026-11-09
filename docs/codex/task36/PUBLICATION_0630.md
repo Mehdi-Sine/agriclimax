@@ -1,3 +1,12 @@
+# État courant — premier texte OpenAI reçu
+
+Voir [FIRST_REAL_AI_EDITION.md](FIRST_REAL_AI_EDITION.md) et [ACCEPTANCE.md](ACCEPTANCE.md).
+Les contrôles comptables antérieurs ne s’appliquent plus à T36. Le texte réel du
+9 novembre est archivé pour inspection privée, avec rejet scientifique visible et
+publication interdite. Aucune activation quotidienne ni fusion effectuée.
+
+<details><summary>Conception et constats antérieurs (supplantés par l’état courant)</summary>
+
 # État actualisé — recette DEV du 9 novembre
 
 La disponibilité privée, l'approbation éditoriale et la promotion publique sont séparées. `/journal/personnel` protégé affiche les archives live avec reçu, run completed et validation sans erreur, y compris needs_editorial_review, avec statut visible. Le fallback est exclu. `approve ID --review-checksum SHA --reviewer NAME` enregistre une décision indépendante ; `promote ID` est une opération distincte, refusée tant que publication_enabled=false. Ne jamais approuver automatiquement des affirmations non vérifiées. La dernière publication reste intacte. Aucun article réel ni publication créé pendant la recette ; aucune disponibilité à 06:30 démontrée.
@@ -41,5 +50,7 @@ Après 07h : dernier article daté et diagnostics ; aucun retry payant. Promotio
 manuelle d’une archive prête possible sans génération supplémentaire.
 
 Aucune disponibilité 06:30–07:00 n’a été mesurée durant cette exécution.
+
+</details>
 
 </details>

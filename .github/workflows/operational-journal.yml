@@ -141,14 +141,14 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r engine/requirements-dev.lock
-      - name: Frozen dossier, reserved generation, validated archive or independent report
+      - name: Frozen dossier, operational generation, private archive or independent report
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           AGRICLIMAX_AI_ENABLED: ${{ github.event_name == 'workflow_dispatch' && inputs.stage == 'run' && inputs.authorized_snapshot != '' && 'true' || vars.AGRICLIMAX_AI_ENABLED }}
           AGRICLIMAX_PUBLICATION_ENABLED: ${{ github.event_name == 'schedule' && vars.AGRICLIMAX_PUBLICATION_ENABLED || 'false' }}
-          AGRICLIMAX_EDITORIAL_MODEL: ${{ inputs.model || vars.AGRICLIMAX_EDITORIAL_MODEL || 'gpt-6-luna' }}
+          AGRICLIMAX_EDITORIAL_MODEL: ${{ inputs.model || vars.AGRICLIMAX_EDITORIAL_MODEL || 'gpt-6.1-terra' }}
           AGRICLIMAX_JOURNAL_HEALTH_URL: ${{ vars.AGRICLIMAX_JOURNAL_HEALTH_URL }}
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
           STAGE: ${{ needs.plan.outputs.stage }}

@@ -1,3 +1,12 @@
+# État courant — premier texte OpenAI reçu
+
+Voir [FIRST_REAL_AI_EDITION.md](FIRST_REAL_AI_EDITION.md) et [ACCEPTANCE.md](ACCEPTANCE.md).
+Les contrôles comptables antérieurs ne s’appliquent plus à T36. Le texte réel du
+9 novembre est archivé pour inspection privée, avec rejet scientifique visible et
+publication interdite. Aucune activation quotidienne ni fusion effectuée.
+
+<details><summary>Conception et constats antérieurs (supplantés par l’état courant)</summary>
+
 # Décision propriétaire — budget géré dans OpenAI
 
 Les réservations, plafonds applicatifs et rapprochements financiers ne conditionnent
@@ -38,5 +47,7 @@ set acquisition_enabled=false, ai_enabled=false, publication_enabled=false
 where singleton;
 ```
 Arrêt serveur : `AGRICLIMAX_AI_ENABLED=false`, `AGRICLIMAX_PUBLICATION_ENABLED=false`, `AGRICLIMAX_NIGHTLY_KILL_SWITCH=true`. Désactiver aussi le cron pour arrêter les dispatchs. Zéro nuit de disponibilité mesurée ; recette 14–21 nuits à réaliser.
+
+</details>
 
 </details>
