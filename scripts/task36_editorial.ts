@@ -160,7 +160,7 @@ async function main() {
   const archive=await generateOperational({briefing:snapshot.briefing,config,store,provider:openAIProvider(key),manualRetry:authorized>=0});
   const run=await store.readRun(archive.edition_id);
   output({id:archive.edition_id,mode:archive.mode,status:archive.mode==="live"?"consultable":"provider_failed",
-    validation_status:archive.status,receipt:archive.receipt,checksum:archive.checksum,run_state:run?.state,error:run?.error??null});
+    validation_status:archive.status,provider_receipt_archived:!!archive.receipt,checksum:archive.checksum,run_state:run?.state,error:run?.error??null});
   if(archive.mode!=="live"||!archive.receipt) {process.exitCode=2;return;}
   // Archiving makes an experimental edition consultable. Certification/promotion remains explicit.
 }

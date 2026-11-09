@@ -69,3 +69,5 @@ partagée afin de vérifier le raccordement quotidien en Production.
 La migration watchdog actualise uniquement sa fonction : disponibilité expérimentale
 et notices scientifiques séparées, sans approbation matinale. Aucun cron, acquisition
 ou appel IA quotidien n’est activé. Le domaine normal doit encore recevoir ce déploiement.
+
+L’intégration Vercel a été découverte comme disponible mais non installée ; elle a été proposée pour permettre une promotion autorisée. Sans raccordement confirmé, la promotion Production reste une action propriétaire. La copie de secours réutilise le pack gzip/base64 des archives historiques pour garantir les nombres exacts.

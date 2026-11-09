@@ -75,9 +75,9 @@ async function EditionFigures({
 async function JournalContent({
   searchParams,
 }: {
-  searchParams: Promise<{ run?: string; date?: string }>;
+  searchParams: Promise<{ run?: string; date?: string;id?:string }>;
 }) {
-  const { run, date } = await searchParams;
+  const { run, date, id } = await searchParams;
   if(!run) {
     let editions;
     try {
@@ -86,7 +86,7 @@ async function JournalContent({
     } catch {
       return <main className="journal"><h1>Le Journal agroclimatique</h1><p role="status">Lecture des archives momentanément indisponible.</p></main>;
     }
-    const selected=date ? editions.find(e=>e.date===date) : editions[0];
+    const selected=date||id ? editions.find(e=>(!date||e.date===date)&&(!id||e.edition_id===id)) : editions[0];
     return <>{!date && editions[0]?.date!==parisDate(new Date().toISOString()) && <p role="status">L’édition du jour est retardée. La dernière édition consultable conserve sa date réelle.</p>}<EditorialPreview edition={selected} editions={editions} published /></>;
   }
   if (run !== undefined && !isJournalRun(run)) notFound();
@@ -356,7 +356,7 @@ async function JournalContent({
 }
 
 export default function Page(props: {
-  searchParams: Promise<{ run?: string; date?: string }>;
+  searchParams: Promise<{ run?: string; date?: string;id?:string }>;
 }) {
   return (
     <Suspense
