@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { Archive, Block } from "./model";
+import type {ConsultableEdition} from "./consultable";
 import { frenchDate } from "../journal/ui/stories";
-import { editorialText, frenchPeriod } from "../journal/ui/editorial-dates";
+import { editorialText, frenchPeriod, frenchCycle } from "../journal/ui/editorial-dates";
 import JournalPraMap from "../journal/ui/pra-map";
 function Text({ block }: { block: Block }) {
   return (
@@ -24,12 +25,13 @@ export function EditorialPreview({
   published = false,
   personalStatus,
 }: {
-  edition: Archive | undefined;
-  editions: Archive[];
+  edition: Archive|ConsultableEdition|undefined;
+  editions: (Archive|ConsultableEdition)[];
   published?: boolean;
   personalStatus?: string;
 }) {
   const d = a?.draft;
+  const cycles=[...new Set(a?.briefing.national.facts.flatMap(f=>{try{const cycle=new URL(f.href,"https://agriclimax.invalid").searchParams.get("cycle");return cycle&&Number.isFinite(Date.parse(cycle))?[cycle]:[];}catch{return [];}})??[])];
   const base=personalStatus?"/journal/personnel":published?"/journal":"/journal/preview";
   const api=personalStatus?"/api/journal/personnel":published?"/api/journal/edition":"/api/journal-preview";
   const mapApi=personalStatus?"/api/journal/personnel/map":published?"/api/journal/edition-map":"/api/journal-preview/map";
@@ -96,9 +98,14 @@ export function EditorialPreview({
                 : a.mode === "fallback"
                   ? "ÉDITION DE SECOURS · Rédaction déterministe."
                   : "Rédigé avec assistance IA."}{" "}
-              {personalStatus ? personalStatus : published ? "Édition validée et archivée. Les dates des cycles et les limites figurent dans les preuves." : "Revue éditoriale requise. Archive historique : ne décrit pas la situation actuelle."}
+              {personalStatus ? personalStatus : published ? "Édition expérimentale — contenu IA non entièrement vérifié" : "Revue éditoriale requise. Archive historique : ne décrit pas la situation actuelle."}
             </p>
           </aside>
+          {published&&<details className="editorial-note"><summary>Réserves scientifiques de cette édition</summary>
+            <p>Consultable ne signifie pas scientifiquement validée ou approuvée.</p>
+            <p>Contrôles enregistrés : {a.validation.errors.join(" · ")||"aucune erreur détectée"}.</p>
+            {"assessment" in a&&<p>Réexamen actuel : {[...a.assessment.errors,...a.assessment.review].join(" · ")||"aucune réserve automatique"}.</p>}
+          </details>}
           <section className="front-page" aria-labelledby="headline">
             <div className="hero-copy">
               <p className="eyebrow">À LA UNE · FRANCE</p>
@@ -125,9 +132,8 @@ export function EditorialPreview({
                 <p className="eyebrow">LA CARTE DU DOSSIER</p>
                 <h2>Aucune carte compatible archivée</h2>
                 <p>
-                  Les preuves de ce replay historique ne contiennent pas de
-                  carte qualifiée pour cette période. Aucune carte actuelle ne
-                  leur est substituée.
+                  Aucune carte compatible n’a été archivée pour cette édition.
+                  Aucune carte actuelle ne lui est substituée.
                 </p>
               </aside>
             )}
@@ -246,6 +252,8 @@ export function EditorialPreview({
           <footer id="sources">
             <p className="eyebrow">LA RIGUEUR DERRIÈRE LE RÉCIT</p>
             <h2>Sources & méthodes</h2>
+            {cycles.length>0&&<p>Cycles de prévision : {cycles.map(frenchCycle).join(" · ")}.</p>}
+            <p>Historique disponible jusqu’au {frenchDate(a.briefing.validity.history_cutoff)}. Prévisions : {frenchPeriod(a.briefing.validity.forecast_period?.[0]??a.date,a.briefing.validity.forecast_period?.[1]??a.date)}.</p>
             {d.limitations.map((b, i) => (
               <Text key={i} block={b} />
             ))}
@@ -261,7 +269,7 @@ export function EditorialPreview({
               </p>
               <p>
                 Dossier {a.briefing.bundle_id} · {a.generated_at} UTC ·{" "}
-                {a.prompt_version}
+                {"prompt_version" in a?a.prompt_version:"Archive éditoriale consultable"}
               </p>
               <ol>
                 {a.briefing.national.facts.map((f) => (

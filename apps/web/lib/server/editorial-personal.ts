@@ -10,7 +10,7 @@ export async function personalEditions() {
  // Owner inspection only; SQL approval and public promotion still reject these archives.
  const rejected=await Promise.all(attempts.filter(r=>r.state==="validation_failed"&&r.archive_id).slice(-30).map(r=>new SupabaseEditorialStore("").read(r.archive_id!)));
  for(const archive of rejected) if(archive?.mode==="live"&&archive.receipt&&archive.validation.status==="rejected") editions.push(archive);
- editions.forEach(verifyArchive);
+ editions.forEach(a=>verifyArchive(a,false));
  return editions.filter(a=>a.mode==="live"&&a.receipt).sort((a,b)=>b.generated_at.localeCompare(a.generated_at));
 }
 export async function personalReviews() {return editorialRPC<EditorialReview[]>("reviews");}

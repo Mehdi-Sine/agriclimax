@@ -12,6 +12,7 @@ import {validateDraft,assertDraft} from "./validate";
 import {editorialPayload} from "./budget";
 import {readConfig,cost,type AIConfig} from "./config";
 import {ProviderFailure,type Provider} from "./provider";
+import {consultableEdition} from "./consultable";
 
 export interface AttemptStore {
  claimAttempt(run:Run,manualRetry:boolean):Promise<Run>;
@@ -57,7 +58,8 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
   await o.store.save(archive);
   run.state=validation.status==="rejected"?"validation_failed":"completed";run.error=validation.status==="rejected"?"DRAFT_REJECTED":null;run.archive_id=archive.edition_id;run.actual_eur=estimate;
   await o.store.finishAttempt(run);
-  if(validation.status==="rejected") throw Error("DRAFT_REJECTED");
+  // Scientific reservations do not hide an experimental edition; incompatible data still do.
+  consultableEdition(archive);
   return archive;
  } catch(error) {
   if(run.state==="running") {

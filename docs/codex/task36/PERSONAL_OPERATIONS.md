@@ -1,3 +1,14 @@
+# Décision courante : édition expérimentale consultable sur /journal
+
+Voir [ACCEPTANCE.md](ACCEPTANCE.md) et [SCIENTIFIC_ALERT_REVIEW.md](SCIENTIFIC_ALERT_REVIEW.md).
+L’affichage normal ne requiert plus d’approbation scientifique ou éditoriale.
+Les alertes sont conservées ; aucune certification n’est revendiquée. L’archive
+existante est réutilisée sans génération et la projection publique exclut les
+métadonnées confidentielles. La mise en ligne sur le domaine normal nécessite la
+promotion Vercel Production du commit préparé, sans fusion automatique.
+
+<details><summary>Historique antérieur à cette décision produit</summary>
+
 # État courant — premier texte OpenAI reçu
 
 Voir [FIRST_REAL_AI_EDITION.md](FIRST_REAL_AI_EDITION.md) et [ACCEPTANCE.md](ACCEPTANCE.md).
@@ -47,6 +58,8 @@ set acquisition_enabled=false, ai_enabled=false, publication_enabled=false
 where singleton;
 ```
 Arrêt serveur : `AGRICLIMAX_AI_ENABLED=false`, `AGRICLIMAX_PUBLICATION_ENABLED=false`, `AGRICLIMAX_NIGHTLY_KILL_SWITCH=true`. Désactiver aussi le cron pour arrêter les dispatchs. Zéro nuit de disponibilité mesurée ; recette 14–21 nuits à réaliser.
+
+</details>
 
 </details>
 

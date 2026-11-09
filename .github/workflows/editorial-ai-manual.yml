@@ -115,6 +115,9 @@ jobs:
           print(json.dumps({'bindings_present':{n:bool(os.environ.get(n)) for n in names},'switches':{n:os.environ.get(n)=='true' for n in ['NIGHTLY_ENABLED','NIGHTLY_KILL_SWITCH','LEGACY_PRA_ENABLED','LEGACY_DAILY_ENABLED']}}))
           PYTHON
           pnpm editorial:nightly qualify
+          if [[ "$MODE" = qualify-shared ]]; then
+            AGRICLIMAX_AI_ENABLED=false pnpm editorial:nightly run
+          fi
           if [[ "$MODE" = generate-shared-once ]]; then
             [[ "$AUTHORIZED_SNAPSHOT" =~ ^[a-f0-9]{64}$ ]]
             pnpm editorial:nightly run --authorize-snapshot "$AUTHORIZED_SNAPSHOT"

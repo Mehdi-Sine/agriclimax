@@ -24,6 +24,7 @@ import { nationalWatch } from "../../lib/server/national-watch";
 import type { WatchSummary } from "../../features/national-watch/model";
 import "./journal.css";
 export const dynamic = "force-dynamic";
+export const metadata={robots:{index:false,follow:false}};
 async function EditionFigures({
   edition,
   references,
@@ -77,7 +78,7 @@ async function JournalContent({
   searchParams: Promise<{ run?: string; date?: string }>;
 }) {
   const { run, date } = await searchParams;
-  if(!run && process.env.AGRICLIMAX_JOURNAL_PUBLISHED_READ === "true") {
+  if(!run) {
     let editions;
     try {
       const { operationalEditions }=await import("../../lib/server/editorial-published");
@@ -86,7 +87,7 @@ async function JournalContent({
       return <main className="journal"><h1>Le Journal agroclimatique</h1><p role="status">Lecture des archives momentanément indisponible.</p></main>;
     }
     const selected=date ? editions.find(e=>e.date===date) : editions[0];
-    return <>{!date && editions[0]?.date!==parisDate(new Date().toISOString()) && <p role="status">L’édition du jour est retardée. La dernière édition validée conserve sa date réelle.</p>}<EditorialPreview edition={selected} editions={editions} published /></>;
+    return <>{!date && editions[0]?.date!==parisDate(new Date().toISOString()) && <p role="status">L’édition du jour est retardée. La dernière édition consultable conserve sa date réelle.</p>}<EditorialPreview edition={selected} editions={editions} published /></>;
   }
   if (run !== undefined && !isJournalRun(run)) notFound();
   let edition: JournalEdition;

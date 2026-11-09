@@ -48,13 +48,13 @@ export class SupabaseEditorialStore implements GenerationStore {
   }
   async read(id: string) {
     const a = await editorialRPC<Archive | null>("archive_read", { id });
-    if (a) verifyArchive(a);
+    if (a) verifyArchive(a,false);
     return a;
   }
 }
 export async function publishedEditions(): Promise<Archive[]> {
   const editions = await editorialRPC<Archive[]>("published");
-  editions.forEach(verifyArchive);
+  editions.forEach(a=>verifyArchive(a,false));
   return editions;
 }
 export async function promoteEdition(id: string) {

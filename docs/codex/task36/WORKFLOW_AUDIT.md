@@ -1,3 +1,14 @@
+# Décision courante : édition expérimentale consultable sur /journal
+
+Voir [ACCEPTANCE.md](ACCEPTANCE.md) et [SCIENTIFIC_ALERT_REVIEW.md](SCIENTIFIC_ALERT_REVIEW.md).
+L’affichage normal ne requiert plus d’approbation scientifique ou éditoriale.
+Les alertes sont conservées ; aucune certification n’est revendiquée. L’archive
+existante est réutilisée sans génération et la projection publique exclut les
+métadonnées confidentielles. La mise en ligne sur le domaine normal nécessite la
+promotion Vercel Production du commit préparé, sans fusion automatique.
+
+<details><summary>Historique antérieur à cette décision produit</summary>
+
 # État courant — premier texte OpenAI reçu
 
 Voir [FIRST_REAL_AI_EDITION.md](FIRST_REAL_AI_EDITION.md) et [ACCEPTANCE.md](ACCEPTANCE.md).
@@ -41,6 +52,8 @@ jobs conditionnés sont activés. Lecture des variables et noms de secrets refus
 HTTP 403 (`Resource not accessible by integration`). Valeurs effectives des
 variables : **inconnues**, jamais déduites des expressions YAML. Aucun secret lu.
 Métadonnées non secrètes : `evidence/workflow-runs.json` (échantillon 60 runs).
+
+</details>
 
 </details>
 

@@ -20,3 +20,5 @@ python "$root/tests/task36/concurrency.py" "$name"
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supabase/migrations/20261109152744_editorial_operational_attempts.sql"
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/tests/task36/operational.sql"
 python "$root/tests/task36/concurrency.py" "$name" operational
+
+docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supabase/migrations/20261109173659_editorial_consultable_watchdog.sql"

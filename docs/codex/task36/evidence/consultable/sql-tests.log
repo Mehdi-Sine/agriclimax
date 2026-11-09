@@ -1,0 +1,102 @@
+CREATE ROLE
+CREATE ROLE
+CREATE ROLE
+CREATE SCHEMA
+CREATE TABLE
+INSERT 0 1
+CREATE TABLE
+CREATE TABLE
+CREATE INDEX
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+DO
+REVOKE
+GRANT
+CREATE FUNCTION
+REVOKE
+GRANT
+CREATE TABLE
+ALTER TABLE
+ALTER TABLE
+REVOKE
+GRANT
+ALTER FUNCTION
+REVOKE
+GRANT
+CREATE FUNCTION
+REVOKE
+GRANT
+BEGIN
+UPDATE 1
+INSERT 0 1
+SET
+                                                                                             agriclimax_editorial                                                                                              
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "month": "2026-11", "scope": "daily", "state": "reserved", "actual_eur": null, "edition_date": "2026-11-09", "reserved_eur": 0.15}
+(1 row)
+
+DO
+                                                                                                 agriclimax_editorial                                                                                                 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "month": "2026-11", "scope": "daily", "state": "outcome_unknown", "actual_eur": null, "edition_date": "2026-11-09", "reserved_eur": 0.15}
+(1 row)
+
+RESET
+INSERT 0 1
+SET
+                                                                                                                                          agriclimax_editorial                                                                                                                                          
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "month": "2026-11", "scope": "daily", "state": "outcome_unknown", "actual_eur": null, "archive_id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "edition_date": "2026-11-09", "reserved_eur": 0.15}
+(1 row)
+
+DO
+RESET
+SET
+DO
+RESET
+ROLLBACK
+BEGIN
+UPDATE 1
+INSERT 0 34
+INSERT 0 33
+SET
+DO
+RESET
+ROLLBACK
+BEGIN
+SET
+DO
+RESET
+ROLLBACK
+BEGIN
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+SET
+DO
+RESET
+UPDATE 1
+SET
+DO
+RESET
+ROLLBACK
+Two concurrent connections: exactly one claim, one refused; no provider call. Operational=False
+ALTER TABLE
+ALTER TABLE
+CREATE INDEX
+CREATE FUNCTION
+REVOKE
+GRANT
+BEGIN
+UPDATE 1
+INSERT 0 1
+INSERT 0 1
+SET
+DO
+RESET
+ROLLBACK
+Two concurrent connections: exactly one claim, one refused; no provider call. Operational=True
+CREATE FUNCTION
+REVOKE

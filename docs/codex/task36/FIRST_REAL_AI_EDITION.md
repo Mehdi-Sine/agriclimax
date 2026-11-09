@@ -1,3 +1,14 @@
+# Décision courante : édition expérimentale consultable sur /journal
+
+Voir [ACCEPTANCE.md](ACCEPTANCE.md) et [SCIENTIFIC_ALERT_REVIEW.md](SCIENTIFIC_ALERT_REVIEW.md).
+L’affichage normal ne requiert plus d’approbation scientifique ou éditoriale.
+Les alertes sont conservées ; aucune certification n’est revendiquée. L’archive
+existante est réutilisée sans génération et la projection publique exclut les
+métadonnées confidentielles. La mise en ligne sur le domaine normal nécessite la
+promotion Vercel Production du commit préparé, sans fusion automatique.
+
+<details><summary>Historique antérieur à cette décision produit</summary>
+
 # Premier vrai texte OpenAI — 9 novembre 2026
 
 **L’appel OpenAI a réussi. Le texte est archivé et consultable en privé avec un
@@ -74,3 +85,5 @@ jeton Vault Actions:write est requis uniquement pour son dispatch indépendant.
 Activation acquisition, IA quotidienne et cron à effectuer séparément après fusion
 et qualification d’une nuit. Publication publique désactivée ; la dernière édition
 publique reste inchangée. Aucune garantie 06:30–07:00 avant mesures réelles.
+
+</details>

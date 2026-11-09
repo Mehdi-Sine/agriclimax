@@ -1,0 +1,10 @@
+test_no_openai_in_acquisition (test_retry.RetryTests.test_no_openai_in_acquisition) ... ok
+test_retry_after (test_retry.RetryTests.test_retry_after) ... ok
+test_supplier_classes (test_retry.RetryTests.test_supplier_classes) ... ok
+test_safe_receipt_keeps_auth_status_and_omits_exception_text (test_retry.SourceReceiptTests.test_safe_receipt_keeps_auth_status_and_omits_exception_text) ... ok
+test_long_supplier_cooldown_does_not_trigger_immediate_retries (test_retry.StationCooldownTests.test_long_supplier_cooldown_does_not_trigger_immediate_retries) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.111s
+
+OK
