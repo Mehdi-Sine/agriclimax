@@ -7,6 +7,7 @@ from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from uuid import uuid4
 
+from .meteofrance import MeteoFranceTransportError
 from .models import Provenance
 from .normalize import normalize
 from .providers import FatalProviderError, WeatherProvider
@@ -94,6 +95,8 @@ def run(
                 stage=stage,
                 error_type=type(error).__name__,
             )
+            if isinstance(error, MeteoFranceTransportError):
+                result.update(http_status=error.http_status, retry_after=error.retry_after)
         results.append(result)
         manifest["days"] = results
         log(

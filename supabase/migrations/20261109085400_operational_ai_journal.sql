@@ -178,7 +178,7 @@ begin
   return item;
  elsif p_action='claim' then
   if not ctl.acquisition_enabled then return null; end if;
-  if p_payload->>'source' not in ('forecast','stations','era5','news') then raise exception 'UNKNOWN_SOURCE'; end if;
+  if p_payload->>'source' not in ('forecast','stations','observations','era5','news') then raise exception 'UNKNOWN_SOURCE'; end if;
   if (now() at time zone 'Europe/Paris')::date<>d
      or (now() at time zone 'Europe/Paris')::time not between time '02:15' and time '05:20'
      then return null; end if;

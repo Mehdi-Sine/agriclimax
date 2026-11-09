@@ -15,7 +15,7 @@ class RetryTests(unittest.TestCase):
         self.assertEqual(nightly.failure(429,'3600'),('retryable_failure',3600))
         self.assertEqual(nightly.failure(429,'30')[1],1800)
     def test_no_openai_in_acquisition(self):
-        for source in ['forecast','era5','stations','news']:
+        for source in ['forecast','era5','stations','observations','news']:
             self.assertNotIn('openai',str(nightly.commands(source)).lower())
 
 
@@ -42,6 +42,21 @@ class StationCooldownTests(unittest.TestCase):
         self.assertEqual(caught.exception.http_status, 429)
         self.assertEqual(caught.exception.retry_after, '3600')
         self.assertFalse(any(c.args[0] > 0 for c in wait.call_args_list))
+
+class SourceReceiptTests(unittest.TestCase):
+    def test_safe_receipt_keeps_auth_status_and_omits_exception_text(self):
+        import json
+        import tempfile
+
+        from agriclimax.ingestion.meteofrance import MeteoFranceAccessError
+        spec = importlib.util.spec_from_file_location('ingest_weather36', Path('scripts/ingest_weather.py'))
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        with tempfile.TemporaryDirectory() as root:
+            module.record_source_failure(Path(root), MeteoFranceAccessError('synthetic-private-value'))
+            raw = (Path(root) / 'source-failure.json').read_text()
+            self.assertNotIn('synthetic-private-value', raw)
+            self.assertTrue(json.loads(raw)['permanent_auth_failure'])
 
 if __name__ == "__main__":
     unittest.main()

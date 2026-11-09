@@ -14,7 +14,8 @@ Actionlint passe en v1.7.12, version et checksum officiels épinglés.
 Les adaptateurs existants restent propriétaires de leurs méthodes scientifiques.
 Forecast : découverte des cycles, vérification du catalogue avant acquisition,
 aucun téléchargement/calcul si cycle déjà archivé. ERA5 : `next_day`, archives et
-checkpoints existants ; aucun impératif J−1. Stations : chaîne quotidienne existante.
+checkpoints existants ; aucun impératif J−1. Stations : chaîne quotidienne existante ; observations horaires : adaptateur
+`ingest_weather --product observations` distinct, avec son propre bail et cooldown.
 T34 : collecte bornée, archive documentaire dans le checkpoint.
 
 Un bail partagé sérialise les deux écrivains du catalogue météo/ERA5. Stations et

@@ -49,7 +49,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        source: [forecast, era5, stations, news]
+        source: [forecast, era5, stations, observations, news]
     runs-on: ubuntu-latest
     timeout-minutes: 26
     steps:

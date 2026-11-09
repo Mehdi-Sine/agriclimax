@@ -59,6 +59,8 @@ def commands(source: str) -> list[list[str]]:
         'era5': [[py, 'scripts/restore_daily_checkpoint.py', 'era5', 'work/era5-archive'],
                  [py, 'scripts/era5_archive_daily.py', '--root', 'work/era5-archive', '--max-downloads', '64', '--execute', '--publish-dev']],
         'stations': [[py, 'scripts/daily_live.py']],
+        'observations': [[py, 'scripts/ingest_weather.py', '--mode', 'live_meteofrance',
+                          '--product', 'observations', '--daily', '--root', 'work/station-observations']],
         'news': [[py, 'scripts/task34_news.py', '--output', 'work/task36/news', '--bundle', 'work/task36/news.json']],
     }[source]
 
@@ -86,7 +88,12 @@ def acquire(source: str, date: str) -> dict[str, Any]:
             else:
                 state = 'success'
         report_path = {'forecast':'work/national-weather/report.json','era5':'work/era5-archive/report.json',
+                       'observations':'work/station-observations/source-failure.json',
                        'stations':'work/daily/logs/run.json','news':'work/task36/news.json'}[source]
+        if source == 'observations' and (state == 'success' or not Path(report_path).exists()):
+            manifests = sorted(Path('work/station-observations/manifests').glob('*.json'), key=lambda p: p.stat().st_mtime)
+            if manifests:
+                report_path = str(manifests[-1])
         if Path(report_path).exists():
             report = json.loads(Path(report_path).read_text())
             checkpoint['report'] = report
@@ -98,7 +105,7 @@ def acquire(source: str, date: str) -> dict[str, Any]:
                 state = 'permanent_failure'
             if isinstance(report.get('http_status'), int):
                 state, wait = failure(report['http_status'], report.get('retry_after'))
-            for issue in report.get('source_failures', []):
+            for issue in [*report.get('source_failures', []), *report.get('days', [])]:
                 status = issue.get('http_status', issue.get('status_code',issue.get('status')))
                 if isinstance(status, int):
                     state, wait = failure(status, issue.get('retry_after'))
@@ -120,7 +127,7 @@ def acquire(source: str, date: str) -> dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--source', choices=['forecast', 'era5', 'stations', 'news'], required=True)
+    parser.add_argument('--source', choices=['forecast', 'era5', 'stations', 'observations', 'news'], required=True)
     args = parser.parse_args()
     date = datetime.now(ZoneInfo('Europe/Paris')).date().isoformat()
     print(json.dumps(acquire(args.source, date)))
