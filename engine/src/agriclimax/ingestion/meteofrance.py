@@ -286,7 +286,7 @@ class MeteoFranceProvider:
                 if station not in self.archives and station not in self.failures:
                     try:
                         self.archives[station] = self.archive(station)
-                    except MeteoFranceAccessError:
+                    except (MeteoFranceAccessError, MeteoFranceTransportError):
                         raise
                     except RuntimeError:
                         self.failures.add(station)
@@ -329,7 +329,7 @@ class MeteoFranceProvider:
                             "format": "json",
                         },
                     )
-                except MeteoFranceAccessError:
+                except (MeteoFranceAccessError, MeteoFranceTransportError):
                     raise
                 except RuntimeError:
                     self.failures.add(station)

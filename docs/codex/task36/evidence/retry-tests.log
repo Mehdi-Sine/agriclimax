@@ -4,6 +4,6 @@ test_supplier_classes (test_retry.RetryTests.test_supplier_classes) ... ok
 test_long_supplier_cooldown_does_not_trigger_immediate_retries (test_retry.StationCooldownTests.test_long_supplier_cooldown_does_not_trigger_immediate_retries) ... ok
 
 ----------------------------------------------------------------------
-Ran 4 tests in 0.042s
+Ran 4 tests in 0.100s
 
 OK

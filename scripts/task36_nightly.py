@@ -19,7 +19,7 @@ sys.path.insert(0, str(ROOT / 'engine/src'))
 from agriclimax.ingestion.meteofrance import NoRedirect
 
 
-def rpc(action: str, payload: dict[str, Any] | None = None):
+def rpc(action: str, payload: dict[str, Any] | None = None) -> Any:
     base = os.environ['NEXT_PUBLIC_SUPABASE_URL'].rstrip('/')
     if base != 'https://yyfbpecxvxglzxopsmel.supabase.co':
         raise ValueError('DEV_ORIGIN_REQUIRED')
