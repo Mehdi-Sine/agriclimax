@@ -120,6 +120,7 @@ jobs:
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm editorial:typecheck
+      - run: pnpm editorial-ai:typecheck
       - run: pnpm test
       - run: pnpm build
       - run: node scripts/quality/audit-exceptions.mjs --build
@@ -145,6 +146,7 @@ jobs:
           test "$ready" = 1
           python scripts/quality/smoke.py
           TASK24_BASE_URL=http://127.0.0.1:3000 node tests/e2e/task24.mjs
+          TASK35_ORIGIN=http://127.0.0.1:3000 TASK35_OUTPUT=work/quality/e2e/task35 node tests/e2e/task35.mjs
           node tests/e2e/demo.mjs
           node tests/e2e/territories.mjs
           INTEGRATION_ARTIFACTS=work/quality/e2e/integration node tests/e2e/integration.mjs

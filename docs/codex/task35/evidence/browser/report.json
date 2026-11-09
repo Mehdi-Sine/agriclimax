@@ -1,0 +1,129 @@
+{
+  "origin": "http://127.0.0.1:3002",
+  "checks": [
+    {
+      "name": "desktop HTTP 200",
+      "ok": true
+    },
+    {
+      "name": "desktop simulation visible",
+      "ok": true
+    },
+    {
+      "name": "desktop current replay",
+      "ok": true
+    },
+    {
+      "name": "desktop no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "desktop archived PRA selection",
+      "ok": true
+    },
+    {
+      "name": "desktop keyboard focus",
+      "ok": true
+    },
+    {
+      "name": "desktop real snapshot API",
+      "ok": true
+    },
+    {
+      "name": "desktop frozen cycle and 713 PRA",
+      "ok": true
+    },
+    {
+      "name": "desktop frozen period",
+      "ok": true
+    },
+    {
+      "name": "desktop no secret",
+      "ok": true
+    },
+    {
+      "name": "desktop date navigation",
+      "ok": true
+    },
+    {
+      "name": "desktop no substitute current map",
+      "ok": true
+    },
+    {
+      "name": "desktop absent date",
+      "ok": true
+    },
+    {
+      "name": "mobile HTTP 200",
+      "ok": true
+    },
+    {
+      "name": "mobile simulation visible",
+      "ok": true
+    },
+    {
+      "name": "mobile current replay",
+      "ok": true
+    },
+    {
+      "name": "mobile no horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "mobile archived PRA selection",
+      "ok": true
+    },
+    {
+      "name": "mobile keyboard focus",
+      "ok": true
+    },
+    {
+      "name": "mobile real snapshot API",
+      "ok": true
+    },
+    {
+      "name": "mobile frozen cycle and 713 PRA",
+      "ok": true
+    },
+    {
+      "name": "mobile frozen period",
+      "ok": true
+    },
+    {
+      "name": "mobile no secret",
+      "ok": true
+    },
+    {
+      "name": "mobile date navigation",
+      "ok": true
+    },
+    {
+      "name": "mobile no substitute current map",
+      "ok": true
+    },
+    {
+      "name": "mobile absent date",
+      "ok": true
+    },
+    {
+      "name": "no OpenAI calls on navigation",
+      "ok": true
+    },
+    {
+      "name": "no browser errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "measurements": [
+    {
+      "viewport": "desktop",
+      "total_ms": 8139
+    },
+    {
+      "viewport": "mobile",
+      "total_ms": 5886
+    }
+  ],
+  "openai_requests": 0
+}

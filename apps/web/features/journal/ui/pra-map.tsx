@@ -49,11 +49,13 @@ export default function JournalPraMap({
   phenomenon,
   period,
   source,
+  archiveUrl,
 }: {
   run: string;
   phenomenon: string;
   period: [string, string];
   source: string;
+  archiveUrl?: string;
 }) {
   const container = useRef<HTMLElement>(null),
     [near, setNear] = useState(false),
@@ -91,7 +93,7 @@ export default function JournalPraMap({
     let disposed = false;
     const query = new URLSearchParams({ run, phenomenon });
     Promise.all([
-      fetch(`/api/journal/map?${query}`, { signal: abort.signal }).then(
+      fetch(archiveUrl ?? `/api/journal/map?${query}`, { signal: abort.signal }).then(
         async (response) => {
           if (!response.ok) throw Error();
           const data: JournalMapData = await response.json();
@@ -116,7 +118,7 @@ export default function JournalPraMap({
       disposed = true;
       abort.abort();
     };
-  }, [near, run, phenomenon, start, end, source, key, attempt]);
+  }, [near, run, phenomenon, start, end, source, key, attempt, archiveUrl]);
   const current = resource?.key === key ? resource : null,
     place = current?.data.rows.find((r) => r.id === selected),
     evidence = place ? current?.data.evidence[place.evidence_id] : undefined;

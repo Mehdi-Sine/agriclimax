@@ -571,3 +571,7 @@ aa19aa042e448c9dcb0016747106a58f156e153c:docs/codex/task26/national-evidence/com
 bddeb5677cba6f063d3f4c79e658d7fbe797c659:docs/codex/task33/evidence/real-cases.json:generic-api-key:337
 # T33: literal JSON field path in the false-positive diagnostic; contains no credential or digest value.
 5e63af63021d5dc147cef5ebb25e0e1ef24bb16c:docs/codex/task33/evidence/digest-false-positive.json:generic-api-key:5
+
+# T35: two canonical public T33 topic descriptors (nature/phenomenon/region).
+# Exact historical commit, archive line and rule only; no new-commit/path-wide exclusion.
+5b59d0922b5c43dfde5631a9b1972aafea4834af:docs/codex/task35/evidence/forecast-edition.json:generic-api-key:1

@@ -1,0 +1,25 @@
+{
+  "simulation_only": true,
+  "editions": [
+    {
+      "name": "simulated-edition",
+      "bundle_bytes": 82135,
+      "request_token_upper_bound": 100445,
+      "archive_json_bytes": 88823,
+      "archive_gzip_bytes": 18293,
+      "cost_actual_eur": 0,
+      "model_evaluation": "not_performed",
+      "map_rows": 0
+    },
+    {
+      "name": "forecast-edition",
+      "bundle_bytes": 67313,
+      "request_token_upper_bound": 84976,
+      "archive_json_bytes": 1132186,
+      "archive_gzip_bytes": 119543,
+      "cost_actual_eur": 0,
+      "model_evaluation": "not_performed",
+      "map_rows": 713
+    }
+  ]
+}
