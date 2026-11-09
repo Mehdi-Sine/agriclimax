@@ -3,17 +3,21 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "verify-model is read-only; generate-once is blocked on ephemeral runners"
+        description: "Model verification, shared DEV qualification or one owner-authorized SQL-reserved trial"
         required: true
         default: verify-model
         type: choice
-        options: [verify-model, generate-once]
+        options: [verify-model, generate-once, qualify-shared, generate-shared-once]
       model:
         description: "Candidate model; availability is checked against the owner's project"
         required: true
         default: gpt-6.1-terra
         type: choice
         options: [gpt-6.1-terra, gpt-6-luna]
+      authorized_snapshot:
+        description: Exact frozen Supabase snapshot ID; mandatory for the single paid shared DEV trial
+        type: string
+        required: false
 permissions:
   contents: read
 concurrency:
@@ -58,3 +62,66 @@ jobs:
         run: |
           echo 'EPHEMERAL_CI_GENERATION_DISABLED: no secret loaded and no provider request made. Use the owner-operated persistent DEV procedure in docs/codex/task35B/RUNBOOK.md.'
           exit 78
+
+  shared-dev:
+    if: >-
+      github.actor == github.repository_owner &&
+      (github.ref == 'refs/heads/codex/36-operational-ai-journal' || github.ref == format('refs/heads/{0}', github.event.repository.default_branch)) &&
+      (inputs.mode == 'qualify-shared' || inputs.mode == 'generate-shared-once')
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment: editorial-ai-dev
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa
+        with:
+          version: 10.0.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: python -m pip install -r engine/requirements-dev.lock
+      - name: Shared DEV qualification; no paid retry or public publication
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || vars.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+          METEOFRANCE_CLIMATOLOGY_API_KEY: ${{ secrets.METEOFRANCE_CLIMATOLOGY_API_KEY }}
+          METEOFRANCE_OBSERVATIONS_API_KEY: ${{ secrets.METEOFRANCE_OBSERVATIONS_API_KEY }}
+          METEOFRANCE_AROME_API_KEY: ${{ secrets.METEOFRANCE_AROME_API_KEY }}
+          METEOFRANCE_ARPEGE_API_KEY: ${{ secrets.METEOFRANCE_ARPEGE_API_KEY }}
+          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
+          AGRICLIMAX_AI_ENABLED: ${{ inputs.mode == 'generate-shared-once' && inputs.authorized_snapshot != '' && 'true' || 'false' }}
+          AGRICLIMAX_PUBLICATION_ENABLED: 'false'
+          AGRICLIMAX_EDITORIAL_MODEL: ${{ inputs.model }}
+          AUTHORIZED_SNAPSHOT: ${{ inputs.authorized_snapshot }}
+          MODE: ${{ inputs.mode }}
+          NIGHTLY_ENABLED: ${{ vars.AGRICLIMAX_NIGHTLY_ENABLED }}
+          NIGHTLY_KILL_SWITCH: ${{ vars.AGRICLIMAX_NIGHTLY_KILL_SWITCH }}
+          LEGACY_PRA_ENABLED: ${{ vars.PRA_CLIMATE_DAILY_DEV_ENABLED }}
+          LEGACY_DAILY_ENABLED: ${{ vars.AGRICLIMAX_DAILY_ENABLED }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PYTHON'
+          import os,json
+          names=['NEXT_PUBLIC_SUPABASE_URL','SUPABASE_SECRET_KEY','OPENAI_API_KEY','VERCEL_AUTOMATION_BYPASS_SECRET','METEOFRANCE_CLIMATOLOGY_API_KEY','METEOFRANCE_OBSERVATIONS_API_KEY','METEOFRANCE_AROME_API_KEY','METEOFRANCE_ARPEGE_API_KEY','CDSAPI_KEY']
+          print(json.dumps({'bindings_present':{n:bool(os.environ.get(n)) for n in names},'switches':{n:os.environ.get(n)=='true' for n in ['NIGHTLY_ENABLED','NIGHTLY_KILL_SWITCH','LEGACY_PRA_ENABLED','LEGACY_DAILY_ENABLED']}}))
+          PYTHON
+          pnpm editorial:nightly qualify
+          if [[ "$MODE" = generate-shared-once ]]; then
+            [[ "$AUTHORIZED_SNAPSHOT" =~ ^[a-f0-9]{64}$ ]]
+            pnpm editorial:nightly run --authorize-snapshot "$AUTHORIZED_SNAPSHOT"
+          fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: shared-dev-receipt-${{ github.run_id }}
+          path: work/task36/receipt.json
+          retention-days: 21
