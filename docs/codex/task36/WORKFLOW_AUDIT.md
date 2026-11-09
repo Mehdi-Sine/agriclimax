@@ -1,3 +1,12 @@
+# État actualisé — recette DEV du 9 novembre
+
+Qualification GitHub réelle 42609550528 : Supabase, OpenAI, MF obs/clim/AROME/ARPEGE et CDS présents. VERCEL_AUTOMATION_BYPASS_SECRET absent du runner. NIGHTLY_ENABLED=false, KILL_SWITCH=false, LEGACY_PRA_ENABLED=true, LEGACY_DAILY_ENABLED=true. GET environnement editorial-ai-dev : protection_rules=[], aucun approbateur obligatoire ni restriction de branche. API de liste secrets/variables HTTP403, compensée uniquement pour les bindings observés par présence booléenne. Workflow opérationnel absent de main donc dispatch par nom indisponible ; le workflow manuel existant a été réutilisé sur la branche pour qualifier puis effectuer l'essai unique. Ne pas merger pour contourner ce constat. Aucune concurrence nocturne réelle mesurée ; activer NIGHTLY après fusion fera céder les anciens writers.
+
+Voir [ACCEPTANCE.md](ACCEPTANCE.md) pour les blocages et preuves actuels.
+
+<details>
+<summary>Conception et constat historique avant déploiement (supplantés par l’état ci-dessus)</summary>
+
 # Audit d’exploitation — 9 novembre 2026
 
 Base : `513ddd0` (PR #72 fusionnée). Propriétaire de la nouvelle chaîne :
@@ -23,3 +32,5 @@ jobs conditionnés sont activés. Lecture des variables et noms de secrets refus
 HTTP 403 (`Resource not accessible by integration`). Valeurs effectives des
 variables : **inconnues**, jamais déduites des expressions YAML. Aucun secret lu.
 Métadonnées non secrètes : `evidence/workflow-runs.json` (échantillon 60 runs).
+
+</details>

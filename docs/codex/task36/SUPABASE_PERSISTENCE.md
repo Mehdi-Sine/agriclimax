@@ -1,3 +1,12 @@
+# État actualisé — recette DEV du 9 novembre
+
+Migration initiale appliquée séparément en DEV, version distante 20261109110405 ; fichier source 20261109085400_operational_ai_journal.sql inchangé. Migration de relecture source 20261109111202_editorial_personal_review.sql, version distante 20261109111836. Huit tables privées RLS forcée, aucun SELECT anon/authenticated ; wrapper public invoker exécutable uniquement par service_role, coeur déplacé en schéma privé. Archives texte exact relues et SHA vérifiés ; réserve/doublon testés avec rollback et contention réelle observée. Ne pas rejouer aveuglément db push : conserver la correspondance des versions distantes. Tous les interrupteurs restent faux.
+
+Voir [ACCEPTANCE.md](ACCEPTANCE.md) pour les blocages et preuves actuels.
+
+<details>
+<summary>Conception et constat historique avant déploiement (supplantés par l’état ci-dessus)</summary>
+
 # Autorité transactionnelle
 
 Migration forward-only `20261109085400_operational_ai_journal.sql`, créée avec CLI
@@ -29,3 +38,5 @@ Déploiement DEV **non effectué** : revue automatique refusée. Les tests Postg
 17 sont locaux et jetables ; ils ne démontrent pas PostgREST/Vault/Cron distants.
 Aucun seed synthétique n’a été exécuté sur DEV. Les RPC de contrôle et les tables
 financières restent à qualifier à distance après accord sur la migration.
+
+</details>

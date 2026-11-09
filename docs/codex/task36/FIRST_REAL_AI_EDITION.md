@@ -1,31 +1,12 @@
-# Premier article réel — non produit
+# Premier essai réel — échec conservé
 
-Autorisation du propriétaire : un véritable appel, plafond 0,15 €. Cet appel n’a
-pas eu lieu : OPENAI_API_KEY absent de l’environnement et migration DEV refusée par
-la revue automatique. Aucun coût OpenAI engagé par T36. La présence éventuelle
-d’un secret GitHub ne peut être vérifiée : endpoint secrets/variables HTTP 403.
+Le secret OpenAI existant a été confirmé présent par GitHub Actions ; aucune nouvelle clé n'est nécessaire. Le modèle qualifié gpt-6.1-terra a reçu un unique appel autorisé à partir du dossier réel T33 du 9 novembre.
 
-Un vrai dossier T33 a été préparé en lecture seule : voir snapshot compressé et
-metrics dans evidence. Il contient 12 faits, les vraies dates d’émission et les
-limites historiques. Ce dossier est une preuve de sélection, **pas** un article IA.
+- Run Actions : 42610453514 ; run financier `9da626c533c6e928ee5d768a21b79a4d1fe290e6356345a2faac3f8e73a0e671`.
+- Résultat : `PROVIDER_HTTP_400`, `outcome_unknown`, provision 0,094549 €, coût réel et tokens inconnus.
+- Aucun article réel ni reçu OpenAI. Archive de fallback seulement, exclue de la lecture des brouillons IA et de la publication.
+- IA arrêtée immédiatement ; aucune seconde requête. Ne pas effacer le run ni ramener arbitrairement son coût à zéro.
 
-Après déploiement DEV autorisé, depuis la branche déployée et un environnement
-serveur configuré (ne jamais coller de clé dans le chat) :
+L'ancien code ne conservait pas le corps de rejet : la cause exacte reste indéterminée. Le code conserve désormais uniquement code/type/param/request_id assainis, sans message brut ni secret. Le schéma envoyé normalise const/enum avec type explicite ; c'est une correction hors ligne testée, **pas une cause prouvée du HTTP 400 ni une correction validée par un nouvel appel**. La réponse réussie future est archivée avant validation du modèle/usage.
 
-```sh
-pnpm editorial:nightly prepare
-pnpm editorial:nightly preflight
-# Vérifier le snapshot et le plafond ; activer AI dans le contrôle SQL et l’environnement.
-AGRICLIMAX_AI_ENABLED=true pnpm editorial:nightly run
-pnpm editorial:nightly report
-```
-
-Modèle initial qualifié : gpt-6-luna, registre de prix T35B à revalider après 7 jours.
-Le preflight donne borne de tokens/coût ; la réservation SQL est l’autorité finale.
-L’accès modèle est vérifié avant la réservation. Une seule requête Responses, aucun
-retry payant. Relever response_id, usage, coût provisionnel EUR, durée, checksum,
-validation et état run. Réconcilier avec facture avant de parler de coût facturé.
-
-Un texte nouveau obtient normalement needs_editorial_review avec le validateur
-conservateur T35. Le propriétaire relit avant promotion explicite par checksum.
-Ne pas assouplir le validateur pour forcer une publication automatique.
+Le propriétaire doit rapprocher les journaux et la facturation OpenAI de la tentative avant une nouvelle autorisation bornée. Les gardes financières et l'unicité quotidienne ne doivent pas être contournées. Aucun texte simulé n'est livré comme premier article.

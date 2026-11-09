@@ -1,3 +1,12 @@
+# État actualisé — recette DEV du 9 novembre
+
+La disponibilité privée, l'approbation éditoriale et la promotion publique sont séparées. `/journal/personnel` protégé affiche les archives live avec reçu, run completed et validation sans erreur, y compris needs_editorial_review, avec statut visible. Le fallback est exclu. `approve ID --review-checksum SHA --reviewer NAME` enregistre une décision indépendante ; `promote ID` est une opération distincte, refusée tant que publication_enabled=false. Ne jamais approuver automatiquement des affirmations non vérifiées. La dernière publication reste intacte. Aucun article réel ni publication créé pendant la recette ; aucune disponibilité à 06:30 démontrée.
+
+Voir [ACCEPTANCE.md](ACCEPTANCE.md) pour les blocages et preuves actuels.
+
+<details>
+<summary>Conception et constat historique avant déploiement (supplantés par l’état ci-dessus)</summary>
+
 # Publication et disponibilité
 
 Le candidat est d’abord validé, archivé et relu par empreinte. Le pointeur logique
@@ -32,3 +41,5 @@ Après 07h : dernier article daté et diagnostics ; aucun retry payant. Promotio
 manuelle d’une archive prête possible sans génération supplémentaire.
 
 Aucune disponibilité 06:30–07:00 n’a été mesurée durant cette exécution.
+
+</details>

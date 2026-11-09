@@ -183,6 +183,8 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
           error instanceof ProviderFailure
             ? error.code
             : "PROVIDER_OUTCOME_REQUIRES_RECONCILIATION";
+        if(error instanceof ProviderFailure && error.diagnostic)
+          await o.store.diagnostic(hash([id,"http-failure"]),{kind:"provider_http_error",diagnostic:error.diagnostic});
         if (error instanceof ProviderFailure && error.evidence) {
           const e = error.evidence;
           const accounted = cost(

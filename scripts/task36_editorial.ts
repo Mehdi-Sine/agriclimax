@@ -162,7 +162,10 @@ async function main() {
   if(!key) throw Error("OPENAI_API_KEY_MISSING");
   await verifyModel(key,config.model);
   const archive=await generate({briefing:snapshot.briefing,config,store,mode:"live",provider:openAIProvider(key)});
-  output({id:archive.edition_id,mode:archive.mode,status:archive.status,receipt:archive.receipt,checksum:archive.checksum});
+  const run=await store.readRun(archive.edition_id);
+  output({id:archive.edition_id,mode:archive.mode,status:archive.mode==="live"?archive.status:"provider_failed",
+    validation_status:archive.status,receipt:archive.receipt,checksum:archive.checksum,run_state:run?.state,error:run?.error??null});
+  if(archive.mode!=="live"||!archive.receipt) {process.exitCode=2;return;}
   if(process.env.AGRICLIMAX_PUBLICATION_ENABLED==="true") await promoteEdition(archive.edition_id);
 }
 main().catch(error=>{output({error:error instanceof Error && /^[A-Z][A-Z0-9_]+$/.test(error.message)?error.message:"NIGHTLY_FAILED",automatic_paid_retry:false});process.exitCode=1;});

@@ -84,7 +84,7 @@ export function EditorialPreview({
       </section>
       {!a || !d ? (
         <section className="empty-story">
-          <h1>Aucune édition archivée à cette date</h1>
+          <h1>{personalStatus?"Aucun brouillon IA vérifié à cette date":"Aucune édition archivée à cette date"}</h1>
           <p>Choisissez une édition disponible dans les archives.</p>
         </section>
       ) : (

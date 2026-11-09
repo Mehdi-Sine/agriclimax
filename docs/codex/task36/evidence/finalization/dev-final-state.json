@@ -1,0 +1,21 @@
+{
+  "status": {
+    "runs": 1,
+    "control": {
+      "singleton": true,
+      "ai_enabled": false,
+      "acquisition_enabled": false,
+      "publication_enabled": false
+    },
+    "published": 0,
+    "financial_lock_available": true
+  },
+  "watchdog": [
+    {
+      "active": false,
+      "jobname": "agriclimax-t36-watchdog",
+      "schedule": "*/15 * * * *"
+    }
+  ],
+  "vault_secret_names": []
+}

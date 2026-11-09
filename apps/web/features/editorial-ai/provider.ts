@@ -13,14 +13,28 @@ export type Provider = (
   payload: string,
   config: AIConfig,
 ) => Promise<ProviderResult>;
+export interface HTTPDiagnostic {status:number;code:string|null;type:string|null;param:string|null;request_id:string|null}
 export class ProviderFailure extends Error {
   constructor(
     public code: string,
     public ambiguous = true,
     public evidence?: ProviderResult,
+    public diagnostic?: HTTPDiagnostic,
   ) {
     super(code);
   }
+}
+/** Wire-only normalization: keep const/enum semantics while supplying explicit scalar types. */
+export function providerSchema<T>(value:T):T {
+  if(Array.isArray(value)) return value.map(providerSchema) as T;
+  if(value===null||typeof value!=="object") return value;
+  const object=Object.fromEntries(Object.entries(value).map(([k,v])=>[k,providerSchema(v)]));
+  if("const" in object) {object.enum=[object.const];delete object.const;}
+  if(!("type" in object)&&Array.isArray(object.enum)&&object.enum.length) {
+    const types=[...new Set(object.enum.map(v=>v===null?"null":typeof v))];
+    if(types.length===1&&["string","number","boolean","null"].includes(types[0])) object.type=types[0];
+  }
+  return object as T;
 }
 export function requestBody(payload: string, c: AIConfig) {
   // Official Responses API, strict structured output, no tools and no implicit retries.
@@ -45,7 +59,7 @@ export function requestBody(payload: string, c: AIConfig) {
         type: "json_schema",
         name: "EditorialDraft",
         strict: true,
-        schema: outputSchema,
+        schema: providerSchema(outputSchema),
       },
     },
   };
@@ -77,8 +91,16 @@ export function openAIProvider(
     } catch {
       throw new ProviderFailure("PROVIDER_TIMEOUT_OR_TRANSPORT");
     }
-    if (!response.ok)
-      throw new ProviderFailure(`PROVIDER_HTTP_${response.status}`);
+    if (!response.ok) {
+      let error:Record<string,unknown>={};
+      try {const body:unknown=await response.json();
+        if(body&&typeof body==="object"&&"error" in body&&body.error&&typeof body.error==="object") error=body.error as Record<string,unknown>;
+      } catch { /* No raw body or credential-bearing provider message enters diagnostics. */ }
+      const safe=(v:unknown)=>typeof v==="string"&&/^[a-zA-Z0-9_.\[\]-]{1,160}$/.test(v)?v:null;
+      throw new ProviderFailure(`PROVIDER_HTTP_${response.status}`,true,undefined,{
+        status:response.status,code:safe(error.code),type:safe(error.type),param:safe(error.param),request_id:safe(response.headers.get("x-request-id")),
+      });
+    }
     let data: {
       status?: string;
       id?: string;

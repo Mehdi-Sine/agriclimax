@@ -1,39 +1,19 @@
-# Exploitation personnelle 14–21 jours
+# Mise en service contrôlée
 
-Aucune ouverture bêta ni nouveau dashboard. `pnpm editorial:nightly report`
-produit un rapport privé sous work/task36 et un diagnostic Supabase. Historique
-21 jours : acquisitions, tentatives, checkpoints, fraîcheur/cycles, T33, émission IA,
-coût réservé/réel, publication, contrôle page et alertes. Le snapshot garde les
-qualifications et les limites PRA, les indicateurs et le lot documentaire T34.
+État DEV et preuves : voir [ACCEPTANCE.md](ACCEPTANCE.md). Aucun merge automatique.
 
-Actions de mise en service regroupées, **après relecture de la PR** :
+1. Réconcilier l'unique résultat OpenAI inconnu ; conserver sa provision et son historique. Ne pas demander une nouvelle clé.
+2. Renseigner séparément dans Vault `agriclimax_t36_github_dispatch_token`, token propriétaire Actions:write limité à ce dépôt. Ne pas copier un jeton éphémère du runtime. Le cron installé reste inactif.
+3. Réutiliser le secret Vercel existant comme `VERCEL_AUTOMATION_BYPASS_SECRET` dans `editorial-ai-dev`, configurer l'origine health. L'environnement n'a aucune règle d'approbation obligatoire. Les secrets sources et OpenAI sont présents dans le runner ; leur présence seule ne prouve pas chaque autorisation fournisseur.
+4. Après revue/CI et fusion manuelle, activer `AGRICLIMAX_NIGHTLY_ENABLED` et acquisition DB seulement, IA/publication désactivées. Les anciens PRA/daily sont actuellement activés mais céderont la main à NIGHTLY. Activer séparément le job cron après disponibilité du workflow sur main et configuration Vault.
+5. Mesurer une nuit sans IA, reprises à 30 minutes, gel 05:40 Paris, réutilisation des archives et contrôles 06:30/06:45/07:00. Après réconciliation, nouvelle autorisation explicite pour un cycle IA borné et archivé. Relecture puis publication indépendantes.
 
-1. Autoriser/appliquer la migration DEV puis `supabase/ops/task36_watchdog.sql` ;
-   vérifier RLS/advisors, extensions, cron et limites Free. Configurer dans Vault le
-   token Actions:write, et dans l’environnement serveur OpenAI (aucune clé en chat).
-2. Exécuter preflight puis un seul run réel borné ; relire/archiver/promouvoir en DEV
-   avec l’empreinte. Vérifier le rendu date/carte et le reçu financier avant toute
-   publication publique. La publication publique requiert un accord séparé.
-3. Après validation : activer `AGRICLIMAX_NIGHTLY_ENABLED` et les contrôles DB adaptés ;
-   renseigner l’origine health ; vérifier les variables/secrets GitHub non lisibles
-   ici. Tester une nuit sans IA puis les contrôles 06:30, 06:45, 07:00.
+Accès propriétaire : `/journal/personnel`, authentification Basic utilisateur `owner` et secret Vercel existant comme mot de passe, ou en-tête serveur `x-vercel-protection-bypass`. Aucun secret dans l'URL. L'hébergement Vercel peut aussi demander son authentification de protection. Les brouillons réellement vérifiés sont privés même en attente de relecture ; les fallbacks et sorties rejetées n'y deviennent pas articles IA.
 
-Arrêt immédiat serveur : `AGRICLIMAX_AI_ENABLED=false`,
-`AGRICLIMAX_PUBLICATION_ENABLED=false`, `AGRICLIMAX_NIGHTLY_KILL_SWITCH=true`.
-Arrêt DB (autorité indépendante) :
-
+Arrêt DB :
 ```sql
 update agriclimax_private.editorial_control
 set acquisition_enabled=false, ai_enabled=false, publication_enabled=false
 where singleton;
 ```
-
-Pour une réservation bloquée : rapprocher response_id/usage OpenAI et archive ; ne
-jamais effacer le run ni réduire une provision inconnue sans preuve et note privée.
-Une réservation ambiguous/outcome_unknown n’est jamais reprise automatiquement.
-
-Chaque matin : noter heure de disponibilité, qualité du sujet, exactitude des
-chiffres/sources et mentions de repli, couverture littorale/Crozon, coût et alertes.
-J7 : ajuster plafonds scientifiques après examen. J14 : décider de poursuivre jusqu’à
-J21. Conserver les diagnostics et les archives ; aucune purge automatique livrée.
-**Zéro jour de recette nocturne observé dans cette tâche ; 14–21 jours à réaliser.**
+Arrêt serveur : `AGRICLIMAX_AI_ENABLED=false`, `AGRICLIMAX_PUBLICATION_ENABLED=false`, `AGRICLIMAX_NIGHTLY_KILL_SWITCH=true`. Désactiver aussi le cron pour arrêter les dispatchs. Zéro nuit de disponibilité mesurée ; recette 14–21 nuits à réaliser.

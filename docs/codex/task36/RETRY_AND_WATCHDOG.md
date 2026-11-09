@@ -1,3 +1,12 @@
+# État actualisé — recette DEV du 9 novembre
+
+Extensions installées séparément : pg_cron 1.6.4 (migration distante 20261109112047), pg_net 0.20.4 (20261109112115). Vault 0.3.1 était présent. Watchdog installé séparément (20261109112139), job */15 UTC inactif avec filtre Europe/Paris ; probe outside_window, aucun dispatch. Vault ne contient aucun secret. Le contrôle 06:30 porte sur le brouillon privé techniquement valide ; une relecture en attente n'est pas une promotion défaillante. Installer séparément le token propriétaire limité Actions:write avant toute activation. Cadence 30 minutes et contrôles 06:30/06:45/07:00 testés en code, non mesurés sur une nuit. outcome_unknown interdit toute reprise payante automatique.
+
+Voir [ACCEPTANCE.md](ACCEPTANCE.md) pour les blocages et preuves actuels.
+
+<details>
+<summary>Conception et constat historique avant déploiement (supplantés par l’état ci-dessus)</summary>
+
 # Reprises et supervision indépendante
 
 `editorial_acquisitions` : pending, running, success, no_new_data,
@@ -33,3 +42,5 @@ aucune installation distante effectuée. Cadence <= 1 contrôle/15 min et un job
 court ; mesurer temps DB, stockage et consommation Actions avant activation.
 La revue automatique a refusé le déploiement groupé (schéma, droits, Cron, Vault
 et dispatch externe). Aucun contournement : déploiement et dispatch non démontrés.
+
+</details>
