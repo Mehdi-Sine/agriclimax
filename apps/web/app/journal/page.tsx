@@ -1,3 +1,4 @@
+import {EditorialHeader} from "../../components/navigation/editorial-header";
 import { EditorialPreview } from "../../features/editorial-ai/preview";
 import { parisDate } from "../../features/editorial/almanac";
 import Link from "next/link";
@@ -84,7 +85,7 @@ async function JournalContent({
       const { operationalEditions }=await import("../../lib/server/editorial-published");
       editions=await operationalEditions();
     } catch {
-      return <main className="journal"><h1>Le Journal agroclimatique</h1><p role="status">Lecture des archives momentanément indisponible.</p></main>;
+      return <main className="journal ux01-journal"><h1>Le Journal agroclimatique</h1><p role="status">Lecture des archives momentanément indisponible.</p></main>;
     }
     const selected=date||id ? editions.find(e=>(!date||e.date===date)&&(!id||e.edition_id===id)) : editions[0];
     return <>{!date && editions[0]?.date!==parisDate(new Date().toISOString()) && <p role="status">L’édition du jour est retardée. La dernière édition consultable conserve sa date réelle.</p>}<EditorialPreview edition={selected} editions={editions} published /></>;
@@ -95,7 +96,7 @@ async function JournalContent({
     edition = await journal(run);
   } catch {
     return (
-      <main className="journal">
+      <main className="journal ux01-journal">
         <p className="eyebrow">AgriclimaX · Le Journal</p>
         <h1>Le Journal agroclimatique</h1>
         <p role="alert">
@@ -124,38 +125,11 @@ async function JournalContent({
     expired: "Prévisions expirées · lecture d’archive",
   }[edition.data_freshness];
   return (
-    <main className="journal">
+    <main className="journal ux01-journal">
       <a className="journal-skip" href="#une">
         Aller à la une
       </a>
-      <header className="masthead">
-        <div className="edition-strip">
-          <span>ÉDITION DU {frenchDate(edition.edition_date)}</span>
-          <span>France métropolitaine & Corse · Prévisualisation</span>
-        </div>
-        <div className="masthead-title">
-          <Link
-            href="/journal"
-            aria-label="AgriclimaX — Le Journal agroclimatique"
-          >
-            AgriclimaX<span>Le Journal agroclimatique</span>
-          </Link>
-          <p>
-            Le climat en perspective.
-            <br />
-            L’agriculture en contexte.
-          </p>
-        </div>
-        <nav aria-label="Espaces produit">
-          <Link href="/journal" aria-current="page">
-            Le Journal
-          </Link>
-          <Link href="/">Climat</Link>
-          <a href="#filieres">Productions agricoles</a>
-          <Link href="/analyse">Analyse agroclimatique</Link>
-          <a href="#sources">Sources & méthodes</a>
-        </nav>
-      </header>
+      <EditorialHeader active="journal"/>
       <div className={`freshness freshness-${edition.data_freshness}`}>
         <span>{freshness}</span>
         <span>Cycle du {frenchCycle(edition.source_cycles[0])}</span>
@@ -258,6 +232,7 @@ async function JournalContent({
           </div>
         </section>
       )}
+      <section className="ux01-cartes-link"><div><h2>Les cartes du jour</h2><p>Voir les cartes et leurs périodes d’origine.</p></div><Link href="/cartes-du-jour">Voir la sélection →</Link></section>
       <section id="filieres" aria-labelledby="filieres-title">
         <div className="section-heading">
           <div>

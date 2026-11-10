@@ -1,10 +1,13 @@
-import { redirect } from 'next/navigation';
-export default async function Climate({searchParams}:{searchParams:Promise<Record<string,string|string[]|undefined>>}) {
-  const p=await searchParams;
-  const query=new URLSearchParams();
-  for(const [key,value] of Object.entries(p))if(typeof value==='string')query.set(key,value);
-  if(p.mode==='demo')redirect(`/demo?${query}`);
-  if(p.mode==='live_meteofrance'||p.mode==='wheat')redirect(`/stations?${query}`);
-  if(p.view==='watch')redirect(`/watch?${query}`);
-  return null;
+import {redirect} from "next/navigation";
+export default async function Page({searchParams}:{searchParams:Promise<Record<string,string|string[]|undefined>>}){
+ const p=await searchParams;
+ const q=new URLSearchParams();
+ for(const [key,value] of Object.entries(p))if(typeof value==="string")q.set(key,value);
+ if(p.mode==="demo")redirect(`/demo?${q}`);
+ if(p.mode==="live_meteofrance"||p.mode==="wheat")redirect(`/stations?${q}`);
+ if(p.view==="watch")redirect(`/watch?${q}`);
+ // Legacy exploratory links retain all climatic query parameters.
+ if(["pra","indicateur","temporal","periode","start","production","variable","mode","storage","rule_version","seuil"].some(k=>k in p))redirect(`/climat?${q}`);
+ // ?date and ?id now refer to editorial archives.
+ redirect(`/journal${q.size?"?"+q:""}`);
 }

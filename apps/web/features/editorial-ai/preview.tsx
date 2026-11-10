@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {EditorialHeader} from "../../components/navigation/editorial-header";
 import type { Archive, Block } from "./model";
 import type {ConsultableEdition} from "./consultable";
 import { frenchDate } from "../journal/ui/stories";
@@ -39,54 +40,9 @@ export function EditorialPreview({
   const api=personalStatus?"/api/journal/personnel":published?"/api/journal/edition":"/api/journal-preview";
   const mapApi=personalStatus?"/api/journal/personnel/map":published?"/api/journal/edition-map":"/api/journal-preview/map";
   return (
-    <main className="journal">
-      <header className="masthead">
-        <div className="edition-strip">
-          <span>
-            {a ? `ÉDITION DU ${frenchDate(a.date)}` : "ARCHIVES DU JOURNAL"}
-          </span>
-          <span>France métropolitaine & Corse · {personalStatus ? "Espace personnel" : published ? "Journal IA" : "Preview expérimentale"}</span>
-        </div>
-        <div className="masthead-title">
-          <Link href="/journal">
-            AgriclimaX<span>Le Journal agroclimatique</span>
-          </Link>
-          <p>
-            Le climat en perspective.
-            <br />
-            L’agriculture en contexte.
-          </p>
-        </div>
-        <nav aria-label="Espaces produit">
-          <Link href="/journal">Le Journal</Link>
-          <Link href="/">Climat</Link>
-          <a href="#filieres">Productions agricoles</a>
-          <a href="#regions">Régions</a>
-          <a href="#sources">Sources & méthodes</a>
-        </nav>
-      </header>
-      <section className="editorial-note" aria-label="Archives">
-        <h2>{personalStatus ? "Vos brouillons IA archivés" : published ? "Les éditions archivées" : "Les éditions en Preview"}</h2>
-        <form action={base}>
-          <label htmlFor="edition-date">Choisir une date </label>
-          <input
-            id="edition-date"
-            name="date"
-            type="date"
-            defaultValue={a?.date}
-          />
-          <button type="submit">Consulter</button>
-        </form>
-        <nav aria-label="Éditions archivées">
-          {editions.map((e) => (
-            <p key={e.edition_id}>
-              <Link href={`${base}?date=${e.date}&id=${e.edition_id}`}>
-                {frenchDate(e.date)} · Révision {e.revision}
-              </Link>
-            </p>
-          ))}
-        </nav>
-      </section>
+    <main className="journal ux01-journal">
+      <EditorialHeader active="journal"/>
+      
       {!a || !d ? (
         <section className="empty-story">
           <h1>{personalStatus?"Aucun brouillon IA vérifié à cette date":"Aucune édition archivée à cette date"}</h1>
@@ -147,7 +103,7 @@ export function EditorialPreview({
                     ÉCHANTILLON TERRITORIAL · {f.region ?? "France"}
                   </p>
                   <strong>
-                    {f.value}
+                    {new Intl.NumberFormat("fr-FR",{maximumFractionDigits:2}).format(f.value)}
                     <span> {f.unit}</span>
                   </strong>
                   <p>{frenchPeriod(f.period[0], f.period[1])}</p>
@@ -166,7 +122,8 @@ export function EditorialPreview({
               ))}
             </section>
           </section>
-          <section className="understand">
+          <section className="ux01-cartes-link"><div><h2>Les cartes de l’édition</h2><p>Cartes archivées, cycles et périodes conservés.</p></div><Link href={`/cartes-du-jour?date=${a.date}&id=${a.edition_id}`}>Voir les cartes du jour →</Link></section>
+           <section className="understand">
             <article className="article-column">
               <p className="eyebrow">DÉCRYPTAGE</p>
               <h2>Comprendre la situation</h2>
@@ -252,7 +209,29 @@ export function EditorialPreview({
                 ))}
             </section>
           )}
-          <footer id="sources">
+          <section className="editorial-note" aria-label="Archives">
+        <h2>{personalStatus ? "Vos brouillons IA archivés" : published ? "Les éditions archivées" : "Les éditions en Preview"}</h2>
+        <form action={base}>
+          <label htmlFor="edition-date">Choisir une date </label>
+          <input
+            id="edition-date"
+            name="date"
+            type="date"
+            defaultValue={a?.date}
+          />
+          <button type="submit">Consulter</button>
+        </form>
+        <nav aria-label="Éditions archivées">
+          {editions.map((e) => (
+            <p key={e.edition_id}>
+              <Link href={`${base}?date=${e.date}&id=${e.edition_id}`}>
+                {frenchDate(e.date)} · Révision {e.revision}
+              </Link>
+            </p>
+          ))}
+        </nav>
+      </section>
+           <footer id="sources">
             <p className="eyebrow">LA RIGUEUR DERRIÈRE LE RÉCIT</p>
             <h2>Sources & méthodes</h2>
             {cycles.length>0&&<p>Cycles de prévision : {cycles.map(frenchCycle).join(" · ")}.</p>}

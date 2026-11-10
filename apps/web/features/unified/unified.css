@@ -87,3 +87,8 @@
 .semantic-legend .legend-ramp span{height:auto;min-width:0;padding-top:12px;border:1px solid var(--text-muted)}
 .semantic-legend .legend-ramp small{display:block;position:static;white-space:normal;overflow-wrap:anywhere;background:var(--surface-raised);padding:5px 3px;font-size:11px;line-height:1.4;height:100%}
 [data-theme="dark"] .unified-brand,[data-theme="dark"] .scale-badge,[data-theme="dark"] .status-pill{color:var(--text-primary)}
+
+/* UX-01: les réglages détaillés sont sur demande. */
+.ux01-shell .filters-toggle{display:none!important}
+.ux01-shell .unified-filters:not(.filters-open){display:none}
+.ux01-shell .ux01-filter-prime button{font-weight:600;white-space:nowrap}
