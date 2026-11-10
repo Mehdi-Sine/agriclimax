@@ -7,6 +7,8 @@ on:
       timezone: Europe/Paris
     - cron: '40 5 * * *'
       timezone: Europe/Paris
+    - cron: '5 6 * * *'
+      timezone: Europe/Paris
     - cron: '30,45 6 * * *'
       timezone: Europe/Paris
     - cron: '0 7 * * *'
@@ -18,6 +20,18 @@ on:
         options: [acquire, prepare, preflight, qualify, run, report]
         default: report
         description: Explicit operational stage; run may make one operationally locked call
+      edition_date:
+        type: string
+        description: Paris editorial date (YYYY-MM-DD); watchdog preserves the missed date
+        required: false
+      scheduled_at:
+        type: string
+        description: Intended slot in UTC, supplied by the watchdog
+        required: false
+      dispatch_id:
+        type: string
+        description: Supabase dispatch correlation ID
+        required: false
       authorized_snapshot:
         type: string
         description: Exact frozen snapshot ID authorizing one manual trial; spending controlled in OpenAI
@@ -34,23 +48,26 @@ concurrency:
   cancel-in-progress: false
 jobs:
   plan:
-    if: (github.event_name == 'workflow_dispatch' && github.actor == github.repository_owner) || (github.event_name == 'schedule' && vars.AGRICLIMAX_NIGHTLY_ENABLED == 'true' && vars.AGRICLIMAX_NIGHTLY_KILL_SWITCH != 'true')
+    # Persistent Supabase control is authoritative for both cron and dispatch.
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     runs-on: ubuntu-latest
     outputs:
       stage: ${{ steps.clock.outputs.stage }}
+      edition_date: ${{ steps.clock.outputs.edition_date }}
+      scheduled_at: ${{ steps.clock.outputs.scheduled_at }}
+      scheduled_at_basis: ${{ steps.clock.outputs.scheduled_at_basis }}
+      dispatch_id: ${{ steps.clock.outputs.dispatch_id }}
     steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
       - id: clock
         env:
-          REQUESTED_STAGE: ${{ inputs.stage }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          python - <<'PY'
-          import os
-          from datetime import datetime
-          from zoneinfo import ZoneInfo
-          now=datetime.now(ZoneInfo('Europe/Paris')).strftime('%H:%M')
-          stage=os.environ.get('REQUESTED_STAGE') or ('acquire' if '02:15'<=now<'05:25' else 'run' if '05:40'<=now<'06:30' else 'report')
-          with open(os.environ['GITHUB_OUTPUT'],'a') as f: f.write('stage='+stage+'\n')
-          PY
+          RUN_CREATED_AT=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" --jq .created_at)
+          export RUN_CREATED_AT
+          python scripts/task36_schedule.py
       - name: Repository acquisition bindings and switches, metadata only
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
@@ -79,6 +96,11 @@ jobs:
         source: [forecast, era5, stations, observations, news]
     runs-on: ubuntu-latest
     timeout-minutes: 26
+    env:
+      AGRICLIMAX_EDITION_DATE: ${{ needs.plan.outputs.edition_date }}
+      AGRICLIMAX_SCHEDULED_AT: ${{ needs.plan.outputs.scheduled_at }}
+      AGRICLIMAX_SCHEDULED_AT_BASIS: ${{ needs.plan.outputs.scheduled_at_basis }}
+      AGRICLIMAX_DISPATCH_ID: ${{ needs.plan.outputs.dispatch_id }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -95,7 +117,9 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           METEOFRANCE_CLIMATOLOGY_API_KEY: ${{ secrets.METEOFRANCE_CLIMATOLOGY_API_KEY }}
+          METEOFRANCE_CLIMATOLOGY_APPLICATION_ID: ${{ secrets.METEOFRANCE_CLIMATOLOGY_APPLICATION_ID }}
           METEOFRANCE_OBSERVATIONS_API_KEY: ${{ secrets.METEOFRANCE_OBSERVATIONS_API_KEY }}
+          METEOFRANCE_OBSERVATIONS_APPLICATION_ID: ${{ secrets.METEOFRANCE_OBSERVATIONS_APPLICATION_ID }}
           METEOFRANCE_AROME_API_KEY: ${{ secrets.METEOFRANCE_AROME_API_KEY }}
           METEOFRANCE_ARPEGE_API_KEY: ${{ secrets.METEOFRANCE_ARPEGE_API_KEY }}
           CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
@@ -126,6 +150,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: editorial-ai-dev
     timeout-minutes: 25
+    env:
+      AGRICLIMAX_EDITION_DATE: ${{ needs.plan.outputs.edition_date }}
+      AGRICLIMAX_SCHEDULED_AT: ${{ needs.plan.outputs.scheduled_at }}
+      AGRICLIMAX_SCHEDULED_AT_BASIS: ${{ needs.plan.outputs.scheduled_at_basis }}
+      AGRICLIMAX_DISPATCH_ID: ${{ needs.plan.outputs.dispatch_id }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -146,8 +175,6 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          AGRICLIMAX_AI_ENABLED: ${{ github.event_name == 'workflow_dispatch' && inputs.stage == 'run' && inputs.authorized_snapshot != '' && 'true' || vars.AGRICLIMAX_AI_ENABLED }}
-          AGRICLIMAX_PUBLICATION_ENABLED: ${{ github.event_name == 'schedule' && vars.AGRICLIMAX_PUBLICATION_ENABLED || 'false' }}
           AGRICLIMAX_EDITORIAL_MODEL: ${{ inputs.model || vars.AGRICLIMAX_EDITORIAL_MODEL || 'gpt-6.1-terra' }}
           AGRICLIMAX_JOURNAL_HEALTH_URL: ${{ vars.AGRICLIMAX_JOURNAL_HEALTH_URL }}
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}

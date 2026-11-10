@@ -8,9 +8,8 @@ on:
       to:
         description: Last UTC archive date (default yesterday, with seven-day correction window)
         type: string
-  schedule:
-    - cron: '45 2 * * *'
-      timezone: Europe/Paris
+  # OPS-02: automatic collection is owned exclusively by operational-journal.yml.
+
 permissions:
   contents: read
 concurrency:
@@ -35,6 +34,7 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           METEOFRANCE_CLIMATOLOGY_API_KEY: ${{ secrets.METEOFRANCE_CLIMATOLOGY_API_KEY }}
+          METEOFRANCE_CLIMATOLOGY_APPLICATION_ID: ${{ secrets.METEOFRANCE_CLIMATOLOGY_APPLICATION_ID }}
           DATE_FROM: ${{ inputs.from }}
           DATE_TO: ${{ inputs.to }}
         shell: bash

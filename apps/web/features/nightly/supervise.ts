@@ -12,8 +12,8 @@ export interface OperationalReport {
   publications: {edition_date:string;archive_id:string;published_at:string}[];
   diagnostics: unknown[];
 }
-export async function supervise() {
-  const now=new Date().toISOString(), date=parisDate(now);
+export async function supervise(editionDate?:string) {
+  const now=new Date().toISOString(), date=editionDate??parisDate(now);
   const report=await editorialRPC<OperationalReport>("report",{edition_date:date});
   const today=report.snapshots.find(s=>s.edition_date===date);
   const publication=report.publications.find(p=>p.edition_date===date);

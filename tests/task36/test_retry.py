@@ -60,3 +60,49 @@ class SourceReceiptTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class AcquisitionLedgerTests(unittest.TestCase):
+    def test_denial_records_explicit_noop_without_running_adapter(self):
+        from unittest.mock import patch
+        calls = []
+        def fake_rpc(action, payload=None):
+            calls.append((action, payload))
+            return {'status': 'no_op', 'reason': 'already_completed'} if action == 'claim' else {'saved': True}
+        with patch.object(nightly, 'rpc', side_effect=fake_rpc), patch.object(nightly.subprocess, 'run') as adapter:
+            result = nightly.acquire('forecast', '2026-11-10')
+        self.assertEqual(result['reason'], 'already_completed')
+        adapter.assert_not_called()
+        self.assertEqual(calls[-1][0], 'diagnostic')
+
+    def test_adapter_receipt_classification_and_finish_are_persistent(self):
+        import os
+        import tempfile
+        from unittest.mock import Mock, patch
+        for receipt, expected in [({'status': 'no_new_data'}, 'no_new_data'),
+                ({'http_status': 429, 'retry_after': '3600'}, 'retryable_failure'),
+                ({'http_status': 401}, 'permanent_failure'),
+                ({'http_status': 403}, 'permanent_failure'),
+                ({'status': 'verified'}, 'success')]:
+            with self.subTest(expected=expected), tempfile.TemporaryDirectory() as root:
+                calls = []
+                def fake_rpc(action, payload=None):
+                    calls.append((action, payload))
+                    return {'token': 'synthetic-lease'} if action == 'claim' else {'saved': True}
+                def adapter(*args, **kwargs):
+                    target = Path('work/era5-archive/report.json')
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_text(__import__('json').dumps(receipt))
+                    return Mock(returncode=0)
+                previous = os.getcwd()
+                try:
+                    os.chdir(root)
+                    with patch.object(nightly, 'rpc', side_effect=fake_rpc), patch.object(nightly, 'commands', return_value=[['synthetic']]), patch.object(nightly.subprocess, 'run', side_effect=adapter):
+                        result = nightly.acquire('era5', '2026-11-10')
+                    self.assertEqual(result['state'], expected)
+                    finish = next(payload for action, payload in calls if action == 'finish')
+                    self.assertEqual(finish['state'], expected)
+                    self.assertIn('finished_at', finish['checkpoint'])
+                    if receipt.get('http_status') == 429:
+                        self.assertEqual(finish['retry_after_seconds'], 3600)
+                finally:
+                    os.chdir(previous)

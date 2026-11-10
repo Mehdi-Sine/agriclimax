@@ -11,7 +11,7 @@ import {INSTRUCTIONS} from "./prompt";
 import {validateDraft,assertDraft} from "./validate";
 import {editorialPayload} from "./budget";
 import {readConfig,cost,type AIConfig} from "./config";
-import {ProviderFailure,type Provider} from "./provider";
+import {ProviderFailure,type Provider,type ProviderResult} from "./provider";
 import {consultableEdition} from "./consultable";
 
 export interface AttemptStore {
@@ -35,6 +35,7 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
  if(run.id!==proposed.id) {
   const existing=run.archive_id?await o.store.read(run.archive_id):null;
   if(!existing||existing.mode!=="live") throw Error("COMPLETED_ARCHIVE_MISSING");
+  consultableEdition(existing);
   return existing;
  }
  const started=performance.now();
@@ -43,19 +44,9 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
    await o.store.diagnostic(hash([run.id,"request"]),{kind:"provider_request",run_id:run.id,metadata});
   }});
   // Preserve actual output before scientific/contract admission; diagnostics remain private.
-  await o.store.diagnostic(hash([run.id,"response"]),{kind:"provider_response",run_id:run.id,result});
-  if(result.model!==c.model||!result.response_id) throw Error("PROVIDER_MODEL_OR_ID_MISMATCH");
-  const validation=validateDraft(result.draft,b,[]);
-  if(validation.status==="rejected") {
-   await o.store.diagnostic(hash([run.id,"validation"]),{kind:"scientific_validation",run_id:run.id,validation});
-  }
-  assertDraft(result.draft);
-  const estimate=result.usage?cost(result.usage.input_tokens,result.usage.output_tokens,c.pricing):null;
-  const archive=sealArchive({version:"editorial-archive-1",edition_id:run.id,revision:1,supersedes:null,date:b.edition_date,generated_at:now,
-   engine:ENGINE,prompt_version:PROMPT_VERSION,config_version:CONFIG_VERSION,mode:"live",status:validation.status,draft:result.draft,briefing:b,illustrations:[],validation,
-   receipt:{model:result.model,response_id:result.response_id,usage:result.usage,cost_eur:estimate,duration_ms:Math.round(performance.now()-started),pricing_version:c.pricing.version},
-   prompt_sha256:hash(INSTRUCTIONS),parameters:{model:c.model,max_output_tokens:c.max_output_tokens,request_profile:c.request_profile}});
-  await o.store.save(archive);
+  await o.store.diagnostic(hash([run.id,"response"]),{kind:"provider_response",run_id:run.id,received_at:new Date().toISOString(),result});
+  const archive=await archiveOperationalResult({...o,run,result,generatedAt:now,durationMs:Math.round(performance.now()-started)});
+  const validation=archive.validation,estimate=archive.receipt?.cost_eur??null;
   run.state=validation.status==="rejected"?"validation_failed":"completed";run.error=validation.status==="rejected"?"DRAFT_REJECTED":null;run.archive_id=archive.edition_id;run.actual_eur=estimate;
   await o.store.finishAttempt(run);
   // Scientific reservations do not hide an experimental edition; incompatible data still do.
@@ -69,4 +60,22 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
   }
   throw error;
  }
+}
+
+/** Rebuild only from a persisted provider response; never invokes a provider. */
+export async function archiveOperationalResult(o:{briefing:EditorialBriefingBundle;config:AIConfig;store:AttemptStore;run:Run;result:ProviderResult;generatedAt:string;durationMs:number}) {
+ const {briefing:b,config:c,run,result}=o;const now=o.generatedAt;
+  if(result.model!==c.model||!result.response_id) throw Error("PROVIDER_MODEL_OR_ID_MISMATCH");
+  const validation=validateDraft(result.draft,b,[]);
+  if(validation.status==="rejected") {
+   await o.store.diagnostic(hash([run.id,"validation"]),{kind:"scientific_validation",run_id:run.id,validation});
+  }
+  assertDraft(result.draft);
+  const estimate=result.usage?cost(result.usage.input_tokens,result.usage.output_tokens,c.pricing):null;
+  const archive=sealArchive({version:"editorial-archive-1",edition_id:run.id,revision:1,supersedes:null,date:b.edition_date,generated_at:now,
+   engine:ENGINE,prompt_version:PROMPT_VERSION,config_version:CONFIG_VERSION,mode:"live",status:validation.status,draft:result.draft,briefing:b,illustrations:[],validation,
+   receipt:{model:result.model,response_id:result.response_id,usage:result.usage,cost_eur:estimate,duration_ms:o.durationMs,pricing_version:c.pricing.version},
+   prompt_sha256:hash(INSTRUCTIONS),parameters:{model:c.model,max_output_tokens:c.max_output_tokens,request_profile:c.request_profile}});
+  await o.store.save(archive);
+  return archive;
 }
