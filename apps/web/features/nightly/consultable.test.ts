@@ -10,7 +10,7 @@ import {sealArchive} from "../editorial-ai/archive";
 beforeEach(()=>vi.clearAllMocks());
 describe("the existing real archive's public projection",()=>{
  it("retains the real date, words and five recorded alerts, while disclosing no provider or internal metadata",()=>{
-  const a=unpackConsultable(bootstrap)[0];
+  const a=unpackConsultable(bootstrap).find(a=>a.date==="2026-11-09")!;
   expect(a.date).toBe("2026-11-09");expect(a.checksum).toBe("e1f6d85baaa74237ff9d94be5b97dd4f2234f4969f2773ecc63e6f4a03cfa4da");
   expect(a.mode).toBe("live");expect(a.validation.status).toBe("rejected");expect(a.validation.errors).toHaveLength(5);
   expect(a.assessment.errors).toEqual([]);expect(a.assessment.review).toContain("SEMANTIC_REVIEW_REQUIRED");
@@ -19,7 +19,7 @@ describe("the existing real archive's public projection",()=>{
  });
  it("serves the controlled real copy after a cold-start database outage, without filling missing dates",async()=>{
   vi.resetModules();const {operationalEditions}=await import("../../lib/server/editorial-published");
-  const editions=await operationalEditions();expect(editions[0].date).toBe("2026-11-09");expect(editions.find(a=>a.date==="1999-01-01")).toBeUndefined();
+  const editions=await operationalEditions();expect(editions.map(a=>a.date)).toEqual(["2026-11-10","2026-11-09"]);expect(editions.find(a=>a.date==="1999-01-01")).toBeUndefined();
   expect(editorialRPC).toHaveBeenCalledWith("runs");
  });
  it("rejects a changed public copy and an incompatible narrative instead of publishing a corrupt edition",()=>{

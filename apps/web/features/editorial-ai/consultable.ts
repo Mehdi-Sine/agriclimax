@@ -10,7 +10,9 @@ export type ConsultableEdition=Pick<Archive,"edition_id"|"revision"|"date"|"gene
  briefing:{bundle_id:string;edition_date:string;validity:Archive["briefing"]["validity"];national:Pick<Archive["briefing"]["national"],"facts">;seasonal:Pick<Archive["briefing"]["seasonal"],"windows">;documentary:Pick<Archive["briefing"]["documentary"],"publications">};
  assessment:Validation;consultable:true;scientifically_validated:boolean;content_sha256:string;
 };
-const incompatible=new Set(["DRAFT_CONTRACT","DRAFT_IDENTITY","BLOCK_REFERENCE","CANDIDATE_REFERENCE","DOCUMENTARY_REFERENCE","REGION_REFERENCE","PRODUCTION_REFERENCE","FIGURE_MISMATCH","FIGURE_REGION","FIGURE_SCOPE","FIGURE_NATURE","PRA_ATTRIBUTION","ILLUSTRATION_CONTEXT"]);
+// Editorial evidence resolution affects certification, not experimental text access.
+// Identity, structured figures and map bindings still fail closed.
+const incompatible=new Set(["DRAFT_CONTRACT","DRAFT_IDENTITY","CANDIDATE_REFERENCE","DOCUMENTARY_REFERENCE","REGION_REFERENCE","PRODUCTION_REFERENCE","FIGURE_MISMATCH","FIGURE_REGION","FIGURE_SCOPE","FIGURE_NATURE","PRA_ATTRIBUTION","ILLUSTRATION_CONTEXT"]);
 export function consultableEdition(a:Archive):ConsultableEdition {
  verifyArchive(a,false);
  if(a.mode!=="live"||!a.receipt?.response_id||a.briefing.status==="insufficient") throw Error("NOT_A_CONSULTABLE_AI_EDITION");
