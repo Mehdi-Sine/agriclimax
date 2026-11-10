@@ -2,9 +2,10 @@
 import {useState,useRef} from "react";
 import Link from "next/link";
 import JournalPraMap from "../../features/journal/ui/pra-map";
+import {initialMapIndex} from "./initial-map-index";
 export type ArchivedMap = {id:string;caption:string;phenomenon:string;period:[string,string];cycle:string;source:string};
-export function DailyMapsCarousel({slides,editionId}:{slides:ArchivedMap[];editionId:string}) {
-  const [index,setIndex]=useState(0);
+export function DailyMapsCarousel({slides,editionId,initialMapId}:{slides:ArchivedMap[];editionId:string;initialMapId?:string}) {
+  const [index,setIndex]=useState(()=>initialMapIndex(slides,initialMapId));
   const touchX=useRef<number|null>(null);
   const slide=slides[index];
   const move=(delta:number)=>setIndex(i=>(i+delta+slides.length)%slides.length);
