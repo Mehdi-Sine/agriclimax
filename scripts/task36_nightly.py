@@ -66,14 +66,24 @@ def commands(source: str) -> list[list[str]]:
 
 
 def acquire(source: str, date: str) -> dict[str, Any]:
-    claim = rpc('claim', {'edition_date': date, 'source': source})
-    if not claim:
-        return {'source': source, 'skipped': True}
+    metadata = {'edition_date': date, 'source': source, 'command': 'acquire',
+                'dispatch_id': os.environ.get('AGRICLIMAX_DISPATCH_ID'),
+                'workflow_run_id': os.environ.get('GITHUB_RUN_ID'),
+                'scheduled_at': os.environ.get('AGRICLIMAX_SCHEDULED_AT'),
+                'scheduled_at_basis': os.environ.get('AGRICLIMAX_SCHEDULED_AT_BASIS')}
+    claim = rpc('claim', metadata)
+    if not claim or claim.get('status') == 'no_op':
+        no_op = {'source': source, 'status': 'no_op', 'reason': (claim or {}).get('reason', 'not_eligible')}
+        rpc('diagnostic', {'edition_date': date, 'id': f"acquire-noop-{date}-{source}-{os.environ.get('GITHUB_RUN_ID', time.time_ns())}", 'body': {**metadata, **no_op, 'state': 'no_op', 'finished_at': datetime.now(UTC).isoformat()}})
+        return no_op
     os.environ['AGRICLIMAX_ACQUISITION_LEASE_TOKEN'] = claim['token']
     os.environ['AGRICLIMAX_ACQUISITION_SOURCE'] = source
     os.environ['AGRICLIMAX_ACQUISITION_DATE'] = date
     started = time.monotonic()
-    checkpoint: dict[str, Any] = {'source': source, 'started_at': datetime.now(UTC).isoformat(), 'workflow_run_id': os.environ.get('GITHUB_RUN_ID')}
+    checkpoint: dict[str, Any] = {'source': source, 'started_at': datetime.now(UTC).isoformat(), 'workflow_run_id': os.environ.get('GITHUB_RUN_ID'),
+                                       'scheduled_at': os.environ.get('AGRICLIMAX_SCHEDULED_AT'),
+                                       'scheduled_at_basis': os.environ.get('AGRICLIMAX_SCHEDULED_AT_BASIS'),
+                                       'dispatch_id': os.environ.get('AGRICLIMAX_DISPATCH_ID')}
     state, wait = 'retryable_failure', 1800
     try:
         Path('work/task36/logs').mkdir(parents=True, exist_ok=True)
@@ -119,18 +129,27 @@ def acquire(source: str, date: str) -> dict[str, Any]:
     except Exception:  # noqa: BLE001 - safe boundary, no arbitrary exception text
         state = 'permanent_failure'
         checkpoint['error'] = 'ADAPTER_CONTRACT_OR_CONFIGURATION'
+    checkpoint['finished_at'] = datetime.now(UTC).isoformat()
     checkpoint['elapsed_seconds'] = round(time.monotonic() - started, 3)
     rpc('finish', {'edition_date': date, 'source': source, 'token': claim['token'],
                    'state': state, 'retry_after_seconds': wait, 'checkpoint': checkpoint})
-    return {'source': source, 'state': state, 'seconds': checkpoint['elapsed_seconds']}
+    outcome = {'source': source, 'state': state, 'seconds': checkpoint['elapsed_seconds']}
+    rpc('diagnostic', {'edition_date': date, 'id': f"acquire-result-{date}-{source}-{os.environ.get('GITHUB_RUN_ID', time.time_ns())}",
+                       'body': {**metadata, 'acquisition_state': state, 'state': 'failed' if state in ('retryable_failure', 'permanent_failure') else 'completed',
+                                'finished_at': checkpoint['finished_at']}})
+    return outcome
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source', choices=['forecast', 'era5', 'stations', 'observations', 'news'], required=True)
     args = parser.parse_args()
-    date = datetime.now(ZoneInfo('Europe/Paris')).date().isoformat()
-    print(json.dumps(acquire(args.source, date)))
+    date = os.environ.get('AGRICLIMAX_EDITION_DATE') or datetime.now(ZoneInfo('Europe/Paris')).date().isoformat()
+    datetime.strptime(date, '%Y-%m-%d')
+    result = acquire(args.source, date)
+    print(json.dumps(result))
+    if result.get('state') in ('retryable_failure', 'permanent_failure'):
+        sys.exit(1)
 
 
 if __name__ == '__main__':

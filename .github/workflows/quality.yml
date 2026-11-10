@@ -178,6 +178,9 @@ jobs:
           SQL_SCHEMA: ${{ matrix.schema }}
           PYTHON: python
         run: bash supabase/tests/run-local.sh "$SQL_SCHEMA"
+      - name: Nightly locks, watchdog transport and persistent stage scenarios
+        if: matrix.schema == 'public'
+        run: bash tests/task36/run-ledger.sh
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:

@@ -1,9 +1,7 @@
 name: Bounded PRA climate batch
 on:
   # GitHub schedule is best-effort; supervision reports the observed launch delay.
-  schedule:
-    - cron: '15 2 * * *'
-      timezone: Europe/Paris
+  # OPS-02: automatic collection is owned exclusively by operational-journal.yml.
   workflow_dispatch:
     inputs:
       mode:

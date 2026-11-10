@@ -33,3 +33,24 @@ describe("project-managed OpenAI spending and operational attempts",()=>{
   expect(s.archives.size).toBe(1);expect([...s.archives.values()][0].validation.status).toBe("rejected");expect(s.runs[0].state).toBe("validation_failed");expect(s.api.diagnostic).toHaveBeenCalled();
  });
 });
+
+describe("OPS-02 response recovery",()=>{
+ it("reuses the exact validation/archive engine without a provider request",async()=>{
+  const {archiveOperationalResult}=await import("../editorial-ai/generate-operational");
+  const s=store(),config=operationalConfig("gpt-6.1-terra");
+  const run:Run={id:"a".repeat(64),edition_date:briefing.edition_date,scope:"daily",month:"2026-11",state:"outcome_unknown",reserved_eur:0,actual_eur:null,error:"INTERRUPTED",archive_id:null};
+  const a=await archiveOperationalResult({briefing,config,store:s.api,run,
+   result:{draft:simulated.draft,model:config.model,response_id:"resp_persisted",usage:null},generatedAt:"2026-11-10T05:05:00Z",durationMs:0});
+  expect(a.edition_id).toBe(run.id);expect(a.receipt?.response_id).toBe("resp_persisted");
+  expect(s.api.claimAttempt).not.toHaveBeenCalled();expect(s.api.finishAttempt).not.toHaveBeenCalled();
+  verifyArchive(a);expect(s.archives.size).toBe(1);
+ });
+ it("keeps malformed archived responses unpublishable",async()=>{
+  const {archiveOperationalResult}=await import("../editorial-ai/generate-operational");
+  const s=store(),config=operationalConfig("gpt-6.1-terra");
+  const run:Run={id:"a".repeat(64),edition_date:briefing.edition_date,scope:"daily",month:"2026-11",state:"outcome_unknown",reserved_eur:0,actual_eur:null,error:null,archive_id:null};
+  await expect(archiveOperationalResult({briefing,config,store:s.api,run,
+   result:{draft:{},model:config.model,response_id:"resp_persisted",usage:null},generatedAt:"2026-11-10T05:05:00Z",durationMs:0})).rejects.toThrow();
+  expect(s.archives.size).toBe(0);
+ });
+});

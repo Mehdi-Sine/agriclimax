@@ -8,9 +8,8 @@ on:
       to:
         description: Last UTC archive date (default yesterday, with seven-day correction window)
         type: string
-  schedule:
-    - cron: '45 2 * * *'
-      timezone: Europe/Paris
+  # OPS-02: automatic collection is owned exclusively by operational-journal.yml.
+
 permissions:
   contents: read
 concurrency:

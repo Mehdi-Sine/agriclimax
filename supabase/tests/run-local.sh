@@ -60,6 +60,7 @@ task04_psql -f /repo/supabase/tests/pra_storage.sql >"$task04_results/pra-storag
 task04_psql -f /repo/supabase/tests/postgis_access.sql >"$task04_results/postgis-access.log" 2>&1
 task04_psql -f /repo/supabase/tests/security.sql >"$task04_results/security.log" 2>&1
 task04_psql -f /repo/tests/task36/review.sql >"$task04_results/editorial-review.log" 2>&1
+task04_psql -f /repo/tests/task36/ops02.sql >"$task04_results/ops02.log" 2>&1
 task04_psql -f /repo/tests/task36/ledger.sql >"$task04_results/editorial-ledger.log" 2>&1
 task04_psql -f /repo/supabase/tests/benchmark.sql >"$task04_results/explain.log" 2>&1
 task04_psql -qAt -f /repo/supabase/tests/contracts.sql >"$task04_results/contracts.json"

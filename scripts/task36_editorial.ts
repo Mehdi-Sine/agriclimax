@@ -12,17 +12,23 @@ import { buildBriefing, briefingEvents, type BriefingInput, type NewsContext } f
 import { parisDate } from "../apps/web/features/editorial/almanac";
 import { freezeSnapshot, verifySnapshot, cutoffUTC, selectCycles, modelFamily, POLICY, type Cycle, type DailyEditorialSnapshot } from "../apps/web/features/nightly/snapshot";
 import { editorialRPC, SupabaseEditorialStore, promoteEdition, publishedEditions } from "../apps/web/features/editorial-ai/supabase-store";
-import {generateOperational,operationalConfig} from "../apps/web/features/editorial-ai/generate-operational";
+import {archiveOperationalResult,generateOperational,operationalConfig} from "../apps/web/features/editorial-ai/generate-operational";
 import type { Archive } from "../apps/web/features/editorial-ai/model";
+import type {Run} from "../apps/web/features/editorial-ai/archive";
+import type {ProviderResult} from "../apps/web/features/editorial-ai/provider";
+import {consultableEdition} from "../apps/web/features/editorial-ai/consultable";
 import { openAIProvider, verifyModel } from "../apps/web/features/editorial-ai/provider";
 import geography from "../apps/web/data/operational/pra-watch-places.json";
 const command = process.argv[2] ?? "preflight";
-const date = parisDate(new Date().toISOString());
+const date = process.env.AGRICLIMAX_EDITION_DATE || parisDate(new Date().toISOString());
+if(!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw Error("EDITION_DATE_REQUIRED");
+let resultForLedger: Record<string,unknown> = {};
 const out = "work/task36";
 mkdirSync(out,{recursive:true});
 function output(value: unknown) {
   writeFileSync(join(out,command+".json"),JSON.stringify(value,null,2)+"\n");
   const result=value as Record<string,unknown>;
+  resultForLedger=result;
   const receipt={command,status:result.status??result.quality??"completed",edition_id:result.id??null,snapshot_id:result.snapshot_id??null,error:result.error??null};
   writeFileSync(join(out,"receipt.json"),JSON.stringify(receipt));
   // Detailed operational reports remain in the private Supabase diagnostic store.
@@ -120,7 +126,7 @@ async function prepare() {
   return freezeSnapshot(date,[],null,now);
 }
 async function main() {
-  if(command==="report") { output(await supervise()); return; }
+  if(command==="report") { const report=await supervise(date); output(report); if(report.alerts.length) process.exitCode=2; return; }
   if(command==="promote") { output(await promoteEdition(process.argv[3]??"")); return; }
   if(command==="approve"||command==="reject") {
     const i=process.argv.indexOf("--review-checksum"),r=process.argv.indexOf("--reviewer");
@@ -132,18 +138,25 @@ async function main() {
     const snapshot=await prepare();
     output(snapshot); return;
   }
+  const control=await editorialRPC<{emergency_stop:boolean;ai_enabled:boolean}>("control");
+  if(control.emergency_stop) {output({status:"no_op",reason:"emergency_stop",paid_calls:0});return;}
+  if(command==="run") {
+    const {operationalEditions,sharedArchiveRead}=await import("../apps/web/lib/server/editorial-published");
+    const existing=(await operationalEditions()).find(a=>a.date===date);
+    if(existing&&sharedArchiveRead(existing.edition_id)){output({status:"no_op",reason:"already_consultable",id:existing.edition_id,checksum:existing.checksum,paid_calls:0});return;}
+  }
   let snapshot = await editorialRPC<DailyEditorialSnapshot|null>("snapshot_read",{edition_date:date});
   if(!snapshot && ["prepare","run","qualify"].includes(command)) {
     snapshot=await prepare();
     await editorialRPC("freeze",{edition_date:date,snapshot,snapshot_json:JSON.stringify(snapshot)});
     const restored=await editorialRPC<DailyEditorialSnapshot>("snapshot_read",{edition_date:date});
     verifySnapshot(restored);
-    if(restored.id!==snapshot.id) throw Error("SNAPSHOT_READBACK");
+    snapshot=restored; // a simultaneous owner may have frozen first
   }
   if(!snapshot) throw Error("FROZEN_SNAPSHOT_ABSENT");
   verifySnapshot(snapshot);
   if(command==="prepare") { output({snapshot_id:snapshot.id,quality:snapshot.quality,date}); return; }
-  if(snapshot.quality==="insufficient" || !snapshot.briefing) { output({status:"insufficient",paid_calls:0,previous_retained:true}); return; }
+  if(snapshot.quality==="insufficient" || !snapshot.briefing) { output({status:"no_op",reason:"insufficient_data",paid_calls:0,previous_retained:true}); return; }
   const config = operationalConfig(process.env.AGRICLIMAX_EDITORIAL_MODEL??"gpt-6.1-terra");
   const store = new SupabaseEditorialStore(snapshot.id);
   if(command==="preflight"||command==="qualify") {
@@ -151,12 +164,26 @@ async function main() {
       api_key_present:!!process.env.OPENAI_API_KEY,control:await editorialRPC("control"),paid_calls:0});return;
   }
   if(command!=="run") throw Error("UNKNOWN_NIGHTLY_COMMAND");
-  if(process.env.AGRICLIMAX_AI_ENABLED!=="true") {output({status:"data_ready_ai_disabled",snapshot_id:snapshot.id,quality:snapshot.quality,paid_calls:0});return;}
-  if(!process.argv.includes("--authorize-snapshot")) {
-    const {operationalEditions}=await import("../apps/web/lib/server/editorial-published");
-    const existing=(await operationalEditions()).find(a=>a.date===date);
-    if(existing){output({status:"already_consultable",id:existing.edition_id,checksum:existing.checksum,paid_calls:0});return;}
+  // An interrupted process may have persisted the response before saving the
+  // edition. Replay only that response through the same validator/archive engine.
+  const history=await editorialRPC<{runs:Run[];diagnostics:{kind?:string;run_id?:string;result?:ProviderResult;received_at?:string;metadata?:{started_at?:string}}[]}>("report",{edition_date:date});
+  for(const prior of history.runs.filter(r=>r.edition_date===date)) {
+    let recovered=await store.read(prior.archive_id??prior.id);
+    if(!recovered) {
+      const saved=history.diagnostics.find(d=>d.kind==="provider_response"&&d.run_id===prior.id);
+      const response=saved?.result;
+      const generatedAt=saved?.received_at??history.diagnostics.find(d=>d.kind==="provider_request"&&d.run_id===prior.id)?.metadata?.started_at;
+      if(response&&!generatedAt) throw Error("RECOVERY_TIMESTAMP_MISSING");
+      if(response&&generatedAt) recovered=await archiveOperationalResult({briefing:snapshot.briefing,config,store,run:prior,result:response,
+        generatedAt,durationMs:0});
+    }
+    if(recovered) {
+      consultableEdition(recovered);
+      await editorialRPC("recover_archive",{edition_date:date,id:prior.id,checksum:recovered.checksum});
+      output({status:"archive_recovered",id:prior.id,checksum:recovered.checksum,paid_calls:0});return;
+    }
   }
+  if(!control.ai_enabled) {output({status:"no_op",reason:"ai_disabled",snapshot_id:snapshot.id,quality:snapshot.quality,paid_calls:0});return;}
   const authorized=process.argv.indexOf("--authorize-snapshot");
   if(authorized>=0&&process.argv[authorized+1]!==snapshot.id) throw Error("EXACT_SNAPSHOT_AUTHORIZATION_REQUIRED");
   const key=process.env.OPENAI_API_KEY;
@@ -169,4 +196,19 @@ async function main() {
   if(archive.mode!=="live"||!archive.receipt) {process.exitCode=2;return;}
   // Archiving makes an experimental edition consultable. Certification/promotion remains explicit.
 }
-main().catch(error=>{output({status:"failed",error:error instanceof Error && /^[A-Z][A-Z0-9_]+$/.test(error.message)?error.message:"NIGHTLY_FAILED",automatic_paid_retry:false});process.exitCode=1;});
+async function execute() {
+  if(["prepare-offline","promote","approve","reject"].includes(command)) {await main();return;}
+  const owner=`${process.env.GITHUB_RUN_ID??"local"}-${process.env.GITHUB_RUN_ATTEMPT??"1"}-${crypto.randomUUID()}`;
+  const metadata={edition_date:date,stage:command,command,owner,workflow_run_id:process.env.GITHUB_RUN_ID??null,
+    dispatch_id:process.env.AGRICLIMAX_DISPATCH_ID??null,scheduled_at:process.env.AGRICLIMAX_SCHEDULED_AT??null,
+    scheduled_at_basis:process.env.AGRICLIMAX_SCHEDULED_AT_BASIS??null};
+  const claim=await editorialRPC<{status?:string;reason?:string}>("stage_claim",metadata);
+  if(claim.status==="no_op") {output(claim);return;}
+  try {await main();}
+  catch(error) {resultForLedger={status:"failed",error:error instanceof Error&&/^[A-Z][A-Z0-9_]+$/.test(error.message)?error.message:"NIGHTLY_FAILED"};throw error;}
+  finally {
+    const state=resultForLedger.status==="failed"||process.exitCode?"failed":resultForLedger.status==="no_op"?"no_op":"completed";
+    await editorialRPC("stage_finish",{...metadata,state,result:resultForLedger});
+  }
+}
+execute().catch(error=>{output({status:"failed",error:error instanceof Error && /^[A-Z][A-Z0-9_]+$/.test(error.message)?error.message:"NIGHTLY_FAILED",automatic_paid_retry:false});process.exitCode=1;});
