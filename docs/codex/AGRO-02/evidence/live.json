@@ -1,0 +1,4875 @@
+{
+  "executed_at": "2026-11-10T15:02:29.232Z",
+  "forecast_archive": "6d8255cb738799d0434c9ae4ded8e045d993e80561b724625683acb532cc1e43",
+  "groups": [
+    {
+      "nature": "reanalysis",
+      "period": [
+        "2026-11-03",
+        "2026-11-03"
+      ],
+      "milliseconds": 592.1732419999998,
+      "metrics": {
+        "calculations": 13547,
+        "cache_hits": 32798,
+        "pra_count": 713
+      },
+      "counts": {
+        "wheat/gdd": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "wheat/hot": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "wheat/hot_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "wheat/frost": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "wheat/frost_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "wheat/rain": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "wheat/heavy_rain": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "wheat/dry": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "wheat/dry_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "wheat/temperature_mean": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "cattle/cattle_heat": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "cattle/temperature_mean": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "cattle/thi": {
+          "unavailable": 713
+        },
+        "cattle/thi_days": {
+          "unavailable": 713
+        },
+        "cattle/thi_sequence": {
+          "unavailable": 713
+        },
+        "maize/temperature_mean": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/temperature_min": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/hot": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/hot_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/frost": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/frost_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/rain": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/rain_frequency": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/heavy_rain": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/dry": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/dry_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/gdd_base6": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/gdd_base10": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/hot30": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "maize/hot30_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "vine/temperature_mean": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "vine/temperature_min": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "vine/hot": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "vine/hot_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "vine/frost": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "vine/frost_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "vine/rain": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "vine/rain_frequency": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "vine/heavy_rain": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "vine/dry": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "vine/dry_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "vine/gdd_base10": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "grassland/temperature_mean": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "grassland/temperature_min": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "grassland/hot": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "grassland/hot_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "grassland/frost": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "grassland/frost_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "grassland/rain": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "grassland/rain_frequency": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "grassland/heavy_rain": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "grassland/dry": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "grassland/dry_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "grassland/gdd": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "orchard/temperature_mean": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "orchard/temperature_min": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "orchard/hot": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "orchard/hot_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "orchard/frost": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "orchard/frost_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "orchard/rain": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "orchard/rain_frequency": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "orchard/heavy_rain": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "orchard/dry": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        },
+        "orchard/dry_sequence": {
+          "native_complete": 645,
+          "observed_partial": 67,
+          "unavailable": 1
+        }
+      },
+      "samples": [
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "wheat",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": 0.10188475,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.483680+00:00"
+            ],
+            "provenance": [
+              "cbec07365194f7d3ede1d76873175f5c08349bb35972296e986cd61720b0c362"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": 8.086945,
+                "value": 0.10188475,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "dfdf1b77410b100b66b6eb79de17c5713421bff2ed6ed1b4c566dac52cda132a",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "cattle",
+          "indicator": "thi",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "partial",
+            "reason": "humidity_missing",
+            "unit": "THI",
+            "observedDays": 0,
+            "expectedDays": 1,
+            "coverage": 0,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.483680+00:00"
+            ],
+            "provenance": [
+              "cbec07365194f7d3ede1d76873175f5c08349bb35972296e986cd61720b0c362"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "humidity_missing",
+              "synthetic_daily_not_hourly_maximum",
+              "value_unavailable"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": 8.086945,
+                "value": null,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "unavailable",
+              "numeric_value": false,
+              "scope": "unavailable",
+              "scientific_status": "exploratory",
+              "indicator_eligible": false,
+              "journal_eligible": false,
+              "reason": "value_unavailable",
+              "evidence": {
+                "fraction": 1,
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 0,
+                "continuous": false,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+            "support_scope": "unavailable",
+            "spatial_coverage": 1,
+            "temporal_coverage": 0
+          },
+          "signature": "62af190709b2aca60fd7f4d1d16290a96e1412fe129291d8ec06038b455e7513",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "maize",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": 0.10188475,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.483680+00:00"
+            ],
+            "provenance": [
+              "cbec07365194f7d3ede1d76873175f5c08349bb35972296e986cd61720b0c362"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": 8.086945,
+                "value": 0.10188475,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "dfdf1b77410b100b66b6eb79de17c5713421bff2ed6ed1b4c566dac52cda132a",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "maize",
+          "indicator": "gdd_base6",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": 2.086945,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "°C·j",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": 6
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.483680+00:00"
+            ],
+            "provenance": [
+              "cbec07365194f7d3ede1d76873175f5c08349bb35972296e986cd61720b0c362"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": 8.086945,
+                "value": 2.086945,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "46ca9d623c43bfec696b36cc49063658f50b1f98399c8c3bb6ff6d86bee25f48",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "vine",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": 0.10188475,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.483680+00:00"
+            ],
+            "provenance": [
+              "cbec07365194f7d3ede1d76873175f5c08349bb35972296e986cd61720b0c362"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": 8.086945,
+                "value": 0.10188475,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "dfdf1b77410b100b66b6eb79de17c5713421bff2ed6ed1b4c566dac52cda132a",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "grassland",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": 0.10188475,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.483680+00:00"
+            ],
+            "provenance": [
+              "cbec07365194f7d3ede1d76873175f5c08349bb35972296e986cd61720b0c362"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": 8.086945,
+                "value": 0.10188475,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "dfdf1b77410b100b66b6eb79de17c5713421bff2ed6ed1b4c566dac52cda132a",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "orchard",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": 0.10188475,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.483680+00:00"
+            ],
+            "provenance": [
+              "cbec07365194f7d3ede1d76873175f5c08349bb35972296e986cd61720b0c362"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": 8.086945,
+                "value": 0.10188475,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "dfdf1b77410b100b66b6eb79de17c5713421bff2ed6ed1b4c566dac52cda132a",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "623ba2ffa84e28b00714dd524d7a424045f474615af00e0d013507d4d69b24b2",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "wheat",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "unavailable",
+            "reason": "variable_unavailable",
+            "unit": "mm",
+            "observedDays": 0,
+            "expectedDays": 1,
+            "coverage": 0,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.497306+00:00"
+            ],
+            "provenance": [
+              "63a198a5666dcb520e9c78725bf106c5a9d2554daddcda631520616713f426ec"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "variable_unavailable",
+              "value_unavailable"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": null,
+                "value": null,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "unavailable",
+              "numeric_value": false,
+              "scope": "unavailable",
+              "scientific_status": "exploratory",
+              "indicator_eligible": false,
+              "journal_eligible": false,
+              "reason": "value_unavailable",
+              "evidence": {
+                "fraction": 0,
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 0,
+                "continuous": false,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+            "support_scope": "unavailable",
+            "spatial_coverage": 0,
+            "temporal_coverage": 0
+          },
+          "signature": "18a63e61eeddae0a0e24a81cacabb9447d22a0cdd199d34e88bef8c48e0296be",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "fraction": 0,
+                "temporal_complete": false,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "cattle",
+          "indicator": "thi",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "unavailable",
+            "reason": "humidity_missing",
+            "unit": "THI",
+            "observedDays": 0,
+            "expectedDays": 1,
+            "coverage": 0,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.497306+00:00"
+            ],
+            "provenance": [
+              "63a198a5666dcb520e9c78725bf106c5a9d2554daddcda631520616713f426ec"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "humidity_missing",
+              "synthetic_daily_not_hourly_maximum",
+              "value_unavailable"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": null,
+                "value": null,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "unavailable",
+              "numeric_value": false,
+              "scope": "unavailable",
+              "scientific_status": "exploratory",
+              "indicator_eligible": false,
+              "journal_eligible": false,
+              "reason": "value_unavailable",
+              "evidence": {
+                "fraction": 0,
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 0,
+                "continuous": false,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+            "support_scope": "unavailable",
+            "spatial_coverage": 0,
+            "temporal_coverage": 0
+          },
+          "signature": "8605a620630be56fb1683a0e6542f6d0e662f0202e6dcf375c2379c06f235aeb",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "fraction": 0,
+                "temporal_complete": false,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "maize",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "unavailable",
+            "reason": "variable_unavailable",
+            "unit": "mm",
+            "observedDays": 0,
+            "expectedDays": 1,
+            "coverage": 0,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.497306+00:00"
+            ],
+            "provenance": [
+              "63a198a5666dcb520e9c78725bf106c5a9d2554daddcda631520616713f426ec"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "variable_unavailable",
+              "value_unavailable"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": null,
+                "value": null,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "unavailable",
+              "numeric_value": false,
+              "scope": "unavailable",
+              "scientific_status": "exploratory",
+              "indicator_eligible": false,
+              "journal_eligible": false,
+              "reason": "value_unavailable",
+              "evidence": {
+                "fraction": 0,
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 0,
+                "continuous": false,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+            "support_scope": "unavailable",
+            "spatial_coverage": 0,
+            "temporal_coverage": 0
+          },
+          "signature": "18a63e61eeddae0a0e24a81cacabb9447d22a0cdd199d34e88bef8c48e0296be",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "fraction": 0,
+                "temporal_complete": false,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "maize",
+          "indicator": "gdd_base6",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "unavailable",
+            "reason": "variable_unavailable",
+            "unit": "°C·j",
+            "observedDays": 0,
+            "expectedDays": 1,
+            "coverage": 0,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": 6
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.497306+00:00"
+            ],
+            "provenance": [
+              "63a198a5666dcb520e9c78725bf106c5a9d2554daddcda631520616713f426ec"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "variable_unavailable",
+              "value_unavailable"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": null,
+                "value": null,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "unavailable",
+              "numeric_value": false,
+              "scope": "unavailable",
+              "scientific_status": "exploratory",
+              "indicator_eligible": false,
+              "journal_eligible": false,
+              "reason": "value_unavailable",
+              "evidence": {
+                "fraction": 0,
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 0,
+                "continuous": false,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+            "support_scope": "unavailable",
+            "spatial_coverage": 0,
+            "temporal_coverage": 0
+          },
+          "signature": "b8cb454515395e1d90f9c83dc3ad83274f3f0ee0484a99ad714584276ed875db",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "fraction": 0,
+                "temporal_complete": false,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "vine",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "unavailable",
+            "reason": "variable_unavailable",
+            "unit": "mm",
+            "observedDays": 0,
+            "expectedDays": 1,
+            "coverage": 0,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.497306+00:00"
+            ],
+            "provenance": [
+              "63a198a5666dcb520e9c78725bf106c5a9d2554daddcda631520616713f426ec"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "variable_unavailable",
+              "value_unavailable"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": null,
+                "value": null,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "unavailable",
+              "numeric_value": false,
+              "scope": "unavailable",
+              "scientific_status": "exploratory",
+              "indicator_eligible": false,
+              "journal_eligible": false,
+              "reason": "value_unavailable",
+              "evidence": {
+                "fraction": 0,
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 0,
+                "continuous": false,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+            "support_scope": "unavailable",
+            "spatial_coverage": 0,
+            "temporal_coverage": 0
+          },
+          "signature": "18a63e61eeddae0a0e24a81cacabb9447d22a0cdd199d34e88bef8c48e0296be",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "fraction": 0,
+                "temporal_complete": false,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "grassland",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "unavailable",
+            "reason": "variable_unavailable",
+            "unit": "mm",
+            "observedDays": 0,
+            "expectedDays": 1,
+            "coverage": 0,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.497306+00:00"
+            ],
+            "provenance": [
+              "63a198a5666dcb520e9c78725bf106c5a9d2554daddcda631520616713f426ec"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "variable_unavailable",
+              "value_unavailable"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": null,
+                "value": null,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "unavailable",
+              "numeric_value": false,
+              "scope": "unavailable",
+              "scientific_status": "exploratory",
+              "indicator_eligible": false,
+              "journal_eligible": false,
+              "reason": "value_unavailable",
+              "evidence": {
+                "fraction": 0,
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 0,
+                "continuous": false,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+            "support_scope": "unavailable",
+            "spatial_coverage": 0,
+            "temporal_coverage": 0
+          },
+          "signature": "18a63e61eeddae0a0e24a81cacabb9447d22a0cdd199d34e88bef8c48e0296be",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "fraction": 0,
+                "temporal_complete": false,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "orchard",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "unavailable",
+            "reason": "variable_unavailable",
+            "unit": "mm",
+            "observedDays": 0,
+            "expectedDays": 1,
+            "coverage": 0,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.497306+00:00"
+            ],
+            "provenance": [
+              "63a198a5666dcb520e9c78725bf106c5a9d2554daddcda631520616713f426ec"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "variable_unavailable",
+              "value_unavailable"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": null,
+                "value": null,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "unavailable",
+              "numeric_value": false,
+              "scope": "unavailable",
+              "scientific_status": "exploratory",
+              "indicator_eligible": false,
+              "journal_eligible": false,
+              "reason": "value_unavailable",
+              "evidence": {
+                "fraction": 0,
+                "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 0,
+                "continuous": false,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+            "support_scope": "unavailable",
+            "spatial_coverage": 0,
+            "temporal_coverage": 0
+          },
+          "signature": "18a63e61eeddae0a0e24a81cacabb9447d22a0cdd199d34e88bef8c48e0296be",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "c05d55cb6d8ecb04de8252ed33924e2a762ecb60793cea7797be6f19bf20126c",
+                "fraction": 0,
+                "temporal_complete": false,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "wheat",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "partial",
+            "reason": "observed_area_only",
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.529114+00:00"
+            ],
+            "provenance": [
+              "dddd127642090b006addbd47f1d666a50111ea1b0d60b2bf2b99a8f5db8c6cf2",
+              "pra-observed-area-mean-90-1/34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb/51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669/7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a/2026-11-03/02cf76ae02922bb2f57c087471ecfbf9c4f1ff0c885557f484d622f6f1c32a4b"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "observed_area_not_whole_pra",
+              "not_for_extremes_normals_anomalies",
+              "verified_24_hourly_samples_upstream",
+              "spatial_mean",
+              "observed_area_only",
+              "no_homologous_normal_or_anomaly"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": null,
+                "value": 0.21868045870971986,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "observed_partial",
+              "numeric_value": true,
+              "scope": "observed_area",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": false,
+              "reason": "observed_area_only",
+              "evidence": {
+                "fraction": 0.8845635429854587,
+                "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-observed-area-mean-90-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": 0.21868045870971986,
+            "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+            "support_scope": "observed_area",
+            "spatial_coverage": 0.8845635429854587,
+            "temporal_coverage": 1
+          },
+          "signature": "7dea9ca7abc237c5f34d7f19dc55b1f684855d1fd161ef64aa17b1b59a025ce6",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "identity": "pra-observed-area-mean-90-1/34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb/51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669/7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "fraction": 0.8845635429854587,
+                "temporal_complete": true,
+                "mask": "native_valid_cells",
+                "method": "pra-observed-area-mean-90-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "cattle",
+          "indicator": "thi",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "partial",
+            "reason": "humidity_missing",
+            "unit": "THI",
+            "observedDays": 0,
+            "expectedDays": 1,
+            "coverage": 0,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.529114+00:00"
+            ],
+            "provenance": [
+              "dddd127642090b006addbd47f1d666a50111ea1b0d60b2bf2b99a8f5db8c6cf2"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "humidity_missing",
+              "synthetic_daily_not_hourly_maximum",
+              "value_unavailable"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": null,
+                "value": null,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "16925dd54be1b4818bac655ae6bed0d7c48236f06a0d57bef12803200a9d2f95"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "unavailable",
+              "numeric_value": false,
+              "scope": "unavailable",
+              "scientific_status": "exploratory",
+              "indicator_eligible": false,
+              "journal_eligible": false,
+              "reason": "value_unavailable",
+              "evidence": {
+                "fraction": 0.88456357,
+                "support_id": "16925dd54be1b4818bac655ae6bed0d7c48236f06a0d57bef12803200a9d2f95",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 0,
+                "continuous": false,
+                "homogeneous": true,
+                "method": "pra-native-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "16925dd54be1b4818bac655ae6bed0d7c48236f06a0d57bef12803200a9d2f95",
+            "support_scope": "unavailable",
+            "spatial_coverage": 0.88456357,
+            "temporal_coverage": 0
+          },
+          "signature": "efe21a8ea77d92acdfe58ba4a212035dec90eefa617f364c1e0c8bb73e251f31",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "16925dd54be1b4818bac655ae6bed0d7c48236f06a0d57bef12803200a9d2f95",
+                "fraction": 0.88456357,
+                "temporal_complete": false,
+                "mask": "native_valid_cells",
+                "method": "pra-native-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "maize",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "partial",
+            "reason": "observed_area_only",
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.529114+00:00"
+            ],
+            "provenance": [
+              "dddd127642090b006addbd47f1d666a50111ea1b0d60b2bf2b99a8f5db8c6cf2",
+              "pra-observed-area-mean-90-1/34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb/51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669/7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a/2026-11-03/02cf76ae02922bb2f57c087471ecfbf9c4f1ff0c885557f484d622f6f1c32a4b"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "observed_area_not_whole_pra",
+              "not_for_extremes_normals_anomalies",
+              "verified_24_hourly_samples_upstream",
+              "spatial_mean",
+              "observed_area_only",
+              "no_homologous_normal_or_anomaly"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": null,
+                "value": 0.21868045870971986,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "observed_partial",
+              "numeric_value": true,
+              "scope": "observed_area",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": false,
+              "reason": "observed_area_only",
+              "evidence": {
+                "fraction": 0.8845635429854587,
+                "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-observed-area-mean-90-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": 0.21868045870971986,
+            "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+            "support_scope": "observed_area",
+            "spatial_coverage": 0.8845635429854587,
+            "temporal_coverage": 1
+          },
+          "signature": "7dea9ca7abc237c5f34d7f19dc55b1f684855d1fd161ef64aa17b1b59a025ce6",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "identity": "pra-observed-area-mean-90-1/34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb/51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669/7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "fraction": 0.8845635429854587,
+                "temporal_complete": true,
+                "mask": "native_valid_cells",
+                "method": "pra-observed-area-mean-90-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "maize",
+          "indicator": "gdd_base6",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "partial",
+            "reason": "observed_area_only",
+            "unit": "°C·j",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": 6
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.529114+00:00"
+            ],
+            "provenance": [
+              "dddd127642090b006addbd47f1d666a50111ea1b0d60b2bf2b99a8f5db8c6cf2",
+              "pra-observed-area-mean-90-1/34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb/51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669/7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a/2026-11-03/02cf76ae02922bb2f57c087471ecfbf9c4f1ff0c885557f484d622f6f1c32a4b"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "observed_area_not_whole_pra",
+              "not_for_extremes_normals_anomalies",
+              "verified_24_hourly_samples_upstream",
+              "spatial_mean",
+              "observed_area_only",
+              "no_homologous_normal_or_anomaly"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": 13.900402447358285,
+                "value": 7.900402447358285,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "observed_partial",
+              "numeric_value": true,
+              "scope": "observed_area",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": false,
+              "reason": "observed_area_only",
+              "evidence": {
+                "fraction": 0.8845635429854587,
+                "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-observed-area-mean-90-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": 7.900402447358285,
+            "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+            "support_scope": "observed_area",
+            "spatial_coverage": 0.8845635429854587,
+            "temporal_coverage": 1
+          },
+          "signature": "074aa84da1702112d1e9cd7ddf358c22e11604b953b6d8c240a0a445c464ae20",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "identity": "pra-observed-area-mean-90-1/34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb/51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669/7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "fraction": 0.8845635429854587,
+                "temporal_complete": true,
+                "mask": "native_valid_cells",
+                "method": "pra-observed-area-mean-90-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "vine",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "partial",
+            "reason": "observed_area_only",
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.529114+00:00"
+            ],
+            "provenance": [
+              "dddd127642090b006addbd47f1d666a50111ea1b0d60b2bf2b99a8f5db8c6cf2",
+              "pra-observed-area-mean-90-1/34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb/51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669/7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a/2026-11-03/02cf76ae02922bb2f57c087471ecfbf9c4f1ff0c885557f484d622f6f1c32a4b"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "observed_area_not_whole_pra",
+              "not_for_extremes_normals_anomalies",
+              "verified_24_hourly_samples_upstream",
+              "spatial_mean",
+              "observed_area_only",
+              "no_homologous_normal_or_anomaly"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": null,
+                "value": 0.21868045870971986,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "observed_partial",
+              "numeric_value": true,
+              "scope": "observed_area",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": false,
+              "reason": "observed_area_only",
+              "evidence": {
+                "fraction": 0.8845635429854587,
+                "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-observed-area-mean-90-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": 0.21868045870971986,
+            "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+            "support_scope": "observed_area",
+            "spatial_coverage": 0.8845635429854587,
+            "temporal_coverage": 1
+          },
+          "signature": "7dea9ca7abc237c5f34d7f19dc55b1f684855d1fd161ef64aa17b1b59a025ce6",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "identity": "pra-observed-area-mean-90-1/34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb/51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669/7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "fraction": 0.8845635429854587,
+                "temporal_complete": true,
+                "mask": "native_valid_cells",
+                "method": "pra-observed-area-mean-90-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "grassland",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "partial",
+            "reason": "observed_area_only",
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.529114+00:00"
+            ],
+            "provenance": [
+              "dddd127642090b006addbd47f1d666a50111ea1b0d60b2bf2b99a8f5db8c6cf2",
+              "pra-observed-area-mean-90-1/34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb/51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669/7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a/2026-11-03/02cf76ae02922bb2f57c087471ecfbf9c4f1ff0c885557f484d622f6f1c32a4b"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "observed_area_not_whole_pra",
+              "not_for_extremes_normals_anomalies",
+              "verified_24_hourly_samples_upstream",
+              "spatial_mean",
+              "observed_area_only",
+              "no_homologous_normal_or_anomaly"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": null,
+                "value": 0.21868045870971986,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "observed_partial",
+              "numeric_value": true,
+              "scope": "observed_area",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": false,
+              "reason": "observed_area_only",
+              "evidence": {
+                "fraction": 0.8845635429854587,
+                "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-observed-area-mean-90-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": 0.21868045870971986,
+            "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+            "support_scope": "observed_area",
+            "spatial_coverage": 0.8845635429854587,
+            "temporal_coverage": 1
+          },
+          "signature": "7dea9ca7abc237c5f34d7f19dc55b1f684855d1fd161ef64aa17b1b59a025ce6",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "identity": "pra-observed-area-mean-90-1/34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb/51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669/7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "fraction": 0.8845635429854587,
+                "temporal_complete": true,
+                "mask": "native_valid_cells",
+                "method": "pra-observed-area-mean-90-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "orchard",
+          "indicator": "rain",
+          "period": [
+            "2026-11-03",
+            "2026-11-03"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "partial",
+            "reason": "observed_area_only",
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "source 2026-11-03; calculated 2026-11-09T19:41:22.529114+00:00"
+            ],
+            "provenance": [
+              "dddd127642090b006addbd47f1d666a50111ea1b0d60b2bf2b99a8f5db8c6cf2",
+              "pra-observed-area-mean-90-1/34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb/51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669/7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a/2026-11-03/02cf76ae02922bb2f57c087471ecfbf9c4f1ff0c885557f484d622f6f1c32a4b"
+            ],
+            "quality_flags": [
+              "24_hourly_samples_required",
+              "exploratory",
+              "missing",
+              "missing_cells",
+              "publication_time_unknown",
+              "total_area_not_agricultural_area",
+              "tp_next_day_00_utc_accumulation",
+              "utc_daily_reduction",
+              "coastal_representativeness_not_guaranteed",
+              "observed_area_not_whole_pra",
+              "not_for_extremes_normals_anomalies",
+              "verified_24_hourly_samples_upstream",
+              "spatial_mean",
+              "observed_area_only",
+              "no_homologous_normal_or_anomaly"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-03",
+                "temperature": null,
+                "value": 0.21868045870971986,
+                "source": "era5-land",
+                "run": null,
+                "nature": "reanalysis",
+                "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "observed_partial",
+              "numeric_value": true,
+              "scope": "observed_area",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": false,
+              "reason": "observed_area_only",
+              "evidence": {
+                "fraction": 0.8845635429854587,
+                "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "mask": "native_valid_cells",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-observed-area-mean-90-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": 0.21868045870971986,
+            "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+            "support_scope": "observed_area",
+            "spatial_coverage": 0.8845635429854587,
+            "temporal_coverage": 1
+          },
+          "signature": "7dea9ca7abc237c5f34d7f19dc55b1f684855d1fd161ef64aa17b1b59a025ce6",
+          "nature": "reanalysis",
+          "origins": [
+            {
+              "source": "era5-land",
+              "run": null,
+              "nature": "reanalysis",
+              "support": {
+                "id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "identity": "pra-observed-area-mean-90-1/34925f1e111902f9b0ee59d2bf2c7652c759f0bc2790d7f62d9162fe333085eb/51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669/7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+                "fraction": 0.8845635429854587,
+                "temporal_complete": true,
+                "mask": "native_valid_cells",
+                "method": "pra-observed-area-mean-90-1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nature": "forecast",
+      "period": [
+        "2026-11-10",
+        "2026-11-10"
+      ],
+      "milliseconds": 621.2462000000005,
+      "metrics": {
+        "calculations": 13547,
+        "cache_hits": 32798,
+        "pra_count": 713
+      },
+      "counts": {
+        "wheat/gdd": {
+          "native_complete": 713
+        },
+        "wheat/hot": {
+          "native_complete": 713
+        },
+        "wheat/hot_sequence": {
+          "native_complete": 713
+        },
+        "wheat/frost": {
+          "native_complete": 713
+        },
+        "wheat/frost_sequence": {
+          "native_complete": 713
+        },
+        "wheat/rain": {
+          "native_complete": 713
+        },
+        "wheat/heavy_rain": {
+          "native_complete": 713
+        },
+        "wheat/dry": {
+          "native_complete": 713
+        },
+        "wheat/dry_sequence": {
+          "native_complete": 713
+        },
+        "wheat/temperature_mean": {
+          "native_complete": 713
+        },
+        "cattle/cattle_heat": {
+          "native_complete": 713
+        },
+        "cattle/temperature_mean": {
+          "native_complete": 713
+        },
+        "cattle/thi": {
+          "unavailable": 713
+        },
+        "cattle/thi_days": {
+          "unavailable": 713
+        },
+        "cattle/thi_sequence": {
+          "unavailable": 713
+        },
+        "maize/temperature_mean": {
+          "native_complete": 713
+        },
+        "maize/temperature_min": {
+          "native_complete": 713
+        },
+        "maize/hot": {
+          "native_complete": 713
+        },
+        "maize/hot_sequence": {
+          "native_complete": 713
+        },
+        "maize/frost": {
+          "native_complete": 713
+        },
+        "maize/frost_sequence": {
+          "native_complete": 713
+        },
+        "maize/rain": {
+          "native_complete": 713
+        },
+        "maize/rain_frequency": {
+          "native_complete": 713
+        },
+        "maize/heavy_rain": {
+          "native_complete": 713
+        },
+        "maize/dry": {
+          "native_complete": 713
+        },
+        "maize/dry_sequence": {
+          "native_complete": 713
+        },
+        "maize/gdd_base6": {
+          "native_complete": 713
+        },
+        "maize/gdd_base10": {
+          "native_complete": 713
+        },
+        "maize/hot30": {
+          "native_complete": 713
+        },
+        "maize/hot30_sequence": {
+          "native_complete": 713
+        },
+        "vine/temperature_mean": {
+          "native_complete": 713
+        },
+        "vine/temperature_min": {
+          "native_complete": 713
+        },
+        "vine/hot": {
+          "native_complete": 713
+        },
+        "vine/hot_sequence": {
+          "native_complete": 713
+        },
+        "vine/frost": {
+          "native_complete": 713
+        },
+        "vine/frost_sequence": {
+          "native_complete": 713
+        },
+        "vine/rain": {
+          "native_complete": 713
+        },
+        "vine/rain_frequency": {
+          "native_complete": 713
+        },
+        "vine/heavy_rain": {
+          "native_complete": 713
+        },
+        "vine/dry": {
+          "native_complete": 713
+        },
+        "vine/dry_sequence": {
+          "native_complete": 713
+        },
+        "vine/gdd_base10": {
+          "native_complete": 713
+        },
+        "grassland/temperature_mean": {
+          "native_complete": 713
+        },
+        "grassland/temperature_min": {
+          "native_complete": 713
+        },
+        "grassland/hot": {
+          "native_complete": 713
+        },
+        "grassland/hot_sequence": {
+          "native_complete": 713
+        },
+        "grassland/frost": {
+          "native_complete": 713
+        },
+        "grassland/frost_sequence": {
+          "native_complete": 713
+        },
+        "grassland/rain": {
+          "native_complete": 713
+        },
+        "grassland/rain_frequency": {
+          "native_complete": 713
+        },
+        "grassland/heavy_rain": {
+          "native_complete": 713
+        },
+        "grassland/dry": {
+          "native_complete": 713
+        },
+        "grassland/dry_sequence": {
+          "native_complete": 713
+        },
+        "grassland/gdd": {
+          "native_complete": 713
+        },
+        "orchard/temperature_mean": {
+          "native_complete": 713
+        },
+        "orchard/temperature_min": {
+          "native_complete": 713
+        },
+        "orchard/hot": {
+          "native_complete": 713
+        },
+        "orchard/hot_sequence": {
+          "native_complete": 713
+        },
+        "orchard/frost": {
+          "native_complete": 713
+        },
+        "orchard/frost_sequence": {
+          "native_complete": 713
+        },
+        "orchard/rain": {
+          "native_complete": 713
+        },
+        "orchard/rain_frequency": {
+          "native_complete": 713
+        },
+        "orchard/heavy_rain": {
+          "native_complete": 713
+        },
+        "orchard/dry": {
+          "native_complete": 713
+        },
+        "orchard/dry_sequence": {
+          "native_complete": 713
+        }
+      },
+      "samples": [
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "wheat",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": 5.049988763495293,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 5.049988763495293,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "6d076c292fff2623b63d64db10c7a0deca1f7e854ae6c26354035c049a943d4c",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "cattle",
+          "indicator": "thi",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "partial",
+            "reason": "humidity_missing",
+            "unit": "THI",
+            "observedDays": 0,
+            "expectedDays": 1,
+            "coverage": 0,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "temperature_sampled_3h_not_continuous",
+              "humidity_missing",
+              "synthetic_daily_not_hourly_maximum",
+              "value_unavailable"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": 11.965706589003645,
+                "value": null,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "unavailable",
+              "numeric_value": false,
+              "scope": "unavailable",
+              "scientific_status": "exploratory",
+              "indicator_eligible": false,
+              "journal_eligible": false,
+              "reason": "value_unavailable",
+              "evidence": {
+                "fraction": 1,
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 0,
+                "continuous": false,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+            "support_scope": "unavailable",
+            "spatial_coverage": 1,
+            "temporal_coverage": 0
+          },
+          "signature": "1e7479ff91f096f7b6656be0d837592e14cebebb2d7921fab6e9fce73472828e",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/degC",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "maize",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": 5.049988763495293,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 5.049988763495293,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "6d076c292fff2623b63d64db10c7a0deca1f7e854ae6c26354035c049a943d4c",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "maize",
+          "indicator": "gdd_base6",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": 5.965706589003645,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "°C·j",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": 6
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "temperature_sampled_3h_not_continuous"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": 11.965706589003645,
+                "value": 5.965706589003645,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "f54c017fcb366aa0126013a94133789016bbd36f332ab03e6662249c2d623e4d",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/degC",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "vine",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": 5.049988763495293,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 5.049988763495293,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "6d076c292fff2623b63d64db10c7a0deca1f7e854ae6c26354035c049a943d4c",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "grassland",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": 5.049988763495293,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 5.049988763495293,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "6d076c292fff2623b63d64db10c7a0deca1f7e854ae6c26354035c049a943d4c",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "orchard",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:28341",
+            "value": 5.049988763495293,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 5.049988763495293,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "6d076c292fff2623b63d64db10c7a0deca1f7e854ae6c26354035c049a943d4c",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/b8b95c02f13d606c575fe452e08963b07aa39147291de4b8919753350a26d088/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "wheat",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": 5.334019170500796,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 5.334019170500796,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "18d81626f7e0ccf40bbbbfaaffe04f4376bf05ec0bc6bc0ea8f43d0b5366457c",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "cattle",
+          "indicator": "thi",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "partial",
+            "reason": "humidity_missing",
+            "unit": "THI",
+            "observedDays": 0,
+            "expectedDays": 1,
+            "coverage": 0,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "temperature_sampled_3h_not_continuous",
+              "humidity_missing",
+              "synthetic_daily_not_hourly_maximum",
+              "value_unavailable"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": 13.827435411821556,
+                "value": null,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "unavailable",
+              "numeric_value": false,
+              "scope": "unavailable",
+              "scientific_status": "exploratory",
+              "indicator_eligible": false,
+              "journal_eligible": false,
+              "reason": "value_unavailable",
+              "evidence": {
+                "fraction": 1,
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 0,
+                "continuous": false,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+            "support_scope": "unavailable",
+            "spatial_coverage": 1,
+            "temporal_coverage": 0
+          },
+          "signature": "404ee6fb7ded953d94db1658fc38eb0a01c98276980c280d2807027589c17451",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/degC",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "maize",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": 5.334019170500796,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 5.334019170500796,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "18d81626f7e0ccf40bbbbfaaffe04f4376bf05ec0bc6bc0ea8f43d0b5366457c",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "maize",
+          "indicator": "gdd_base6",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": 7.827435411821556,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "°C·j",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": 6
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "temperature_sampled_3h_not_continuous"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": 13.827435411821556,
+                "value": 7.827435411821556,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "ce8899645959bfb655ecc8b953f659dd379466ff5b61eecdd809a814d7bfac89",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/degC",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "vine",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": 5.334019170500796,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 5.334019170500796,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "18d81626f7e0ccf40bbbbfaaffe04f4376bf05ec0bc6bc0ea8f43d0b5366457c",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "grassland",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": 5.334019170500796,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 5.334019170500796,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "18d81626f7e0ccf40bbbbfaaffe04f4376bf05ec0bc6bc0ea8f43d0b5366457c",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "orchard",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:29102",
+            "value": 5.334019170500796,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 5.334019170500796,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "18d81626f7e0ccf40bbbbfaaffe04f4376bf05ec0bc6bc0ea8f43d0b5366457c",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/27a3c83a1755d9cb772a3ea121ae4c8f992c1a29b4aff5b1b7b12645a65e407e/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "wheat",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": 2.4254284179206986,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 2.4254284179206986,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "795e20f737b897df762af212fe8703aa1671caba88d6ee445bfd041ec36acf9d",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "cattle",
+          "indicator": "thi",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": null,
+            "normal": null,
+            "anomaly": null,
+            "status": "partial",
+            "reason": "humidity_missing",
+            "unit": "THI",
+            "observedDays": 0,
+            "expectedDays": 1,
+            "coverage": 0,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "temperature_sampled_3h_not_continuous",
+              "humidity_missing",
+              "synthetic_daily_not_hourly_maximum",
+              "value_unavailable"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": 17.38212951004205,
+                "value": null,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "unavailable",
+              "numeric_value": false,
+              "scope": "unavailable",
+              "scientific_status": "exploratory",
+              "indicator_eligible": false,
+              "journal_eligible": false,
+              "reason": "value_unavailable",
+              "evidence": {
+                "fraction": 1,
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 0,
+                "continuous": false,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+            "support_scope": "unavailable",
+            "spatial_coverage": 1,
+            "temporal_coverage": 0
+          },
+          "signature": "341fee823d170ae651bec556ca36283554f88111f03260ffa65b089206be80df",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/degC",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "maize",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": 2.4254284179206986,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 2.4254284179206986,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "795e20f737b897df762af212fe8703aa1671caba88d6ee445bfd041ec36acf9d",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "maize",
+          "indicator": "gdd_base6",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": 11.382129510042049,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "°C·j",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": 6
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "temperature_sampled_3h_not_continuous"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": 17.38212951004205,
+                "value": 11.382129510042049,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "c6c9b1ec4c94f44898e2c47aaa6b826c66beaf85ed81e06157ad6d4d930b00f1",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/degC",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "vine",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": 2.4254284179206986,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 2.4254284179206986,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "795e20f737b897df762af212fe8703aa1671caba88d6ee445bfd041ec36acf9d",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "grassland",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": 2.4254284179206986,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 2.4254284179206986,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "795e20f737b897df762af212fe8703aa1671caba88d6ee445bfd041ec36acf9d",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        },
+        {
+          "version": "multiproduction-descriptive-1.0.0",
+          "production": "orchard",
+          "indicator": "rain",
+          "period": [
+            "2026-11-10",
+            "2026-11-10"
+          ],
+          "result": {
+            "territoryId": "pra:2A259",
+            "value": 2.4254284179206986,
+            "normal": null,
+            "anomaly": null,
+            "status": "available",
+            "reason": null,
+            "unit": "mm",
+            "observedDays": 1,
+            "expectedDays": 1,
+            "coverage": 1,
+            "rule_version": "multiproduction-descriptive-1.0.0",
+            "parameters": {
+              "threshold": null
+            },
+            "data_freshness": [
+              "unknown"
+            ],
+            "provenance": [
+              "meteofrance-arome/2026-11-09T12:00:00Z/8e485673723653a857542acf2e8f978e43fbb9cd94116c1bb57b53a4e95384c0"
+            ],
+            "quality_flags": [
+              "total_area_not_agricultural_area",
+              "exploratory",
+              "model_forecast_not_observation",
+              "utc_half_open_day_extrema",
+              "source_land_mask_unavailable",
+              "land_sea_representativeness_requires_qualification",
+              "publication_time_unknown",
+              "native_24h_interval_verified",
+              "negative_source_precipitation_invalid_null_not_clamped"
+            ],
+            "scientific_status": "exploratory",
+            "episodes": null,
+            "longest": null,
+            "signals": [],
+            "series": [
+              {
+                "date": "2026-11-10",
+                "temperature": null,
+                "value": 2.4254284179206986,
+                "source": "meteofrance-arome",
+                "run": "2026-11-09T12:00:00Z",
+                "nature": "forecast",
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0"
+              }
+            ],
+            "quality": {
+              "version": "climate-coverage-1.0.0",
+              "state": "native_complete",
+              "numeric_value": true,
+              "scope": "whole_pra",
+              "scientific_status": "exploratory",
+              "indicator_eligible": true,
+              "journal_eligible": true,
+              "reason": null,
+              "evidence": {
+                "fraction": 1,
+                "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "mask": "unknown",
+                "represented_area_m2": null,
+                "expected_days": 1,
+                "available_days": 1,
+                "continuous": true,
+                "homogeneous": true,
+                "method": "pra-national-weather-daily-1",
+                "estimate_certificate": null,
+                "reference_compatible": false
+              }
+            },
+            "observed_value": null,
+            "support_id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+            "support_scope": "whole_pra",
+            "spatial_coverage": 1,
+            "temporal_coverage": 1
+          },
+          "signature": "795e20f737b897df762af212fe8703aa1671caba88d6ee445bfd041ec36acf9d",
+          "nature": "forecast",
+          "origins": [
+            {
+              "source": "meteofrance-arome",
+              "run": "2026-11-09T12:00:00Z",
+              "nature": "forecast",
+              "support": {
+                "id": "442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0",
+                "identity": "meteofrance-arome/forecast/arome-0p025/2026-11-09T12:00:00Z/arome-0p025-centre-footprints-epsg3035-1/442c78e7c01b0045bd862f13d8ad2e340e32165a172a6deac47ff51c2dcb8dc0/pra-national-weather-daily-1/ofb-masa-pra-2017-snapshot-20261017/mm",
+                "fraction": 1,
+                "temporal_complete": true,
+                "mask": "unknown",
+                "method": "pra-national-weather-daily-1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7128 @@
+[
+  {
+    "production": "wheat",
+    "indicator": "gdd",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "cattle_heat",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "gdd_base6",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "gdd_base10",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot30",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot30_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "gdd_base10",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "gdd",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "gdd",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "cattle_heat",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "gdd_base6",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "gdd_base10",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot30",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot30_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "gdd_base10",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "gdd",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "gdd",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "cattle_heat",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "gdd_base6",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "gdd_base10",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot30",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot30_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "gdd_base10",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "gdd",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "gdd",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "cattle_heat",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "gdd_base6",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "gdd_base10",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot30",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot30_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "gdd_base10",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "gdd",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "gdd",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "hot",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "hot_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "frost",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "frost_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "heavy_rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "dry",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "dry_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "cattle_heat",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi_days",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "temperature_min",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "frost",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "frost_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "rain_frequency",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "heavy_rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "dry",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "dry_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "gdd_base6",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "gdd_base10",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot30",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot30_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "temperature_min",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "hot",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "hot_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "frost",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "frost_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "rain_frequency",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "heavy_rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "dry",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "dry_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "gdd_base10",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "temperature_min",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "hot",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "hot_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "frost",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "frost_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "rain_frequency",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "heavy_rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "dry",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "dry_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "gdd",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "temperature_min",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "hot",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "hot_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "frost",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "frost_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "rain_frequency",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "heavy_rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "dry",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "dry_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "total": 713,
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "gdd",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "hot",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "hot_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "frost",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "frost_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "heavy_rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "dry",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "dry_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "wheat",
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "cattle_heat",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi_days",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "cattle",
+    "indicator": "thi_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "temperature_min",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "frost",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "frost_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "rain_frequency",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "heavy_rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "dry",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "dry_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "gdd_base6",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "gdd_base10",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot30",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "maize",
+    "indicator": "hot30_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "temperature_min",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "hot",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "hot_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "frost",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "frost_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "rain_frequency",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "heavy_rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "dry",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "dry_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "vine",
+    "indicator": "gdd_base10",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "temperature_min",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "hot",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "hot_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "frost",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "frost_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "rain_frequency",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "heavy_rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "dry",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "dry_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "grassland",
+    "indicator": "gdd",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "temperature_min",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "hot",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "hot_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "frost",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "frost_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "rain_frequency",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "heavy_rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "dry",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  },
+  {
+    "production": "orchard",
+    "indicator": "dry_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "total": 713,
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "scientific_status": "exploratory"
+  }
+]
