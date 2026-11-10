@@ -1,0 +1,46 @@
+{
+  "base": "f1fddf2f388dcc4d385d0e83845c03b3bca73fab",
+  "web_regression": {
+    "passed": 601,
+    "skipped_opt_in": 7,
+    "command": "NODE_USE_ENV_PROXY=1 AGRO02_REAL=1 vitest run --exclude **/multiproduction/pilot.test.ts"
+  },
+  "multiproduction_final": {
+    "passed": 26,
+    "command": "AGRO02_EVIDENCE=1 NODE_USE_ENV_PROXY=1 AGRO02_REAL=1 vitest run features/multiproduction"
+  },
+  "python_final": {
+    "passed": 441,
+    "warnings": 63
+  },
+  "quality": {
+    "node_tests": 9,
+    "python_tests": 25
+  },
+  "passed": [
+    "typescript_strict",
+    "eslint_full",
+    "eslint_final",
+    "next_build",
+    "json_schemas",
+    "automation",
+    "forward_only_migrations",
+    "source_secret_guard",
+    "client_bundle_guard",
+    "dependency_exceptions_49_server_traces",
+    "client_budget_651508_of_2097152_bytes",
+    "independent_python_ruff",
+    "independent_python_mypy"
+  ],
+  "unchanged_boundaries": [
+    ".github/workflows",
+    "supabase",
+    "engine",
+    "scripts",
+    "apps/web/app",
+    "apps/web/features/journal",
+    "apps/web/features/editorial",
+    "apps/web/features/editorial-ai"
+  ],
+  "note": "Evidence compression changes only the serialization of replay samples; independent numeric tests and application code unchanged."
+}

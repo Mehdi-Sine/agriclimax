@@ -155,7 +155,7 @@ export function calculate(
       longest = Math.max(longest, run);
     } else run = 0;
   }
-  const thresholdRule = !["gdd", "mean", "sum", "thi"].includes(rule.operator);
+  const thresholdRule = !["gdd", "mean", "min", "sum", "thi"].includes(rule.operator);
   const signals =
     thresholdRule && threshold !== null
       ? series.flatMap((r) =>
@@ -180,6 +180,8 @@ export function calculate(
       : [];
   const value = !complete
     ? null
+    : rule.operator === "min"
+      ? Math.min(...good)
     : rule.operator === "thi"
       ? Math.max(...good)
       : ["above", "below", "thiAbove"].includes(rule.operator)

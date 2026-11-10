@@ -2,6 +2,7 @@ import { cattleRule } from "../cattle/thi";
 import type { WeatherVariable } from "../operational/model";
 export type Production = "wheat" | "cattle";
 export type Operator =
+  | "min"
   | "mean"
   | "gdd"
   | "above"

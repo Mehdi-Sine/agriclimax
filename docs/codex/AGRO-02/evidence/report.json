@@ -1,0 +1,82 @@
+{
+  "version": "multiproduction-descriptive-1.0.0",
+  "executed_at": "2026-11-10T15:02:22.039Z",
+  "source": "CORE-01 frozen operational archive inputs; replay, not a live availability assertion",
+  "sha256": "b9899f56b75bc9b1351a4d5da1ec5ecbbea63c8c4638e8d12ee09194a3fa60b5",
+  "independent": {
+    "cases": 85560,
+    "mismatches": 0,
+    "examples": []
+  },
+  "metrics": [
+    {
+      "nature": "reanalysis",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "calculations": 13547,
+      "cache_hits": 32798,
+      "pra_count": 713,
+      "milliseconds": 2194.1483769999995
+    },
+    {
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "calculations": 13547,
+      "cache_hits": 32798,
+      "pra_count": 713,
+      "milliseconds": 6940.95962
+    },
+    {
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-19",
+        "2026-11-01"
+      ],
+      "calculations": 13547,
+      "cache_hits": 32798,
+      "pra_count": 713,
+      "milliseconds": 4719.3835
+    },
+    {
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "calculations": 13547,
+      "cache_hits": 32798,
+      "pra_count": 713,
+      "milliseconds": 4665.010729000001
+    },
+    {
+      "nature": "forecast",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "calculations": 13547,
+      "cache_hits": 32798,
+      "pra_count": 713,
+      "milliseconds": 571.4491009999983
+    },
+    {
+      "nature": "forecast",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "calculations": 13547,
+      "cache_hits": 32798,
+      "pra_count": 713,
+      "milliseconds": 1472.0896470000007
+    }
+  ],
+  "editorial_indicators": 248,
+  "elapsed_ms": 42387.533788,
+  "rss_delta_bytes": 1197264896
+}
