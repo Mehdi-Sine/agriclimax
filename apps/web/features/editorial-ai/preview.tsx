@@ -42,6 +42,7 @@ export function EditorialPreview({
   return (
     <main className="journal ux01-journal">
       <EditorialHeader active="journal"/>
+      <div className="ux01-edition-meta"><span>{a?`ÉDITION DU ${frenchDate(a.date)}`:"ARCHIVES DU JOURNAL"}</span><span>France métropolitaine & Corse · {published?"Journal IA":personalStatus?"Espace personnel":"Prévisualisation"}</span></div>
       
       {!a || !d ? (
         <section className="empty-story">
@@ -73,9 +74,10 @@ export function EditorialPreview({
                 <Text facts={a.briefing.national.facts} block={d.lead} />
               </div>
             </div>
-            {d.illustration_ids.length ? (
+            {a.illustrations.some(m=>d.illustration_ids.includes(m.id)) ? (
               a.illustrations
                 .filter((m) => d.illustration_ids.includes(m.id))
+                .slice(0,1)
                 .map((m) => (
                   <JournalPraMap
                     key={m.id}
@@ -96,8 +98,15 @@ export function EditorialPreview({
                 </p>
               </aside>
             )}
-            <section className="key-facts" aria-label="Les faits essentiels">
-              {d.key_figures.map((f) => (
+            <aside className="ux01-map-context">
+                <p className="eyebrow">LE FAIT MARQUANT</p>
+                <h2>Une situation à replacer dans son contexte</h2>
+                <Text facts={a.briefing.national.facts} block={d.decision}/>
+                <p className="ux01-map-footnote">Les phénomènes météorologiques ne préjugent pas, à eux seuls, de leurs conséquences sur les cultures et les élevages.</p>
+                <Link href="/climat">Explorer les indicateurs →</Link>
+              </aside>
+              <section className="key-facts" aria-label="Les faits essentiels">
+              {d.key_figures.slice(0,3).map((f) => (
                 <article key={f.fact_id}>
                   <p className="eyebrow">
                     ÉCHANTILLON TERRITORIAL · {f.region ?? "France"}
@@ -122,7 +131,22 @@ export function EditorialPreview({
               ))}
             </section>
           </section>
-          <section className="ux01-cartes-link"><div><h2>Les cartes de l’édition</h2><p>Cartes archivées, cycles et périodes conservés.</p></div><Link href={`/cartes-du-jour?date=${a.date}&id=${a.edition_id}`}>Voir les cartes du jour →</Link></section>
+          <section className="ux01-cartes-teasers" aria-labelledby="ux01-carte-title">
+              <div className="ux01-teaser-heading">
+                <div><p className="eyebrow">L’ESSENTIEL EN CARTES</p><h2 id="ux01-carte-title">Les cartes de l’édition</h2></div>
+                <Link href={`/cartes-du-jour?date=${a.date}&id=${a.edition_id}`}>Toutes les cartes →</Link>
+              </div>
+              <div className="ux01-teaser-grid">
+                {a.illustrations.filter(m=>d.illustration_ids.includes(m.id)).slice(0,3).map(m=>
+                  <Link key={m.id} href={`/cartes-du-jour?date=${a.date}&id=${a.edition_id}&map=${m.id}`} className="ux01-teaser-card">
+                    <span className="ux01-teaser-stripe" aria-hidden="true"/>
+                    <span className="ux01-kicker">CARTE ARCHIVÉE · {m.period[0]} → {m.period[1]}</span>
+                    <h3>{m.caption}</h3>
+                    <small>Explorer les données et la légende →</small>
+                  </Link>)}
+                {!a.illustrations.some(m=>d.illustration_ids.includes(m.id))&&<p>Cette édition ne comporte pas de carte archivée compatible. Aucune carte récente ne lui est substituée.</p>}
+              </div>
+            </section>
            <section className="understand">
             <article className="article-column">
               <p className="eyebrow">DÉCRYPTAGE</p>
