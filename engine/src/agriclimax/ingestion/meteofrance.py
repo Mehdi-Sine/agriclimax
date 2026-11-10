@@ -1,14 +1,14 @@
 """Météo-France station adapters. No spatial interpolation or demo fallback.
 
 DPClim v1 daily archive and DPObs v1 hourly samples are separate sources. API v2
-requires a different subscription: never silently change version or credential.
+is the currently published observation version; this adapter retains its v1 contract.
+Authentication supports API Key and explicitly configured renewable OAuth2.
 """
 
 import csv
 import hashlib
 import io
 import json
-import os
 import re
 import time
 from collections.abc import Callable
@@ -24,7 +24,9 @@ from urllib.request import HTTPRedirectHandler, Request, build_opener
 from pydantic import Field
 
 from .models import StrictModel
-from .providers import FatalProviderError, SourcePayload
+from .providers import SourcePayload
+from .station_auth import MeteoFranceAccessError as MeteoFranceAccessError  # noqa: PLC0414 - preserve public typed export
+from .station_auth import StationAuth, access_error
 from .storage import SourceCache
 
 API = "https://public-api.meteofrance.fr/public"
@@ -46,10 +48,6 @@ class Station(StrictModel):
     longitude: float = Field(ge=-6, le=10, allow_inf_nan=False)
     altitude_m: float = Field(allow_inf_nan=False)
     metadata: dict[str, object]
-
-
-class MeteoFranceAccessError(FatalProviderError):
-    """Safe message names the required variable and HTTP status, never its value."""
 
 
 class MeteoFranceTransportError(RuntimeError):
@@ -77,22 +75,19 @@ class MeteoFranceClient:
         clock: Callable[[], float] = time.monotonic,
         opener: Callable[..., AbstractContextManager[HTTPResponse]] | None = None,
     ):
-        self.variable = (
-            "METEOFRANCE_CLIMATOLOGY_API_KEY"
-            if product == "climatology"
-            else "METEOFRANCE_OBSERVATIONS_API_KEY"
-        )
-        if not os.environ.get(self.variable):
-            raise MeteoFranceAccessError(f"Missing {self.variable}")
         self.prefix = "DPClim/v1" if product == "climatology" else "DPObs/v1"
         self.sleep, self.clock = sleep, clock
         self.opener = opener or build_opener(NoRedirect()).open
+        self.auth = StationAuth(product, self.opener, clock)
+        self.variable = self.auth.variable
         self.last_request = float("-inf")
 
-    def get(self, path: str, parameters: dict[str, str] | None = None) -> tuple[int, bytes]:
+    def get(self, path: str, parameters: dict[str, str] | None = None, *,
+            retry_transient: bool = True, byte_limit: int = 10_000_000) -> tuple[int, bytes]:
         url = f"{API}/{self.prefix}/{path}"
         if parameters:
             url += "?" + urlencode(parameters)
+        renewed = False
         for attempt in range(3):
             # One serial worker, <=92 requests/minute including polls/retries.
             self.sleep(max(0, 0.65 - (self.clock() - self.last_request)))
@@ -100,24 +95,28 @@ class MeteoFranceClient:
             request = Request(
                 url,
                 headers={
-                    "apikey": os.environ[self.variable],
+                    **self.auth.headers(),
                     "Accept": "application/json,text/csv",
                 },
             )
             try:
                 with self.opener(request, timeout=30) as response:
-                    content = response.read(10_000_001)
+                    content = response.read(byte_limit + 1)
                     status = response.status
-                if len(content) > 10_000_000:
+                if len(content) > byte_limit:
                     raise ValueError("MeteoFrance response exceeds byte limit")
                 return status, content
             except HTTPError as error:
                 if error.code in {401, 403}:
-                    raise MeteoFranceAccessError(
-                        f"{self.variable}: HTTP {error.code}; subscription {self.prefix} required"
-                    ) from None
+                    failure = access_error(error, self.variable)
+                    if (error.code == 401 and self.auth.mode == "oauth2" and not renewed and attempt < 2):
+                        # One refresh/replay only; API Key and 403 never trigger token requests.
+                        self.auth.invalidate()
+                        renewed = True
+                        continue
+                    raise failure from None
                 delay = error.headers.get("Retry-After", "") if error.headers else ""
-                if (error.code not in {408, 429, 500, 502, 503, 504} or attempt == 2
+                if (not retry_transient or error.code not in {408, 429, 500, 502, 503, 504} or attempt == 2
                     or delay and (not delay.isdigit() or int(delay) > 30)):
                     raise MeteoFranceTransportError(error.code, delay) from None
                 self.sleep(max(float(delay or 0), 2**attempt))

@@ -34,6 +34,7 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           METEOFRANCE_CLIMATOLOGY_API_KEY: ${{ secrets.METEOFRANCE_CLIMATOLOGY_API_KEY }}
+          METEOFRANCE_CLIMATOLOGY_APPLICATION_ID: ${{ secrets.METEOFRANCE_CLIMATOLOGY_APPLICATION_ID }}
           DATE_FROM: ${{ inputs.from }}
           DATE_TO: ${{ inputs.to }}
         shell: bash
