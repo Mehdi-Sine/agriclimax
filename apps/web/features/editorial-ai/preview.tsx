@@ -209,28 +209,7 @@ export function EditorialPreview({
                 ))}
             </section>
           )}
-          <section className="editorial-note" aria-label="Archives">
-        <h2>{personalStatus ? "Vos brouillons IA archivés" : published ? "Les éditions archivées" : "Les éditions en Preview"}</h2>
-        <form action={base}>
-          <label htmlFor="edition-date">Choisir une date </label>
-          <input
-            id="edition-date"
-            name="date"
-            type="date"
-            defaultValue={a?.date}
-          />
-          <button type="submit">Consulter</button>
-        </form>
-        <nav aria-label="Éditions archivées">
-          {editions.map((e) => (
-            <p key={e.edition_id}>
-              <Link href={`${base}?date=${e.date}&id=${e.edition_id}`}>
-                {frenchDate(e.date)} · Révision {e.revision}
-              </Link>
-            </p>
-          ))}
-        </nav>
-      </section>
+          
            <footer id="sources">
             <p className="eyebrow">LA RIGUEUR DERRIÈRE LE RÉCIT</p>
             <h2>Sources & méthodes</h2>
@@ -279,6 +258,28 @@ export function EditorialPreview({
           </footer>
         </>
       )}
+      <section className="editorial-note" aria-label="Archives">
+        <h2>{personalStatus ? "Vos brouillons IA archivés" : published ? "Les éditions archivées" : "Les éditions en Preview"}</h2>
+        <form action={base}>
+          <label htmlFor="edition-date">Choisir une date </label>
+          <input
+            id="edition-date"
+            name="date"
+            type="date"
+            defaultValue={a?.date}
+          />
+          <button type="submit">Consulter</button>
+        </form>
+        <nav aria-label="Éditions archivées">
+          {editions.map((e) => (
+            <p key={e.edition_id}>
+              <Link href={`${base}?date=${e.date}&id=${e.edition_id}`}>
+                {frenchDate(e.date)} · Révision {e.revision}
+              </Link>
+            </p>
+          ))}
+        </nav>
+      </section>
     </main>
   );
 }

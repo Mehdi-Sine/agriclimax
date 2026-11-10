@@ -9,7 +9,6 @@ import { journal } from "../../lib/server/journal";
 import type { JournalEdition } from "../../features/journal/model";
 import { RegionalChart } from "../../features/journal/ui/visualizations";
 import {
-  frenchDate,
   StoryText,
   ProductionStoryCard,
   RegionStory,

@@ -58,3 +58,13 @@
 @media(max-width:800px){.editorial-site-head{padding:20px 18px}.editorial-nav{padding:0 18px;gap:23px}.editorial-site-head>p{font-size:11px}.journal>.editorial-chrome{margin:-18px -18px 26px}.ux01-doc-layout{grid-template-columns:1fr;gap:20px}.ux01-doc-nav{position:static;max-height:215px;overflow:auto}.ux01-doc,.ux01-daily{padding:26px 18px 70px}.ux01-journal .hero-copy h1{font-size:clamp(36px,7vw,58px)}}
 @media(max-width:480px){.editorial-stripes{height:5px}.editorial-site-head{padding:17px 14px 14px}.editorial-logo{font-size:31px}.editorial-logo small{font-size:9px}.editorial-site-head>p{display:none}.editorial-nav{gap:20px;padding:0 14px}.editorial-nav a{min-height:47px;font-size:12px}.ux01-cartes-link{align-items:start;flex-direction:column}.ux01-shell .ux01-filter-prime label{flex:1 1 120px}.ux01-shell .unified-heading h1{font-size:31px}.ux01-map-frame{padding:8px;min-height:340px}.ux01-daily .journal-map{padding:9px}}
 @media(prefers-reduced-motion:reduce){.editorial-chrome *,.ux01-doc *, .ux01-daily *{scroll-behavior:auto!important;transition:none!important}}
+
+/* Sélection des familles agricoles issue uniquement du catalogue réellement chargé. */
+.ux01-production-families{margin:24px 0 20px}
+.ux01-production-families>div{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:12px}
+.ux01-production-families button{display:flex;flex-direction:column;align-items:start;justify-content:space-between;gap:12px;text-align:left;min-height:110px;padding:15px 14px;border:1px solid var(--border);border-radius:2px;background:var(--surface-raised);color:var(--text-primary);cursor:pointer}
+.ux01-production-families button strong{font-family:Georgia,serif;font-size:19px;font-weight:500;line-height:1.2}
+.ux01-production-families button small{font-size:11px;color:var(--text-muted);line-height:1.45}
+.ux01-production-families button[aria-pressed=true]{border:2px solid var(--editorial-blue);background:var(--surface-subtle)}
+.ux01-production-families button:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+@media(max-width:480px){.ux01-production-families>div{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.ux01-production-families button{min-height:115px;padding:12px 9px}.ux01-production-families button strong{font-size:16px}}
