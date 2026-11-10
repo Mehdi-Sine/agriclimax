@@ -75,7 +75,7 @@ class MeteoFranceClient:
         self.last_request = float("-inf")
 
     def get(self, path: str, parameters: dict[str, str] | None = None, *,
-            retry_transient: bool = True, byte_limit: int = 10_000_000) -> tuple[int, bytes]:
+            retry_transient: bool = True, byte_limit: int = 10_000_000, timeout: float = 30) -> tuple[int, bytes]:
         url = f"{API}/{self.prefix}/{path}"
         if parameters:
             url += "?" + urlencode(parameters)
@@ -92,7 +92,7 @@ class MeteoFranceClient:
                 },
             )
             try:
-                with self.opener(request, timeout=30) as response:
+                with self.opener(request, timeout=timeout) as response:
                     content = response.read(byte_limit + 1)
                     status = response.status
                 if len(content) > byte_limit:
@@ -113,7 +113,7 @@ class MeteoFranceClient:
                     raise MeteoFranceTransportError(error.code, delay) from None
                 self.sleep(max(float(delay or 0), 2**attempt))
             except (URLError, TimeoutError, OSError):
-                if attempt == 2:
+                if not retry_transient or attempt == 2:
                     raise RuntimeError("MeteoFrance network unavailable") from None
                 self.sleep(2**attempt)
         raise RuntimeError("MeteoFrance retries exhausted")

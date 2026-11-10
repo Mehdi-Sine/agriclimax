@@ -26,7 +26,7 @@ def probe(product: Literal["climatology", "observations"], *, observations_versi
         result.update(endpoint=client.prefix, auth_mode=client.auth.mode, credential_binding=client.variable)
         path, params = (("liste-stations/quotidienne", {"id-departement": "29"})
                         if product == "climatology" else ("liste-stations", None))
-        status, content = client.get(path, params, retry_transient=False, byte_limit=1_000_000)
+        status, content = client.get(path, params, retry_transient=False, byte_limit=1_000_000, timeout=10)
         if product == "climatology":
             records = json.loads(content)
             compatible = isinstance(records, list) and bool(records) and all(

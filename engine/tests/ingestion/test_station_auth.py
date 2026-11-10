@@ -8,7 +8,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from io import BytesIO
 from pathlib import Path
 from unittest.mock import Mock
-from urllib.error import HTTPError
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit
 from urllib.request import Request, build_opener
 
@@ -225,3 +225,15 @@ def test_token_service_temporary_failure_is_not_a_permanent_auth_error(monkeypat
         client.get("liste-stations/quotidienne")
     assert caught.value.http_status == status
     assert opener.call_count == 1
+
+
+def test_health_network_timeout_is_one_bounded_request_per_product(monkeypatch):
+    module = health_module()
+    opener = Mock(side_effect=URLError("never report " + KEY))
+    client = MeteoFranceClient("observations", opener=opener, sleep=lambda _: None)
+    monkeypatch.setattr(module, "MeteoFranceClient", lambda _: client)
+    result = module.probe("observations")
+    assert result["status"] == "network_unavailable"
+    assert opener.call_count == 1
+    assert opener.call_args.kwargs["timeout"] == 10
+    assert KEY not in json.dumps(result)

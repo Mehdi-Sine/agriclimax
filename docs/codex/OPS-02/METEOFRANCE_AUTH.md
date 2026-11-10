@@ -83,7 +83,7 @@ PYTHONPATH=engine/src python scripts/meteofrance_station_health.py --observation
 ```
 
 Un catalogue par produit, sans commande d’archive ni téléchargement de mesures.
-Pas de retry temporaire ; seul OAuth2 peut renouveler une fois et rejouer le GET.
+Timeout des GET limité à 10 secondes ; pas de retry réseau/temporaire ; seul OAuth2 peut renouveler une fois et rejouer le GET.
 Réponses plafonnées à 1 Mo, pas de redirection d’identifiants, vérification TLS
 active, aucune chaîne d’erreur amont ni en-tête d’authentification dans le rapport.
 Les seuls codes amont conservés appartiennent à une liste numérique fixe.
