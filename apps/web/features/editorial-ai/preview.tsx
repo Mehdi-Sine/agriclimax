@@ -4,15 +4,18 @@ import type {ConsultableEdition} from "./consultable";
 import { frenchDate } from "../journal/ui/stories";
 import { editorialText, frenchPeriod, frenchCycle } from "../journal/ui/editorial-dates";
 import JournalPraMap from "../journal/ui/pra-map";
-function Text({ block }: { block: Block }) {
+function Text({ block, facts }: { block: Block; facts: {id:string}[] }) {
+  const unresolved=block.evidence_ids.filter(id=>!facts.some(f=>f.id===id));
+  const resolved=block.evidence_ids.some(id=>facts.some(f=>f.id===id));
   return (
     <p>
       {editorialText(block.text)}
-      {block.evidence_ids.length > 0 && (
+      {unresolved.map(id=><small key={id}> Référence non résolue : <code style={{overflowWrap:"anywhere"}}>{id}</code> (ne constitue pas une preuve).</small>)}
+      {resolved && (
         <sup>
           {" "}
           <a href="#sources" aria-label="Consulter les preuves">
-            [sources]
+            {unresolved.length ? "[sources résolues]" : "[sources]"}
           </a>
         </sup>
       )}
@@ -98,7 +101,7 @@ export function EditorialPreview({
                 : a.mode === "fallback"
                   ? "ÉDITION DE SECOURS · Rédaction déterministe."
                   : "Rédigé avec assistance IA."}{" "}
-              {personalStatus ? personalStatus : published ? "Édition expérimentale — contenu IA non entièrement vérifié" : "Revue éditoriale requise. Archive historique : ne décrit pas la situation actuelle."}
+              {personalStatus ? personalStatus : published ? "Édition expérimentale IA — contenu non entièrement vérifié" : "Revue éditoriale requise. Archive historique : ne décrit pas la situation actuelle."}
             </p>
           </aside>
           {published&&<details className="editorial-note"><summary>Réserves scientifiques de cette édition</summary>
@@ -111,7 +114,7 @@ export function EditorialPreview({
               <p className="eyebrow">À LA UNE · FRANCE</p>
               <h1 id="headline">{editorialText(d.headline.text)}</h1>
               <div className="standfirst">
-                <Text block={d.lead} />
+                <Text facts={a.briefing.national.facts} block={d.lead} />
               </div>
             </div>
             {d.illustration_ids.length ? (
@@ -168,14 +171,14 @@ export function EditorialPreview({
               <p className="eyebrow">DÉCRYPTAGE</p>
               <h2>Comprendre la situation</h2>
               {d.article.map((b, i) => (
-                <Text block={b} key={i} />
+                <Text facts={a.briefing.national.facts} block={b} key={i} />
               ))}
             </article>
             <aside className="editorial-note">
               <h2>Le choix de la rédaction</h2>
-              <Text block={d.decision} />
+              <Text facts={a.briefing.national.facts} block={d.decision} />
               {d.alternatives.map((x) => (
-                <Text key={x.candidate_id} block={x.reason} />
+                <Text facts={a.briefing.national.facts} key={x.candidate_id} block={x.reason} />
               ))}
             </aside>
           </section>
@@ -195,7 +198,7 @@ export function EditorialPreview({
                       : p.production_id}
                   </h3>
                   {p.blocks.map((b, i) => (
-                    <Text block={b} key={i} />
+                    <Text facts={a.briefing.national.facts} block={b} key={i} />
                   ))}
                 </article>
               ))}
@@ -216,7 +219,7 @@ export function EditorialPreview({
                 <article key={r.region}>
                   <h3>{r.region}</h3>
                   {r.blocks.map((b, i) => (
-                    <Text key={i} block={b} />
+                    <Text facts={a.briefing.national.facts} key={i} block={b} />
                   ))}
                 </article>
               ))}
@@ -255,7 +258,7 @@ export function EditorialPreview({
             {cycles.length>0&&<p>Cycles de prévision : {cycles.map(frenchCycle).join(" · ")}.</p>}
             <p>Historique disponible jusqu’au {frenchDate(a.briefing.validity.history_cutoff)}. Prévisions : {frenchPeriod(a.briefing.validity.forecast_period?.[0]??a.date,a.briefing.validity.forecast_period?.[1]??a.date)}.</p>
             {d.limitations.map((b, i) => (
-              <Text key={i} block={b} />
+              <Text facts={a.briefing.national.facts} key={i} block={b} />
             ))}
             <details>
               <summary>Preuves, Almanach et arbitrages documentaires</summary>

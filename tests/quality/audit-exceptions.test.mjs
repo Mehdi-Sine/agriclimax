@@ -3,7 +3,24 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { validateExceptions, validateTraces } from '../../scripts/quality/audit-exceptions.mjs';
 
-const policy = JSON.parse(readFileSync(new URL('../../scripts/quality/audit-exceptions.json', import.meta.url)));
+// Historical fixture: expiry and scope checks remain covered after retiring the live exception.
+const policy = { exceptions: [{
+  package: 'braces', version: '3.0.3', ghsa: 'GHSA-vfj7-8cjw-p6xm', cve: 'CVE-2026-93687',
+  approved_on: '2026-10-11', expires_on: '2026-11-10', owner: 'historical test fixture',
+  scope: 'dev lint tooling only', justification: 'Historical fixture, not an active exception',
+  reevaluate: 'Remove when withdrawn or fixed',
+}] };
+
+test('repository has no active exception or advisory exclusion after withdrawal', () => {
+  const active = JSON.parse(readFileSync(new URL('../../scripts/quality/audit-exceptions.json', import.meta.url)));
+  const current = JSON.parse(readFileSync(new URL('../../package.json', import.meta.url)));
+  assert.deepEqual(active.exceptions, []);
+  assert.deepEqual(current.pnpm?.auditConfig ?? {}, {});
+  assert.deepEqual(validateExceptions({ policy: active, manifest: current, fullGraph: [], productionGraph: [] }), []);
+  const excluded = structuredClone(current);
+  excluded.pnpm.auditConfig = { ignoreGhsas: ['GHSA-vfj7-8cjw-p6xm'] };
+  assert.throws(() => validateExceptions({ policy: active, manifest: excluded, fullGraph: [], productionGraph: [] }));
+});
 const manifest = { pnpm: { auditConfig: { ignoreGhsas: ['GHSA-vfj7-8cjw-p6xm'] } } };
 const braces = { from: 'braces', version: '3.0.3' };
 const parent = (name, child) => ({ dependencies: { [name]: child } });
