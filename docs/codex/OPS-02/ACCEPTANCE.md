@@ -3,7 +3,7 @@
 | Critère | Résultat constaté |
 |---|---|
 | Stages indépendants de l’heure réelle | OUI, testé |
-| Acquisition automatique opérationnelle | Code corrigé ; nuit réelle à observer après fusion |
+| Acquisition automatique opérationnelle | NON activée : accès DPClim/DPObs refusés (401), puis nuit à observer |
 | Reprises sans doublons | OUI, tests SQL/concurrence et acquisitions simulées |
 | Watchdog Supabase testé réellement | NON : jeton Vault absent ; déployé inactif |
 | Génération IA quotidienne prête | Code prêt ; activation DB après fusion/recette |
@@ -38,6 +38,20 @@ La suite PostGIS complète locale n’a pas pu démarrer : l’image officielle 
 le disque de 8 Go du runtime lors de l’extraction Docker. Les tests PostgreSQL T36
 ont bien tourné. La matrice SQL existante doit donc être vérifiée dans la CI GitHub ;
 aucun succès PostGIS local n’est revendiqué.
+
+## Recettes fournisseurs réelles
+
+Deux essais bornés, une station chacun (29075001), ont été exécutés avec les
+adaptateurs existants : climatologie du 9 novembre et observations du 10 novembre.
+DPClim/v1 et DPObs/v1 retournent tous deux HTTP 401 ; les reçus persistés indiquent
+`permanent_auth_failure=true`. Aucun retry aveugle ni nouvelle clé demandée en chat.
+Le propriétaire doit corriger les abonnements/autorisations des clés dans les
+réglages sécurisés avant de revendiquer une acquisition opérationnelle.
+
+Le dispatch de recette GitHub depuis le runtime a été refusé HTTP 401 après
+expiration du jeton temporaire. L’application GitHub connectée permet toujours
+la PR et la lecture des CI, mais ne propose pas de dispatch de workflow.
+Cela ne remplace pas le jeton fin Vault nécessaire au watchdog.
 
 ## Testé à distance / activé
 
