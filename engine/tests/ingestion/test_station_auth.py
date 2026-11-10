@@ -14,7 +14,12 @@ from urllib.request import Request, build_opener
 
 import pytest
 
-from agriclimax.ingestion.meteofrance import MeteoFranceAccessError, MeteoFranceClient, NoRedirect
+from agriclimax.ingestion.meteofrance import (
+    MeteoFranceAccessError,
+    MeteoFranceClient,
+    MeteoFranceTransportError,
+    NoRedirect,
+)
 from agriclimax.ingestion.station_auth import TOKEN_URL, StationAuth
 
 KEY = "synthetic-key-only"
@@ -209,3 +214,14 @@ def test_integration_token_redirect_never_forwards_credentials(monkeypatch):
         with pytest.raises(MeteoFranceAccessError):
             client.get("liste-stations")
     assert len(calls) == 1 and calls[0][0] == "/token"
+
+
+@pytest.mark.parametrize("status", [429, 503])
+def test_token_service_temporary_failure_is_not_a_permanent_auth_error(monkeypatch, status):
+    monkeypatch.setenv("METEOFRANCE_CLIMATOLOGY_APPLICATION_ID", APP)
+    opener = Mock(side_effect=http_error(status))
+    client = MeteoFranceClient("climatology", opener=opener, sleep=lambda _: None)
+    with pytest.raises(MeteoFranceTransportError) as caught:
+        client.get("liste-stations/quotidienne")
+    assert caught.value.http_status == status
+    assert opener.call_count == 1

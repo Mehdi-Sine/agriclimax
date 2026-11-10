@@ -110,3 +110,14 @@ externe valide encore nécessaire.** La cause exacte du rejet des jetons présen
 (expiration, révocation, mauvais type, jeton antérieur à souscription, etc.) reste
 indéterminée au vu du seul retour du service. Aucune nouvelle génération IA,
 aucune fusion et aucune activation d’un autre composant.
+
+
+Les métadonnées officielles de chaque API publiée confirment explicitement
+`securityScheme` contenant `oauth2` et `api_key` :
+[DPClim v1](https://portail-api.meteofrance.fr/api/am/devportal/v3/apis/a5935def-80ae-4e7e-83bc-3ef622f0438d)
+et [DPObs v2](https://portail-api.meteofrance.fr/api/am/devportal/v3/apis/c3b1fe90-c209-447c-8cab-8342bf157b83).
+Les erreurs temporaires du serveur de jetons (429/5xx ou réseau) restent des
+échecs de transport et ne sont pas marquées comme erreurs d’authentification permanentes.
+La recette GitHub `probe_only=true` du 10 novembre confirme les deux 401 / 900901 :
+[run de santé](https://github.com/Mehdi-Sine/agriclimax/actions/runs/42815928376).
+Ce statut rouge de santé réelle est distinct de la CI de tests.

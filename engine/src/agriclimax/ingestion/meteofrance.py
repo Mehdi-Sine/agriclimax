@@ -26,6 +26,7 @@ from pydantic import Field
 from .models import StrictModel
 from .providers import SourcePayload
 from .station_auth import MeteoFranceAccessError as MeteoFranceAccessError  # noqa: PLC0414 - preserve public typed export
+from .station_auth import MeteoFranceTransportError as MeteoFranceTransportError  # noqa: PLC0414 - public typed export
 from .station_auth import StationAuth, access_error
 from .storage import SourceCache
 
@@ -48,15 +49,6 @@ class Station(StrictModel):
     longitude: float = Field(ge=-6, le=10, allow_inf_nan=False)
     altitude_m: float = Field(allow_inf_nan=False)
     metadata: dict[str, object]
-
-
-class MeteoFranceTransportError(RuntimeError):
-    """Safe status/cooldown metadata, no URL, key or upstream response body."""
-
-    def __init__(self, status: int, retry_after: str = "") -> None:
-        super().__init__(f"MeteoFrance HTTP {status}")
-        self.http_status = status
-        self.retry_after = retry_after[:128]
 
 
 class NoRedirect(HTTPRedirectHandler):

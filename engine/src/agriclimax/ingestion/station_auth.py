@@ -28,6 +28,15 @@ class MeteoFranceAccessError(FatalProviderError):
         self.service_code = service_code
 
 
+class MeteoFranceTransportError(RuntimeError):
+    """Safe status/cooldown metadata, no URL, key or upstream response body."""
+
+    def __init__(self, status: int, retry_after: str = "") -> None:
+        super().__init__(f"MeteoFrance HTTP {status}")
+        self.http_status = status
+        self.retry_after = retry_after[:128]
+
+
 def access_error(error: HTTPError, variable: str, *, phase: str = "resource") -> MeteoFranceAccessError:
     """A 401 alone cannot distinguish a bad, revoked, wrong-type or expired token."""
     try:
@@ -98,8 +107,12 @@ class StationAuth:
                 raise ValueError("token contract")
             self._token, self._expires_at = token, started + ttl - min(30, ttl / 10)
         except HTTPError as error:
+            if error.code in {408, 429, 500, 502, 503, 504}:
+                delay = error.headers.get("Retry-After", "") if error.headers else ""
+                error.close()
+                raise MeteoFranceTransportError(error.code, delay) from None
             raise access_error(error, self.variable, phase="token") from None
         except (URLError, TimeoutError, OSError):
-            raise MeteoFranceAccessError("OAuth token service unavailable", reason="network_unavailable", phase="token") from None
+            raise RuntimeError("OAuth token service unavailable") from None
         except (ValueError, KeyError, TypeError, AttributeError):
             raise MeteoFranceAccessError("OAuth token response incompatible", reason="endpoint_incompatible", phase="token") from None
