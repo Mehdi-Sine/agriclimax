@@ -32,9 +32,6 @@
     "pnpm": "10.x"
   },
   "pnpm": {
-    "auditConfig": {
-      "ignoreGhsas": ["GHSA-vfj7-8cjw-p6xm"]
-    },
     "overrides": {
       "ajv>fast-uri": "3.1.9",
       "vitest": "4.1.12",
