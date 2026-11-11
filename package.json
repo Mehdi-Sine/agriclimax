@@ -25,7 +25,8 @@
     "editorial-ai:generate": "NODE_OPTIONS=--conditions=react-server apps/web/node_modules/.bin/tsx scripts/task35_editorial.ts",
     "editorial-ai:typecheck": "pnpm --filter @agriclimax/web exec tsc --project ../../scripts/tsconfig.task35.json",
     "editorial-ai:live": "NODE_OPTIONS=--conditions=react-server apps/web/node_modules/.bin/tsx scripts/task35b_live.ts",
-    "editorial:nightly": "NODE_OPTIONS=--conditions=react-server apps/web/node_modules/.bin/tsx scripts/task36_editorial.ts"
+    "editorial:nightly": "NODE_OPTIONS=--conditions=react-server apps/web/node_modules/.bin/tsx scripts/task36_editorial.ts",
+    "journal:manual": "NODE_OPTIONS=--conditions=react-server apps/web/node_modules/.bin/tsx scripts/manual_journal.ts"
   },
   "engines": {
     "node": ">=20.9",
