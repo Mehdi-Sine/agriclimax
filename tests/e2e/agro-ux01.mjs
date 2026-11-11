@@ -29,6 +29,7 @@ for(const width of [1440,1280,768,390,360]){
  const available=data.rows.find(r=>r.value!==null);if(available){await picker.selectOption(available.territoryId);await section.getByRole('status').filter({hasText:available.territoryId}).waitFor();}
  if(width===1440){const catalogue=await (await page.request.get(origin+'/api/manual-journal')).json();const thi=catalogue.find(m=>m.indicator==='thi');assert.ok(thi);await page.locator('#manual-map').selectOption(thi.id);const thiData=await (await page.request.get(origin+'/api/manual-journal?map='+thi.id)).json();assert.ok(thiData.rows.every(r=>r.value===null));await section.getByText('0 PRA avec valeur renseignée sur leur support', {exact:false}).waitFor();await picker.selectOption(thiData.rows[0].territoryId);await section.getByRole('status').filter({hasText:'indisponible'}).waitFor();await page.locator('#manual-map').selectOption(data.id);await section.locator('[data-ready=true]').waitFor();}
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`preview overflow ${width}`);
+ await picker.press('Escape');await picker.blur();
  await page.screenshot({path:`${out}/${width}-preview-map.png`,fullPage:false});
  await page.locator('h1').scrollIntoViewIfNeeded();await page.screenshot({path:`${out}/${width}-preview.png`,fullPage:false});
  const production=await page.goto(origin+'/journal?date=2026-11-11',{waitUntil:'networkidle',timeout:60000});assert.equal(production.status(),200);
