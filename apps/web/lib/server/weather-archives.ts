@@ -67,16 +67,19 @@ export async function nationalWeatherDocument(requestedRun?:string, expectedSha?
   if(!latest)return null;
   if(cycleCache?.sha===latest.sha256)return cycleCache.value;
   const value=(async()=>{
-    const d=unpackWeatherArchive(await archiveBlob(latest),latest.sha256);
+    return decodeNationalWeather(await archiveBlob(latest),latest.sha256);
+  })();
+  cycleCache={sha:latest.sha256,value};void value.catch(()=>{if(cycleCache?.value===value)cycleCache=undefined;});return value;
+}
+export function decodeNationalWeather(raw:Uint8Array,sha:string):NationalWeatherDocument {
+    const d=unpackWeatherArchive(raw,sha);
     const rows=d.rows,selected=d.selected_indices;
     if(d.scope!=='national'||d.pra_count!==713||typeof d.run!=='string'||typeof d.acquired_at!=='string'||typeof d.attribution!=='string'||typeof d.recent_estimate_status!=='string'||!Array.isArray(rows)||rows.length!==49910||!rows.every((r):r is WeatherRow=>validRow(r))||!Array.isArray(selected)||!selected.every((i):i is number=>typeof i==='number'&&Number.isInteger(i)&&i>=0&&i<rows.length))throw new Error('NATIONAL_WEATHER_CONTRACT');
     const expected=new Set(identities.ids);
     if(!rows.every(r=>expected.has(r.pra_id))||new Set(rows.map(r=>r.pra_id)).size!==713)throw new Error('NATIONAL_WEATHER_IDENTITIES');
     const c:WeatherCycle={scope:'national',run:d.run,acquired_at:d.acquired_at,pra_count:713,rows:selected.map(i=>rows[i]),recent_estimate_status:d.recent_estimate_status,attribution:d.attribution};
     if(!completeForecastCycle(c))throw new Error('NATIONAL_WEATHER_SELECTION');
-    return {...d,archive_sha256:latest.sha256,rows,selected_indices:selected,run:d.run,acquired_at:d.acquired_at,pra_count:713,attribution:d.attribution,recent_estimate_status:d.recent_estimate_status} as NationalWeatherDocument;
-  })();
-  cycleCache={sha:latest.sha256,value};void value.catch(()=>{if(cycleCache?.value===value)cycleCache=undefined;});return value;
+    return {...d,archive_sha256:sha,rows,selected_indices:selected,run:d.run,acquired_at:d.acquired_at,pra_count:713,attribution:d.attribution,recent_estimate_status:d.recent_estimate_status} as NationalWeatherDocument;
 }
 export type ArchivedDaily={pra_id:string;valid_date:string;temperature:number|null;temperature_min:number|null;temperature_max:number|null;precipitation:number|null;coverage:number[];valid_counts:number[];expected_cells:number;status:'available'|'partial'|'unavailable';quality_flags:string[];batch_key:string;computed_at:string;identity:JsonRecord};
 const exactCache=new Map<string,Promise<JsonRecord[]>>();
@@ -85,10 +88,10 @@ export function postgresReal(value:number):number{
   for(let precision=1;precision<=9;precision++){const candidate=Number(real.toPrecision(precision));if(Math.fround(candidate)===real)return candidate;}
   return real;
 }
-async function exactRecords(e:ArchiveEntry):Promise<JsonRecord[]>{
+async function exactRecords(e:ArchiveEntry,localBytes?:Uint8Array):Promise<JsonRecord[]>{
   const hit=exactCache.get(e.sha256);if(hit)return hit;
   const promise=(async()=>{
-    const parsed:unknown=JSON.parse(gunzipSync(await archiveBlob(e),{maxOutputLength:32*1024**2}).toString());
+    const parsed:unknown=JSON.parse(gunzipSync(localBytes??await archiveBlob(e),{maxOutputLength:32*1024**2}).toString());
     if(!record(parsed)||parsed.archive_version!=='pra-exact-bytes-1'||!Array.isArray(parsed.records))throw new Error('EXACT_ARCHIVE_CONTRACT');
     const outputs:JsonRecord[]=[];
     for(const r of parsed.records){
@@ -102,12 +105,13 @@ async function exactRecords(e:ArchiveEntry):Promise<JsonRecord[]>{
   if(exactCache.size>=3)exactCache.delete(exactCache.keys().next().value!);
   exactCache.set(e.sha256,promise);void promise.catch(()=>{if(exactCache.get(e.sha256)===promise)exactCache.delete(e.sha256);});return promise;
 }
-export async function archivedEra5Day(date:string, pinnedEntry?:ArchiveEntry):Promise<ArchivedDaily[]|null>{
+export async function archivedEra5Day(date:string, pinnedEntry?:ArchiveEntry,localBytes?:Uint8Array):Promise<ArchivedDaily[]|null>{
   if(!isCalendarDate(date))throw new Error('ARCHIVE_DATE');
   const current=pinnedEntry?null:await currentManifest();
   const e=pinnedEntry??current?.era5.find(e=>e.dates.includes(date))??(await archiveCatalogue())?.era5.find(e=>e.dates.includes(date));if(!e)return null;
   const rows:ArchivedDaily[]=[];
-  for(const output of await exactRecords(e)){
+  if(localBytes&&(localBytes.length!==e.bytes||createHash("sha256").update(localBytes).digest("hex")!==e.sha256))throw Error("ARCHIVE_CHECKSUM");
+  for(const output of await exactRecords(e,localBytes)){
     for(const row of output.daily as unknown[])if(record(row)&&row.valid_date===date){
       const copy:JsonRecord={...row,batch_key:output.batch_key,identity:output.identity,computed_at:output.computed_at};
       for(const field of ['temperature','temperature_min','temperature_max','precipitation']){

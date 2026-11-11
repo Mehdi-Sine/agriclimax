@@ -1,0 +1,418 @@
+{
+  "base_main": "5d5e486b1635a9da4797c9053b0468d74082f0bc",
+  "pr78_merged": true,
+  "edition_date": "2026-11-11",
+  "dry_run": {
+    "version": "manual-journal-report-1",
+    "code_commit": null,
+    "workflow_run_id": null,
+    "edition_date": "2026-11-11",
+    "mode": "dry-run",
+    "options": {
+      "edition_date": "2026-11-11",
+      "mode": "dry-run",
+      "refresh_sources": false,
+      "recompute_indicators": true,
+      "reuse_ai": true,
+      "force_ai_regeneration": false,
+      "authorized_snapshot": "",
+      "regeneration_reason": ""
+    },
+    "started_at": "2026-11-11T10:40:25.772Z",
+    "phase": "test_preparation",
+    "acquisitions": [
+      {
+        "source": "news",
+        "status": "reused",
+        "ledger_state": "success",
+        "last_attempt_reference": {
+          "generated_at": "2026-11-11T01:30:44.536321Z"
+        },
+        "source_days": []
+      },
+      {
+        "source": "stations",
+        "status": "reused",
+        "ledger_state": "retryable_failure",
+        "last_attempt_reference": {
+          "date": "2026-11-10",
+          "from": "2026-11-04",
+          "to": "2026-11-10",
+          "error_type": "ValueError",
+          "substage": "validate"
+        },
+        "source_days": []
+      },
+      {
+        "source": "era5",
+        "status": "reused",
+        "ledger_state": "success",
+        "last_attempt_reference": {
+          "date": "2026-11-04"
+        },
+        "source_days": []
+      },
+      {
+        "source": "observations",
+        "status": "reused",
+        "ledger_state": "success",
+        "last_attempt_reference": {
+          "from": "2026-11-11",
+          "to": "2026-11-11"
+        },
+        "source_days": [
+          {
+            "date": "2026-11-11",
+            "status": "complete",
+            "quality_flags": [
+              "et0_not_available",
+              "publication_time_unknown",
+              "recent_sample_not_daily_aggregate"
+            ],
+            "available_count": 15,
+            "observation_count": 15
+          }
+        ]
+      },
+      {
+        "source": "forecast",
+        "status": "reused",
+        "ledger_state": "retryable_failure",
+        "last_attempt_reference": {
+          "run": "2026-11-11T00:00:00+00:00",
+          "error_type": "CalledProcessError"
+        },
+        "source_days": []
+      }
+    ],
+    "freshness": {
+      "history": {
+        "history_start": "2026-10-19",
+        "history_cutoff": "2026-11-04",
+        "history_age_days": 7,
+        "forecast_period": [
+          "2026-11-10",
+          "2026-11-16"
+        ],
+        "data_freshness": "stale"
+      },
+      "forecasts": [
+        {
+          "model": "arpege-0p1",
+          "emitted_at": "2026-11-09T12:00:00Z",
+          "acquired_at": "2026-11-09T19:01:50.884027Z",
+          "valid_dates": [
+            "2026-11-11",
+            "2026-11-12"
+          ]
+        },
+        {
+          "model": "ifs-oper-0p25",
+          "emitted_at": "2026-11-09T00:00:00Z",
+          "acquired_at": "2026-11-09T19:01:50.884027Z",
+          "valid_dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16"
+          ]
+        }
+      ]
+    },
+    "coverage": {
+      "policy_version": "journal-data-quality-1",
+      "nature": "reanalysis",
+      "reference_date": "2026-11-04",
+      "age_days": 7,
+      "complete_pra": 645,
+      "total_pra": 713,
+      "usable": true,
+      "freshness": "historical"
+    },
+    "indicators": {
+      "status": "calculated",
+      "calculated": 92690,
+      "errors": [],
+      "groups": [
+        {
+          "nature": "reanalysis",
+          "period": [
+            "2026-10-29",
+            "2026-11-04"
+          ],
+          "input_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+          "metrics": {
+            "calculations": 13547,
+            "cache_hits": 32798,
+            "pra_count": 713
+          }
+        },
+        {
+          "nature": "forecast",
+          "period": [
+            "2026-11-11",
+            "2026-11-12"
+          ],
+          "input_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+          "metrics": {
+            "calculations": 13547,
+            "cache_hits": 32798,
+            "pra_count": 713
+          }
+        }
+      ]
+    },
+    "snapshot": {
+      "id": "f8d03997a7c8637a3b3a6df8c5e387e7e2adfbe85ae5c4be981bed7e213982c7",
+      "quality": "fallback_valid",
+      "status": "isolated_test",
+      "production_id": "2e9ed6d01173cb0851505863ecd28c3e916fe0a10de3a92f2fb5769987d8446e"
+    },
+    "openai": {
+      "status": "not_called_deterministic_preview",
+      "calls": 0
+    },
+    "validation": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "publication": {
+      "status": "not_requested"
+    },
+    "consultation": {
+      "status": "local_preview_ready",
+      "url": "/journal/preview?date=2026-11-11&id=6ee0ca9b8531d6b4936508b0e521ec71c94a56c6a43912689690756a394a87b6",
+      "archive_id": "6ee0ca9b8531d6b4936508b0e521ec71c94a56c6a43912689690756a394a87b6",
+      "preview_mode": "fallback",
+      "compatible_ai_url": null,
+      "environment": {
+        "AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR": "/workspace/agriclimax/work/ops04-demo/distinct-recipes/preview",
+        "AGRICLIMAX_MANUAL_RUN_DIR": "/workspace/agriclimax/work/ops04-demo/distinct-recipes"
+      }
+    },
+    "blockers": [],
+    "decision": "deterministic_preview",
+    "preview": {
+      "status": "local_preview_ready",
+      "url": "/journal/preview?date=2026-11-11&id=6ee0ca9b8531d6b4936508b0e521ec71c94a56c6a43912689690756a394a87b6",
+      "archive_id": "6ee0ca9b8531d6b4936508b0e521ec71c94a56c6a43912689690756a394a87b6",
+      "preview_mode": "fallback",
+      "compatible_ai_url": null,
+      "environment": {
+        "AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR": "/workspace/agriclimax/work/ops04-demo/distinct-recipes/preview",
+        "AGRICLIMAX_MANUAL_RUN_DIR": "/workspace/agriclimax/work/ops04-demo/distinct-recipes"
+      }
+    },
+    "finished_at": "2026-11-11T10:40:54.545Z",
+    "status": "completed"
+  },
+  "resume": {
+    "version": "manual-journal-report-1",
+    "edition_date": "2026-11-11",
+    "mode": "resume",
+    "options": {
+      "edition_date": "2026-11-11",
+      "mode": "resume",
+      "refresh_sources": false,
+      "recompute_indicators": false,
+      "reuse_ai": true,
+      "force_ai_regeneration": false,
+      "authorized_snapshot": "",
+      "regeneration_reason": ""
+    },
+    "started_at": "2026-11-11T10:21:24.885Z",
+    "phase": "consultation",
+    "acquisitions": [
+      {
+        "source": "news",
+        "status": "reused",
+        "ledger_state": "success"
+      },
+      {
+        "source": "stations",
+        "status": "reused",
+        "ledger_state": "retryable_failure"
+      },
+      {
+        "source": "era5",
+        "status": "reused",
+        "ledger_state": "success"
+      },
+      {
+        "source": "observations",
+        "status": "reused",
+        "ledger_state": "success"
+      },
+      {
+        "source": "forecast",
+        "status": "reused",
+        "ledger_state": "retryable_failure"
+      }
+    ],
+    "freshness": {
+      "history": {
+        "history_start": "2026-10-19",
+        "history_cutoff": "2026-11-04",
+        "history_age_days": 7,
+        "forecast_period": [
+          "2026-11-10",
+          "2026-11-16"
+        ],
+        "data_freshness": "stale"
+      },
+      "forecasts": [
+        {
+          "model": "arpege-0p1",
+          "emitted_at": "2026-11-09T12:00:00Z",
+          "acquired_at": "2026-11-09T19:01:50.884027Z",
+          "valid_dates": [
+            "2026-11-11",
+            "2026-11-12"
+          ]
+        },
+        {
+          "model": "ifs-oper-0p25",
+          "emitted_at": "2026-11-09T00:00:00Z",
+          "acquired_at": "2026-11-09T19:01:50.884027Z",
+          "valid_dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16"
+          ]
+        }
+      ]
+    },
+    "coverage": {
+      "policy_version": "journal-data-quality-1",
+      "nature": "reanalysis",
+      "reference_date": "2026-11-04",
+      "age_days": 7,
+      "complete_pra": 645,
+      "total_pra": 713,
+      "usable": true,
+      "freshness": "historical"
+    },
+    "indicators": {
+      "status": "not_requested",
+      "calculated": 0,
+      "errors": []
+    },
+    "snapshot": {
+      "id": "2e9ed6d01173cb0851505863ecd28c3e916fe0a10de3a92f2fb5769987d8446e",
+      "quality": "fallback_valid",
+      "status": "production_frozen",
+      "test_id": "2e9ed6d01173cb0851505863ecd28c3e916fe0a10de3a92f2fb5769987d8446e"
+    },
+    "openai": {
+      "status": "reused_compatible_response",
+      "calls": 0
+    },
+    "validation": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "publication": {
+      "status": "not_requested_resume"
+    },
+    "consultation": {
+      "status": "verified",
+      "url": "https://agriclimax.vercel.app/journal?date=2026-11-11&id=bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5"
+    },
+    "blockers": [],
+    "decision": "reuse",
+    "preview": {
+      "status": "local_preview_ready",
+      "url": "/journal/preview?date=2026-11-11&id=f688751ad900d005694b3882881489dcd6c267ac401896753d990d26b6a55b6f",
+      "archive_id": "f688751ad900d005694b3882881489dcd6c267ac401896753d990d26b6a55b6f",
+      "preview_mode": "fallback",
+      "compatible_ai_url": "https://agriclimax.vercel.app/journal?id=bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5",
+      "environment": {
+        "AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR": "/workspace/agriclimax/work/ops04-demo/final-resume/preview",
+        "AGRICLIMAX_MANUAL_RUN_DIR": "/workspace/agriclimax/work/ops04-demo/final-resume"
+      }
+    },
+    "service_check": {
+      "exit_code": 0,
+      "receipt": {
+        "command": "report",
+        "status": "fallback_valid",
+        "edition_id": null,
+        "snapshot_id": null,
+        "error": null
+      }
+    },
+    "finished_at": "2026-11-11T10:21:44.837Z",
+    "status": "completed"
+  },
+  "browser": {
+    "status": 200,
+    "edition_visible": true,
+    "test_notice": true,
+    "preview_notice": true,
+    "map_count": 40,
+    "pra_count": 713,
+    "unique_pra": 713,
+    "period": [
+      "2026-10-29",
+      "2026-11-04"
+    ],
+    "nature": "reanalysis",
+    "mobile_overflow": false,
+    "map_ready": true,
+    "map_canvas": 1,
+    "page_errors": []
+  },
+  "additional_openai_calls": 0,
+  "production_snapshot_unchanged": true,
+  "production_archive_checksums_unchanged": true,
+  "production_archives": 2,
+  "production_provider_requests": 1,
+  "publication_enabled": false,
+  "certified_publications": 0,
+  "tests": {
+    "web_passed": 632,
+    "web_skipped": 8,
+    "python_passed": 458,
+    "python_subtests_passed": 35,
+    "final_manual_policy_passed": 14,
+    "build": "passed",
+    "typechecks": "passed",
+    "last_manual_policy_passed": 16
+  },
+  "workflow_dispatch": {
+    "attempted": true,
+    "status": "blocked_before_default_branch_registration",
+    "http_status": 404,
+    "workflow": "manual-journal.yml",
+    "branch": "codex/ops-04-manual-journal",
+    "manual_action_after_merge": "gh workflow run manual-journal.yml --ref main -f edition_date=2026-11-11 -f mode=dry-run -f recompute_indicators=true -f refresh_sources=false"
+  },
+  "replay_byte_identical": true,
+  "test_snapshot_explicitly_isolated": true,
+  "editorial_recipe_ids": [
+    "cattle_heat",
+    "dry",
+    "dry_sequence",
+    "frost",
+    "frost_sequence",
+    "gdd",
+    "gdd_base10",
+    "gdd_base6",
+    "heavy_rain",
+    "hot",
+    "hot30",
+    "hot30_sequence",
+    "hot_sequence",
+    "rain",
+    "rain_frequency",
+    "temperature_mean",
+    "temperature_min"
+  ]
+}

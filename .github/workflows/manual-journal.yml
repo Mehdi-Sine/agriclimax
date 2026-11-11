@@ -1,0 +1,104 @@
+name: AgriClimaX — Produire / tester le Journal
+on:
+  workflow_dispatch:
+    inputs:
+      edition_date:
+        type: string
+        description: Date d’édition YYYY-MM-DD (vide = aujourd’hui Europe/Paris)
+        required: false
+      mode:
+        type: choice
+        options: [dry-run, resume, publish]
+        default: dry-run
+      refresh_sources:
+        type: boolean
+        default: false
+        description: Acquisitions locales isolées et bornées, sans publication météo
+      recompute_indicators:
+        type: boolean
+        default: false
+        description: Recalcul AGRO depuis les archives déjà disponibles
+      reuse_ai:
+        type: boolean
+        default: true
+        description: Réutiliser uniquement une réponse compatible avec le dossier exact
+      force_ai_regeneration:
+        type: boolean
+        default: false
+        description: Reprise IA explicite seulement si nécessaire, jamais en dry-run
+      authorized_snapshot:
+        type: string
+        description: SHA exact du snapshot nécessaire à une reprise IA explicite
+        required: false
+      regeneration_reason:
+        type: string
+        description: Justification obligatoire de la reprise IA explicite (12 caractères minimum)
+        required: false
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: ops04-manual-${{ inputs.edition_date || 'paris-today' }}
+  cancel-in-progress: false
+jobs:
+  journal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: editorial-ai-dev
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa
+        with:
+          version: 10.0.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: python -m pip install -r engine/requirements-dev.lock -r engine/requirements-geo.lock -r engine/requirements-climate.lock -r engine/requirements-operational.lock
+      - name: Produire le dossier isolé ou reprendre les étapes manquantes
+        env:
+          MANUAL_EDITION_DATE: ${{ inputs.edition_date }}
+          MANUAL_MODE: ${{ inputs.mode }}
+          MANUAL_REFRESH_SOURCES: ${{ inputs.refresh_sources }}
+          MANUAL_RECOMPUTE_INDICATORS: ${{ inputs.recompute_indicators }}
+          MANUAL_REUSE_AI: ${{ inputs.reuse_ai }}
+          MANUAL_FORCE_AI_REGENERATION: ${{ inputs.force_ai_regeneration }}
+          MANUAL_AUTHORIZED_SNAPSHOT: ${{ inputs.authorized_snapshot }}
+          MANUAL_REGENERATION_REASON: ${{ inputs.regeneration_reason }}
+          AGRICLIMAX_MANUAL_OUTPUT: work/manual-journal/latest
+          PYTHONPATH: engine/src:scripts
+          OPENBLAS_NUM_THREADS: '1'
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          METEOFRANCE_CLIMATOLOGY_API_KEY: ${{ secrets.METEOFRANCE_CLIMATOLOGY_API_KEY }}
+          METEOFRANCE_CLIMATOLOGY_APPLICATION_ID: ${{ secrets.METEOFRANCE_CLIMATOLOGY_APPLICATION_ID }}
+          METEOFRANCE_OBSERVATIONS_API_KEY: ${{ secrets.METEOFRANCE_OBSERVATIONS_API_KEY }}
+          METEOFRANCE_OBSERVATIONS_APPLICATION_ID: ${{ secrets.METEOFRANCE_OBSERVATIONS_APPLICATION_ID }}
+          METEOFRANCE_AROME_API_KEY: ${{ secrets.METEOFRANCE_AROME_API_KEY }}
+          METEOFRANCE_ARPEGE_API_KEY: ${{ secrets.METEOFRANCE_ARPEGE_API_KEY }}
+          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
+          OPENAI_API_KEY: ${{ inputs.mode != 'dry-run' && secrets.OPENAI_API_KEY || '' }}
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+          AGRICLIMAX_JOURNAL_HEALTH_URL: ${{ vars.AGRICLIMAX_JOURNAL_HEALTH_URL }}
+          NODE_OPTIONS: --conditions=react-server
+        run: pnpm journal:manual
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: ops04-journal-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            work/manual-journal/latest/report.json
+            work/manual-journal/latest/summary.md
+            work/manual-journal/latest/before.json
+            work/manual-journal/latest/test-snapshot.json
+            work/manual-journal/latest/frozen-inputs.json.gz
+            work/manual-journal/latest/indicators.json.gz
+            work/manual-journal/latest/maps.json.gz
+            work/manual-journal/latest/maps-manifest.json
+            work/manual-journal/latest/preview/
+          retention-days: 7

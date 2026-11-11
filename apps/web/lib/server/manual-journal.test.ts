@@ -1,0 +1,20 @@
+import {it,expect,vi,afterEach} from 'vitest';
+vi.mock('server-only',()=>({}));
+import {mkdtempSync,writeFileSync,rmSync} from 'node:fs';
+import {join} from 'node:path';
+import {tmpdir} from 'node:os';
+import {gzipSync} from 'node:zlib';
+import {createHash} from 'node:crypto';
+import {manualMaps} from './manual-journal';
+import geography from '../../data/operational/pra-watch-places.json';
+const dirs:string[]=[];
+afterEach(()=>{vi.unstubAllEnvs();dirs.forEach(p=>rmSync(p,{recursive:true,force:true}));dirs.length=0;});
+it('does not add a production-visible manual dataset unless a local run directory is selected',()=>{vi.stubEnv('AGRICLIMAX_MANUAL_RUN_DIR','');expect(manualMaps()).toEqual([]);});
+it('rejects altered artifact bytes and restores exactly the 713 real identities',()=>{
+ const root=mkdtempSync(join(tmpdir(),'ops04-maps-'));dirs.push(root);vi.stubEnv('AGRICLIMAX_MANUAL_RUN_DIR',root);
+ const raw=gzipSync(JSON.stringify([{id:'synthetic',rows:geography.places.map(p=>({territoryId:p.id,value:null}))}]));
+ writeFileSync(join(root,'maps.json.gz'),raw);writeFileSync(join(root,'maps-manifest.json'),JSON.stringify({bytes:raw.length,sha256:'0'.repeat(64)}));
+ expect(()=>manualMaps()).toThrow('MANUAL_MAP_CHECKSUM');
+ writeFileSync(join(root,'maps-manifest.json'),JSON.stringify({bytes:raw.length,sha256:createHash('sha256').update(raw).digest('hex')}));
+ expect(manualMaps()[0].rows).toHaveLength(713);
+});
