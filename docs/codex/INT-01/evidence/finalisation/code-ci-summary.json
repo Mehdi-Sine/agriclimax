@@ -1,0 +1,25 @@
+{
+  "commit": "7a26ecac24c2c7da184e33001deccea29745511c",
+  "quality_run": 43055589637,
+  "security_run": 43055589606,
+  "web_job": 130644048149,
+  "python_job": 130644048770,
+  "web_summaries": [
+    "2026-11-11T16:11:48.6238120Z       Tests  666 passed | 8 skipped (674)",
+    "2026-11-11T16:13:14.0006038Z UX-01: routes, navigation, documentation and responsive screenshots verified"
+  ],
+  "python_summaries": [
+    "2026-11-11T16:10:45.6361650Z Ran 12 tests in 0.169s",
+    "2026-11-11T16:11:39.4590556Z ====================== 446 passed, 63 warnings in 34.79s ======================="
+  ],
+  "runtime": {
+    "playwright": "1.62.1",
+    "image": {
+      "driverVersion": "1.62.1",
+      "dockerImageName": "mcr.microsoft.com/playwright:v1.62.1-noble"
+    },
+    "chromium": "151.0.7922.34",
+    "executable": "/ms-playwright/chromium-1234/chrome-linux64/chrome",
+    "launch": "passed"
+  }
+}

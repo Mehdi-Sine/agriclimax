@@ -1,0 +1,24 @@
+{
+  "workflow_runs": [
+    {
+      "id": 43055589606,
+      "name": "Security audits",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 389,
+      "jobs_url": "https://api.github.com/repos/Mehdi-Sine/agriclimax/actions/runs/43055589606/jobs",
+      "logs_url": "https://api.github.com/repos/Mehdi-Sine/agriclimax/actions/runs/43055589606/logs",
+      "workflow_id": 380851770
+    },
+    {
+      "id": 43055589637,
+      "name": "Quality",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 385,
+      "jobs_url": "https://api.github.com/repos/Mehdi-Sine/agriclimax/actions/runs/43055589637/jobs",
+      "logs_url": "https://api.github.com/repos/Mehdi-Sine/agriclimax/actions/runs/43055589637/logs",
+      "workflow_id": 380851769
+    }
+  ]
+}

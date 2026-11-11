@@ -1,0 +1,85 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.0.3, pluggy-1.6.0
+rootdir: /workspace/agriclimax/engine
+configfile: pyproject.toml
+collected 446 items
+
+engine/tests/cattle/test_station.py ...                                  [  0%]
+engine/tests/cattle/test_thi.py ..........                               [  2%]
+engine/tests/climate/test_climate.py ..............                      [  6%]
+engine/tests/climate/test_coverage.py ..........                         [  8%]
+engine/tests/climate/test_pra_climatology_annual.py ...                  [  8%]
+engine/tests/climate/test_pra_climatology_compact.py ..                  [  9%]
+engine/tests/climate/test_pra_climatology_plan.py ..                     [  9%]
+engine/tests/climate/test_pra_normals.py .....                           [ 10%]
+engine/tests/climate/test_recovery_boundary.py ..                        [ 11%]
+engine/tests/climate/test_reference_cache.py ...                         [ 12%]
+engine/tests/editorial/test_ai_archive.py ..                             [ 12%]
+engine/tests/editorial/test_editorial_contracts.py .....                 [ 13%]
+engine/tests/ingestion/test_ingestion.py ................                [ 17%]
+engine/tests/ingestion/test_meteofrance.py ...................           [ 21%]
+engine/tests/ingestion/test_station_auth.py ........................     [ 26%]
+engine/tests/news/test_news.py ...............................           [ 33%]
+engine/tests/territories/test_30day_composite.py ............            [ 36%]
+engine/tests/territories/test_aggregate.py .......                       [ 38%]
+engine/tests/territories/test_availability.py ......                     [ 39%]
+engine/tests/territories/test_closure_audit.py ........                  [ 41%]
+engine/tests/territories/test_coastal_complement.py ....                 [ 42%]
+engine/tests/territories/test_daily_groups.py ..                         [ 42%]
+engine/tests/territories/test_daily_monitoring.py ...................... [ 47%]
+.......                                                                  [ 49%]
+engine/tests/territories/test_daily_reliability.py ...................   [ 53%]
+engine/tests/territories/test_data01_daily.py ......                     [ 54%]
+engine/tests/territories/test_lossless_archive.py .                      [ 54%]
+engine/tests/territories/test_manual_sources.py ...                      [ 55%]
+engine/tests/territories/test_migration_reconcile.py .......             [ 57%]
+engine/tests/territories/test_multiday_acquisition.py ...                [ 57%]
+engine/tests/territories/test_national_daily.py ......                   [ 59%]
+engine/tests/territories/test_national_inventory.py .....                [ 60%]
+engine/tests/territories/test_national_preparation.py ........           [ 62%]
+engine/tests/territories/test_national_weather.py ..                     [ 62%]
+engine/tests/territories/test_official_reference.py ......               [ 63%]
+engine/tests/territories/test_operational.py ....                        [ 64%]
+engine/tests/territories/test_operational_access.py .............        [ 67%]
+engine/tests/territories/test_operational_replay.py .                    [ 67%]
+engine/tests/territories/test_pilot_multimonth.py .....                  [ 69%]
+engine/tests/territories/test_pilot_resilience.py .....                  [ 70%]
+engine/tests/territories/test_pilot_sample.py ....                       [ 71%]
+engine/tests/territories/test_pipeline.py ..........                     [ 73%]
+engine/tests/territories/test_recovery_chunks.py .                       [ 73%]
+engine/tests/territories/test_spatial.py .........                       [ 75%]
+engine/tests/territories/test_support_restoration.py ...                 [ 76%]
+engine/tests/territories/test_weather_archive.py ....                    [ 77%]
+engine/tests/territories/test_weather_publication_safety.py ...          [ 77%]
+engine/tests/territories/test_weather_run_discovery.py ...               [ 78%]
+engine/tests/territories/test_weather_store_boundaries.py ..             [ 78%]
+engine/tests/test_agriculture.py .......                                 [ 80%]
+engine/tests/test_agriculture_cache.py ...                               [ 81%]
+engine/tests/test_agriculture_download.py ......                         [ 82%]
+engine/tests/test_agriculture_identity.py .                              [ 82%]
+engine/tests/test_agriculture_publication.py .                           [ 82%]
+engine/tests/test_contracts.py ........                                  [ 84%]
+engine/tests/test_daily.py .............................                 [ 91%]
+engine/tests/test_indicators.py ..                                       [ 91%]
+engine/tests/test_pra_weather.py ..                                      [ 92%]
+engine/tests/test_science.py ..................                          [ 96%]
+engine/tests/test_shared_coverage.py .                                   [ 96%]
+engine/tests/wheat/test_wheat.py ................                        [100%]
+
+=============================== warnings summary ===============================
+tests/climate/test_climate.py::test_netcdf_day_boundary_units_and_missingness
+  <frozen importlib._bootstrap>:488: RuntimeWarning: numpy.ndarray size changed, may indicate binary incompatibility. Expected 16 from C header, got 96 from PyObject
+
+tests/climate/test_climate.py: 30 warnings
+tests/climate/test_pra_climatology_annual.py: 4 warnings
+tests/climate/test_recovery_boundary.py: 4 warnings
+tests/territories/test_closure_audit.py: 2 warnings
+tests/territories/test_pilot_multimonth.py: 20 warnings
+tests/territories/test_pilot_resilience.py: 2 warnings
+  /workspace/agriclimax/work/int-01/venv/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:96: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+  As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+    data[key] = value
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+---- generated xml file: /workspace/agriclimax/work/int-01/python-tests.xml ----
+================= 446 passed, 63 warnings in 141.79s (0:02:21) =================

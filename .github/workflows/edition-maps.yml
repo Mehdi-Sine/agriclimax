@@ -1,0 +1,43 @@
+name: INT-01 prepare edition maps (read-only)
+on:
+  workflow_dispatch:
+    inputs:
+      edition_id:
+        description: Exact existing consultable edition ID (64 hex characters)
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: int01-map-candidate-${{ inputs.edition_id }}
+  cancel-in-progress: false
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa
+        with:
+          version: 10.0.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Compute from frozen persisted inputs; never acquire, call AI or publish
+        env:
+          EDITION_ID: ${{ inputs.edition_id }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          NODE_OPTIONS: --conditions=react-server
+        run: apps/web/node_modules/.bin/tsx scripts/int01_maps.ts prepare "$EDITION_ID" --out work/int01-maps
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: int01-map-candidates-${{ github.run_id }}
+          path: |
+            work/int01-maps/maps.json.gz
+            work/int01-maps/report.json
+          retention-days: 7
+          if-no-files-found: error

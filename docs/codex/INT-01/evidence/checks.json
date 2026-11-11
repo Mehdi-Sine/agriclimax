@@ -1,0 +1,71 @@
+{
+  "base_main": "4c538492c63868d70ea79fb5c57c1bf93de82cd2",
+  "web_tests": {
+    "passed": 666,
+    "skipped": 8
+  },
+  "python_tests": {
+    "passed": 446
+  },
+  "mf01_main_combination": {
+    "python_passed": 96,
+    "t36_passed": 12,
+    "quality_passed": 3
+  },
+  "quality_tests": {
+    "python_passed": 27,
+    "node_passed": 9
+  },
+  "checks": [
+    {
+      "command": "pnpm typecheck",
+      "exit_code": 0
+    },
+    {
+      "command": "tsc --project scripts/tsconfig.task35.json",
+      "exit_code": 0
+    },
+    {
+      "command": "pnpm lint",
+      "exit_code": 0
+    },
+    {
+      "command": "pnpm build",
+      "exit_code": 0
+    },
+    {
+      "command": "python scripts/check_contracts.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python scripts/quality/migrations.py --base origin/main",
+      "exit_code": 0
+    },
+    {
+      "command": "python scripts/quality/check_automation.py",
+      "exit_code": 0
+    },
+    {
+      "command": "actionlint -shellcheck= .github/workflows/*.yml",
+      "exit_code": 0
+    },
+    {
+      "command": "python scripts/quality/security.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python scripts/quality/security.py --bundle apps/web/.next/static",
+      "exit_code": 0
+    },
+    {
+      "command": "python scripts/quality/budget.py",
+      "exit_code": 0
+    },
+    {
+      "command": "INT01_ORIGIN=http://localhost:3003 node tests/e2e/int01.mjs",
+      "exit_code": 0
+    }
+  ],
+  "browser_mode": "optimized production build, real local candidate, isolated from external services",
+  "remote_map_publication_executed": false
+}

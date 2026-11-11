@@ -1,0 +1,80 @@
+{
+  "version": "mf-acquisition-health-1",
+  "observed_at": "2026-11-11T14:12:40.090779+00:00",
+  "scope": "catalogues_only",
+  "database_writes": 0,
+  "openai_calls": 0,
+  "data_freshness_verified": false,
+  "results": [
+    {
+      "product": "climatology",
+      "access_only": true,
+      "scientific_data_qualified": false,
+      "credential_bindings": [
+        "METEOFRANCE_CLIMATOLOGY_API_KEY",
+        "METEOFRANCE_CLIMATOLOGY_APPLICATION_ID"
+      ],
+      "endpoint": "DPClim/v1",
+      "auth_mode": "api_key",
+      "credential_binding": "METEOFRANCE_CLIMATOLOGY_API_KEY",
+      "http_status": 200,
+      "status": "access_succeeded"
+    },
+    {
+      "product": "observations",
+      "access_only": true,
+      "scientific_data_qualified": false,
+      "credential_bindings": [
+        "METEOFRANCE_OBSERVATIONS_API_KEY",
+        "METEOFRANCE_OBSERVATIONS_APPLICATION_ID"
+      ],
+      "endpoint": "DPObs/v1",
+      "auth_mode": "api_key",
+      "credential_binding": "METEOFRANCE_OBSERVATIONS_API_KEY",
+      "http_status": 200,
+      "status": "access_succeeded"
+    },
+    {
+      "product": "observations",
+      "access_only": true,
+      "scientific_data_qualified": false,
+      "credential_bindings": [
+        "METEOFRANCE_OBSERVATIONS_API_KEY",
+        "METEOFRANCE_OBSERVATIONS_APPLICATION_ID"
+      ],
+      "endpoint": "DPObs/v2",
+      "auth_mode": "api_key",
+      "credential_binding": "METEOFRANCE_OBSERVATIONS_API_KEY",
+      "status": "subscription_not_authorized",
+      "http_status": 403,
+      "phase": "resource",
+      "service_code": "900908"
+    },
+    {
+      "product": "arome",
+      "endpoint": "arome/1.0/wcs/MF-NWP-HIGHRES-AROME-0025-FRANCE-WCS/",
+      "credential_binding": "METEOFRANCE_AROME_API_KEY",
+      "auth_mode": "api_key",
+      "http_status": 200,
+      "status": "access_succeeded",
+      "access_only": true,
+      "scientific_data_qualified": false,
+      "pra_coverage_verified": false,
+      "wire_bytes_read": 76608,
+      "advertised_coverages": 8676
+    },
+    {
+      "product": "arpege",
+      "endpoint": "arpege/1.0/wcs/MF-NWP-GLOBAL-ARPEGE-01-EUROPE-WCS/",
+      "credential_binding": "METEOFRANCE_ARPEGE_API_KEY",
+      "auth_mode": "api_key",
+      "http_status": 200,
+      "status": "access_succeeded",
+      "access_only": true,
+      "scientific_data_qualified": false,
+      "pra_coverage_verified": false,
+      "wire_bytes_read": 44260,
+      "advertised_coverages": 4824
+    }
+  ]
+}

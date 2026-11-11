@@ -1,0 +1,808 @@
+{
+  "archives": [
+    {
+      "id": "2445b514d5acad3e75627c2091ae7f50a80216a2b4cfc13f37cab9d55c0ebcd0",
+      "edition_date": "2026-11-11",
+      "checksum": "d190ee7fd273f78cea7bf18ef17f1e5cb97a9356d9b238006e8c8ac4256f8d6d",
+      "created_at": "2026-11-11 08:46:20.514734+00",
+      "mode": "live",
+      "status": "rejected",
+      "maps": 0,
+      "selected": [],
+      "validity": {
+        "history_start": "2026-10-19",
+        "data_freshness": "stale",
+        "history_cutoff": "2026-11-04",
+        "forecast_period": [
+          "2026-11-10",
+          "2026-11-16"
+        ],
+        "history_age_days": 7
+      }
+    },
+    {
+      "id": "bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5",
+      "edition_date": "2026-11-11",
+      "checksum": "c6c253b501c6f39719069deb5e4b3efa64d234cdd6b0b8aa7f91007ef60af3c1",
+      "created_at": "2026-11-11 09:33:51.638569+00",
+      "mode": "live",
+      "status": "needs_editorial_review",
+      "maps": 0,
+      "selected": [],
+      "validity": {
+        "history_start": "2026-10-19",
+        "data_freshness": "stale",
+        "history_cutoff": "2026-11-04",
+        "forecast_period": [
+          "2026-11-10",
+          "2026-11-16"
+        ],
+        "history_age_days": 7
+      }
+    },
+    {
+      "id": "a75a9f16667b5df0d706f51259dfeceb0bdf1996801ef6dc4b1c17693f1f189d",
+      "edition_date": "2026-11-10",
+      "checksum": "cfc7b9a6de8163eb57dd7f941a8fe41734ca7ce4a42bc853a9821c9cd5cf9492",
+      "created_at": "2026-11-10 08:07:54.068655+00",
+      "mode": "live",
+      "status": "rejected",
+      "maps": 0,
+      "selected": [],
+      "validity": {
+        "history_start": "2026-10-19",
+        "data_freshness": "stale",
+        "history_cutoff": "2026-11-03",
+        "forecast_period": [
+          "2026-11-10",
+          "2026-11-16"
+        ],
+        "history_age_days": 7
+      }
+    },
+    {
+      "id": "9da626c533c6e928ee5d768a21b79a4d1fe290e6356345a2faac3f8e73a0e671",
+      "edition_date": "2026-11-09",
+      "checksum": "46058b664f8ffc9d935ac0cb917320169fbb7d3cedeed48fc7d832ca642efa4a",
+      "created_at": "2026-11-09 11:37:33.308622+00",
+      "mode": "fallback",
+      "status": "needs_editorial_review",
+      "maps": 0,
+      "selected": [],
+      "validity": {
+        "history_start": "2026-10-19",
+        "data_freshness": "stale",
+        "history_cutoff": "2026-11-02",
+        "forecast_period": [
+          "2026-11-09",
+          "2026-11-15"
+        ],
+        "history_age_days": 7
+      }
+    },
+    {
+      "id": "dc7d8613160ff4eb03533d49a17c52911c39d60cf268b68a2d8f9f14b2c0ea08",
+      "edition_date": "2026-11-09",
+      "checksum": "e1f6d85baaa74237ff9d94be5b97dd4f2234f4969f2773ecc63e6f4a03cfa4da",
+      "created_at": "2026-11-09 15:39:51.269908+00",
+      "mode": "live",
+      "status": "rejected",
+      "maps": 0,
+      "selected": [],
+      "validity": {
+        "history_start": "2026-10-19",
+        "data_freshness": "stale",
+        "history_cutoff": "2026-11-02",
+        "forecast_period": [
+          "2026-11-09",
+          "2026-11-15"
+        ],
+        "history_age_days": 7
+      }
+    }
+  ],
+  "publications": [],
+  "snapshots": [
+    {
+      "edition_date": "2026-11-11",
+      "id": "2e9ed6d01173cb0851505863ecd28c3e916fe0a10de3a92f2fb5769987d8446e",
+      "quality": "fallback_valid",
+      "frozen_at": "2026-11-11 08:33:39.774+00",
+      "input_archive": {
+        "path": "editorial-inputs/d2c7f1cdf4d09a9f9975fdcf9337595c099358f275ce8b0b047fdab2995f3892.json.gz",
+        "bytes": 5390367,
+        "sha256": "d2c7f1cdf4d09a9f9975fdcf9337595c099358f275ce8b0b047fdab2995f3892"
+      },
+      "sources": [
+        {
+          "model": "arpege-0p1",
+          "archive": {
+            "path": "weather/6d8255cb738799d0434c9ae4ded8e045d993e80561b724625683acb532cc1e43.json.gz",
+            "sha256": "6d8255cb738799d0434c9ae4ded8e045d993e80561b724625683acb532cc1e43"
+          },
+          "quality": "qualified",
+          "provider": "meteofrance-arpege",
+          "pra_count": 713,
+          "variables": [
+            "humidity",
+            "precipitation",
+            "temperature",
+            "temperature_max",
+            "temperature_min"
+          ],
+          "continuity": true,
+          "emitted_at": "2026-11-09T12:00:00Z",
+          "acquired_at": "2026-11-09T19:01:50.884027Z",
+          "valid_dates": [
+            "2026-11-11",
+            "2026-11-12"
+          ],
+          "source_version": "pra-national-weather-daily-1",
+          "support_qualification": [
+            "CORE-01",
+            "partial_and_unavailable_preserved"
+          ]
+        },
+        {
+          "model": "ifs-oper-0p25",
+          "archive": {
+            "path": "weather/6d8255cb738799d0434c9ae4ded8e045d993e80561b724625683acb532cc1e43.json.gz",
+            "sha256": "6d8255cb738799d0434c9ae4ded8e045d993e80561b724625683acb532cc1e43"
+          },
+          "quality": "qualified",
+          "provider": "ecmwf-open-data",
+          "pra_count": 713,
+          "variables": [
+            "humidity",
+            "precipitation",
+            "temperature",
+            "temperature_max",
+            "temperature_min"
+          ],
+          "continuity": true,
+          "emitted_at": "2026-11-09T00:00:00Z",
+          "acquired_at": "2026-11-09T19:01:50.884027Z",
+          "valid_dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16"
+          ],
+          "source_version": "pra-national-weather-daily-1",
+          "support_qualification": [
+            "CORE-01",
+            "partial_and_unavailable_preserved"
+          ]
+        }
+      ],
+      "validity": {
+        "history_start": "2026-10-19",
+        "data_freshness": "stale",
+        "history_cutoff": "2026-11-04",
+        "forecast_period": [
+          "2026-11-10",
+          "2026-11-16"
+        ],
+        "history_age_days": 7
+      }
+    },
+    {
+      "edition_date": "2026-11-10",
+      "id": "74c2b56b08dfd6c1b260532e1777291208a85d8c0ec7d7831934686b293d2756",
+      "quality": "fallback_valid",
+      "frozen_at": "2026-11-10 07:59:41.969+00",
+      "input_archive": {
+        "path": "editorial-inputs/c3a58d9eddf69a7a7e487e30285aaa84f7bfc4f0e9a0ec43769e31bcfa80e9fe.json.gz",
+        "bytes": 4898530,
+        "sha256": "c3a58d9eddf69a7a7e487e30285aaa84f7bfc4f0e9a0ec43769e31bcfa80e9fe"
+      },
+      "sources": [
+        {
+          "model": "arome-0p025",
+          "archive": {
+            "path": "weather/6d8255cb738799d0434c9ae4ded8e045d993e80561b724625683acb532cc1e43.json.gz",
+            "sha256": "6d8255cb738799d0434c9ae4ded8e045d993e80561b724625683acb532cc1e43"
+          },
+          "quality": "qualified",
+          "provider": "meteofrance-arome",
+          "pra_count": 713,
+          "variables": [
+            "humidity",
+            "precipitation",
+            "temperature",
+            "temperature_max",
+            "temperature_min"
+          ],
+          "continuity": true,
+          "emitted_at": "2026-11-09T12:00:00Z",
+          "acquired_at": "2026-11-09T19:01:50.884027Z",
+          "valid_dates": [
+            "2026-11-10"
+          ],
+          "source_version": "pra-national-weather-daily-1",
+          "support_qualification": [
+            "CORE-01",
+            "partial_and_unavailable_preserved"
+          ]
+        },
+        {
+          "model": "arpege-0p1",
+          "archive": {
+            "path": "weather/6d8255cb738799d0434c9ae4ded8e045d993e80561b724625683acb532cc1e43.json.gz",
+            "sha256": "6d8255cb738799d0434c9ae4ded8e045d993e80561b724625683acb532cc1e43"
+          },
+          "quality": "qualified",
+          "provider": "meteofrance-arpege",
+          "pra_count": 713,
+          "variables": [
+            "humidity",
+            "precipitation",
+            "temperature",
+            "temperature_max",
+            "temperature_min"
+          ],
+          "continuity": true,
+          "emitted_at": "2026-11-09T12:00:00Z",
+          "acquired_at": "2026-11-09T19:01:50.884027Z",
+          "valid_dates": [
+            "2026-11-11",
+            "2026-11-12"
+          ],
+          "source_version": "pra-national-weather-daily-1",
+          "support_qualification": [
+            "CORE-01",
+            "partial_and_unavailable_preserved"
+          ]
+        },
+        {
+          "model": "ifs-oper-0p25",
+          "archive": {
+            "path": "weather/6d8255cb738799d0434c9ae4ded8e045d993e80561b724625683acb532cc1e43.json.gz",
+            "sha256": "6d8255cb738799d0434c9ae4ded8e045d993e80561b724625683acb532cc1e43"
+          },
+          "quality": "qualified",
+          "provider": "ecmwf-open-data",
+          "pra_count": 713,
+          "variables": [
+            "humidity",
+            "precipitation",
+            "temperature",
+            "temperature_max",
+            "temperature_min"
+          ],
+          "continuity": true,
+          "emitted_at": "2026-11-09T00:00:00Z",
+          "acquired_at": "2026-11-09T19:01:50.884027Z",
+          "valid_dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16"
+          ],
+          "source_version": "pra-national-weather-daily-1",
+          "support_qualification": [
+            "CORE-01",
+            "partial_and_unavailable_preserved"
+          ]
+        }
+      ],
+      "validity": {
+        "history_start": "2026-10-19",
+        "data_freshness": "stale",
+        "history_cutoff": "2026-11-03",
+        "forecast_period": [
+          "2026-11-10",
+          "2026-11-16"
+        ],
+        "history_age_days": 7
+      }
+    },
+    {
+      "edition_date": "2026-11-09",
+      "id": "9a80aa650e29356b01095854d6ae4d546d1c7ad70ee42325805af3178c1f01c7",
+      "quality": "fallback_valid",
+      "frozen_at": "2026-11-09 11:05:16.801+00",
+      "input_archive": {
+        "path": "editorial-inputs/319bce61de5d4be452186ac84997800706a065ca5c2e825f41d65e8d741c47c1.json.gz",
+        "bytes": 4533471,
+        "sha256": "319bce61de5d4be452186ac84997800706a065ca5c2e825f41d65e8d741c47c1"
+      },
+      "sources": [
+        {
+          "model": "arome-0p025",
+          "archive": {
+            "path": "weather/b4ca62bf9b7637a8666b689028e32f5e8121a40c644dd6068caa87dbdf5e239a.json.gz",
+            "sha256": "b4ca62bf9b7637a8666b689028e32f5e8121a40c644dd6068caa87dbdf5e239a"
+          },
+          "quality": "qualified",
+          "provider": "meteofrance-arome",
+          "pra_count": 713,
+          "variables": [
+            "humidity",
+            "precipitation",
+            "temperature",
+            "temperature_max",
+            "temperature_min"
+          ],
+          "continuity": true,
+          "emitted_at": "2026-11-08T06:00:00Z",
+          "acquired_at": "2026-11-08T15:28:45.129353Z",
+          "valid_dates": [
+            "2026-11-09"
+          ],
+          "source_version": "pra-national-weather-daily-1",
+          "support_qualification": [
+            "CORE-01",
+            "partial_and_unavailable_preserved"
+          ]
+        },
+        {
+          "model": "arpege-0p1",
+          "archive": {
+            "path": "weather/b4ca62bf9b7637a8666b689028e32f5e8121a40c644dd6068caa87dbdf5e239a.json.gz",
+            "sha256": "b4ca62bf9b7637a8666b689028e32f5e8121a40c644dd6068caa87dbdf5e239a"
+          },
+          "quality": "qualified",
+          "provider": "meteofrance-arpege",
+          "pra_count": 713,
+          "variables": [
+            "humidity",
+            "precipitation",
+            "temperature",
+            "temperature_max",
+            "temperature_min"
+          ],
+          "continuity": true,
+          "emitted_at": "2026-11-08T06:00:00Z",
+          "acquired_at": "2026-11-08T15:28:45.129353Z",
+          "valid_dates": [
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "source_version": "pra-national-weather-daily-1",
+          "support_qualification": [
+            "CORE-01",
+            "partial_and_unavailable_preserved"
+          ]
+        },
+        {
+          "model": "ifs-oper-0p25",
+          "archive": {
+            "path": "weather/b4ca62bf9b7637a8666b689028e32f5e8121a40c644dd6068caa87dbdf5e239a.json.gz",
+            "sha256": "b4ca62bf9b7637a8666b689028e32f5e8121a40c644dd6068caa87dbdf5e239a"
+          },
+          "quality": "qualified",
+          "provider": "ecmwf-open-data",
+          "pra_count": 713,
+          "variables": [
+            "humidity",
+            "precipitation",
+            "temperature",
+            "temperature_max",
+            "temperature_min"
+          ],
+          "continuity": true,
+          "emitted_at": "2026-11-08T00:00:00Z",
+          "acquired_at": "2026-11-08T15:28:45.129353Z",
+          "valid_dates": [
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "source_version": "pra-national-weather-daily-1",
+          "support_qualification": [
+            "CORE-01",
+            "partial_and_unavailable_preserved"
+          ]
+        }
+      ],
+      "validity": {
+        "history_start": "2026-10-19",
+        "data_freshness": "stale",
+        "history_cutoff": "2026-11-02",
+        "forecast_period": [
+          "2026-11-09",
+          "2026-11-15"
+        ],
+        "history_age_days": 7
+      }
+    }
+  ],
+  "acquisitions": [
+    {
+      "edition_date": "2026-11-11",
+      "source": "era5",
+      "state": "success",
+      "attempts": 2,
+      "updated_at": "2026-11-11 03:21:46.172733+00",
+      "checkpoint": {
+        "report": {
+          "date": "2026-11-04",
+          "stage": "publication",
+          "sha256": "38767b02eaa36a8c290eb6267814c07e8dd5a31efa28cce84581f308ed88e078",
+          "status": "published",
+          "archive": {
+            "sha256": "38767b02eaa36a8c290eb6267814c07e8dd5a31efa28cce84581f308ed88e078",
+            "envelopes": 713,
+            "archive_bytes": 231265,
+            "archive_version": "pra-exact-bytes-1",
+            "uncompressed_output_bytes": 2173699
+          },
+          "seconds": 340.88978673,
+          "publication": {
+            "path": "era5/38767b02eaa36a8c290eb6267814c07e8dd5a31efa28cce84581f308ed88e078.json.gz",
+            "bytes": 231265,
+            "dates": [
+              "2026-11-04"
+            ],
+            "sha256": "38767b02eaa36a8c290eb6267814c07e8dd5a31efa28cce84581f308ed88e078",
+            "inserted": true
+          },
+          "source_bytes": 595702,
+          "restored_rows": 713,
+          "source_groups": 7,
+          "storage_writes": 5,
+          "database_writes": 0,
+          "source_requests": 7,
+          "spatial_support": {
+            "bytes": 2494176,
+            "dates": [
+              "2026-11-04"
+            ],
+            "geometries": 67,
+            "max_area_error_fraction": 0.0006667876838870694
+          },
+          "completed_batches": 713,
+          "new_compact_tiles": 21,
+          "acquisition_seconds": 306.522154915,
+          "aggregation_seconds": 3.1884596940000165
+        },
+        "result": "adapter_completed_qualification_retained",
+        "source": "era5",
+        "started_at": "2026-11-11T03:16:00.840827+00:00",
+        "dispatch_id": "watchdog-20261111-0315",
+        "finished_at": "2026-11-11T03:21:45.700701+00:00",
+        "scheduled_at": "2026-11-11T01:15:00+00:00",
+        "elapsed_seconds": 344.86,
+        "workflow_run_id": "42951475771",
+        "scheduled_at_basis": "dispatch"
+      }
+    },
+    {
+      "edition_date": "2026-11-11",
+      "source": "forecast",
+      "state": "retryable_failure",
+      "attempts": 3,
+      "updated_at": "2026-11-11 04:01:29.608841+00",
+      "checkpoint": {
+        "report": {
+          "run": "2026-11-11T00:00:00+00:00",
+          "status": "failed_previous_publication_preserved",
+          "seconds": 35.69580169499999,
+          "error_type": "CalledProcessError",
+          "source_bytes": 236185,
+          "source_failures": [],
+          "source_requests": 16,
+          "consumption_complete": false
+        },
+        "source": "forecast",
+        "exit_code": 1,
+        "started_at": "2026-11-11T04:00:46.910249+00:00",
+        "dispatch_id": "watchdog-20261111-0400",
+        "finished_at": "2026-11-11T04:01:29.101616+00:00",
+        "scheduled_at": "2026-11-11T01:15:00+00:00",
+        "elapsed_seconds": 42.191,
+        "workflow_run_id": "42956329780",
+        "scheduled_at_basis": "dispatch"
+      }
+    },
+    {
+      "edition_date": "2026-11-11",
+      "source": "news",
+      "state": "success",
+      "attempts": 1,
+      "updated_at": "2026-11-11 01:30:56.485263+00",
+      "checkpoint": {
+        "report": {
+          "generated_at": "2026-11-11T01:30:44.536321Z"
+        },
+        "source": "news",
+        "started_at": "2026-11-11T01:30:44.397641+00:00",
+        "dispatch_id": "watchdog-20261111-0130",
+        "finished_at": "2026-11-11T01:30:55.489270+00:00",
+        "scheduled_at": "2026-11-11T01:15:00+00:00",
+        "elapsed_seconds": 11.092,
+        "workflow_run_id": "42939386310",
+        "scheduled_at_basis": "dispatch"
+      }
+    },
+    {
+      "edition_date": "2026-11-11",
+      "source": "observations",
+      "state": "success",
+      "attempts": 3,
+      "updated_at": "2026-11-11 04:01:00.915685+00",
+      "checkpoint": {
+        "report": {
+          "to": "2026-11-11",
+          "days": [
+            {
+              "date": "2026-11-11",
+              "issues": [],
+              "status": "complete",
+              "changed": true,
+              "checksum": "be29c0641712a77a6feeed15189b238ab772e00b8ee36169de55cc0e8ddb6bde",
+              "freshness": "fresh",
+              "retrieved_at": "2026-11-11T04:00:59.782727+00:00",
+              "quality_flags": [
+                "et0_not_available",
+                "publication_time_unknown",
+                "recent_sample_not_daily_aggregate"
+              ],
+              "available_count": 15,
+              "observation_count": 15,
+              "station_unavailable": false
+            }
+          ],
+          "demo": false,
+          "from": "2026-11-11",
+          "run_id": "30998272-3b4b-4b8b-b5c9-0efc8bf028d8",
+          "dry_run": false,
+          "source_id": "meteofrance-observations",
+          "started_at": "2026-11-11T04:00:56.055198+00:00",
+          "successful": true,
+          "finished_at": "2026-11-11T04:01:00.560226+00:00"
+        },
+        "result": "adapter_completed_qualification_retained",
+        "source": "observations",
+        "started_at": "2026-11-11T04:00:54.965863+00:00",
+        "dispatch_id": "watchdog-20261111-0400",
+        "finished_at": "2026-11-11T04:01:00.592797+00:00",
+        "scheduled_at": "2026-11-11T01:15:00+00:00",
+        "elapsed_seconds": 5.627,
+        "workflow_run_id": "42956329780",
+        "scheduled_at_basis": "dispatch"
+      }
+    },
+    {
+      "edition_date": "2026-11-11",
+      "source": "stations",
+      "state": "retryable_failure",
+      "attempts": 3,
+      "updated_at": "2026-11-11 04:01:09.878895+00",
+      "checkpoint": {
+        "report": {
+          "to": "2026-11-10",
+          "date": "2026-11-10",
+          "from": "2026-11-04",
+          "stage": "failed",
+          "resume": "same_date_range",
+          "substage": "validate",
+          "error_type": "ValueError",
+          "successful": false,
+          "computed_at": "2026-11-11T04:00:58.476322+00:00",
+          "failed_stage": "ingestion"
+        },
+        "source": "stations",
+        "exit_code": 1,
+        "started_at": "2026-11-11T04:00:58.256773+00:00",
+        "dispatch_id": "watchdog-20261111-0400",
+        "finished_at": "2026-11-11T04:01:09.545418+00:00",
+        "scheduled_at": "2026-11-11T01:15:00+00:00",
+        "elapsed_seconds": 11.289,
+        "workflow_run_id": "42956329780",
+        "scheduled_at_basis": "dispatch"
+      }
+    }
+  ],
+  "freshness": [
+    {
+      "audit": {
+        "control": {
+          "singleton": true,
+          "ai_enabled": true,
+          "emergency_stop": false,
+          "acquisition_enabled": true,
+          "publication_enabled": false
+        },
+        "storage": [
+          {
+            "name": "catalogue.json",
+            "size": "6868",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-06T08:50:33.248466+00:00"
+          },
+          {
+            "name": "catalogues/03556328a3fcd78bf7e4221387cb1440cd5970768142a3e386b2ee6426976f3d.json.gz",
+            "size": "1431",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-09T19:41:35.499698+00:00"
+          },
+          {
+            "name": "catalogues/c2b6f55a00a81c1aa7e79b0e7ad7c5ffb759413bc34daf15c1696c9aaa7064f0.json.gz",
+            "size": "1219",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-09T19:02:05.683827+00:00"
+          },
+          {
+            "name": "catalogues/c8b91f8e844ff235d9374cf55f01906779d88066829b87c9e1433f28fee80a82.json.gz",
+            "size": "1315",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-09T19:02:10.617132+00:00"
+          },
+          {
+            "name": "catalogues/f4f5e948ea9ba0b78bb2d0fc46917b3cd2e4e8ffd7e2882508062437921e2c11.json.gz",
+            "size": "1539",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-11T03:21:41.545008+00:00"
+          },
+          {
+            "name": "current.json",
+            "size": "1851",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-06T12:10:34.310984+00:00"
+          },
+          {
+            "name": "editorial-inputs/319bce61de5d4be452186ac84997800706a065ca5c2e825f41d65e8d741c47c1.json.gz",
+            "size": "4533471",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-09T11:05:32.139117+00:00"
+          },
+          {
+            "name": "editorial-inputs/c3a58d9eddf69a7a7e487e30285aaa84f7bfc4f0e9a0ec43769e31bcfa80e9fe.json.gz",
+            "size": "4898530",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-10T08:00:09.293157+00:00"
+          },
+          {
+            "name": "editorial-inputs/d2c7f1cdf4d09a9f9975fdcf9337595c099358f275ce8b0b047fdab2995f3892.json.gz",
+            "size": "5390367",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-11T08:33:55.490461+00:00"
+          },
+          {
+            "name": "era5/1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961.json.gz",
+            "size": "284028",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-06T12:28:21.454771+00:00"
+          },
+          {
+            "name": "era5/2e277515347af6981b25ee67d02bd940f442d0dc618efbb106f16d9eefe3ace9.json.gz",
+            "size": "258289",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-06T09:12:17.342448+00:00"
+          },
+          {
+            "name": "era5/32a3ededfdf741ed9c7b23201da256a3c2652a781f479b676770830e3c3e512c.json.gz",
+            "size": "351528",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-06T09:12:28.009262+00:00"
+          },
+          {
+            "name": "era5/38767b02eaa36a8c290eb6267814c07e8dd5a31efa28cce84581f308ed88e078.json.gz",
+            "size": "231265",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-11T03:21:36.914993+00:00"
+          },
+          {
+            "name": "era5/48e95593d95cb9b6039c1243c8b9e3fd45e0cb89d22a22f885786ecfdaa78b84.json.gz",
+            "size": "231542",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-08T15:52:24.986834+00:00"
+          },
+          {
+            "name": "era5/a2c41e5e4055d22d8153bf15f2a93f6f108f01cd53ee9503bb0a19c7298060ab.json.gz",
+            "size": "233876",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-09T19:41:32.589919+00:00"
+          },
+          {
+            "name": "era5/b52eb1ab39cffc56774386b81e62aca94013c66b06a19bb51d05dc4b7790114a.json.gz",
+            "size": "474556",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-06T09:12:23.009985+00:00"
+          },
+          {
+            "name": "era5/cbe85befe41c1c92750db41a7d7b65f00c056ad69171b5d5357cf6fd1ee18079.json.gz",
+            "size": "232333",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-07T15:28:47.370675+00:00"
+          },
+          {
+            "name": "support/02cf76ae02922bb2f57c087471ecfbf9c4f1ff0c885557f484d622f6f1c32a4b.json.gz",
+            "size": "13077",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-09T19:41:29.941064+00:00"
+          },
+          {
+            "name": "support/0b13908a0de961239cd3011adb7bb0f029558aa156ad51a2216386338212a541.json.gz",
+            "size": "983376",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-08T15:52:18.850392+00:00"
+          },
+          {
+            "name": "support/4b5f52fea7ca4b7d18fa4511ae05cd7b56aeb7e793166aee45a15b4e318fc67c.json.gz",
+            "size": "14934",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-06T12:29:20.750396+00:00"
+          },
+          {
+            "name": "support/5c53925b548a5cee4f83a7b988ad6a240411d0be776ea0a55b80bd72551bf8ec.json.gz",
+            "size": "13081",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-11T03:21:31.710426+00:00"
+          },
+          {
+            "name": "support/8d1ca11beabf6e5240aeadeae583cc9dc6237f2ea292b9e309e929c66d0c1a2c.json.gz",
+            "size": "12946",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-07T15:28:45.245037+00:00"
+          },
+          {
+            "name": "support/98a1939648eb57598723fcb2fd644779ad23e18822ca176c93b7c9e150d63bd1.json.gz",
+            "size": "12911",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-08T15:52:22.083055+00:00"
+          },
+          {
+            "name": "support/af891d8b40efc5960b1ff4a07a1b9e5b189cb645cb8752ca1283cfa7e2ca7c75.json.gz",
+            "size": "983425",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-06T12:28:16.097334+00:00"
+          },
+          {
+            "name": "support/b7b121d8aed7612aaa139475cd0982a9d87febdaf8feffb5e31ed2bb683ef354.json.gz",
+            "size": "8198",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-06T12:28:18.702769+00:00"
+          },
+          {
+            "name": "weather/42b602fdc03b29707d423328026f216354e985e70debbc3252796335c24be724.json.gz",
+            "size": "562520",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-06T12:10:31.555047+00:00"
+          },
+          {
+            "name": "weather/62ab191f162a076003ffba79994858fcef0692b3e1f52e1abef1652f2d3c6066.json.gz",
+            "size": "562843",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-06T08:50:29.281354+00:00"
+          },
+          {
+            "name": "weather/6d8255cb738799d0434c9ae4ded8e045d993e80561b724625683acb532cc1e43.json.gz",
+            "size": "561782",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-09T19:02:07.546514+00:00"
+          },
+          {
+            "name": "weather/b4ca62bf9b7637a8666b689028e32f5e8121a40c644dd6068caa87dbdf5e239a.json.gz",
+            "size": "561804",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-08T15:28:58.381582+00:00"
+          },
+          {
+            "name": "weather/f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3.json.gz",
+            "size": "558453",
+            "bucket": "pra-climate-archives",
+            "created_at": "2026-11-07T09:33:02.285509+00:00"
+          }
+        ],
+        "stations": {
+          "rows": 265,
+          "valid_date": "2026-11-11",
+          "retrieved_at": "2026-11-11T04:00:59.782727+00:00"
+        },
+        "pra_daily": {
+          "rows": 32136,
+          "valid_date": "2026-10-30"
+        },
+        "observations": {
+          "rows": 0,
+          "observed_at": null,
+          "retrieved_at": null
+        }
+      }
+    }
+  ]
+}
