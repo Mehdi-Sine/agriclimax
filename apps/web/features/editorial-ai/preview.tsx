@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {EditorialHeader} from "../../components/navigation/editorial-header";
 import type { Archive, Block } from "./model";
 import type {ConsultableEdition} from "./consultable";
 import { frenchDate } from "../journal/ui/stories";
@@ -39,54 +40,10 @@ export function EditorialPreview({
   const api=personalStatus?"/api/journal/personnel":published?"/api/journal/edition":"/api/journal-preview";
   const mapApi=personalStatus?"/api/journal/personnel/map":published?"/api/journal/edition-map":"/api/journal-preview/map";
   return (
-    <main className="journal">
-      <header className="masthead">
-        <div className="edition-strip">
-          <span>
-            {a ? `ÉDITION DU ${frenchDate(a.date)}` : "ARCHIVES DU JOURNAL"}
-          </span>
-          <span>France métropolitaine & Corse · {personalStatus ? "Espace personnel" : published ? "Journal IA" : "Preview expérimentale"}</span>
-        </div>
-        <div className="masthead-title">
-          <Link href="/journal">
-            AgriclimaX<span>Le Journal agroclimatique</span>
-          </Link>
-          <p>
-            Le climat en perspective.
-            <br />
-            L’agriculture en contexte.
-          </p>
-        </div>
-        <nav aria-label="Espaces produit">
-          <Link href="/journal">Le Journal</Link>
-          <Link href="/">Climat</Link>
-          <a href="#filieres">Productions agricoles</a>
-          <a href="#regions">Régions</a>
-          <a href="#sources">Sources & méthodes</a>
-        </nav>
-      </header>
-      <section className="editorial-note" aria-label="Archives">
-        <h2>{personalStatus ? "Vos brouillons IA archivés" : published ? "Les éditions archivées" : "Les éditions en Preview"}</h2>
-        <form action={base}>
-          <label htmlFor="edition-date">Choisir une date </label>
-          <input
-            id="edition-date"
-            name="date"
-            type="date"
-            defaultValue={a?.date}
-          />
-          <button type="submit">Consulter</button>
-        </form>
-        <nav aria-label="Éditions archivées">
-          {editions.map((e) => (
-            <p key={e.edition_id}>
-              <Link href={`${base}?date=${e.date}&id=${e.edition_id}`}>
-                {frenchDate(e.date)} · Révision {e.revision}
-              </Link>
-            </p>
-          ))}
-        </nav>
-      </section>
+    <main className="journal ux01-journal">
+      <EditorialHeader active="journal"/>
+      <div className="ux01-edition-meta"><span>{a?`ÉDITION DU ${frenchDate(a.date)}`:"ARCHIVES DU JOURNAL"}</span><span>France métropolitaine & Corse · {published?"Journal IA":personalStatus?"Espace personnel":"Prévisualisation"}</span></div>
+      
       {!a || !d ? (
         <section className="empty-story">
           <h1>{personalStatus?"Aucun brouillon IA vérifié à cette date":"Aucune édition archivée à cette date"}</h1>
@@ -117,9 +74,10 @@ export function EditorialPreview({
                 <Text facts={a.briefing.national.facts} block={d.lead} />
               </div>
             </div>
-            {d.illustration_ids.length ? (
+            {a.illustrations.some(m=>d.illustration_ids.includes(m.id)) ? (
               a.illustrations
                 .filter((m) => d.illustration_ids.includes(m.id))
+                .slice(0,1)
                 .map((m) => (
                   <JournalPraMap
                     key={m.id}
@@ -140,14 +98,21 @@ export function EditorialPreview({
                 </p>
               </aside>
             )}
-            <section className="key-facts" aria-label="Les faits essentiels">
-              {d.key_figures.map((f) => (
+            <aside className="ux01-map-context">
+                <p className="eyebrow">LE FAIT MARQUANT</p>
+                <h2>Une situation à replacer dans son contexte</h2>
+                <Text facts={a.briefing.national.facts} block={d.decision}/>
+                <p className="ux01-map-footnote">Les phénomènes météorologiques ne préjugent pas, à eux seuls, de leurs conséquences sur les cultures et les élevages.</p>
+                <Link href="/climat">Explorer les indicateurs →</Link>
+              </aside>
+              <section className="key-facts" aria-label="Les faits essentiels">
+              {d.key_figures.slice(0,3).map((f) => (
                 <article key={f.fact_id}>
                   <p className="eyebrow">
                     ÉCHANTILLON TERRITORIAL · {f.region ?? "France"}
                   </p>
                   <strong>
-                    {f.value}
+                    {new Intl.NumberFormat("fr-FR",{maximumFractionDigits:2}).format(f.value)}
                     <span> {f.unit}</span>
                   </strong>
                   <p>{frenchPeriod(f.period[0], f.period[1])}</p>
@@ -166,7 +131,23 @@ export function EditorialPreview({
               ))}
             </section>
           </section>
-          <section className="understand">
+          <section className="ux01-cartes-teasers" aria-labelledby="ux01-carte-title">
+              <div className="ux01-teaser-heading">
+                <div><p className="eyebrow">L’ESSENTIEL EN CARTES</p><h2 id="ux01-carte-title">Les cartes de l’édition</h2></div>
+                <Link href={`/cartes-du-jour?date=${a.date}&id=${a.edition_id}`}>Toutes les cartes →</Link>
+              </div>
+              <div className="ux01-teaser-grid">
+                {a.illustrations.filter(m=>d.illustration_ids.includes(m.id)).slice(0,3).map(m=>
+                  <Link key={m.id} href={`/cartes-du-jour?date=${a.date}&id=${a.edition_id}&map=${m.id}`} className="ux01-teaser-card">
+                    <span className="ux01-teaser-stripe" aria-hidden="true"/>
+                    <span className="ux01-kicker">CARTE ARCHIVÉE · {m.period[0]} → {m.period[1]}</span>
+                    <h3>{m.caption}</h3>
+                    <small>Explorer les données et la légende →</small>
+                  </Link>)}
+                {!a.illustrations.some(m=>d.illustration_ids.includes(m.id))&&<p>Cette édition ne comporte pas de carte archivée compatible. Aucune carte récente ne lui est substituée.</p>}
+              </div>
+            </section>
+           <section className="understand">
             <article className="article-column">
               <p className="eyebrow">DÉCRYPTAGE</p>
               <h2>Comprendre la situation</h2>
@@ -252,7 +233,8 @@ export function EditorialPreview({
                 ))}
             </section>
           )}
-          <footer id="sources">
+          
+           <footer id="sources">
             <p className="eyebrow">LA RIGUEUR DERRIÈRE LE RÉCIT</p>
             <h2>Sources & méthodes</h2>
             {cycles.length>0&&<p>Cycles de prévision : {cycles.map(frenchCycle).join(" · ")}.</p>}
@@ -300,6 +282,28 @@ export function EditorialPreview({
           </footer>
         </>
       )}
+      <section className="editorial-note" aria-label="Archives">
+        <h2>{personalStatus ? "Vos brouillons IA archivés" : published ? "Les éditions archivées" : "Les éditions en Preview"}</h2>
+        <form action={base}>
+          <label htmlFor="edition-date">Choisir une date </label>
+          <input
+            id="edition-date"
+            name="date"
+            type="date"
+            defaultValue={a?.date}
+          />
+          <button type="submit">Consulter</button>
+        </form>
+        <nav aria-label="Éditions archivées">
+          {editions.map((e) => (
+            <p key={e.edition_id}>
+              <Link href={`${base}?date=${e.date}&id=${e.edition_id}`}>
+                {frenchDate(e.date)} · Révision {e.revision}
+              </Link>
+            </p>
+          ))}
+        </nav>
+      </section>
     </main>
   );
 }

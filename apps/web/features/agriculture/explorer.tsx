@@ -75,7 +75,17 @@ export function useAgriculturalExplorer(enabled: boolean) {
   const prefix = indicator?.scale === 'pra' ? 'pra:' : indicator?.scale === 'departement' ? 'dep:' : 'reg:';
   const scaleLabel = indicator?.scale === 'pra' ? 'PRA' : indicator?.scale === 'departement' ? 'département' : 'région';
   const label = indicator ? `${indicator.label} · ${indicator.variable_label}` : 'Productions agricoles';
+  const familyCards=Object.entries(GROUPS).map(([key,title])=>{
+    const first=indicators.find(i=>i.sheet===key);
+    const count=new Set(indicators.filter(i=>i.sheet===key).map(i=>i.production)).size;
+    return first?{key,title,production:first.production,count,selected:indicators.some(i=>i.production===production&&i.sheet===key)}:null;
+  }).filter((item):item is NonNullable<typeof item>=>item!==null);
   const filters = <>
+    {familyCards.length>0&&<section className="ux01-production-families" aria-label="Choisir une famille agricole">
+      <p className="eyebrow">LES PRODUCTIONS · FAMILLES DISPONIBLES</p>
+      <div>{familyCards.map(group=><button key={group.key} type="button" aria-pressed={group.selected} onClick={()=>change({agri_production:group.production,agri_variable:'',annee:'',echelle:'',territoire:''})}><strong>{group.title}</strong><small>{group.count} production{group.count>1?'s':''} référencée{group.count>1?'s':''}</small></button>)}</div>
+    </section>}
+
     <section className="unified-filters filters-open" aria-label="Filtres agricoles">
       <label>Production<select value={production ?? ''} disabled={!indicators.length} onChange={e => change({ agri_production: e.target.value, agri_variable: '', annee: '', echelle: '', territoire: '' })}>
         {Object.entries(GROUPS).map(([sheet, title]) => <optgroup key={sheet} label={title}>{indicators.filter((i, n, all) => i.sheet === sheet && all.findIndex(j => j.production === i.production) === n).map(i => <option key={i.production} value={i.production}>{i.label}</option>)}</optgroup>)}

@@ -1,8 +1,11 @@
 :root {
   --brand-primary: #123d38;
+  --editorial-ink: #192f39;
+  --editorial-blue: #1b6b8c;
+  --editorial-orange: #c47549;
   --brand-secondary: #287e88;
   --brand-accent: #bde1cf;
-  --surface-base: #f6f7f3;
+  --surface-base: #fcfaf6;
   --text-primary: #263a43;
   --accent-amber: #d99545;
   --risk-low: #66a98e;
@@ -40,6 +43,9 @@
   color-scheme: light;
 }
 [data-theme="dark"] {
+  --editorial-ink: #e7efeb;
+  --editorial-blue: #95c3d3;
+  --editorial-orange: #e1a27c;
   --surface-base: #12201e;
   --surface-raised: #1b2d2a;
   --surface-subtle: #243a35;

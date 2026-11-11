@@ -20,25 +20,29 @@ await page.goto(base+'/?date=2026-10-15&mode=value');
 await page.locator('.national-map[data-ready="true"]').waitFor({timeout:60000});
 await page.getByText(/PRA complètes/).waitFor();
 assert.equal(await page.getByText(/Carte indisponible/).count(),0);
-const canvas=page.locator('.maplibregl-canvas');const original=await canvas.elementHandle();await canvas.scrollIntoViewIfNeeded();
+const canvas=page.locator('.maplibregl-canvas');await canvas.scrollIntoViewIfNeeded();
 const box=await canvas.boundingBox();await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.click(box.x+box.width/2,box.y+box.height/2);
 await page.waitForURL(/pra=pra/);
 const id=new URL(page.url()).searchParams.get('pra');const expected=fixture.find(f=>f.territoryId===id);assert.ok(expected);
 await page.locator('.unified-value strong').filter({hasText:String(expected.value)}).waitFor();
 assert.match(await page.locator('.national-hover').innerText(),new RegExp(String(expected.value)));
 report.cases.push('Real polygon hover/click, quantitative tooltip and panel equality');
+await page.getByRole('button',{name:/Réglages avancés/}).click();
 await page.getByRole('combobox',{name:'Lecture',exact:true}).selectOption('normal');
 await page.locator('.unified-value strong').filter({hasText:'10'}).waitFor();
 await page.getByRole('combobox',{name:'Lecture',exact:true}).selectOption('anomaly');
 await page.locator('.unified-value strong').filter({hasText:String(expected.anomaly)}).waitFor();
 assert.equal(await page.locator('.unified-chart svg').count(),1);report.cases.push('Normal, anomaly, daily history');
-for(const [name,path] of [['Productions agricoles','productions'],['Analyse agroclimato','analyse'],['Climat','']]){
- await page.getByRole('link',{name,exact:true}).click();await page.waitForURL(url=>url.pathname==='/'+path);
- assert.equal(new URL(page.url()).searchParams.get('pra'),id);
- assert.equal(await original.evaluate(node=>node===document.querySelector('.maplibregl-canvas')),true,'Map must persist across spaces');
+for(const [name,route] of [['Productions','/productions'],['Explorer le climat','/climat']]){
+ await page.getByRole('link',{name,exact:true}).click();
+ await page.waitForURL(url=>url.pathname===route);
+ assert.equal(new URL(page.url()).searchParams.get('pra'),id,'PRA preserved by the new main navigation');
 }
-await page.goBack();await page.waitForURL('**/analyse?**');await page.reload();assert.equal(new URL(page.url()).searchParams.get('pra'),id);
-report.cases.push('Three spaces preserve PRA and the same canvas; browser back and reload');
+// Analyse agroclimatique remains available by its legacy deep link, not as a sixth main tab.
+await page.goto(base+'/analyse?date=2026-10-15&pra='+encodeURIComponent(id));
+await page.reload();
+assert.equal(new URL(page.url()).searchParams.get('pra'),id);
+report.cases.push('Five-tab UX keeps PRA context, Analyse legacy deep link and reload');
 await page.getByRole('combobox',{name:'Indicateur',exact:true}).selectOption('rain');await page.getByRole('button',{name:'30 jours',exact:true}).click();
 assert.equal(new URL(page.url()).searchParams.get('agro_start'),'2026-09-19');assert.equal(new URL(page.url()).searchParams.get('agro_end'),'2026-10-18');
 report.cases.push('Wheat period and indicator controls');
