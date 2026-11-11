@@ -57,6 +57,7 @@ async function main() {
  originals.sort((a,b)=>b.revision-a.revision||b.generated_at.localeCompare(a.generated_at));
  const beforeState={snapshot:existing?.id??null,archives:originals.map(a=>({id:a.edition_id,checksum:a.checksum})),publications:before.publications};save('before.json',beforeState);
  report.acquisitions=before.acquisitions.map(a=>({source:a.source,status:"reused",ledger_state:a.state}));
+ if(control.emergency_stop&&(options.mode!=='dry-run'||options.refresh_sources)){report.blockers=['EMERGENCY_STOP'];return;}
  const newsFile=join(root,"news.json");
  const archivedNews=before.acquisitions.find(a=>a.source==="news")?.checkpoint?.report;
  if(archivedNews)writeFileSync(newsFile,JSON.stringify(archivedNews));
@@ -93,19 +94,20 @@ async function main() {
  report.snapshot={id:snapshot.id,quality:snapshot.quality,status:existing?.id===snapshot.id?'reused_frozen':'isolated_test',production_id:existing?.id??null};
  report.freshness={history:snapshot.briefing?.validity,forecasts:snapshot.sources.map(s=>({model:s.model,emitted_at:s.emitted_at,acquired_at:s.acquired_at,valid_dates:s.valid_dates}))};
  report.coverage=snapshot.data_quality??snapshot.briefing?.national.coverage??null;
- const compatible=options.reuse_ai?originals.find(a=>a.mode==='live'&&!!a.receipt&&a.briefing.bundle_id===snapshot!.briefing?.bundle_id&&validateDraft(a.draft,a.briefing,a.illustrations).status!=='rejected'):undefined;
+ const compatible=originals.find(a=>a.mode==='live'&&!!a.receipt&&a.briefing.bundle_id===snapshot!.briefing?.bundle_id&&validateDraft(a.draft,a.briefing,a.illustrations).status!=='rejected');
+ const reused=options.reuse_ai?compatible:undefined;
  const decision=generationDecision(options,{snapshot_id:snapshot.id,compatible_ai:!!compatible,published:before.publications.some(p=>p.edition_date===date),quality:snapshot.quality});
  report.decision=decision;
- if(compatible)save("compatible-ai-archive.json",compatible);
- let archive=compatible?.mode==="live"?undefined:compatible;
+ if(reused)save("compatible-ai-archive.json",reused);
+ let archive=reused?.mode==="live"?undefined:reused;
  if(snapshot.briefing&&!archive){
   const briefing=snapshot.briefing,draft=fallbackDraft(briefing),validation=validateDraft(draft,briefing);
   const config=operationalConfig('gpt-6.1-terra');
   archive=sealArchive({version:'editorial-archive-1',edition_id:hash([snapshot.id,'manual-preview',draft]),revision:1,supersedes:null,date,generated_at:new Date().toISOString(),engine:ENGINE,prompt_version:PROMPT_VERSION,config_version:CONFIG_VERSION,mode:'fallback',status:validation.status,draft,briefing,illustrations:[],validation,receipt:null,prompt_sha256:hash(INSTRUCTIONS),parameters:{model:config.model,max_output_tokens:config.max_output_tokens,request_profile:config.request_profile}});
  }
  if(archive){verifyArchive(archive);writeFileSync(join(preview,'editions',archive.edition_id+'.json'),JSON.stringify(archive));
-  report.openai={status:compatible?'reused_for_validation':'not_called_deterministic_preview',calls:0};report.validation=archive.validation;
-  report.consultation={status:'local_preview_ready',url:`/journal/preview?date=${date}&id=${archive.edition_id}`,archive_id:archive.edition_id,preview_mode:archive.mode,compatible_ai_url:compatible?`https://agriclimax.vercel.app/journal?id=${compatible.edition_id}`:null,environment:{AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR:preview,AGRICLIMAX_MANUAL_RUN_DIR:root}};
+  report.openai={status:reused?'reused_for_validation':'not_called_deterministic_preview',calls:0};report.validation=archive.validation;
+  report.consultation={status:'local_preview_ready',url:`/journal/preview?date=${date}&id=${archive.edition_id}`,archive_id:archive.edition_id,preview_mode:archive.mode,compatible_ai_url:reused?`https://agriclimax.vercel.app/journal?id=${reused.edition_id}`:null,environment:{AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR:preview,AGRICLIMAX_MANUAL_RUN_DIR:root}};
  }
  report.preview=report.consultation;
  if(options.mode==='dry-run')return;

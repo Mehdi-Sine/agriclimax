@@ -16,7 +16,7 @@
       "authorized_snapshot": "",
       "regeneration_reason": ""
     },
-    "started_at": "2026-11-11T10:01:08.241Z",
+    "started_at": "2026-11-11T10:15:40.657Z",
     "phase": "test_preparation",
     "acquisitions": [
       {
@@ -123,7 +123,7 @@
       ]
     },
     "snapshot": {
-      "id": "4a2da443a35bf7fcdd611c382b84d018d7f5be93963edc335ba7eefca148fec5",
+      "id": "978125f1c558122732261a96936c1200017f82e3a6ef9707bcd0e4e4332a4bbd",
       "quality": "fallback_valid",
       "status": "isolated_test",
       "production_id": "2e9ed6d01173cb0851505863ecd28c3e916fe0a10de3a92f2fb5769987d8446e"
@@ -144,18 +144,18 @@
     },
     "consultation": {
       "status": "local_preview_ready",
-      "url": "/journal/preview?date=2026-11-11&id=6679009f66401015cfcb0b2f57481cccc607ffa49b6f65bcfb5864277d3f8227",
-      "archive_id": "6679009f66401015cfcb0b2f57481cccc607ffa49b6f65bcfb5864277d3f8227",
+      "url": "/journal/preview?date=2026-11-11&id=5917b553aa5e2b7a1442198f9cf2a847ed19e6051181fb7361b93fd0fba755ac",
+      "archive_id": "5917b553aa5e2b7a1442198f9cf2a847ed19e6051181fb7361b93fd0fba755ac",
       "preview_mode": "fallback",
       "compatible_ai_url": null,
       "environment": {
-        "AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR": "/workspace/agriclimax/work/ops04-demo/final-dry-run/preview",
-        "AGRICLIMAX_MANUAL_RUN_DIR": "/workspace/agriclimax/work/ops04-demo/final-dry-run"
+        "AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR": "/workspace/agriclimax/work/ops04-demo/final-with-news/preview",
+        "AGRICLIMAX_MANUAL_RUN_DIR": "/workspace/agriclimax/work/ops04-demo/final-with-news"
       }
     },
     "blockers": [],
     "decision": "deterministic_preview",
-    "finished_at": "2026-11-11T10:02:29.385Z",
+    "finished_at": "2026-11-11T10:16:11.728Z",
     "status": "completed"
   },
   "resume": {
@@ -172,7 +172,7 @@
       "authorized_snapshot": "",
       "regeneration_reason": ""
     },
-    "started_at": "2026-11-11T09:59:14.837Z",
+    "started_at": "2026-11-11T10:21:24.885Z",
     "phase": "consultation",
     "acquisitions": [
       {
@@ -253,8 +253,8 @@
     "snapshot": {
       "id": "2e9ed6d01173cb0851505863ecd28c3e916fe0a10de3a92f2fb5769987d8446e",
       "quality": "fallback_valid",
-      "status": "reused_frozen",
-      "production_id": "2e9ed6d01173cb0851505863ecd28c3e916fe0a10de3a92f2fb5769987d8446e"
+      "status": "production_frozen",
+      "test_id": "2e9ed6d01173cb0851505863ecd28c3e916fe0a10de3a92f2fb5769987d8446e"
     },
     "openai": {
       "status": "reused_compatible_response",
@@ -276,6 +276,17 @@
     },
     "blockers": [],
     "decision": "reuse",
+    "preview": {
+      "status": "local_preview_ready",
+      "url": "/journal/preview?date=2026-11-11&id=f688751ad900d005694b3882881489dcd6c267ac401896753d990d26b6a55b6f",
+      "archive_id": "f688751ad900d005694b3882881489dcd6c267ac401896753d990d26b6a55b6f",
+      "preview_mode": "fallback",
+      "compatible_ai_url": "https://agriclimax.vercel.app/journal?id=bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5",
+      "environment": {
+        "AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR": "/workspace/agriclimax/work/ops04-demo/final-resume/preview",
+        "AGRICLIMAX_MANUAL_RUN_DIR": "/workspace/agriclimax/work/ops04-demo/final-resume"
+      }
+    },
     "service_check": {
       "exit_code": 0,
       "receipt": {
@@ -286,7 +297,7 @@
         "error": null
       }
     },
-    "finished_at": "2026-11-11T09:59:31.929Z",
+    "finished_at": "2026-11-11T10:21:44.837Z",
     "status": "completed"
   },
   "browser": {
@@ -302,6 +313,8 @@
       "2026-11-04"
     ],
     "nature": "reanalysis",
+    "mobile_overflow": false,
+    "map_ready": true,
     "map_canvas": 1,
     "page_errors": []
   },
@@ -316,6 +329,18 @@
     "web_passed": 632,
     "web_skipped": 8,
     "python_passed": 458,
-    "python_subtests_passed": 35
-  }
+    "python_subtests_passed": 35,
+    "final_manual_policy_passed": 14,
+    "build": "passed",
+    "typechecks": "passed"
+  },
+  "workflow_dispatch": {
+    "attempted": true,
+    "status": "blocked_before_default_branch_registration",
+    "http_status": 404,
+    "workflow": "manual-journal.yml",
+    "branch": "codex/ops-04-manual-journal",
+    "manual_action_after_merge": "gh workflow run manual-journal.yml --ref main -f edition_date=2026-11-11 -f mode=dry-run -f recompute_indicators=true -f refresh_sources=false"
+  },
+  "replay_byte_identical": true
 }

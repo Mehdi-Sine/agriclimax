@@ -31,7 +31,7 @@ describe('OPS-04 admissions and cost policy',()=>{
  it('does not overwrite a valid generation when reuse is explicitly disabled',()=>expect(generationDecision(manualOptions({mode:'resume',reuse_ai:'false'},now),{...state,compatible_ai:true})).toBe('compatible_generation_preserved'));
 });
 describe('OPS-04 real CLI read-only boundary with a source-shaped stored archive',()=>{
- it.each([['dry-run',false],['resume',false],['publish',false],['publish',true]] as const)('preserves data and review gates in %s, publication enabled=%s',async(mode,publicationEnabled)=>{
+ it.each([['dry-run',false,false],['resume',false,false],['publish',false,false],['publish',true,false],['resume',true,true]] as const)('preserves data and review gates in %s, publication enabled=%s',async(mode,publicationEnabled,emergencyStop)=>{
   vi.resetModules();
   const {checksum,...body}=simulated as unknown as Archive;void checksum;
   const a=sealArchive({...body,mode:'live',receipt:{model:body.parameters.model,response_id:'resp_synthetic_only',usage:null,cost_eur:null,duration_ms:0,pricing_version:'synthetic'}});
@@ -41,7 +41,7 @@ describe('OPS-04 real CLI read-only boundary with a source-shaped stored archive
   vi.stubGlobal('fetch',vi.fn(async(_url,init)=>{
    const {p_action}=JSON.parse(init.body);actions.push(p_action);
    if(p_action==='report')return Response.json({diagnostics:[],acquisitions:[{source:'stations',state:'retryable_failure'},{source:'forecast',state:'retryable_failure'}],runs:[{id:a.edition_id,archive_id:a.edition_id,edition_date:a.date,state:'completed'}],publications:[]});
-   if(p_action==='control')return Response.json({emergency_stop:false,publication_enabled:publicationEnabled});
+   if(p_action==='control')return Response.json({emergency_stop:emergencyStop,publication_enabled:publicationEnabled});
    if(p_action==='reviews')return Response.json([]);
    if(p_action==='snapshot_read')return Response.json(JSON.stringify(snapshot));
    if(p_action==='archive_read')return Response.json(JSON.stringify(a));
@@ -50,6 +50,7 @@ describe('OPS-04 real CLI read-only boundary with a source-shaped stored archive
   try{
    const runner=await import('../../../../scripts/manual_journal');await runner.execution;
    const result=JSON.parse(readFileSync(join(dir,'report.json'),'utf8'));
+   if(emergencyStop){expect(result.status).toBe('blocked');expect(result.blockers).toEqual(['EMERGENCY_STOP']);expect(result.openai.calls).toBe(0);return;}
    expect(result.status).toBe('completed');expect(result.openai.calls).toBe(0);expect(result.snapshot.status).toBe(mode==='dry-run'?'reused_frozen':'production_frozen');expect(result.publication.status).toBe(mode==='dry-run'?'not_requested':mode==='resume'?'not_requested_resume':'waiting');
    if(mode==='publish')expect(result.publication.reason).toBe(publicationEnabled?'EDITORIAL_APPROVAL_REQUIRED':'PUBLICATION_DISABLED');
    expect(result.openai.status).toMatch(/reused/);
