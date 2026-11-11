@@ -46,3 +46,11 @@ AGRICLIMAX_EDITION_DATE=2026-11-11 pnpm editorial:nightly revalidate 2445b514d5a
 ```
 
 Cette commande prépare localement. Après autorisation et application de la migration OPS-03 seulement, ajouter `--execute-revalidation` pour archiver la révision et enregistrer atomiquement cette révision et son entrée de registre de portée `revalidation` à coût nul. Aucun nouvel appel ni coût IA, ancienne archive intacte, checksum source obligatoire, révision déterministe, journal de revalidation conservé. Une véritable erreur scientifique reste bloquante. La certification humaine reste distincte.
+
+
+État au 11 novembre après autorisation : migration OPS-03 et révision 2 enregistrées.
+Les commandes de revalidation ci-dessus sont idempotentes. Ne pas réappliquer la
+migration ; son nom dans l'historique Supabase est `ops03_journal_recovery`, version
+`20261111093334`. La PR doit encore être déployée pour donner priorité à la révision
+la plus élevée sur le Journal par défaut. La certification exige toujours la revue
+éditoriale existante et son contrôle de publication ; elle n'est pas automatique.

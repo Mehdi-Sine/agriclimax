@@ -15,7 +15,7 @@ Snapshot partagé créé puis relu le 11 novembre :
 `2e9ed6d01173cb0851505863ecd28c3e916fe0a10de3a92f2fb5769987d8446e`, qualité `fallback_valid`.
 ERA5-Land : référence 4 novembre, âge sept jours, **645/713 PRA** avec quatre descripteurs complets ; les 68 autres PRA ne reçoivent aucune valeur imputée. Cycles prévisionnels antérieurs conservés avec émission, validité et provenance réelles. Aucun appel OpenAI local, clé absente de cet environnement.
 
-La migration est testée localement mais **non déployée** : l'examen automatique d'autorisation a refusé cette modification persistante des RPC et des contrôles de reprise/appels payants sur le projet partagé. Ne pas l'appliquer indirectement. L'autorisation explicite du propriétaire reste nécessaire. Le snapshot valide et une première génération peuvent utiliser les RPC OPS-02 déjà déployées.
+État initial, avant autorisation du propriétaire : la migration est testée localement mais **non déployée** : l'examen automatique d'autorisation a refusé cette modification persistante des RPC et des contrôles de reprise/appels payants sur le projet partagé. Ne pas l'appliquer indirectement. L'autorisation explicite du propriétaire reste nécessaire. Le snapshot valide et une première génération peuvent utiliser les RPC OPS-02 déjà déployées.
 
 ## Validation
 
@@ -41,3 +41,36 @@ Chromium a constaté HTTP 200 et l'édition du 11 novembre dans le Journal de pr
 Validation Python finale : **455 tests réussis**, 35 sous-tests. La première CI distante a montré deux échecs SQL : les fixtures OPS-02/ledger supposaient encore le refus unique des dates futures et le gel définitif de l'insuffisance. Elles sont adaptées aux nouveaux états ; aucune règle scientifique n'est déduite de ces fixtures purement techniques.
 
 La matrice PostGIS complète locale n’a pas terminé : extraction de l’image interrompue par le disque de 8 Go. Les tests PostgreSQL légers, y compris la nouvelle révision, ses clés étrangères, le texte immuable et la concurrence, passent. Le code doit être revérifié par la CI PostGIS distante avant fusion.
+
+
+## Autorisation et enregistrement effectif du 11 novembre
+
+Après autorisation explicite du propriétaire, seule la migration préparée
+`20261111083258_ops03_journal_recovery.sql` a été appliquée. Supabase lui a attribué
+la version d'historique `20261111093334`, nom `ops03_journal_recovery` ; le fichier
+source est inchangé. Aucun secret ni contrôle global de publication modifié.
+
+Révision 2 persistée : `bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5`,
+checksum `c6c253b501c6f39719069deb5e4b3efa64d234cdd6b0b8aa7f91007ef60af3c1`.
+Validation : aucune erreur, `needs_editorial_review` / `SEMANTIC_REVIEW_REQUIRED`.
+Deux exécutions identiques donnent deux archives au total (originale + révision),
+un seul événement de revalidation et toujours un seul appel OpenAI historique.
+L'archive originale garde son checksum ; texte, reçu et date de génération sont
+strictement identiques. Le snapshot n'a pas changé. L'entrée de registre de
+réévaluation est terminée à coût nul.
+
+Chromium confirme HTTP 200 pour `/journal` et pour la révision exacte :
+`/journal?date=2026-11-11&id=bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5`.
+Le lecteur de production encore sur l'ancien code choisit **la révision 1 par défaut**,
+ce que confirme `/api/journal/availability`. Le tri donnant priorité à la révision 2
+est dans la PR #78 : il faut déployer ce code pour basculer la sélection par défaut.
+Aucune fusion automatique effectuée.
+
+`editorial_publications` reste vide pour le 11 novembre : la certification est
+explicitement désactivée (`publication_enabled=false`) et la revue sémantique
+humaine reste requise. L'autorisation de persistance n'est pas assimilée à une
+approbation éditoriale ni à une certification scientifique.
+
+Les CI du commit `8e40e92` sont toutes réussies, y compris les deux variantes
+PostGIS, le web et les parcours navigateur. Après application : 73 tests ciblés
+supplémentaires réussis, plus contrôle réel d'idempotence et de consultation.
