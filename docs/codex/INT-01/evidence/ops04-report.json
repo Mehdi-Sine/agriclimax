@@ -1,0 +1,207 @@
+{
+  "version": "manual-journal-report-1",
+  "code_commit": "bd475ff9f169cdcc73a3f9325e19ab8119f8d34f",
+  "workflow_run_id": "43023425215",
+  "edition_date": "2026-11-11",
+  "mode": "dry-run",
+  "options": {
+    "edition_date": "2026-11-11",
+    "mode": "dry-run",
+    "refresh_sources": false,
+    "recompute_indicators": true,
+    "reuse_ai": true,
+    "force_ai_regeneration": false,
+    "authorized_snapshot": "",
+    "regeneration_reason": ""
+  },
+  "started_at": "2026-11-11T12:48:29.162Z",
+  "phase": "test_preparation",
+  "acquisitions": [
+    {
+      "source": "news",
+      "status": "reused",
+      "ledger_state": "success",
+      "last_attempt_reference": {
+        "generated_at": "2026-11-11T01:30:44.536321Z"
+      },
+      "source_days": []
+    },
+    {
+      "source": "stations",
+      "status": "reused",
+      "ledger_state": "retryable_failure",
+      "last_attempt_reference": {
+        "date": "2026-11-10",
+        "from": "2026-11-04",
+        "to": "2026-11-10",
+        "error_type": "ValueError",
+        "substage": "validate"
+      },
+      "source_days": []
+    },
+    {
+      "source": "era5",
+      "status": "reused",
+      "ledger_state": "success",
+      "last_attempt_reference": {
+        "date": "2026-11-04"
+      },
+      "source_days": []
+    },
+    {
+      "source": "observations",
+      "status": "reused",
+      "ledger_state": "success",
+      "last_attempt_reference": {
+        "from": "2026-11-11",
+        "to": "2026-11-11"
+      },
+      "source_days": [
+        {
+          "date": "2026-11-11",
+          "status": "complete",
+          "quality_flags": [
+            "et0_not_available",
+            "publication_time_unknown",
+            "recent_sample_not_daily_aggregate"
+          ],
+          "available_count": 15,
+          "observation_count": 15
+        }
+      ]
+    },
+    {
+      "source": "forecast",
+      "status": "reused",
+      "ledger_state": "retryable_failure",
+      "last_attempt_reference": {
+        "run": "2026-11-11T00:00:00+00:00",
+        "error_type": "CalledProcessError"
+      },
+      "source_days": []
+    }
+  ],
+  "freshness": {
+    "history": {
+      "history_start": "2026-10-19",
+      "history_cutoff": "2026-11-04",
+      "history_age_days": 7,
+      "forecast_period": [
+        "2026-11-10",
+        "2026-11-16"
+      ],
+      "data_freshness": "stale"
+    },
+    "forecasts": [
+      {
+        "model": "arpege-0p1",
+        "emitted_at": "2026-11-09T12:00:00Z",
+        "acquired_at": "2026-11-09T19:01:50.884027Z",
+        "valid_dates": [
+          "2026-11-11",
+          "2026-11-12"
+        ]
+      },
+      {
+        "model": "ifs-oper-0p25",
+        "emitted_at": "2026-11-09T00:00:00Z",
+        "acquired_at": "2026-11-09T19:01:50.884027Z",
+        "valid_dates": [
+          "2026-11-13",
+          "2026-11-14",
+          "2026-11-15",
+          "2026-11-16"
+        ]
+      }
+    ]
+  },
+  "coverage": {
+    "policy_version": "journal-data-quality-1",
+    "nature": "reanalysis",
+    "reference_date": "2026-11-04",
+    "age_days": 7,
+    "complete_pra": 645,
+    "total_pra": 713,
+    "usable": true,
+    "freshness": "historical"
+  },
+  "indicators": {
+    "status": "calculated",
+    "calculated": 92690,
+    "errors": [],
+    "groups": [
+      {
+        "nature": "reanalysis",
+        "period": [
+          "2026-10-29",
+          "2026-11-04"
+        ],
+        "input_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+        "metrics": {
+          "calculations": 13547,
+          "cache_hits": 32798,
+          "pra_count": 713
+        }
+      },
+      {
+        "nature": "forecast",
+        "period": [
+          "2026-11-11",
+          "2026-11-12"
+        ],
+        "input_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+        "metrics": {
+          "calculations": 13547,
+          "cache_hits": 32798,
+          "pra_count": 713
+        }
+      }
+    ]
+  },
+  "snapshot": {
+    "id": "8ce66a05ab812101bc06c5776c060d70f5f016ae7d8c137247a65ecbe1a2e9bc",
+    "quality": "fallback_valid",
+    "status": "isolated_test",
+    "production_id": "2e9ed6d01173cb0851505863ecd28c3e916fe0a10de3a92f2fb5769987d8446e"
+  },
+  "openai": {
+    "status": "not_called_deterministic_preview",
+    "calls": 0
+  },
+  "validation": {
+    "status": "needs_editorial_review",
+    "errors": [],
+    "review": [
+      "SEMANTIC_REVIEW_REQUIRED"
+    ]
+  },
+  "publication": {
+    "status": "not_requested"
+  },
+  "consultation": {
+    "status": "local_preview_ready",
+    "url": "/journal/preview?date=2026-11-11&id=de5dc69b77e484ba3244cdb51a6f71c36fb96b65451ad022eccf0df0e98554d9",
+    "archive_id": "de5dc69b77e484ba3244cdb51a6f71c36fb96b65451ad022eccf0df0e98554d9",
+    "preview_mode": "fallback",
+    "compatible_ai_url": null,
+    "environment": {
+      "AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR": "/home/runner/work/agriclimax/agriclimax/work/manual-journal/latest/preview",
+      "AGRICLIMAX_MANUAL_RUN_DIR": "/home/runner/work/agriclimax/agriclimax/work/manual-journal/latest"
+    }
+  },
+  "blockers": [],
+  "decision": "deterministic_preview",
+  "preview": {
+    "status": "local_preview_ready",
+    "url": "/journal/preview?date=2026-11-11&id=de5dc69b77e484ba3244cdb51a6f71c36fb96b65451ad022eccf0df0e98554d9",
+    "archive_id": "de5dc69b77e484ba3244cdb51a6f71c36fb96b65451ad022eccf0df0e98554d9",
+    "preview_mode": "fallback",
+    "compatible_ai_url": null,
+    "environment": {
+      "AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR": "/home/runner/work/agriclimax/agriclimax/work/manual-journal/latest/preview",
+      "AGRICLIMAX_MANUAL_RUN_DIR": "/home/runner/work/agriclimax/agriclimax/work/manual-journal/latest"
+    }
+  },
+  "finished_at": "2026-11-11T12:49:07.209Z",
+  "status": "completed"
+}

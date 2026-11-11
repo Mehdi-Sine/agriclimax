@@ -1,0 +1,43 @@
+[
+  {
+    "audit": {
+      "control": {
+        "singleton": true,
+        "ai_enabled": true,
+        "emergency_stop": false,
+        "acquisition_enabled": true,
+        "publication_enabled": false
+      },
+      "objects": 30,
+      "archives": [
+        {
+          "id": "2445b514d5acad3e75627c2091ae7f50a80216a2b4cfc13f37cab9d55c0ebcd0",
+          "maps": 0,
+          "checksum": "d190ee7fd273f78cea7bf18ef17f1e5cb97a9356d9b238006e8c8ac4256f8d6d"
+        },
+        {
+          "id": "9da626c533c6e928ee5d768a21b79a4d1fe290e6356345a2faac3f8e73a0e671",
+          "maps": 0,
+          "checksum": "46058b664f8ffc9d935ac0cb917320169fbb7d3cedeed48fc7d832ca642efa4a"
+        },
+        {
+          "id": "a75a9f16667b5df0d706f51259dfeceb0bdf1996801ef6dc4b1c17693f1f189d",
+          "maps": 0,
+          "checksum": "cfc7b9a6de8163eb57dd7f941a8fe41734ca7ce4a42bc853a9821c9cd5cf9492"
+        },
+        {
+          "id": "bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5",
+          "maps": 0,
+          "checksum": "c6c253b501c6f39719069deb5e4b3efa64d234cdd6b0b8aa7f91007ef60af3c1"
+        },
+        {
+          "id": "dc7d8613160ff4eb03533d49a17c52911c39d60cf268b68a2d8f9f14b2c0ea08",
+          "maps": 0,
+          "checksum": "e1f6d85baaa74237ff9d94be5b97dd4f2234f4969f2773ecc63e6f4a03cfa4da"
+        }
+      ],
+      "map_objects": 0,
+      "publications": 0
+    }
+  }
+]

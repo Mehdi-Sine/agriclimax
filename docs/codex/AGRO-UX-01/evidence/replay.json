@@ -1,0 +1,33 @@
+{
+  "version": "manual-agro-replay-1",
+  "groups": [
+    {
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "input_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "results_sha256": "ef11122c917df57fbc4d1247701358bed92dd1d53859242a9298f5f383b7d2f5",
+      "metrics": {
+        "calculations": 13547,
+        "cache_hits": 32798,
+        "pra_count": 713
+      }
+    },
+    {
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "input_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "results_sha256": "7be5299e275c93ffd8b57ddfdd6c2ff45a7fed212860ca93185d5e90aca36b34",
+      "metrics": {
+        "calculations": 13547,
+        "cache_hits": 32798,
+        "pra_count": 713
+      }
+    }
+  ],
+  "source_requests": 0,
+  "openai_calls": 0
+}

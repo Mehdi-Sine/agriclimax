@@ -1,0 +1,47 @@
+[
+  {
+    "path": "/api/journal/edition",
+    "http_status": 200,
+    "bytes": 17281,
+    "summary": {
+      "status": "needs_editorial_review",
+      "date": "2026-11-11",
+      "edition_id": "bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5",
+      "checksum": "c6c253b501c6f39719069deb5e4b3efa64d234cdd6b0b8aa7f91007ef60af3c1",
+      "consultable": true,
+      "scientifically_validated": false
+    },
+    "maps": 0,
+    "validity": {
+      "history_start": "2026-10-19",
+      "history_cutoff": "2026-11-04",
+      "history_age_days": 7,
+      "forecast_period": [
+        "2026-11-10",
+        "2026-11-16"
+      ],
+      "data_freshness": "stale"
+    }
+  },
+  {
+    "path": "/api/journal/availability",
+    "http_status": 200,
+    "bytes": 227,
+    "summary": {
+      "status": "available",
+      "date": "2026-11-11",
+      "edition_id": "bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5",
+      "checksum": "c6c253b501c6f39719069deb5e4b3efa64d234cdd6b0b8aa7f91007ef60af3c1",
+      "consultable": null,
+      "scientifically_validated": null
+    },
+    "maps": 0,
+    "validity": null
+  },
+  {
+    "path": "/cartes-du-jour",
+    "http_status": 200,
+    "bytes": 15066,
+    "empty_map_state": true
+  }
+]

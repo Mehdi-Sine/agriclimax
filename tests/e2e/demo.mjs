@@ -159,3 +159,5 @@ try {
 }
 assert.ok(reports.every(report => report.violations.length === 0), 'Blocking accessibility violations: see report.json');
 console.log('Demo E2E, accessibility and responsive checks passed (desktop/tablet/mobile).');
+// Run UX-01 verification in the existing browser-check job; no workflow change.
+await import("./ux01.mjs");

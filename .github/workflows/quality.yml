@@ -101,10 +101,19 @@ jobs:
           name: python-tests
           path: work/quality/python.xml
   web-demo:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    # Update image tag + digest together with tests/e2e/package{,-lock}.json.
+    # Browsers, fonts and OS libraries are baked into the official image: no apt in CI.
+    container:
+      image: mcr.microsoft.com/playwright:v1.62.1-noble@sha256:dcc5531e97840b9b5e794f2814476b21571c5124a3fca2267d73041f56e7580e
+      options: --ipc=host
+    defaults:
+      run:
+        shell: bash
     timeout-minutes: 20
     env:
       NEXT_TELEMETRY_DISABLED: '1'
+      PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
       # Synthetic tripwire, never a real cloud credential.
       QUALITY_SERVER_SENTINEL: quality-task09-tripwire
       SUPABASE_SECRET_KEY: quality-task09-tripwire
@@ -134,7 +143,8 @@ jobs:
       - run: python scripts/quality/budget.py
       - name: Isolated browser tooling (exact versions, no product dependency change)
         run: npm ci --prefix tests/e2e --ignore-scripts
-      - run: node tests/e2e/node_modules/playwright/cli.js install --with-deps chromium
+      - name: Verify preinstalled Playwright and launch Chromium
+        run: node scripts/quality/playwright-runtime.mjs
       - name: Production demo smoke and browser checks
         shell: bash
         run: |
@@ -153,11 +163,42 @@ jobs:
           TASK24_BASE_URL=http://127.0.0.1:3000 node tests/e2e/task24.mjs
           TASK35_ORIGIN=http://127.0.0.1:3000 TASK35_OUTPUT=work/quality/e2e/task35 node tests/e2e/task35.mjs
           node tests/e2e/demo.mjs
-          node tests/e2e/territories.mjs
+          PRA_ARTIFACTS=work/quality/e2e/territories node tests/e2e/territories.mjs
           INTEGRATION_ARTIFACTS=work/quality/e2e/integration node tests/e2e/integration.mjs
           WHEAT_ARTIFACTS=work/quality/e2e/wheat node tests/e2e/wheat.mjs
           DAILY_ARTIFACTS=work/quality/e2e/daily node tests/e2e/daily-risk.mjs
           E2E_DISCONNECTED_ONLY=1 E2E_UNAVAILABLE_BASE_URL=http://127.0.0.1:3000 E2E_LIVE_ARTIFACTS=work/quality/e2e/live node tests/e2e/live-risk.mjs
+      - name: INT-01 real frozen edition maps (isolated, unpublished)
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ''
+          SUPABASE_SECRET_KEY: ''
+          SUPABASE_SERVICE_ROLE_KEY: ''
+          OPENAI_API_KEY: ''
+          AGRICLIMAX_MAP_PREVIEW_ENABLED: 'true'
+        run: |
+          mkdir -p work/quality/int01-preview
+          python - <<'PY'
+          import gzip, json
+          from pathlib import Path
+          root = Path('work/quality/int01-preview')
+          evidence = Path('docs/codex/INT-01/evidence')
+          raw = gzip.decompress((evidence / 'real-map-bundle.json.gz').read_bytes())
+          bundle = json.loads(raw)
+          (root / (bundle['edition_id'] + '.json')).write_bytes(raw)
+          (root / 'consultable-edition.json').write_bytes((evidence / 'consultable-edition.json').read_bytes())
+          PY
+          export AGRICLIMAX_MAP_PREVIEW_DIR="$PWD/work/quality/int01-preview"
+          pnpm --filter @agriclimax/web exec next start --hostname 127.0.0.1 --port 3101 >work/quality/int01-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          ready=0
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent http://127.0.0.1:3101/ >/dev/null; then ready=1; break; fi
+            if ! kill -0 "$server_pid" 2>/dev/null; then exit 1; fi
+            sleep 1
+          done
+          test "$ready" = 1
+          INT01_ORIGIN=http://127.0.0.1:3101 INT01_ARTIFACTS=work/quality/e2e/int01 node tests/e2e/int01.mjs
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:

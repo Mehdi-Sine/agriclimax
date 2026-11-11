@@ -3,6 +3,7 @@ import {editorialRPC,SupabaseEditorialStore} from "../../features/editorial-ai/s
 import type {Run} from "../../features/editorial-ai/archive";
 import {consultableEdition,verifyConsultable,unpackConsultable,type ConsultableEdition} from "../../features/editorial-ai/consultable";
 import bootstrap from "../../data/editorial/consultable-bootstrap.json";
+import {mapPreviewEdition} from "./edition-maps";
 let previous:ConsultableEdition[]=[];
 let sharedIds=new Set<string>();
 export function sharedArchiveRead(id:string){return sharedIds.has(id);}
@@ -20,5 +21,6 @@ export async function operationalEditions() {
  }catch{/* a durable public edition remains available during a database outage */}
  previous=[...editions.values()].sort((a,b)=>b.date.localeCompare(a.date)||b.revision-a.revision||b.generated_at.localeCompare(a.generated_at));
  sharedIds=liveIds;
+ try{const preview=mapPreviewEdition();if(preview)return [preview,...previous.filter(e=>e.edition_id!==preview.edition_id)].sort((a,b)=>b.date.localeCompare(a.date)||b.revision-a.revision||b.generated_at.localeCompare(a.generated_at));}catch{/* invalid local recipe is never substituted */}
  return previous;
 }

@@ -1,0 +1,24 @@
+[
+  {
+    "security": {
+      "bucket": {
+        "name": "pra-climate-archives",
+        "public": false
+      },
+      "editorial_rpc": [
+        {
+          "name": "agriclimax_editorial",
+          "anon_execute": false,
+          "service_execute": true,
+          "authenticated_execute": false
+        },
+        {
+          "name": "agriclimax_editorial_attempt",
+          "anon_execute": false,
+          "service_execute": true,
+          "authenticated_execute": false
+        }
+      ]
+    }
+  }
+]
