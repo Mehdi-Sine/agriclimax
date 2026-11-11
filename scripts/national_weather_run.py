@@ -256,8 +256,8 @@ def run_national(
         json.dumps(
             {
                 "pairs": comparisons,
-                "station_comparison": "not_executed_observation_access_401",
-                "era5_comparison": "no_common_recent_date_with_ERA5_national30Oct",
+                "station_comparison": "not_executed_in_this_run",
+                "era5_comparison": "not_executed_in_this_run",
             },
             indent=2,
         ).encode(),

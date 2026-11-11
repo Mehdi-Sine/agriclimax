@@ -10,6 +10,10 @@ on:
         description: With probe_only, acquire one J-1 station day, one recent sample and tiny native model fields; no DB, publication or AI
         type: boolean
         default: false
+      national_qualification:
+        description: With probe_only, execute one isolated national cycle (existing 128 MiB/512 request budget); no remote publication or AI
+        type: boolean
+        default: false
       station_window:
         description: With sample_data and probe_only, qualify the seven-day five-station pipeline using local sinks only
         type: boolean
@@ -155,3 +159,37 @@ jobs:
             work/meteofrance-station-health/report.json
             work/meteofrance-sample/report.json
           retention-days: 7
+
+  national-qualification:
+    if: github.event_name == 'workflow_dispatch' && inputs.probe_only && inputs.national_qualification
+    runs-on: ubuntu-latest
+    timeout-minutes: 26
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r engine/requirements-dev.lock -r engine/requirements-geo.lock -r engine/requirements-operational.lock
+      - name: Acquire and verify national cycle locally; no persistence bindings
+        env:
+          PYTHONPATH: engine/src:scripts
+          METEOFRANCE_AROME_API_KEY: ${{ secrets.METEOFRANCE_AROME_API_KEY }}
+          METEOFRANCE_ARPEGE_API_KEY: ${{ secrets.METEOFRANCE_ARPEGE_API_KEY }}
+          OPENBLAS_NUM_THREADS: '1'
+        run: python scripts/national_weather.py --mode national --latest-available --execute --national-authorized --root work/mf01-national
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: mf01-national-qualification
+          path: |
+            work/mf01-national/report.json
+            work/mf01-national/**/*.failure.json
+            work/mf01-national/**/preflight.json
+            work/mf01-national/**/comparison.json
+            work/mf01-national/**/publication.json
+            work/mf01-national/**/audits/*.json
+            work/mf01-national/**/cycle.compact.json.gz
+          retention-days: 7
+          if-no-files-found: warn
