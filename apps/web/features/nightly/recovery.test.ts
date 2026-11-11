@@ -7,7 +7,7 @@ import {assertBriefing} from "../editorial/validate";
 import {reconstructEpisodes,hash,shift,type DailyEvidence} from "../editorial/temporal";
 import {validateDraft} from "../editorial-ai/validate";
 import simulated from "../../../../docs/codex/task35/evidence/simulated-edition.json";
-import type {EditorialDraft} from "../editorial-ai/model";
+import type {EditorialDraft,Archive} from "../editorial-ai/model";
 const date="2026-11-11",now="2026-11-11T08:00:00Z";
 function history(reference="2026-11-10",count=713):DailyEvidence[] {
  return Array.from({length:count},(_,i)=>["heat","frost","dry","rain"].flatMap(phenomenon=>[0,1,2].map(offset=>({
@@ -66,5 +66,21 @@ describe("OPS-03 independent weather sources and recovery",()=>{
   const rebuilt=buildBriefing({date,generated_at:now,history_cutoff:"2026-11-10",source_fingerprint:hash(rows),history:rows,comparisons:[],episodes:reconstructEpisodes(rows,"2026-11-10"),episode_archive_sha256:hash("synthetic"),news:{bundle_id:"news",generated_at:now,publications:[pub],links:[{publication_id:"news",event_id:"synthetic",relation:"documentary-candidate",axes:{temporal:"unknown",geographic:"unknown",production:"unknown",phenomenon:"unknown",thematic:"unknown"},temporal_distance_days:0,scientific_confirmation:false,limitation:"documentary only"}]}});
   expect(b.national.facts.length).toBeGreaterThan(0);expect(rebuilt.documentary.publications).toHaveLength(1);
   expect(rebuilt.documentary.publications[0]).not.toHaveProperty("summary");assertBriefing(rebuilt);
+ });
+});
+
+describe("OPS-03 provider response revalidation",()=>{
+ it("creates a deterministic revision without modifying the provider output or original archive",async()=>{
+  const {revalidateArchive}=await import("../editorial-ai/revalidate");
+  const {sealArchive}=await import("../editorial-ai/archive");
+  const {checksum:priorChecksum,...source}=structuredClone(simulated) as unknown as Archive;void priorChecksum;
+  const original=sealArchive({...source,mode:"live",status:"rejected",validation:{status:"rejected",errors:["REGIONAL_EXTRAPOLATION"],review:[]},
+   receipt:{model:source.parameters.model,response_id:"resp_synthetic",usage:null,cost_eur:null,duration_ms:1,pricing_version:"synthetic"}});
+  const revised=revalidateArchive(original,original.checksum);
+  expect(revised.draft).toEqual(original.draft);expect(revised.receipt).toEqual(original.receipt);expect(revised.generated_at).toBe(original.generated_at);
+  expect(revised.supersedes).toBe(original.edition_id);expect(revised.revision).toBe(original.revision+1);
+  expect(revalidateArchive(original,original.checksum)).toEqual(revised);
+  expect(original.status).toBe("rejected");expect(revised.validation.errors).toEqual([]);
+  expect(()=>revalidateArchive(original,"0".repeat(64))).toThrow("REVALIDATION_SOURCE_REQUIRED");
  });
 });

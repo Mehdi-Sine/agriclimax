@@ -5,11 +5,13 @@ name="agriclimax-t36-ledger-$$"
 image='postgres:17@sha256:ff87138949ad9a46f32ff23bd6852b52ce024a13dffe9b4087be98292cdd3b4f'
 docker_local() { env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock "$@"; }
 docker_local run --detach --name "$name" -e POSTGRES_PASSWORD=local_test "$image" >/dev/null
-trap 'docker_local rm --force "$name" >/dev/null' EXIT
-for i in {1..40}; do
-  if docker_local exec "$name" sh -c 'test "$(cat /proc/1/comm)" = postgres && pg_isready -U postgres' >/dev/null 2>&1; then break; fi
+trap 'docker_local rm --force --volumes "$name" >/dev/null' EXIT
+ready=false
+for i in {1..150}; do
+  if docker_local exec "$name" sh -c 'test "$(cat /proc/1/comm)" = postgres && pg_isready -U postgres' >/dev/null 2>&1; then ready=true; break; fi
   sleep .2
 done
+if [ "$ready" != true ]; then echo 'Disposable PostgreSQL startup timeout' >&2; exit 1; fi
 docker_local exec "$name" psql -U postgres -v ON_ERROR_STOP=1 -c 'create role anon; create role authenticated; create role service_role bypassrls; create schema agriclimax_private;'
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supabase/migrations/20261109085400_operational_ai_journal.sql"
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supabase/migrations/20261109111202_editorial_personal_review.sql"
@@ -30,6 +32,5 @@ python "$root/tests/task36/stage_concurrency.py" "$name"
 
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supabase/migrations/20261111083258_ops03_journal_recovery.sql"
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/tests/task36/ops03.sql"
-# Recheck the operational paid-call lock after applying the recovery migration.
-# The first race left one running attempt; either competitor must now be refused.
+# Recheck simultaneous freezing and paid-call admission after the recovery migration.
 python "$root/tests/task36/ops03_concurrency.py" "$name"

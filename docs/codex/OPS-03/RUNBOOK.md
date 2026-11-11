@@ -36,3 +36,13 @@ Sans `--recover`/`recovery=true`, les entrées restent bornées à 05:40 Paris. 
 Lire `editorial_acquisitions.checkpoint.report` puis `editorial_diagnostics` (`stage-DATE-*`). Les erreurs de préparation conservent `phase`, code, type et chemins JSON de validation sans valeurs fournisseur. Le reçu ne suffit pas : contrôler snapshot, run, archive, puis `/api/journal/availability` et `/journal`. La certification dans `editorial_publications` reste soumise aux règles de revue existantes ; la consultation expérimentale provient de l'archive réelle et n'est pas une certification.
 
 Horaires existants conservés : acquisitions dès 02:15, préparation 05:40, génération 06:05, contrôles 06:30/06:45/07:00 Europe/Paris ; watchdog jusqu'à midi, rattrapage manuel ensuite. Les crons GitHub peuvent être retardés : seuls les contrôles de consultation prouvent la disponibilité. Aucun serveur de supervision ajouté.
+
+## Réévaluer une réponse persistée sans payer une seconde génération
+
+Le validateur distingue désormais une extrapolation régionale affirmative de sa négation explicite. Si une réponse a été rejetée sur ce faux positif, préparer une **nouvelle révision immuable**, sans modifier le texte ou le reçu OpenAI :
+
+```sh
+AGRICLIMAX_EDITION_DATE=2026-11-11 pnpm editorial:nightly revalidate 2445b514d5acad3e75627c2091ae7f50a80216a2b4cfc13f37cab9d55c0ebcd0 --source-checksum d190ee7fd273f78cea7bf18ef17f1e5cb97a9356d9b238006e8c8ac4256f8d6d
+```
+
+Cette commande prépare localement. Après autorisation et application de la migration OPS-03 seulement, ajouter `--execute-revalidation` pour archiver la révision et enregistrer atomiquement cette révision et son entrée de registre de portée `revalidation` à coût nul. Aucun nouvel appel ni coût IA, ancienne archive intacte, checksum source obligatoire, révision déterministe, journal de revalidation conservé. Une véritable erreur scientifique reste bloquante. La certification humaine reste distincte.

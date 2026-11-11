@@ -1,3 +1,4 @@
+import { revalidateArchive, REVALIDATION_VERSION } from "../apps/web/features/editorial-ai/revalidate";
 import { BriefingContractError } from "../apps/web/features/editorial/validate";
 import { supervise } from "../apps/web/features/nightly/supervise";
 /** Nightly last stage. All acquisition remains in Python/GitHub; no provider call from web reads. */
@@ -145,6 +146,24 @@ async function prepare() {
     return snapshot;
 }
 async function main() {
+  if(command==="revalidate") {
+    phase="revalidation";
+    const i=process.argv.indexOf("--source-checksum");
+    if(i<0) throw Error("REVALIDATION_CHECKSUM_REQUIRED");
+    const store=new SupabaseEditorialStore("");
+    const original=await store.read(process.argv[3]??"");
+    if(!original||original.date!==date) throw Error("REVALIDATION_SOURCE_REQUIRED");
+    const revised=revalidateArchive(original,process.argv[i+1]);
+    writeFileSync(join(out,"revalidated-archive.json"),JSON.stringify(revised));
+    if(process.argv.includes("--execute-revalidation")) {
+      await editorialRPC("revalidate_archive",{edition_date:date,source_id:original.edition_id,source_checksum:original.checksum,
+        id:revised.edition_id,checksum:revised.checksum,validation_version:REVALIDATION_VERSION,archive:revised,archive_json:JSON.stringify(revised)});
+      const restored=await store.read(revised.edition_id);
+      if(restored?.checksum!==revised.checksum) throw Error("REVALIDATION_READBACK_FAILED");
+    }
+    output({status:process.argv.includes("--execute-revalidation")?"archive_revalidated":"revalidation_ready",id:revised.edition_id,
+      checksum:revised.checksum,supersedes:original.edition_id,validation:revised.validation,paid_calls:0});return;
+  }
   if(command==="report") { const report=await supervise(date); output(report); if(report.alerts.length) process.exitCode=2; return; }
   if(command==="promote") { output(await promoteEdition(process.argv[3]??"")); return; }
   if(command==="approve"||command==="reject") {
@@ -220,7 +239,7 @@ async function main() {
   // Archiving makes an experimental edition consultable. Certification/promotion remains explicit.
 }
 async function execute() {
-  if(["prepare-offline","promote","approve","reject"].includes(command)) {await main();return;}
+  if(["prepare-offline","promote","approve","reject","revalidate"].includes(command)) {await main();return;}
   const owner=`${process.env.GITHUB_RUN_ID??"local"}-${process.env.GITHUB_RUN_ATTEMPT??"1"}-${crypto.randomUUID()}`;
   const metadata={edition_date:date,stage:command,command,owner,workflow_run_id:process.env.GITHUB_RUN_ID??null,
     dispatch_id:process.env.AGRICLIMAX_DISPATCH_ID??null,scheduled_at:process.env.AGRICLIMAX_SCHEDULED_AT??null,

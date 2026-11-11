@@ -9,6 +9,44 @@ declare
 begin
  select * into ctl from agriclimax_private.editorial_control where singleton;
  if p_action='control' then return to_jsonb(ctl); end if;
+ if p_action='revalidate_archive' then
+  perform pg_advisory_xact_lock(hashtextextended('editorial-attempt-'||d::text,0));
+  if ctl.emergency_stop then raise exception 'EMERGENCY_STOP'; end if;
+  if exists(select 1 from agriclimax_private.editorial_publications where edition_date=d)
+    then raise exception 'PUBLISHED_EDITION_IMMUTABLE'; end if;
+  select body into previous from agriclimax_private.editorial_archives where id=p_payload->>'source_id'
+    and edition_date=d and checksum=p_payload->>'source_checksum';
+  item:=p_payload->'archive';
+  if p_payload->>'archive_json' is null or (p_payload->>'archive_json')::jsonb is distinct from item
+    or item->>'checksum' is distinct from p_payload->>'checksum' or item->>'edition_id' is distinct from p_payload->>'id'
+    or item->>'date' is distinct from d::text then raise exception 'REVALIDATION_SERIALIZATION'; end if;
+  if previous is null or item is null or item->>'mode'<>'live' or item->>'status' not in ('validated_automatically','needs_editorial_review')
+    or item->'validation'->>'status' is distinct from item->>'status' or jsonb_array_length(item->'validation'->'errors')<>0
+    or item->>'supersedes' is distinct from previous->>'edition_id'
+    or (item->>'revision')::int is distinct from (previous->>'revision')::int+1
+    or item->'draft' is distinct from previous->'draft' or item->'briefing' is distinct from previous->'briefing'
+    or item->'receipt' is distinct from previous->'receipt' or item->'generated_at' is distinct from previous->'generated_at'
+    or p_payload->>'validation_version' is distinct from 'editorial-revalidation-negation-1'
+    then raise exception 'REVALIDATION_CONTRACT'; end if;
+  if not exists(select 1 from agriclimax_private.editorial_runs where id=p_payload->>'source_id' and edition_date=d)
+    then raise exception 'REVALIDATION_RUN_REQUIRED'; end if;
+  -- The existing archive FK requires a ledger row. This is a zero-cost revision,
+  -- not a paid-attempt admission; the original provider run and receipt stay intact.
+  insert into agriclimax_private.editorial_runs(id,edition_date,month,state,reserved_eur,actual_eur,body)
+    values(item->>'edition_id',d,to_char(now(),'YYYY-MM'),'completed',0,0,
+      jsonb_build_object('id',item->>'edition_id','edition_date',d,'month',to_char(now(),'YYYY-MM'),'scope','revalidation',
+        'state','completed','reserved_eur',0,'actual_eur',0,'archive_id',item->>'edition_id','error',null,
+        'original_run_id',p_payload->>'source_id','validation_version',p_payload->>'validation_version'))
+    on conflict(id) do nothing;
+  insert into agriclimax_private.editorial_archives(id,edition_date,checksum,body,serialized)
+    values(item->>'edition_id',d,item->>'checksum',item,p_payload->>'archive_json') on conflict(id) do nothing;
+  if (select body from agriclimax_private.editorial_archives where id=p_payload->>'id') is distinct from item
+    then raise exception 'IMMUTABLE_REVISION_CONFLICT'; end if;
+  insert into agriclimax_private.editorial_diagnostics(id,edition_date,body)
+    values('revalidation-'||(p_payload->>'id'),d,p_payload||jsonb_build_object('paid_calls',0,'recorded_at',now()))
+    on conflict(id) do nothing;
+  return item;
+ end if;
  if p_action='recover_archive' then
   perform pg_advisory_xact_lock(hashtextextended('editorial-attempt-'||d::text,0));
   select body into item from agriclimax_private.editorial_archives where id=p_payload->>'id'

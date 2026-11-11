@@ -156,9 +156,7 @@ export function validateDraft(
     )
       errors.push("UNPROVEN_AGRONOMY");
     if (
-      /(?:toute la r[eé]gion|moyenne r[eé]gionale|surface agricole affect[eé]e|hectares?)/i.test(
-        text,
-      )
+      unqualifiedAssertion(text, /(?:toute la r[eé]gion|moyenne r[eé]gionale|surface agricole affect[eé]e|hectares?)/i)
     )
       errors.push("REGIONAL_EXTRAPOLATION");
     if (

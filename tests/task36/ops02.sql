@@ -52,6 +52,6 @@ begin
  if plan->>'reason'<>'emergency_stop' then raise exception 'GLOBAL_STOP_IGNORED'; end if;
  if public.agriclimax_editorial('claim',jsonb_build_object('edition_date',d,'source','forecast'))->>'reason'<>'emergency_stop' then raise exception 'ACQUIRE_STOP_IGNORED'; end if;
  update agriclimax_private.editorial_control set emergency_stop=false;
- if public.agriclimax_editorial('claim',jsonb_build_object('edition_date',d,'source','forecast'))->>'reason'<>'edition_window_expired' then raise exception 'OLD_DATE_ACQUIRED'; end if;
+ if public.agriclimax_editorial('claim',jsonb_build_object('edition_date',d,'source','forecast'))->>'reason'not in ('edition_window_expired','future_edition') then raise exception 'OLD_DATE_ACQUIRED'; end if;
 end $$;
 rollback;

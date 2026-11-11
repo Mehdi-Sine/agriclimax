@@ -19,9 +19,25 @@ La migration est testée localement mais **non déployée** : l'examen automatiq
 
 ## Validation
 
-- Web : 611 tests réussis, huit ignorés par les suites existantes.
+- Web : 616 tests réussis, huit ignorés par les suites existantes.
 - Python : 453 tests réussis dans la suite globale ; deux tests HTTP locaux bloqués par le sandbox, puis suite d'authentification réexécutée avec sockets locaux : 24/24 réussis. Les tests OPS-03 et les sous-tests d'ordonnancement/retry sont inclus.
 - PostgreSQL jetable : suites ledger/review/operational/OPS-02/watchdog/OPS-03 réussies ; deux connexions simultanées produisent un snapshot immuable unique et une seule admission payante.
 - TypeScript web/CLI, mypy strict des Python modifiés, lint, contrats, contrôles automation/migrations/secrets, tests de qualité exécutés. Build Next.js réussi.
 
 Voir RUNBOOK.md pour les commandes datées et l'exigence de contrôle `/api/journal/availability` + `/journal`. Une réussite Actions ou un snapshot ne prouve jamais une publication.
+
+## Premier appel réel et faux positif de validation
+
+Run GitHub `42989775337` : un seul appel OpenAI, réponse enregistrée et archive
+`2445b514d5acad3e75627c2091ae7f50a80216a2b4cfc13f37cab9d55c0ebcd0`.
+Le validateur rejetait la phrase prudente « aucune moyenne régionale ne peut être déduite » comme une extrapolation régionale. Correction par le même qualificateur de négation déjà utilisé pour l'agronomie ; les assertions affirmatives, y compris après « mais », restent rejetées et sont testées.
+
+La même réponse est **revalidée localement**, sans génération : erreurs `[]`, statut `needs_editorial_review`, révision proposée
+`bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5`.
+Une entrée de registre de portée `revalidation`, à coût nul, est nécessaire à la clé étrangère existante des archives ; elle ne déclenche aucun fournisseur. La nouvelle révision n'est pas enregistrée à distance tant que la migration n'est pas autorisée. Le premier reçu, son texte et son coût restent inchangés.
+
+Chromium a constaté HTTP 200 et l'édition du 11 novembre dans le Journal de production. Ce lecteur encore sur l'ancien code admet l'archive expérimentale rejetée : **cet affichage ne prouve pas une publication validée**. Aucun enregistrement `editorial_publications` pour le 11 novembre ; la certification reste désactivée par le contrôle existant. Il faut appliquer la migration autorisée, exécuter la revalidation, déployer le code et relire la disponibilité. Aucun second appel OpenAI n'est nécessaire.
+
+Validation Python finale : **455 tests réussis**, 35 sous-tests. La première CI distante a montré deux échecs SQL : les fixtures OPS-02/ledger supposaient encore le refus unique des dates futures et le gel définitif de l'insuffisance. Elles sont adaptées aux nouveaux états ; aucune règle scientifique n'est déduite de ces fixtures purement techniques.
+
+La matrice PostGIS complète locale n’a pas terminé : extraction de l’image interrompue par le disque de 8 Go. Les tests PostgreSQL légers, y compris la nouvelle révision, ses clés étrangères, le texte immuable et la concurrence, passent. Le code doit être revérifié par la CI PostGIS distante avant fusion.

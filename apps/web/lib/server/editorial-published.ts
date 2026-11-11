@@ -18,7 +18,7 @@ export async function operationalEditions() {
    try {const a=await new SupabaseEditorialStore("").read(run.archive_id!);if(a){editions.set(a.edition_id,consultableEdition(a));liveIds.add(a.edition_id);}}catch{/* skip this corrupt/incompatible archive and keep the previous edition */}
   }
  }catch{/* a durable public edition remains available during a database outage */}
- previous=[...editions.values()].sort((a,b)=>b.date.localeCompare(a.date)||b.generated_at.localeCompare(a.generated_at));
+ previous=[...editions.values()].sort((a,b)=>b.date.localeCompare(a.date)||b.revision-a.revision||b.generated_at.localeCompare(a.generated_at));
  sharedIds=liveIds;
  return previous;
 }
