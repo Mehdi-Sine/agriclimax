@@ -1,7 +1,7 @@
 """Manual source acquisition must never persist production weather, in any mode."""
+import sys
 from datetime import date
 from pathlib import Path
-import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts"))
 
@@ -33,6 +33,7 @@ def test_historical_observations_and_station_dates_never_use_today(tmp_path):
 def test_failed_supplier_does_not_stop_the_other_isolated_acquisitions(tmp_path, monkeypatch):
     import json
     from unittest.mock import Mock
+
     import manual_sources
     monkeypatch.setattr('sys.argv', ['manual_sources.py', '--edition-date', '2026-11-11', '--root', str(tmp_path)])
     adapter = Mock(return_value=Mock(returncode=1))
