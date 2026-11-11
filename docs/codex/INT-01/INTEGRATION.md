@@ -19,7 +19,8 @@ incluant le contrôle navigateur #80 dans `quality.yml`. Aucun commit de #81
 cherry-pické dans INT-01 ; aucun push ni rebase de la branche MF-01 existante.
 
 Sur cet arbre combiné : **96 tests Python** station-auth/daily-reliability/MF-01/daily
-et **12 tests T36** réussis. C’est une validation ciblée de compatibilité ; cela ne
+et **12 tests T36**, puis **trois tests qualité Météo-France** réussis. C’est une
+validation ciblée de compatibilité ; cela ne
 remplace pas la CI complète et la recette réelle de la future branche MF-01 actualisée.
 Les tests complets INT-01 portent sur main + INT-01, indépendamment de #81.
 

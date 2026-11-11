@@ -103,7 +103,41 @@ INT-01 ne crée aucune fonction SQL et ne modifie pas ces frontières existantes
   de production reste une étape humaine de [RELEASE.md](RELEASE.md).
 - Pas d’acquisition nationale fraîche J-1/J+7 dans INT-01 ; pas de fusion #81 ou #63.
 - Pas de nouvelle génération ni d’approbation sémantique de l’article IA.
-- La CI distante de la PR est une preuve supplémentaire, à lire séparément des tests locaux.
+- La CI distante est une preuve supplémentaire, à lire séparément des tests locaux
+  et de la qualification scientifique : voir la finalisation ci-dessous.
+
+## Finalisation distante
+
+Le commit de code **`7a26ecac24c2c7da184e33001deccea29745511c`** a passé :
+
+- [Quality #43055589637](https://github.com/Mehdi-Sine/agriclimax/actions/runs/43055589637) :
+  guards, python-contracts, SQL public/extensions et web-demo réussis ; 666 tests web,
+  446 tests Python, build optimisé, runtime Chromium effectivement lancé et parcours
+  navigateur existants réussis.
+- [Security audits #43055589606](https://github.com/Mehdi-Sine/agriclimax/actions/runs/43055589606) : succès.
+- [Preview Vercel](https://agriclimax-git-codex-int-01-journal-25793c-mehdi-sines-projects.vercel.app) :
+  déployée ; contrôles HTTP en lecture seule sur Journal, Cartes du jour et leurs API,
+  avec le véritable checksum de la révision 2. Le catalogue répond
+  **`status=absent`, `code=MAP_NOT_PUBLISHED`, `maps=[]`**. Aucun candidat n’est exposé
+  et les deux pages affichent l’absence explicite. Voir
+  [preview-probe.json](evidence/finalisation/preview-probe.json).
+
+La Preview réelle a aussi été ouverte dans Chromium en **1440×1000 et 390×844** :
+Journal et Cartes du jour répondent HTTP 200, sans carte candidate, sans canvas
+cartographique de substitution et sans débordement horizontal. Le secret de bypass
+reste limité à l’origine exacte et n’est pas transmis aux redirections ni aux autres
+domaines. [Rapport](evidence/finalisation/preview/report.json),
+[Journal desktop](evidence/finalisation/preview/desktop-journal-not-published.png),
+[Cartes mobile](evidence/finalisation/preview/mobile-cartes-not-published.png).
+
+La finalisation ajoute la recette **spécifique INT-01** au job `web-demo` de Quality.
+Elle démarre un second serveur optimisé isolé sur le port 3101, avec les seuls
+fichiers publics réels gelés et des bindings Supabase/OpenAI vides. Le même script
+`tests/e2e/int01.mjs` vérifie les quatre largeurs, cartes, sélections et états de défaut.
+Rapport et captures sont joints à l’artefact `demo-browser-report`, répertoire `int01/`.
+Cette recette automatique n’est pas une publication du lot et ne change aucun
+workflow d’acquisition ou de publication. Les checks du dernier commit sont liés
+depuis la PR ; les reçus du commit de code précédent restent conservés séparément.
 
 **Verdict : PARTIAL.** Cartes réelles reproductibles et intégration testables ; mise
 en production conditionnée à la revue du lot exact, au déploiement et à la publication

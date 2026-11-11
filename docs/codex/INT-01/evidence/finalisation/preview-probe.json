@@ -1,0 +1,53 @@
+{
+  "observed_at": "2026-11-11T16:18:26.292170+00:00",
+  "origin": "https://agriclimax-git-codex-int-01-journal-25793c-mehdi-sines-projects.vercel.app",
+  "production_mutations": 0,
+  "reads": [
+    {
+      "path": "/api/journal/edition",
+      "status": 200,
+      "bytes": 17281,
+      "payload": {
+        "edition_id": "bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5",
+        "date": "2026-11-11",
+        "checksum": "c6c253b501c6f39719069deb5e4b3efa64d234cdd6b0b8aa7f91007ef60af3c1",
+        "status": "needs_editorial_review",
+        "code": null,
+        "maps": null,
+        "consultable": true,
+        "scientifically_validated": false
+      },
+      "illustration_count": 0
+    },
+    {
+      "path": "/api/journal/maps?id=bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5",
+      "status": 200,
+      "bytes": 222,
+      "payload": {
+        "edition_id": "bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5",
+        "date": null,
+        "checksum": null,
+        "status": "absent",
+        "code": "MAP_NOT_PUBLISHED",
+        "maps": [],
+        "consultable": null,
+        "scientifically_validated": null
+      },
+      "illustration_count": 0
+    },
+    {
+      "path": "/journal",
+      "status": 200,
+      "bytes": 49382,
+      "explicit_absence": true,
+      "candidate_banner": false
+    },
+    {
+      "path": "/cartes-du-jour",
+      "status": 200,
+      "bytes": 15461,
+      "explicit_absence": true,
+      "candidate_banner": false
+    }
+  ]
+}

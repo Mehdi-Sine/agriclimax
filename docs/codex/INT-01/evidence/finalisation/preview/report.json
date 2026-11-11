@@ -1,0 +1,50 @@
+{
+  "origin": "https://agriclimax-git-codex-int-01-journal-25793c-mehdi-sines-projects.vercel.app",
+  "reads_only": true,
+  "checks": [
+    {
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "path": "/journal",
+      "http_status": 200,
+      "status": "absent",
+      "code": "MAP_NOT_PUBLISHED",
+      "candidate_exposed": false,
+      "overflow": false
+    },
+    {
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "path": "/cartes-du-jour",
+      "http_status": 200,
+      "status": "absent",
+      "code": "MAP_NOT_PUBLISHED",
+      "candidate_exposed": false,
+      "overflow": false
+    },
+    {
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "path": "/journal",
+      "http_status": 200,
+      "status": "absent",
+      "code": "MAP_NOT_PUBLISHED",
+      "candidate_exposed": false,
+      "overflow": false
+    },
+    {
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "path": "/cartes-du-jour",
+      "http_status": 200,
+      "status": "absent",
+      "code": "MAP_NOT_PUBLISHED",
+      "candidate_exposed": false,
+      "overflow": false
+    }
+  ]
+}
