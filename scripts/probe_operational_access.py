@@ -78,7 +78,10 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
             record["retry_after"] = error.headers.get("Retry-After", "")
             record["wire_bytes_read"] = min(limit, 4096) + 1
             # Only a bounded, structured service exception is reported; never raw error text.
-            error_body = error.read(min(limit, 4096) + 1)
+            try:
+                error_body = error.read(min(limit, 4096) + 1)
+            except (OSError, IncompleteRead):
+                error_body = b""  # Optional diagnostic body; preserve the original HTTP status.
             if len(error_body) <= 4096 and key.encode() not in error_body:
                 try:
                     if error.headers.get("Content-Encoding") == "gzip":
@@ -96,8 +99,12 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
                 except (ET.ParseError, ValueError, OSError, EOFError):
                     pass
             error.close()
-        except (URLError, OSError, TimeoutError, ValueError, EOFError, IncompleteRead):
-            record["outcome"] = "network_or_response_error"
+        except (ValueError, EOFError, gzip.BadGzipFile):
+            record["outcome"] = "format_incompatible"
+            record["wire_bytes_read"] = record.get("wire_bytes_read", limit + 1)
+            content = b""
+        except (URLError, OSError, TimeoutError, IncompleteRead):
+            record["outcome"] = "network_unavailable"
             if record["status"] == "binding_absent":
                 record["status"] = "network_unavailable"
             record["wire_bytes_read"] = record.get("wire_bytes_read", limit + 1)

@@ -1,0 +1,251 @@
+{
+  "ifs": {
+    "real_native_values": true,
+    "production_aggregation_called": false,
+    "rows_checked": 24955,
+    "nulls_checked": 945,
+    "max_absolute_difference": 4.263256414560601e-14,
+    "tolerance": 1e-10,
+    "source_acquisition_requests": 0,
+    "api_requests": 0,
+    "status_counts": {
+      "temperature:available": 4991,
+      "temperature_min:available": 4991,
+      "temperature_max:available": 4991,
+      "precipitation:available": 4985,
+      "humidity:partial": 927,
+      "humidity:available": 4052,
+      "humidity:unavailable": 12,
+      "precipitation:partial": 6
+    },
+    "native_sha256": "9de4a66c6332ec9bd87814179782145abce860ff21b7d62ebaed94c724383e4c"
+  },
+  "meteofrance": [
+    {
+      "model": "arome",
+      "date": "2026-11-10",
+      "run": "2026-11-10T00:00:00+00:00",
+      "native_cells": 104986,
+      "anomalies": {
+        "negative_precipitation_cells": 0,
+        "out_of_range_humidity_samples": 22443
+      },
+      "independent": {
+        "rows_checked": 3565,
+        "nulls_checked": 433,
+        "max_absolute_difference": 0.0,
+        "tolerance": 1e-09,
+        "production_reduce_or_aggregate_called": false
+      }
+    },
+    {
+      "model": "arome",
+      "date": "2026-11-11",
+      "run": "2026-11-11T00:00:00+00:00",
+      "native_cells": 104986,
+      "anomalies": {
+        "negative_precipitation_cells": 0,
+        "out_of_range_humidity_samples": 43045
+      },
+      "independent": {
+        "rows_checked": 3565,
+        "nulls_checked": 481,
+        "max_absolute_difference": 0.0,
+        "tolerance": 1e-09,
+        "production_reduce_or_aggregate_called": false
+      }
+    },
+    {
+      "model": "arome",
+      "date": "2026-11-12",
+      "run": "2026-11-11T06:00:00+00:00",
+      "native_cells": 104986,
+      "anomalies": {
+        "negative_precipitation_cells": 0,
+        "out_of_range_humidity_samples": 50534
+      },
+      "independent": {
+        "rows_checked": 3565,
+        "nulls_checked": 524,
+        "max_absolute_difference": 0.0,
+        "tolerance": 1e-09,
+        "production_reduce_or_aggregate_called": false
+      }
+    },
+    {
+      "model": "arpege",
+      "date": "2026-11-11",
+      "run": "2026-11-11T00:00:00+00:00",
+      "native_cells": 6861,
+      "anomalies": {
+        "negative_precipitation_cells": 0,
+        "out_of_range_humidity_samples": 1195
+      },
+      "independent": {
+        "rows_checked": 3565,
+        "nulls_checked": 307,
+        "max_absolute_difference": 0.0,
+        "tolerance": 1e-09,
+        "production_reduce_or_aggregate_called": false
+      }
+    },
+    {
+      "model": "arpege",
+      "date": "2026-11-12",
+      "run": "2026-11-11T06:00:00+00:00",
+      "native_cells": 6861,
+      "anomalies": {
+        "negative_precipitation_cells": 0,
+        "out_of_range_humidity_samples": 1182
+      },
+      "independent": {
+        "rows_checked": 3565,
+        "nulls_checked": 411,
+        "max_absolute_difference": 0.0,
+        "tolerance": 1e-09,
+        "production_reduce_or_aggregate_called": false
+      }
+    },
+    {
+      "model": "arpege",
+      "date": "2026-11-13",
+      "run": "2026-11-11T06:00:00+00:00",
+      "native_cells": 6861,
+      "anomalies": {
+        "negative_precipitation_cells": 0,
+        "out_of_range_humidity_samples": 202
+      },
+      "independent": {
+        "rows_checked": 3565,
+        "nulls_checked": 120,
+        "max_absolute_difference": 0.0,
+        "tolerance": 1e-09,
+        "production_reduce_or_aggregate_called": false
+      }
+    },
+    {
+      "model": "arpege",
+      "date": "2026-11-14",
+      "run": "2026-11-11T06:00:00+00:00",
+      "native_cells": 6861,
+      "anomalies": {
+        "negative_precipitation_cells": 0,
+        "out_of_range_humidity_samples": 9
+      },
+      "independent": {
+        "rows_checked": 3565,
+        "nulls_checked": 9,
+        "max_absolute_difference": 0.0,
+        "tolerance": 1e-09,
+        "production_reduce_or_aggregate_called": false
+      }
+    }
+  ],
+  "selected_days": [
+    {
+      "date": "2026-11-10",
+      "models": [
+        "arome-0p025"
+      ],
+      "model_runs": [
+        "2026-11-10T00:00:00Z"
+      ],
+      "pra_ids": 713
+    },
+    {
+      "date": "2026-11-11",
+      "models": [
+        "arome-0p025"
+      ],
+      "model_runs": [
+        "2026-11-11T00:00:00Z"
+      ],
+      "pra_ids": 713
+    },
+    {
+      "date": "2026-11-12",
+      "models": [
+        "arome-0p025"
+      ],
+      "model_runs": [
+        "2026-11-11T06:00:00Z"
+      ],
+      "pra_ids": 713
+    },
+    {
+      "date": "2026-11-13",
+      "models": [
+        "arpege-0p1"
+      ],
+      "model_runs": [
+        "2026-11-11T06:00:00Z"
+      ],
+      "pra_ids": 713
+    },
+    {
+      "date": "2026-11-14",
+      "models": [
+        "arpege-0p1"
+      ],
+      "model_runs": [
+        "2026-11-11T06:00:00Z"
+      ],
+      "pra_ids": 713
+    },
+    {
+      "date": "2026-11-15",
+      "models": [
+        "ifs-oper-0p25"
+      ],
+      "model_runs": [
+        "2026-11-11T00:00:00Z"
+      ],
+      "pra_ids": 713
+    },
+    {
+      "date": "2026-11-16",
+      "models": [
+        "ifs-oper-0p25"
+      ],
+      "model_runs": [
+        "2026-11-11T00:00:00Z"
+      ],
+      "pra_ids": 713
+    },
+    {
+      "date": "2026-11-17",
+      "models": [
+        "ifs-oper-0p25"
+      ],
+      "model_runs": [
+        "2026-11-11T00:00:00Z"
+      ],
+      "pra_ids": 713
+    },
+    {
+      "date": "2026-11-18",
+      "models": [
+        "ifs-oper-0p25"
+      ],
+      "model_runs": [
+        "2026-11-11T00:00:00Z"
+      ],
+      "pra_ids": 713
+    }
+  ],
+  "ifs_rain_partial_flags": [
+    "exploratory",
+    "missing_cells",
+    "model_forecast_not_observation",
+    "nonmonotonic_source_accumulation_invalid_null",
+    "publication_time_unknown",
+    "sampled_3h_then_6h_not_hourly",
+    "source_delay_not_assessed",
+    "source_grid_not_land_masked",
+    "total_area_not_agricultural_area",
+    "utc_half_open_day_extrema"
+  ],
+  "ifs_rain_partial_reasons": {
+    "None": 6
+  }
+}

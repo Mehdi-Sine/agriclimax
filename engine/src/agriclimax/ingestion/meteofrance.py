@@ -14,7 +14,7 @@ import time
 from collections.abc import Callable
 from contextlib import AbstractContextManager
 from datetime import UTC, date, datetime, timedelta
-from http.client import HTTPMessage, HTTPResponse
+from http.client import HTTPMessage, HTTPResponse, IncompleteRead
 from pathlib import Path
 from typing import IO, Literal
 from urllib.error import HTTPError, URLError
@@ -112,7 +112,7 @@ class MeteoFranceClient:
                     or delay and (not delay.isdigit() or int(delay) > 30)):
                     raise MeteoFranceTransportError(error.code, delay) from None
                 self.sleep(max(float(delay or 0), 2**attempt))
-            except (URLError, TimeoutError, OSError):
+            except (URLError, TimeoutError, OSError, IncompleteRead):
                 if not retry_transient or attempt == 2:
                     raise RuntimeError("MeteoFrance network unavailable") from None
                 self.sleep(2**attempt)

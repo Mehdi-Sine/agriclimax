@@ -135,7 +135,7 @@ class WcsProvider:
                 break
             record.update(attempt=attempt + 1, source=self.product, operation=operation)
             atomic_write(self.root / f"{key}.failure.json", json.dumps(record).encode())
-            transient = record["status"] in TRANSIENT or record["status"] == "network_unavailable" or (record["status"] == 200 and record.get("outcome") == "network_or_response_error")
+            transient = record["status"] in TRANSIENT or record["status"] == "network_unavailable" or (record["status"] == 200 and record.get("outcome") in {"network_or_response_error", "network_unavailable"})
             delay = record.get("retry_after", "")
             if (not transient or attempt == 2
                 or delay and (not str(delay).isdigit() or int(str(delay)) > 30)):

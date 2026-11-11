@@ -17,6 +17,16 @@ REQUIRED = (
 
 
 class MeteoFranceOperations(unittest.TestCase):
+    def test_diagnostic_jobs_have_no_persistence_or_ai_bindings(self):
+        workflow = yaml.safe_load(WORKFLOW.read_text())
+        for name in ('operational-access', 'national-qualification'):
+            job = workflow['jobs'][name]
+            self.assertIn('inputs.probe_only', job['if'])
+            for step in job['steps']:
+                self.assertFalse(any('SUPABASE' in key or 'OPENAI' in key
+                                     for key in step.get('env', {})))
+                self.assertNotIn('--publish-dev', step.get('run', ''))
+
     def step(self, name):
         workflow = yaml.safe_load(WORKFLOW.read_text())
         return next(step['run'] for step in workflow['jobs']['live']['steps']

@@ -93,3 +93,50 @@ def test_field_denial_keeps_http_operation_and_stops_without_retry(monkeypatch, 
     assert caught.value.operation == "GetCoverage"
     assert caught.value.reason == "subscription_or_product_denied"
     assert request.call_count == 1
+
+
+def test_station_window_uses_local_sinks_without_claiming_remote_persistence(monkeypatch, tmp_path):
+    import meteofrance_acquisition_sample as sample
+
+    from agriclimax import daily
+
+    monkeypatch.setattr(sample, "MeteoFranceProvider", lambda *_: object())
+
+    def pipeline(provider, repository, publish, **kwargs):
+        assert repository.persist(None) is False
+        assert publish({}) is False
+        assert (kwargs['end'] - kwargs['start']).days == 6
+        target = kwargs['root'] / 'logs/run.json'
+        target.parent.mkdir(parents=True)
+        target.write_text(json.dumps({'stage': 'failed', 'reason': 'future_provenance'}))
+        return False
+
+    monkeypatch.setattr(daily, "run_daily", pipeline)
+    result = sample.station_window(tmp_path)
+    assert result['status'] == 'local_pipeline_failed'
+    assert result['database_writes'] == result['remote_publications'] == 0
+    assert result['diagnostic']['reason'] == 'future_provenance'
+
+
+def test_invalid_compression_is_a_format_failure_without_retry(monkeypatch, tmp_path):
+    from unittest.mock import MagicMock
+
+    import national_weather_sources as sources
+
+    response = MagicMock()
+    response.status = 200
+    response.headers = {'Content-Encoding': 'gzip'}
+    response.read.return_value = b'invalid compressed content'
+    opener = MagicMock()
+    opener.open.return_value.__enter__.return_value = response
+    monkeypatch.setenv('METEOFRANCE_AROME_API_KEY', 'synthetic-key')
+    monkeypatch.setattr(transport, 'build_opener', lambda *_: opener)
+    record, body = transport.fetch(transport.ORIGIN, 'METEOFRANCE_AROME_API_KEY', 100)
+    assert record['status'] == 200 and record['outcome'] == 'format_incompatible'
+    assert not body
+    request = Mock(return_value=(record, body))
+    monkeypatch.setattr(sources, 'fetch', request)
+    with pytest.raises(WcsAcquisitionError) as caught:
+        WcsProvider('arome', tmp_path, Budget()).request('GetCapabilities', [], 100)
+    assert caught.value.reason == 'format_incompatible'
+    assert request.call_count == 1
