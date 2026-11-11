@@ -25,7 +25,7 @@ export function generationDecision(o:ManualOptions,state:{snapshot_id:string;com
 }
 
 /** Only a qualified, after-cutoff dossier may become a new production snapshot. */
-export function productionSnapshot(test:import('./snapshot').DailyEditorialSnapshot,inputArchive:NonNullable<import('./snapshot').DailyEditorialSnapshot['input_archive']>) {
+export function productionSnapshot(test:import('./snapshot').DailyEditorialSnapshot,inputArchive:NonNullable<import('./snapshot').DailyEditorialSnapshot['input_archive']>):import('./snapshot').DailyEditorialSnapshot {
  verifySnapshot(test,true);
  if(test.quality==='insufficient'||!test.briefing)throw Error('QUALIFIED_SNAPSHOT_REQUIRED');
  if(Date.parse(test.frozen_at)<Date.parse(test.cutoff_at))throw Error('FREEZE_BEFORE_CUTOFF');
