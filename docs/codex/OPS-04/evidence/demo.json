@@ -4,6 +4,8 @@
   "edition_date": "2026-11-11",
   "dry_run": {
     "version": "manual-journal-report-1",
+    "code_commit": null,
+    "workflow_run_id": null,
     "edition_date": "2026-11-11",
     "mode": "dry-run",
     "options": {
@@ -16,33 +18,71 @@
       "authorized_snapshot": "",
       "regeneration_reason": ""
     },
-    "started_at": "2026-11-11T10:15:40.657Z",
+    "started_at": "2026-11-11T10:40:25.772Z",
     "phase": "test_preparation",
     "acquisitions": [
       {
         "source": "news",
         "status": "reused",
-        "ledger_state": "success"
+        "ledger_state": "success",
+        "last_attempt_reference": {
+          "generated_at": "2026-11-11T01:30:44.536321Z"
+        },
+        "source_days": []
       },
       {
         "source": "stations",
         "status": "reused",
-        "ledger_state": "retryable_failure"
+        "ledger_state": "retryable_failure",
+        "last_attempt_reference": {
+          "date": "2026-11-10",
+          "from": "2026-11-04",
+          "to": "2026-11-10",
+          "error_type": "ValueError",
+          "substage": "validate"
+        },
+        "source_days": []
       },
       {
         "source": "era5",
         "status": "reused",
-        "ledger_state": "success"
+        "ledger_state": "success",
+        "last_attempt_reference": {
+          "date": "2026-11-04"
+        },
+        "source_days": []
       },
       {
         "source": "observations",
         "status": "reused",
-        "ledger_state": "success"
+        "ledger_state": "success",
+        "last_attempt_reference": {
+          "from": "2026-11-11",
+          "to": "2026-11-11"
+        },
+        "source_days": [
+          {
+            "date": "2026-11-11",
+            "status": "complete",
+            "quality_flags": [
+              "et0_not_available",
+              "publication_time_unknown",
+              "recent_sample_not_daily_aggregate"
+            ],
+            "available_count": 15,
+            "observation_count": 15
+          }
+        ]
       },
       {
         "source": "forecast",
         "status": "reused",
-        "ledger_state": "retryable_failure"
+        "ledger_state": "retryable_failure",
+        "last_attempt_reference": {
+          "run": "2026-11-11T00:00:00+00:00",
+          "error_type": "CalledProcessError"
+        },
+        "source_days": []
       }
     ],
     "freshness": {
@@ -123,7 +163,7 @@
       ]
     },
     "snapshot": {
-      "id": "978125f1c558122732261a96936c1200017f82e3a6ef9707bcd0e4e4332a4bbd",
+      "id": "f8d03997a7c8637a3b3a6df8c5e387e7e2adfbe85ae5c4be981bed7e213982c7",
       "quality": "fallback_valid",
       "status": "isolated_test",
       "production_id": "2e9ed6d01173cb0851505863ecd28c3e916fe0a10de3a92f2fb5769987d8446e"
@@ -144,18 +184,29 @@
     },
     "consultation": {
       "status": "local_preview_ready",
-      "url": "/journal/preview?date=2026-11-11&id=5917b553aa5e2b7a1442198f9cf2a847ed19e6051181fb7361b93fd0fba755ac",
-      "archive_id": "5917b553aa5e2b7a1442198f9cf2a847ed19e6051181fb7361b93fd0fba755ac",
+      "url": "/journal/preview?date=2026-11-11&id=6ee0ca9b8531d6b4936508b0e521ec71c94a56c6a43912689690756a394a87b6",
+      "archive_id": "6ee0ca9b8531d6b4936508b0e521ec71c94a56c6a43912689690756a394a87b6",
       "preview_mode": "fallback",
       "compatible_ai_url": null,
       "environment": {
-        "AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR": "/workspace/agriclimax/work/ops04-demo/final-with-news/preview",
-        "AGRICLIMAX_MANUAL_RUN_DIR": "/workspace/agriclimax/work/ops04-demo/final-with-news"
+        "AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR": "/workspace/agriclimax/work/ops04-demo/distinct-recipes/preview",
+        "AGRICLIMAX_MANUAL_RUN_DIR": "/workspace/agriclimax/work/ops04-demo/distinct-recipes"
       }
     },
     "blockers": [],
     "decision": "deterministic_preview",
-    "finished_at": "2026-11-11T10:16:11.728Z",
+    "preview": {
+      "status": "local_preview_ready",
+      "url": "/journal/preview?date=2026-11-11&id=6ee0ca9b8531d6b4936508b0e521ec71c94a56c6a43912689690756a394a87b6",
+      "archive_id": "6ee0ca9b8531d6b4936508b0e521ec71c94a56c6a43912689690756a394a87b6",
+      "preview_mode": "fallback",
+      "compatible_ai_url": null,
+      "environment": {
+        "AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR": "/workspace/agriclimax/work/ops04-demo/distinct-recipes/preview",
+        "AGRICLIMAX_MANUAL_RUN_DIR": "/workspace/agriclimax/work/ops04-demo/distinct-recipes"
+      }
+    },
+    "finished_at": "2026-11-11T10:40:54.545Z",
     "status": "completed"
   },
   "resume": {
@@ -332,7 +383,8 @@
     "python_subtests_passed": 35,
     "final_manual_policy_passed": 14,
     "build": "passed",
-    "typechecks": "passed"
+    "typechecks": "passed",
+    "last_manual_policy_passed": 16
   },
   "workflow_dispatch": {
     "attempted": true,
@@ -342,5 +394,25 @@
     "branch": "codex/ops-04-manual-journal",
     "manual_action_after_merge": "gh workflow run manual-journal.yml --ref main -f edition_date=2026-11-11 -f mode=dry-run -f recompute_indicators=true -f refresh_sources=false"
   },
-  "replay_byte_identical": true
+  "replay_byte_identical": true,
+  "test_snapshot_explicitly_isolated": true,
+  "editorial_recipe_ids": [
+    "cattle_heat",
+    "dry",
+    "dry_sequence",
+    "frost",
+    "frost_sequence",
+    "gdd",
+    "gdd_base10",
+    "gdd_base6",
+    "heavy_rain",
+    "hot",
+    "hot30",
+    "hot30_sequence",
+    "hot_sequence",
+    "rain",
+    "rain_frequency",
+    "temperature_mean",
+    "temperature_min"
+  ]
 }

@@ -105,7 +105,11 @@ async function main() {
  let archive=reused?.mode==="live"?undefined:reused;
  if(snapshot.briefing&&!archive){
   const briefing=snapshot.briefing,draft=fallbackDraft(briefing);
-  for(const production of draft.productions)production.blocks=briefing.contributions.filter(c=>c.production===production.production_id).map(c=>{const fact=briefing.national.facts.find(f=>f.id===c.fact_id)!;return {kind:'fact' as const,text:fact.text,evidence_ids:[fact.id],seasonal_ids:[]};});
+  for(const production of draft.productions){
+   const facts=briefing.contributions.filter(c=>c.production===production.production_id).map(c=>briefing.national.facts.find(f=>f.id===c.fact_id)!);
+   const size=Math.max(1,Math.ceil(facts.length/4));
+   production.blocks=Array.from({length:Math.ceil(facts.length/size)},(_,i)=>{const selected=facts.slice(i*size,(i+1)*size);return {kind:'fact' as const,text:selected.map(f=>f.text).join(' '),evidence_ids:selected.map(f=>f.id),seasonal_ids:[]};});
+  }
   const validation=validateDraft(draft,briefing);
   const config=operationalConfig('gpt-6.1-terra');
   archive=sealArchive({version:'editorial-archive-1',edition_id:hash([snapshot.id,'manual-preview',draft]),revision:1,supersedes:null,date,generated_at:new Date().toISOString(),engine:ENGINE,prompt_version:PROMPT_VERSION,config_version:CONFIG_VERSION,mode:'fallback',status:validation.status,draft,briefing,illustrations:[],validation,receipt:null,prompt_sha256:hash(INSTRUCTIONS),parameters:{model:config.model,max_output_tokens:config.max_output_tokens,request_profile:config.request_profile}});
@@ -116,6 +120,12 @@ async function main() {
  }
  report.preview=report.consultation;
  if(options.mode==='dry-run')return;
+ if(decision==='preserve_published'){
+  const published=before.publications.find(p=>p.edition_date===date)!;
+  report.publication={status:'already_published',archive_id:published.archive_id};
+  report.consultation={status:'retained_archive',url:`https://agriclimax.vercel.app/journal?date=${date}&id=${published.archive_id}`};
+  return;
+ }
  phase="production_resume";
  if(control.emergency_stop){report.blockers=['EMERGENCY_STOP'];return;}
  if(existing&&existing.id!==snapshot.id){report.blockers=['TEST_SNAPSHOT_DIFFERS_FROM_FROZEN_PRODUCTION','Use the isolated preview; validated production inputs cannot be replaced.'];return;}
