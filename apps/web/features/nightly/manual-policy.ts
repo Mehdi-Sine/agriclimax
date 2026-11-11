@@ -1,3 +1,5 @@
+import {verifySnapshot} from "./snapshot";
+import {hash} from "../editorial/temporal";
 import {parisDate} from "../editorial/almanac";
 export interface ManualOptions {
  edition_date:string; mode:"dry-run"|"resume"|"publish"; refresh_sources:boolean; recompute_indicators:boolean;
@@ -20,4 +22,13 @@ export function generationDecision(o:ManualOptions,state:{snapshot_id:string;com
  if(state.compatible_ai)return o.reuse_ai?"reuse":"compatible_generation_preserved";
  if(o.force_ai_regeneration&&o.authorized_snapshot!==state.snapshot_id)throw Error("EXACT_SNAPSHOT_AUTHORIZATION_REQUIRED");
  return "resume_missing_generation";
+}
+
+/** Only a qualified, after-cutoff dossier may become a new production snapshot. */
+export function productionSnapshot(test:import('./snapshot').DailyEditorialSnapshot,inputArchive:NonNullable<import('./snapshot').DailyEditorialSnapshot['input_archive']>) {
+ verifySnapshot(test,true);
+ if(test.quality==='insufficient'||!test.briefing)throw Error('QUALIFIED_SNAPSHOT_REQUIRED');
+ if(Date.parse(test.frozen_at)<Date.parse(test.cutoff_at))throw Error('FREEZE_BEFORE_CUTOFF');
+ const {id,test_only,...body}=test;void id;void test_only;
+ const result={...body,input_archive:inputArchive,id:''};const {id:unused,...content}=result;void unused;result.id=hash(content);verifySnapshot(result);return result;
 }

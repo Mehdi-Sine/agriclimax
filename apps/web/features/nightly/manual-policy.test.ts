@@ -1,7 +1,7 @@
 import {describe,it,expect,vi,afterEach} from 'vitest';
 vi.mock('server-only',()=>({}));
 vi.mock('node:child_process',()=>({spawnSync:vi.fn(()=>({status:0}))}));
-import {manualOptions,generationDecision} from './manual-policy';
+import {manualOptions,generationDecision,productionSnapshot} from './manual-policy';
 import {mkdtempSync,readFileSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
@@ -21,6 +21,12 @@ describe('OPS-04 admissions and cost policy',()=>{
   const test=freezeSnapshot("2026-11-11",[],null,early,undefined,early,true);
   expect(test.test_only).toBe(true);verifySnapshot(test,true);
   expect(()=>verifySnapshot(test)).toThrow("TEST_SNAPSHOT_NOT_PRODUCTION");
+ });
+ it('converts a qualified test dossier only with its immutable input archive, without changing facts',()=>{
+  const a=simulated as unknown as Archive;
+  const test=freezeSnapshot(a.date,[],a.briefing,new Date().toISOString(),{policy_version:'synthetic',nature:'reanalysis',reference_date:a.date,age_days:1,complete_pra:713,total_pra:713,usable:true,freshness:'fresh'},undefined,true);
+  const real=productionSnapshot(test,{path:'editorial-inputs/'+sha+'.json.gz',sha256:sha,bytes:1});
+  expect(real.test_only).toBeUndefined();expect(real.briefing).toEqual(test.briefing);expect(test.test_only).toBe(true);verifySnapshot(real);
  });
  it('never generates in dry-run, even without a saved response',()=>expect(generationDecision(manualOptions({},now),state)).toBe('deterministic_preview'));
  it('reuses compatible AI and preserves an already published edition',()=>{

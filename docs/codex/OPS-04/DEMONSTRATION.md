@@ -37,6 +37,8 @@ réussis, 35 sous-tests d'ordonnancement/retry. Les tests couvrent : exécution 
 acquisition, commandes d'acquisition isolées/échec fournisseur, rejeu AGRO seul,
 reprise, édition publiée préservée, absence de prévisions (OPS-03), historique ancien,
 concurrence persistante (T36), réutilisation IA et publication soumise à revue.
+Les 17 tests ciblés de la politique manuelle passent, y compris la conversion explicite
+d’un dossier de test qualifié vers un nouveau gel de production avec entrées immuables.
 Les contrôles de type, lint, contrats, migrations, automation et secrets sont
 exécutés avant livraison. Aucune migration SQL OPS-04.
 

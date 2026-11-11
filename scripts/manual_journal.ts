@@ -5,7 +5,8 @@ import {spawnSync} from "node:child_process";
 import {createHash,randomUUID} from "node:crypto";
 import {gzipSync} from "node:zlib";
 import {BriefingContractError} from "../apps/web/features/editorial/validate";
-import {manualOptions,generationDecision} from "../apps/web/features/nightly/manual-policy";
+import {manualOptions,generationDecision,productionSnapshot} from "../apps/web/features/nightly/manual-policy";
+import {archiveInputs} from "../apps/web/features/nightly/immutable-inputs";
 import {prepareDossier} from "./nightly_prepare";
 import {recomputeIndicators} from "./manual_indicators";
 import {archivedEra5Day,decodeNationalWeather,type ArchiveEntry} from "../apps/web/lib/server/weather-archives";
@@ -80,10 +81,12 @@ async function main() {
  }
  let indicators:Awaited<ReturnType<typeof recomputeIndicators>>|undefined;
  let snapshot=existing;
+ let capturedInputs:unknown;
  if(!snapshot||options.recompute_indicators||options.refresh_sources) {
   phase="test_preparation";
   const prepared=await prepareDossier({date,out:root,readOnly:true,testOnly:true,persistInputs:false,recover:true,extraWeather,extraHistory,newsPath:existsSync(newsFile)?newsFile:undefined,
    calculate:options.recompute_indicators?async(rows,document)=>{indicators=await recomputeIndicators(rows,document,date);return indicators.contributions;}:undefined});
+  capturedInputs={...prepared.inputs,manual_indicators:indicators?{version:indicators.version,groups:indicators.groups.map(({batch,...g})=>({...g,rule_version:batch.version}))}:null};
   snapshot=prepared.snapshot;writeFileSync(join(root,'frozen-inputs.json.gz'),gzipSync(JSON.stringify(prepared.inputs))); // Captured inputs, never provider grids.
  }
  if(!snapshot)throw Error('SNAPSHOT_ABSENT');verifySnapshot(snapshot,true);save('test-snapshot.json',snapshot);
@@ -130,6 +133,20 @@ async function main() {
  if(control.emergency_stop){report.blockers=['EMERGENCY_STOP'];return;}
  if(existing&&existing.id!==snapshot.id){report.blockers=['TEST_SNAPSHOT_DIFFERS_FROM_FROZEN_PRODUCTION','Use the isolated preview; validated production inputs cannot be replaced.'];return;}
  if(decision==='insufficient_data'||decision==='compatible_generation_preserved'){report.blockers=[decision];return;}
+ if(!existing){
+  phase='production_freeze';
+  // This branch is unreachable in dry-run and never replaces an existing freeze.
+  if(Date.parse(snapshot.frozen_at)<Date.parse(snapshot.cutoff_at))throw Error('FREEZE_BEFORE_CUTOFF');
+  if(options.force_ai_regeneration)throw Error('PRODUCTION_SNAPSHOT_REQUIRED_FOR_REGENERATION');
+  if(!capturedInputs)throw Error('CAPTURED_INPUTS_REQUIRED');
+  const candidate=productionSnapshot(snapshot,await archiveInputs(capturedInputs));
+  await editorialRPC('freeze',{edition_date:date,snapshot:candidate,snapshot_json:JSON.stringify(candidate)});
+  const frozen=await editorialRPC<DailyEditorialSnapshot|null>('snapshot_read',{edition_date:date});
+  if(!frozen)throw Error('SNAPSHOT_READBACK_MISSING');verifySnapshot(frozen);
+  report.snapshot={id:frozen.id,quality:frozen.quality,status:'production_frozen',test_id:snapshot.id};
+  if(frozen.id!==candidate.id){report.blockers=['CONCURRENT_SNAPSHOT_PRESERVED'];return;}
+  snapshot=frozen;
+ }
  if(decision==='resume_missing_generation') {
   const args=['--recover'];if(options.force_ai_regeneration)args.push('--authorize-snapshot',options.authorized_snapshot);
   const receipt=run('run',args);report.resume=receipt;

@@ -53,7 +53,7 @@ Le checksum des entrées est vérifié, puis le moteur courant est recalculé po
 
 ## Reprendre ou publier
 
-Pour `resume`, désactiver les recalculs/rafraîchissements si l'on souhaite poursuivre le snapshot de production existant. Le pilote réutilise une génération compatible, sinon délègue l'étape manquante à T36, qui conserve ses verrous et son admission IA persistante. Les appels sont comptés depuis les reçus persistés, y compris en cas d'échec.
+Pour `resume`, désactiver les recalculs/rafraîchissements si l'on souhaite poursuivre le snapshot de production existant. S'il n'existe encore aucun snapshot de production, le dossier qualifié (avec les indicateurs recalculés) et ses entrées immuables sont archivés puis gelés après le cutoff existant, par la même RPC T36. Un gel concurrent est conservé. Le pilote réutilise une génération compatible, sinon délègue l'étape manquante à T36, qui conserve ses verrous et son admission IA persistante. Les appels sont comptés depuis les reçus persistés, y compris en cas d'échec.
 
 Un snapshot isolé porte `test_only=true` : il peut être construit avant 05:40, sans fausse date de gel future. Le chemin de production le refuse explicitement ; ses règles de cutoff restent inchangées.
 
