@@ -40,4 +40,10 @@ concurrence persistante (T36), réutilisation IA et publication soumise à revue
 Les contrôles de type, lint, contrats, migrations, automation et secrets sont
 exécutés avant livraison. Aucune migration SQL OPS-04.
 
-Les résultats Actions et le build sont consignés après la recette distante.
+Build Next.js, typechecks web/CLI, lint, contrats, contrôles migrations/automation/secrets réussis. Deux rejeux AGRO complets produisent des fichiers de résultats strictement identiques. La carte est réellement chargée et colorée (`data-ready=true`) avant les captures desktop/mobile.
+
+## Déclenchement GitHub
+
+Tentative réelle depuis la branche poussée : `gh workflow run manual-journal.yml --ref codex/ops-04-manual-journal ...` retourne **HTTP 404** sur `/actions/workflows/manual-journal.yml`. Le nouveau workflow n'est pas encore enregistré sur la branche par défaut. Aucun contournement ni fusion automatique.
+
+Après revue/fusion manuelle de cette PR, exécuter la commande du RUNBOOK avec `--ref main`. Les entrées et le résumé Actions sont versionnés et contrôlés ; les trois modes et l'absence de mutation ont été testés localement. Aucune exécution Actions manuelle réussie n'est revendiquée avant cette activation. La recette locale `dry-run` puis `resume` reste réelle et vérifiée contre les archives Supabase de production.

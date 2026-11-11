@@ -1,6 +1,9 @@
 """Manual source acquisition must never persist production weather, in any mode."""
 from datetime import date
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts"))
 
 from manual_sources import source_commands
 

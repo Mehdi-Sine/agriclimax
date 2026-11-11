@@ -5,10 +5,10 @@ Précondition vérifiée : PR #78 fusionnée dans `main` le 11 novembre 2026 à 
 ## GitHub Actions
 
 Actions → **AgriClimaX — Produire / tester le Journal** → Run workflow.
-Après fusion de cette PR le workflow apparaît sur `main`. Avant fusion, la recette utilise explicitement `--ref codex/ops-04-manual-journal` via la CLI :
+Après fusion de cette PR le workflow apparaît sur `main`. Le déclenchement du nouveau fichier avant sa présence sur `main` peut retourner HTTP 404 (constaté dans la recette). Après fusion manuelle, utiliser `--ref main` :
 
 ```sh
-gh workflow run manual-journal.yml --ref codex/ops-04-manual-journal \
+gh workflow run manual-journal.yml --ref main \
   -f edition_date=2026-11-11 -f mode=dry-run -f refresh_sources=false \
   -f recompute_indicators=true -f reuse_ai=true -f force_ai_regeneration=false
 ```
