@@ -32,7 +32,7 @@ Journal courant ni de ses choix UX.
 
 ## Vérifications
 
-632 tests web réussis, huit ignorés par les suites existantes ; 458 tests Python
+636 tests web réussis, huit ignorés par les suites existantes ; 458 tests Python
 réussis, 35 sous-tests d'ordonnancement/retry. Les tests couvrent : exécution sans
 acquisition, commandes d'acquisition isolées/échec fournisseur, rejeu AGRO seul,
 reprise, édition publiée préservée, absence de prévisions (OPS-03), historique ancien,
