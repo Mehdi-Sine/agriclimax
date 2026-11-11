@@ -1,5 +1,7 @@
 # MF-01 — diagnostic et stabilisation des acquisitions
 
+**Finalisation après #80 et #82 : voir [POST-INT-01.md](POST-INT-01.md), référence courante pour la fusion et la recette intégrée.** Les audits ci-dessous et leurs preuves historiques sont conservés avec leurs dates ; #77 est absorbée par #80, les recommandations antérieures ne constituent pas un nouvel ordre de fusion.
+
 Statut : **PARTIAL**. Les quatre familles sont accessibles dans GitHub ; acquisitions J-1, observations récentes et cycle national frais jusqu'à J+7 réussis en recette sans publication. La couverture de l'humidité reste partielle et six PRA ont une pluie partielle à J+5 ; la continuité scientifique homogène de sept jours n'est pas acquise. Les données de production restent intactes et la cause exacte du rejet stations historique n'est pas reconstituée. Une CI verte ou un cycle acquis ne suffisent pas pour READY.
 
 Base : `main` actualisée, `bd475ff9f169cdcc73a3f9325e19ab8119f8d34f` (OPS-04 #79 déjà fusionnée). Branche `codex/mf-01-acquisition-reliability`. Audit du 11 novembre 2026 ; les heures techniques des preuves sont UTC, ajouter une heure pour Paris ce jour-là.

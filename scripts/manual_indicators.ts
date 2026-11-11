@@ -5,6 +5,7 @@ import {RECIPES} from "../apps/web/features/multiproduction/registry";
 import type {ArchivedDaily,NationalWeatherDocument} from "../apps/web/lib/server/weather-archives";
 import geography from "../apps/web/data/operational/pra-watch-places.json";
 import {hash,shift} from "../apps/web/features/editorial/temporal";
+import {homogeneousForecastPeriod} from "../apps/web/features/multiproduction/forecast-period";
 export type CapturedInputs=Record<string,Record<string,ProductionDay[]>>;
 export function capture(provider:InputProvider):CapturedInputs {
  return Object.fromEntries([...new Set(RECIPES.map(r=>r.kernel.variables.join()))].map(key=>[key,Object.fromEntries(geography.places.map(p=>[p.id,provider(p.id,key.split(",") as Parameters<InputProvider>[1])]))]));
@@ -26,7 +27,8 @@ export async function recomputeIndicators(rows:ArchivedDaily[],document:National
  const end=rows.map(r=>r.valid_date).filter(d=>d<date).sort().at(-1);
  const groups=[];
  if(end){const period:[string,string]=[shift(end,-6),end];const inputs=capture(await historicalProvider(rows.filter(r=>r.valid_date>=period[0]&&r.valid_date<=period[1])));groups.push({nature:"reanalysis",period,inputs,input_sha256:hash(inputs),batch:replayIndicators(period,inputs)});}
- if(document){const period:[string,string]=[date,shift(date,1)];const inputs=capture(forecastProvider(document,[date,shift(date,1)]));groups.push({nature:"forecast",period,inputs,input_sha256:hash(inputs),batch:replayIndicators(period,inputs)});}
+ const period=document?homogeneousForecastPeriod(document,date):null;
+ if(document&&period){const inputs=capture(forecastProvider(document,period));groups.push({nature:"forecast",period,inputs,input_sha256:hash(inputs),batch:replayIndicators(period,inputs)});}
  const editorial=groups.find(g=>g.nature==="reanalysis")??groups.find(g=>g.nature==="forecast");
  const contributions=editorial?editorialContributions(editorial.batch.measurements):[];
  return {version:"manual-indicators-1",groups,contributions,measurements:groups.reduce((n,g)=>n+g.batch.measurements.length,0),errors:groups.length?[]:["NO_ARCHIVED_WEATHER_SUPPORT"]};
