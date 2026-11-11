@@ -1,14 +1,21 @@
 """Metadata access is separate from scientific acquisition; no live requests."""
 
 import json
+import sys
+from datetime import UTC, datetime
 from io import BytesIO
-from urllib.error import HTTPError
+from pathlib import Path
 from unittest.mock import Mock
+from urllib.error import HTTPError
 
 import pytest
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts"))
+
 import meteofrance_acquisition_health as health
 import probe_operational_access as transport
+from meteofrance_acquisition_sample import verify_field
+from national_weather_sources import Budget, WcsAcquisitionError, WcsProvider
 
 
 @pytest.mark.parametrize("status,reason", [
@@ -54,3 +61,35 @@ def test_metadata_success_has_no_data_or_coverage_claim(monkeypatch):
     assert result["status"] == "access_succeeded"
     assert result["advertised_coverages"] == 1
     assert result["scientific_data_qualified"] is False
+
+
+@pytest.mark.parametrize("change", [
+    {"dataDate": 20261108}, {"validityTime": 600}, {"endStep": 6},
+    {"units": "degC"}, {"level": 10}, {"shortName": "2r"},
+    {"iDirectionIncrementInDegrees": 0.1},
+])
+def test_native_sample_refuses_wrong_run_validity_variable_or_grid(change):
+    meta = {"dataDate": 20261111, "dataTime": 0, "validityDate": 20261111,
+            "validityTime": 0, "units": "K", "level": 2, "shortName": "2t",
+            "typeOfLevel": "heightAboveGround", "typeOfGeneratingProcess": 2,
+            "stepUnits": 1, "endStep": 0, "iDirectionIncrementInDegrees": 0.025,
+            "jDirectionIncrementInDegrees": 0.025}
+    run = datetime(2026, 11, 11, tzinfo=UTC)
+    verify_field(meta, run, run, "arome")
+    with pytest.raises(ValueError, match="mismatch"):
+        verify_field({**meta, **change}, run, run, "arome")
+
+
+def test_field_denial_keeps_http_operation_and_stops_without_retry(monkeypatch, tmp_path):
+    import national_weather_sources as sources
+
+    request = Mock(return_value=({"status": 403, "outcome": "subscription_or_product_denied",
+                                 "wire_bytes_read": 0}, b""))
+    monkeypatch.setattr(sources, "fetch", request)
+    provider = WcsProvider("arome", tmp_path, Budget())
+    with pytest.raises(WcsAcquisitionError) as caught:
+        provider.request("GetCoverage", [], 256)
+    assert caught.value.http_status == 403
+    assert caught.value.operation == "GetCoverage"
+    assert caught.value.reason == "subscription_or_product_denied"
+    assert request.call_count == 1

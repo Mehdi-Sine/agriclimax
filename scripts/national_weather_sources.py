@@ -33,6 +33,16 @@ PARAMETERS = {
 }
 
 
+class WcsAcquisitionError(RuntimeError):
+    """Safe acquisition failure metadata, including field-specific denials."""
+
+    def __init__(self, product: str, operation: str, status: int | str, outcome: str) -> None:
+        super().__init__(f"WCS {product}/{operation}: HTTP {status}, {outcome}")
+        self.product, self.operation = product, operation
+        self.http_status = status if isinstance(status, int) else None
+        self.reason = outcome
+
+
 @dataclass
 class Budget:
     started: float = field(default_factory=time.monotonic)
@@ -129,9 +139,10 @@ class WcsProvider:
             delay = record.get("retry_after", "")
             if (not transient or attempt == 2
                 or delay and (not str(delay).isdigit() or int(str(delay)) > 30)):
-                raise RuntimeError(
-                    f"WCS {self.product}/{operation}: HTTP {record['status']}, {record.get('outcome', 'service_error')}"
-                )
+                status = record["status"]
+                raise WcsAcquisitionError(self.product, operation,
+                                          status if isinstance(status, (int, str)) else "unknown",
+                                          str(record.get("outcome", "service_error")))
             self.budget.wait(max(2 ** (attempt + 1), int(str(delay or 0))))
         (self.root / f"{key}.failure.json").unlink(missing_ok=True)
         receipt = {

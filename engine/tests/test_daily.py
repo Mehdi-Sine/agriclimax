@@ -186,6 +186,26 @@ def test_invalid_window(tmp_path):
         execute(tmp_path, end=date(2026, 9, 9))
 
 
+@pytest.mark.parametrize("status,reason", [(401, "authentication_invalid_or_expired"),
+                                        (403, "subscription_not_authorized")])
+def test_access_failure_receipt_distinguishes_auth_and_rights(tmp_path, status, reason):
+    from agriclimax.ingestion.meteofrance import MeteoFranceAccessError
+
+    source = provider()[0]
+    source.prepare = Mock(side_effect=MeteoFranceAccessError(
+        "synthetic-private-upstream-text", status=status, reason=reason, service_code="900901"))
+    success, repo, publish = execute(tmp_path, source)
+    assert not success
+    repo.persist.assert_not_called()
+    publish.assert_not_called()
+    text = (tmp_path / "logs/run.json").read_text()
+    report = json.loads(text)
+    assert report["http_status"] == status
+    assert report["reason"] == reason
+    assert report["phase"] == "resource"
+    assert "synthetic-private-upstream-text" not in text
+
+
 @pytest.mark.parametrize("substage", ["prepare", "download", "decode", "normalize", "validate"])
 @pytest.mark.parametrize("error_class", [RuntimeError, HTTPError])
 def test_ingestion_diagnostics_allowlist(tmp_path, monkeypatch, capsys, substage, error_class):

@@ -223,6 +223,11 @@ def run_daily(
             report["reason"] = error.reason
             report["phase"] = error.phase
             report["service_code"] = error.service_code
+        elif isinstance(error, ValueError) and str(error) in {
+            "invalid_envelope", "invalid_coverage", "invalid_freshness_policy",
+            "publication_time_missing", "future_provenance", "DAILY_NO_COMPLETE_STATION_WINDOW",
+        }:
+            report["reason"] = str(error)  # Fixed internal codes only, never validation/service text.
         report.update(failure)
         print(json.dumps(failure))
         report["failed_stage"] = report["stage"]

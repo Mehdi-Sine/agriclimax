@@ -10,6 +10,10 @@ on:
         description: With probe_only, acquire one J-1 station day, one recent sample and tiny native model fields; no DB, publication or AI
         type: boolean
         default: false
+      station_window:
+        description: With sample_data and probe_only, qualify the seven-day five-station pipeline using local sinks only
+        type: boolean
+        default: false
       observations_version:
         description: Legacy input; probe_only now checks both v1 and v2 catalogues
         type: choice
@@ -135,7 +139,14 @@ jobs:
           METEOFRANCE_OBSERVATIONS_APPLICATION_ID: ${{ secrets.METEOFRANCE_OBSERVATIONS_APPLICATION_ID }}
           METEOFRANCE_AROME_API_KEY: ${{ secrets.METEOFRANCE_AROME_API_KEY }}
           METEOFRANCE_ARPEGE_API_KEY: ${{ secrets.METEOFRANCE_ARPEGE_API_KEY }}
-        run: python scripts/meteofrance_acquisition_sample.py
+          STATION_WINDOW: ${{ inputs.station_window }}
+        shell: bash
+        run: |
+          if [[ "$STATION_WINDOW" == "true" ]]; then
+            python scripts/meteofrance_acquisition_sample.py --station-window
+          else
+            python scripts/meteofrance_acquisition_sample.py
+          fi
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:

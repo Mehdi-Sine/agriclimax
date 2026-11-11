@@ -1,0 +1,46 @@
+{
+  "observed_at": "2026-11-11T13:50:23.417783+00:00",
+  "source": "meteofrance-climatology",
+  "window": [
+    "2026-10-29",
+    "2026-11-10"
+  ],
+  "database_writes": 0,
+  "stations": [
+    {
+      "station": "29075001",
+      "last_date_in_bounded_window": null,
+      "status": null,
+      "retrieved_at": null,
+      "batch_count": 0
+    },
+    {
+      "station": "67124001",
+      "last_date_in_bounded_window": null,
+      "status": null,
+      "retrieved_at": null,
+      "batch_count": 0
+    },
+    {
+      "station": "31069001",
+      "last_date_in_bounded_window": null,
+      "status": null,
+      "retrieved_at": null,
+      "batch_count": 0
+    },
+    {
+      "station": "13054001",
+      "last_date_in_bounded_window": null,
+      "status": null,
+      "retrieved_at": null,
+      "batch_count": 0
+    },
+    {
+      "station": "05046001",
+      "last_date_in_bounded_window": null,
+      "status": null,
+      "retrieved_at": null,
+      "batch_count": 0
+    }
+  ]
+}
