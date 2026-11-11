@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {PRODUCTIONS} from "../multiproduction/registry";
 import {EditorialHeader} from "../../components/navigation/editorial-header";
 import type { Archive, Block } from "./model";
 import type {ConsultableEdition} from "./consultable";
@@ -38,6 +39,7 @@ export function EditorialPreview({
   const cycles=[...new Set(a?.briefing.national.facts.flatMap(f=>{try{const cycle=new URL(f.href,"https://agriclimax.invalid").searchParams.get("cycle");return cycle&&Number.isFinite(Date.parse(cycle))?[cycle]:[];}catch{return [];}})??[])];
   const base=personalStatus?"/journal/personnel":published?"/journal":"/journal/preview";
   const api=personalStatus?"/api/journal/personnel":published?"/api/journal/edition":"/api/journal-preview";
+  const mapsBase=personalStatus?"/journal/personnel":published?"/cartes-du-jour":"/journal/preview";
   const mapApi=personalStatus?"/api/journal/personnel/map":published?"/api/journal/edition-map":"/api/journal-preview/map";
   return (
     <main className="journal ux01-journal">
@@ -134,11 +136,11 @@ export function EditorialPreview({
           <section className="ux01-cartes-teasers" aria-labelledby="ux01-carte-title">
               <div className="ux01-teaser-heading">
                 <div><p className="eyebrow">L’ESSENTIEL EN CARTES</p><h2 id="ux01-carte-title">Les cartes de l’édition</h2></div>
-                <Link href={`/cartes-du-jour?date=${a.date}&id=${a.edition_id}`}>Toutes les cartes →</Link>
+                <Link href={`${mapsBase}?date=${a.date}&id=${a.edition_id}`}>Toutes les cartes →</Link>
               </div>
               <div className="ux01-teaser-grid">
                 {a.illustrations.filter(m=>d.illustration_ids.includes(m.id)).slice(0,3).map(m=>
-                  <Link key={m.id} href={`/cartes-du-jour?date=${a.date}&id=${a.edition_id}&map=${m.id}`} className="ux01-teaser-card">
+                  <Link key={m.id} href={`${mapsBase}?date=${a.date}&id=${a.edition_id}&map=${m.id}`} className="ux01-teaser-card">
                     <span className="ux01-teaser-stripe" aria-hidden="true"/>
                     <span className="ux01-kicker">CARTE ARCHIVÉE · {m.period[0]} → {m.period[1]}</span>
                     <h3>{m.caption}</h3>
@@ -174,9 +176,7 @@ export function EditorialPreview({
               {d.productions.map((p) => (
                 <article className="production-card" key={p.production_id}>
                   <h3>
-                    {p.production_id === "wheat"
-                      ? "Blé tendre"
-                      : p.production_id}
+                    {PRODUCTIONS.find(production=>production.id===p.production_id)?.label??p.production_id}
                   </h3>
                   {p.blocks.map((b, i) => (
                     <Text facts={a.briefing.national.facts} block={b} key={i} />
@@ -276,6 +276,7 @@ export function EditorialPreview({
                 Archive JSON et preuves de cette édition
               </Link>
             </details>
+            <p><Link href="/almanach">Almanach agricole</Link> · <Link href="/aide-et-documentation/indicateurs">Définitions des indicateurs</Link></p>
             <p className="footer-brand">
               AgriclimaX <span>Le Journal agroclimatique</span>
             </p>

@@ -9,7 +9,7 @@ const out=path.resolve(process.env.UX01_ARTIFACTS??"work/quality/e2e/ux01");
 await mkdir(out,{recursive:true});
 const sizes=[["desktop-1440",1440,900],["desktop-1280",1280,800],["tablet-768",768,1024],["mobile-390",390,844],["mobile-360",360,780]];
 const expected=["Le Journal","Cartes du jour","Explorer le climat","Productions","Aide et documentation"];
-const browser=await chromium.launch({args:["--no-sandbox","--enable-unsafe-swiftshader"]});
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE_PATH,args:["--no-sandbox","--enable-unsafe-swiftshader"]});
 const report=[];
 try {
   for(const [name,width,height] of sizes){

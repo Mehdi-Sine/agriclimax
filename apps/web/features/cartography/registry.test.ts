@@ -22,3 +22,9 @@ describe('semantic cartography',()=>{
   for(const p of PALETTES){expect(classIndex(null,p)).toBe(-1);expect(classIndex(NaN,p)).toBe(-1);expect(classIndex(0,p)).toBeGreaterThanOrEqual(0);expect(p.bounds).toHaveLength(p.tokens.length);expect(classLabel(p,4)).toContain('>');expect(p.documentation).toContain(p.id);}
  });
 });
+
+it('gives AGRO-02 extensions the physical palette of their recipe',()=>{
+ for(const id of ['gdd_base6','gdd_base10'])expect(semanticPalette(id,'°C·j').tokens).toEqual(semanticPalette('gdd','°C·j').tokens);
+ for(const id of ['hot30','hot30_sequence'])expect(semanticPalette(id,'jours').tokens).toEqual(semanticPalette('hot','jours').tokens);
+ expect(semanticPalette('rain_frequency','jours').tokens).toEqual(semanticPalette('heavy_rain','jours').tokens);
+});

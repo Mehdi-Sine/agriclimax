@@ -29,9 +29,9 @@ function resolvePalette(indicator:string,unit:string,days:number,mode:string):Pa
  if(['dry','dry_sequence'].includes(indicator))return definition('dry-sequence','precipitation','occurrence','jours',[0,2,4,6,Infinity],dry,'Durée sans pluie significative (< 1 mm/j), pas sécheresse agricole');
  if(['frost','frost_sequence'].includes(indicator))return definition('frost-days','cold','occurrence','jours',[0,1,3,5,Infinity],cold,'Bleu croissant : jours de gel, sans dommage inféré');
  if(indicator==='thi')return definition('thi','heat','absolute','THI',[cattleRule.thresholds[0],75,80,85,Infinity],dry,'THI synthétique ; seuil descriptif strict > 72, variante Bohmanova 2005',cattleRule.source.url);
- if(['hot','hot_sequence','cattle_heat','thi_days','thi_sequence'].includes(indicator))return definition('heat-days','heat','occurrence','jours',[0,1,3,5,Infinity],dry,'Dépassements thermiques descriptifs, pas de risque de dommage');
- if(indicator==='heavy_rain')return definition('heavy-rain-days','precipitation','occurrence','jours',[0,1,3,5,Infinity],rain,'Nombre de jours de pluie au-dessus du seuil choisi');
- if(indicator==='gdd')return definition('gdd','accumulated-heat','cumulative','°C·j',[50,150,300,600,Infinity],[1,2,3,4,5].map(i=>`--map-gdd-${i}`),'Chaleur accumulée, sans qualification de stress');
+ if(['hot','hot_sequence','hot30','hot30_sequence','cattle_heat','thi_days','thi_sequence'].includes(indicator))return definition('heat-days','heat','occurrence','jours',[0,1,3,5,Infinity],dry,'Dépassements thermiques descriptifs, pas de risque de dommage');
+ if(['heavy_rain','rain_frequency'].includes(indicator))return definition('heavy-rain-days','precipitation','occurrence','jours',[0,1,3,5,Infinity],rain,'Nombre de jours de pluie au-dessus du seuil choisi');
+ if(['gdd','gdd_base6','gdd_base10'].includes(indicator))return definition('gdd','accumulated-heat','cumulative','°C·j',[50,150,300,600,Infinity],[1,2,3,4,5].map(i=>`--map-gdd-${i}`),'Chaleur accumulée, sans qualification de stress');
  if(indicator==='humidity')return definition('humidity','humidity','absolute','%',[20,40,60,80,Infinity],rain,'Humidité relative estimée');
  if(unit==='mm'){
  const window=days===1?'day':days<=7?'week':'month';

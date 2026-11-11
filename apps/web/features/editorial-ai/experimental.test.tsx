@@ -53,3 +53,12 @@ describe("real November 10 experimental reading",()=>{
   expect(INSTRUCTIONS).toContain("ne sont JAMAIS des evidence_ids");
  });
 });
+
+it('keeps test edition links in preview and exposes the almanac without generating text',()=>{
+ const preview=previewEditions()[0];
+ const html=renderToStaticMarkup(<EditorialPreview edition={preview} editions={[preview]}/>);
+ expect(html).toContain(`/journal/preview?date=${preview.date}&amp;id=${preview.edition_id}`);
+ expect(html).not.toContain(`/cartes-du-jour?date=${preview.date}`);
+ expect(html).toContain('/almanach');
+ expect(html).toContain('/aide-et-documentation/indicateurs');
+});
