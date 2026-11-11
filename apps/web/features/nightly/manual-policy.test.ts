@@ -50,7 +50,7 @@ describe('OPS-04 real CLI read-only boundary with a source-shaped stored archive
   try{
    const runner=await import('../../../../scripts/manual_journal');await runner.execution;
    const result=JSON.parse(readFileSync(join(dir,'report.json'),'utf8'));
-   expect(result.status).toBe('completed');expect(result.openai.calls).toBe(0);expect(result.snapshot.status).toBe('reused_frozen');expect(result.publication.status).toBe(mode==='dry-run'?'not_requested':mode==='resume'?'not_requested_resume':'waiting');
+   expect(result.status).toBe('completed');expect(result.openai.calls).toBe(0);expect(result.snapshot.status).toBe(mode==='dry-run'?'reused_frozen':'production_frozen');expect(result.publication.status).toBe(mode==='dry-run'?'not_requested':mode==='resume'?'not_requested_resume':'waiting');
    if(mode==='publish')expect(result.publication.reason).toBe(publicationEnabled?'EDITORIAL_APPROVAL_REQUIRED':'PUBLICATION_DISABLED');
    expect(result.openai.status).toMatch(/reused/);
    expect(new Set(actions)).toEqual(new Set(['report','control','snapshot_read','archive_read',...(publicationEnabled?['reviews']:[])]));

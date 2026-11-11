@@ -107,6 +107,7 @@ async function main() {
   report.openai={status:compatible?'reused_for_validation':'not_called_deterministic_preview',calls:0};report.validation=archive.validation;
   report.consultation={status:'local_preview_ready',url:`/journal/preview?date=${date}&id=${archive.edition_id}`,archive_id:archive.edition_id,preview_mode:archive.mode,compatible_ai_url:compatible?`https://agriclimax.vercel.app/journal?id=${compatible.edition_id}`:null,environment:{AGRICLIMAX_AI_PREVIEW_ARCHIVE_DIR:preview,AGRICLIMAX_MANUAL_RUN_DIR:root}};
  }
+ report.preview=report.consultation;
  if(options.mode==='dry-run')return;
  phase="production_resume";
  if(control.emergency_stop){report.blockers=['EMERGENCY_STOP'];return;}
@@ -121,9 +122,12 @@ async function main() {
  const after=await editorialRPC<{runs:Run[];diagnostics:{kind?:string;run_id?:string}[]}>("report",{edition_date:date});
  const beforeIds=new Set(before.runs.map(r=>r.id));const newIds=new Set(after.runs.filter(r=>!beforeIds.has(r.id)).map(r=>r.id));
  report.openai={status:newIds.size?'persistent_attempt_checked':compatible?'reused_compatible_response':'preserved',calls:after.diagnostics.filter(d=>d.kind==='provider_request'&&d.run_id&&newIds.has(d.run_id)).length};
+ const persisted=await editorialRPC<DailyEditorialSnapshot|null>('snapshot_read',{edition_date:date});
+ if(persisted){verifySnapshot(persisted);report.snapshot={id:persisted.id,quality:persisted.quality,status:'production_frozen',test_id:snapshot.id};}
  if((report.blockers as unknown[]).length)return;
  let production=existing?originals.find(a=>a.briefing.bundle_id===existing.briefing?.bundle_id&&validateDraft(a.draft,a.briefing,a.illustrations).status!=='rejected'):undefined;
  if(!production)for(const r of after.runs.filter(r=>r.edition_date===date)){const a=await store.read(r.archive_id??r.id);if(a&&validateDraft(a.draft,a.briefing,a.illustrations).status!=='rejected'){production=a;break;}}
+ if(production)report.validation=production.validation;
  if(options.mode==='resume')report.publication={status:before.publications.some(p=>p.edition_date===date)?'already_published':'not_requested_resume'};
  if(options.mode==='publish') {
   phase='publication';
@@ -140,6 +144,6 @@ async function main() {
 export const execution=main().catch(error=>{report.blockers=[error instanceof Error&&/^[A-Z][A-Z0-9_]+$/.test(error.message)?error.message:'MANUAL_EXECUTION_FAILED'];report.status='failed';if(error instanceof BriefingContractError)report.contract_diagnostics=error.diagnostics;process.exitCode=1;}).finally(()=>{
  report.phase=phase;report.finished_at=new Date().toISOString();report.status??=(report.blockers as unknown[]).length?'blocked':'completed';save('report.json',report);
  const cell=(v:unknown)=>JSON.stringify(v??null).replace(/\|/g,'\\|').replace(/[\r\n]/g,' ');
- const summary='## AgriclimaX — exécution manuelle\n\n| Contrôle | Résultat |\n|---|---|\n'+Object.entries({Édition:report.edition_date,Mode:report.mode,Acquisitions:report.acquisitions,Fraîcheur:report.freshness,Couverture:report.coverage,Indicateurs:report.indicators,Snapshot:report.snapshot,OpenAI:report.openai,Validation:report.validation,Publication:report.publication,Consultation:report.consultation,Blocages:report.blockers}).map(([k,v])=>`| ${k} | ${cell(v)} |`).join('\n')+'\n';writeFileSync(join(root,'summary.md'),summary);if(process.env.GITHUB_STEP_SUMMARY)appendFileSync(process.env.GITHUB_STEP_SUMMARY,summary);
+ const summary='## AgriclimaX — exécution manuelle\n\n| Contrôle | Résultat |\n|---|---|\n'+Object.entries({Édition:report.edition_date,Mode:report.mode,Acquisitions:report.acquisitions,Fraîcheur:report.freshness,Couverture:report.coverage,Indicateurs:report.indicators,Snapshot:report.snapshot,OpenAI:report.openai,Validation:report.validation,Publication:report.publication,Consultation:report.consultation,Preview:report.preview,Blocages:report.blockers}).map(([k,v])=>`| ${k} | ${cell(v)} |`).join('\n')+'\n';writeFileSync(join(root,'summary.md'),summary);if(process.env.GITHUB_STEP_SUMMARY)appendFileSync(process.env.GITHUB_STEP_SUMMARY,summary);
  console.log(JSON.stringify({output:root,status:report.status,edition_date:report.edition_date,mode:report.mode,openai:report.openai,blockers:report.blockers}));
 });
