@@ -6,6 +6,8 @@ import type {ConsultableEdition} from "./consultable";
 import { frenchDate } from "../journal/ui/stories";
 import { editorialText, frenchPeriod, frenchCycle } from "../journal/ui/editorial-dates";
 import JournalPraMap from "../journal/ui/pra-map";
+import {EditionMaps} from "../edition-maps/view";
+import type {EditionMapsView} from "../edition-maps/model";
 function Text({ block, facts }: { block: Block; facts: {id:string}[] }) {
   const unresolved=block.evidence_ids.filter(id=>!facts.some(f=>f.id===id));
   const resolved=block.evidence_ids.some(id=>facts.some(f=>f.id===id));
@@ -29,11 +31,13 @@ export function EditorialPreview({
   editions,
   published = false,
   personalStatus,
+  editionMaps,
 }: {
   edition: Archive|ConsultableEdition|undefined;
   editions: (Archive|ConsultableEdition)[];
   published?: boolean;
   personalStatus?: string;
+  editionMaps?: EditionMapsView;
 }) {
   const d = a?.draft;
   const cycles=[...new Set(a?.briefing.national.facts.flatMap(f=>{try{const cycle=new URL(f.href,"https://agriclimax.invalid").searchParams.get("cycle");return cycle&&Number.isFinite(Date.parse(cycle))?[cycle]:[];}catch{return [];}})??[])];
@@ -76,7 +80,7 @@ export function EditorialPreview({
                 <Text facts={a.briefing.national.facts} block={d.lead} />
               </div>
             </div>
-            {a.illustrations.some(m=>d.illustration_ids.includes(m.id)) ? (
+            {editionMaps?.maps.length ? <EditionMaps key={a.edition_id} view={editionMaps} editionId={a.edition_id} main/> : a.illustrations.some(m=>d.illustration_ids.includes(m.id)) ? (
               a.illustrations
                 .filter((m) => d.illustration_ids.includes(m.id))
                 .slice(0,1)
@@ -91,7 +95,7 @@ export function EditorialPreview({
                   />
                 ))
             ) : (
-              <aside className="empty-story">
+              editionMaps ? <EditionMaps view={editionMaps} editionId={a.edition_id} main/> : <aside className="empty-story">
                 <p className="eyebrow">LA CARTE DU DOSSIER</p>
                 <h2>Aucune carte compatible archivée</h2>
                 <p>
@@ -146,7 +150,8 @@ export function EditorialPreview({
                     <h3>{m.caption}</h3>
                     <small>Explorer les données et la légende →</small>
                   </Link>)}
-                {!a.illustrations.some(m=>d.illustration_ids.includes(m.id))&&<p>Cette édition ne comporte pas de carte archivée compatible. Aucune carte récente ne lui est substituée.</p>}
+                {editionMaps?.maps.slice(0,3).map(m=><Link key={m.id} href={`${mapsBase}?id=${a.edition_id}&map=${m.id}`} className="ux01-teaser-card"><span className="ux01-kicker">{m.nature==="forecast"?"PRÉVISION":"RÉANALYSE"} · {m.period.join(" → ")}</span><h3>{m.title}</h3><small>{editionMaps.status==="preview"?"Candidate non publiée":"Carte publiée de l’édition"} · {m.unit}</small></Link>)}
+                {!editionMaps?.maps.length&&!a.illustrations.some(m=>d.illustration_ids.includes(m.id))&&<p>Cette édition ne comporte pas de carte archivée compatible. Aucune carte récente ne lui est substituée.</p>}
               </div>
             </section>
            <section className="understand">

@@ -87,7 +87,9 @@ async function JournalContent({
       return <main className="journal ux01-journal"><h1>Le Journal agroclimatique</h1><p role="status">Lecture des archives momentanément indisponible.</p></main>;
     }
     const selected=date||id ? editions.find(e=>(!date||e.date===date)&&(!id||e.edition_id===id)) : editions[0];
-    return <>{!date && editions[0]?.date!==parisDate(new Date().toISOString()) && <p role="status">L’édition du jour est retardée. La dernière édition consultable conserve sa date réelle.</p>}<EditorialPreview edition={selected} editions={editions} published /></>;
+    const {editionMaps}=await import("../../lib/server/edition-maps");
+    const maps=selected?(await editionMaps(selected)).view:undefined;
+    return <>{!date && editions[0]?.date!==parisDate(new Date().toISOString()) && <p role="status">L’édition du jour est retardée. La dernière édition consultable conserve sa date réelle.</p>}<EditorialPreview edition={selected} editions={editions} published editionMaps={maps}/></>;
   }
   if (run !== undefined && !isJournalRun(run)) notFound();
   let edition: JournalEdition;

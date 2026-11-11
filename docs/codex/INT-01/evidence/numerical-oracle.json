@@ -1,0 +1,572 @@
+{
+  "source": "Supabase frozen input d2c7f1cdf4d09a9f9975fdcf9337595c099358f275ce8b0b047fdab2995f3892",
+  "scope": "Independent Python arithmetic for seven historical/eight forecast PRA per indicator (75 comparisons); not independent meteorological or coastal validation",
+  "checks": [
+    {
+      "indicator": "temperature_min",
+      "pra": "pra:01195",
+      "expected": 0.18520507,
+      "actual": 0.18520507,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "pra": "pra:18179",
+      "expected": 1.2085205,
+      "actual": 1.2085205,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "pra": "pra:33118",
+      "expected": 3.7260985,
+      "actual": 3.7260985,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "pra": "pra:44363",
+      "expected": 4.9742064,
+      "actual": 4.9742064,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "pra": "pra:60330",
+      "expected": 4.0280395,
+      "actual": 4.0280395,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "pra": "pra:72345",
+      "expected": 5.1527343,
+      "actual": 5.1527343,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "pra": "pra:85370",
+      "expected": 5.6408324,
+      "actual": 5.6408324,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "pra": "pra:01195",
+      "expected": 6.9695571,
+      "actual": 6.9695571,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "pra": "pra:18179",
+      "expected": 7.654081114285715,
+      "actual": 7.654081114285715,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "pra": "pra:33118",
+      "expected": 9.264633857142856,
+      "actual": 9.264633857142856,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "pra": "pra:44363",
+      "expected": 9.738700285714286,
+      "actual": 9.738700285714286,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "pra": "pra:60330",
+      "expected": 8.515067042857144,
+      "actual": 8.515067042857142,
+      "absolute_error": 1.7763568394002505e-15
+    },
+    {
+      "indicator": "temperature_mean",
+      "pra": "pra:72345",
+      "expected": 9.395808200000001,
+      "actual": 9.395808200000001,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "pra": "pra:85370",
+      "expected": 10.104789428571427,
+      "actual": 10.104789428571427,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "rain",
+      "pra": "pra:01195",
+      "expected": 0.01874006651,
+      "actual": 0.01874006651,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "rain",
+      "pra": "pra:18179",
+      "expected": 0.22780257028439999,
+      "actual": 0.22780257028439999,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "rain",
+      "pra": "pra:33118",
+      "expected": 0.2811931065,
+      "actual": 0.28119310649999996,
+      "absolute_error": 5.551115123125783e-17
+    },
+    {
+      "indicator": "rain",
+      "pra": "pra:44363",
+      "expected": 0.06946897290000001,
+      "actual": 0.0694689729,
+      "absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "indicator": "rain",
+      "pra": "pra:60330",
+      "expected": 1.5190663047,
+      "actual": 1.5190663046999997,
+      "absolute_error": 2.220446049250313e-16
+    },
+    {
+      "indicator": "rain",
+      "pra": "pra:72345",
+      "expected": 1.0330100837,
+      "actual": 1.0330100837,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "rain",
+      "pra": "pra:85370",
+      "expected": 0.2699431854,
+      "actual": 0.26994318539999995,
+      "absolute_error": 5.551115123125783e-17
+    },
+    {
+      "indicator": "frost",
+      "pra": "pra:01195",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "frost",
+      "pra": "pra:18179",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "frost",
+      "pra": "pra:33118",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "frost",
+      "pra": "pra:44363",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "frost",
+      "pra": "pra:60330",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "frost",
+      "pra": "pra:72345",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "frost",
+      "pra": "pra:85370",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "gdd",
+      "pra": "pra:01195",
+      "expected": 48.7868997,
+      "actual": 48.7868997,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "gdd",
+      "pra": "pra:18179",
+      "expected": 53.5785678,
+      "actual": 53.5785678,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "gdd",
+      "pra": "pra:33118",
+      "expected": 64.852437,
+      "actual": 64.852437,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "gdd",
+      "pra": "pra:44363",
+      "expected": 68.170902,
+      "actual": 68.170902,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "gdd",
+      "pra": "pra:60330",
+      "expected": 59.6054693,
+      "actual": 59.605469299999996,
+      "absolute_error": 7.105427357601002e-15
+    },
+    {
+      "indicator": "gdd",
+      "pra": "pra:72345",
+      "expected": 65.7706574,
+      "actual": 65.7706574,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "gdd",
+      "pra": "pra:85370",
+      "expected": 70.733526,
+      "actual": 70.733526,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "nature": "forecast",
+      "pra": "pra:01195",
+      "expected": 7.303491210937523,
+      "actual": 7.303491210937523,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "nature": "forecast",
+      "pra": "pra:16371",
+      "expected": 7.834741210937523,
+      "actual": 7.834741210937523,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "nature": "forecast",
+      "pra": "pra:2B259",
+      "expected": 6.419671630859398,
+      "actual": 6.419671630859398,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "nature": "forecast",
+      "pra": "pra:40378",
+      "expected": 11.334741210937523,
+      "actual": 11.334741210937523,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "nature": "forecast",
+      "pra": "pra:52311",
+      "expected": 5.084741210937523,
+      "actual": 5.084741210937523,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "nature": "forecast",
+      "pra": "pra:65387",
+      "expected": 12.357171630859398,
+      "actual": 12.357171630859398,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "nature": "forecast",
+      "pra": "pra:77060",
+      "expected": 4.553491210937523,
+      "actual": 4.553491210937523,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_min",
+      "nature": "forecast",
+      "pra": "pra:91055",
+      "expected": 4.803491210937523,
+      "actual": 4.803491210937523,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "nature": "forecast",
+      "pra": "pra:01195",
+      "expected": 12.217321836439574,
+      "actual": 12.217321836439574,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "nature": "forecast",
+      "pra": "pra:16371",
+      "expected": 12.685581663814494,
+      "actual": 12.685581663814494,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "nature": "forecast",
+      "pra": "pra:2B259",
+      "expected": 16.726670694188027,
+      "actual": 16.726670694188027,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "nature": "forecast",
+      "pra": "pra:40378",
+      "expected": 15.523684550974588,
+      "actual": 15.523684550974588,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "nature": "forecast",
+      "pra": "pra:52311",
+      "expected": 9.57357318201715,
+      "actual": 9.57357318201715,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "nature": "forecast",
+      "pra": "pra:65387",
+      "expected": 15.320799244647308,
+      "actual": 15.320799244647308,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "nature": "forecast",
+      "pra": "pra:77060",
+      "expected": 9.325016522786633,
+      "actual": 9.325016522786633,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "temperature_mean",
+      "nature": "forecast",
+      "pra": "pra:91055",
+      "expected": 9.46891749570029,
+      "actual": 9.46891749570029,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "rain",
+      "nature": "forecast",
+      "pra": "pra:01195",
+      "expected": 33.99104193838733,
+      "actual": 33.99104193838733,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "rain",
+      "nature": "forecast",
+      "pra": "pra:16371",
+      "expected": 5.775651307192636,
+      "actual": 5.775651307192636,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "rain",
+      "nature": "forecast",
+      "pra": "pra:2B259",
+      "expected": 7.244488634849709,
+      "actual": 7.244488634849709,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "rain",
+      "nature": "forecast",
+      "pra": "pra:40378",
+      "expected": 27.39233395531825,
+      "actual": 27.39233395531825,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "rain",
+      "nature": "forecast",
+      "pra": "pra:52311",
+      "expected": 16.569674239357745,
+      "actual": 16.569674239357745,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "rain",
+      "nature": "forecast",
+      "pra": "pra:65387",
+      "expected": 7.877918777401116,
+      "actual": 7.877918777401116,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "rain",
+      "nature": "forecast",
+      "pra": "pra:77060",
+      "expected": 0.13388946260156503,
+      "actual": 0.13388946260156503,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "rain",
+      "nature": "forecast",
+      "pra": "pra:91055",
+      "expected": 0.11955177332352186,
+      "actual": 0.11955177332352186,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "frost",
+      "nature": "forecast",
+      "pra": "pra:01195",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "frost",
+      "nature": "forecast",
+      "pra": "pra:16371",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "frost",
+      "nature": "forecast",
+      "pra": "pra:2B259",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "frost",
+      "nature": "forecast",
+      "pra": "pra:40378",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "frost",
+      "nature": "forecast",
+      "pra": "pra:52311",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "frost",
+      "nature": "forecast",
+      "pra": "pra:65387",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "frost",
+      "nature": "forecast",
+      "pra": "pra:77060",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "frost",
+      "nature": "forecast",
+      "pra": "pra:91055",
+      "expected": 0,
+      "actual": 0,
+      "absolute_error": 0
+    },
+    {
+      "indicator": "gdd",
+      "nature": "forecast",
+      "pra": "pra:01195",
+      "expected": 24.434643672879147,
+      "actual": 24.434643672879147,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "gdd",
+      "nature": "forecast",
+      "pra": "pra:16371",
+      "expected": 25.371163327628988,
+      "actual": 25.371163327628988,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "gdd",
+      "nature": "forecast",
+      "pra": "pra:2B259",
+      "expected": 33.45334138837605,
+      "actual": 33.45334138837605,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "gdd",
+      "nature": "forecast",
+      "pra": "pra:40378",
+      "expected": 31.047369101949176,
+      "actual": 31.047369101949176,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "gdd",
+      "nature": "forecast",
+      "pra": "pra:52311",
+      "expected": 19.1471463640343,
+      "actual": 19.1471463640343,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "gdd",
+      "nature": "forecast",
+      "pra": "pra:65387",
+      "expected": 30.641598489294616,
+      "actual": 30.641598489294616,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "gdd",
+      "nature": "forecast",
+      "pra": "pra:77060",
+      "expected": 18.650033045573267,
+      "actual": 18.650033045573267,
+      "absolute_error": 0.0
+    },
+    {
+      "indicator": "gdd",
+      "nature": "forecast",
+      "pra": "pra:91055",
+      "expected": 18.93783499140058,
+      "actual": 18.93783499140058,
+      "absolute_error": 0.0
+    }
+  ],
+  "max_absolute_error": 7.105427357601002e-15
+}

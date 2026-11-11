@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { renderToReadableStream } from "react-dom/server";
 vi.mock("server-only",()=>({}));
 vi.mock("../../lib/server/editorial-published",()=>({operationalEditions:vi.fn(),sharedArchiveRead:()=>false}));
+vi.mock("../../lib/server/edition-maps",()=>({editionMaps:async()=>({view:{status:"absent",code:"MAP_NOT_PUBLISHED",maps:[]}})}));
 import { operationalEditions } from "../../lib/server/editorial-published";
 import { previewEditions as syntheticArchives } from "../../lib/server/editorial-preview";
 import Page from "../../app/journal/page";
@@ -44,7 +45,7 @@ describe("published read path (synthetic manifest)",()=>{
   const stream=await renderToReadableStream(<Page searchParams={Promise.resolve({id:old.edition_id})}/>);await stream.allReady;
   const html=await new Response(stream).text();
   expect(html).toContain("ÉDITION DU 30 octobre 2026");
-  expect(html).toContain("Aucune carte compatible archivée");
+  expect(html).toContain("Pas de carte opérationnelle publiée");
   expect(html).not.toContain(`data-cycle="${editions[0].illustrations[0].cycle}"`);
  });
  it("health identifies a delayed edition instead of inventing today",async()=>{

@@ -1,0 +1,37 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.0.3, pluggy-1.6.0
+rootdir: /workspace/agriclimax/work/int-01/mf01-integration-test/engine
+configfile: pyproject.toml
+collected 96 items
+
+engine/tests/ingestion/test_station_auth.py ..........................   [ 27%]
+engine/tests/territories/test_daily_reliability.py ...................   [ 46%]
+engine/tests/territories/test_mf01_health.py ....................        [ 67%]
+engine/tests/test_daily.py ...............................               [100%]
+
+============================== 96 passed in 3.75s ==============================
+test_adapter_receipt_classification_and_finish_are_persistent (test_retry.AcquisitionLedgerTests.test_adapter_receipt_classification_and_finish_are_persistent) ... ok
+test_denial_records_explicit_noop_without_running_adapter (test_retry.AcquisitionLedgerTests.test_denial_records_explicit_noop_without_running_adapter) ... ok
+test_no_openai_in_acquisition (test_retry.RetryTests.test_no_openai_in_acquisition) ... ok
+test_retry_after (test_retry.RetryTests.test_retry_after) ... ok
+test_supplier_classes (test_retry.RetryTests.test_supplier_classes) ... ok
+test_safe_receipt_keeps_auth_status_and_omits_exception_text (test_retry.SourceReceiptTests.test_safe_receipt_keeps_auth_status_and_omits_exception_text) ... ok
+test_long_supplier_cooldown_does_not_trigger_immediate_retries (test_retry.StationCooldownTests.test_long_supplier_cooldown_does_not_trigger_immediate_retries) ... ok
+test_dispatch_and_supabase_preserve_explicit_date_and_slot (test_schedule.ScheduleTests.test_dispatch_and_supabase_preserve_explicit_date_and_slot) ... ok
+test_dst_and_rerun (test_schedule.ScheduleTests.test_dst_and_rerun) ... ok
+test_every_cron_keeps_stage_at_any_runner_start (test_schedule.ScheduleTests.test_every_cron_keeps_stage_at_any_runner_start) ... ok
+test_unknown_cron_is_never_a_green_report (test_schedule.ScheduleTests.test_unknown_cron_is_never_a_green_report) ... ok
+test_workflow_crons_match_exact_registry (test_schedule.ScheduleTests.test_workflow_crons_match_exact_registry) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.116s
+
+OK
+test_diagnostic_jobs_have_no_persistence_or_ai_bindings (test_meteofrance_operations.MeteoFranceOperations.test_diagnostic_jobs_have_no_persistence_or_ai_bindings) ... ok
+test_preflight_reports_names_without_values_and_keeps_log (test_meteofrance_operations.MeteoFranceOperations.test_preflight_reports_names_without_values_and_keeps_log) ... ok
+test_tee_preserves_cli_failure_and_manual_range_arguments (test_meteofrance_operations.MeteoFranceOperations.test_tee_preserves_cli_failure_and_manual_range_arguments) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.165s
+
+OK

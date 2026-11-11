@@ -1,0 +1,48 @@
+{"restored": false, "searched_runs": 13}
+Traceback (most recent call last):
+  File "/home/runner/work/agriclimax/agriclimax/scripts/operational_weather_pilot.py", line 519, in <module>
+    main()
+  File "/home/runner/work/agriclimax/agriclimax/scripts/operational_weather_pilot.py", line 186, in main
+    raw = fetch(f"{source_url}-{step}h-oper-fc.index", 256 * 1024)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/agriclimax/agriclimax/scripts/operational_weather_pilot.py", line 153, in fetch
+    return retry_read(lambda: fetch_once(url, limit, headers), wait)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/agriclimax/agriclimax/engine/src/agriclimax/ingestion/source_retry.py", line 13, in retry_read
+    return operation()
+           ^^^^^^^^^^^
+  File "/home/runner/work/agriclimax/agriclimax/scripts/operational_weather_pilot.py", line 153, in <lambda>
+    return retry_read(lambda: fetch_once(url, limit, headers), wait)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/agriclimax/agriclimax/scripts/operational_weather_pilot.py", line 133, in fetch_once
+    with urlopen(Request(url, headers=headers or {}), timeout=30) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/urllib/request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/urllib/request.py", line 521, in open
+    response = meth(req, response)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/urllib/request.py", line 630, in http_response
+    response = self.parent.error(
+               ^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/urllib/request.py", line 559, in error
+    return self._call_chain(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/urllib/request.py", line 639, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+Traceback (most recent call last):
+  File "/home/runner/work/agriclimax/agriclimax/scripts/national_weather.py", line 154, in <module>
+    main()
+  File "/home/runner/work/agriclimax/agriclimax/scripts/national_weather.py", line 137, in main
+    result = run_national(args.root, run, budget, args.publish_dev)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/agriclimax/agriclimax/scripts/national_weather_run.py", line 195, in run_national
+    subprocess.run(
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/opt/hostedtoolcache/Python/3.12.16/x64/bin/python', 'scripts/operational_weather_pilot.py', '--scope', 'national', '--run-date', '2026-11-11', '--root', 'work/national-weather/cycles/20261111T00/ifs', '--execute']' returned non-zero exit status 1.
