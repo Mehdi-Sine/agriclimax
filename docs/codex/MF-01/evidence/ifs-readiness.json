@@ -1,0 +1,41 @@
+{
+  "observed_at": "2026-11-11T13:54:28.349088+00:00",
+  "scope": "indexes_only_no_fields",
+  "results": [
+    {
+      "source": "ecmwf-ifs",
+      "operation": "index",
+      "run": "2026-11-11T00:00:00Z",
+      "step": 0,
+      "http_status": 200,
+      "bytes": 41911,
+      "dates": [
+        "20261111"
+      ],
+      "times": [
+        "0000"
+      ],
+      "steps": [
+        "0",
+        "3"
+      ]
+    },
+    {
+      "source": "ecmwf-ifs",
+      "operation": "index",
+      "run": "2026-11-11T00:00:00Z",
+      "step": 192,
+      "http_status": 200,
+      "bytes": 41727,
+      "dates": [
+        "20261111"
+      ],
+      "times": [
+        "0000"
+      ],
+      "steps": [
+        "192"
+      ]
+    }
+  ]
+}

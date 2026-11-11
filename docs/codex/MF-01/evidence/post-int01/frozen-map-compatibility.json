@@ -1,0 +1,232 @@
+{
+  "status": "candidate_not_published",
+  "edition_id": "bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5",
+  "edition_checksum": "c6c253b501c6f39719069deb5e4b3efa64d234cdd6b0b8aa7f91007ef60af3c1",
+  "bundle_sha256": "80245fade38bc42251720aa9ec602a092600fdbcd14c53605c05b8d7d5ae8cd6",
+  "snapshot_id": "2e9ed6d01173cb0851505863ecd28c3e916fe0a10de3a92f2fb5769987d8446e",
+  "input_archive_sha256": "d2c7f1cdf4d09a9f9975fdcf9337595c099358f275ce8b0b047fdab2995f3892",
+  "maps": [
+    {
+      "indicator": "temperature_min",
+      "title": "Minimum des Tmin quotidiennes",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "\u00b0C",
+      "input_sha256": "3f879313174f638cf49557314965d40cb7a10ec7b7a3a217da4a8b2c0b062e85",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "da41afa870b621c42281a85f68936ae183039c3b14474fe561b96747c8fa82e9",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "temperature_mean",
+      "title": "Temp\u00e9rature moyenne",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "\u00b0C",
+      "input_sha256": "3f879313174f638cf49557314965d40cb7a10ec7b7a3a217da4a8b2c0b062e85",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "534b05c61fd14c91e6455264467ea8fb74dde895426da135d7f719d31f7bb582",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "rain",
+      "title": "Pluie cumul\u00e9e",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "mm",
+      "input_sha256": "3f879313174f638cf49557314965d40cb7a10ec7b7a3a217da4a8b2c0b062e85",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "88b1af965afc34110b7f496ed422df4013c2f0c865e48a8c0419b39ab111fc82",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "frost",
+      "title": "Jours de gel",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "input_sha256": "3f879313174f638cf49557314965d40cb7a10ec7b7a3a217da4a8b2c0b062e85",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "bb2ec84c71434c3827475b440426a5805148bf94a8cea32539ca3cf60c3b4351",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "gdd",
+      "title": "Somme de temp\u00e9ratures",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "\u00b0C\u00b7j",
+      "input_sha256": "3f879313174f638cf49557314965d40cb7a10ec7b7a3a217da4a8b2c0b062e85",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "fe01046a721727e713440e6bfa386b9692b6691ef56f51036eba0d0783bf6e99",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "temperature_min",
+      "title": "Minimum des Tmin quotidiennes",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "\u00b0C",
+      "input_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "sources": [
+        "meteofrance-arpege"
+      ],
+      "cycles": [
+        "2026-11-09T12:00:00Z"
+      ],
+      "id": "fbdbde4c325f9ee89e0dd2a23517eb8f8e217006343a864a6f4cd676b1e4d2dc",
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    },
+    {
+      "indicator": "temperature_mean",
+      "title": "Temp\u00e9rature moyenne",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "\u00b0C",
+      "input_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "sources": [
+        "meteofrance-arpege"
+      ],
+      "cycles": [
+        "2026-11-09T12:00:00Z"
+      ],
+      "id": "3d2818031570e3ae1f24b44a9cc7e4b4b01db44b1f3a5788b7bc84dffb506c06",
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    },
+    {
+      "indicator": "rain",
+      "title": "Pluie cumul\u00e9e",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "mm",
+      "input_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "sources": [
+        "meteofrance-arpege"
+      ],
+      "cycles": [
+        "2026-11-09T12:00:00Z"
+      ],
+      "id": "9d66b7272af363e5a91a9b56d9b9cd2dfeef507bc38ae6d74750fc1d2054148e",
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    },
+    {
+      "indicator": "frost",
+      "title": "Jours de gel",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "input_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "sources": [
+        "meteofrance-arpege"
+      ],
+      "cycles": [
+        "2026-11-09T12:00:00Z"
+      ],
+      "id": "2ff73da2a441a026f2e3e64fd127f1b54914e21726a3692153c0612c9b2609a3",
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    },
+    {
+      "indicator": "gdd",
+      "title": "Somme de temp\u00e9ratures",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "\u00b0C\u00b7j",
+      "input_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "sources": [
+        "meteofrance-arpege"
+      ],
+      "cycles": [
+        "2026-11-09T12:00:00Z"
+      ],
+      "id": "b69a9ff260e2854702f3a262dc1338bf8ec595f831c1c0f52d801e6ee98e0fab",
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    }
+  ],
+  "remote_writes": 0,
+  "openai_calls": 0
+}

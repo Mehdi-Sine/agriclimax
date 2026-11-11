@@ -1,5 +1,6 @@
 import {historicalWheatInputs} from "../apps/web/lib/server/wheat";
 import {forecastProvider} from "../apps/web/features/multiproduction/archives";
+import {homogeneousForecastPeriod} from "../apps/web/features/multiproduction/forecast-period";
 import {RECIPES} from "../apps/web/features/multiproduction/registry";
 import {computeBatch,type InputProvider} from "../apps/web/features/multiproduction/engine";
 import {capture} from "./manual_indicators";
@@ -32,8 +33,8 @@ export function buildEditionMaps(archive:Archive,snapshot:DailyEditorialSnapshot
   if(inputs.document){
     const doc=inputs.document;
     if(!snapshot.sources.some(c=>c.archive.sha256===doc.archive_sha256))throw Error("MAP_FORECAST_SOURCE_BINDING");
-    const period:[string,string]=[archive.date,shift(archive.date,1)];
-    groups.push({nature:"forecast",period,provider:forecastProvider(doc,period)});
+    const period=homogeneousForecastPeriod(doc,archive.date);
+    if(period)groups.push({nature:"forecast",period,provider:forecastProvider(doc,period)});
   }
   const maps:EditionMap[]=[];
   for(const g of groups){

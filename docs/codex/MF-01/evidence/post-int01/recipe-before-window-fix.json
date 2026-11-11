@@ -1,0 +1,150 @@
+{
+  "status": "candidate_not_published",
+  "scope": "local_immutable_persistence_with_remote_get_only",
+  "weather": {
+    "sha256": "4374cae4cbf88a0a41e264656aab21a1f375d554480169e35fdd5f06a060f510",
+    "run": "2026-11-11T06:00:00+00:00",
+    "acquired_at": "2026-11-11T14:07:01.638940Z",
+    "valid_dates": [
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-14",
+      "2026-11-15",
+      "2026-11-16",
+      "2026-11-17",
+      "2026-11-18"
+    ]
+  },
+  "edition": {
+    "id": "4ba2b33c52a8a554427ba6170ca29a643ddd6fa598a94313a4b7d1edda5965df",
+    "mode": "fallback",
+    "validation": "needs_editorial_review",
+    "consultable": false,
+    "blocker": "NEW_FALLBACK_CANDIDATE_HAS_NO_LIVE_AI_RECEIPT"
+  },
+  "snapshot_id": "b9d3d4fc74d5204080d139a3a17c1021940ef78a174c47d5336913653ca18fdb",
+  "input_archive_sha256": "551824f9ba0e73103a60254a6fc71e0720daf225005951d90d82e5d94263f1a9",
+  "indicators": {
+    "measurements": 92690,
+    "errors": []
+  },
+  "bundle_sha256": "bbe6ca582074ab367175849a8829d3910d92d0d7a24b96dd26a9414cf778192c",
+  "maps": [
+    {
+      "indicator": "temperature_min",
+      "title": "Minimum des Tmin quotidiennes",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "\u00b0C",
+      "input_sha256": "3f879313174f638cf49557314965d40cb7a10ec7b7a3a217da4a8b2c0b062e85",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "da41afa870b621c42281a85f68936ae183039c3b14474fe561b96747c8fa82e9",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "temperature_mean",
+      "title": "Temp\u00e9rature moyenne",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "\u00b0C",
+      "input_sha256": "3f879313174f638cf49557314965d40cb7a10ec7b7a3a217da4a8b2c0b062e85",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "534b05c61fd14c91e6455264467ea8fb74dde895426da135d7f719d31f7bb582",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "rain",
+      "title": "Pluie cumul\u00e9e",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "mm",
+      "input_sha256": "3f879313174f638cf49557314965d40cb7a10ec7b7a3a217da4a8b2c0b062e85",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "88b1af965afc34110b7f496ed422df4013c2f0c865e48a8c0419b39ab111fc82",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "frost",
+      "title": "Jours de gel",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "input_sha256": "3f879313174f638cf49557314965d40cb7a10ec7b7a3a217da4a8b2c0b062e85",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "bb2ec84c71434c3827475b440426a5805148bf94a8cea32539ca3cf60c3b4351",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "gdd",
+      "title": "Somme de temp\u00e9ratures",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "\u00b0C\u00b7j",
+      "input_sha256": "3f879313174f638cf49557314965d40cb7a10ec7b7a3a217da4a8b2c0b062e85",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "fe01046a721727e713440e6bfa386b9692b6691ef56f51036eba0d0783bf6e99",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    }
+  ],
+  "replay_identical": true,
+  "persistence": {
+    "local_readback_verified": true,
+    "operational_supabase_weather_persisted": false,
+    "remote_reads": 34,
+    "remote_writes": 0
+  },
+  "openai_calls": 0,
+  "publication": false
+}

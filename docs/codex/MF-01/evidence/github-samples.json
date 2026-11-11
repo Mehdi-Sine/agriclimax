@@ -1,0 +1,124 @@
+{
+  "workflow_run": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43031961280",
+  "observed_at": "2026-11-11T13:45:44.096993+00:00",
+  "database_writes": 0,
+  "openai_calls": 0,
+  "scope": "one_station_and_one_temperature_field_per_model",
+  "results": [
+    {
+      "product": "climatology",
+      "status": "sample_received",
+      "requested_date": "2026-11-10",
+      "station": "29075001",
+      "rows": 6,
+      "actual_times": [
+        "2026-11-10T00:00:00Z"
+      ],
+      "variables_with_value": [
+        "etp_monteith",
+        "humidity",
+        "precipitation",
+        "temperature",
+        "temperature_max",
+        "temperature_min"
+      ],
+      "quality_flags": [
+        "daily_source_date_label",
+        "et0_equivalence_not_asserted",
+        "publication_time_unknown",
+        "source_quality_code_1",
+        "source_quality_code_9"
+      ],
+      "national_coverage_verified": false
+    },
+    {
+      "product": "observations",
+      "status": "sample_received",
+      "requested_date": "2026-11-11",
+      "station": "29075001",
+      "rows": 3,
+      "actual_times": [
+        "2026-11-11T13:00:00+00:00"
+      ],
+      "variables_with_value": [
+        "humidity",
+        "precipitation",
+        "temperature"
+      ],
+      "quality_flags": [
+        "et0_not_available",
+        "publication_time_unknown",
+        "recent_sample_not_daily_aggregate"
+      ],
+      "national_coverage_verified": false
+    },
+    {
+      "product": "arome",
+      "status": "native_sample_verified",
+      "run": "2026-11-11T09:00:00+00:00",
+      "valid_at": "2026-11-11T09:00:00+00:00",
+      "acquired_at": "2026-11-11T13:45:41.282335+00:00",
+      "field_sha256": "b8ded4f2a1c42daaeec83d58de7b349e4c6ab78c9b364d070fa523e261260337",
+      "points": 25,
+      "grib": {
+        "edition": 2,
+        "shortName": "2t",
+        "units": "K",
+        "typeOfLevel": "heightAboveGround",
+        "level": 2,
+        "dataDate": 20261111,
+        "dataTime": 900,
+        "validityDate": 20261111,
+        "validityTime": 900,
+        "startStep": 0,
+        "endStep": 0,
+        "stepType": "instant",
+        "stepUnits": 1,
+        "typeOfGeneratingProcess": 2,
+        "gridType": "regular_ll",
+        "numberOfDataPoints": 25,
+        "iDirectionIncrementInDegrees": 0.025,
+        "jDirectionIncrementInDegrees": 0.025,
+        "bitsPerValue": 16
+      },
+      "source_requests": 3,
+      "source_bytes": 78416,
+      "national_coverage_verified": false,
+      "horizon_5_7_days_verified": false
+    },
+    {
+      "product": "arpege",
+      "status": "native_sample_verified",
+      "run": "2026-11-11T06:00:00+00:00",
+      "valid_at": "2026-11-11T06:00:00+00:00",
+      "acquired_at": "2026-11-11T13:45:44.093471+00:00",
+      "field_sha256": "115b426a27a9bdee413372979ac8b4d0977981cdba18808a176604a837f4940d",
+      "points": 4,
+      "grib": {
+        "edition": 2,
+        "shortName": "2t",
+        "units": "K",
+        "typeOfLevel": "heightAboveGround",
+        "level": 2,
+        "dataDate": 20261111,
+        "dataTime": 600,
+        "validityDate": 20261111,
+        "validityTime": 600,
+        "startStep": 0,
+        "endStep": 0,
+        "stepType": "instant",
+        "stepUnits": 1,
+        "typeOfGeneratingProcess": 2,
+        "gridType": "regular_ll",
+        "numberOfDataPoints": 4,
+        "iDirectionIncrementInDegrees": 0.1,
+        "jDirectionIncrementInDegrees": 0.1,
+        "bitsPerValue": 12
+      },
+      "source_requests": 3,
+      "source_bytes": 46160,
+      "national_coverage_verified": false,
+      "horizon_5_7_days_verified": false
+    }
+  ]
+}

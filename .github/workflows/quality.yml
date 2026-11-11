@@ -60,6 +60,8 @@ jobs:
       - run: python scripts/agriculture_validate.py --require-national
       - run: python -m ruff check engine/src/agriclimax/ingestion/meteofrance.py engine/src/agriclimax/ingestion/station_auth.py engine/tests/ingestion/test_station_auth.py scripts/meteofrance_station_health.py
       - run: MYPYPATH=engine/src python -m mypy --strict engine/src/agriclimax/ingestion/meteofrance.py engine/src/agriclimax/ingestion/station_auth.py scripts/meteofrance_station_health.py
+      - run: python -m ruff check scripts/meteofrance_acquisition_health.py scripts/meteofrance_acquisition_sample.py
+      - run: MYPYPATH=engine/src:scripts python -m mypy --strict --follow-imports=silent scripts/meteofrance_acquisition_health.py scripts/meteofrance_acquisition_sample.py
       - run: python -m unittest discover -s tests/task36 -v
       - run: python -m pip check
       - run: python -m ruff check scripts/quality tests/quality

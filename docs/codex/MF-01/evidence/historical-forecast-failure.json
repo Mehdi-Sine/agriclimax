@@ -1,0 +1,15 @@
+{
+  "workflow_run_id": 42956329780,
+  "head_sha": "b61ce89087a58298f2549257fb31689879fb67ff",
+  "artifact_id": 13826474377,
+  "artifact_name": "t36-forecast-logs",
+  "source": "ecmwf-ifs",
+  "operation": "index",
+  "source_run_date": "2026-11-11",
+  "http_status": 404,
+  "child_script": "operational_weather_pilot.py",
+  "parent_error": "CalledProcessError",
+  "interpretation": "The retained child traceback establishes an IFS index 404. The exact missing lead is not logged. This run predates OPS-03 latest-run readiness changes; do not attribute it to current Meteo-France API credentials.",
+  "raw_log_committed": false,
+  "secret_values_recorded": false
+}

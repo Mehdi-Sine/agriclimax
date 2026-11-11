@@ -5,7 +5,7 @@ import os
 import time
 from collections.abc import Callable
 from contextlib import AbstractContextManager
-from http.client import HTTPResponse
+from http.client import HTTPResponse, IncompleteRead
 from threading import Lock
 from typing import Literal
 from urllib.error import HTTPError, URLError
@@ -41,7 +41,7 @@ def access_error(error: HTTPError, variable: str, *, phase: str = "resource") ->
     """A 401 alone cannot distinguish a bad, revoked, wrong-type or expired token."""
     try:
         body = json.loads(error.read(4097))
-    except (ValueError, OSError):
+    except (ValueError, OSError, IncompleteRead):
         body = {}
     finally:
         error.close()
@@ -112,7 +112,7 @@ class StationAuth:
                 error.close()
                 raise MeteoFranceTransportError(error.code, delay) from None
             raise access_error(error, self.variable, phase="token") from None
-        except (URLError, TimeoutError, OSError):
+        except (URLError, TimeoutError, OSError, IncompleteRead):
             raise RuntimeError("OAuth token service unavailable") from None
         except (ValueError, KeyError, TypeError, AttributeError):
             raise MeteoFranceAccessError("OAuth token response incompatible", reason="endpoint_incompatible", phase="token") from None

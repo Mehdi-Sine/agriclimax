@@ -43,3 +43,27 @@ def test_failed_supplier_does_not_stop_the_other_isolated_acquisitions(tmp_path,
     assert len(results) == 5
     assert all(r['status'] in ('failed', 'not_available') for r in results)
     assert adapter.call_count >= 4
+
+
+def test_national_recipe_over_ten_minutes_and_shared_deadline(tmp_path, monkeypatch):
+    import json
+    from unittest.mock import Mock
+
+    import manual_sources
+
+    clock = [0.0]
+    monkeypatch.setattr(manual_sources.time, 'monotonic', lambda: clock[0])
+    monkeypatch.setattr('sys.argv', ['manual_sources.py', '--edition-date', str(manual_sources.datetime.now(manual_sources.UTC).date()), '--root', str(tmp_path)])
+
+    def acquire(*args, **kwargs):
+        assert kwargs['timeout'] > 669
+        clock[0] = 1251  # No later supplier may exceed the shared bounded owner.
+        return Mock(returncode=0)
+
+    adapter = Mock(side_effect=acquire)
+    monkeypatch.setattr(manual_sources.subprocess, 'run', adapter)
+    manual_sources.main()
+    results = json.loads((tmp_path/'results.json').read_text())
+    assert adapter.call_count == 1
+    assert results[0]['status'] == 'completed'
+    assert all(r['status'] == 'not_attempted' for r in results[1:])

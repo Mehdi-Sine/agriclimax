@@ -1,0 +1,645 @@
+{
+  "archive_sha256": "6d8255cb738799d0434c9ae4ded8e045d993e80561b724625683acb532cc1e43",
+  "run": "2026-11-09T12:00:00+00:00",
+  "acquired_at": "2026-11-09T19:01:50.884027Z",
+  "validation": {
+    "source_rows": 49910,
+    "selected_rows": 32085,
+    "pra_count": 713,
+    "availability": [
+      {
+        "date": "2026-11-08",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-08",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-08",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-08",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-08",
+        "variable": "humidity",
+        "available": 203,
+        "total": 713,
+        "percent": 28.47124824684432
+      },
+      {
+        "date": "2026-11-09",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-09",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-09",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-09",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-09",
+        "variable": "humidity",
+        "available": 492,
+        "total": 713,
+        "percent": 69.00420757363254
+      },
+      {
+        "date": "2026-11-10",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-10",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-10",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-10",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-10",
+        "variable": "humidity",
+        "available": 304,
+        "total": 713,
+        "percent": 42.6367461430575
+      },
+      {
+        "date": "2026-11-11",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-11",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-11",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-11",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-11",
+        "variable": "humidity",
+        "available": 452,
+        "total": 713,
+        "percent": 63.394109396914445
+      },
+      {
+        "date": "2026-11-12",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-12",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-12",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-12",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-12",
+        "variable": "humidity",
+        "available": 331,
+        "total": 713,
+        "percent": 46.423562412342214
+      },
+      {
+        "date": "2026-11-13",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-13",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-13",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-13",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-13",
+        "variable": "humidity",
+        "available": 573,
+        "total": 713,
+        "percent": 80.36465638148668
+      },
+      {
+        "date": "2026-11-14",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-14",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-14",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-14",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-14",
+        "variable": "humidity",
+        "available": 589,
+        "total": 713,
+        "percent": 82.6086956521739
+      },
+      {
+        "date": "2026-11-15",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-15",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-15",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-15",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-15",
+        "variable": "humidity",
+        "available": 684,
+        "total": 713,
+        "percent": 95.93267882187938
+      },
+      {
+        "date": "2026-11-16",
+        "variable": "temperature",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-16",
+        "variable": "temperature_min",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-16",
+        "variable": "temperature_max",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-16",
+        "variable": "precipitation",
+        "available": 713,
+        "total": 713,
+        "percent": 100.0
+      },
+      {
+        "date": "2026-11-16",
+        "variable": "humidity",
+        "available": 663,
+        "total": 713,
+        "percent": 92.98737727910239
+      }
+    ]
+  },
+  "model_days": [
+    {
+      "model": "arome-0p025",
+      "valid_date": "2026-11-08",
+      "model_run_at": [
+        "2026-11-08T00:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3055,
+        "partial": 510
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 203
+    },
+    {
+      "model": "arome-0p025",
+      "valid_date": "2026-11-09",
+      "model_run_at": [
+        "2026-11-09T00:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3344,
+        "partial": 221
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 492
+    },
+    {
+      "model": "arome-0p025",
+      "valid_date": "2026-11-10",
+      "model_run_at": [
+        "2026-11-09T12:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3156,
+        "partial": 409
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 304
+    },
+    {
+      "model": "arpege-0p1",
+      "valid_date": "2026-11-09",
+      "model_run_at": [
+        "2026-11-09T00:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3453,
+        "partial": 112
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 601
+    },
+    {
+      "model": "arpege-0p1",
+      "valid_date": "2026-11-10",
+      "model_run_at": [
+        "2026-11-09T12:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3362,
+        "partial": 203
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 510
+    },
+    {
+      "model": "arpege-0p1",
+      "valid_date": "2026-11-11",
+      "model_run_at": [
+        "2026-11-09T12:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3304,
+        "partial": 259,
+        "unavailable": 2
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 452
+    },
+    {
+      "model": "arpege-0p1",
+      "valid_date": "2026-11-12",
+      "model_run_at": [
+        "2026-11-09T12:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3183,
+        "partial": 382
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 331
+    },
+    {
+      "model": "ifs-oper-0p25",
+      "valid_date": "2026-11-10",
+      "model_run_at": [
+        "2026-11-09T00:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3243,
+        "partial": 307,
+        "unavailable": 15
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 391
+    },
+    {
+      "model": "ifs-oper-0p25",
+      "valid_date": "2026-11-11",
+      "model_run_at": [
+        "2026-11-09T00:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3151,
+        "partial": 374,
+        "unavailable": 40
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 300
+    },
+    {
+      "model": "ifs-oper-0p25",
+      "valid_date": "2026-11-12",
+      "model_run_at": [
+        "2026-11-09T00:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3143,
+        "partial": 384,
+        "unavailable": 38
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 291
+    },
+    {
+      "model": "ifs-oper-0p25",
+      "valid_date": "2026-11-13",
+      "model_run_at": [
+        "2026-11-09T00:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3425,
+        "partial": 137,
+        "unavailable": 3
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 573
+    },
+    {
+      "model": "ifs-oper-0p25",
+      "valid_date": "2026-11-14",
+      "model_run_at": [
+        "2026-11-09T00:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3441,
+        "partial": 122,
+        "unavailable": 2
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 589
+    },
+    {
+      "model": "ifs-oper-0p25",
+      "valid_date": "2026-11-15",
+      "model_run_at": [
+        "2026-11-09T00:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3536,
+        "partial": 29
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 684
+    },
+    {
+      "model": "ifs-oper-0p25",
+      "valid_date": "2026-11-16",
+      "model_run_at": [
+        "2026-11-09T00:00:00Z"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3515,
+        "partial": 50
+      },
+      "pra_with_at_least_one_available_variable": 713,
+      "pra_with_all_five_variables_available": 663
+    }
+  ],
+  "selected_days": [
+    {
+      "date": "2026-11-08",
+      "models": [
+        "arome-0p025"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3055,
+        "partial": 510
+      },
+      "pra_with_at_least_one_available_variable": 713
+    },
+    {
+      "date": "2026-11-09",
+      "models": [
+        "arome-0p025"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3344,
+        "partial": 221
+      },
+      "pra_with_at_least_one_available_variable": 713
+    },
+    {
+      "date": "2026-11-10",
+      "models": [
+        "arome-0p025"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3156,
+        "partial": 409
+      },
+      "pra_with_at_least_one_available_variable": 713
+    },
+    {
+      "date": "2026-11-11",
+      "models": [
+        "arpege-0p1"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3304,
+        "partial": 259,
+        "unavailable": 2
+      },
+      "pra_with_at_least_one_available_variable": 713
+    },
+    {
+      "date": "2026-11-12",
+      "models": [
+        "arpege-0p1"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3183,
+        "partial": 382
+      },
+      "pra_with_at_least_one_available_variable": 713
+    },
+    {
+      "date": "2026-11-13",
+      "models": [
+        "ifs-oper-0p25"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3425,
+        "partial": 137,
+        "unavailable": 3
+      },
+      "pra_with_at_least_one_available_variable": 713
+    },
+    {
+      "date": "2026-11-14",
+      "models": [
+        "ifs-oper-0p25"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3441,
+        "partial": 122,
+        "unavailable": 2
+      },
+      "pra_with_at_least_one_available_variable": 713
+    },
+    {
+      "date": "2026-11-15",
+      "models": [
+        "ifs-oper-0p25"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3536,
+        "partial": 29
+      },
+      "pra_with_at_least_one_available_variable": 713
+    },
+    {
+      "date": "2026-11-16",
+      "models": [
+        "ifs-oper-0p25"
+      ],
+      "pra_ids": 713,
+      "status_counts": {
+        "available": 3515,
+        "partial": 50
+      },
+      "pra_with_at_least_one_available_variable": 713
+    }
+  ],
+  "interpretation": "Retained archive, not a fresh forecast on 2026-11-11; catalogue dates alone do not establish available support."
+}

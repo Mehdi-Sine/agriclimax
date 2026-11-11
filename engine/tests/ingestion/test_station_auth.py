@@ -4,6 +4,7 @@ import importlib.util
 import json
 import threading
 from contextlib import contextmanager
+from http.client import IncompleteRead
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from io import BytesIO
 from pathlib import Path
@@ -237,3 +238,25 @@ def test_health_network_timeout_is_one_bounded_request_per_product(monkeypatch):
     assert opener.call_count == 1
     assert opener.call_args.kwargs["timeout"] == 10
     assert KEY not in json.dumps(result)
+
+
+def test_partial_station_body_is_retried_without_retaining_partial_bytes():
+    broken = response(b"unused")
+    broken.read = Mock(side_effect=IncompleteRead(b"private-partial", 20))
+    opener = Mock(side_effect=[broken, response(b"complete")])
+    client = MeteoFranceClient("observations", opener=opener, sleep=lambda _: None)
+    assert client.get("liste-stations") == (200, b"complete")
+    assert opener.call_count == 2
+
+
+def test_truncated_auth_error_body_preserves_original_http_reason():
+    error = http_error(403)
+    error.read = Mock(side_effect=IncompleteRead(b"private-partial", 20))
+    opener = Mock(side_effect=error)
+    client = MeteoFranceClient("observations", opener=opener, sleep=lambda _: None)
+    with pytest.raises(MeteoFranceAccessError) as caught:
+        client.get("liste-stations")
+    assert caught.value.http_status == 403
+    assert caught.value.reason == "subscription_not_authorized"
+    assert "private-partial" not in str(caught.value)
+    assert opener.call_count == 1

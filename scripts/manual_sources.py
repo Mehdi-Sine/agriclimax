@@ -5,6 +5,7 @@ import argparse
 import json
 import subprocess
 import sys
+import time
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
@@ -29,14 +30,20 @@ def main() -> None:
     args = parser.parse_args()
     args.root.mkdir(parents=True, exist_ok=True)
     results: list[dict[str, object]] = []
-    limits = {'forecast': 600, 'era5': 420, 'stations': 90, 'observations': 30, 'news': 60}
+    started = time.monotonic()
+    # A verified national acquisition takes >600 s; keep a shared 21-minute cap.
+    limits = {'forecast': 1250, 'era5': 420, 'stations': 90, 'observations': 30, 'news': 60}
     for source, command in source_commands(args.edition_date, args.root).items():
         if source == 'observations' and args.edition_date != datetime.now(UTC).date():
             results.append({'source':source,'status':'not_available','reason':'historical_instantaneous_observations_unavailable'})
             continue
         try:
+            remaining = 1250 - (time.monotonic() - started)
+            if remaining <= 0:
+                results.append({'source':source,'status':'not_attempted','reason':'shared_source_time_budget_exhausted'})
+                continue
             with (args.root/(source+'.log')).open('w') as log:
-                result = subprocess.run(command, stdout=log, stderr=subprocess.STDOUT, timeout=limits[source], check=False)
+                result = subprocess.run(command, stdout=log, stderr=subprocess.STDOUT, timeout=min(limits[source], remaining), check=False)
             item: dict[str, object] = {'source':source,'status':'completed' if result.returncode == 0 else 'failed','exit_code':result.returncode,'scope':'isolated_local_validation'}
             receipts = list((args.root/source).glob('manifests/*.json'))
             candidates = [args.root/source/'report.json', args.root/source/'source-failure.json', *receipts[-1:]]

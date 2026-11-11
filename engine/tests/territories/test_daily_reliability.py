@@ -214,7 +214,7 @@ def test_wcs_real_transport_truncation_retries_without_persisting_partial(tmp_pa
     with patch.dict("os.environ", {"METEOFRANCE_AROME_API_KEY": "fixture-binding"}), patch("probe_operational_access.build_opener", return_value=opener):
         record, body = fetch("https://example.invalid/wcs", "METEOFRANCE_AROME_API_KEY", 100)
     assert body == b""
-    assert record["outcome"] == "network_or_response_error"
+    assert record["outcome"] == "network_unavailable"
     assert record["wire_bytes_read"] == 101
     provider = WcsProvider("arome", tmp_path, Budget())
     with patch("national_weather_sources.fetch", side_effect=[(record, body), ({"status": 200, "outcome": "received"}, b"complete")]), patch("national_weather_sources.time.sleep"):
