@@ -35,7 +35,7 @@ const options=readOptions();
 const preview=join(root,"preview");mkdirSync(join(preview,"editions"),{recursive:true});
 let phase="inspect";
 const deadline=Date.now()+25*60000;
-const report:Record<string,unknown>={version:"manual-journal-report-1",edition_date:options.edition_date,mode:options.mode,options,started_at:new Date().toISOString(),phase,acquisitions:[],freshness:[],coverage:null,indicators:{status:"not_requested",calculated:0,errors:[]},snapshot:null,openai:{status:"not_called",calls:0},validation:null,publication:{status:options.mode==="dry-run"?"not_requested":"pending"},consultation:{status:"not_checked"},blockers:[]};
+const report:Record<string,unknown>={version:"manual-journal-report-1",code_commit:process.env.GITHUB_SHA??null,workflow_run_id:process.env.GITHUB_RUN_ID??null,edition_date:options.edition_date,mode:options.mode,options,started_at:new Date().toISOString(),phase,acquisitions:[],freshness:[],coverage:null,indicators:{status:"not_requested",calculated:0,errors:[]},snapshot:null,openai:{status:"not_called",calls:0},validation:null,publication:{status:options.mode==="dry-run"?"not_requested":"pending"},consultation:{status:"not_checked"},blockers:[]};
 function save(name:string,value:unknown){writeFileSync(join(root,name),JSON.stringify(value,null,2)+'\n');}
 function run(stage:string,args:string[]=[]) {
  const result=spawnSync(resolve("apps/web/node_modules/.bin/tsx"),["scripts/task36_editorial.ts",stage,...args],{env:{...process.env,AGRICLIMAX_EDITION_DATE:options.edition_date,AGRICLIMAX_EDITORIAL_OUTPUT:join(root,stage)},encoding:"utf8",timeout:Math.max(1,Math.min(22*60000,deadline-Date.now()-60000)),maxBuffer:1024*1024});
@@ -56,7 +56,10 @@ async function main() {
  }
  originals.sort((a,b)=>b.revision-a.revision||b.generated_at.localeCompare(a.generated_at));
  const beforeState={snapshot:existing?.id??null,archives:originals.map(a=>({id:a.edition_id,checksum:a.checksum})),publications:before.publications};save('before.json',beforeState);
- report.acquisitions=before.acquisitions.map(a=>({source:a.source,status:"reused",ledger_state:a.state}));
+ report.acquisitions=before.acquisitions.map(a=>({source:a.source,status:"reused",ledger_state:a.state,
+  last_attempt_reference:Object.fromEntries(['date','from','to','run','generated_at','error_type','substage'].flatMap(k=>a.checkpoint?.report?.[k]===undefined?[]:[[k,a.checkpoint.report[k]]])),
+  source_days:Array.isArray(a.checkpoint?.report?.days)?a.checkpoint.report.days.map(d=>{const row=d as Record<string,unknown>;return Object.fromEntries(['date','status','quality_flags','available_count','observation_count'].map(k=>[k,row[k]??null]));}):[],
+ }));
  if(control.emergency_stop&&(options.mode!=='dry-run'||options.refresh_sources)){report.blockers=['EMERGENCY_STOP'];return;}
  const newsFile=join(root,"news.json");
  const archivedNews=before.acquisitions.find(a=>a.source==="news")?.checkpoint?.report;
