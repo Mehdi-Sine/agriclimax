@@ -6,6 +6,10 @@ on:
         description: Read-only DPClim/DPObs/AROME/ARPEGE catalogues; no ingestion, publication or AI
         type: boolean
         default: false
+      sample_data:
+        description: With probe_only, acquire one J-1 station day, one recent sample and tiny native model fields; no DB, publication or AI
+        type: boolean
+        default: false
       observations_version:
         description: Legacy input; probe_only now checks both v1 and v2 catalogues
         type: choice
@@ -101,13 +105,16 @@ jobs:
   operational-access:
     if: github.event_name == 'workflow_dispatch' && inputs.probe_only
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: '3.12'
       - run: python -m pip install -r engine/requirements-dev.lock
+      - name: Optional native GRIB decoder
+        if: inputs.sample_data
+        run: python -m pip install -r engine/requirements-operational.lock
       - name: Separate bounded source catalogues; no ingestion, publication or AI
         env:
           PYTHONPATH: engine/src
@@ -118,9 +125,22 @@ jobs:
           METEOFRANCE_AROME_API_KEY: ${{ secrets.METEOFRANCE_AROME_API_KEY }}
           METEOFRANCE_ARPEGE_API_KEY: ${{ secrets.METEOFRANCE_ARPEGE_API_KEY }}
         run: python scripts/meteofrance_acquisition_health.py
+      - name: Optional bounded acquisition samples, native dates checked
+        if: always() && inputs.sample_data
+        env:
+          PYTHONPATH: engine/src
+          METEOFRANCE_OBSERVATIONS_API_KEY: ${{ secrets.METEOFRANCE_OBSERVATIONS_API_KEY }}
+          METEOFRANCE_CLIMATOLOGY_API_KEY: ${{ secrets.METEOFRANCE_CLIMATOLOGY_API_KEY }}
+          METEOFRANCE_CLIMATOLOGY_APPLICATION_ID: ${{ secrets.METEOFRANCE_CLIMATOLOGY_APPLICATION_ID }}
+          METEOFRANCE_OBSERVATIONS_APPLICATION_ID: ${{ secrets.METEOFRANCE_OBSERVATIONS_APPLICATION_ID }}
+          METEOFRANCE_AROME_API_KEY: ${{ secrets.METEOFRANCE_AROME_API_KEY }}
+          METEOFRANCE_ARPEGE_API_KEY: ${{ secrets.METEOFRANCE_ARPEGE_API_KEY }}
+        run: python scripts/meteofrance_acquisition_sample.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: meteofrance-station-health
-          path: work/meteofrance-station-health/report.json
+          path: |
+            work/meteofrance-station-health/report.json
+            work/meteofrance-sample/report.json
           retention-days: 7
