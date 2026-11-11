@@ -121,6 +121,9 @@ export function validateDraft(
       !block.evidence_ids.length
     )
       errors.push("UNSUPPORTED_CONTEXT");
+    if (!b.candidates.some(c=>c.nature==="forecast") && block.kind==="fact" &&
+      /(?:pr[eé]vu|pr[eé]vision|demain|prochains? jours?|attendu|devrait|sera|seront)/i.test(block.text))
+      errors.push("FORECAST_WITHOUT_EVIDENCE");
     if (fs.some((f) => f?.text === block.text)) continue;
     const text = block.text,
       normalized = text.replace(/,/g, ".");

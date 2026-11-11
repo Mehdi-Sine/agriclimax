@@ -1,4 +1,4 @@
-"""Daily live orchestration. Validate the whole acquisition before any DB writes."""
+"""Daily live orchestration. Qualify station windows before writes; preserve publications."""
 
 import hashlib
 import json
@@ -17,7 +17,7 @@ from agriclimax.ingestion.meteofrance import (
     MeteoFranceTransportError,
     Station,
 )
-from agriclimax.ingestion.models import DayBatch, Provenance
+from agriclimax.ingestion.models import DayBatch, Observation, Provenance
 from agriclimax.ingestion.normalize import normalize
 from agriclimax.ingestion.providers import SourcePayload
 from agriclimax.ingestion.storage import ObservationRepository, atomic_write
@@ -53,9 +53,9 @@ def validate(batch: DayBatch, station_ids: tuple[str, ...]) -> None:
     # for every requested station; never overwrite a valid day with an outage.
     required = {"temperature", "humidity", "precipitation", "temperature_min", "temperature_max"}
     if batch.status in {"invalid", "missing"} or batch.provenance.demo or batch.issues:
-        raise ValueError("Invalid daily source")
+        raise ValueError("DAILY_INVALID_SOURCE")
     if any("station_unavailable" in row.quality_flags for row in batch.observations):
-        raise ValueError("Station unavailable")
+        raise ValueError("DAILY_STATION_UNAVAILABLE")
     for station in station_ids:
         available = {
             row.variable
@@ -65,7 +65,7 @@ def validate(batch: DayBatch, station_ids: tuple[str, ...]) -> None:
             and row.temporal_resolution == "daily"
         }
         if not required <= available:
-            raise ValueError("Incomplete required station variables")
+            raise ValueError("DAILY_REQUIRED_VARIABLES_MISSING")
 
 
 def run_daily(
@@ -109,6 +109,9 @@ def run_daily(
         if not station_ids:
             raise ValueError("No stations")
         batches = []
+        accepted = set(station_ids)
+        rejected: list[dict[str, object]] = []
+        received_rows = 0
         for offset in range((end - start).days + 1):
             day = start + timedelta(days=offset)
             diagnostic = {"substage": "download", "date": day.isoformat()}
@@ -118,29 +121,51 @@ def run_daily(
             if not isinstance(payload, dict):
                 raise TypeError("Invalid source envelope")
             diagnostic["substage"] = "normalize"
-            batch = normalize(
-                payload,
-                day,
-                Provenance(
-                    source_id=provider.source_id,
-                    retrieved_at=source.retrieved_at,
-                    published_at=None,
-                    publication_time_known=False,
-                    demo=False,
-                    checksum=hashlib.sha256(source.content).hexdigest(),
-                ),
-                timedelta(days=2),
-                clock(),
+            provenance = Provenance(
+                source_id=provider.source_id, retrieved_at=source.retrieved_at,
+                published_at=None, publication_time_known=False, demo=False,
+                checksum=hashlib.sha256(source.content).hexdigest(),
             )
+            received_rows += len(payload["rows"])
+            # Validate the envelope globally; quarantine defective station windows locally.
+            batch = normalize(payload, day, provenance, timedelta(days=2), clock())
+            qualified: list[Observation] = []
             diagnostic["substage"] = "validate"
-            validate(batch, station_ids)
-            batches.append(batch)
+            for station in station_ids:
+                station_rows = [r for r in payload["rows"] if isinstance(r, dict) and r.get("cell_id") == station]
+                part = normalize({**payload, "rows": station_rows, "expected_count": max(1, len(station_rows))},
+                                 day, provenance, timedelta(days=2), clock())
+                try:
+                    validate(part, (station,))
+                except ValueError as error:
+                    accepted.discard(station)
+                    rejected.append({"station": station, "date": day.isoformat(),
+                                     "reason": str(error), "issues": list(part.issues),
+                                     "missing_variables": sorted({"temperature", "humidity", "precipitation", "temperature_min", "temperature_max"} -
+                                         {r.variable for r in part.observations if r.value is not None and r.temporal_resolution == "daily"})})
+                else:
+                    qualified.extend(part.observations)
+            batches.append(batch.model_copy(update={"observations": tuple(qualified), "issues": (), "status": "complete"}))
+        report["rejected_station_days"] = rejected
+        report["received_rows"] = received_rows
+        report["accepted_stations"] = sorted(accepted)
+        if not accepted:
+            report["reason"] = "NO_COMPLETE_STATION_WINDOW"
+            raise ValueError("DAILY_NO_COMPLETE_STATION_WINDOW")
+        batches = [b.model_copy(update={"observations": tuple(r for r in b.observations if r.cell_id in accepted)}) for b in batches]
         diagnostic = {}
         checkpoint("validated")
         for batch in batches:
             # The existing atomic station RPC is idempotent after uncertain writes.
             repository.persist(batch)
+        report["persisted_rows"] = sum(len(b.observations) for b in batches)
         checkpoint("persisted")
+        if rejected:
+            # Keep the prior aggregate publication. Valid independent station batches are useful.
+            report["status"] = "partial_previous_publication_preserved"
+            report["previous_publication_preserved"] = True
+            checkpoint("degraded")
+            return False
         wheat = [
             calculate(
                 [

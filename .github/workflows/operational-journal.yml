@@ -36,6 +36,10 @@ on:
         type: string
         description: Exact frozen snapshot ID authorizing one manual trial; spending controlled in OpenAI
         required: false
+      recovery:
+        type: boolean
+        default: false
+        description: Explicit late recovery; never replaces an existing snapshot or archive
       model:
         type: choice
         options: [gpt-6.1-terra, gpt-6-luna]
@@ -97,6 +101,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 26
     env:
+      AGRICLIMAX_RECOVERY: ${{ inputs.recovery && 'true' || 'false' }}
       AGRICLIMAX_EDITION_DATE: ${{ needs.plan.outputs.edition_date }}
       AGRICLIMAX_SCHEDULED_AT: ${{ needs.plan.outputs.scheduled_at }}
       AGRICLIMAX_SCHEDULED_AT_BASIS: ${{ needs.plan.outputs.scheduled_at_basis }}
@@ -151,6 +156,7 @@ jobs:
     environment: editorial-ai-dev
     timeout-minutes: 25
     env:
+      AGRICLIMAX_RECOVERY: ${{ inputs.recovery && 'true' || 'false' }}
       AGRICLIMAX_EDITION_DATE: ${{ needs.plan.outputs.edition_date }}
       AGRICLIMAX_SCHEDULED_AT: ${{ needs.plan.outputs.scheduled_at }}
       AGRICLIMAX_SCHEDULED_AT_BASIS: ${{ needs.plan.outputs.scheduled_at_basis }}
@@ -179,9 +185,11 @@ jobs:
           AGRICLIMAX_JOURNAL_HEALTH_URL: ${{ vars.AGRICLIMAX_JOURNAL_HEALTH_URL }}
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
           STAGE: ${{ needs.plan.outputs.stage }}
+          RECOVERY: ${{ inputs.recovery }}
           AUTHORIZED_SNAPSHOT: ${{ inputs.authorized_snapshot }}
         run: |
           args=("$STAGE")
+          if [[ "$RECOVERY" == true ]]; then args+=(--recover); fi
           if [[ -n "$AUTHORIZED_SNAPSHOT" ]]; then args+=(--authorize-snapshot "$AUTHORIZED_SNAPSHOT"); fi
           pnpm editorial:nightly "${args[@]}"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

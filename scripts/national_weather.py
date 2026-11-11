@@ -140,12 +140,20 @@ def main() -> None:
         atomic_write(base_root / "report.json", json.dumps(result, indent=2).encode())
         print(json.dumps(result))
     except Exception as error:
+        failures = [json.loads(p.read_text()) for p in args.root.rglob("*.failure.json")]
+        child_receipts = [f for f in failures if f.get("source") == "ecmwf-ifs" and f.get("consumption_complete")]
+        if isinstance(error, subprocess.CalledProcessError) and child_receipts:
+            budget.requests += sum(f["source_requests"] for f in child_receipts)
+            budget.bytes += sum(f["source_bytes"] for f in child_receipts)
         atomic_write(base_root / "report.json", json.dumps({
             "status": "failed_previous_publication_preserved", "run": run.isoformat(),
-            "error_type": type(error).__name__, "source_requests": budget.requests,
+            "error_type": type(error).__name__,
+            "subprocess": Path(error.cmd[1]).name if isinstance(error, subprocess.CalledProcessError) and isinstance(error.cmd, list) and len(error.cmd)>1 else None,
+            "exit_code": error.returncode if isinstance(error, subprocess.CalledProcessError) else None,
+            "source_requests": budget.requests,
             "source_bytes": budget.bytes, "seconds": time.monotonic() - budget.started,
-            "source_failures": [json.loads(p.read_text()) for p in args.root.rglob("*.failure.json")],
-            "consumption_complete": not isinstance(error, subprocess.SubprocessError),
+            "source_failures": failures,
+            "consumption_complete": not isinstance(error, subprocess.SubprocessError) or bool(child_receipts),
         }, indent=2).encode())
         raise
 

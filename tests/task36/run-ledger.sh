@@ -27,3 +27,9 @@ docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supaba
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/tests/task36/ops02.sql"
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/tests/task36/watchdog.sql"
 python "$root/tests/task36/stage_concurrency.py" "$name"
+
+docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supabase/migrations/20261111083258_ops03_journal_recovery.sql"
+docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/tests/task36/ops03.sql"
+# Recheck the operational paid-call lock after applying the recovery migration.
+# The first race left one running attempt; either competitor must now be refused.
+python "$root/tests/task36/ops03_concurrency.py" "$name"

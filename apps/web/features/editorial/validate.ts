@@ -8,11 +8,14 @@ import { hash } from "./temporal";
 const ajv = new Ajv({ strict: true });
 addFormats(ajv);
 const check = ajv.compile<EditorialBriefingBundle>(schema);
+export class BriefingContractError extends Error {
+  constructor(readonly diagnostics:{path:string;keyword:string}[]) {super("EDITORIAL_BRIEFING_CONTRACT");}
+}
 export function assertBriefing(
   value: unknown,
 ): asserts value is EditorialBriefingBundle {
   if (!check(value))
-    throw Error(`EDITORIAL_BRIEFING_CONTRACT: ${ajv.errorsText(check.errors)}`);
+    throw new BriefingContractError((check.errors??[]).map(e=>({path:e.instancePath,keyword:e.keyword})));
   if (Buffer.byteLength(JSON.stringify(value)) > 96 * 1024)
     throw Error("EDITORIAL_BRIEFING_BUDGET");
   if (hash({ ...value, bundle_id: undefined }) !== value.bundle_id)

@@ -23,6 +23,7 @@ VARIABLES: tuple["Variable", ...] = (
 Variable = Literal[
     "temperature", "temperature_min", "temperature_max", "precipitation", "humidity"
 ]
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 from agriclimax.ingestion.source_retry import retry_read
@@ -150,7 +151,18 @@ def main() -> None:
             if time.monotonic() - started + seconds + 30 >= 1200:
                 raise TimeoutError("IFS retry duration budget exhausted")
             time.sleep(seconds)
-        return retry_read(lambda: fetch_once(url, limit, headers), wait)
+        try:
+            return retry_read(lambda: fetch_once(url, limit, headers), wait)
+        except (HTTPError, URLError, TimeoutError, ValueError, OSError) as error:
+            # No URLs, exception messages or raw provider responses in reports.
+            atomic_write(args.root / "ifs.failure.json", json.dumps({
+                "source": "ecmwf-ifs", "operation": "range" if headers else "index",
+                "http_status": error.code if isinstance(error, HTTPError) else None,
+                "error_type": type(error).__name__, "source_requests": calls,
+                "source_bytes": transferred, "consumption_complete": True,
+                "previous_publication_preserved": True,
+            }).encode())
+            raise
 
     if args.offline_native:
         if not native_fields:
