@@ -16,7 +16,7 @@ import geography from "../apps/web/data/operational/pra-watch-places.json";
 import type { Archive } from "../apps/web/features/editorial-ai/model";
 import type { Contribution } from "../apps/web/features/journal/registry";
 export interface PreparationOptions {
- date:string; out:string; readOnly:boolean; persistInputs?:boolean; recover?:boolean; now?:string; newsPath?:string;
+ date:string; out:string; readOnly:boolean; testOnly?:boolean; persistInputs?:boolean; recover?:boolean; now?:string; newsPath?:string;
  extraWeather?:{entry:ArchiveEntry;document:NationalWeatherDocument}; extraHistory?:ArchivedDaily[]; contributions?:Contribution[]; calculate?:(rows:ArchivedDaily[],document:NationalWeatherDocument|null)=>Promise<Contribution[]>; phase?:(value:string)=>void;
 }
 export async function prepareDossier(options:PreparationOptions) {
@@ -118,7 +118,7 @@ export async function prepareDossier(options:PreparationOptions) {
     const inputs = {catalogue,document:forecast?.doc??null,quality:historyQuality,acquisitions:report.acquisitions,history:rows,episodes,comparisons,news:news??null,previous_edition:prior?{id:prior.edition_id,date:prior.date,checksum:prior.checksum}:null};
     if(options.persistInputs!==false)writeFileSync(join(out,"frozen-inputs.json"),JSON.stringify(inputs));
     phase("snapshot");
-    const snapshot = freezeSnapshot(date,cycles,briefing,now,historyQuality,cutoff);
+    const snapshot = freezeSnapshot(date,cycles,briefing,now,historyQuality,cutoff,options.testOnly);
     phase("input_archive");
     snapshot.input_archive = options.readOnly ? null : await archiveInputs(inputs);
     const {id: unused,...body}=snapshot; void unused;

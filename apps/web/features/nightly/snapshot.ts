@@ -57,30 +57,33 @@ export interface DailyEditorialSnapshot {
   limitations: string[];
   data_quality?: HistoryQuality;
   input_cutoff_at?: string;
+  test_only?: true;
 }
-export function freezeSnapshot(date: string, cycles: Cycle[], briefing: EditorialBriefingBundle | null, now: string, historyQuality?: HistoryQuality, inputCutoff?:string): DailyEditorialSnapshot {
+export function freezeSnapshot(date: string, cycles: Cycle[], briefing: EditorialBriefingBundle | null, now: string, historyQuality?: HistoryQuality, inputCutoff?:string, testOnly=false): DailyEditorialSnapshot {
   const cutoff = cutoffUTC(date);
-  if (parisDate(now)<date || Date.parse(now)<Date.parse(cutoff)) throw Error("FREEZE_BEFORE_CUTOFF");
+  if (!testOnly&&(parisDate(now)<date || Date.parse(now)<Date.parse(cutoff))) throw Error("FREEZE_BEFORE_CUTOFF");
   if (briefing) {
     assertBriefing(briefing);
     if(briefing.edition_date!==date || Date.parse(briefing.generated_at)>Date.parse(now)) throw Error("SNAPSHOT_BRIEFING_DATE");
   }
-  if(inputCutoff&&(Date.parse(inputCutoff)<Date.parse(cutoff)||Date.parse(inputCutoff)>Date.parse(now))) throw Error("INPUT_CUTOFF_INVALID");
+  if(inputCutoff&&((!testOnly&&Date.parse(inputCutoff)<Date.parse(cutoff))||Date.parse(inputCutoff)>Date.parse(now))) throw Error("INPUT_CUTOFF_INVALID");
   const selection = selectCycles(cycles,date,inputCutoff??cutoff);
   const body: Omit<DailyEditorialSnapshot,"id"> = {
     version:"daily-editorial-snapshot-1",edition_date:date,cutoff_at:cutoff,frozen_at:now,
     quality:briefing && briefing.national.facts.length ? (selection.quality!=="insufficient"?selection.quality:historyQuality?.usable?"fallback_valid":"insufficient") : "insufficient",
     ...(historyQuality?{data_quality:historyQuality}:{}),
     ...(inputCutoff?{input_cutoff_at:inputCutoff}:{}),
+    ...(testOnly?{test_only:true as const}:{}),
     policy_version:POLICY.version,input_archive:null,sources:selection.sources,briefing,
     limitations:[...(briefing?.limitations??[]),...selection.sources.map(c=>`Prévisions issues du cycle ${c.model} du ${c.emitted_at}; validité ${c.valid_dates[0]}–${c.valid_dates.at(-1)}.`),
       ...(selection.quality==="fallback_valid"?["Cycle antérieur encore valide ; aucune évolution observée déduite d'une révision prévisionnelle."]:[])],
   };
   return {...body,id:hash(body)};
 }
-export function verifySnapshot(s: DailyEditorialSnapshot) {
+export function verifySnapshot(s: DailyEditorialSnapshot,allowTest=false) {
+  if(s.test_only&&!allowTest)throw Error("TEST_SNAPSHOT_NOT_PRODUCTION");
   const { id, ...body } = s;
   if(hash(body)!==id || s.version!=="daily-editorial-snapshot-1" || s.cutoff_at!==cutoffUTC(s.edition_date)) throw Error("SNAPSHOT_INTEGRITY");
-  if(s.input_cutoff_at&&(Date.parse(s.input_cutoff_at)<Date.parse(s.cutoff_at)||Date.parse(s.input_cutoff_at)>Date.parse(s.frozen_at))) throw Error("INPUT_CUTOFF_INVALID");
+  if(s.input_cutoff_at&&((!s.test_only&&Date.parse(s.input_cutoff_at)<Date.parse(s.cutoff_at))||Date.parse(s.input_cutoff_at)>Date.parse(s.frozen_at))) throw Error("INPUT_CUTOFF_INVALID");
   if(s.briefing) assertBriefing(s.briefing);
 }

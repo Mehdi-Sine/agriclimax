@@ -55,6 +55,8 @@ Le checksum des entrées est vérifié, puis le moteur courant est recalculé po
 
 Pour `resume`, désactiver les recalculs/rafraîchissements si l'on souhaite poursuivre le snapshot de production existant. Le pilote réutilise une génération compatible, sinon délègue l'étape manquante à T36, qui conserve ses verrous et son admission IA persistante. Les appels sont comptés depuis les reçus persistés, y compris en cas d'échec.
 
+Un snapshot isolé porte `test_only=true` : il peut être construit avant 05:40, sans fausse date de gel future. Le chemin de production le refuse explicitement ; ses règles de cutoff restent inchangées.
+
 Un recalcul/rafraîchissement peut changer le dossier de test ; il n'écrase jamais un snapshot de production gelé. Le rapport indique alors `TEST_SNAPSHOT_DIFFERS_FROM_FROZEN_PRODUCTION` et renvoie la preview isolée. Une édition déjà publiée et une génération valide sont conservées. Les reprises concurrentes sont sérialisées par workflow et les opérations persistantes par les leases/verrous Supabase existants.
 
 `publish` contrôle le commutateur existant puis exige une approbation éditoriale persistée correspondant au checksum exact avant promotion. Il n'active jamais `publication_enabled` et n'inscrit jamais lui-même de revue humaine. Attente explicite `PUBLICATION_DISABLED` ou `EDITORIAL_APPROVAL_REQUIRED`. Une promotion réussie est suivie d'un contrôle de consultation.

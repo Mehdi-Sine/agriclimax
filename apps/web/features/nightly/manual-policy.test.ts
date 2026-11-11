@@ -6,7 +6,7 @@ import {mkdtempSync,readFileSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {sealArchive} from '../editorial-ai/archive';
-import {freezeSnapshot} from './snapshot';
+import {freezeSnapshot,verifySnapshot} from './snapshot';
 import simulated from '../../../../docs/codex/task35/evidence/simulated-edition.json';
 import type {Archive} from '../editorial-ai/model';
 const now='2026-11-11T10:00:00Z',sha='a'.repeat(64);
@@ -15,6 +15,13 @@ afterEach(()=>{vi.unstubAllEnvs();vi.unstubAllGlobals();process.exitCode=0;});
 describe('OPS-04 admissions and cost policy',()=>{
  it('defaults to Paris date and a read-only run',()=>expect(manualOptions({},'2026-11-10T23:15:00Z')).toMatchObject({edition_date:'2026-11-11',mode:'dry-run',refresh_sources:false,reuse_ai:true,force_ai_regeneration:false}));
  it.each(['2026-02-30','2026-11-12','yesterday'])('rejects invalid/future date %s',edition_date=>expect(()=>manualOptions({edition_date},now)).toThrow('INVALID_EDITION_DATE'));
+ it("allows an isolated test before cutoff while keeping the production freeze gate",()=>{
+  const early="2026-11-11T01:00:00Z";
+  expect(()=>freezeSnapshot("2026-11-11",[],null,early)).toThrow("FREEZE_BEFORE_CUTOFF");
+  const test=freezeSnapshot("2026-11-11",[],null,early,undefined,early,true);
+  expect(test.test_only).toBe(true);verifySnapshot(test,true);
+  expect(()=>verifySnapshot(test)).toThrow("TEST_SNAPSHOT_NOT_PRODUCTION");
+ });
  it('never generates in dry-run, even without a saved response',()=>expect(generationDecision(manualOptions({},now),state)).toBe('deterministic_preview'));
  it('reuses compatible AI and preserves an already published edition',()=>{
   const o=manualOptions({mode:'resume'},now);expect(generationDecision(o,{...state,compatible_ai:true})).toBe('reuse');expect(generationDecision(o,{...state,published:true})).toBe('preserve_published');

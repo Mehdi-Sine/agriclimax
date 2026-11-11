@@ -79,11 +79,11 @@ async function main() {
  let snapshot=existing;
  if(!snapshot||options.recompute_indicators||options.refresh_sources) {
   phase="test_preparation";
-  const prepared=await prepareDossier({date,out:root,readOnly:true,persistInputs:false,recover:true,extraWeather,extraHistory,newsPath:existsSync(newsFile)?newsFile:undefined,
+  const prepared=await prepareDossier({date,out:root,readOnly:true,testOnly:true,persistInputs:false,recover:true,extraWeather,extraHistory,newsPath:existsSync(newsFile)?newsFile:undefined,
    calculate:options.recompute_indicators?async(rows,document)=>{indicators=await recomputeIndicators(rows,document,date);return indicators.contributions;}:undefined});
   snapshot=prepared.snapshot;writeFileSync(join(root,'frozen-inputs.json.gz'),gzipSync(JSON.stringify(prepared.inputs))); // Captured inputs, never provider grids.
  }
- if(!snapshot)throw Error('SNAPSHOT_ABSENT');verifySnapshot(snapshot);save('test-snapshot.json',snapshot);
+ if(!snapshot)throw Error('SNAPSHOT_ABSENT');verifySnapshot(snapshot,true);save('test-snapshot.json',snapshot);
  if(indicators){
   const maps=indicators.groups.flatMap(g=>[...new Set(g.batch.measurements.map(m=>m.indicator))].map(key=>{
    const applicable=g.batch.measurements.filter(m=>m.indicator===key),first=applicable[0],measurements=applicable.filter(m=>m.production===first.production);
@@ -119,7 +119,7 @@ async function main() {
   const args=['--recover'];if(options.force_ai_regeneration)args.push('--authorize-snapshot',options.authorized_snapshot);
   const receipt=run('run',args);report.resume=receipt;
   // Actual paid calls are determined below from persistent receipts, never guessed from runner success.
-  if(receipt.exit_code!==0)report.blockers=['RESUME_FAILED_CHECK_PERSISTENT_DIAGNOSTICS'];
+  if(receipt.exit_code!==0)report.blockers=[typeof receipt.receipt?.error==='string'?receipt.receipt.error:'RESUME_FAILED_CHECK_PERSISTENT_DIAGNOSTICS'];
  }
  const after=await editorialRPC<{runs:Run[];diagnostics:{kind?:string;run_id?:string}[]}>("report",{edition_date:date});
  const beforeIds=new Set(before.runs.map(r=>r.id));const newIds=new Set(after.runs.filter(r=>!beforeIds.has(r.id)).map(r=>r.id));
@@ -146,6 +146,6 @@ async function main() {
 export const execution=main().catch(error=>{report.blockers=[error instanceof Error&&/^[A-Z][A-Z0-9_]+$/.test(error.message)?error.message:'MANUAL_EXECUTION_FAILED'];report.status='failed';if(error instanceof BriefingContractError)report.contract_diagnostics=error.diagnostics;process.exitCode=1;}).finally(()=>{
  report.phase=phase;report.finished_at=new Date().toISOString();report.status??=(report.blockers as unknown[]).length?'blocked':'completed';save('report.json',report);
  const cell=(v:unknown)=>JSON.stringify(v??null).replace(/\|/g,'\\|').replace(/[\r\n]/g,' ');
- const summary='## AgriclimaX — exécution manuelle\n\n| Contrôle | Résultat |\n|---|---|\n'+Object.entries({Édition:report.edition_date,Mode:report.mode,Acquisitions:report.acquisitions,Fraîcheur:report.freshness,Couverture:report.coverage,Indicateurs:report.indicators,Snapshot:report.snapshot,OpenAI:report.openai,Validation:report.validation,Publication:report.publication,Consultation:report.consultation,Preview:report.preview,Blocages:report.blockers}).map(([k,v])=>`| ${k} | ${cell(v)} |`).join('\n')+'\n';writeFileSync(join(root,'summary.md'),summary);if(process.env.GITHUB_STEP_SUMMARY)appendFileSync(process.env.GITHUB_STEP_SUMMARY,summary);
+ const summary='## AgriclimaX — exécution manuelle\n\n| Contrôle | Résultat |\n|---|---|\n'+Object.entries({Édition:report.edition_date,Mode:report.mode,Acquisitions:report.acquisitions,Fraîcheur:report.freshness,Couverture:report.coverage,Indicateurs:report.indicators,Snapshot:report.snapshot,OpenAI:report.openai,Validation:report.validation,Reprise:report.resume,Publication:report.publication,Consultation:report.consultation,Preview:report.preview,Blocages:report.blockers}).map(([k,v])=>`| ${k} | ${cell(v)} |`).join('\n')+'\n';writeFileSync(join(root,'summary.md'),summary);if(process.env.GITHUB_STEP_SUMMARY)appendFileSync(process.env.GITHUB_STEP_SUMMARY,summary);
  console.log(JSON.stringify({output:root,status:report.status,edition_date:report.edition_date,mode:report.mode,openai:report.openai,blockers:report.blockers}));
 });
