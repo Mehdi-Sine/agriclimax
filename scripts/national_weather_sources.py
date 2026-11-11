@@ -5,11 +5,14 @@ import json
 import math
 import time
 from dataclasses import dataclass, field
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
+from urllib.error import HTTPError
 from urllib.parse import urlencode
+from urllib.request import Request, build_opener
 
+from agriclimax.ingestion.meteofrance import NoRedirect
 from agriclimax.ingestion.source_retry import TRANSIENT
 from agriclimax.ingestion.storage import atomic_write
 from probe_operational_access import (
@@ -247,21 +250,47 @@ def grib_metadata(
         ec.codes_release(handle)
 
 
+def ifs_available(run: datetime, budget: Budget) -> bool:
+    """WCS advertising is not evidence that the required IFS 00Z cycle is ready."""
+    stamp = run.strftime("%Y%m%d")
+    url = f"https://data.ecmwf.int/forecasts/{stamp}/00z/ifs/0p25/oper/{stamp}000000-192h-oper-fc.index"
+    limit = 256 * 1024
+    budget.before(limit + 1)
+    try:
+        with build_opener(NoRedirect()).open(Request(url), timeout=20) as response:
+            raw = response.read(limit + 1)
+            budget.bytes += len(raw)
+            if len(raw) > limit:
+                raise ValueError("IFS index exceeds readiness budget")
+            index = [json.loads(line) for line in raw.splitlines()]
+            return all(any(r.get("param") == p and str(r.get("date")) == stamp for r in index) for p in ("2t", "2d", "tp"))
+    except HTTPError as error:
+        if error.code == 404:
+            return False
+        raise
+
+
 def latest_available_run(root: Path, now: datetime, budget: Budget) -> datetime:
-    """Choose today's latest common advertised run, without downloading fields."""
+    """Common WCS run plus retained IFS support; never infer readiness from the clock."""
     catalogues = [set(WcsProvider(model, root, budget).catalogue()) for model in MODELS]
-    for hour in (18, 12, 6, 0):
-        candidate = now.replace(hour=hour, minute=0, second=0, microsecond=0)
-        if candidate > now:
-            continue
-        expected = {
-            f"{parameter}___{candidate:%Y-%m-%dT%H.%M.%SZ}"
-            + ("_P1D" if variable == "precipitation" else "")
-            for variable, parameter in PARAMETERS.items()
-        }
-        if all(expected <= ids for ids in catalogues):
-            return candidate
-    raise ValueError("No complete common model run advertised today; retain prior publication")
+    readiness: dict[str, bool] = {}
+    for offset in (0, 1):
+        for hour in (18, 12, 6, 0):
+            candidate = (now - timedelta(days=offset)).replace(hour=hour, minute=0, second=0, microsecond=0)
+            if candidate > now:
+                continue
+            expected = {
+                f"{parameter}___{candidate:%Y-%m-%dT%H.%M.%SZ}"
+                + ("_P1D" if variable == "precipitation" else "")
+                for variable, parameter in PARAMETERS.items()
+            }
+            if all(expected <= ids for ids in catalogues):
+                day = candidate.date().isoformat()
+                if day not in readiness:
+                    readiness[day] = ifs_available(candidate, budget)
+                if readiness[day]:
+                    return candidate
+    raise ValueError("No complete common model run with IFS support; retain prior publication")
 
 
 def preflight(root: Path, run: datetime, budget: Budget) -> dict[str, Any]:

@@ -12,12 +12,12 @@ export type ConsultableEdition=Pick<Archive,"edition_id"|"revision"|"date"|"gene
 };
 // Editorial evidence resolution affects certification, not experimental text access.
 // Identity, structured figures and map bindings still fail closed.
-const incompatible=new Set(["DRAFT_CONTRACT","DRAFT_IDENTITY","CANDIDATE_REFERENCE","DOCUMENTARY_REFERENCE","REGION_REFERENCE","PRODUCTION_REFERENCE","FIGURE_MISMATCH","FIGURE_REGION","FIGURE_SCOPE","FIGURE_NATURE","PRA_ATTRIBUTION","ILLUSTRATION_CONTEXT"]);
+const incompatible=new Set(["DRAFT_CONTRACT","DRAFT_IDENTITY","CANDIDATE_REFERENCE","DOCUMENTARY_REFERENCE","REGION_REFERENCE","PRODUCTION_REFERENCE","FIGURE_MISMATCH","FIGURE_REGION","FIGURE_SCOPE","FIGURE_NATURE","PRA_ATTRIBUTION","ILLUSTRATION_CONTEXT","FORECAST_WITHOUT_EVIDENCE"]);
 export function consultableEdition(a:Archive):ConsultableEdition {
  verifyArchive(a,false);
  if(a.mode!=="live"||!a.receipt?.response_id||a.briefing.status==="insufficient") throw Error("NOT_A_CONSULTABLE_AI_EDITION");
  const assessment=validateDraft(a.draft,a.briefing,a.illustrations);
- if(assessment.errors.some(e=>incompatible.has(e))) throw Error("INCOMPATIBLE_EDITORIAL_DATA");
+ if((a.briefing.limitations.some(l=>l.includes("journal-data-quality-1"))&&assessment.status==="rejected")||assessment.errors.some(e=>incompatible.has(e))) throw Error("INCOMPATIBLE_EDITORIAL_DATA");
  const body={edition_id:a.edition_id,revision:a.revision,date:a.date,generated_at:a.generated_at,mode:a.mode,status:a.status,consultable:true as const,scientifically_validated:assessment.status==="validated_automatically"&&a.validation.status==="validated_automatically",
   draft:a.draft,briefing:{bundle_id:a.briefing.bundle_id,edition_date:a.briefing.edition_date,validity:a.briefing.validity,national:{facts:a.briefing.national.facts},seasonal:{windows:a.briefing.seasonal.windows},documentary:{publications:a.briefing.documentary.publications}},illustrations:a.illustrations,validation:a.validation,checksum:a.checksum,assessment};
  return {...body,content_sha256:hash(body)};

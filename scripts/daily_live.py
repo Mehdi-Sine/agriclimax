@@ -51,7 +51,10 @@ def main() -> int:
         # Metadata is read by persist after provider.prepare populates it.
         class Repository:
             def persist(self, batch: DayBatch) -> bool:
-                return SupabaseStationRepository(provider.stations).persist(batch)
+                # The RPC writes a row for every supplied station, including empty ones.
+                # Never pass quarantined stations or replace their prior valid day.
+                present = {row.cell_id for row in batch.observations}
+                return SupabaseStationRepository(tuple(s for s in provider.stations if s.id in present)).persist(batch)
 
         return (
             0

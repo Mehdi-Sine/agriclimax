@@ -50,6 +50,7 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
   run.state=validation.status==="rejected"?"validation_failed":"completed";run.error=validation.status==="rejected"?"DRAFT_REJECTED":null;run.archive_id=archive.edition_id;run.actual_eur=estimate;
   await o.store.finishAttempt(run);
   // Scientific reservations do not hide an experimental edition; incompatible data still do.
+  if(validation.status==="rejected") throw Error("INCOMPATIBLE_EDITORIAL_DATA");
   consultableEdition(archive);
   return archive;
  } catch(error) {

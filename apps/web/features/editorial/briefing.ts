@@ -428,7 +428,8 @@ export function buildBriefing(input: BriefingInput) {
       weak_matches: weakMatches,
       publications: (input.news?.publications ?? [])
         .filter((p) => usedPublications.has(p.id))
-        .slice(0, 20),
+        .slice(0, 20)
+        .map(({id,source_id,publisher,title,original_url,published_at,content_type,limitations})=>({id,source_id,publisher,title,original_url,published_at,content_type,limitations})),
       links: (input.news?.links ?? [])
         .filter((l) =>
           candidates.some(

@@ -7,7 +7,8 @@ import os
 import subprocess
 import sys
 import time
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
+from datetime import date as calendar_date
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -51,14 +52,17 @@ def failure(status: int | None, retry_after: str | None = None) -> tuple[str, in
     return 'permanent_failure', wait
 
 
-def commands(source: str) -> list[list[str]]:
+def commands(source: str, edition_date: str | None = None) -> list[list[str]]:
     py = sys.executable
+    edition = calendar_date.fromisoformat(edition_date) if edition_date else datetime.now(ZoneInfo('Europe/Paris')).date()
+    end = edition - timedelta(days=1)
+    forecast_date = ['--latest-available'] if edition == datetime.now(ZoneInfo('Europe/Paris')).date() else ['--run-date', str(edition)]
     return {
         'forecast': [[py, 'scripts/restore_daily_checkpoint.py', 'weather', 'work/national-weather'],
-                     [py, 'scripts/national_weather.py', '--mode', 'national', '--latest-available', '--execute', '--national-authorized', '--publish-dev']],
+                     [py, 'scripts/national_weather.py', '--mode', 'national', *forecast_date, '--execute', '--national-authorized', '--publish-dev']],
         'era5': [[py, 'scripts/restore_daily_checkpoint.py', 'era5', 'work/era5-archive'],
                  [py, 'scripts/era5_archive_daily.py', '--root', 'work/era5-archive', '--max-downloads', '64', '--execute', '--publish-dev']],
-        'stations': [[py, 'scripts/daily_live.py']],
+        'stations': [[py, 'scripts/daily_live.py', '--from', str(end-timedelta(days=6)), '--to', str(end)]],
         'observations': [[py, 'scripts/ingest_weather.py', '--mode', 'live_meteofrance',
                           '--product', 'observations', '--daily', '--root', 'work/station-observations']],
         'news': [[py, 'scripts/task34_news.py', '--output', 'work/task36/news', '--bundle', 'work/task36/news.json']],
@@ -70,7 +74,10 @@ def acquire(source: str, date: str) -> dict[str, Any]:
                 'dispatch_id': os.environ.get('AGRICLIMAX_DISPATCH_ID'),
                 'workflow_run_id': os.environ.get('GITHUB_RUN_ID'),
                 'scheduled_at': os.environ.get('AGRICLIMAX_SCHEDULED_AT'),
-                'scheduled_at_basis': os.environ.get('AGRICLIMAX_SCHEDULED_AT_BASIS')}
+                'scheduled_at_basis': os.environ.get('AGRICLIMAX_SCHEDULED_AT_BASIS'),
+                'recovery': os.environ.get('AGRICLIMAX_RECOVERY') == 'true'}
+    if source == 'observations' and date != datetime.now(ZoneInfo('Europe/Paris')).date().isoformat():
+        return {'source':source,'status':'no_op','reason':'historical_instantaneous_observations_unavailable'}
     claim = rpc('claim', metadata)
     if not claim or claim.get('status') == 'no_op':
         no_op = {'source': source, 'status': 'no_op', 'reason': (claim or {}).get('reason', 'not_eligible')}
@@ -89,7 +96,7 @@ def acquire(source: str, date: str) -> dict[str, Any]:
         Path('work/task36/logs').mkdir(parents=True, exist_ok=True)
         with Path(f'work/task36/logs/{source}.log').open('w') as log:
             # The adapter owns its compact, checksum-verified recovery files. No raw grids in registry.
-            for cmd in commands(source):
+            for cmd in commands(source, date):
                 remaining = max(1, 1320 - int(time.monotonic() - started))
                 result = subprocess.run(cmd, stdout=log, stderr=subprocess.STDOUT, timeout=remaining, check=False)
                 if result.returncode:
@@ -109,8 +116,10 @@ def acquire(source: str, date: str) -> dict[str, Any]:
             checkpoint['report'] = report
             if source == 'news' and not any(s.get('status') == 'ok' for s in report.get('sources', [])):
                 state = 'degraded'
-            if report.get('status') in ('no_new_data','read_only_existing_archive','not_yet_available_by_conservative_publication_ceiling') or report.get('inserted') is False:
+            if state == 'success' and (report.get('status') in ('no_new_data','read_only_existing_archive','not_yet_available_by_conservative_publication_ceiling') or report.get('inserted') is False):
                 state = 'no_new_data'
+            if report.get('status') == 'partial_previous_publication_preserved':
+                state = 'degraded'
             if report.get('permanent_auth_failure'):
                 state = 'permanent_failure'
             if isinstance(report.get('http_status'), int):

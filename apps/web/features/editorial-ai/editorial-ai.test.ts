@@ -75,6 +75,18 @@ describe("request correlation, archive and conservative HTTP failure accounting"
 describe("independent checks across the entire rendered edition", () => {
   it("accepts the real T33 replay with explicit semantic review", () =>
     expect(validateDraft(d(), b).status).toBe("needs_editorial_review"));
+  it.each([
+    "Aucune moyenne régionale ne peut être déduite de ce signal.",
+    "Ce maximum ne représente pas une moyenne régionale.",
+    "Sans moyenne régionale ni surface agricole affectée déduite.",
+  ])("admits a scoped limitation without extrapolating: %s",text=>{
+    const draft=d();draft.article.push({kind:"limitation",text,evidence_ids:[b.national.facts[0].id],seasonal_ids:[]});
+    expect(validateDraft(draft,b).errors).not.toContain("REGIONAL_EXTRAPOLATION");
+  });
+  it("does not let a negation excuse an affirmative extrapolation after mais",()=>{
+    const draft=d();draft.article.push({kind:"fact",text:"Aucune moyenne régionale connue, mais toute la région est affectée.",evidence_ids:[b.national.facts[0].id],seasonal_ids:[]});
+    expect(validateDraft(draft,b).errors).toContain("REGIONAL_EXTRAPOLATION");
+  });
   const cases: [string, (v: EditorialDraft) => void, string][] = [
     [
       "invented figure",

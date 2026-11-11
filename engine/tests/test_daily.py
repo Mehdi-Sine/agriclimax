@@ -361,3 +361,35 @@ def test_multistation_multiday_pipeline_preserves_station_isolation(tmp_path, mo
             )
     assert snapshot["cattle"][0]["value"] != snapshot["cattle"][1]["value"]
     assert json.loads((tmp_path / "logs/run.json").read_text())["stage"] == "complete"
+
+
+def test_incomplete_station_preserves_publication_but_persists_other_qualified_windows(tmp_path):
+    """A missing UM at one station cannot discard another complete station's data."""
+    from agriclimax.ingestion.meteofrance import Station
+    real = provider()[0]
+
+    class PartialProvider:
+        source_id = real.source_id
+
+        def prepare(self):
+            real.prepare()
+            self.stations = (*real.stations, Station(id="99999999", name="synthetic", latitude=48, longitude=2, altitude_m=1, metadata={}))
+
+        def download(self, day):
+            return real.download(day)
+
+        def decode(self, content):
+            payload = real.decode(content)
+            rows = [{**r, "cell_id": "99999999", **({"value": None} if r["variable"] == "humidity" else {})} for r in payload["rows"]]
+            return {**payload, "rows": payload["rows"] + rows, "expected_count": payload["expected_count"] * 2}
+
+    success, repo, publish = execute(tmp_path, PartialProvider())
+    assert not success
+    publish.assert_not_called()
+    assert repo.persist.call_count == 1
+    assert {r.cell_id for r in repo.persist.call_args.args[0].observations} == {"29075001"}
+    report = json.loads((tmp_path / "logs/run.json").read_text())
+    assert report["status"] == "partial_previous_publication_preserved"
+    assert report["rejected_station_days"][0]["missing_variables"] == ["humidity"]
+    assert report["rejected_station_days"][0]["reason"] == "DAILY_REQUIRED_VARIABLES_MISSING"
+    assert report["previous_publication_preserved"]

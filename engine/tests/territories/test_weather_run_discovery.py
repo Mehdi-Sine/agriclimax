@@ -14,7 +14,8 @@ def ids(hour: int) -> list[str]:
     return [f"{p}___2026-11-06T{hour:02}.00.00Z" + ("_P1D" if v == "precipitation" else "") for v, p in PARAMETERS.items()]
 
 
-def test_latest_common_run_ignores_future_and_incomplete_model(tmp_path):
+@patch("national_weather_sources.ifs_available", return_value=True)
+def test_latest_common_run_ignores_future_and_incomplete_model(ready, tmp_path):
     with patch("national_weather_sources.WcsProvider.catalogue", side_effect=[ids(0)+ids(6)+ids(12), ids(0)+ids(6)+ids(12)[:-1]]):
         assert latest_available_run(tmp_path, datetime(2026,11,6,13,tzinfo=UTC), Budget()).hour == 6
     with patch("national_weather_sources.WcsProvider.catalogue", return_value=ids(0)+ids(6)+ids(12)):
@@ -26,3 +27,10 @@ def test_no_complete_common_run_fails_without_acquiring_fields(tmp_path):
         with pytest.raises(ValueError, match="retain prior publication"):
             latest_available_run(tmp_path, datetime(2026,11,6,8,tzinfo=UTC), Budget())
         field.assert_not_called()
+
+
+def test_advertised_wcs_without_ifs_does_not_admit_incomplete_cycle(tmp_path):
+    with patch("national_weather_sources.WcsProvider.catalogue", return_value=ids(0)), patch("national_weather_sources.ifs_available", return_value=False) as ready:
+        with pytest.raises(ValueError, match="IFS support"):
+            latest_available_run(tmp_path, datetime(2026,11,6,4,tzinfo=UTC), Budget())
+        ready.assert_called_once()

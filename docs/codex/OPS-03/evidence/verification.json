@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-11",
+  "branch": "codex/ops-03-journal-recovery",
+  "snapshot_id": "2e9ed6d01173cb0851505863ecd28c3e916fe0a10de3a92f2fb5769987d8446e",
+  "quality": "fallback_valid",
+  "history_reference_date": "2026-11-04",
+  "history_age_days": 7,
+  "complete_pra": 645,
+  "total_pra": 713,
+  "workflow_run_id": "42989775337",
+  "paid_calls": 1,
+  "original_archive_id": "2445b514d5acad3e75627c2091ae7f50a80216a2b4cfc13f37cab9d55c0ebcd0",
+  "original_validation": "rejected_REGIONAL_EXTRAPOLATION_negation_false_positive",
+  "local_revalidated_archive_id": "bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5",
+  "local_revalidation_errors": [],
+  "local_revalidation_status": "needs_editorial_review",
+  "revalidation_persisted": true,
+  "migration_applied": true,
+  "migration_blocker": null,
+  "certified_publication_count": 0,
+  "browser": {
+    "url": "https://agriclimax.vercel.app/journal",
+    "status": 200,
+    "edition_11_visible": true,
+    "delayed": false,
+    "title": "AgriclimaX"
+  },
+  "tests": {
+    "web_passed": 616,
+    "web_skipped": 8,
+    "python_passed": 455,
+    "python_subtests_passed": 35,
+    "postgres_ledger_and_concurrency": "passed",
+    "postgis_full_local": "blocked_disk_extraction",
+    "post_approval_targeted_passed": 73,
+    "ci_code_commit": "8e40e92",
+    "ci_all_passed": true,
+    "postgis_public_remote": "passed",
+    "postgis_extensions_remote": "passed",
+    "browser_remote": "passed"
+  },
+  "pr": "https://github.com/Mehdi-Sine/agriclimax/pull/78",
+  "remote_migration_version": "20261111093334",
+  "migration_sha256": "57ca4ca6ad44fbe1a24206dcedbfc3609028842494567cdf0849f573149ff668",
+  "revalidated_archive_id": "bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5",
+  "revalidated_checksum": "c6c253b501c6f39719069deb5e4b3efa64d234cdd6b0b8aa7f91007ef60af3c1",
+  "revalidated_status": "needs_editorial_review",
+  "revalidated_errors": [],
+  "archive_count": 2,
+  "original_archive_preserved": true,
+  "same_draft": true,
+  "same_receipt": true,
+  "same_generated_at": true,
+  "idempotence_verified": true,
+  "revalidation_events": 1,
+  "additional_openai_calls": 0,
+  "production_default_uses_original_revision": true,
+  "production_revision_2_direct_route_verified": true,
+  "production_needs_code_deployment_for_revision_priority": true,
+  "post_approval_browser": [
+    {
+      "path": "/api/journal/availability",
+      "status": 200,
+      "availability": {
+        "status": "available",
+        "edition_id": "2445b514d5acad3e75627c2091ae7f50a80216a2b4cfc13f37cab9d55c0ebcd0",
+        "date": "2026-11-11",
+        "checksum": "d190ee7fd273f78cea7bf18ef17f1e5cb97a9356d9b238006e8c8ac4256f8d6d",
+        "storage": "shared_archive"
+      }
+    },
+    {
+      "path": "/journal",
+      "status": 200,
+      "edition_11_visible": true,
+      "article_visible": true,
+      "not_found": false,
+      "delayed": false
+    },
+    {
+      "path": "/journal?date=2026-11-11&id=bdde45c62dc8d0df6e87687c6dfe81d4c392b9dea721158dc9e0751482497af5",
+      "status": 200,
+      "edition_11_visible": true,
+      "article_visible": true,
+      "not_found": false,
+      "delayed": false
+    }
+  ]
+}

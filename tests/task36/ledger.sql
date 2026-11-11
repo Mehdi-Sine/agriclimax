@@ -58,7 +58,7 @@ set local role service_role;
 do $$declare raw text; result jsonb; d date:=current_date-2;
 begin
  raw:=json_build_object('z',1,'a',2,'version','daily-editorial-snapshot-1','id',repeat('e',64),
-  'edition_date',d,'quality','insufficient','briefing',null,
+  'edition_date',d,'quality','fresh','briefing',null,
   'cutoff_at',((d::text||' 05:40')::timestamp at time zone 'Europe/Paris'),
   'frozen_at',((d::text||' 06:00')::timestamp at time zone 'Europe/Paris'))::text;
  result:=public.agriclimax_editorial('freeze',jsonb_build_object('edition_date',d,'snapshot',raw::jsonb,'snapshot_json',raw));
