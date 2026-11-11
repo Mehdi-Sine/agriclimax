@@ -1,0 +1,87 @@
+[
+  {
+    "width": 1440,
+    "preview": 200,
+    "journal": 200,
+    "rows": 713,
+    "keyboard_picker": true,
+    "missing_tested": true,
+    "overflow": false
+  },
+  {
+    "width": 1280,
+    "preview": 200,
+    "journal": 200,
+    "rows": 713,
+    "keyboard_picker": true,
+    "missing_tested": true,
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "preview": 200,
+    "journal": 200,
+    "rows": 713,
+    "keyboard_picker": true,
+    "missing_tested": true,
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "preview": 200,
+    "journal": 200,
+    "rows": 713,
+    "keyboard_picker": true,
+    "missing_tested": true,
+    "overflow": false
+  },
+  {
+    "width": 360,
+    "preview": 200,
+    "journal": 200,
+    "rows": 713,
+    "keyboard_picker": true,
+    "missing_tested": true,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "status": 200
+  },
+  {
+    "route": "/climat",
+    "status": 200
+  },
+  {
+    "route": "/productions",
+    "status": 200
+  },
+  {
+    "route": "/veille",
+    "status": 200
+  },
+  {
+    "route": "/analyse",
+    "status": 200
+  },
+  {
+    "route": "/almanach",
+    "status": 200
+  },
+  {
+    "route": "/cartes-du-jour",
+    "status": 200
+  },
+  {
+    "route": "/aide-et-documentation",
+    "status": 200
+  },
+  {
+    "route": "/aide-et-documentation/indicateurs",
+    "status": 200
+  },
+  {
+    "route": "/journal?date=2000-01-01",
+    "status": 200
+  }
+]

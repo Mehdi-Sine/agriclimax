@@ -99,10 +99,19 @@ jobs:
           name: python-tests
           path: work/quality/python.xml
   web-demo:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    # Update image tag + digest together with tests/e2e/package{,-lock}.json.
+    # Browsers, fonts and OS libraries are baked into the official image: no apt in CI.
+    container:
+      image: mcr.microsoft.com/playwright:v1.62.1-noble@sha256:dcc5531e97840b9b5e794f2814476b21571c5124a3fca2267d73041f56e7580e
+      options: --ipc=host
+    defaults:
+      run:
+        shell: bash
     timeout-minutes: 20
     env:
       NEXT_TELEMETRY_DISABLED: '1'
+      PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
       # Synthetic tripwire, never a real cloud credential.
       QUALITY_SERVER_SENTINEL: quality-task09-tripwire
       SUPABASE_SECRET_KEY: quality-task09-tripwire
@@ -132,7 +141,8 @@ jobs:
       - run: python scripts/quality/budget.py
       - name: Isolated browser tooling (exact versions, no product dependency change)
         run: npm ci --prefix tests/e2e --ignore-scripts
-      - run: node tests/e2e/node_modules/playwright/cli.js install --with-deps chromium
+      - name: Verify preinstalled Playwright and launch Chromium
+        run: node scripts/quality/playwright-runtime.mjs
       - name: Production demo smoke and browser checks
         shell: bash
         run: |
@@ -151,7 +161,7 @@ jobs:
           TASK24_BASE_URL=http://127.0.0.1:3000 node tests/e2e/task24.mjs
           TASK35_ORIGIN=http://127.0.0.1:3000 TASK35_OUTPUT=work/quality/e2e/task35 node tests/e2e/task35.mjs
           node tests/e2e/demo.mjs
-          node tests/e2e/territories.mjs
+          PRA_ARTIFACTS=work/quality/e2e/territories node tests/e2e/territories.mjs
           INTEGRATION_ARTIFACTS=work/quality/e2e/integration node tests/e2e/integration.mjs
           WHEAT_ARTIFACTS=work/quality/e2e/wheat node tests/e2e/wheat.mjs
           DAILY_ARTIFACTS=work/quality/e2e/daily node tests/e2e/daily-risk.mjs

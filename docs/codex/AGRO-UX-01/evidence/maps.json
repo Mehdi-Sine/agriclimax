@@ -1,0 +1,687 @@
+{
+  "pra": 713,
+  "corsica": [
+    "pra:2A258",
+    "pra:2A259",
+    "pra:2A260",
+    "pra:2B258",
+    "pra:2B259",
+    "pra:2B260"
+  ],
+  "maps": [
+    {
+      "id": "59855d7a426599559f4f6a3a1b1d80e72fa14949bb9f99c63ed94f179bdbc055",
+      "production": "wheat, grassland",
+      "indicator": "gdd",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "°C·j",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "bfb54ce4b81db90969837ab73cc66b1c04792c5a8d49787584d4ee4ba9f68db1",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "hot",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "3d73b1a73f5ab28650ba177d3d94227c7b2ae4b1107784e0ac2db259558d927b",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "hot_sequence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "a7df72e2b0552b8b7410ab490720514d283acd327ee01cdfd1ddce5413e9e58c",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "frost",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "198ba7ea132eded6bcd221518e7457b0a236c04494a3260cf69008b8071dd10d",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "frost_sequence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "fcebb0dc08cf919f0882c50f401f31f79883ce9bbe0d91e9670c05af2d13dbd7",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "rain",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "mm",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "f3f91007e478fa1f571816782d21071ac6a889b102adb1bf555e7bd535d35598",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "heavy_rain",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "56570508aa98bf98a8ca719a485e1d6eeb121e014c397b43e3ad5986c69f3745",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "dry",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "d73b61285b7afd216e1f20efcd952a3a7eebe179925b791cbbcf42fea7516f99",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "dry_sequence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "86621c08359826eccdeaac982e15df29b20c30c1c56dfd491c9cd037c88c15d7",
+      "production": "wheat, cattle, maize, vine, grassland, orchard",
+      "indicator": "temperature_mean",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "°C",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "524839cc49e1bbef46fe46a6a81eeea6e7fee8c9f2e9466d145dc9830e8b5a94",
+      "production": "cattle",
+      "indicator": "cattle_heat",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "1b643ca228652c17c48b17928acea6a4151e74940e905d91dc5c171797e4d0aa",
+      "production": "cattle",
+      "indicator": "thi",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "THI",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "unavailable": 713
+      },
+      "missing": 713
+    },
+    {
+      "id": "77c5bcae5cb146978e2f4ff47fa0ed8a5ba28a727c8b651bf43b679f44b154e3",
+      "production": "cattle",
+      "indicator": "thi_days",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "unavailable": 713
+      },
+      "missing": 713
+    },
+    {
+      "id": "9d442b136c85e3decfda5a7a5d09cc97d5f062f73d1aa03e57df3a41e22fac94",
+      "production": "cattle",
+      "indicator": "thi_sequence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "unavailable": 713
+      },
+      "missing": 713
+    },
+    {
+      "id": "936714584084000731fb025b82b19c4c2a0977618c18655eb116392b73d170be",
+      "production": "maize, vine, grassland, orchard",
+      "indicator": "temperature_min",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "°C",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "587ef5dabe62a858e663b24b0f6f3809383b1a729fac820f496f93db2a825988",
+      "production": "maize, vine, grassland, orchard",
+      "indicator": "rain_frequency",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "d99539f345f85a4fc82154c1759fe36f561254b2f96cd44057e1b5c9cc7389aa",
+      "production": "maize",
+      "indicator": "gdd_base6",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "°C·j",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "9e450a907825b5065fe0edf2759ad3f22908b617fe9f0ff0510be2fc62fb8146",
+      "production": "maize, vine",
+      "indicator": "gdd_base10",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "°C·j",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "0177fb880dea6cd77888da68e874240da60d07a8e06bb55381586aed0e452501",
+      "production": "maize",
+      "indicator": "hot30",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "78679ee89c6245a3acd585bbb5275839eeab7b91b97d35b99c7a1453fbd517f6",
+      "production": "maize",
+      "indicator": "hot30_sequence",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-29",
+        "2026-11-04"
+      ],
+      "unit": "jours",
+      "source_sha256": "f16d83fa8d7c7bc9529fa20e87da15cb51110eb046a51a748a9cd958525dfd75",
+      "counts": {
+        "whole_pra": 645,
+        "observed_area": 67,
+        "unavailable": 1
+      },
+      "missing": 68
+    },
+    {
+      "id": "8042fd057a6877fc75117f54ef0df85255bcf430fb488709c6c6866561d5f4fc",
+      "production": "wheat, grassland",
+      "indicator": "gdd",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "°C·j",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "86b10357a6ac4444d787e9d776de124574c5c7c0a9cfccc48f2222844aeeaff3",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "hot",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "6819b6acf74f6fbb4ccdf639006e77c2f5f16ee91cb33b8ed21e723cf8ec3b5f",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "hot_sequence",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "a68b263f0d64bbec212d49dba63f755a568791bda813b67687f4d63079cde0ab",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "frost",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "8c92f02b5f9365fe034299bf264a23eeaa0bc38ffcd488f9f919cd17dfd79985",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "frost_sequence",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "cd69e76334492377dd004c027e45220ca5acd5847aa74de7f2ed57a91b652d26",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "rain",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "mm",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "10cb4e7ad694098f86b55afec105fa4a7b885d94177a0fae88b3c861ec2afec5",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "heavy_rain",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "4ec9547fa9bbfa6abfd5095adc820f315f6b35ab862aa8c71802bcaa517288b4",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "dry",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "6472ba66ec227cbb5bb0592b08c51e5baff73543377957058d3021e1fd0a3702",
+      "production": "wheat, maize, vine, grassland, orchard",
+      "indicator": "dry_sequence",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "10d973afb665606385f152621b83b4a386bdeb189f1dd5b65a03ee039df16682",
+      "production": "wheat, cattle, maize, vine, grassland, orchard",
+      "indicator": "temperature_mean",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "°C",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "eaeebe41f815117c545ece2f3a8cbdfa9965eccdf36aca7baba352f3be274f01",
+      "production": "cattle",
+      "indicator": "cattle_heat",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "7b742a83c35227340167795947d24d1af9af2f84c29e607845e755cd0c9b32a2",
+      "production": "cattle",
+      "indicator": "thi",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "THI",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "unavailable": 713
+      },
+      "missing": 713
+    },
+    {
+      "id": "5e3f8fae78eb9c75f2599fa2a5c05140f7448f84b44cfc591bb67f8f25ba45c0",
+      "production": "cattle",
+      "indicator": "thi_days",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "unavailable": 713
+      },
+      "missing": 713
+    },
+    {
+      "id": "7ccc2a14d49fd108eb69c3f27a262f3310c93a896efcc0e109d666c243a011e9",
+      "production": "cattle",
+      "indicator": "thi_sequence",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "unavailable": 713
+      },
+      "missing": 713
+    },
+    {
+      "id": "dc333e0a1bf1f169b35171e8477191e9584b10a57adbe81d07531d20efec75ba",
+      "production": "maize, vine, grassland, orchard",
+      "indicator": "temperature_min",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "°C",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "f23c4e7dcfc7b5f5ad516d3fe4b5e56adb84995bd07f34632e9c99e078651c8b",
+      "production": "maize, vine, grassland, orchard",
+      "indicator": "rain_frequency",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "4bb02283305f5b26440260f75886153489e080dd82b68c6e5097d555841bca04",
+      "production": "maize",
+      "indicator": "gdd_base6",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "°C·j",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "47c3a6c94405af14ea8c3bb72a08b851af5d4dfbfca24f6c5daa56eb6814e481",
+      "production": "maize, vine",
+      "indicator": "gdd_base10",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "°C·j",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "38aed3b5ef1bfda78773e076fe1e22f743934e174f87598380fb81fbbda7a242",
+      "production": "maize",
+      "indicator": "hot30",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    },
+    {
+      "id": "b3d26c31656af1dc269e96408a0bff7f9ab7ce90c9dbe8b0dbdeb2cedf7cc01c",
+      "production": "maize",
+      "indicator": "hot30_sequence",
+      "nature": "forecast",
+      "period": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "unit": "jours",
+      "source_sha256": "09fe236f5d79f54811767d926f8ecd0237581d8904989b1efc8c2676e8741866",
+      "counts": {
+        "whole_pra": 713
+      },
+      "missing": 0
+    }
+  ]
+}
