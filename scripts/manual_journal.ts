@@ -104,7 +104,9 @@ async function main() {
  if(reused)save("compatible-ai-archive.json",reused);
  let archive=reused?.mode==="live"?undefined:reused;
  if(snapshot.briefing&&!archive){
-  const briefing=snapshot.briefing,draft=fallbackDraft(briefing),validation=validateDraft(draft,briefing);
+  const briefing=snapshot.briefing,draft=fallbackDraft(briefing);
+  for(const production of draft.productions)production.blocks=briefing.contributions.filter(c=>c.production===production.production_id).map(c=>{const fact=briefing.national.facts.find(f=>f.id===c.fact_id)!;return {kind:'fact' as const,text:fact.text,evidence_ids:[fact.id],seasonal_ids:[]};});
+  const validation=validateDraft(draft,briefing);
   const config=operationalConfig('gpt-6.1-terra');
   archive=sealArchive({version:'editorial-archive-1',edition_id:hash([snapshot.id,'manual-preview',draft]),revision:1,supersedes:null,date,generated_at:new Date().toISOString(),engine:ENGINE,prompt_version:PROMPT_VERSION,config_version:CONFIG_VERSION,mode:'fallback',status:validation.status,draft,briefing,illustrations:[],validation,receipt:null,prompt_sha256:hash(INSTRUCTIONS),parameters:{model:config.model,max_output_tokens:config.max_output_tokens,request_profile:config.request_profile}});
  }

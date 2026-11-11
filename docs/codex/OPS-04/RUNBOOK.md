@@ -40,7 +40,7 @@ AGRICLIMAX_MANUAL_RUN_DIR="$PWD/work/manual-journal/latest" pnpm dev
 
 Ouvrir l'URL `/journal/preview?date=...&id=...` du rapport. Le texte de secours déterministe est explicitement étiqueté, rédigé depuis les faits du nouveau dossier sans IA. Les cartes utilisent les 713 géométries et le composant PRA existants, avec dates, nature, unités, couverture et valeurs absentes. Les liens Sources & méthodes et les espaces Journal/Climat restent ceux du produit. Une réponse IA compatible est vérifiée et réutilisée pour la reprise, sans inventer de revue humaine locale ; son URL d'archive réelle est fournie séparément. Un dossier modifié ne reçoit jamais une ancienne narration incompatible.
 
-Les recettes météorologiques et agroclimatiques communes à plusieurs productions partagent une carte et un calcul ; la liste des productions décrit l'applicabilité du calcul, pas leur présence effective dans chaque PRA. Les mesures anciennes restent datées. Humidité manquante = aucun THI inventé.
+Les recettes météorologiques et agroclimatiques communes à plusieurs productions partagent une carte, un calcul et un fait éditorial : le budget T33 ne doit pas être épuisé par des doublons de productions ; la liste des productions décrit l'applicabilité du calcul, pas leur présence effective dans chaque PRA. Les mesures anciennes restent datées. Humidité manquante = aucun THI inventé.
 
 ## Rejouer les entrées capturées, sans réseau
 

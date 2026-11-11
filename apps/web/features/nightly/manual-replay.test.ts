@@ -1,6 +1,6 @@
 import {describe,it,expect,vi} from 'vitest';
 vi.mock('server-only',()=>({}));
-import {capture,replayIndicators} from '../../../../scripts/manual_indicators';
+import {capture,replayIndicators,editorialContributions} from '../../../../scripts/manual_indicators';
 import {hash} from '../editorial/temporal';
 import geography from '../../data/operational/pra-watch-places.json';
 describe('OPS-04 captured AGRO inputs',()=>{
@@ -10,6 +10,10 @@ describe('OPS-04 captured AGRO inputs',()=>{
   try{
    const one=replayIndicators(['2026-11-04','2026-11-04'],inputs),two=replayIndicators(['2026-11-04','2026-11-04'],inputs);
    expect(one.metrics.pra_count).toBe(713);expect(new Set(one.measurements.map(m=>m.result.territoryId))).toEqual(new Set(geography.places.map(p=>p.id)));
+   const editorial=editorialContributions(one.measurements).flatMap(c=>c.indicators.filter(i=>i.publishable));
+   expect(new Set(editorial.map(i=>i.id)).size).toBe(editorial.length);
+   expect(editorial.some(i=>i.id==='gdd_base6')).toBe(true);
+   expect(editorial.some(i=>i.id==='rain')).toBe(true);
    expect(hash(one)).toBe(hash(two));expect(fetcher).not.toHaveBeenCalled();
    expect(one.measurements.filter(m=>m.indicator==='thi').every(m=>m.result.value===null)).toBe(true);
    expect(one.measurements.every(m=>m.result.data_freshness.every(f=>f.includes('2026-11-04')))).toBe(true);
