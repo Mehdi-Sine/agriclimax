@@ -8,7 +8,7 @@ spec.loader.exec_module(nightly)
 
 class RetryTests(unittest.TestCase):
     def test_supplier_classes(self):
-        for code, state in [(429,'retryable_failure'),(500,'retryable_failure'),(401,'permanent_failure'),(403,'permanent_failure'),(404,'no_new_data'),(None,'retryable_failure')]:
+        for code, state in [(429,'retryable_failure'),(500,'retryable_failure'),(401,'permanent_failure'),(403,'permanent_failure'),(404,'retryable_failure'),(204,'no_new_data'),(None,'retryable_failure')]:
             with self.subTest(code=code):
                 self.assertEqual(nightly.failure(code)[0], state)
     def test_retry_after(self):

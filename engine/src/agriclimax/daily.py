@@ -219,6 +219,10 @@ def run_daily(
             report["retry_after"] = error.retry_after
         elif isinstance(error, MeteoFranceAccessError):
             report["permanent_auth_failure"] = True
+            report["http_status"] = error.http_status
+            report["reason"] = error.reason
+            report["phase"] = error.phase
+            report["service_code"] = error.service_code
         report.update(failure)
         print(json.dumps(failure))
         report["failed_stage"] = report["stage"]

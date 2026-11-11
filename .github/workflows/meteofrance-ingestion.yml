@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       probe_only:
-        description: Read-only DPClim/DPObs station health; no ingestion or database write
+        description: Read-only DPClim/DPObs/AROME/ARPEGE catalogues; no ingestion, publication or AI
         type: boolean
         default: false
       observations_version:
-        description: Health only; v1 matches ingestion, v2 probes the published catalogue
+        description: Legacy input; probe_only now checks both v1 and v2 catalogues
         type: choice
         options: [v1, v2]
         default: v1
@@ -108,15 +108,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r engine/requirements-dev.lock
-      - name: Separate bounded DPClim and DPObs catalogues; no ingestion or database write
+      - name: Separate bounded source catalogues; no ingestion, publication or AI
         env:
           PYTHONPATH: engine/src
           METEOFRANCE_OBSERVATIONS_API_KEY: ${{ secrets.METEOFRANCE_OBSERVATIONS_API_KEY }}
           METEOFRANCE_CLIMATOLOGY_API_KEY: ${{ secrets.METEOFRANCE_CLIMATOLOGY_API_KEY }}
           METEOFRANCE_CLIMATOLOGY_APPLICATION_ID: ${{ secrets.METEOFRANCE_CLIMATOLOGY_APPLICATION_ID }}
           METEOFRANCE_OBSERVATIONS_APPLICATION_ID: ${{ secrets.METEOFRANCE_OBSERVATIONS_APPLICATION_ID }}
-          OBSERVATIONS_VERSION: ${{ inputs.observations_version }}
-        run: python scripts/meteofrance_station_health.py --observations-version "$OBSERVATIONS_VERSION"
+          METEOFRANCE_AROME_API_KEY: ${{ secrets.METEOFRANCE_AROME_API_KEY }}
+          METEOFRANCE_ARPEGE_API_KEY: ${{ secrets.METEOFRANCE_ARPEGE_API_KEY }}
+        run: python scripts/meteofrance_acquisition_health.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:

@@ -92,14 +92,7 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
                             if "exceptionCode" in e.attrib
                         ]
                         if codes:
-                            record["service_exception_codes"] = codes[:3]
-                        messages = [
-                            " ".join((e.text or "").split())[:240]
-                            for e in parsed.iter()
-                            if e.tag.endswith("}ExceptionText")
-                        ]
-                        if messages:
-                            record["service_exception_messages"] = messages[:3]
+                            record["service_exception_codes"] = [c for c in codes if c in {"InvalidParameterValue", "MissingParameterValue", "NoSuchCoverage", "OperationNotSupported", "NoApplicableCode"}][:3]
                 except (ET.ParseError, ValueError, OSError, EOFError):
                     pass
             error.close()
@@ -109,6 +102,13 @@ def fetch(url: str, variable: str, limit: int) -> tuple[dict[str, object], bytes
                 record["status"] = "network_unavailable"
             record["wire_bytes_read"] = record.get("wire_bytes_read", limit + 1)
             content = b""
+    # Fixed diagnostics only: HTTP status does not establish token expiry or account subscriptions.
+    if isinstance(record["status"], int) and record["status"] != 200:
+        record["outcome"] = {
+            204: "resource_pending", 401: "authentication_invalid_or_expired",
+            403: "subscription_or_product_denied", 404: "resource_or_endpoint_unavailable",
+            429: "rate_limited",
+        }.get(record["status"], "service_unavailable" if record["status"] >= 500 else "http_error")
     record.update(bytes=len(content), seconds=monotonic() - started)
     return record, content
 

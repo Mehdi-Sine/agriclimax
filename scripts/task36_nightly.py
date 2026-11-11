@@ -45,8 +45,11 @@ def failure(status: int | None, retry_after: str | None = None) -> tuple[str, in
                 pass
     if status in (401, 403):
         return 'permanent_failure', wait
-    if status in (404, 204):
+    if status == 204:
         return 'no_new_data', wait
+    if status == 404:
+        # A missing endpoint is not proof that a model cycle is merely pending.
+        return 'retryable_failure', wait
     if status == 429 or status is None or (status is not None and status >= 500):
         return 'retryable_failure', wait
     return 'permanent_failure', wait
