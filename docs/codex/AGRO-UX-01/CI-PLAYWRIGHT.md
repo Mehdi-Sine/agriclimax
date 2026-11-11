@@ -18,7 +18,7 @@ Le digest du manifeste multiarchitecture a été vérifié auprès de MCR le 11 
 
 Le shell Bash est explicite pour conserver le comportement des étapes du runner. `--ipc=host` suit la recommandation Playwright pour éviter l’épuisement de mémoire partagée de Chromium ; les pages testées sont celles du serveur de recette local.
 
-`scripts/quality/playwright-runtime.mjs` compare la version réellement installée à `/ms-playwright/.docker-info`, vérifie le chemin du binaire, lance Chromium et contrôle une page locale. Il écrit `browser-runtime.json` dans l’artefact `demo-browser-report`. Toute incompatibilité ou erreur de lancement fait échouer le job. Les huit scripts navigateur et le smoke existants sont conservés et bloquants, sans condition de saut ni `continue-on-error`.
+`scripts/quality/playwright-runtime.mjs` compare la version réellement installée à `/ms-playwright/.docker-info`, vérifie le chemin du binaire, lance Chromium et contrôle une page locale. Le binaire effectivement testé est ensuite transmis aux scripts existants par `CHROMIUM_EXECUTABLE` via `GITHUB_ENV`, sans chemin système imposé. Il écrit `browser-runtime.json` dans l’artefact `demo-browser-report`. Toute incompatibilité ou erreur de lancement fait échouer le job. Les huit scripts navigateur et le smoke existants sont conservés et bloquants, sans condition de saut ni `continue-on-error`.
 
 Les tests `tests/quality/test_browser_runtime.py` vérifient la concordance image/package/lockfile et empêchent une mise à jour isolée de Playwright ou la réintroduction d’une installation système. Le lancement réel dans le conteneur et les suites complètes restent les preuves d’exécution, distinctes de ces gardes statiques.
 
@@ -40,6 +40,8 @@ Cette commande vérifie seulement le runtime. Le job CI installe aussi le projet
 
 ## Vérification
 
-Gardes de compatibilité et validation YAML exécutés localement. Résultat de l’exécution distante sur le nouveau commit à consigner après achèvement ; la simple disponibilité du manifeste MCR ne prouve pas le succès des tests navigateur.
+Gardes de compatibilité et validation YAML exécutés localement. Le premier run corrigé [43040334243](https://github.com/Mehdi-Sine/agriclimax/actions/runs/43040334243) a validé l’image, le lancement de Chromium 151.0.7922.34 et les parcours task24, task35, démo/UX-01. Il a ensuite révélé que `territories.mjs` imposait encore `/usr/bin/chromium`. Le contrôle de runtime transmet désormais son chemin vérifié à tous les scripts qui utilisent déjà `CHROMIUM_EXECUTABLE`. Les assertions de test ne sont pas modifiées ; les captures territoriales rejoignent aussi l’artefact commun.
+
+L’exécution suivante doit confirmer la totalité des parcours. Les preuves distantes sont liées dans le descriptif de la PR ; une image téléchargeable ou un seul lancement de navigateur ne suffisent pas.
 
 Retour arrière : revert du commit CI sur une branche et PR de revue ; aucun rollback de données. Le revert réintroduirait la dépendance APT fautive, donc préférer corriger l’image/version et vérifier le job avant fusion. PR #80 conservée en draft et non fusionnée. Le statut scientifique global AGRO-UX-01 reste PARTIAL indépendamment de cette réparation technique.

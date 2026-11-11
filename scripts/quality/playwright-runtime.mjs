@@ -2,7 +2,7 @@
 // Fail on package/image drift or a broken browser; never download or skip checks.
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
-import {readFile, mkdir, writeFile} from 'node:fs/promises';
+import {readFile, mkdir, writeFile, appendFile} from 'node:fs/promises';
 const require = createRequire(new URL('../../tests/e2e/package.json', import.meta.url));
 const {version} = require('playwright/package.json');
 const {chromium} = require('playwright');
@@ -11,7 +11,7 @@ assert.equal(image.driverVersion, version, 'Update the official image tag/digest
 assert.equal(process.env.PLAYWRIGHT_BROWSERS_PATH, '/ms-playwright', 'Use the preinstalled browser directory');
 const executable = chromium.executablePath();
 assert.ok(executable.startsWith('/ms-playwright/'), 'Chromium must come from the official image');
-const browser = await chromium.launch({args: ['--no-sandbox', '--enable-unsafe-swiftshader']});
+const browser = await chromium.launch({executablePath: executable, args: ['--no-sandbox', '--enable-unsafe-swiftshader']});
 try {
   const page = await browser.newPage();
   await page.setContent('<title>Playwright runtime verified</title>');
@@ -19,6 +19,9 @@ try {
   const receipt = {playwright: version, image, chromium: browser.version(), executable, launch: 'passed'};
   await mkdir('work/quality/e2e', {recursive: true});
   await writeFile('work/quality/e2e/browser-runtime.json', JSON.stringify(receipt, null, 2));
+  // Existing browser suites accept this override instead of /usr/bin/chromium.
+  if (process.env.GITHUB_ENV)
+    await appendFile(process.env.GITHUB_ENV, `CHROMIUM_EXECUTABLE=${executable}\n`);
   console.log(JSON.stringify(receipt));
 } finally {
   await browser.close();
