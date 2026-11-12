@@ -44,7 +44,7 @@ try {
   await page.goto(`${base}/journal`,{waitUntil:'domcontentloaded',timeout:90000});
   await page.getByRole('heading',{name:edition.draft.headline.text,exact:true}).waitFor({timeout:90000});
   const articleMs=Date.now()-started;
-  await page.getByRole('link',{name:'Climacta, retour au Journal',exact:true}).waitFor();
+  await page.getByRole('link',{name:/Climacta.*retour au Journal/i}).waitFor();
   assert.match(await page.title(),/Climacta/);
   assert.match(await page.locator('.ux01-edition-meta').innerText(),/12 NOVEMBRE 2026/);
   assert.equal(await page.getByText('Préparation de l’édition à partir des archives vérifiées…',{exact:true}).count(),0);

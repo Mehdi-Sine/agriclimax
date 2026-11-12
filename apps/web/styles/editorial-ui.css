@@ -1,6 +1,5 @@
 /* UX-01 — composants d'identité partagés, valeurs centralisées dans tokens.css */
 .editorial-chrome{background:var(--surface-base);color:var(--text-primary);border-bottom:1px solid var(--border)}
-.editorial-stripes{height:7px;background:linear-gradient(90deg,#23536e 0 8%,#38829e 8% 16%,#86acc0 16% 24%,#e1e9e6 24% 32%,#eadcb9 32% 40%,#d7ac77 40% 48%,#c77b53 48% 56%,#b95f43 56% 64%,#d2a57d 64% 72%,#78abc0 72% 80%,#346781 80% 88%,#a6c6ce 88% 100%)}
 .editorial-site-head{max-width:1320px;margin:auto;padding:24px 34px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .editorial-logo{display:flex;flex-direction:column;text-decoration:none!important;color:var(--editorial-ink)!important;font-family:Georgia,serif;font-size:clamp(30px,3vw,43px);letter-spacing:-.055em;font-weight:700;line-height:1}
 .editorial-logo span{color:var(--editorial-blue)}

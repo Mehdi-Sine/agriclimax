@@ -7,8 +7,8 @@ Scientifique, rigoureux, moderne, sobre, précis et accessible. International sa
 
 ## Marque
 - Nom : **Climacta**
-- Signature : **Observer. Comprendre. Anticiper.**
-- Descripteur : **L'observatoire des risques climatiques agricoles.**
+- Signature : **Le climat des territoires agricoles.**
+- Descripteur : **Le climat des territoires agricoles.**
 
 ## Concept du symbole
 Combiner de manière abstraite :
@@ -79,3 +79,14 @@ Climacta est le nom public, y compris pour le Journal, les métadonnées, le man
 et les actifs SVG. Les identifiants techniques `agriclimax` (packages, stockage,
 variables d'environnement, préférences locales) restent stables. Les archives et
 prompts versionnés gardent leur contenu historique et leurs empreintes.
+
+## UX-02B — référence graphique fournie
+
+La maquette HTML propriétaire fixe le logo Georgia 36 px « Climacta. », point
+corail `#c75159`, sa signature et le symbole carré Climate Stripes. Le PNG
+original est conservé dans `public/brand/climate-stripes.png`, sans transformation.
+Bandeau 10 px pleine largeur ; enveloppe 1220 px, marges 30 px desktop / 18 px
+mobile ; titres Georgia jusqu’à 58 px, texte système. Marine `#182b40`, bleu
+`#235b87`, fond `#f8fafb`, séparateurs `#e4eaf0`. Ces valeurs remplacent les
+anciennes couleurs de marque de Task 05 ; toutes les palettes scientifiques
+restent indépendantes et inchangées. Les encadrés restent blancs, rayon 12 px.

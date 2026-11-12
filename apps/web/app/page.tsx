@@ -1,3 +1,4 @@
+import JournalPage from "./journal/page";
 import {redirect} from "next/navigation";
 export default async function Page({searchParams}:{searchParams:Promise<Record<string,string|string[]|undefined>>}){
  const p=await searchParams;
@@ -9,5 +10,5 @@ export default async function Page({searchParams}:{searchParams:Promise<Record<s
  // Legacy exploratory links retain all climatic query parameters.
  if(["pra","indicateur","temporal","periode","start","production","variable","mode","storage","rule_version","seuil"].some(k=>k in p))redirect(`/climat?${q}`);
  // ?date and ?id now refer to editorial archives.
- redirect(`/journal${q.size?"?"+q:""}`);
+ return <JournalPage searchParams={Promise.resolve({run:typeof p.run==="string"?p.run:undefined,date:typeof p.date==="string"?p.date:undefined,id:typeof p.id==="string"?p.id:undefined})}/>;
 }
