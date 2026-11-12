@@ -65,10 +65,9 @@ describe('OPS-04 real CLI read-only boundary with a source-shaped stored archive
    const result=JSON.parse(readFileSync(join(dir,'report.json'),'utf8'));
    if(published){expect(result.status).toBe('completed');expect(result.publication).toEqual({status:'already_published',archive_id:a.edition_id});expect(new Set(actions)).toEqual(new Set(['report','control','snapshot_read','archive_read']));return;}
    if(emergencyStop){expect(result.status).toBe('blocked');expect(result.blockers).toEqual(['EMERGENCY_STOP']);expect(result.openai.calls).toBe(0);return;}
-   expect(result.status).toBe('completed');expect(result.openai.calls).toBe(0);expect(result.snapshot.status).toBe(mode==='dry-run'?'reused_frozen':'production_frozen');expect(result.publication.status).toBe(mode==='dry-run'?'not_requested':mode==='resume'?'not_requested_resume':'waiting');
-   if(mode==='publish')expect(result.publication.reason).toBe(publicationEnabled?'EDITORIAL_APPROVAL_REQUIRED':'PUBLICATION_DISABLED');
+   expect(result.status).toBe('completed');expect(result.openai.calls).toBe(0);expect(result.snapshot.status).toBe(mode==='dry-run'?'reused_frozen':'production_frozen');expect(result.publication.status).toBe(mode==='dry-run'?'not_requested':mode==='resume'?'not_requested_resume':'experimental_consultable');
    expect(result.openai.status).toMatch(/reused/);
-   expect(new Set(actions)).toEqual(new Set(['report','control','snapshot_read','archive_read',...(publicationEnabled?['reviews']:[])]));
+   expect(new Set(actions)).toEqual(new Set(['report','control','snapshot_read','archive_read']));
   }finally{rmSync(dir,{recursive:true,force:true});}
  },30000);
 });

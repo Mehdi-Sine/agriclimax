@@ -13,6 +13,7 @@ import {editorialPayload} from "./budget";
 import {readConfig,cost,type AIConfig} from "./config";
 import {ProviderFailure,type Provider,type ProviderResult} from "./provider";
 import {consultableEdition} from "./consultable";
+import {fallbackDraft} from "./fallback";
 
 export interface AttemptStore {
  claimAttempt(run:Run,manualRetry:boolean):Promise<Run>;
@@ -34,7 +35,7 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
  const run=await o.store.claimAttempt(proposed,o.manualRetry);
  if(run.id!==proposed.id) {
   const existing=run.archive_id?await o.store.read(run.archive_id):null;
-  if(!existing||existing.mode!=="live") throw Error("COMPLETED_ARCHIVE_MISSING");
+  if(!existing) throw Error("COMPLETED_ARCHIVE_MISSING");
   consultableEdition(existing);
   return existing;
  }
@@ -45,11 +46,12 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
   }});
   // Preserve actual output before scientific/contract admission; diagnostics remain private.
   await o.store.diagnostic(hash([run.id,"response"]),{kind:"provider_response",run_id:run.id,received_at:new Date().toISOString(),result});
-  const archive=await archiveOperationalResult({...o,run,result,generatedAt:now,durationMs:Math.round(performance.now()-started)});
-  const validation=archive.validation,estimate=archive.receipt?.cost_eur??null;
+  const original=await archiveOperationalResult({...o,run,result,generatedAt:now,durationMs:Math.round(performance.now()-started)});
+  const archive=original.validation.status==="rejected"?await archiveFactualFallback(original,o.store):original;
+  const validation=archive.validation,estimate=original.receipt?.cost_eur??null;
   run.state=validation.status==="rejected"?"validation_failed":"completed";run.error=validation.status==="rejected"?"DRAFT_REJECTED":null;run.archive_id=archive.edition_id;run.actual_eur=estimate;
   await o.store.finishAttempt(run);
-  // Scientific reservations do not hide an experimental edition; incompatible data still do.
+  // A rejected provider text is retained privately; only the checked factual replacement is admitted.
   if(validation.status==="rejected") throw Error("INCOMPATIBLE_EDITORIAL_DATA");
   consultableEdition(archive);
   return archive;
@@ -61,6 +63,17 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
   }
   throw error;
  }
+}
+
+/** A new immutable archive, derived only from verified facts. Provider failures never reach here. */
+export async function archiveFactualFallback(source:Archive,store:AttemptStore):Promise<Archive> {
+ const draft=fallbackDraft(source.briefing),validation=validateDraft(draft,source.briefing,[]);
+ if(validation.status==="rejected")throw Error("FACTUAL_FALLBACK_REJECTED");
+ const {checksum,...body}=source;void checksum;
+ const archive=sealArchive({...body,edition_id:hash([source.checksum,"experimental-factual-fallback-1"]),
+  revision:source.revision+1,supersedes:source.edition_id,mode:"fallback",draft,validation,status:validation.status,receipt:null,illustrations:[]});
+ await store.save(archive);
+ return archive;
 }
 
 /** Rebuild only from a persisted provider response; never invokes a provider. */

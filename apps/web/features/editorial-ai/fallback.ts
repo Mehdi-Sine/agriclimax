@@ -13,14 +13,19 @@ export function fallbackDraft(b: EditorialBriefingBundle): EditorialDraft {
     bundle_id: b.bundle_id,
     edition_date: b.edition_date,
     main_candidate_id: c?.id ?? null,
-    decision: literal("Sélection déterministe de secours, à relire."),
+    decision: literal("Édition expérimentale de secours établie à partir des faits disponibles."),
     alternatives: [],
     secondary_candidate_ids: [],
     headline: literal(
       "Le point agroclimatique : des faits à mettre en perspective",
     ),
     lead: literal(
-      "Cette édition de secours rassemble les données disponibles et leurs limites. Elle ne constitue pas une rédaction journalistique validée.",
+      "Cette édition expérimentale de secours rassemble les données disponibles et leurs limites. " +
+      (c?.nature === "forecast"
+        ? "L’article présente des prévisions issues des modèles, pour les périodes indiquées."
+        : c?.nature === "reanalysis"
+          ? "L’article présente une réanalyse historique, pour les périodes indiquées."
+          : "Les sources et les périodes restent celles des faits disponibles."),
     ),
     article: fs.map((id) =>
       literal(b.national.facts.find((f) => f.id === id)!.text, [id], "fact"),

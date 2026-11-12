@@ -10,7 +10,7 @@ import {archiveInputs} from "../apps/web/features/nightly/immutable-inputs";
 import {prepareDossier} from "./nightly_prepare";
 import {recomputeIndicators} from "./manual_indicators";
 import {archivedEra5Day,decodeNationalWeather,type ArchiveEntry} from "../apps/web/lib/server/weather-archives";
-import {editorialRPC,SupabaseEditorialStore,promoteEdition} from "../apps/web/features/editorial-ai/supabase-store";
+import {editorialRPC,SupabaseEditorialStore} from "../apps/web/features/editorial-ai/supabase-store";
 import {verifySnapshot,type DailyEditorialSnapshot} from "../apps/web/features/nightly/snapshot";
 import {verifyArchive,sealArchive,type Run} from "../apps/web/features/editorial-ai/archive";
 import {validateDraft} from "../apps/web/features/editorial-ai/validate";
@@ -165,11 +165,10 @@ async function main() {
  if(options.mode==='resume')report.publication={status:before.publications.some(p=>p.edition_date===date)?'already_published':'not_requested_resume'};
  if(options.mode==='publish') {
   phase='publication';
-  if(!control.publication_enabled){report.publication={status:'waiting',reason:'PUBLICATION_DISABLED'};return;}
   if(!production){report.publication={status:'refused',reason:'VALIDATED_ARCHIVE_REQUIRED'};return;}
-  const reviews=await editorialRPC<{archive_id:string;checksum:string;decision:string}[]>('reviews');
-  if(!reviews.some(r=>r.archive_id===production!.edition_id&&r.checksum===production!.checksum&&r.decision==='approved')){report.publication={status:'waiting',reason:'EDITORIAL_APPROVAL_REQUIRED'};return;}
-  report.publication=await promoteEdition(production.edition_id);
+  const receipt=run('run');
+  if(receipt.exit_code!==0)throw Error('EXPERIMENTAL_PUBLICATION_FAILED');
+  report.publication={status:'experimental_consultable',archive_id:production.edition_id};
  }
  phase='consultation';report.service_check=run('report');
  if((report.service_check as {exit_code:number}).exit_code!==0)report.blockers=['CONSULTATION_NOT_VERIFIED'];

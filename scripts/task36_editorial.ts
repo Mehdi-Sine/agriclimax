@@ -8,16 +8,22 @@ import { join } from "node:path";
 import { parisDate } from "../apps/web/features/editorial/almanac";
 import { verifySnapshot, type DailyEditorialSnapshot } from "../apps/web/features/nightly/snapshot";
 import { editorialRPC, SupabaseEditorialStore, promoteEdition } from "../apps/web/features/editorial-ai/supabase-store";
-import {archiveOperationalResult,generateOperational,operationalConfig} from "../apps/web/features/editorial-ai/generate-operational";
+import {archiveFactualFallback,archiveOperationalResult,generateOperational,operationalConfig} from "../apps/web/features/editorial-ai/generate-operational";
 import type { Archive } from "../apps/web/features/editorial-ai/model";
 import type {Run} from "../apps/web/features/editorial-ai/archive";
 import type {ProviderResult} from "../apps/web/features/editorial-ai/provider";
 import {consultableEdition} from "../apps/web/features/editorial-ai/consultable";
+import {spawnSync} from "node:child_process";
 import { openAIProvider, verifyModel } from "../apps/web/features/editorial-ai/provider";
 const command = process.argv[2] ?? "preflight";
 const date = process.env.AGRICLIMAX_EDITION_DATE || parisDate(new Date().toISOString());
 if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isFinite(Date.parse(date))||new Date(date).toISOString().slice(0,10)!==date||date>parisDate(new Date().toISOString())) throw Error("EDITION_DATE_REQUIRED");
 let phase="admission";
+function publishExperimentalMaps(archive:Archive|{edition_id:string}) {
+ phase="experimental_maps";
+ const result=spawnSync(process.execPath,["--conditions=react-server","apps/web/node_modules/tsx/dist/cli.mjs","scripts/int01_maps.ts","publish-experimental",archive.edition_id],{env:process.env,encoding:"utf8",timeout:300000,maxBuffer:1024*1024});
+ if(result.status!==0)throw Error("EXPERIMENTAL_MAP_PUBLICATION_FAILED");
+}
 function failureCode(error:unknown) {
   const prefix=error instanceof Error?error.message.split(":")[0]:"";
   return /^[A-Z][A-Z0-9_]+$/.test(prefix)?prefix:"NIGHTLY_FAILED";
@@ -76,7 +82,7 @@ async function main() {
   if(command==="run") {
     const {operationalEditions,sharedArchiveRead}=await import("../apps/web/lib/server/editorial-published");
     const existing=(await operationalEditions()).find(a=>a.date===date);
-    if(existing&&sharedArchiveRead(existing.edition_id)){output({status:"no_op",reason:"already_consultable",id:existing.edition_id,checksum:existing.checksum,paid_calls:0});return;}
+    if(existing&&sharedArchiveRead(existing.edition_id)){publishExperimentalMaps(existing);output({status:"no_op",reason:"already_consultable",id:existing.edition_id,checksum:existing.checksum,paid_calls:0});return;}
   }
   let snapshot = await editorialRPC<DailyEditorialSnapshot|null>("snapshot_read",{edition_date:date});
   if(!snapshot && ["prepare","run","qualify"].includes(command)) {
@@ -117,8 +123,14 @@ async function main() {
     }
     if(recovered) {
       if(recovered.validation.status==="rejected"&&authorized>=0) continue;
+      if(recovered.validation.status==="rejected"){
+        const fallback=await archiveFactualFallback(recovered,store);
+        publishExperimentalMaps(fallback);
+        output({status:"experimental_fallback",id:fallback.edition_id,checksum:fallback.checksum,paid_calls:0});return;
+      }
       consultableEdition(recovered);
       await editorialRPC("recover_archive",{edition_date:date,id:prior.id,checksum:recovered.checksum});
+      publishExperimentalMaps(recovered);
       output({status:"archive_recovered",id:prior.id,checksum:recovered.checksum,paid_calls:0});return;
     }
   }
@@ -128,9 +140,10 @@ async function main() {
   await verifyModel(key,config.model);
   const archive=await generateOperational({briefing:snapshot.briefing,config,store,provider:openAIProvider(key),manualRetry:authorized>=0});
   const run=await store.readRun(archive.edition_id);
-  output({id:archive.edition_id,mode:archive.mode,status:archive.mode==="live"?"consultable":"provider_failed",
+  output({id:archive.edition_id,mode:archive.mode,status:"consultable",
     validation_status:archive.status,provider_receipt_archived:!!archive.receipt,checksum:archive.checksum,run_state:run?.state,error:run?.error??null});
-  if(archive.mode!=="live"||!archive.receipt) {process.exitCode=2;return;}
+  consultableEdition(archive);
+  publishExperimentalMaps(archive);
   // Archiving makes an experimental edition consultable. Certification/promotion remains explicit.
 }
 async function execute() {

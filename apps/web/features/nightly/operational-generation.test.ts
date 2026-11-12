@@ -2,6 +2,7 @@ import {describe,it,expect,vi} from "vitest";
 vi.mock("server-only",()=>({}));
 import example from "../../../../docs/codex/task33/evidence/briefing-example.json";
 import simulated from "../../../../docs/codex/task35/evidence/simulated-edition.json";
+import forecastEdition from "../../../../docs/codex/task35/evidence/forecast-edition.json";
 import type {EditorialBriefingBundle} from "../editorial/briefing";
 import type {Archive} from "../editorial-ai/model";
 import type {Run} from "../editorial-ai/archive";
@@ -15,6 +16,15 @@ function store() {
  return {api,runs,archives};
 }
 describe("project-managed OpenAI spending and operational attempts",()=>{
+ it("qualifies forecast fallback explicitly and leaves missing data unchanged",async()=>{
+  const s=store(),config=operationalConfig("gpt-6.1-terra"),b=forecastEdition.briefing as unknown as EditorialBriefingBundle;
+  const before=JSON.stringify(b);
+  const provider=vi.fn().mockResolvedValue({draft:{...forecastEdition.draft,bundle_id:"invented"},model:config.model,response_id:"resp_synthetic",usage:null});
+  const a=await generateOperational({briefing:b,config,store:s.api,provider,manualRetry:false});
+  expect(a.mode).toBe("fallback");expect(a.draft.lead.text).toContain("prévisions issues des modèles");
+  expect(a.validation.errors).toEqual([]);expect(JSON.stringify(b)).toBe(before);
+  expect(provider).toHaveBeenCalledTimes(1);
+ });
  it("accepts a real-shaped response with missing usage, without a financial reservation",async()=>{
   const s=store(),c={...operationalConfig("gpt-6.1-terra"),monthly_budget_eur:0,max_edition_eur:0};
   const provider=vi.fn().mockResolvedValue({draft:simulated.draft,model:c.model,response_id:"resp_synthetic",usage:null});
@@ -27,10 +37,15 @@ describe("project-managed OpenAI spending and operational attempts",()=>{
   for(let i=0;i<2;i++) await expect(generateOperational({briefing,config,store:s.api,provider,manualRetry:true})).rejects.toThrow("PROVIDER_HTTP_400");
   expect(provider).toHaveBeenCalledTimes(2);expect(s.runs[0].id).not.toBe(s.runs[1].id);expect(s.runs.every(r=>r.edition_date===briefing.edition_date&&r.state==="outcome_unknown")).toBe(true);expect(s.archives.size).toBe(0);
  });
- it("archives rejected scientific output for owner inspection without admitting it for publication",async()=>{
+ it("retains rejected output and publishes a separately checked factual replacement with one call",async()=>{
   const s=store(),config=operationalConfig("gpt-6.1-terra"),provider=vi.fn().mockResolvedValue({draft:{...simulated.draft,bundle_id:"invented"},model:config.model,response_id:"resp_synthetic",usage:{input_tokens:1,output_tokens:1,reasoning_tokens:0}});
-  await expect(generateOperational({briefing,config,store:s.api,provider,manualRetry:true})).rejects.toThrow("INCOMPATIBLE_EDITORIAL_DATA");
-  expect(s.archives.size).toBe(1);expect([...s.archives.values()][0].validation.status).toBe("rejected");expect(s.runs[0].state).toBe("validation_failed");expect(s.api.diagnostic).toHaveBeenCalled();
+  const fallback=await generateOperational({briefing,config,store:s.api,provider,manualRetry:true});
+  expect(s.archives.size).toBe(2);expect([...s.archives.values()][0].validation.status).toBe("rejected");
+  expect(fallback.mode).toBe("fallback");expect(fallback.receipt).toBeNull();expect(fallback.validation.errors).toEqual([]);
+  expect(fallback.supersedes).toBe([...s.archives.keys()][0]);expect(s.runs[0].archive_id).toBe(fallback.edition_id);
+  expect(s.runs[0].state).toBe("completed");expect(s.api.diagnostic).toHaveBeenCalled();
+  const {consultableEdition}=await import("../editorial-ai/consultable");expect(consultableEdition(fallback).consultable).toBe(true);
+  await generateOperational({briefing,config,store:s.api,provider,manualRetry:false});expect(provider).toHaveBeenCalledTimes(1);
  });
 });
 
