@@ -244,7 +244,7 @@ export function NationalWorkspace({
   return (
     <main id="main" className="national-page">
       <header>
-        <Link href="/">AgriclimaX</Link>
+        <Link href="/">Climacta</Link>
         <span className="national-edition">V0.4 · contexte climatique DEV</span>
         <h1>Climat des territoires agricoles</h1>
         <p>

@@ -1,6 +1,6 @@
 # Brief source identité / UX fourni par le porteur du projet
 
-> Note canonique : le nom de marque retenu pour l’implémentation est **AgriclimaX**. Le texte source ci-dessous est conservé comme brief de référence ; toute variante de casse du nom qu’il contient est supplantée par cette règle.
+> Note canonique : le nom de marque retenu pour l’implémentation est **Climacta**. Le texte source ci-dessous est conservé comme brief de référence ; toute variante de casse du nom qu’il contient est supplantée par cette règle.
 
 
 # AGRICLIMAX — BRANDING, UX/UI ET INTÉGRATION PRODUIT

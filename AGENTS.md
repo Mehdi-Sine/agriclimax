@@ -9,7 +9,7 @@ Ces règles s'appliquent à tout agent de codage.
 - Ne jamais supposer qu'une règle scientifique est correcte parce qu'elle existe dans une fixture.
 
 ## Naming
-- Marque UI/documentation : **AgriclimaX**.
+- Marque UI/documentation : **Climacta**.
 - Slug/package/db prefix : `agriclimax`.
 - Ne créer aucune nouvelle référence à un ancien nom de projet. Une référence historique éventuelle doit être explicitement marquée `legacy` dans un document de migration et non dans l'UI.
 

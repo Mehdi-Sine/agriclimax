@@ -1,5 +1,5 @@
 export const BRAND = {
-  name: "AgriclimaX",
+  name: "Climacta",
   signature: "Observer. Comprendre. Anticiper.",
   descriptor: "L’observatoire des risques climatiques agricoles.",
   symbol: "/brand/symbol.svg",

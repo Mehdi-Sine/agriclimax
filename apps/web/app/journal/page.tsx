@@ -98,7 +98,7 @@ async function JournalContent({
   } catch {
     return (
       <main className="journal ux01-journal">
-        <p className="eyebrow">AgriclimaX · Le Journal</p>
+        <p className="eyebrow">Climacta · Le Journal</p>
         <h1>Le Journal agroclimatique</h1>
         <p role="alert">
           Archives nationales vérifiées momentanément indisponibles. Aucune
@@ -324,7 +324,7 @@ async function JournalContent({
           </Link>
         </p>
         <p className="footer-brand">
-          AgriclimaX <span>Le Journal agroclimatique</span>
+          Climacta <span>Le Journal agroclimatique</span>
         </p>
       </footer>
     </main>
@@ -337,8 +337,8 @@ export default function Page(props: {
   return (
     <Suspense
       fallback={
-        <main className="journal" aria-busy="true">
-          <p className="eyebrow">AgriclimaX · Le Journal</p>
+        <main className="journal ux01-journal" aria-busy="true">
+          <EditorialHeader active="journal"/>
           <h1>Le Journal agroclimatique</h1>
           <p role="status">
             Préparation de l’édition à partir des archives vérifiées…

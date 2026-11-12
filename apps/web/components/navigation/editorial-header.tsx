@@ -13,7 +13,7 @@ export function EditorialHeader({active,links}:{active?:Space;links?:Partial<Rec
   return <div className="editorial-chrome">
     <div className="editorial-stripes" aria-hidden="true"/>
     <header className="editorial-site-head">
-      <Link className="editorial-logo" href="/journal" aria-label="AgriclimaX, retour au Journal"><span className="editorial-wordmark">Agriclima<span>X</span></span><small>Le journal du climat agricole</small></Link>
+      <Link className="editorial-logo" href="/journal" aria-label="Climacta, retour au Journal"><span className="editorial-wordmark">Climacta</span><small>Le journal du climat agricole</small></Link>
       <p>Le climat en perspective.<br/>L’agriculture en contexte.</p>
     </header>
     <nav className="editorial-nav" aria-label="Navigation principale">

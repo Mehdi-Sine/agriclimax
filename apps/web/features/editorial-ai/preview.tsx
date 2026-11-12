@@ -284,7 +284,7 @@ export function EditorialPreview({
             </details>
             <p><Link href="/almanach">Almanach agricole</Link> · <Link href="/aide-et-documentation/indicateurs">Définitions des indicateurs</Link></p>
             <p className="footer-brand">
-              AgriclimaX <span>Le Journal agroclimatique</span>
+              Climacta <span>Le Journal agroclimatique</span>
             </p>
           </footer>
         </>

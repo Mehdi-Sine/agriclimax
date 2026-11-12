@@ -9,7 +9,7 @@ import {
 import { shift } from "../../features/editorial/temporal";
 import { frenchDate } from "../../features/journal/ui/editorial-dates";
 import "./almanach.css";
-export const metadata = { title: "Almanach agricole | AgriclimaX" };
+export const metadata = { title: "Almanach agricole | Climacta" };
 export default async function AlmanacPage({
   searchParams,
 }: {
@@ -42,7 +42,7 @@ export default async function AlmanacPage({
       </a>
       <header>
         <Link prefetch={false} href="/journal">
-          AgriclimaX · Le Journal
+          Climacta · Le Journal
         </Link>
         <nav aria-label="Rubriques">
           <Link prefetch={false} href="/">

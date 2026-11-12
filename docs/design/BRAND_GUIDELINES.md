@@ -1,4 +1,4 @@
-# AgriclimaX — Brand Guidelines
+# Climacta — Brand Guidelines
 
 ## Positionnement
 Scientifique, rigoureux, moderne, sobre, précis et accessible. International sans perdre son ancrage agricole.
@@ -6,7 +6,7 @@ Scientifique, rigoureux, moderne, sobre, précis et accessible. International sa
 Éviter : imagerie agricole décorative (épis, ferme, feuilles, vert omniprésent) et clichés IA (cerveaux, robots, circuits néon).
 
 ## Marque
-- Nom : **AgriclimaX**
+- Nom : **Climacta**
 - Signature : **Observer. Comprendre. Anticiper.**
 - Descripteur : **L'observatoire des risques climatiques agricoles.**
 
@@ -72,3 +72,10 @@ imprimé figé, charger la police ou convertir le texte en contours dans l'outil
 Le manifest fournit le nom et l'icône ; aucun service worker ni promesse de
 fonctionnement hors ligne PWA n'est ajouté. Les polices et fixtures restent
 locales. L'identité interactive utilise le symbole inline et le nom de `BRAND`.
+
+## Rebranding Climacta — novembre 2026
+
+Climacta est le nom public, y compris pour le Journal, les métadonnées, le manifest
+et les actifs SVG. Les identifiants techniques `agriclimax` (packages, stockage,
+variables d'environnement, préférences locales) restent stables. Les archives et
+prompts versionnés gardent leur contenu historique et leurs empreintes.
