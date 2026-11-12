@@ -38,6 +38,7 @@ describe("real November 10 experimental reading",()=>{
   const html=renderToStaticMarkup(<EditorialPreview edition={a} editions={editions} published/>);
   expect(html).toContain("Gel prévu en Auvergne-Rhône-Alpes");
   expect(html).toContain("Édition expérimentale IA — contenu non entièrement vérifié");
+  expect(html).toContain("Édition expérimentale — Les analyses présentées sont produites automatiquement");
   expect(html).toContain("Référence non résolue");expect(html).toContain(unresolved);
   expect(html.match(/<p>La série historique compatible.*?<\/p>/s)?.[0]).not.toContain("<a");
   expect(html).not.toMatch(new RegExp(`href="[^"]*${unresolved}`));

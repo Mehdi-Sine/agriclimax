@@ -13,7 +13,7 @@ import {buildEditionMaps} from "./int01_map_builder";
 const [command,id]=process.argv.slice(2);
 function arg(name:string){const i=process.argv.indexOf(name);return i<0?undefined:process.argv[i+1];}
 async function main(){
-  if(!["prepare","publish"].includes(command)||!id||!/^[a-f0-9]{64}$/.test(id))throw Error("USAGE_INT01_PREPARE_OR_PUBLISH_EDITION_ID");
+  if(!["prepare","publish","publish-experimental"].includes(command)||!id||!/^[a-f0-9]{64}$/.test(id))throw Error("USAGE_INT01_PREPARE_OR_PUBLISH_EDITION_ID");
   const archive=await new SupabaseEditorialStore("").read(id);if(!archive)throw Error("MAP_EDITION_NOT_FOUND");
   const publicEdition=consultableEdition(archive); // preserves existing text admission; never promotes/revalidates it
   const publish=command==="publish";
@@ -32,6 +32,17 @@ async function main(){
   if(bytes.length!==entry.bytes||createHash("sha256").update(bytes).digest("hex")!==entry.sha256)throw Error("MAP_INPUT_CHECKSUM");
   const inputs=JSON.parse(gunzipSync(bytes,{maxOutputLength:96*1024**2}).toString()) as {history:ArchivedDaily[];document:NationalWeatherDocument|null};
   const bundle=buildEditionMaps(archive,snapshot,inputs);
+  if(command==="publish-experimental"){
+    const control=await editorialRPC<{emergency_stop:boolean}>("control");
+    if(control.emergency_stop)throw Error("EMERGENCY_STOP");
+    // Machine qualification is explicit; this is not a human scientific certification.
+    const {readPublishedMaps}=await import("../apps/web/lib/server/edition-maps");
+    const prior=await readPublishedMaps(archive);
+    if(prior){if(prior.sha256!==bundle.sha256)throw Error("MAP_IMMUTABLE_CONFLICT");console.log(JSON.stringify({status:"already_published",edition_id:id}));return;}
+    const approval:MapApproval={bundle_sha256:bundle.sha256,reviewer:"automatic:experimental-integrity-1",reviewed_at:new Date().toISOString(),scope:"descriptive_maps"};
+    await publishMapBundle(bundle,approval);
+    console.log(JSON.stringify({status:"published_experimental",edition_id:id,bundle_sha256:bundle.sha256,maps:bundle.maps.map(mapInfo)}));return;
+  }
   if(publish){
     const path=arg("--bundle"),review=arg("--approval"),expected=arg("--expected-bundle");
     if(!process.argv.includes("--execute")||!path||!review||!expected)throw Error("EXPLICIT_MAP_PUBLICATION_REQUIRED");

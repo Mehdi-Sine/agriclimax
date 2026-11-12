@@ -4,6 +4,7 @@ import type {Run} from "../../features/editorial-ai/archive";
 import {consultableEdition,verifyConsultable,unpackConsultable,type ConsultableEdition} from "../../features/editorial-ai/consultable";
 import bootstrap from "../../data/editorial/consultable-bootstrap.json";
 import {mapPreviewEdition} from "./edition-maps";
+import {hash} from "../../features/editorial/temporal";
 let previous:ConsultableEdition[]=[];
 let sharedIds=new Set<string>();
 export function sharedArchiveRead(id:string){return sharedIds.has(id);}
@@ -16,7 +17,9 @@ export async function operationalEditions() {
  try {
   const runs=await editorialRPC<Run[]>("runs");
   for(const run of runs.filter(r=>r.archive_id&&["completed","validation_failed"].includes(r.state)).slice(-60)) {
-   try {const a=await new SupabaseEditorialStore("").read(run.archive_id!);if(a){editions.set(a.edition_id,consultableEdition(a));liveIds.add(a.edition_id);}}catch{/* skip this corrupt/incompatible archive and keep the previous edition */}
+   try {const store=new SupabaseEditorialStore("");let a=await store.read(run.archive_id!);
+    if(a?.validation.status==="rejected")a=await store.read(hash([a.checksum,"experimental-factual-fallback-1"]))??a;
+    if(a){editions.set(a.edition_id,consultableEdition(a));liveIds.add(a.edition_id);}}catch{/* skip this corrupt/incompatible archive and keep the previous edition */}
   }
  }catch{/* a durable public edition remains available during a database outage */}
  previous=[...editions.values()].sort((a,b)=>b.date.localeCompare(a.date)||b.revision-a.revision||b.generated_at.localeCompare(a.generated_at));

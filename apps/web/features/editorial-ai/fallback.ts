@@ -13,7 +13,7 @@ export function fallbackDraft(b: EditorialBriefingBundle): EditorialDraft {
     bundle_id: b.bundle_id,
     edition_date: b.edition_date,
     main_candidate_id: c?.id ?? null,
-    decision: literal("Sélection déterministe de secours, à relire."),
+    decision: literal("Édition expérimentale de secours établie à partir des faits disponibles."),
     alternatives: [],
     secondary_candidate_ids: [],
     headline: literal(

@@ -58,6 +58,7 @@ export function EditorialPreview({
       ) : (
         <>
           <aside className="freshness">
+            {published&&<p>Édition expérimentale — Les analyses présentées sont produites automatiquement à partir de données météorologiques et de modèles de prévision. Elles peuvent comporter des incertitudes et ne constituent pas des constats de dommages agricoles.</p>}
             <p>
               {a.mode === "simulation"
                 ? "SIMULATION · Texte d’essai rédigé pour la recette, aucune génération OpenAI réelle."
