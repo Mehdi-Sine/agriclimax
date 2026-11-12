@@ -3,7 +3,7 @@ import {editorialRPC,SupabaseEditorialStore} from "../../features/editorial-ai/s
 import type {Run} from "../../features/editorial-ai/archive";
 import {consultableEdition,verifyConsultable,unpackConsultable,type ConsultableEdition} from "../../features/editorial-ai/consultable";
 import bootstrap from "../../data/editorial/consultable-bootstrap.json";
-import {mapPreviewEdition} from "./edition-maps";
+import {mapPreviewEdition,readPublishedMaps} from "./edition-maps";
 import {hash} from "../../features/editorial/temporal";
 let previous:ConsultableEdition[]=[];
 let sharedIds=new Set<string>();
@@ -19,7 +19,10 @@ export async function operationalEditions() {
   for(const run of runs.filter(r=>r.archive_id&&["completed","validation_failed"].includes(r.state)).slice(-60)) {
    try {const store=new SupabaseEditorialStore("");let a=await store.read(run.archive_id!);
     if(a?.validation.status==="rejected")a=await store.read(hash([a.checksum,"experimental-factual-fallback-1"]))??a;
-    if(a){editions.set(a.edition_id,consultableEdition(a));liveIds.add(a.edition_id);}}catch{/* skip this corrupt/incompatible archive and keep the previous edition */}
+    if(a){const edition=consultableEdition(a);
+     // New experimental publications become visible only after the immutable map commit.
+     if((a.prompt_version==="editorial-board-fr-4"||a.mode==="fallback")&&!await readPublishedMaps(a))continue;
+     editions.set(a.edition_id,edition);liveIds.add(a.edition_id);}}catch{/* skip this corrupt/incompatible archive and keep the previous edition */}
   }
  }catch{/* a durable public edition remains available during a database outage */}
  previous=[...editions.values()].sort((a,b)=>b.date.localeCompare(a.date)||b.revision-a.revision||b.generated_at.localeCompare(a.generated_at));
