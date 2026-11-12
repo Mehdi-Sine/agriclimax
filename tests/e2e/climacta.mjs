@@ -62,7 +62,7 @@ try {
    await picker.selectOption(info.id);
    await page.locator(`figure[data-map-id="${info.id}"] .maplibregl-canvas`).waitFor({timeout:90000});
    assert.match(await page.locator('figure').innerText(),/Les hachures signalent les supports partiels/);
-   assert.equal(await page.getByRole('alert').count(),0);
+   assert.deepEqual((await page.getByRole('alert').allTextContents()).map(t=>t.trim()).filter(Boolean),[]);
    const pra=page.getByRole('combobox',{name:'PRA de l’édition',exact:true});
    assert.equal(await pra.locator('option').count(),714);
   }

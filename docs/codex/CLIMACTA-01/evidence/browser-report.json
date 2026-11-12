@@ -1,0 +1,145 @@
+{
+  "base": "https://agriclimax-git-codex-climacta-journ-d50f65-mehdi-sines-projects.vercel.app",
+  "date": "2026-11-12",
+  "screens": [
+    {
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "articleMs": 3936,
+      "directEntry": true,
+      "mapsOpened": 10,
+      "overflow": false,
+      "forecastDeepLink": true,
+      "missingDate": true
+    },
+    {
+      "label": "mobile",
+      "width": 390,
+      "height": 844,
+      "articleMs": 1410,
+      "directEntry": true,
+      "mapsOpened": 10,
+      "overflow": false,
+      "forecastDeepLink": true,
+      "missingDate": true
+    }
+  ],
+  "maps": [
+    {
+      "id": "d5d377ea9554dcaa2e7f449016efcfd45c7205a3d82ecaea1a262b14199e25d5",
+      "title": "Minimum des Tmin quotidiennes",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-30",
+        "2026-11-05"
+      ],
+      "rows": 713,
+      "identicalToProduction": true
+    },
+    {
+      "id": "91076f495582ecca8ad5f714b94ed2ddaa39c392fd7363fde332e79d8aa32142",
+      "title": "Température moyenne",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-30",
+        "2026-11-05"
+      ],
+      "rows": 713,
+      "identicalToProduction": true
+    },
+    {
+      "id": "fe300971142154eff46951e3a4a835271c5fa9e87c1e8ae26cbe2b9a7ab73bf6",
+      "title": "Pluie cumulée",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-30",
+        "2026-11-05"
+      ],
+      "rows": 713,
+      "identicalToProduction": true
+    },
+    {
+      "id": "ba5c5ed960eebe012579fec6009376280a29f87af155b7ebfae9ee85b2d0bdb0",
+      "title": "Jours de gel",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-30",
+        "2026-11-05"
+      ],
+      "rows": 713,
+      "identicalToProduction": true
+    },
+    {
+      "id": "bdcec35cfd92dd979ad02adcee927e27a64d8f0859678b4f7ed8810105e31930",
+      "title": "Somme de températures",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-30",
+        "2026-11-05"
+      ],
+      "rows": 713,
+      "identicalToProduction": true
+    },
+    {
+      "id": "c794a212918c07818d2387366e8599b807b20270fcea7c32bb18646b0a0e82d6",
+      "title": "Minimum des Tmin quotidiennes",
+      "nature": "forecast",
+      "period": [
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "rows": 713,
+      "identicalToProduction": true
+    },
+    {
+      "id": "7507471a45f38ff237a5159a45aaf21d0d31c4d1bab73821d907859ff9a46170",
+      "title": "Température moyenne",
+      "nature": "forecast",
+      "period": [
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "rows": 713,
+      "identicalToProduction": true
+    },
+    {
+      "id": "5842d0d24b5eee47ed0d13b1d0e2bd0fb6802548344a5cc3aa57429c7906247c",
+      "title": "Pluie cumulée",
+      "nature": "forecast",
+      "period": [
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "rows": 713,
+      "identicalToProduction": true
+    },
+    {
+      "id": "74c3174ce6541ab37c0efe84cb9c235b2d90aff1885a1bbfbefb90c59e2d990c",
+      "title": "Jours de gel",
+      "nature": "forecast",
+      "period": [
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "rows": 713,
+      "identicalToProduction": true
+    },
+    {
+      "id": "d6f778124bcf6928c2628d0ce480909df21fd99c4aa0e6d177c7c93020103413",
+      "title": "Somme de températures",
+      "nature": "forecast",
+      "period": [
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "rows": 713,
+      "identicalToProduction": true
+    }
+  ],
+  "errors": [],
+  "generationRequests": 0,
+  "edition_id": "650ff674f40a90648b3e326b85c58e9bf7312e550c109e66ccea1e5a253597ee",
+  "edition_checksum": "da02f749abb01e20ce1617cea31d1278609310d836ad8614cea8b6fa7d61394b",
+  "bundle_sha256": "71f9fa54c213f6d776a2ed23050d3c6b79ca9ca468459917387be564ecd08261"
+}
