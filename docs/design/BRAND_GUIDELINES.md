@@ -11,19 +11,16 @@ Scientifique, rigoureux, moderne, sobre, précis et accessible. International sa
 - Descripteur : **Le climat des territoires agricoles.**
 
 ## Concept du symbole
-Combiner de manière abstraite :
-1. une courbe de signal climatique ;
-2. une ligne d'horizon ;
-3. un point d'observation géographique.
-
-Le symbole ne doit pas être un triangle d'alerte. Il doit rester lisible à 16–24 px.
+Le carré Climate Stripes reprend le PNG original de la maquette, centré et
+recadré comme sa marque graphique. Le bandeau utilise toute sa largeur, sans
+réordonner les bandes ni fabriquer de couleurs intermédiaires.
 
 ## Tokens couleur de référence
-- `brand.primary` `#123D38`
-- `brand.secondary` `#287E88`
-- `brand.accent` `#BDE1CF`
-- `surface.base` `#F6F7F3`
-- `text.primary` `#263A43`
+- `brand.primary` `#182b40`
+- `brand.secondary` `#235b87`
+- `brand.accent` `#c75159`
+- `surface.base` `#f8fafb`
+- `text.primary` `#182b40`
 - `accent.amber` `#D99545`
 
 Risque :
@@ -36,8 +33,8 @@ Risque :
 Ces valeurs sont des **tokens de présentation**, jamais des seuils scientifiques.
 
 ## Typographie
-- Marque/titres : Manrope avec fallback système.
-- Interface/texte : Inter avec fallback système.
+- Marque/titres éditoriaux : Georgia avec fallback serif.
+- Interface/texte : system-ui, -apple-system, Segoe UI, sans-serif.
 - Indicateurs : chiffres tabulaires.
 - Ne jamais committer de fichier de police propriétaire/non redistribuable.
 
@@ -51,7 +48,7 @@ Ces valeurs sont des **tokens de présentation**, jamais des seuils scientifique
 ## Actifs attendus
 `logo-wordmark.svg`, `symbol.svg`, `app-icon.svg`, variantes monochromes et dark. Les SVG doivent être maintenables et sans ressource non licenciée.
 
-## Actifs livrés — Task 05
+## Actifs livrés — Task 05 (historique)
 
 `apps/web/lib/brand.ts` centralise nom, signature, descripteur et chemin du symbole.
 `public/brand/` contient `logo-wordmark.svg`, `symbol.svg`, `app-icon.svg`,

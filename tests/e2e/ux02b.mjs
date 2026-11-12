@@ -20,7 +20,7 @@ try {
   const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce',extraHTTPHeaders:process.env.VERCEL_AUTOMATION_BYPASS_SECRET?{'x-vercel-protection-bypass':process.env.VERCEL_AUTOMATION_BYPASS_SECRET}:{}});
   const page=await context.newPage(),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
-  for(const [name,route] of [['journal','/?date=2026-11-12'],['cartes','/cartes-du-jour?date=2026-11-12']]){
+  for(const [name,route] of [['journal','/'],['cartes','/cartes-du-jour?date=2026-11-12']]){
    const response=await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:90000});
    assert.equal(response.status(),200);assert.equal(response.request().redirectedFrom(),null,'Home must render directly');
    await page.locator('.maplibregl-canvas').waitFor({timeout:90000});
@@ -29,6 +29,7 @@ try {
    assert.equal(await page.locator('.editorial-wordmark').innerText(),'Climacta.');
    assert.equal(await page.locator('.editorial-logo small').textContent(),'Le climat des territoires agricoles.');
    assert.equal(await page.getByRole('combobox',{name:'Indicateur de l’édition',exact:true}).locator('option').count(),10);
+   if(name==='journal')assert.match(await page.locator('.ux01-edition-meta').innerText(),/12 NOVEMBRE 2026/);
    const identity=await page.evaluate(()=>{
     const style=s=>getComputedStyle(document.querySelector(s));
     return {stripeHeight:style('.editorial-stripes').height,stripeImage:style('.editorial-stripes').backgroundImage,logoFont:style('.editorial-wordmark').fontFamily,logoSize:style('.editorial-wordmark').fontSize,ink:style('h1').color,background:style('body').backgroundColor,coral:style('.editorial-wordmark span').color,titleSize:style('h1').fontSize,overflow:document.documentElement.scrollWidth>innerWidth};

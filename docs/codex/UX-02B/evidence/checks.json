@@ -1,0 +1,40 @@
+{
+  "build": {
+    "command": "pnpm --filter @agriclimax/web build",
+    "exit_code": 0
+  },
+  "typecheck": {
+    "command": "node node_modules/typescript/bin/tsc --noEmit",
+    "exit_code": 0
+  },
+  "lint": {
+    "command": "node node_modules/eslint/bin/eslint.js . --max-warnings 0",
+    "exit_code": 0
+  },
+  "unit": {
+    "passed": 685,
+    "skipped": 8
+  },
+  "targeted": {
+    "passed": 22
+  },
+  "preview_visual": {
+    "viewports": [
+      1440,
+      768,
+      390
+    ],
+    "routes": [
+      "/",
+      "/cartes-du-jour?date=2026-11-12"
+    ],
+    "wcag_violations": 0,
+    "horizontal_overflow": false
+  },
+  "real_edition": {
+    "date": "2026-11-12",
+    "maps": 10,
+    "pra_per_map": 713,
+    "identical_to_production": true
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "reference": "origin/main (4892c1a)",
+  "protected_directories_unchanged": [
+    ".github/workflows",
+    "engine",
+    "supabase",
+    "apps/web/features/cartography",
+    "apps/web/features/edition-maps"
+  ],
+  "scientific_tokens_identical": true,
+  "scientific_tokens_sha256": "9028a9c28fa3a2ed4ae315a5e26fce345572fe45b90a0b2dabbba251a9930a29"
+}
