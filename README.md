@@ -1,13 +1,13 @@
-# AgriclimaX — Codex Starter v2
+# Climacta — Codex Starter v2
 
 > **Observer. Comprendre. Anticiper.**  
 > L'observatoire des risques climatiques agricoles.
 
-Ce dépôt est le socle de développement **contract-first** d'AgriclimaX : plateforme scientifique d'observation, de veille et d'anticipation des risques climatiques pour les productions végétales et animales.
+Ce dépôt est le socle de développement **contract-first** d'Climacta : plateforme scientifique d'observation, de veille et d'anticipation des risques climatiques pour les productions végétales et animales.
 
 ## Principes non négociables
 
-1. **Le nom canonique du produit est `AgriclimaX`.** `agriclimax` est utilisé pour les identifiants techniques ne nécessitant pas la casse de marque.
+1. **Le nom canonique du produit est `Climacta`.** `agriclimax` est utilisé pour les identifiants techniques ne nécessitant pas la casse de marque.
 2. **La science et la présentation sont découplées.** Les couleurs UI ne déterminent jamais les seuils scientifiques.
 3. **Ne jamais confondre** : aléa (`hazard`), exposition (`exposure`), sensibilité (`sensitivity`), risque (`risk`) et confiance (`confidence`).
 4. **Toute conclusion est traçable** jusqu'aux données, paramètres, versions de règles et sources.

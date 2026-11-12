@@ -12,7 +12,7 @@ def check(url: str) -> None:
         raise ValueError('Smoke target must be a local HTTP server')
     with urlopen(url + ('&' if parsed.query else '?') + 'mode=demo', timeout=10) as response:
         html = response.read(1024 * 1024).decode()
-        if response.status != 200 or 'AgriclimaX' not in html or 'Données fictives' not in html:
+        if response.status != 200 or 'Climacta' not in html or 'Données fictives' not in html:
             raise ValueError('Demo HTTP smoke failed')
     origin = f'{parsed.scheme}://{parsed.netloc}'
     for route in ('map', 'series', 'territory'):

@@ -11,5 +11,5 @@ export function personalAccess(headers: Headers, secret=process.env.VERCEL_AUTOM
  return timingSafeEqual(createHash("sha256").update(secret).digest(),createHash("sha256").update(supplied).digest());
 }
 export function personalAccessDenied() {
- return new Response("Accès personnel requis.",{status:401,headers:{"WWW-Authenticate":'Basic realm="AgriclimaX personnel", charset="UTF-8"',"Cache-Control":"private, no-store"}});
+ return new Response("Accès personnel requis.",{status:401,headers:{"WWW-Authenticate":'Basic realm="Climacta personnel", charset="UTF-8"',"Cache-Control":"private, no-store"}});
 }

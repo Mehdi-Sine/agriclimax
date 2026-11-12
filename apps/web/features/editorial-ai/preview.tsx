@@ -18,7 +18,7 @@ function Text({ block, facts }: { block: Block; facts: {id:string}[] }) {
       {resolved && (
         <sup>
           {" "}
-          <a href="#sources" aria-label="Consulter les preuves">
+          <a href="#sources" aria-label={`${unresolved.length ? "[sources résolues]" : "[sources]"} : consulter les preuves`}>
             {unresolved.length ? "[sources résolues]" : "[sources]"}
           </a>
         </sup>
@@ -46,8 +46,9 @@ export function EditorialPreview({
   const mapsBase=personalStatus?"/journal/personnel":published?"/cartes-du-jour":"/journal/preview";
   const mapApi=personalStatus?"/api/journal/personnel/map":published?"/api/journal/edition-map":"/api/journal-preview/map";
   return (
-    <main className="journal ux01-journal">
+    <>
       <EditorialHeader active="journal"/>
+    <main className="journal ux01-journal ux02b-journal">
       <div className="ux01-edition-meta"><span>{a?`ÉDITION DU ${frenchDate(a.date)}`:"ARCHIVES DU JOURNAL"}</span><span>France métropolitaine & Corse · {published?"Journal IA":personalStatus?"Espace personnel":"Prévisualisation"}</span></div>
       
       {!a || !d ? (
@@ -81,6 +82,17 @@ export function EditorialPreview({
                 <Text facts={a.briefing.national.facts} block={d.lead} />
               </div>
             </div>
+            <aside className="ux02b-essential" aria-label="L’essentiel de cette édition">
+              <p className="eyebrow">L’ESSENTIEL</p>
+              <h2>Une lecture nationale, des réalités locales</h2>
+              <Text facts={a.briefing.national.facts} block={d.decision}/>
+              <div className="ux02b-metrics">
+                <div><strong>713</strong><small>PRA du référentiel</small></div>
+                <div><strong>{editionMaps?.maps.length??a.illustrations.filter(m=>d.illustration_ids.includes(m.id)).length}</strong><small>Cartes de l’édition</small></div>
+                <div><strong>{d.regions.length}</strong><small>Éclairages régionaux</small></div>
+              </div>
+            </aside>
+            <div className="ux02b-map-heading"><h2>La carte de l’édition</h2><Link href={`${mapsBase}?date=${a.date}&id=${a.edition_id}`}>Explorer les cartes →</Link></div>
             {editionMaps?.maps.length ? <EditionMaps key={a.edition_id} view={editionMaps} editionId={a.edition_id} main/> : a.illustrations.some(m=>d.illustration_ids.includes(m.id)) ? (
               a.illustrations
                 .filter((m) => d.illustration_ids.includes(m.id))
@@ -106,9 +118,10 @@ export function EditorialPreview({
               </aside>
             )}
             <aside className="ux01-map-context">
-                <p className="eyebrow">LE FAIT MARQUANT</p>
-                <h2>Une situation à replacer dans son contexte</h2>
-                <Text facts={a.briefing.national.facts} block={d.decision}/>
+                <h2>Dans cette édition</h2>
+                <a className="ux02b-story-link" href="#regions"><strong>Tour des régions</strong><span>Les éclairages territoriaux de cette édition.</span></a>
+                <a className="ux02b-story-link" href="#filieres"><strong>Focus productions</strong><span>Les données et les limites pour les cultures et l’élevage.</span></a>
+                <a className="ux02b-story-link" href="#sources"><strong>Repères et archives</strong><span>Sources, méthodes et éditions précédentes.</span></a>
                 <p className="ux01-map-footnote">Les phénomènes météorologiques ne préjugent pas, à eux seuls, de leurs conséquences sur les cultures et les élevages.</p>
                 <Link href="/climat">Explorer les indicateurs →</Link>
               </aside>
@@ -284,7 +297,7 @@ export function EditorialPreview({
             </details>
             <p><Link href="/almanach">Almanach agricole</Link> · <Link href="/aide-et-documentation/indicateurs">Définitions des indicateurs</Link></p>
             <p className="footer-brand">
-              AgriclimaX <span>Le Journal agroclimatique</span>
+              Climacta <span>Le Journal agroclimatique</span>
             </p>
           </footer>
         </>
@@ -312,5 +325,6 @@ export function EditorialPreview({
         </nav>
       </section>
     </main>
+    </>
   );
 }

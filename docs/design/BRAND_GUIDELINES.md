@@ -1,4 +1,4 @@
-# AgriclimaX — Brand Guidelines
+# Climacta — Brand Guidelines
 
 ## Positionnement
 Scientifique, rigoureux, moderne, sobre, précis et accessible. International sans perdre son ancrage agricole.
@@ -6,24 +6,21 @@ Scientifique, rigoureux, moderne, sobre, précis et accessible. International sa
 Éviter : imagerie agricole décorative (épis, ferme, feuilles, vert omniprésent) et clichés IA (cerveaux, robots, circuits néon).
 
 ## Marque
-- Nom : **AgriclimaX**
-- Signature : **Observer. Comprendre. Anticiper.**
-- Descripteur : **L'observatoire des risques climatiques agricoles.**
+- Nom : **Climacta**
+- Signature : **Le climat des territoires agricoles.**
+- Descripteur : **Le climat des territoires agricoles.**
 
 ## Concept du symbole
-Combiner de manière abstraite :
-1. une courbe de signal climatique ;
-2. une ligne d'horizon ;
-3. un point d'observation géographique.
-
-Le symbole ne doit pas être un triangle d'alerte. Il doit rester lisible à 16–24 px.
+Le carré Climate Stripes reprend le PNG original de la maquette, centré et
+recadré comme sa marque graphique. Le bandeau utilise toute sa largeur, sans
+réordonner les bandes ni fabriquer de couleurs intermédiaires.
 
 ## Tokens couleur de référence
-- `brand.primary` `#123D38`
-- `brand.secondary` `#287E88`
-- `brand.accent` `#BDE1CF`
-- `surface.base` `#F6F7F3`
-- `text.primary` `#263A43`
+- `brand.primary` `#182b40`
+- `brand.secondary` `#235b87`
+- `brand.accent` `#c75159`
+- `surface.base` `#f8fafb`
+- `text.primary` `#182b40`
 - `accent.amber` `#D99545`
 
 Risque :
@@ -36,8 +33,8 @@ Risque :
 Ces valeurs sont des **tokens de présentation**, jamais des seuils scientifiques.
 
 ## Typographie
-- Marque/titres : Manrope avec fallback système.
-- Interface/texte : Inter avec fallback système.
+- Marque/titres éditoriaux : Georgia avec fallback serif.
+- Interface/texte : system-ui, -apple-system, Segoe UI, sans-serif.
 - Indicateurs : chiffres tabulaires.
 - Ne jamais committer de fichier de police propriétaire/non redistribuable.
 
@@ -51,7 +48,7 @@ Ces valeurs sont des **tokens de présentation**, jamais des seuils scientifique
 ## Actifs attendus
 `logo-wordmark.svg`, `symbol.svg`, `app-icon.svg`, variantes monochromes et dark. Les SVG doivent être maintenables et sans ressource non licenciée.
 
-## Actifs livrés — Task 05
+## Actifs livrés — Task 05 (historique)
 
 `apps/web/lib/brand.ts` centralise nom, signature, descripteur et chemin du symbole.
 `public/brand/` contient `logo-wordmark.svg`, `symbol.svg`, `app-icon.svg`,
@@ -72,3 +69,21 @@ imprimé figé, charger la police ou convertir le texte en contours dans l'outil
 Le manifest fournit le nom et l'icône ; aucun service worker ni promesse de
 fonctionnement hors ligne PWA n'est ajouté. Les polices et fixtures restent
 locales. L'identité interactive utilise le symbole inline et le nom de `BRAND`.
+
+## Rebranding Climacta — novembre 2026
+
+Climacta est le nom public, y compris pour le Journal, les métadonnées, le manifest
+et les actifs SVG. Les identifiants techniques `agriclimax` (packages, stockage,
+variables d'environnement, préférences locales) restent stables. Les archives et
+prompts versionnés gardent leur contenu historique et leurs empreintes.
+
+## UX-02B — référence graphique fournie
+
+La maquette HTML propriétaire fixe le logo Georgia 36 px « Climacta. », point
+corail `#c75159`, sa signature et le symbole carré Climate Stripes. Le PNG
+original est conservé dans `public/brand/climate-stripes.png`, sans transformation.
+Bandeau 10 px pleine largeur ; enveloppe 1220 px, marges 30 px desktop / 18 px
+mobile ; titres Georgia jusqu’à 58 px, texte système. Marine `#182b40`, bleu
+`#235b87`, fond `#f8fafb`, séparateurs `#e4eaf0`. Ces valeurs remplacent les
+anciennes couleurs de marque de Task 05 ; toutes les palettes scientifiques
+restent indépendantes et inchangées. Les encadrés restent blancs, rayon 12 px.

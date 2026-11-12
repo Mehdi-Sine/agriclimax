@@ -66,7 +66,7 @@ try {
     const durationMs = performance.now() - start;
     assert.ok(durationMs < 15000, 'Local demo navigation exceeds 15s smoke budget');
     assert.ok(await page.locator('main').isVisible(), 'Visible main landmark required');
-    assert.ok((await page.locator('body').innerText()).includes('AgriclimaX'));
+    assert.ok((await page.locator('body').innerText()).includes('Climacta'));
     assert.ok((await page.locator('[data-demo="true"]').first().innerText()).includes('Données fictives'));
     assert.equal(await page.locator('html').getAttribute('lang'), 'fr');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, 'Horizontal overflow');

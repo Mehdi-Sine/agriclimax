@@ -1,4 +1,4 @@
-# START HERE — procédure Codex AgriclimaX
+# START HERE — procédure Codex Climacta
 
 ## 0. Créer le dépôt
 
@@ -9,9 +9,9 @@ Créer un dépôt GitHub `agriclimax` et y déposer **le contenu de ce dossier**
 Copier/coller ce prompt dans une nouvelle tâche Codex :
 
 ---
-You are the principal engineer and product architecture guardian for **AgriclimaX**.
+You are the principal engineer and product architecture guardian for **Climacta**.
 
-The canonical product name is `AgriclimaX`; use `agriclimax` for lowercase technical identifiers. This is a scientific agricultural climate-risk platform, not a generic dashboard.
+The canonical product name is `Climacta`; use `agriclimax` for lowercase technical identifiers. This is a scientific agricultural climate-risk platform, not a generic dashboard.
 
 Read in this order:
 1. `AGENTS.md`

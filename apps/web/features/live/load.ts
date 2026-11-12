@@ -32,7 +32,7 @@ export async function loadLive(context: ReturnType<typeof liveContext>) {
       }
     }
   } catch (error) { failure=error instanceof ApiError && error.code==='NOT_CONFIGURED'
-    ? 'Le service de données n’est pas configuré. Les résultats live sont temporairement indisponibles. Contactez l’équipe AgriclimaX.'
+    ? 'Le service de données n’est pas configuré. Les résultats live sont temporairement indisponibles. Contactez l’équipe Climacta.'
     : 'Publication quotidienne indisponible. Aucun instantané ni fixture de remplacement.'; }
   return {stations,portfolios,cattle,publication,latest,failure,catalogueFailure};
 }
