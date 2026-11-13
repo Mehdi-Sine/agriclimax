@@ -129,3 +129,15 @@ la disponibilité réelle de la prochaine fenêtre sera constatée au prochain r
 - Avis Supabase avant/après : aucun nouvel avis. Les avis préexistants PostGIS et
   fonctions publiques sont hors périmètre ; les tables éditoriales privées restent
   fermées aux rôles publics ([référence RLS](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy)).
+
+## Revue des détections Gitleaks CI
+
+Le scan de tout l'historique a signalé quatre correspondances `generic-api-key` :
+les deux descripteurs publics `forecast/frost/Normandie` et
+`forecast/frost/Occitanie` dans le briefing réel ; un UUID de bail d'acquisition
+terminée (inutilisable sans la clé serveur et retiré de l'export actuel) ; et
+`scientific_tokens_sha256`, empreinte publique préexistante du commit UX-02B.
+Aucune clé fournisseur, clé Supabase ou identité d'authentification n'est présente.
+`.gitleaksignore` ne cible que ces trois empreintes historiques exactes
+(commit/fichier/règle/ligne ; les deux descripteurs partagent une ligne).
+Aucune exclusion de chemin, de règle ou de nouveaux commits n'est ajoutée.

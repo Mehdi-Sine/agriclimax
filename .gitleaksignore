@@ -575,3 +575,12 @@ bddeb5677cba6f063d3f4c79e658d7fbe797c659:docs/codex/task33/evidence/real-cases.j
 # T35: two canonical public T33 topic descriptors (nature/phenomenon/region).
 # Exact historical commit, archive line and rule only; no new-commit/path-wide exclusion.
 5b59d0922b5c43dfde5631a9b1972aafea4834af:docs/codex/task35/evidence/forecast-edition.json:generic-api-key:1
+
+# OPS-07: public forecast topic descriptors, not authentication material.
+# Exact historical fixture fingerprint only (two descriptors share this line).
+71486291736b5d42e52d7fde8d3017e8b2d8b62c:fixtures/editorial/ops07-20261113.json:generic-api-key:1
+# OPS-07: expired acquisition lease UUID; finish also requires the server API key.
+# Removed from the exported diagnostic; retained only in this historical commit.
+71486291736b5d42e52d7fde8d3017e8b2d8b62c:docs/codex/OPS-07/evidence/stations-existing-diagnostic.json:generic-api-key:3
+# UX-02B: public SHA-256 of scientific UI tokens, not a credential.
+95d3c3e45592c55686e7d39f9221c66dffa087f9:docs/codex/UX-02B/evidence/protected-scope.json:generic-api-key:11
