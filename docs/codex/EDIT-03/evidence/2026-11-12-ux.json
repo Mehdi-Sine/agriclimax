@@ -1,0 +1,57 @@
+{
+  "version": "edit03-ux-1",
+  "mode": "simulation",
+  "publication_enabled": false,
+  "edition_id": "650ff674f40a90648b3e326b85c58e9bf7312e550c109e66ccea1e5a253597ee",
+  "hero_map_id": "c794a212918c07818d2387366e8599b807b20270fcea7c32bb18646b0a0e82d6",
+  "cards": [
+    {
+      "map_id": "c794a212918c07818d2387366e8599b807b20270fcea7c32bb18646b0a0e82d6",
+      "order": 1,
+      "role": "hero",
+      "title": "Minimum des Tmin quotidiennes",
+      "caption": "Prévision · 2026-11-13 → 2026-11-14 · 713/713 PRA qualifiées.",
+      "interactive_url": "/cartes-du-jour?id=650ff674f40a90648b3e326b85c58e9bf7312e550c109e66ccea1e5a253597ee&map=c794a212918c07818d2387366e8599b807b20270fcea7c32bb18646b0a0e82d6"
+    },
+    {
+      "map_id": "5842d0d24b5eee47ed0d13b1d0e2bd0fb6802548344a5cc3aa57429c7906247c",
+      "order": 2,
+      "role": "priority",
+      "title": "Pluie cumulée",
+      "caption": "Prévision · 2026-11-13 → 2026-11-14 · 713/713 PRA qualifiées.",
+      "interactive_url": "/cartes-du-jour?id=650ff674f40a90648b3e326b85c58e9bf7312e550c109e66ccea1e5a253597ee&map=5842d0d24b5eee47ed0d13b1d0e2bd0fb6802548344a5cc3aa57429c7906247c"
+    },
+    {
+      "map_id": "fe300971142154eff46951e3a4a835271c5fa9e87c1e8ae26cbe2b9a7ab73bf6",
+      "order": 3,
+      "role": "priority",
+      "title": "Pluie cumulée",
+      "caption": "Réanalyse · 2026-10-30 → 2026-11-05 · 645/713 PRA qualifiées.",
+      "interactive_url": "/cartes-du-jour?id=650ff674f40a90648b3e326b85c58e9bf7312e550c109e66ccea1e5a253597ee&map=fe300971142154eff46951e3a4a835271c5fa9e87c1e8ae26cbe2b9a7ab73bf6"
+    },
+    {
+      "map_id": "7507471a45f38ff237a5159a45aaf21d0d31c4d1bab73821d907859ff9a46170",
+      "order": 4,
+      "role": "priority",
+      "title": "Température moyenne",
+      "caption": "Prévision · 2026-11-13 → 2026-11-14 · 713/713 PRA qualifiées.",
+      "interactive_url": "/cartes-du-jour?id=650ff674f40a90648b3e326b85c58e9bf7312e550c109e66ccea1e5a253597ee&map=7507471a45f38ff237a5159a45aaf21d0d31c4d1bab73821d907859ff9a46170"
+    },
+    {
+      "map_id": "bdcec35cfd92dd979ad02adcee927e27a64d8f0859678b4f7ed8810105e31930",
+      "order": 5,
+      "role": "priority",
+      "title": "Somme de températures",
+      "caption": "Réanalyse · 2026-10-30 → 2026-11-05 · 645/713 PRA qualifiées.",
+      "interactive_url": "/cartes-du-jour?id=650ff674f40a90648b3e326b85c58e9bf7312e550c109e66ccea1e5a253597ee&map=bdcec35cfd92dd979ad02adcee927e27a64d8f0859678b4f7ed8810105e31930"
+    },
+    {
+      "map_id": "ba5c5ed960eebe012579fec6009376280a29f87af155b7ebfae9ee85b2d0bdb0",
+      "order": 6,
+      "role": "complementary",
+      "title": "Jours de gel",
+      "caption": "Réanalyse · 2026-10-30 → 2026-11-05 · 645/713 PRA qualifiées.",
+      "interactive_url": "/cartes-du-jour?id=650ff674f40a90648b3e326b85c58e9bf7312e550c109e66ccea1e5a253597ee&map=ba5c5ed960eebe012579fec6009376280a29f87af155b7ebfae9ee85b2d0bdb0"
+    }
+  ]
+}
