@@ -56,7 +56,11 @@ sur main bénéficie immédiatement du correctif pour les prochains matins.
 
 La reprise a relu l'archive existante, produit le secours déterministe existant,
 puis utilisé `int01_maps.ts publish-experimental` depuis les entrées gelées.
-La sélection publique attend toujours le commit des cartes vérifiées.
+La sélection publique attend toujours le commit des cartes vérifiées. La reprise
+d’une archive de secours déjà enregistrée réutilise son propre registre terminé ;
+elle ne transmet plus son checksum au RPC historique `recover_archive`, qui
+n’accepte que les archives live. Une interruption pendant les cartes peut ainsi
+être reprise sans appel IA ni confusion entre identifiant parent et révision.
 
 ## Stations : faits établis et limites du diagnostic
 

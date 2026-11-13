@@ -5,6 +5,7 @@ import {generateOperational,archiveFactualFallback,operationalConfig,type Attemp
 import {verifyArchive} from "../editorial-ai/archive";
 import {validateDraft} from "../editorial-ai/validate";
 import {consultableEdition} from "../editorial-ai/consultable";
+import {resumeArchivedEdition} from "./resume-archive";
 import type {EditorialBriefingBundle} from "../editorial/briefing";
 import type {Archive} from "../editorial-ai/model";
 import type {Run} from "../editorial-ai/archive";
@@ -34,5 +35,12 @@ describe("OPS-07 real November 13 response replay",()=>{
   for(const block of fallback.draft.article)expect(block.text).toBe(facts.get(block.evidence_ids[0]));
   expect(fallback.draft.lead.text).toContain("prévisions issues des modèles");
   expect(fallback.draft.key_figures).toEqual([]);
+  // A paid run may point at this distinct revision after a maps interruption.
+  const recoverLive=vi.fn(),publishMaps=vi.fn();
+  expect(await resumeArchivedEdition(fallback,recoverLive,publishMaps)).toMatchObject({id:fallback.edition_id,paid_calls:0});
+  expect(recoverLive).not.toHaveBeenCalled();expect(publishMaps).toHaveBeenCalledWith(fallback);
+  const failure=()=>{throw Error("EXPERIMENTAL_MAP_PUBLICATION_FAILED");};
+  await expect(resumeArchivedEdition(fallback,recoverLive,failure)).rejects.toThrow("EXPERIMENTAL_MAP_PUBLICATION_FAILED");
+  expect(provider).toHaveBeenCalledTimes(1);
  });
 });
