@@ -1,0 +1,41 @@
+{
+  "version": "edit03-archive-fixtures-1",
+  "dates": {
+    "2026-11-12": {
+      "file": "2026-11-12.json.gz",
+      "bytes": 1640265,
+      "sha256": "c3824f408b4b0f9b9b1629e294f311b39710e1f9ea002156e5cd327d0dfbc730",
+      "edition_id": "650ff674f40a90648b3e326b85c58e9bf7312e550c109e66ccea1e5a253597ee",
+      "edition_checksum": "da02f749abb01e20ce1617cea31d1278609310d836ad8614cea8b6fa7d61394b",
+      "revision": 1,
+      "bundle_sha256": "71f9fa54c213f6d776a2ed23050d3c6b79ca9ca468459917387be564ecd08261",
+      "snapshot_id": "6a919874996dccb78cdcbfa26bf40cbc2c2080a09a647f80fe27e76835423958",
+      "source_publication_path": "edition-maps/650ff674f40a90648b3e326b85c58e9bf7312e550c109e66ccea1e5a253597ee/da02f749abb01e20ce1617cea31d1278609310d836ad8614cea8b6fa7d61394b/publication.json",
+      "source_blob": {
+        "path": "edition-maps/blobs/45751bc69a160de52d8221035628bc5be91e414453e88f75fc10bdaa2848e031.json.gz",
+        "sha256": "45751bc69a160de52d8221035628bc5be91e414453e88f75fc10bdaa2848e031",
+        "bytes": 1554592,
+        "content_sha256": "71f9fa54c213f6d776a2ed23050d3c6b79ca9ca468459917387be564ecd08261"
+      },
+      "scope": "Copy of existing published archive and maps; no frozen inputs or snapshot exported."
+    },
+    "2026-11-13": {
+      "file": "2026-11-13.json.gz",
+      "bytes": 1635299,
+      "sha256": "5fb92560433020502cf6d895c2bf2e6bf5707aa4aef95d47e68b31c6cd2e8171",
+      "edition_id": "35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222",
+      "edition_checksum": "bd1a261966ef5b01aa3a7373e639ca1230fa44d90f58a8c83a3d3696e97b349f",
+      "revision": 2,
+      "bundle_sha256": "03e68d7726e6a109936e67773b47e0c8742d8551bb772fe2f05b1d5c14a95c1f",
+      "snapshot_id": "37da3d50e7da9ce8fd6958ce5aa2a46ff483f210bb4d038917ae990c33bed705",
+      "source_publication_path": "edition-maps/35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222/bd1a261966ef5b01aa3a7373e639ca1230fa44d90f58a8c83a3d3696e97b349f/publication.json",
+      "source_blob": {
+        "path": "edition-maps/blobs/847bd3cb4f2e338aab404d11ded677410804b4ba409aa11dd742e18c3a6336bd.json.gz",
+        "sha256": "847bd3cb4f2e338aab404d11ded677410804b4ba409aa11dd742e18c3a6336bd",
+        "bytes": 1548728,
+        "content_sha256": "03e68d7726e6a109936e67773b47e0c8742d8551bb772fe2f05b1d5c14a95c1f"
+      },
+      "scope": "Copy of existing published archive and maps; no frozen inputs or snapshot exported."
+    }
+  }
+}

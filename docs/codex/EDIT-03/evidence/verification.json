@@ -1,0 +1,23 @@
+{
+  "verified_at": "2026-11-13T15:09:49.853349+00:00",
+  "base_main": "80aa4aa05dd17e4024a5c601f92985935eb4fc38",
+  "branch": "codex/edit-03-editorial-map-selection",
+  "regression": {
+    "files": 23,
+    "tests": 237,
+    "edit03_tests": 23,
+    "passed": true
+  },
+  "typecheck_web": "passed",
+  "typecheck_edit03_scripts": "passed",
+  "lint_edit03": "passed",
+  "source_secret_guard": "passed",
+  "reproducible_reports": 9,
+  "remote_archive_and_map_references_unchanged": true,
+  "remote_writes": 0,
+  "acquisitions": 0,
+  "openai_calls": 0,
+  "existing_files_modified": 0,
+  "publication_enabled": false,
+  "recommendation": "GO simulation review; NO-GO daily activation"
+}

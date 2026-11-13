@@ -1,0 +1,158 @@
+{
+  "version": "edit03-board-response-1",
+  "hero_map_id": "c794a212918c07818d2387366e8599b807b20270fcea7c32bb18646b0a0e82d6",
+  "priority": [
+    {
+      "map_id": "c794a212918c07818d2387366e8599b807b20270fcea7c32bb18646b0a0e82d6",
+      "reason_ids": [
+        "c794a212918c07818d2387366e8599b807b20270fcea7c32bb18646b0a0e82d6:importance",
+        "c794a212918c07818d2387366e8599b807b20270fcea7c32bb18646b0a0e82d6:agriculture",
+        "c794a212918c07818d2387366e8599b807b20270fcea7c32bb18646b0a0e82d6:coverage",
+        "c794a212918c07818d2387366e8599b807b20270fcea7c32bb18646b0a0e82d6:actuality",
+        "c794a212918c07818d2387366e8599b807b20270fcea7c32bb18646b0a0e82d6:quality",
+        "c794a212918c07818d2387366e8599b807b20270fcea7c32bb18646b0a0e82d6:diversity"
+      ],
+      "seasonal_ids": [
+        "ALM-114",
+        "ALM-116",
+        "ALM-120"
+      ]
+    },
+    {
+      "map_id": "5842d0d24b5eee47ed0d13b1d0e2bd0fb6802548344a5cc3aa57429c7906247c",
+      "reason_ids": [
+        "5842d0d24b5eee47ed0d13b1d0e2bd0fb6802548344a5cc3aa57429c7906247c:importance",
+        "5842d0d24b5eee47ed0d13b1d0e2bd0fb6802548344a5cc3aa57429c7906247c:agriculture",
+        "5842d0d24b5eee47ed0d13b1d0e2bd0fb6802548344a5cc3aa57429c7906247c:coverage",
+        "5842d0d24b5eee47ed0d13b1d0e2bd0fb6802548344a5cc3aa57429c7906247c:actuality",
+        "5842d0d24b5eee47ed0d13b1d0e2bd0fb6802548344a5cc3aa57429c7906247c:quality",
+        "5842d0d24b5eee47ed0d13b1d0e2bd0fb6802548344a5cc3aa57429c7906247c:diversity"
+      ],
+      "seasonal_ids": [
+        "ALM-001",
+        "ALM-005",
+        "ALM-116"
+      ]
+    },
+    {
+      "map_id": "fe300971142154eff46951e3a4a835271c5fa9e87c1e8ae26cbe2b9a7ab73bf6",
+      "reason_ids": [
+        "fe300971142154eff46951e3a4a835271c5fa9e87c1e8ae26cbe2b9a7ab73bf6:importance",
+        "fe300971142154eff46951e3a4a835271c5fa9e87c1e8ae26cbe2b9a7ab73bf6:agriculture",
+        "fe300971142154eff46951e3a4a835271c5fa9e87c1e8ae26cbe2b9a7ab73bf6:coverage",
+        "fe300971142154eff46951e3a4a835271c5fa9e87c1e8ae26cbe2b9a7ab73bf6:actuality",
+        "fe300971142154eff46951e3a4a835271c5fa9e87c1e8ae26cbe2b9a7ab73bf6:quality",
+        "fe300971142154eff46951e3a4a835271c5fa9e87c1e8ae26cbe2b9a7ab73bf6:diversity"
+      ],
+      "seasonal_ids": [
+        "ALM-001",
+        "ALM-005",
+        "ALM-116"
+      ]
+    },
+    {
+      "map_id": "7507471a45f38ff237a5159a45aaf21d0d31c4d1bab73821d907859ff9a46170",
+      "reason_ids": [
+        "7507471a45f38ff237a5159a45aaf21d0d31c4d1bab73821d907859ff9a46170:importance",
+        "7507471a45f38ff237a5159a45aaf21d0d31c4d1bab73821d907859ff9a46170:agriculture",
+        "7507471a45f38ff237a5159a45aaf21d0d31c4d1bab73821d907859ff9a46170:coverage",
+        "7507471a45f38ff237a5159a45aaf21d0d31c4d1bab73821d907859ff9a46170:actuality",
+        "7507471a45f38ff237a5159a45aaf21d0d31c4d1bab73821d907859ff9a46170:quality",
+        "7507471a45f38ff237a5159a45aaf21d0d31c4d1bab73821d907859ff9a46170:diversity"
+      ],
+      "seasonal_ids": []
+    },
+    {
+      "map_id": "bdcec35cfd92dd979ad02adcee927e27a64d8f0859678b4f7ed8810105e31930",
+      "reason_ids": [
+        "bdcec35cfd92dd979ad02adcee927e27a64d8f0859678b4f7ed8810105e31930:importance",
+        "bdcec35cfd92dd979ad02adcee927e27a64d8f0859678b4f7ed8810105e31930:agriculture",
+        "bdcec35cfd92dd979ad02adcee927e27a64d8f0859678b4f7ed8810105e31930:coverage",
+        "bdcec35cfd92dd979ad02adcee927e27a64d8f0859678b4f7ed8810105e31930:actuality",
+        "bdcec35cfd92dd979ad02adcee927e27a64d8f0859678b4f7ed8810105e31930:quality",
+        "bdcec35cfd92dd979ad02adcee927e27a64d8f0859678b4f7ed8810105e31930:diversity"
+      ],
+      "seasonal_ids": []
+    }
+  ],
+  "complementary": [
+    {
+      "map_id": "ba5c5ed960eebe012579fec6009376280a29f87af155b7ebfae9ee85b2d0bdb0",
+      "reason_ids": [
+        "ba5c5ed960eebe012579fec6009376280a29f87af155b7ebfae9ee85b2d0bdb0:importance",
+        "ba5c5ed960eebe012579fec6009376280a29f87af155b7ebfae9ee85b2d0bdb0:agriculture",
+        "ba5c5ed960eebe012579fec6009376280a29f87af155b7ebfae9ee85b2d0bdb0:coverage",
+        "ba5c5ed960eebe012579fec6009376280a29f87af155b7ebfae9ee85b2d0bdb0:actuality",
+        "ba5c5ed960eebe012579fec6009376280a29f87af155b7ebfae9ee85b2d0bdb0:quality",
+        "ba5c5ed960eebe012579fec6009376280a29f87af155b7ebfae9ee85b2d0bdb0:diversity"
+      ],
+      "seasonal_ids": [
+        "ALM-114",
+        "ALM-116",
+        "ALM-120"
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "map_id": "74c3174ce6541ab37c0efe84cb9c235b2d90aff1885a1bbfbefb90c59e2d990c",
+      "reason_ids": [
+        "74c3174ce6541ab37c0efe84cb9c235b2d90aff1885a1bbfbefb90c59e2d990c:importance",
+        "74c3174ce6541ab37c0efe84cb9c235b2d90aff1885a1bbfbefb90c59e2d990c:agriculture",
+        "74c3174ce6541ab37c0efe84cb9c235b2d90aff1885a1bbfbefb90c59e2d990c:coverage",
+        "74c3174ce6541ab37c0efe84cb9c235b2d90aff1885a1bbfbefb90c59e2d990c:actuality",
+        "74c3174ce6541ab37c0efe84cb9c235b2d90aff1885a1bbfbefb90c59e2d990c:quality",
+        "74c3174ce6541ab37c0efe84cb9c235b2d90aff1885a1bbfbefb90c59e2d990c:diversity",
+        "74c3174ce6541ab37c0efe84cb9c235b2d90aff1885a1bbfbefb90c59e2d990c:excluded"
+      ],
+      "seasonal_ids": [
+        "ALM-114",
+        "ALM-116",
+        "ALM-120"
+      ]
+    },
+    {
+      "map_id": "d5d377ea9554dcaa2e7f449016efcfd45c7205a3d82ecaea1a262b14199e25d5",
+      "reason_ids": [
+        "d5d377ea9554dcaa2e7f449016efcfd45c7205a3d82ecaea1a262b14199e25d5:importance",
+        "d5d377ea9554dcaa2e7f449016efcfd45c7205a3d82ecaea1a262b14199e25d5:agriculture",
+        "d5d377ea9554dcaa2e7f449016efcfd45c7205a3d82ecaea1a262b14199e25d5:coverage",
+        "d5d377ea9554dcaa2e7f449016efcfd45c7205a3d82ecaea1a262b14199e25d5:actuality",
+        "d5d377ea9554dcaa2e7f449016efcfd45c7205a3d82ecaea1a262b14199e25d5:quality",
+        "d5d377ea9554dcaa2e7f449016efcfd45c7205a3d82ecaea1a262b14199e25d5:diversity",
+        "d5d377ea9554dcaa2e7f449016efcfd45c7205a3d82ecaea1a262b14199e25d5:excluded"
+      ],
+      "seasonal_ids": [
+        "ALM-114",
+        "ALM-116",
+        "ALM-120"
+      ]
+    },
+    {
+      "map_id": "d6f778124bcf6928c2628d0ce480909df21fd99c4aa0e6d177c7c93020103413",
+      "reason_ids": [
+        "d6f778124bcf6928c2628d0ce480909df21fd99c4aa0e6d177c7c93020103413:importance",
+        "d6f778124bcf6928c2628d0ce480909df21fd99c4aa0e6d177c7c93020103413:agriculture",
+        "d6f778124bcf6928c2628d0ce480909df21fd99c4aa0e6d177c7c93020103413:coverage",
+        "d6f778124bcf6928c2628d0ce480909df21fd99c4aa0e6d177c7c93020103413:actuality",
+        "d6f778124bcf6928c2628d0ce480909df21fd99c4aa0e6d177c7c93020103413:quality",
+        "d6f778124bcf6928c2628d0ce480909df21fd99c4aa0e6d177c7c93020103413:diversity",
+        "d6f778124bcf6928c2628d0ce480909df21fd99c4aa0e6d177c7c93020103413:excluded"
+      ],
+      "seasonal_ids": []
+    },
+    {
+      "map_id": "91076f495582ecca8ad5f714b94ed2ddaa39c392fd7363fde332e79d8aa32142",
+      "reason_ids": [
+        "91076f495582ecca8ad5f714b94ed2ddaa39c392fd7363fde332e79d8aa32142:importance",
+        "91076f495582ecca8ad5f714b94ed2ddaa39c392fd7363fde332e79d8aa32142:agriculture",
+        "91076f495582ecca8ad5f714b94ed2ddaa39c392fd7363fde332e79d8aa32142:coverage",
+        "91076f495582ecca8ad5f714b94ed2ddaa39c392fd7363fde332e79d8aa32142:actuality",
+        "91076f495582ecca8ad5f714b94ed2ddaa39c392fd7363fde332e79d8aa32142:quality",
+        "91076f495582ecca8ad5f714b94ed2ddaa39c392fd7363fde332e79d8aa32142:diversity",
+        "91076f495582ecca8ad5f714b94ed2ddaa39c392fd7363fde332e79d8aa32142:excluded"
+      ],
+      "seasonal_ids": []
+    }
+  ]
+}
