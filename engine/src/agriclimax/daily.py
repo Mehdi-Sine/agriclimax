@@ -141,6 +141,15 @@ def run_daily(
                     accepted.discard(station)
                     rejected.append({"station": station, "date": day.isoformat(),
                                      "reason": str(error), "issues": list(part.issues),
+                                     "source_day_absent": bool(part.observations) and all("source_day_absent" in r.quality_flags for r in part.observations),
+                                     "source_values_absent": bool(part.observations) and not part.issues
+                                         and all(r.value is None for r in part.observations)
+                                         and not any("station_unavailable" in r.quality_flags for r in part.observations),
+                                     "source_fields": [{"field": r.source_field, "unit": r.source_unit,
+                                                        "temporal_resolution": r.temporal_resolution,
+                                                        "value_present": r.value is not None,
+                                                        "source_checksum": r.source_checksum}
+                                                       for r in part.observations],
                                      "missing_variables": sorted({"temperature", "humidity", "precipitation", "temperature_min", "temperature_max"} -
                                          {r.variable for r in part.observations if r.value is not None and r.temporal_resolution == "daily"})})
                 else:
@@ -151,6 +160,11 @@ def run_daily(
         report["accepted_stations"] = sorted(accepted)
         if not accepted:
             report["reason"] = "NO_COMPLETE_STATION_WINDOW"
+            # An absent/empty source date is availability, not a decoder/transport
+            # failure. Never synthesize a daily value from a recent sample.
+            if rejected and all(r["source_values_absent"] for r in rejected):
+                report["status"] = "daily_source_unavailable"
+                report["previous_publication_preserved"] = True
             raise ValueError("DAILY_NO_COMPLETE_STATION_WINDOW")
         batches = [b.model_copy(update={"observations": tuple(r for r in b.observations if r.cell_id in accepted)}) for b in batches]
         diagnostic = {}

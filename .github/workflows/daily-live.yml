@@ -6,7 +6,7 @@ on:
         description: First UTC archive date (both dates or neither; maximum seven days)
         type: string
       to:
-        description: Last UTC archive date (default yesterday, with seven-day correction window)
+        description: Last source archive date (default D-2, with seven-day correction window)
         type: string
   # OPS-02: automatic collection is owned exclusively by operational-journal.yml.
 

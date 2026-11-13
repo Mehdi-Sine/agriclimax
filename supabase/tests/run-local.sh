@@ -62,6 +62,7 @@ task04_psql -f /repo/supabase/tests/security.sql >"$task04_results/security.log"
 task04_psql -f /repo/tests/task36/review.sql >"$task04_results/editorial-review.log" 2>&1
 task04_psql -f /repo/tests/task36/ops02.sql >"$task04_results/ops02.log" 2>&1
 task04_psql -f /repo/tests/task36/ledger.sql >"$task04_results/editorial-ledger.log" 2>&1
+task04_psql -f /repo/tests/task36/ops07.sql >"$task04_results/ops07.log" 2>&1
 task04_psql -f /repo/supabase/tests/benchmark.sql >"$task04_results/explain.log" 2>&1
 task04_psql -qAt -f /repo/supabase/tests/contracts.sql >"$task04_results/contracts.json"
 "${PYTHON:-python}" "$task04_root/supabase/tests/check_sql_contracts.py" "$task04_results/contracts.json"

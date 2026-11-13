@@ -1,0 +1,169 @@
+{
+  "verified_at": "2026-11-13T12:10:56.540Z",
+  "edition_date": "2026-11-13",
+  "edition_id": "35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222",
+  "edition_checksum": "bd1a261966ef5b01aa3a7373e639ca1230fa44d90f58a8c83a3d3696e97b349f",
+  "snapshot_id": "37da3d50e7da9ce8fd6958ce5aa2a46ff483f210bb4d038917ae990c33bed705",
+  "snapshot_unchanged": true,
+  "original_archive_unchanged": true,
+  "original_checksum": "9a3267e1f294401690cadff3fc6769f6029fe274347d4cfa2d8081b136abfc93",
+  "status": "published_experimental",
+  "validation": {
+    "status": "needs_editorial_review",
+    "errors": [],
+    "review": [
+      "SEMANTIC_REVIEW_REQUIRED"
+    ]
+  },
+  "maps": [
+    {
+      "id": "849e1864800f402d750362b1b3c9ff5fdea840df9b8d45bb50cc9e37ef3073f1",
+      "indicator": "temperature_min",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-31",
+        "2026-11-06"
+      ],
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "id": "c6c332634ce19448e53b28a8df9e5ce4ae5f5f477df3d962006e1b68a13c806e",
+      "indicator": "temperature_mean",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-31",
+        "2026-11-06"
+      ],
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "id": "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc",
+      "indicator": "rain",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-31",
+        "2026-11-06"
+      ],
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "id": "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106",
+      "indicator": "frost",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-31",
+        "2026-11-06"
+      ],
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "id": "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564",
+      "indicator": "gdd",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-31",
+        "2026-11-06"
+      ],
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "id": "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690",
+      "indicator": "temperature_min",
+      "nature": "forecast",
+      "period": [
+        "2026-11-14",
+        "2026-11-15"
+      ],
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    },
+    {
+      "id": "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd",
+      "indicator": "temperature_mean",
+      "nature": "forecast",
+      "period": [
+        "2026-11-14",
+        "2026-11-15"
+      ],
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    },
+    {
+      "id": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0",
+      "indicator": "rain",
+      "nature": "forecast",
+      "period": [
+        "2026-11-14",
+        "2026-11-15"
+      ],
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    },
+    {
+      "id": "43656509aae3fe6a009139001594d83882f4d095d089600debf38cc82d7f1ec3",
+      "indicator": "frost",
+      "nature": "forecast",
+      "period": [
+        "2026-11-14",
+        "2026-11-15"
+      ],
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    },
+    {
+      "id": "d1b1a0e83c652ccf1bfb58d1a9626c4323eca61b0ae86e709c861f5f66a63ac6",
+      "indicator": "gdd",
+      "nature": "forecast",
+      "period": [
+        "2026-11-14",
+        "2026-11-15"
+      ],
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    }
+  ],
+  "bundle_sha256": "03e68d7726e6a109936e67773b47e0c8742d8551bb772fe2f05b1d5c14a95c1f",
+  "all_10_map_payloads_verified": true,
+  "pra_per_map": 713,
+  "new_acquisitions": 0,
+  "new_openai_calls": 0,
+  "urls": [
+    "https://agriclimax.vercel.app/journal?date=2026-11-13",
+    "https://agriclimax.vercel.app/cartes-du-jour?date=2026-11-13"
+  ]
+}

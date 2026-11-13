@@ -18,8 +18,12 @@ Activer la variable de dépôt `AGRICLIMAX_DAILY_ENABLED=true` après un premier
 lancement manuel vérifié. Le cron s'exécute depuis la branche par défaut à
 07:40 UTC (08:40 Paris en hiver, 09:40 en été), sous réserve des délais GitHub.
 
-La fenêtre automatique couvre les sept jours UTC terminés précédents pour les
-corrections tardives. Le lancement manuel accepte `from` et `to` ensemble, ISO
+La fenêtre automatique couvre sept dates quotidiennes source, de J−8 à J−2,
+pour laisser à DPClim le temps de publier la dernière journée et reprendre les
+corrections tardives. Les dates réelles restent affichées dans les résultats.
+Ce délai conservateur ne garantit pas la disponibilité : une date absente ou
+entièrement vide reste explicitement indisponible, sans remplacement par les
+échantillons instantanés DPObs ni blocage du Journal. Le lancement manuel accepte `from` et `to` ensemble, ISO
 YYYY-MM-DD, au maximum sept jours, jamais aujourd'hui. Exemple local :
 
 ```sh

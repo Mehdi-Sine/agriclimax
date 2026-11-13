@@ -1,0 +1,42 @@
+[
+  {
+    "label": "desktop",
+    "url": "https://agriclimax.vercel.app/journal?date=2026-11-13",
+    "status": 200,
+    "maps": 10,
+    "edition_id": "35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222",
+    "scientific_warning": true,
+    "horizontal_overflow": false,
+    "screenshot": "docs/codex/OPS-07/evidence/browser/desktop-journal.png"
+  },
+  {
+    "label": "desktop",
+    "url": "https://agriclimax.vercel.app/cartes-du-jour?date=2026-11-13",
+    "status": 200,
+    "maps": 10,
+    "edition_id": "35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222",
+    "scientific_warning": true,
+    "horizontal_overflow": false,
+    "screenshot": "docs/codex/OPS-07/evidence/browser/desktop-cartes.png"
+  },
+  {
+    "label": "mobile",
+    "url": "https://agriclimax.vercel.app/journal?date=2026-11-13",
+    "status": 200,
+    "maps": 10,
+    "edition_id": "35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222",
+    "scientific_warning": true,
+    "horizontal_overflow": false,
+    "screenshot": "docs/codex/OPS-07/evidence/browser/mobile-journal.png"
+  },
+  {
+    "label": "mobile",
+    "url": "https://agriclimax.vercel.app/cartes-du-jour?date=2026-11-13",
+    "status": 200,
+    "maps": 10,
+    "edition_id": "35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222",
+    "scientific_warning": true,
+    "horizontal_overflow": false,
+    "screenshot": "docs/codex/OPS-07/evidence/browser/mobile-cartes.png"
+  }
+]

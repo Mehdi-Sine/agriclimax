@@ -24,7 +24,8 @@ def main() -> int:
     now = datetime.now(UTC)
     if bool(args.start) != bool(args.end):
         parser.error("Provide both dates or neither")
-    end = args.end or now.date() - timedelta(days=1)
+    # Allow DPClim to finish publishing the most recent source day.
+    end = args.end or now.date() - timedelta(days=2)
     start = args.start or end - timedelta(days=6)
     try:
         transport = WheatRepository()
