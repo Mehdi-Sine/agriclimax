@@ -892,3 +892,10 @@
   .journal.ux02b-journal .front-page:has(> .journal-map-carousel) > .key-facts article + article { border-left: 0; border-top: 1px solid var(--border); padding-left: 0; }
   .journal.ux02b-journal .front-page:has(> .journal-map-carousel) > .ux01-map-context { grid-column: 2; grid-row: 3; margin-top: 5px; }
 }
+@media(min-width:851px) {
+  .journal.ux02b-journal .front-page:has(> .journal-map-carousel) > .key-facts:empty { display: none; }
+  .journal.ux02b-journal .front-page:has(> .journal-map-carousel):has(> .key-facts:empty) > .ux01-map-context { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0 24px; }
+  .journal.ux02b-journal .front-page:has(> .key-facts:empty) > .ux01-map-context > h2,
+  .journal.ux02b-journal .front-page:has(> .key-facts:empty) > .ux01-map-context > p,
+  .journal.ux02b-journal .front-page:has(> .key-facts:empty) > .ux01-map-context > a:last-child { grid-column: 1 / -1; }
+}

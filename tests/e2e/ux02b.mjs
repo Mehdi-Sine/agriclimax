@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {X509Certificate,createHash as hashCertificate} from 'node:crypto';
 import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {createRequire} from 'node:module';
 import path from 'node:path';
@@ -13,7 +14,10 @@ const a11yRequire=createRequire(lintRequire.resolve('eslint-plugin-jsx-a11y'));
 const axePath=a11yRequire.resolve('axe-core/axe.min.js');
 const png=await readFile('apps/web/public/brand/climate-stripes.png');
 assert.equal(createHash('sha256').update(png).digest('hex'),'728f390f82e0b797e12d7c352ffb797696b90caf483f44a9ed4b1b2f9e2bd705');
-const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE??'/usr/bin/chromium',args:['--no-sandbox','--enable-unsafe-swiftshader'],...(process.env.HTTPS_PROXY?{proxy:{server:process.env.HTTPS_PROXY,bypass:'localhost,127.0.0.1'}}:{})});
+// Scope Chromium's additional trust to the environment's configured proxy CA.
+const proxyCertificate=process.env.NODE_EXTRA_CA_CERTS?new X509Certificate(await readFile(process.env.NODE_EXTRA_CA_CERTS)):null;
+const proxyTrust=proxyCertificate?[`--ignore-certificate-errors-spki-list=${hashCertificate('sha256').update(proxyCertificate.publicKey.export({type:'spki',format:'der'})).digest('base64')}`]:[];
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE??'/usr/bin/chromium',args:['--no-sandbox','--enable-unsafe-swiftshader',...proxyTrust],...(process.env.HTTPS_PROXY?{proxy:{server:process.env.HTTPS_PROXY,bypass:'localhost,127.0.0.1'}}:{})});
 const report=[];
 try {
  for(const [label,width,height] of [['desktop',1440,1000],['tablet',768,1024],['mobile',390,844]]){

@@ -3,6 +3,7 @@ import {readFileSync} from "node:fs";
 import {join} from "node:path";
 import {createHash} from "node:crypto";
 import sharp from "sharp";
+import identities from "../../data/operational/pra-identities.json";
 import type {FeatureCollection, Polygon, MultiPolygon} from "geojson";
 import type {EditionMap} from "../../features/edition-maps/model";
 import {semanticPalette, classIndex, PALETTE_VERSION} from "../../features/cartography/registry";
@@ -14,7 +15,7 @@ function readAssets() {
   const geometry = readFileSync(join(process.cwd(), "public/maps/journal-pra-v1.geojson"), "utf8");
   const css = readFileSync(join(process.cwd(), "styles/tokens.css"), "utf8");
   const collection = JSON.parse(geometry) as FeatureCollection<Polygon | MultiPolygon>;
-  if (collection.features.length !== 713 || new Set(collection.features.map(f => f.id)).size !== 713) throw Error("THUMBNAIL_GEOMETRY");
+  if (collection.features.length !== 713 || new Set(collection.features.map(f => f.id)).size !== 713 || collection.features.some(f => !identities.ids.includes(String(f.id)))) throw Error("THUMBNAIL_GEOMETRY");
   // Read the actual scientific CSS tokens, never a separately maintained palette.
   const rootCss = [...css.matchAll(/:root\s*\{([^}]+)\}/g)].map(m => m[1]).join(";");
   const tokens = new Map([...rootCss.matchAll(/(--[\w-]+)\s*:\s*(#[\da-fA-F]{6})(?=\s*[;}])/g)].map(m => [m[1], m[2]]));

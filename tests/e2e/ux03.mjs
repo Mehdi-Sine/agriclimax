@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {X509Certificate,createHash as hashCertificate} from 'node:crypto';
 import {mkdir, writeFile, readFile} from 'node:fs/promises';
 import {gunzipSync} from 'node:zlib';
 import {createRequire} from 'node:module';
@@ -8,7 +9,10 @@ const base=process.env.BASE_URL??'http://localhost:3001',out=process.env.EVIDENC
 await mkdir(out,{recursive:true});
 const require=createRequire(path.resolve('apps/web/package.json'));
 const axePath=createRequire(createRequire(require.resolve('eslint-config-next')).resolve('eslint-plugin-jsx-a11y')).resolve('axe-core/axe.min.js');
-const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE??'/usr/bin/chromium',args:['--no-sandbox','--enable-unsafe-swiftshader'],...(process.env.HTTPS_PROXY?{proxy:{server:process.env.HTTPS_PROXY,bypass:'localhost,127.0.0.1'}}:{})});
+// Scope Chromium's additional trust to the environment's configured proxy CA.
+const proxyCertificate=process.env.NODE_EXTRA_CA_CERTS?new X509Certificate(await readFile(process.env.NODE_EXTRA_CA_CERTS)):null;
+const proxyTrust=proxyCertificate?[`--ignore-certificate-errors-spki-list=${hashCertificate('sha256').update(proxyCertificate.publicKey.export({type:'spki',format:'der'})).digest('base64')}`]:[];
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE??'/usr/bin/chromium',args:['--no-sandbox','--enable-unsafe-swiftshader',...proxyTrust],...(process.env.HTTPS_PROXY?{proxy:{server:process.env.HTTPS_PROXY,bypass:'localhost,127.0.0.1'}}:{})});
 const report={base,editions:[],states:[],errors:[]};
 try{
  for(const [label,width,height] of [['desktop',1440,1000],['mobile',390,844]]){
