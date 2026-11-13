@@ -1,0 +1,714 @@
+pra_id,name,region,era_fraction,sim_fraction,era_category,selected_category,source,selected_fraction
+pra:01195,VALLEE DE LA SAONE - 01,Auvergne-Rhône-Alpes,0.9999999999998207,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:01198,DOMBES - 01,Auvergne-Rhône-Alpes,0.9999999999997711,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:01201,COTEAUX EN BORDURE DES DOMBES - 01,Auvergne-Rhône-Alpes,0.9999999999998747,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:01215,ZONE FORESTIERE DU PAYS DE GEX (1RE ZONE) - 01,Auvergne-Rhône-Alpes,0.9999999999999362,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:01216,ZONE D ELEVAGE DU PAYS DE GEX (2E ZONE) - 01,Auvergne-Rhône-Alpes,1.0,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:01446,BRESSE - 01,Auvergne-Rhône-Alpes,0.9999999999999719,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:01449,HAUT BUGEY - 01,Auvergne-Rhône-Alpes,0.9999999999998427,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:01451,BUGEY - 01,Auvergne-Rhône-Alpes,0.9999999999999072,0.9999999999999978,era_complete,era_complete,era5-land,1
+pra:02034,SAINT-QUENTINOIS ET LAONNOIS - 02,Hauts-de-France,0.9999999999998661,1.000000000000002,era_complete,era_complete,era5-land,1
+pra:02317,CHAMPAGNE CRAYEUSE - 02,Hauts-de-France,0.9999999999997762,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:02323,THIERACHE - 02,Hauts-de-France,0.9999999999999891,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:02328,SOISSONNAIS - 02,Hauts-de-France,0.9999999999999022,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:02329,VALOIS - 02,Hauts-de-France,0.9999999999999964,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:02336,TARDENOIS ET BRIE - 02,Hauts-de-France,0.9999999999999594,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:03178,BOCAGE BOURBONNAIS - 03,Auvergne-Rhône-Alpes,0.9999999999999744,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:03425,MONTAGNE BOURDONNAISE - 03,Auvergne-Rhône-Alpes,0.9999999999998291,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:03426,VAL D'ALLIER - 03,Auvergne-Rhône-Alpes,0.9999999999999396,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:03428,COMBRAILLE BOURBONNAISE - 03,Auvergne-Rhône-Alpes,0.9999999999999695,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:03429,SOLOGNE BOURBONNAISE - 03,Auvergne-Rhône-Alpes,0.9999999999999798,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:04233,PLATEAU DE VALENSOLE - 04,Provence-Alpes-Côte d'Azur,0.9999999999999946,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:04459,SISTERONNAIS - 04,Provence-Alpes-Côte d'Azur,0.9999999999999978,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:04460,MONTAGNE DE HAUTE-PROVENCE - 04,Provence-Alpes-Côte d'Azur,0.9999999999999708,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:04462,PLATEAU DE FORCALQUIER - 04,Provence-Alpes-Côte d'Azur,0.9999999999999482,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:04466,VAL DE DURANCE - 04,Provence-Alpes-Côte d'Azur,0.9999999999999711,0.9999999999999984,era_complete,era_complete,era5-land,1
+pra:05231,QUEYRAS - 05,Provence-Alpes-Côte d'Azur,0.9999999999999892,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:05232,HAUT-EMBRUNAIS - 05,Provence-Alpes-Côte d'Azur,0.9999999999999845,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:05235,CHAMPSAUR - 05,Provence-Alpes-Côte d'Azur,0.9999999999999827,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:05236,DEVOLUY - 05,Provence-Alpes-Côte d'Azur,0.9999999999999675,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:05237,EMBRUNAIS - 05,Provence-Alpes-Côte d'Azur,0.9999999999999812,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:05239,GAPENCAIS - 05,Provence-Alpes-Côte d'Azur,0.9999999999999853,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:05457,BRIANCONNAIS - 05,Provence-Alpes-Côte d'Azur,0.9999999999999627,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:05459,LARAGNAIS - 05,Provence-Alpes-Côte d'Azur,0.9999999999999938,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:05461,BOCHAINE - 05,Provence-Alpes-Côte d'Azur,0.9999999999999799,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:05463,SERROIS-ROSANNAIS - 05,Provence-Alpes-Côte d'Azur,0.9999999999999768,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:06245,COTEAUX NICOIS - 06,Provence-Alpes-Côte d'Azur,0.9998932089264675,1.0000000000000002,era_partial,era_partial,era5-land,0.9998932089264675
+pra:06249,LITTORAL NICOIS - 06,Provence-Alpes-Côte d'Azur,0.8692918641207557,0.999999999999999,unavailable,sim_complete,meteo-france-sim,0.999999999999999
+pra:06250,ALPES NICOISES - 06,Provence-Alpes-Côte d'Azur,0.9999999999999593,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:07169,COIRON - 07,Auvergne-Rhône-Alpes,0.9999999999999567,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:07171,PLATEAUX DU HAUT ET MOYEN VIVARAIS - 07,Auvergne-Rhône-Alpes,0.9999999999999757,0.9999999999999987,era_complete,era_complete,era5-land,1
+pra:07422,BAS-VIVARAIS - 07,Auvergne-Rhône-Alpes,0.9999999999999839,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:07423,MASSIF DU MEZENC-MEYGAL - 07,Auvergne-Rhône-Alpes,0.9999999999999487,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:07424,VELAY BASALTIQUE - 07,Auvergne-Rhône-Alpes,1.0,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:07425,MONTS DU FOREZ - 07,Auvergne-Rhône-Alpes,0.9999999999999823,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:07465,VALLEE DU RHONE - 07,Auvergne-Rhône-Alpes,0.9999999999999666,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:08021,ARDENNE - 08,Grand Est,0.9999999999999838,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:08022,CRETES PRE-ARDENNAISES - 08,Grand Est,0.9999999999997266,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:08315,ARGONNE - 08,Grand Est,0.9999999999999948,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:08317,CHAMPAGNE CRAYEUSE - 08,Grand Est,0.999999999999899,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:08323,THIERACHE - 08,Grand Est,0.9999999999999988,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:09390,PLAINE DE L'ARIEGE - 09,Occitanie,0.9999999999999534,0.9999999999999987,era_complete,era_complete,era5-land,1
+pra:09392,COTEAUX DE L'ARIEGE - 09,Occitanie,0.9999999999999095,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:09393,REGION SOUS PYRENEENNE - 09,Occitanie,0.9999999999996324,0.9999999999999987,era_complete,era_complete,era5-land,1
+pra:09472,REGION PYRENEENNE - 09,Occitanie,0.9999999999999546,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:10011,VIGNOBLE DU BARROIS - 10,Grand Est,0.9999999999999956,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:10013,VALLEE DE LA CHAMPAGNE CRAYEUSE - 10,Grand Est,0.9999999999999831,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:10014,PLAINE DE BRIENNE - 10,Grand Est,0.999999999999979,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:10015,PLAINE DE TROYES - 10,Grand Est,0.9999999999999495,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:10019,VALLEE DU NOGENTAIS - 10,Grand Est,0.9999999999999998,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:10020,VALLEE DE LA CHAMPAGNE HUMIDE - 10,Grand Est,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:10317,CHAMPAGNE CRAYEUSE - 10,Grand Est,0.9999999999999694,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:10318,CHAMPAGNE HUMIDE - 10,Grand Est,0.9999999999999675,1.0000000000000016,era_complete,era_complete,era5-land,1
+pra:10319,PAYS D OTHE - 10,Grand Est,0.9999999999999998,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:10335,NOGENTAIS - 10,Grand Est,1.0,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:11391,LAURAGAIS - 11,Occitanie,0.9999999999999544,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:11392,RAZES - 11,Occitanie,0.9999999999997882,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:11413,MONTAGNE NOIRE - 11,Occitanie,0.9999999999999386,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:11470,REGION VITICOLE - 11,Occitanie,0.9641519659224319,1.0000000000000013,era_partial,era_partial,era5-land,0.9641519659224319
+pra:11471,NARBONNAIS - 11,Occitanie,0.9065635341573803,1.0000000000000007,era_partial,era_partial,era5-land,0.9065635341573803
+pra:11472,PAYS DE SAULT - 11,Occitanie,0.9999999999998699,1.0,era_complete,era_complete,era5-land,1
+pra:12161,ROUGIER DE MARCILLAC - 12,Occitanie,0.9999999999999901,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:12162,LEVEZOU - 12,Occitanie,0.9999999999999963,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:12397,BAS QUERCY - 12,Occitanie,0.999999999999986,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:12407,VIADENE ET VALLEE DU LOT - 12,Occitanie,0.9999999999999905,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:12409,SEGALA - 12,Occitanie,0.9999999999999808,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:12411,GRANDS-CAUSSES - 12,Occitanie,0.9999999999999672,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:12412,MONTS DE LACAUNE - 12,Occitanie,0.9999999999999749,0.9999999999999978,era_complete,era_complete,era5-land,1
+pra:12419,AUBRAC - 12,Occitanie,0.999999999999979,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:13244,CAMARGUE - 13,Provence-Alpes-Côte d'Azur,0.7888092110691269,1.000000000000001,unavailable,sim_complete,meteo-france-sim,1.000000000000001
+pra:13246,CRAU - 13,Provence-Alpes-Côte d'Azur,0.9999999999997815,1.0000000000000027,era_complete,era_complete,era5-land,1
+pra:13466,BASSE VALLEE DE LA DURANCE - 13,Provence-Alpes-Côte d'Azur,0.9999999999999968,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:13467,COMTAT - 13,Provence-Alpes-Côte d'Azur,0.9999999999999938,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:13468,COTEAUX DE PROVENCE - 13,Provence-Alpes-Côte d'Azur,0.8980667533247565,1.0000000000000004,unavailable,sim_complete,meteo-france-sim,1.0000000000000004
+pra:13469,LITTORAL DE PROVENCE - 13,Provence-Alpes-Côte d'Azur,0.9260709079747366,0.9999999999999993,era_partial,era_partial,era5-land,0.9260709079747366
+pra:14085,BESSIN - 14,Normandie,0.9948095221389818,0.9915082786130609,era_partial,era_partial,era5-land,0.9948095221389818
+pra:14353,PAYS D AUGE - 14,Normandie,0.9657735546410766,0.9999999999999993,era_partial,era_partial,era5-land,0.9657735546410766
+pra:14354,BOCAGE - 14,Normandie,0.9999999999999362,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:14355,PLAINES DE CAEN ET DE FALAISE - 14,Normandie,0.9170711457169373,0.9996719126392561,era_partial,era_partial,era5-land,0.9170711457169373
+pra:15163,BASSIN D AURILLAC - 15,Auvergne-Rhône-Alpes,0.9999999999999326,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:15164,BASSIN DE MASSIAC - 15,Auvergne-Rhône-Alpes,0.9999999999999976,0.9999999999999983,era_complete,era_complete,era5-land,1
+pra:15167,PLANEZE DE SAINT-FLOUR - 15,Auvergne-Rhône-Alpes,0.9999999999999502,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:15409,CHATAIGNERAIE - 15,Auvergne-Rhône-Alpes,0.9999999999999813,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:15417,CEZALLIER - 15,Auvergne-Rhône-Alpes,0.9999999999999872,1.0,era_complete,era_complete,era5-land,1
+pra:15418,MARGERIDE - 15,Auvergne-Rhône-Alpes,0.9999999999999538,1.0,era_complete,era_complete,era5-land,1
+pra:15419,AUBRAC - 15,Auvergne-Rhône-Alpes,0.9999999999999898,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:15420,CANTAL - 15,Auvergne-Rhône-Alpes,0.9999999999999777,0.9999999999999983,era_complete,era_complete,era5-land,1
+pra:15421,ARTENSE - 15,Auvergne-Rhône-Alpes,0.9999999999999992,0.9999999999999984,era_complete,era_complete,era5-land,1
+pra:15433,PLATEAU DU SUD-EST LIMOUSIN - 15,Auvergne-Rhône-Alpes,1.0,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:16112,MONTMORELIEN - 16,Nouvelle-Aquitaine,0.9999999999999902,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:16113,ANGOUMOIS-RUFFECOIS - 16,Nouvelle-Aquitaine,0.9999999999999065,1.0000000000000016,era_complete,era_complete,era5-land,1
+pra:16367,PLAINE DE LA MOTHE-LEZAY - 16,Nouvelle-Aquitaine,1.0,0.9999999999999962,era_complete,era_complete,era5-land,1
+pra:16371,PLAINE DE NIORT BRIOUX - 16,Nouvelle-Aquitaine,0.9999999999997091,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:16372,TERRES ROUGES A CHATAIGNIERS - 16,Nouvelle-Aquitaine,0.9999999999991304,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:16375,SAINTONGE AGRICOLE - 16,Nouvelle-Aquitaine,0.9999999999999805,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:16377,COGNACAIS - 16,Nouvelle-Aquitaine,0.9999999999999903,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:16432,CONFOLENTAIS - 16,Nouvelle-Aquitaine,0.9999999999998817,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:16438,BRANDES - 16,Nouvelle-Aquitaine,0.9999999999999996,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:17111,MARAIS DE ROCHEFORT ET MARENNES - 17,Nouvelle-Aquitaine,0.9599558028371323,0.9998763858246581,era_partial,era_partial,era5-land,0.9599558028371323
+pra:17369,MARAIS POITEVIN DESSECHE - 17,Nouvelle-Aquitaine,0.9999999999999993,0.9999999999999986,era_complete,era_complete,era5-land,1
+pra:17374,AUNIS - 17,Nouvelle-Aquitaine,0.8486400642338845,0.9984380774681265,unavailable,sim_partial,meteo-france-sim,0.9984380774681265
+pra:17375,SAINTONGE AGRICOLE - 17,Nouvelle-Aquitaine,0.9999999999998731,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:17376,DOUBLE SAINTONGEAISE - 17,Nouvelle-Aquitaine,0.999999999999987,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:17377,SAINTONGE VITICOLE - 17,Nouvelle-Aquitaine,0.8946179944127761,0.9989034020674961,unavailable,sim_partial,meteo-france-sim,0.9989034020674961
+pra:18066,VAL DE LOIRE - 18,Centre-Val de Loire,0.9999999999999875,0.9999999999999988,era_complete,era_complete,era5-land,1
+pra:18179,VALLEE DE GERMIGNY - 18,Centre-Val de Loire,0.9999999999999167,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:18343,SOLOGNE - 18,Centre-Val de Loire,0.9999999999999915,1.0,era_complete,era_complete,era5-land,1
+pra:18434,CHAMPAGNE BERRICHONNE - 18,Centre-Val de Loire,0.9999999999999298,0.9999999999999983,era_complete,era_complete,era5-land,1
+pra:18436,BOISCHAUT - 18,Centre-Val de Loire,0.999999999999987,1.0000000000000018,era_complete,era_complete,era5-land,1
+pra:18437,MARCHE - 18,Centre-Val de Loire,0.9999999999999223,0.9999999999999988,era_complete,era_complete,era5-land,1
+pra:18439,PAYS FORT ET SANCERROIS - 18,Centre-Val de Loire,0.999999999999997,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:19394,CAUSSES - 19,Nouvelle-Aquitaine,0.9999999999999996,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:19403,PERIGORD BLANC - 19,Nouvelle-Aquitaine,0.9999999999999984,0.9999999999999974,era_complete,era_complete,era5-land,1
+pra:19408,BAS-PAYS DE BRIVE - 19,Nouvelle-Aquitaine,0.9999999999999771,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:19409,XAINTRIE - 19,Nouvelle-Aquitaine,0.9999999999999918,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:19420,CANTAL - 19,Nouvelle-Aquitaine,0.9999999999999537,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:19421,ARTENSE - 19,Nouvelle-Aquitaine,1.0,1.0000000000000024,era_complete,era_complete,era5-land,1
+pra:19430,PLATEAU DE MILLEVACHES - 19,Nouvelle-Aquitaine,0.999999999999992,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:19432,HAUT-LIMOUSIN - 19,Nouvelle-Aquitaine,0.9999999999999927,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:19433,PLATEAU DU SUD-EST LIMOUSIN - 19,Nouvelle-Aquitaine,0.9999999999999963,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:21010,TONNEROIS - 21,Bourgogne-Franche-Comté,0.9999999999999937,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:21204,VAL DE SAONE - 21,Bourgogne-Franche-Comté,0.9999999999999581,0.9999999999999984,era_complete,era_complete,era5-land,1
+pra:21311,"PLATEAU LANGROIS,MONTAGNE, - 21",Bourgogne-Franche-Comté,0.9999999999999917,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:21312,VINGEANNE - 21,Bourgogne-Franche-Comté,0.9999999999999805,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:21322,LA VALLEE - 21,Bourgogne-Franche-Comté,0.9999999999999963,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:21440,LA PLAINE - 21,Bourgogne-Franche-Comté,0.9999999999999788,1.0,era_complete,era_complete,era5-land,1
+pra:21441,COTE VITICOLE ET ARRIERE-COTE DE BOURGOGNE - 21,Bourgogne-Franche-Comté,0.9999999999999509,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:21442,AUXOIS - 21,Bourgogne-Franche-Comté,0.999999999999978,0.999999999999997,era_complete,era_complete,era5-land,1
+pra:21443,MORVAN - 21,Bourgogne-Franche-Comté,0.9999999999999947,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:22358,LITTORAL BRETON NORD - 22,Bretagne,0.943851224067074,0.9998669446799636,era_partial,era_partial,era5-land,0.943851224067074
+pra:22359,BRETAGNE CENTRALE - 22,Bretagne,0.9999999999999813,0.9999999999999973,era_complete,era_complete,era5-land,1
+pra:22360,LANDES DES MONTS D'ARREE ET DU MENE - 22,Bretagne,0.9999999999999477,1.0,era_complete,era_complete,era5-land,1
+pra:22361,PENEPLAINE BRETONNE NORD - 22,Bretagne,0.9999999999999997,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:22362,REGION DU SUD OUEST - 22,Bretagne,1.0,1.0000000000000018,era_complete,era_complete,era5-land,1
+pra:23428,COMBRAILLE BOURBONNAISE - 23,Nouvelle-Aquitaine,0.9999999999998179,1.0,era_complete,era_complete,era5-land,1
+pra:23430,PLATEAU DE MILLEVACHES - 23,Nouvelle-Aquitaine,0.9999999999999999,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:23431,MARCHE - 23,Nouvelle-Aquitaine,0.9999999999998449,0.9999999999999984,era_complete,era_complete,era5-land,1
+pra:23432,HAUT-LIMOUSIN - 23,Nouvelle-Aquitaine,0.9999999999998365,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:23437,BAS-BERRY - 23,Nouvelle-Aquitaine,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:24158,RIBERACOIS - 24,Nouvelle-Aquitaine,0.999999999999997,1.0,era_complete,era_complete,era5-land,1
+pra:24394,CAUSSES - 24,Nouvelle-Aquitaine,1.0,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:24401,BERGEACOIS - 24,Nouvelle-Aquitaine,0.9999999999999953,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:24403,PERIGORD BLANC - 24,Nouvelle-Aquitaine,0.9999999999999891,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:24404,PERIGORD NOIR - 24,Nouvelle-Aquitaine,0.9999999999999662,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:24405,DOUBLE PERIGOURDINE - 24,Nouvelle-Aquitaine,0.9999999999999779,1.0,era_complete,era_complete,era5-land,1
+pra:24406,LANDAIS - 24,Nouvelle-Aquitaine,0.9999999999999104,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:24432,NONTRONNAIS - 24,Nouvelle-Aquitaine,0.9999999999999885,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:25447,ZONE DES PLAINES ET DES BASSES VALLEES - 25,Bourgogne-Franche-Comté,0.9999999999999855,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:25449,MONTAGNE DU JURA - 25,Bourgogne-Franche-Comté,0.9999999999999766,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:25450,PLATEAUX MOYENS DU JURA - 25,Bourgogne-Franche-Comté,0.9999999999999776,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:25452,PLATEAUX SUPERIEURS DU JURA - 25,Bourgogne-Franche-Comté,0.999999999999916,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:26221,REGION DE ROYANS - 26,Auvergne-Rhône-Alpes,0.9999999999999933,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:26234,DIOIS - 26,Auvergne-Rhône-Alpes,0.9999999999999859,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:26240,PLAINES RHODANIENNES - 26,Auvergne-Rhône-Alpes,0.9999999999999741,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:26241,VALLOIRE - 26,Auvergne-Rhône-Alpes,0.9999999999999998,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:26242,GALLAURE ET HERBASSE - 26,Auvergne-Rhône-Alpes,0.9999999999999861,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:26243,PAYS DE BOURDEAUX - 26,Auvergne-Rhône-Alpes,0.9999999999999807,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:26453,VERCORS - 26,Auvergne-Rhône-Alpes,0.9999999999999424,0.9999999999999984,era_complete,era_complete,era5-land,1
+pra:26461,BOCHAINE - 26,Auvergne-Rhône-Alpes,0.999999999999963,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:26463,BARONNIES - 26,Auvergne-Rhône-Alpes,0.999999999999986,0.9999999999999982,era_complete,era_complete,era5-land,1
+pra:26464,TRICASTIN - 26,Auvergne-Rhône-Alpes,0.9999999999999738,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:27044,VEXIN NORMAND - 27,Normandie,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:27050,PAYS DE LYONS - 27,Normandie,0.9999999999999998,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:27051,MARAIS VERNIER - 27,Normandie,1.0,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:27052,ROUMOIS - 27,Normandie,1.0,1.000000000000002,era_complete,era_complete,era5-land,1
+pra:27077,LIEUVIN - 27,Normandie,1.0,1.0,era_complete,era_complete,era5-land,1
+pra:27078,PLATEAU DE NEUBOURG - 27,Normandie,0.9999999999999997,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:27079,PLATEAU D EVREUX SAINT-ANDRE - 27,Normandie,0.9999999999999462,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:27080,PLATEAU DE MADRIE - 27,Normandie,0.9999999999999509,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:27330,VEXIN BOSSU - 27,Normandie,0.9999999999999991,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:27332,VALLEE DE LA SEINE - 27,Normandie,0.9999999999999972,0.9999999999999974,era_complete,era_complete,era5-land,1
+pra:27351,PERCHE - 27,Normandie,1.0,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:27352,PAYS D OUCHE - 27,Normandie,0.9999999999999166,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:27353,PAYS D AUGE - 27,Normandie,0.9999999999999728,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:28076,FAUX PERCHE - 28,Centre-Val de Loire,0.9999999999999777,0.9999999999999984,era_complete,era_complete,era5-land,1
+pra:28334,DROUAIS THIMERAIS - 28,Centre-Val de Loire,0.999999999999993,0.9999999999999987,era_complete,era_complete,era5-land,1
+pra:28341,BEAUCE DUNOISE - 28,Centre-Val de Loire,0.9999999999999989,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:28342,BEAUCE - 28,Centre-Val de Loire,0.9999999999999788,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:28351,PERCHE - 28,Centre-Val de Loire,0.9999999999999853,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:29100,ZONE COTIERE DE BREST - 29,Bretagne,0.9999999999999907,0.9999999999999986,era_complete,era_complete,era5-land,1
+pra:29101,ZONE DE PLOUGASTEL-DAOULAS - 29,Bretagne,0.8486596116160978,0.9999999999999998,unavailable,sim_complete,meteo-france-sim,0.9999999999999998
+pra:29102,PRESQU ILE DE CROZON - 29,Bretagne,0.0,0.9981436674146851,unavailable,sim_partial,meteo-france-sim,0.9981436674146851
+pra:29103,ZONE LEGUMIERE DE LA PENEPLAINE SUD - 29,Bretagne,0.39940706754017047,0.999999999999999,unavailable,sim_complete,meteo-france-sim,0.999999999999999
+pra:29358,LITTORAL BRETON NORD - 29,Bretagne,0.9459016665211627,0.9966070401184034,era_partial,era_partial,era5-land,0.9459016665211627
+pra:29360,MONTS D'ARREE - 29,Bretagne,0.9999999999999246,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:29361,PENEPLAINE BRETONNE NORD - 29,Bretagne,0.9595980976205128,0.9917201275984706,era_partial,era_partial,era5-land,0.9595980976205128
+pra:29362,BASSIN DE CHATEAULIN - 29,Bretagne,0.9291212136614772,0.9999999999999994,era_partial,era_partial,era5-land,0.9291212136614772
+pra:29363,PENEPLAINE BRETONNE SUD - 29,Bretagne,0.8203940844044206,0.9959661653061013,unavailable,sim_partial,meteo-france-sim,0.9959661653061013
+pra:2A258,LITTORAL CORSE - 2A,Corse,0.4692215787208781,0.9650471163747415,unavailable,sim_partial,meteo-france-sim,0.9650471163747415
+pra:2A259,COTEAUX CORSES - 2A,Corse,0.8845635429854587,0.9992310390140503,unavailable,sim_partial,meteo-france-sim,0.9992310390140503
+pra:2A260,MONTAGNE CORSE - 2A,Corse,0.9926908133329774,0.9988159731291503,era_partial,era_partial,era5-land,0.9926908133329774
+pra:2B258,LITTORAL CORSE - 2B,Corse,0.8523500667147054,0.9892275798195412,unavailable,sim_partial,meteo-france-sim,0.9892275798195412
+pra:2B259,COTEAUX CORSES - 2B,Corse,0.7645953157328961,0.9874358077765597,unavailable,sim_partial,meteo-france-sim,0.9874358077765597
+pra:2B260,MONTAGNE CORSE - 2B,Corse,0.9998391064170352,1.0000000000000004,era_partial,era_partial,era5-land,0.9998391064170352
+pra:30410,CEVENNES - 30,Occitanie,0.9999999999999561,0.9999999999999988,era_complete,era_complete,era5-land,1
+pra:30411,CAUSSE NOIR - 30,Occitanie,0.9999999999999167,1.0,era_complete,era_complete,era5-land,1
+pra:30414,CAUSSES DU LARZAC - 30,Occitanie,1.0,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:30415,SOUBERGUES - 30,Occitanie,0.9999999999999949,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:30416,GARRIGUES - 30,Occitanie,0.9999999999999676,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:30422,BAS-VIVARAIS - 30,Occitanie,0.9999999999999897,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:30465,VALLEE DU RHONE - 30,Occitanie,0.9999999999999559,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:30471,PLAINE VITICOLE - 30,Occitanie,0.9151607416991552,1.0000000000000009,era_partial,era_partial,era5-land,0.9151607416991552
+pra:31385,COTEAUX DU GERS - 31,Occitanie,0.9999999999998932,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:31389,COTEAUX DE GASCOGNE - 31,Occitanie,0.9999999999999283,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:31390,LSE VALLEES - 31,Occitanie,0.9999999999998529,0.9999999999999963,era_complete,era_complete,era5-land,1
+pra:31391,LAURAGAIS - 31,Occitanie,0.9999999999998523,0.9999999999999979,era_complete,era_complete,era5-land,1
+pra:31392,VOLVESTRE - 31,Occitanie,0.9999999999999294,0.9999999999999987,era_complete,era_complete,era5-land,1
+pra:31393,LA RIVIERE - 31,Occitanie,0.9999999999999486,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:31472,PYRENNEES CENTRALES - 31,Occitanie,0.9999999999998498,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:32147,HAUT-ARMAGNAC - 32,Occitanie,0.9999999999998412,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:32149,TENAREZE - 32,Occitanie,0.9999999999999992,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:32383,ASTARAC - 32,Occitanie,0.9999999999999765,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:32384,LOMAGNE - 32,Occitanie,0.9999999999999806,1.0,era_complete,era_complete,era5-land,1
+pra:32385,COTEAUX DU GERS - 32,Occitanie,0.9999999999996644,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:32386,VIC-BIHL - 32,Occitanie,0.9999999999999997,0.999999999999996,era_complete,era_complete,era5-land,1
+pra:32387,RIVIERE BASSE - 32,Occitanie,0.9999999999997631,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:32388,BAS-ARMAGNAC - 32,Occitanie,1.0,1.0000000000000018,era_complete,era_complete,era5-land,1
+pra:33114,MEDOC - 33,Nouvelle-Aquitaine,0.9999999999999967,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:33115,BAS-MEDOC - 33,Nouvelle-Aquitaine,0.6250895705887968,0.9999999999999982,unavailable,sim_complete,meteo-france-sim,0.9999999999999982
+pra:33116,ILOT DE POLYCULTURE DE CIVRAC - 33,Nouvelle-Aquitaine,0.9999999999999974,0.9999999999999979,era_complete,era_complete,era5-land,1
+pra:33117,BLAYAIS - 33,Nouvelle-Aquitaine,0.9999999999999916,1.0000000000000016,era_complete,era_complete,era5-land,1
+pra:33118,LIBOURNAIS - 33,Nouvelle-Aquitaine,0.9999999999999227,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:33119,VALLEE DE L ISLE - 33,Nouvelle-Aquitaine,0.9999999999999949,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:33120,REGION DE POLYCULTURE DE SAINT-CIERS - 33,Nouvelle-Aquitaine,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:33121,ENTRE-DEUX-MERS VITICOLE - 33,Nouvelle-Aquitaine,0.9999999999999909,1.0000000000000016,era_complete,era_complete,era5-land,1
+pra:33122,OUEST ENTRE-DEUX-MERS - 33,Nouvelle-Aquitaine,0.9999999999999948,0.999999999999998,era_complete,era_complete,era5-land,1
+pra:33123,ILOT DE POLYCULTURE DE BARON - 33,Nouvelle-Aquitaine,0.9999999999999981,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:33124,BENAUGE BOISEE - 33,Nouvelle-Aquitaine,1.0,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:33125,BENAUGE - 33,Nouvelle-Aquitaine,0.999999999999974,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:33126,CEINTURE LAITIERE ET LEGUMIERE DE BORDEAUX - 33,Nouvelle-Aquitaine,0.9999999999999878,0.9999999999999986,era_complete,era_complete,era5-land,1
+pra:33127,ILOT DE POLYCULTURE DE PUJOLS - 33,Nouvelle-Aquitaine,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:33128,COTES DU BORDELAIS - 33,Nouvelle-Aquitaine,0.9999999999999837,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:33129,GRAVES - 33,Nouvelle-Aquitaine,0.9999999999999803,0.9999999999999982,era_complete,era_complete,era5-land,1
+pra:33135,PETITES LANDES DE VILLANDRAUT - 33,Nouvelle-Aquitaine,0.9999999999999817,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:33136,PETITES LANDES DU BAZADAIS - 33,Nouvelle-Aquitaine,0.9999999999999791,0.9999999999999988,era_complete,era_complete,era5-land,1
+pra:33137,LANDES DU MEDOC - 33,Nouvelle-Aquitaine,0.8385368566114515,0.9996698185216782,unavailable,sim_partial,meteo-france-sim,0.9996698185216782
+pra:33376,SAINTONGE BOISEE - 33,Nouvelle-Aquitaine,0.9999999999999971,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:33378,GRANDES LANDES - 33,Nouvelle-Aquitaine,0.9481359308824623,0.9999999999999991,era_partial,era_partial,era5-land,0.9481359308824623
+pra:33400,VALLEE DE LA GARONNE - 33,Nouvelle-Aquitaine,1.0,1.000000000000002,era_complete,era_complete,era5-land,1
+pra:33401,BERGEACOIS - 33,Nouvelle-Aquitaine,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:33402,PAYS DE DURAS - 33,Nouvelle-Aquitaine,0.9999999999999711,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:33405,DOUBLE PERIGOURDINE - 33,Nouvelle-Aquitaine,1.0,0.9999999999999987,era_complete,era_complete,era5-land,1
+pra:33406,LANDAIS - 33,Nouvelle-Aquitaine,0.9999999999999459,1.0,era_complete,era_complete,era5-land,1
+pra:34412,PLATEAUX DU SOMMAIL ET DE L'ESPINOUZE - 34,Occitanie,0.9999999999998498,1.0,era_complete,era_complete,era5-land,1
+pra:34414,CAUSSES DU LARZAC - 34,Occitanie,0.9999999999999991,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:34415,SOUBERGUES - 34,Occitanie,0.9999999999998685,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:34416,GARRIGUES - 34,Occitanie,0.9991014172087588,0.9999999999999999,era_partial,era_partial,era5-land,0.9991014172087588
+pra:34470,MINERVOIS - 34,Occitanie,0.9999999999998959,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:34471,PLAINE VITICOLE - 34,Occitanie,0.828298320308539,0.9999629394669735,unavailable,sim_complete,meteo-france-sim,0.9999629394669735
+pra:35097,REGION CENTRALE - 35,Bretagne,0.9999999999999946,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:35098,POLDERS DU MONT-SAINT-MICHEL - 35,Bretagne,1.0,0.9999999999999987,era_complete,era_complete,era5-land,1
+pra:35099,MARAIS DE DOL - 35,Bretagne,1.0,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:35357,REGION DE FOUGERES - 35,Bretagne,0.9999999999999648,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:35358,REGION  DE SAINT MALO - 35,Bretagne,0.99639822701174,0.9855095877760721,era_partial,era_partial,era5-land,0.99639822701174
+pra:35359,BRETAGNE CENTRALE - 35,Bretagne,0.9999999999999796,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:35363,PAYS DE REDON - 35,Bretagne,1.0,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:36434,CHAMPAGNE BERRICHONNE - 36,Centre-Val de Loire,0.9999999999998986,0.9999999999999983,era_complete,era_complete,era5-land,1
+pra:36435,BOISCHAUT DU NORD - 36,Centre-Val de Loire,0.9999999999999483,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:36436,BOISCHAUT DU SUD - 36,Centre-Val de Loire,0.9999999999999732,0.9999999999999962,era_complete,era_complete,era5-land,1
+pra:36438,BRENNE-PETITE BRENNE - 36,Centre-Val de Loire,0.9999999999999619,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:37069,REGION DE SAINTE MAURE - 37,Centre-Val de Loire,0.9999999999999498,0.9999999999999988,era_complete,era_complete,era5-land,1
+pra:37070,CHAMPAIGNE - 37,Centre-Val de Loire,1.0,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:37071,REGION VITICOLE A L EST DE TOURS - 37,Centre-Val de Loire,0.9999999999999999,1.0,era_complete,era_complete,era5-land,1
+pra:37072,FORET D AMBOISE - 37,Centre-Val de Loire,0.9999999999999997,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:37073,PLATEAU DE METTRAY - 37,Centre-Val de Loire,1.0,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:37074,BASSIN DE SAVIGNE - 37,Centre-Val de Loire,0.9999999999999951,1.0,era_complete,era_complete,era5-land,1
+pra:37344,VAL DE LOIRE - 37,Centre-Val de Loire,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:37346,GATINE TOURANGELLE - 37,Centre-Val de Loire,0.9999999999999902,1.0000000000000022,era_complete,era_complete,era5-land,1
+pra:37348,RICHELAIS - 37,Centre-Val de Loire,0.999999999999928,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:37435,GATINE DE LOCHES ET DE MONTRESOR - 37,Centre-Val de Loire,0.9999999999999439,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:38199,BAS-DAUPHINE - 38,Auvergne-Rhône-Alpes,0.9999999999999885,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:38217,VALLEE DU GRESIVAUDAN - 38,Auvergne-Rhône-Alpes,0.9999999999999862,1.0000000000000024,era_complete,era_complete,era5-land,1
+pra:38453,PREALPES - 38,Auvergne-Rhône-Alpes,0.9999999999999805,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:38457,REGION HAUTE ALPINE - 38,Auvergne-Rhône-Alpes,0.9999999999999662,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:38465,VALLEE DU RHONE - 38,Auvergne-Rhône-Alpes,0.9999999999999877,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:39203,VAL D AMOUR ET FORET DE CHAUX - 39,Bourgogne-Franche-Comté,0.9999999999999111,1.0,era_complete,era_complete,era5-land,1
+pra:39206,FINAGE - 39,Bourgogne-Franche-Comté,0.9999999999998325,1.000000000000002,era_complete,era_complete,era5-land,1
+pra:39207,VIGNOBLE DU JURA - 39,Bourgogne-Franche-Comté,0.9999999999999426,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:39209,COMBE D AIN - 39,Bourgogne-Franche-Comté,0.9999999999999791,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:39212,PLATEAU INFERIEUR DU JURA - 39,Bourgogne-Franche-Comté,0.999999999999937,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:39446,BRESSE - 39,Bourgogne-Franche-Comté,0.999999999999915,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:39447,PLAINE DOLOISE - 39,Bourgogne-Franche-Comté,0.9999999999999851,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:39449,HAUT JURA - 39,Bourgogne-Franche-Comté,0.9999999999999736,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:39451,PETITE MONTAGNE - 39,Bourgogne-Franche-Comté,0.9999999999999777,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:39452,DEUXIEME PLATEAU - 39,Bourgogne-Franche-Comté,0.9999999999999726,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:40130,PAYS DE BORN - 40,Nouvelle-Aquitaine,0.9288993259519046,0.9936009354298186,era_partial,era_partial,era5-land,0.9288993259519046
+pra:40131,MARENSIN - 40,Nouvelle-Aquitaine,0.8692293987607427,0.9985137441286484,unavailable,sim_partial,meteo-france-sim,0.9985137441286484
+pra:40132,MARENNE - 40,Nouvelle-Aquitaine,0.9764042995653717,0.9941774111399232,era_partial,era_partial,era5-land,0.9764042995653717
+pra:40133,MARSAN - 40,Nouvelle-Aquitaine,1.0,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:40134,PETITES LANDES DE ROQUEFORT - 40,Nouvelle-Aquitaine,0.9999999999999323,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:40144,SEIGNANX - 40,Nouvelle-Aquitaine,0.8889803665316505,0.9999999999999999,unavailable,sim_complete,meteo-france-sim,0.9999999999999999
+pra:40145,PAYS DE GOSSE - 40,Nouvelle-Aquitaine,0.9999999999995538,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:40378,GRANDES LANDES - 40,Nouvelle-Aquitaine,0.999999999999972,0.9999999999999983,era_complete,era_complete,era5-land,1
+pra:40379,VALLEE DU GAVE D OLORON - 40,Nouvelle-Aquitaine,1.0,1.0,era_complete,era_complete,era5-land,1
+pra:40380,VALLEE DU GAVE DE PAU - 40,Nouvelle-Aquitaine,0.999999999998725,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:40382,CHALOSSE - 40,Nouvelle-Aquitaine,0.9999999999998903,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:40387,TURSAN - 40,Nouvelle-Aquitaine,0.9999999999999962,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:40388,BAS-ARMAGNAC - 40,Nouvelle-Aquitaine,0.9999999999999996,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:41065,SOLOGNE VITICOLE - 41,Centre-Val de Loire,0.9999999999999949,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:41068,VALLEE ET COTEAUX DE LA LOIRE - 41,Centre-Val de Loire,0.9999999999999836,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:41075,PERCHE VENDOMOIS - 41,Centre-Val de Loire,1.0,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:41341,BEAUCE - 41,Centre-Val de Loire,1.0,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:41343,GRANDE SOLOGNE - 41,Centre-Val de Loire,0.9999999999999933,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:41346,GATINE TOURANGELLE - 41,Centre-Val de Loire,0.999999999999997,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:41350,VALLEE ET COTEAUX DU LOIR - 41,Centre-Val de Loire,0.9999999999999994,0.9999999999999987,era_complete,era_complete,era5-land,1
+pra:41351,PERCHE - 41,Centre-Val de Loire,0.9999999999999997,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:41434,CHAMPAGNE BERRICHONNE - 41,Centre-Val de Loire,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:41435,PLATEAUX BOCAGERS DE LA TOURAINE MERIDIONALE - 41,Centre-Val de Loire,1.0,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:42168,MONTS DU JAREZ ET BASSIN HOUILLER STEPHANOIS - 42,Auvergne-Rhône-Alpes,0.9999999999999827,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:42170,MONTS DU PILAT - 42,Auvergne-Rhône-Alpes,0.9999999999999973,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:42189,PLATEAU DE NEULISE - 42,Auvergne-Rhône-Alpes,0.999999999999949,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:42190,PLAINE ROANNAISE - 42,Auvergne-Rhône-Alpes,0.9999999999997656,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:42191,COTE ROANNAISE - 42,Auvergne-Rhône-Alpes,0.9999999999997443,1.0,era_complete,era_complete,era5-land,1
+pra:42192,MONTS DE LA MADELEINE - 42,Auvergne-Rhône-Alpes,0.9999999999998543,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:42193,PLAINE DU FOREZ - 42,Auvergne-Rhône-Alpes,0.9999999999999888,0.9999999999999988,era_complete,era_complete,era5-land,1
+pra:42425,MONTS DU FOREZ - 42,Auvergne-Rhône-Alpes,0.9999999999999954,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:42445,MONTS DU LYONNAIS - 42,Auvergne-Rhône-Alpes,0.9999999999998945,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:42465,VALLEE DU RHONE - 42,Auvergne-Rhône-Alpes,1.0,0.9999999999999987,era_complete,era_complete,era5-land,1
+pra:43172,BASSIN DU PUY - 43,Auvergne-Rhône-Alpes,0.9999999999999839,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:43177,BRIVADOIS - 43,Auvergne-Rhône-Alpes,0.9999999999999886,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:43417,CEZALLIER - 43,Auvergne-Rhône-Alpes,0.9999999999999912,1.0000000000000042,era_complete,era_complete,era5-land,1
+pra:43418,MARGERIDE - 43,Auvergne-Rhône-Alpes,0.999999999999963,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:43423,MASSIF DU MEZENC-MEYGAL - 43,Auvergne-Rhône-Alpes,0.9999999999999453,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:43424,VELAY BASALTIQUE - 43,Auvergne-Rhône-Alpes,0.9999999999999645,0.999999999999998,era_complete,era_complete,era5-land,1
+pra:43425,MONT DU FOREZ - 43,Auvergne-Rhône-Alpes,0.9999999999999876,0.999999999999998,era_complete,era_complete,era5-land,1
+pra:43427,LIMAGNE - 43,Auvergne-Rhône-Alpes,0.9999999999999993,0.9999999999999984,era_complete,era_complete,era5-land,1
+pra:44104,PAYS DE CHATEAUBRIANT - 44,Pays de la Loire,0.9999999999999983,0.9999999999999984,era_complete,era_complete,era5-land,1
+pra:44105,PLATEAUX BOISES NANTAIS - 44,Pays de la Loire,1.0,1.0000000000000036,era_complete,era_complete,era5-land,1
+pra:44106,ESTUAIRE DE LA LOIRE - 44,Pays de la Loire,0.9842032749295404,0.9999999999999987,era_partial,era_partial,era5-land,0.9842032749295404
+pra:44107,REGION URBAINE ET MARAICHERE DE NANTES - 44,Pays de la Loire,0.9999999999999992,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:44108,PAYS DE RETZ - 44,Pays de la Loire,0.8880962258758613,0.9999999999999979,unavailable,sim_complete,meteo-france-sim,0.9999999999999979
+pra:44356,BOCAGE ANGEVIN - 44,Pays de la Loire,0.9999999999999902,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:44363,PAYS DE REDON - 44,Pays de la Loire,0.999999999999991,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:44364,PRESQU'ILE GUERANDAISE ET GRANDE BRIERE - 44,Pays de la Loire,0.8437314181659112,0.9926825037010459,unavailable,sim_partial,meteo-france-sim,0.9926825037010459
+pra:44365,MARAIS BRETON - 44,Pays de la Loire,0.8744163164905747,0.9999999999999991,unavailable,sim_complete,meteo-france-sim,0.9999999999999991
+pra:44368,BAS BOCAGE - 44,Pays de la Loire,0.9999999999998762,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:44373,PAYS DE SEVRE ET MAINE - 44,Pays de la Loire,0.9999999999999531,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:45063,ORLEANAIS - 45,Centre-Val de Loire,0.9999999999999998,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:45067,VAL DE LOIRE - 45,Centre-Val de Loire,1.0,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:45338,GATINAIS PAUVRE - 45,Centre-Val de Loire,0.9999999999999946,0.9999999999999988,era_complete,era_complete,era5-land,1
+pra:45339,GATINAIS RICHE - 45,Centre-Val de Loire,0.9999999999999989,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:45340,PUISAYE - 45,Centre-Val de Loire,0.9999999999999929,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:45341,BEAUCE DE PATAY - 45,Centre-Val de Loire,0.9999999999999998,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:45342,BEAUCE RICHE - 45,Centre-Val de Loire,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:45343,SOLOGNE - 45,Centre-Val de Loire,1.0,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:45439,BERRY - 45,Centre-Val de Loire,0.9999999999999778,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:46159,BOURIANNE - 46,Occitanie,0.9999999999999838,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:46160,VALLEE DE LA DORDOGNE - 46,Occitanie,0.9999999999999977,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:46394,CAUSSES - 46,Occitanie,0.9999999999999813,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:46396,QUERCY BLANC - 46,Occitanie,0.9999999999999994,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:46407,VALLEE DU LOT - 46,Occitanie,0.999999999999977,0.9999999999999982,era_complete,era_complete,era5-land,1
+pra:46408,LIMARGUE - 46,Occitanie,0.9999999999999803,0.9999999999999987,era_complete,era_complete,era5-land,1
+pra:46409,SEGALA - 46,Occitanie,0.9999999999999676,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:47156,COTEAUX NORD DU LOT-ET-GARONNE - 47,Nouvelle-Aquitaine,0.9999999999999838,0.9999999999999976,era_complete,era_complete,era5-land,1
+pra:47157,COTEAUX BORDURE LANDES - 47,Nouvelle-Aquitaine,0.9999999999999653,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:47378,GRANDES LANDES - 47,Nouvelle-Aquitaine,0.9999999999999832,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:47394,CAUSSES - 47,Nouvelle-Aquitaine,0.9999999999999846,1.0000000000000024,era_complete,era_complete,era5-land,1
+pra:47398,COTEAUX SUD GARONNE - 47,Nouvelle-Aquitaine,0.9999999999999498,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:47399,PAYS DE SERRES - 47,Nouvelle-Aquitaine,0.9999999999999996,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:47400,PLAINES DELA GARONNE ET DU LOT - 47,Nouvelle-Aquitaine,0.9999999999999901,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:47401,BERGEACOIS - 47,Nouvelle-Aquitaine,0.9999999999999627,1.0000000000000049,era_complete,era_complete,era5-land,1
+pra:47402,DURAS - 47,Nouvelle-Aquitaine,0.9999999999999768,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:47404,PERIGORD NOIR - 47,Nouvelle-Aquitaine,0.9999999999999996,1.0,era_complete,era_complete,era5-land,1
+pra:48410,CEVENNES - 48,Occitanie,0.9999999999999949,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:48411,CAUSSES - 48,Occitanie,0.9999999999999901,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:48418,MARGERIDE - 48,Occitanie,0.9999999999999841,1.0,era_complete,era_complete,era5-land,1
+pra:48419,AUBRAC - 48,Occitanie,0.9999999999999717,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:49344,VALLEE DE LA LOIRE - 49,Pays de la Loire,1.0,1.0,era_complete,era_complete,era5-land,1
+pra:49345,BEAUGEOIS - 49,Pays de la Loire,0.9999999999999875,1.0,era_complete,era_complete,era5-land,1
+pra:49347,SAUMUROIS - 49,Pays de la Loire,1.0,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:49356,BOCAGE ANGEVIN - 49,Pays de la Loire,0.9999999999999922,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:49373,CHOLETAIS - 49,Pays de la Loire,0.9999999999999827,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:50081,LA HAGUE - 50,Normandie,0.4392698929830878,1.0000000000000002,unavailable,sim_complete,meteo-france-sim,1.0000000000000002
+pra:50082,BOCAGE DE VALOGNES - 50,Normandie,0.8985468114265341,0.9952816796324667,unavailable,sim_partial,meteo-france-sim,0.9952816796324667
+pra:50083,VAL DE SAIRE - 50,Normandie,0.5290317530925099,0.9999999999999999,unavailable,sim_complete,meteo-france-sim,0.9999999999999999
+pra:50084,COTENTIN - 50,Normandie,0.909439459848472,0.9999999999999994,era_partial,era_partial,era5-land,0.909439459848472
+pra:50086,BOCAGE DE COUTANCES ET SAINT-LO - 50,Normandie,0.966332527574241,0.9989806569014158,era_partial,era_partial,era5-land,0.966332527574241
+pra:50087,AVRANCHIN - 50,Normandie,0.9523685722380425,0.9987634960699439,era_partial,era_partial,era5-land,0.9523685722380425
+pra:50354,LE MORTAINAIS - 50,Normandie,1.0,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:51016,VALLEE DE LA MARNE - 51,Grand Est,0.9999999999999662,0.9999999999999981,era_complete,era_complete,era5-land,1
+pra:51017,VIGNOBLE - 51,Grand Est,0.999999999999964,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:51018,PAYS REMOIS - 51,Grand Est,1.0,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:51315,ARGONNE - 51,Grand Est,0.9999999999999378,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:51317,CHAMPAGNE CRAYEUSE - 51,Grand Est,0.9999999999999665,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:51318,CHAMPAGNE HUMIDE - 51,Grand Est,0.9999999999999736,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:51321,PERTHOIS - 51,Grand Est,0.999999999999991,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:51335,BRIE CHAMPENNOISE - 51,Grand Est,0.9999999999999571,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:51336,TARDENOIS - 51,Grand Est,1.0,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:52008,"PLATEAU LANGROIS,APANCE - 52",Grand Est,0.9999999999999979,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:52009,"PLATEAU LANGROIS,AMANCE - 52",Grand Est,0.9999999999999867,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:52012,VALLAGE - 52,Grand Est,0.99999999999997,0.9999999999999986,era_complete,era_complete,era5-land,1
+pra:52310,BASSIGNY - 52,Grand Est,0.9999999999999977,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:52311,"PLATEAU LANGROIS,MONTAGNE, - 52",Grand Est,0.9999999999999978,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:52312,VINGEANNE - 52,Grand Est,0.9999999999999902,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:52314,BARROIS - 52,Grand Est,0.9999999999999786,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:52318,CHAMPAGNE HUMIDE - 52,Grand Est,0.9999999999999956,1.0000000000000016,era_complete,era_complete,era5-land,1
+pra:52321,PERTHOIS - 52,Grand Est,0.999999999999991,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:52322,BARROIS VALLEE - 52,Grand Est,0.9999999999999991,1.0,era_complete,era_complete,era5-land,1
+pra:53095,REGION D EMBOUCHE DE L ERVE - 53,Pays de la Loire,1.0,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:53096,REGION DES POLYCULTURES DE LAVAL - 53,Pays de la Loire,0.9999999999999987,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:53356,BOCAGE ANGEVIN - 53,Pays de la Loire,1.0,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:53357,ZONE D'ELEVAGE - 53,Pays de la Loire,0.9999999999999727,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:54305,LA HAYE - 54,Grand Est,0.999999999999973,1.0,era_complete,era_complete,era5-land,1
+pra:54306,PLATEAU LORRAIN SUD - 54,Grand Est,0.9999999999999846,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:54307,MONTAGNE VOSGIENNE - 54,Grand Est,1.0,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:54308,PAYS HAUT-LORRAIN - 54,Grand Est,0.999999999999979,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:54313,COTES DE MEUSE - 54,Grand Est,0.9999999999999926,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:54316,WOEVRE - 54,Grand Est,0.999999999999989,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:55308,PAYS DE MONTMEDY - 55,Grand Est,0.9999999999998272,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:55314,BARROIS - 55,Grand Est,0.9999999999999707,0.9999999999999974,era_complete,era_complete,era5-land,1
+pra:55315,ARGONNE - 55,Grand Est,0.9999999999999584,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:55316,WOEVRE - 55,Grand Est,0.9999999999999718,0.9999999999999974,era_complete,era_complete,era5-land,1
+pra:56359,BRETAGNE CENTRALE - 56,Bretagne,0.9999999999999986,0.9999999999999987,era_complete,era_complete,era5-land,1
+pra:56362,REGION NORD - 56,Bretagne,0.9999999999999983,0.9999999999999984,era_complete,era_complete,era5-land,1
+pra:56363,REGION CENTRALE - 56,Bretagne,0.9986627181779798,1.0000000000000018,era_partial,era_partial,era5-land,0.9986627181779798
+pra:56364,LITTORAL BRETON SUD - 56,Bretagne,0.6672327714923467,0.9976080243846399,unavailable,sim_partial,meteo-france-sim,0.9976080243846399
+pra:57003,WARNDT - 57,Grand Est,0.9999999999999893,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:57004,VALLEE DE LA MOSELLE - 57,Grand Est,0.9999999999999969,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:57306,PLATEAU LORRAIN SUD - 57,Grand Est,0.9999999999999593,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:57307,MONTAGNE VOSGIENNE - 57,Grand Est,0.9999999999999805,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:57308,PAYS HAUT-LORRAIN - 57,Grand Est,0.9999999999999994,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:57473,PLATEAU LORRAIN NORD - 57,Grand Est,0.9999999999999745,0.9999290725303965,era_complete,era_complete,era5-land,1
+pra:58180,ENTRE LOIRE ET ALLIER - 58,Bourgogne-Franche-Comté,0.9999999999999442,1.0,era_complete,era_complete,era5-land,1
+pra:58185,BOURGOGNE NIVERNAISE - 58,Bourgogne-Franche-Comté,0.9999999999999921,1.0,era_complete,era_complete,era5-land,1
+pra:58188,NIVERNAIS CENTRAL - 58,Bourgogne-Franche-Comté,0.9999999999999442,0.9999999999999976,era_complete,era_complete,era5-land,1
+pra:58340,PUISAYE - 58,Bourgogne-Franche-Comté,0.9999999999999746,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:58429,SOLOGNE BOURBONNAISE - 58,Bourgogne-Franche-Comté,1.0,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:58443,MORVAN - 58,Bourgogne-Franche-Comté,0.9999999999999536,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:59025,FLANDRE INTERIEURE - 59,Hauts-de-France,0.9999999999998522,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:59026,REGION DE LILLE - 59,Hauts-de-France,0.9999999999997732,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:59027,PEVELE - 59,Hauts-de-France,0.999999999999954,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:59028,PLAINE DE LA SCARPE - 59,Hauts-de-France,0.9999999999999417,0.9999999999999979,era_complete,era_complete,era5-land,1
+pra:59033,HAINAULT - 59,Hauts-de-France,0.9999999999999797,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:59323,THIERACHE - 59,Hauts-de-France,0.9999999999999308,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:59324,PLAINE DE LA LYS - 59,Hauts-de-France,0.99999999999955,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:59325,FLANDRE MARITIME - 59,Hauts-de-France,0.988177403555667,0.9995695047906619,era_partial,era_partial,era5-land,0.988177403555667
+pra:59326,CAMBRESIS - 59,Hauts-de-France,0.999999999999964,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:60041,PAYS DE THELLE - 60,Hauts-de-France,1.0,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:60042,CLERMONTOIS - 60,Hauts-de-France,0.9999999999999992,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:60043,NOYONNAIS - 60,Hauts-de-France,0.9999999999996738,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:60327,PLATEAU PICARD - 60,Hauts-de-France,0.9999999999997549,0.9999999999999982,era_complete,era_complete,era5-land,1
+pra:60328,SOISSONNAIS - 60,Hauts-de-France,0.9999999999999942,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:60329,VALOIS ET MULTIEN - 60,Hauts-de-France,0.9999999999999949,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:60330,VEXIN FRANCAIS - 60,Hauts-de-France,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:60331,PAYS DE BRAY - 60,Hauts-de-France,0.9999999999999365,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:61088,MARLERAULT - 61,Normandie,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:61351,PERCHE ORNAIS - 61,Normandie,0.9999999999999821,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:61352,PAYS D OUCHE - 61,Normandie,0.9999999999999826,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:61353,PAYS D AUGE - 61,Normandie,0.9999999999999551,1.0000000000000016,era_complete,era_complete,era5-land,1
+pra:61354,BOCAGE ORNAIS - 61,Normandie,0.9999999999999999,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:61355,PLAINES D'ALENCON ET D'ARGENTAN - 61,Normandie,0.9999999999999926,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:62023,PAYS AIRE - 62,Hauts-de-France,0.9999999999996714,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:62024,COLLINES GUINOISES - 62,Hauts-de-France,0.9999999999994937,1.0,era_complete,era_complete,era5-land,1
+pra:62029,BOULONNAIS - 62,Hauts-de-France,0.9205695638102344,0.9941412919678381,era_partial,era_partial,era5-land,0.9205695638102344
+pra:62030,HAUT-PAYS D ARTOIS - 62,Hauts-de-France,0.9999999999998702,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:62031,BETHUNOIS - 62,Hauts-de-France,0.9999999999999412,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:62032,TERNOIS - 62,Hauts-de-France,0.9999999999999807,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:62039,PAYS DE MONTREUIL - 62,Hauts-de-France,0.9999999999999459,1.0,era_complete,era_complete,era5-land,1
+pra:62040,BAS-CHAMPS PICARDS - 62,Hauts-de-France,0.9999999999999496,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:62324,PLAINE DE LA LYS - 62,Hauts-de-France,0.9999999999997906,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:62325,WATERINGUES - 62,Hauts-de-France,0.8434556049927447,0.9966014023320852,unavailable,sim_partial,meteo-france-sim,0.9966014023320852
+pra:62326,ARTOIS - 62,Hauts-de-France,0.9999999999999603,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:63165,PERIPHERIE DES DOMES - 63,Auvergne-Rhône-Alpes,0.9999999999999872,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:63166,DOMES - 63,Auvergne-Rhône-Alpes,0.999999999999983,1.0000000000000016,era_complete,era_complete,era5-land,1
+pra:63173,PLAINE D AMBERT - 63,Auvergne-Rhône-Alpes,0.9999999999999895,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:63174,LIVRADOIS - 63,Auvergne-Rhône-Alpes,0.9999999999999899,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:63175,PLAINE DE LA DORE - 63,Auvergne-Rhône-Alpes,0.9999999999999957,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:63176,LIMAGNE VITICOLE - 63,Auvergne-Rhône-Alpes,0.9999999999999863,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:63181,COMBRAILLE - 63,Auvergne-Rhône-Alpes,0.9999999999998886,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:63417,CEZALLIER - 63,Auvergne-Rhône-Alpes,1.0,1.000000000000002,era_complete,era_complete,era5-land,1
+pra:63421,ARTENSE - 63,Auvergne-Rhône-Alpes,0.9999999999999865,1.0000000000000018,era_complete,era_complete,era5-land,1
+pra:63425,MONTS DU FOREZ - 63,Auvergne-Rhône-Alpes,0.9999999999999768,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:63426,LIMAGNE AGRICOLE - 63,Auvergne-Rhône-Alpes,0.9999999999997882,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:63427,PLAINE DE LEMBRON - 63,Auvergne-Rhône-Alpes,0.9999999999999886,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:63428,COMBRAILLE BOURBONNAISE - 63,Auvergne-Rhône-Alpes,0.9999999999997703,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:64138,COTE BASQUE - 64,Nouvelle-Aquitaine,0.7810293706444065,0.9991119258021146,unavailable,sim_partial,meteo-france-sim,0.9991119258021146
+pra:64139,COTEAUX DU PAYS BASQUE - 64,Nouvelle-Aquitaine,0.9998391252146827,0.9999999999999992,era_partial,era_partial,era5-land,0.9998391252146827
+pra:64140,MONTAGNE BASQUE - 64,Nouvelle-Aquitaine,0.999999999999957,1.0,era_complete,era_complete,era5-land,1
+pra:64141,COTEAUX ENTRE LES GAVES - 64,Nouvelle-Aquitaine,0.999999999999954,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:64142,MONTAGNE DU BEARN - 64,Nouvelle-Aquitaine,0.9999999999997772,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:64143,VALLEE DE L ADOUR - 64,Nouvelle-Aquitaine,0.9999999999999987,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:64379,VALLEE DU GAVE D OLORON - 64,Nouvelle-Aquitaine,0.9999999999999243,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:64380,VALLEE DU GAVE DE PAU - 64,Nouvelle-Aquitaine,0.9999999999999492,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:64381,COTEAUX DU BEARN - 64,Nouvelle-Aquitaine,0.999999999999862,0.9999999999999986,era_complete,era_complete,era5-land,1
+pra:64382,CHALOSSE - 64,Nouvelle-Aquitaine,0.9999999999986846,1.0,era_complete,era_complete,era5-land,1
+pra:64386,VIC-BIHL - 64,Nouvelle-Aquitaine,0.9999999999994651,0.9999999999999988,era_complete,era_complete,era5-land,1
+pra:65146,MONTAGNE DE BIGORRE - 65,Occitanie,0.9999999999998059,0.9999999999999979,era_complete,era_complete,era5-land,1
+pra:65148,COTEAUX DE BIGORRE - 65,Occitanie,0.9999999999999553,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:65150,HAUTE VALLEE DE L ADOUR - 65,Occitanie,0.9999999999998911,0.9999999999999984,era_complete,era_complete,era5-land,1
+pra:65381,COTEAUX NORD - 65,Occitanie,0.9999999999999858,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:65383,ASTARAC - 65,Occitanie,0.9999999999998938,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:65386,VIC BILH ET MADIRAN - 65,Occitanie,0.9999999999993656,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:65387,RIVIERE BASSE - 65,Occitanie,0.9999999999999983,1.0000000000000027,era_complete,era_complete,era5-land,1
+pra:65389,COTEAUX DE GASCOGNE - 65,Occitanie,1.0,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:66252,PLAINE DU ROUSSILON - 66,Occitanie,0.8602622725532107,1.0000000000000002,unavailable,sim_complete,meteo-france-sim,1.0000000000000002
+pra:66253,VALLESPIR ET ALBERES - 66,Occitanie,0.9999999999999858,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:66254,CRU BANYULS - 66,Occitanie,0.9322428436688067,0.9999999999999984,era_partial,era_partial,era5-land,0.9322428436688067
+pra:66255,CONFLENT - 66,Occitanie,0.9999999999999581,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:66256,CERDAGNE - 66,Occitanie,0.9999999999999536,1.0,era_complete,era_complete,era5-land,1
+pra:66257,CAPCIR - 66,Occitanie,0.9999999999999568,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:66470,CORBIERES DU ROUSSILLON - 66,Occitanie,0.9999999999999982,1.0,era_complete,era_complete,era5-land,1
+pra:66472,FENOUILLEDE - 66,Occitanie,1.0,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:67301,PLAINE DU RHIN - 67,Grand Est,0.999999999999962,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:67302,RIED - 67,Grand Est,0.9999999999999657,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:67304,REGION SOUS-VOSGIENNE - 67,Grand Est,0.9999999999999594,1.0000000000000018,era_complete,era_complete,era5-land,1
+pra:67307,MONTAGNE VOSGIENNE - 67,Grand Est,0.9999999999999427,1.000000000000002,era_complete,era_complete,era5-land,1
+pra:67473,PLATEAU LORRAIN NORD - 67,Grand Est,0.9999999999998793,1.0000000000000018,era_complete,era_complete,era5-land,1
+pra:68001,HARDT - 68,Grand Est,0.9999999999999993,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:68002,OCHSENFELD - 68,Grand Est,0.9999999999999984,1.0,era_complete,era_complete,era5-land,1
+pra:68301,PLAINE DU RHIN - 68,Grand Est,0.9999999999999888,1.0000000000000016,era_complete,era_complete,era5-land,1
+pra:68302,RIED - 68,Grand Est,1.0,0.999999999999998,era_complete,era_complete,era5-land,1
+pra:68303,SUNDGAU - 68,Grand Est,0.9999999999999823,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:68304,COLLINES SOUS VOSGIENNES - 68,Grand Est,0.9999999999999982,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:68307,MONTAGNE VOSGIENNE - 68,Grand Est,0.9999999999999962,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:68450,JURA - 68,Grand Est,0.9999999999999997,0.9999999999999982,era_complete,era_complete,era5-land,1
+pra:69194,PLATEAUX DU LYONNAIS - 69,Auvergne-Rhône-Alpes,0.9999999999999849,1.0,era_complete,era_complete,era5-land,1
+pra:69195,VALLEE DE LA SAONE - 69,Auvergne-Rhône-Alpes,0.999999999999999,1.0000000000000016,era_complete,era_complete,era5-land,1
+pra:69196,ZONE MARAICHERE DE LYON - 69,Auvergne-Rhône-Alpes,1.0,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:69197,ZONE DE GRANDE CULTURE ENTRE SAONE ET BEAUJOLAIS - 69,Auvergne-Rhône-Alpes,0.999999999999776,1.000000000000004,era_complete,era_complete,era5-land,1
+pra:69199,BAS-DAUPHINE - 69,Auvergne-Rhône-Alpes,0.999999999999999,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:69200,ZONE FRUITIERE ET VITICOLE DU LYONNAIS - 69,Auvergne-Rhône-Alpes,0.9999999999999946,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:69444,BEAUJOLAIS VITICOLE - 69,Auvergne-Rhône-Alpes,0.999999999999841,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:69445,MONTS DU LYONNAIS - 69,Auvergne-Rhône-Alpes,0.9999999999998916,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:69465,VALLEE DU RHONE - 69,Auvergne-Rhône-Alpes,0.9999999999999788,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:70005,REGION SOUS-VOSGIENNE DE HAUTE-SAONE - 70,Bourgogne-Franche-Comté,0.9999999999999991,1.0000000000000022,era_complete,era_complete,era5-land,1
+pra:70006,REGION VOSGIENNE DE HAUTE SAONE - 70,Bourgogne-Franche-Comté,0.9999999999999992,0.9999999999999988,era_complete,era_complete,era5-land,1
+pra:70007,REGION DES PLATEAUX - 70,Bourgogne-Franche-Comté,0.9999999999999878,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:70205,PLAINE GRAYLOISE - 70,Bourgogne-Franche-Comté,0.9999999999999881,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:70307,HAUTES VOSGES - 70,Bourgogne-Franche-Comté,0.999999999999994,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:70309,VOGE - 70,Bourgogne-Franche-Comté,0.9999999999999986,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:70447,PLAINES ET BASSES VALLEES DU DOUBS ET DE L'OGNON - 70,Bourgogne-Franche-Comté,0.9999999999999948,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:70448,TROUEE DE BELFORT - 70,Bourgogne-Franche-Comté,0.9999999999999546,1.0,era_complete,era_complete,era5-land,1
+pra:71183,BRIONNAIS - 71,Bourgogne-Franche-Comté,0.9999999999999964,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:71184,CLUNYSOIS - 71,Bourgogne-Franche-Comté,0.9999999999999917,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:71187,CHAROLLAIS - 71,Bourgogne-Franche-Comté,0.9999999999999671,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:71202,BRESSE CHALONNAISE - 71,Bourgogne-Franche-Comté,0.9999999999999083,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:71429,SOLOGNE BOURBONNAISE - 71,Bourgogne-Franche-Comté,0.9999999999999714,1.0,era_complete,era_complete,era5-land,1
+pra:71440,CHALONNAIS - 71,Bourgogne-Franche-Comté,0.9999999999999286,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:71441,COTE CHALONNAISE - 71,Bourgogne-Franche-Comté,0.999999999999938,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:71442,AUTUNOIS - 71,Bourgogne-Franche-Comté,0.9999999999999487,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:71443,MORVAN - 71,Bourgogne-Franche-Comté,0.9999999999998886,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:71444,MACONNAIS - 71,Bourgogne-Franche-Comté,0.9999999999999629,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:71446,BRESSE LOUHANNAISE - 71,Bourgogne-Franche-Comté,0.9999999999999698,1.0,era_complete,era_complete,era5-land,1
+pra:72089,VALLEE DE LA SARTHE ET REGION MANCELLE - 72,Pays de la Loire,1.0,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:72090,BALINOIS - 72,Pays de la Loire,0.9999999999999991,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:72091,PLATEAU CALAISIEN - 72,Pays de la Loire,1.0,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:72092,CHAMPAGNE MANCELLE - 72,Pays de la Loire,1.0,1.0,era_complete,era_complete,era5-land,1
+pra:72093,BOCAGE SABOLIEN - 72,Pays de la Loire,1.0,1.0000000000000018,era_complete,era_complete,era5-land,1
+pra:72094,SAOSNOIS - 72,Pays de la Loire,1.0,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:72345,BEAUGEOIS - 72,Pays de la Loire,1.0,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:72350,VALLEE DU LOIR - 72,Pays de la Loire,1.0,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:72351,PERCHE - 72,Pays de la Loire,1.0,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:72354,BOCAGE DES ALPES MANCELLES - 72,Pays de la Loire,0.999999999999967,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:72355,PLAINE D'ALENCON - 72,Pays de la Loire,0.999999999999912,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:73213,CHAUTAGNE - 73,Auvergne-Rhône-Alpes,0.9999999999999877,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:73219,COMBE DE SAVOIE - 73,Auvergne-Rhône-Alpes,0.9999999999999835,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:73220,CLUSE DE CHAMBERY - 73,Auvergne-Rhône-Alpes,0.9999999999999843,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:73229,MAURIENNE - 73,Auvergne-Rhône-Alpes,0.9999999999999847,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:73230,BEAUFORTIN - 73,Auvergne-Rhône-Alpes,0.9999999999999957,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:73451,LSE QUATRE CANTONS - 73,Auvergne-Rhône-Alpes,0.9999999999999833,1.0,era_complete,era_complete,era5-land,1
+pra:73453,CHARTREUSE - 73,Auvergne-Rhône-Alpes,0.999999999999993,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:73454,LE VAL D'ARLY - 73,Auvergne-Rhône-Alpes,1.0,1.0,era_complete,era_complete,era5-land,1
+pra:73455,ALBANAIS - 73,Auvergne-Rhône-Alpes,0.9999999999999976,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:73456,BAUGES - 73,Auvergne-Rhône-Alpes,0.9999999999999872,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:73458,TARENTAISE - 73,Auvergne-Rhône-Alpes,0.9999999999999892,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:74208,BAS-GENEVOIS - 74,Auvergne-Rhône-Alpes,0.999999999999965,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:74210,LA SEMINE - 74,Auvergne-Rhône-Alpes,0.9999999999994169,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:74211,VALLEE DES USSES - 74,Auvergne-Rhône-Alpes,0.9999999999996603,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:74214,REGION D ANNEMASSE - 74,Auvergne-Rhône-Alpes,0.999999999999832,1.0,era_complete,era_complete,era5-land,1
+pra:74218,REGION D ANNECY - 74,Auvergne-Rhône-Alpes,0.9999999999999645,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:74222,CLUZE D ARVE - 74,Auvergne-Rhône-Alpes,0.9999999999996065,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:74223,GIFFRE - 74,Auvergne-Rhône-Alpes,0.9999999999997125,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:74224,CHABLAIS - 74,Auvergne-Rhône-Alpes,0.9999999999999664,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:74225,PLATEAU DES DRANSES - 74,Auvergne-Rhône-Alpes,0.9999999999999952,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:74226,BAS-CHABLAIS - 74,Auvergne-Rhône-Alpes,0.9999999999999887,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:74227,PAYS DE THONES - 74,Auvergne-Rhône-Alpes,0.9999999999998889,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:74228,PLATEAU DES BORNES - 74,Auvergne-Rhône-Alpes,0.9999999999997506,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:74454,SILLON ALPIN - 74,Auvergne-Rhône-Alpes,0.9999999999999364,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:74455,ALBANAIS - 74,Auvergne-Rhône-Alpes,0.9999999999999717,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:74456,BAUGES - 74,Auvergne-Rhône-Alpes,0.9999999999999915,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:74458,GRANDES ALPES - 74,Auvergne-Rhône-Alpes,0.9999999999999212,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:76046,PAYS DE CAUX - 76,Normandie,0.9421832945090279,0.997482361010935,era_partial,era_partial,era5-land,0.9421832945090279
+pra:76047,PETIT CAUX - 76,Normandie,0.8302416592053758,0.9973171474923422,unavailable,sim_partial,meteo-france-sim,0.9973171474923422
+pra:76048,ENTRE BRAY ET PICARDIE - 76,Normandie,0.9999999999999858,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:76049,ENTRE CAUX ET VEXIN - 76,Normandie,0.9999999999998094,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:76331,PAYS DE BRAY - 76,Normandie,0.9999999999997923,1.0000000000000018,era_complete,era_complete,era5-land,1
+pra:76332,VALLEE DE LA SEINE - 76,Normandie,0.9999999999999963,1.0000000000000018,era_complete,era_complete,era5-land,1
+pra:77045,BUTTE DE DAMMARTIN - 77,Île-de-France,0.9999999999999952,1.0000000000000027,era_complete,era_complete,era5-land,1
+pra:77056,ORXOIS - 77,Île-de-France,0.9999999999999847,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:77057,BRIE BOISEE - 77,Île-de-France,0.9999999999999936,1.0,era_complete,era_complete,era5-land,1
+pra:77058,BRIE CENTRALE - 77,Île-de-France,0.9999999999999899,0.9999999999999981,era_complete,era_complete,era5-land,1
+pra:77059,MONTOIS - 77,Île-de-France,0.999999999999998,0.999999999999999,era_complete,era_complete,era5-land,1
+pra:77060,BRIE EST - 77,Île-de-France,0.9999999999999963,1.0,era_complete,era_complete,era5-land,1
+pra:77061,VALLEES DE LA MARNE ET DU MORIN - 77,Île-de-France,0.9999999999999021,0.9999999999999986,era_complete,era_complete,era5-land,1
+pra:77062,BRIE HUMIDE - 77,Île-de-France,0.9999999999999969,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:77064,PAYS DE BIERE ET FORET DE FONTAINEBLEAU - 77,Île-de-France,0.9999999999999556,1.0000000000000022,era_complete,era_complete,era5-land,1
+pra:77320,BASSEE OU BASSE SEINE - 77,Île-de-France,0.9999999999999949,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:77329,GOELE ET MMULTIEN - 77,Île-de-France,0.9999999999999328,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:77335,BRIE CHAMPENNOISE - 77,Île-de-France,1.0,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:77336,BRIE LAITIERE - 77,Île-de-France,0.999999999999959,0.9999999999999984,era_complete,era_complete,era5-land,1
+pra:77337,BRIE FRANCAISE - 77,Île-de-France,0.9999999999999969,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:77338,BOCAGE GATINAIS - 77,Île-de-France,0.999999999999958,0.9999999999999986,era_complete,era_complete,era5-land,1
+pra:77339,GATINAIS - 77,Île-de-France,0.9999999999999898,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:78053,PLAINE DE VERSAILLES - 78,Île-de-France,0.9999999999999749,0.9999999999999983,era_complete,era_complete,era5-land,1
+pra:78054,YVELINES - 78,Île-de-France,1.0,0.9999999999999987,era_complete,era_complete,era5-land,1
+pra:78055,HUREPOIX - 78,Île-de-France,0.9999999999999992,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:78330,VEXIN - 78,Île-de-France,1.0,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:78332,VALLEE DE LA SEINE - 78,Île-de-France,0.9999999999999044,0.9999999999999982,era_complete,era_complete,era5-land,1
+pra:78333,CEINTURE DE PARIS - 78,Île-de-France,0.9999999999998803,0.9999999999999982,era_complete,era_complete,era5-land,1
+pra:78334,DROUAIS - 78,Île-de-France,0.9999999999999006,1.0000000000000018,era_complete,era_complete,era5-land,1
+pra:78342,BEAUCE - 78,Île-de-France,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:79109,PLATEAU MELLOIS - 79,Nouvelle-Aquitaine,0.9999999999999757,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:79349,PLAINE DE THOUARS - 79,Nouvelle-Aquitaine,0.9999999999998971,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:79366,ENTRE PLAINE ET GATINE - 79,Nouvelle-Aquitaine,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:79367,PLAINE DE LA MOTHE-LEZAY - 79,Nouvelle-Aquitaine,0.9999999999999564,1.0000000000000018,era_complete,era_complete,era5-land,1
+pra:79368,GATINE - 79,Nouvelle-Aquitaine,0.9999999999999671,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:79370,MARAIS POITEVIN MOUILLE - 79,Nouvelle-Aquitaine,1.0,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:79371,PLAINE DE NIORT BRIOUX - 79,Nouvelle-Aquitaine,0.999999999999887,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:79373,BOCAGE - 79,Nouvelle-Aquitaine,0.9999999999999093,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:80035,SANTERRE - 80,Hauts-de-France,0.9999999999999466,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:80036,PONTHIEU - 80,Hauts-de-France,0.9999999999999757,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:80037,MARQUENTERRE - 80,Hauts-de-France,0.7778511767974388,0.988616442509039,unavailable,sim_partial,meteo-france-sim,0.988616442509039
+pra:80038,VIMEU - 80,Hauts-de-France,0.9728623673490356,0.9956477073833211,era_partial,era_partial,era5-land,0.9728623673490356
+pra:80327,PLATEAU PICARD - 80,Hauts-de-France,0.9999999999999549,1.0000000000000027,era_complete,era_complete,era5-land,1
+pra:81151,GAILLACOIS - 81,Occitanie,0.999999999999986,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:81152,COTEAUX MOLASSIQUES - 81,Occitanie,0.9999999999999987,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:81153,PLAINE DE L ALBIGEOIS ET DU CASTRAIS - 81,Occitanie,0.9999999999999729,0.9999999999999982,era_complete,era_complete,era5-land,1
+pra:81391,LAURAGAIS - 81,Occitanie,0.9999999999997484,0.9999999999999984,era_complete,era_complete,era5-land,1
+pra:81395,CAUSSES DU QUERCY - 81,Occitanie,0.9999999999999308,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:81409,SEGALA - 81,Occitanie,0.9999999999999655,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:81412,MONTS DE LACAUNE - 81,Occitanie,0.9999999999999206,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:81413,MONTAGNE NOIRE - 81,Occitanie,0.9999999999997023,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:82154,BAS-QUERCY DE MONTCLAR - 82,Occitanie,0.999999999999952,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:82155,BAS-QUERCY DE MONTPEZAT - 82,Occitanie,0.9999999999999991,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:82384,LOMAGNE - 82,Occitanie,0.9999999999999563,1.0,era_complete,era_complete,era5-land,1
+pra:82385,COTEAUX DU GERS - 82,Occitanie,1.0,0.9999999999999986,era_complete,era_complete,era5-land,1
+pra:82390,VALLEES ET TERRASSES - 82,Occitanie,0.9999999999999286,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:82391,LAURAGAIS - 82,Occitanie,1.0,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:82395,CAUSSES DU QUERCY - 82,Occitanie,0.9999999999999802,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:82396,QUERCY BLANC - 82,Occitanie,0.9999999999999986,0.9999999999999983,era_complete,era_complete,era5-land,1
+pra:82397,ROUERGUE - 82,Occitanie,1.0,1.0,era_complete,era_complete,era5-land,1
+pra:82398,NERACOIS - 82,Occitanie,1.0,1.0000000000000016,era_complete,era_complete,era5-land,1
+pra:82399,PAYS DE SERRES - 82,Occitanie,1.0,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:83247,MAURES ET ESTEREL - 83,Provence-Alpes-Côte d'Azur,0.9614688820896001,0.9991560527549453,era_partial,era_partial,era5-land,0.9614688820896001
+pra:83248,REGIONS FRUITIERES DE SOLLIES-PONT ET DE FREJUS - 83,Provence-Alpes-Côte d'Azur,0.968796697627486,0.9961262346900555,era_partial,era_partial,era5-land,0.968796697627486
+pra:83460,MONTAGNE DE HAUTE-PROVENCE - 83,Provence-Alpes-Côte d'Azur,0.9999999999999238,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:83468,COTEAUX DE PROVENCE - 83,Provence-Alpes-Côte d'Azur,0.9999999999998059,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:83469,LITTORAL DE PROVENCE - 83,Provence-Alpes-Côte d'Azur,0.7874651605721475,0.995764551979697,unavailable,sim_partial,meteo-france-sim,0.995764551979697
+pra:84238,"MONTS DU VENTOUX,DE VAUCLUSE ET DU LUBERON - 84",Provence-Alpes-Côte d'Azur,0.9999999999999845,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:84462,PLATEAU DE SAINT CHRISTOL - 84,Provence-Alpes-Côte d'Azur,0.9999999999999065,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:84463,BARONNIES - 84,Provence-Alpes-Côte d'Azur,0.9999999999999873,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:84464,TRICASTIN - 84,Provence-Alpes-Côte d'Azur,0.9999999999999997,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:84466,BASSE VALLEE DE LA DURANCE - 84,Provence-Alpes-Côte d'Azur,0.9999999999999987,0.9999999999999992,era_complete,era_complete,era5-land,1
+pra:84467,COMTAT - 84,Provence-Alpes-Côte d'Azur,0.9999999999999518,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:85110,BOCAGE DE CHANTONNAY - 85,Pays de la Loire,1.0,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:85365,MARAIS BRETON - 85,Pays de la Loire,0.6172217036801729,0.9888204012423892,unavailable,sim_partial,meteo-france-sim,0.9888204012423892
+pra:85366,ENTRE PLAINE ET BOCAGE - 85,Pays de la Loire,0.9999999999998866,0.9999999999999982,era_complete,era_complete,era5-land,1
+pra:85368,BAS BOCAGE - 85,Pays de la Loire,0.9726297334555114,1.0,era_partial,era_partial,era5-land,0.9726297334555114
+pra:85369,MARAIS POITEVIN DESSECHE - 85,Pays de la Loire,0.9401202467856143,1.0,era_partial,era_partial,era5-land,0.9401202467856143
+pra:85370,MARAIS POITEVIN MOUILLE - 85,Pays de la Loire,0.9999999999999997,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:85371,PLAINE VENDEENNE - 85,Pays de la Loire,0.9996466270079374,0.999675014763029,era_partial,era_partial,era5-land,0.9996466270079374
+pra:85373,HAUT-BOCAGE - 85,Pays de la Loire,0.9999999999999089,0.9999999999999961,era_complete,era_complete,era5-land,1
+pra:86182,CONFINS GRANITIQUES DU LIMOUSIN - 86,Nouvelle-Aquitaine,0.9999999999999348,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:86347,SAUMUROIS - 86,Nouvelle-Aquitaine,0.9999999999999637,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:86348,"PLAINE DE LOUDUN,RICHELIEU ET CHATELLERAULT - 86",Nouvelle-Aquitaine,0.9999999999999365,0.9999999999999987,era_complete,era_complete,era5-land,1
+pra:86349,PLAINE DE THOUARS MONCONTOUR - 86,Nouvelle-Aquitaine,0.9999999999999297,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:86368,GATINE - 86,Nouvelle-Aquitaine,0.9999999999999474,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:86372,TERRES ROUGES A CHATAIGNIERS - 86,Nouvelle-Aquitaine,0.9999999999999755,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:86438,REGION DES BRANDES - 86,Nouvelle-Aquitaine,0.9999999999999685,1.0000000000000018,era_complete,era_complete,era5-land,1
+pra:87430,PLATEAU DE MILLEVACHES - 87,Nouvelle-Aquitaine,1.0,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:87431,MARCHE - 87,Nouvelle-Aquitaine,0.9999999999998767,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:87432,HAUT-LIMOUSIN - 87,Nouvelle-Aquitaine,0.9999999999999378,1.0,era_complete,era_complete,era5-land,1
+pra:88305,LA HAYE - 88,Grand Est,1.0,0.9999999999999988,era_complete,era_complete,era5-land,1
+pra:88306,PLATEAU LORRAIN SUD - 88,Grand Est,0.9999999999999694,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:88307,MONTAGNE VOSGIENNE - 88,Grand Est,0.9999999999999807,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:88309,VOGE - 88,Grand Est,0.9999999999999997,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:88310,CHATENOIS - 88,Grand Est,0.9999999999999479,1.0,era_complete,era_complete,era5-land,1
+pra:88313,COTES DE MEUSE - 88,Grand Est,0.9999999999999634,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:88314,BARROIS - 88,Grand Est,0.9999999999999314,0.9999999999999982,era_complete,era_complete,era5-land,1
+pra:89186,PLATEAUX DE BOURGOGNE - 89,Bourgogne-Franche-Comté,0.9999999999999906,0.9999999999999976,era_complete,era_complete,era5-land,1
+pra:89317,CHAMPAGNE CRAYEUSE - 89,Bourgogne-Franche-Comté,0.9999999999999198,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:89319,PAYS D OTHE - 89,Bourgogne-Franche-Comté,1.0,1.0,era_complete,era_complete,era5-land,1
+pra:89320,BASSE YONNE - 89,Bourgogne-Franche-Comté,0.9999999999999721,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:89322,VALLEES - 89,Bourgogne-Franche-Comté,0.999999999999998,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:89338,GATINAIS PAUVRE - 89,Bourgogne-Franche-Comté,0.9999999999999982,1.0000000000000007,era_complete,era_complete,era5-land,1
+pra:89340,PUISAYE - 89,Bourgogne-Franche-Comté,0.9999999999999911,0.9999999999999994,era_complete,era_complete,era5-land,1
+pra:89442,TERRE PLAINE - 89,Bourgogne-Franche-Comté,0.9999999999999793,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:89443,MORVAN - 89,Bourgogne-Franche-Comté,1.0,0.9999999999999993,era_complete,era_complete,era5-land,1
+pra:90303,SUNDGAU - 90,Bourgogne-Franche-Comté,0.9999999999999758,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:90307,MONTAGNE VOSGIENNE - 90,Bourgogne-Franche-Comté,0.9999999999999916,1.0000000000000002,era_complete,era_complete,era5-land,1
+pra:90448,TROUEE DE BELFORT - 90,Bourgogne-Franche-Comté,0.999999999999986,1.0000000000000013,era_complete,era_complete,era5-land,1
+pra:90450,PLATEAUX MOYENS DU JURA - 90,Bourgogne-Franche-Comté,1.0,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:91055,HUREPOIX - 91,Île-de-France,1.0,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:91333,CEINTURE DE PARIS - 91,Île-de-France,1.0,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:91337,BRIE FRANCAISE - 91,Île-de-France,1.0,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:91339,GATINAIS - 91,Île-de-France,0.9999999999999596,1.0000000000000004,era_complete,era_complete,era5-land,1
+pra:91342,BEAUCE - 91,Île-de-France,0.9999999999999611,1.0000000000000009,era_complete,era_complete,era5-land,1
+pra:92333,CEINTURE DE PARIS - 92,Île-de-France,0.999999999999974,0.9999999999999989,era_complete,era_complete,era5-land,1
+pra:93329,VIEILLE FRANCE - 93,Île-de-France,0.9999999999998206,0.9999999999999997,era_complete,era_complete,era5-land,1
+pra:93333,CEINTURE DE PARIS - 93,Île-de-France,0.9999999999998392,0.9999999999999998,era_complete,era_complete,era5-land,1
+pra:94333,CEINTURE DE PARIS - 94,Île-de-France,0.999999999999992,0.9999999999999996,era_complete,era_complete,era5-land,1
+pra:95329,VIEILLE FRANCE - 95,Île-de-France,1.0,1.000000000000001,era_complete,era_complete,era5-land,1
+pra:95330,VEXIN - 95,Île-de-France,1.0,0.9999999999999999,era_complete,era_complete,era5-land,1
+pra:95332,VALLEE DE LA SEINE - 95,Île-de-France,0.9999999999999976,0.9999999999999991,era_complete,era_complete,era5-land,1
+pra:95333,CEINTURE DE PARIS - 95,Île-de-France,0.99999999999997,1.0000000000000002,era_complete,era_complete,era5-land,1

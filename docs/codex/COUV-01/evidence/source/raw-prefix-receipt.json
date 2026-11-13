@@ -1,0 +1,20 @@
+{
+  "url": "https://meteofrance.s3.sbg.io.cloud.ovh.net/data/REF_CC/SIM/QUOT_SIM2_latest.csv.gz",
+  "status": 206,
+  "bytes": 65536,
+  "headers": {
+    "content-type": "binary/octet-stream",
+    "x-amz-version-id": "1794038605.541878",
+    "last-modified": "Sat, 07 Nov 2026 08:03:28 GMT",
+    "accept-ranges": "bytes",
+    "content-length": "65536",
+    "etag": "\"ecdc40904e2f7c83a3b209f4b8dd8c68-3\"",
+    "content-range": "bytes 0-65535/19936780",
+    "x-amz-id-2": "txf139c2dfad05429084528-006aefac18",
+    "x-amz-request-id": "txf139c2dfad05429084528-006aefac18",
+    "date": "Sat, 07 Nov 2026 22:54:16 GMT",
+    "x-envoy-upstream-service-time": "1195",
+    "server": "envoy",
+    "connection": "close"
+  }
+}

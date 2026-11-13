@@ -1,0 +1,183 @@
+{
+  "deterministic_evidence_files_exact": 10,
+  "manifest_exact": true,
+  "runtime": {
+    "network_requests": 0,
+    "peak_rss_kib": 486048,
+    "remote_writes": 0,
+    "seconds": 48.447
+  },
+  "counts": {
+    "common_29d/precipitation": {
+      "corsica_usable": 6,
+      "era_only_usable": 681,
+      "selected_usable": 713,
+      "sources": {
+        "era5-land": 681,
+        "meteo-france-sim": 32
+      },
+      "states": {
+        "native_complete": 658,
+        "observed_partial": 55
+      },
+      "unavailable": 0
+    },
+    "common_29d/temperature_max": {
+      "corsica_usable": 2,
+      "era_only_usable": 681,
+      "selected_usable": 681,
+      "sources": {
+        "era5-land": 681
+      },
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 36
+      },
+      "unavailable": 32
+    },
+    "common_29d/temperature_mean": {
+      "corsica_usable": 6,
+      "era_only_usable": 681,
+      "selected_usable": 713,
+      "sources": {
+        "era5-land": 681,
+        "meteo-france-sim": 32
+      },
+      "states": {
+        "native_complete": 658,
+        "observed_partial": 55
+      },
+      "unavailable": 0
+    },
+    "common_29d/temperature_min": {
+      "corsica_usable": 2,
+      "era_only_usable": 681,
+      "selected_usable": 681,
+      "sources": {
+        "era5-land": 681
+      },
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 36
+      },
+      "unavailable": 32
+    },
+    "common_30d/precipitation": {
+      "corsica_usable": 6,
+      "era_only_usable": 645,
+      "selected_usable": 713,
+      "sources": {
+        "era5-land": 645,
+        "meteo-france-sim": 68
+      },
+      "states": {
+        "native_complete": 675,
+        "observed_partial": 38
+      },
+      "unavailable": 0
+    },
+    "common_30d/temperature_max": {
+      "corsica_usable": 0,
+      "era_only_usable": 645,
+      "selected_usable": 645,
+      "sources": {
+        "era5-land": 645
+      },
+      "states": {
+        "native_complete": 645
+      },
+      "unavailable": 68
+    },
+    "common_30d/temperature_mean": {
+      "corsica_usable": 6,
+      "era_only_usable": 645,
+      "selected_usable": 713,
+      "sources": {
+        "era5-land": 645,
+        "meteo-france-sim": 68
+      },
+      "states": {
+        "native_complete": 675,
+        "observed_partial": 38
+      },
+      "unavailable": 0
+    },
+    "common_30d/temperature_min": {
+      "corsica_usable": 0,
+      "era_only_usable": 645,
+      "selected_usable": 645,
+      "sources": {
+        "era5-land": 645
+      },
+      "states": {
+        "native_complete": 645
+      },
+      "unavailable": 68
+    },
+    "sim_60d/hourly_temperature_max_mean": {
+      "corsica_usable": 6,
+      "era_only_usable": 0,
+      "selected_usable": 713,
+      "sources": {
+        "meteo-france-sim": 713
+      },
+      "states": {
+        "native_complete": 675,
+        "observed_partial": 38
+      },
+      "unavailable": 0
+    },
+    "sim_60d/hourly_temperature_min_mean": {
+      "corsica_usable": 6,
+      "era_only_usable": 0,
+      "selected_usable": 713,
+      "sources": {
+        "meteo-france-sim": 713
+      },
+      "states": {
+        "native_complete": 675,
+        "observed_partial": 38
+      },
+      "unavailable": 0
+    },
+    "sim_60d/precipitation": {
+      "corsica_usable": 6,
+      "era_only_usable": 0,
+      "selected_usable": 713,
+      "sources": {
+        "meteo-france-sim": 713
+      },
+      "states": {
+        "native_complete": 675,
+        "observed_partial": 38
+      },
+      "unavailable": 0
+    },
+    "sim_60d/relative_humidity_mean": {
+      "corsica_usable": 6,
+      "era_only_usable": 0,
+      "selected_usable": 713,
+      "sources": {
+        "meteo-france-sim": 713
+      },
+      "states": {
+        "native_complete": 675,
+        "observed_partial": 38
+      },
+      "unavailable": 0
+    },
+    "sim_60d/temperature_mean": {
+      "corsica_usable": 6,
+      "era_only_usable": 0,
+      "selected_usable": 713,
+      "sources": {
+        "meteo-france-sim": 713
+      },
+      "states": {
+        "native_complete": 675,
+        "observed_partial": 38
+      },
+      "unavailable": 0
+    }
+  }
+}

@@ -122,3 +122,12 @@ ce seul exemple de trois jours ne suffit pas. `scripts/compare_climatology.py --
 consomme un export quotidien de l'endpoint Task 11 et les fichiers normalisés,
 avec station, point grille, timestamp et reconnaissance des limites obligatoires.
 Cette commande ne requiert pas de règle agricole ni de modification de contrat.
+
+COUV-02 reprend le pilote SIM de COUV-01 et son lecteur local vérifié dans
+`safran.py` et `safran_archive.py`. `national_support.py` ajoute une sélection
+explicite désactivée par défaut : ERA prioritaire, puis SIM pour une fenêtre
+entière avec un support stable et au moins 90 % de surface. La valeur de portion
+reste distincte d'une valeur territoriale intégrale ; unités, périodes et extrema
+SIM ne sont pas convertis en équivalents ERA. Aucun branchement sur le Journal,
+les indicateurs, les prévisions ou les acquisitions quotidiennes. Voir
+`docs/codex/COUV-02/README.md` pour les résultats réels et les limites.

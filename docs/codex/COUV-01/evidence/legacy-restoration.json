@@ -1,0 +1,19 @@
+{
+  "days": 30,
+  "first_date": "2026-10-01",
+  "last_date": "2026-10-30",
+  "restored_pra_rows": 21390,
+  "complete_30_day_pra": 645,
+  "compressed_bytes": 2204860,
+  "new_days_per_stage": [
+    14,
+    14,
+    2
+  ],
+  "read_rpc_upper_bounds": [
+    113,
+    113,
+    17
+  ],
+  "remote_writes": 0
+}

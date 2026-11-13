@@ -1,0 +1,19 @@
+{
+  "engine_tests": {
+    "passed": 514,
+    "warnings": 63,
+    "seconds": 42.94
+  },
+  "new_adapter_tests_passed": 15,
+  "ruff": "passed",
+  "mypy_strict": "passed_14_files",
+  "pip_check": "passed",
+  "security_guard": "passed",
+  "migrations_guard": "passed",
+  "contracts_guard": "passed",
+  "automation_guard": "passed",
+  "svg_rendered_paths": 1426,
+  "production_enabled": false,
+  "network_acquisition_calls": 0,
+  "remote_writes": 0
+}
