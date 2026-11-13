@@ -21,6 +21,7 @@ try {
       for(const [key,route] of [["journal","/journal"],["documentation","/aide-et-documentation"]]){
         const response=await page.goto(origin+route,{waitUntil:"domcontentloaded",timeout:45000});
         assert.equal(response?.status(),200,`Rendu ${route}`);
+        await page.waitForFunction(()=>document.querySelectorAll(".editorial-nav").length===1,{},{timeout:15000});
         const nav=await page.locator(".editorial-nav a").allTextContents();
         assert.deepEqual(nav.map(s=>s.trim()),expected,"Navigation principale UX-01");
         await page.getByRole("heading",{level:1}).first().waitFor({state:"visible",timeout:15000});
@@ -39,10 +40,12 @@ try {
       if(width===1440){
         const home=await page.goto(origin+"/",{waitUntil:"domcontentloaded",timeout:45000});
         assert.ok(home?.ok(),"Accueil accessible");
-        await page.waitForURL("**/journal",{timeout:20000});
+        assert.equal(new URL(page.url()).pathname,"/","UX-02B renders the Journal directly on the homepage");
+        assert.equal(home.request().redirectedFrom(),null,"Homepage must render without a redirect");
         for(const route of ["/cartes-du-jour","/climat","/productions"]){
           const response=await page.goto(origin+route,{waitUntil:"domcontentloaded",timeout:45000});
           assert.equal(response?.status(),200,route);
+          await page.waitForFunction(()=>document.querySelectorAll(".editorial-nav").length===1,{},{timeout:15000});
           const nav=await page.locator(".editorial-nav a").allTextContents();
           assert.deepEqual(nav.map(s=>s.trim()),expected);
           await page.screenshot({path:path.join(out,`desktop-1440-${route.slice(1)}.png`),fullPage:true,animations:"disabled"});

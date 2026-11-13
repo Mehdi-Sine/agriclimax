@@ -145,3 +145,15 @@ Aucune clé fournisseur, clé Supabase ou identité d'authentification n'est pr�
 `.gitleaksignore` ne cible que ces trois empreintes historiques exactes
 (commit/fichier/règle/ligne ; les deux descripteurs partagent une ligne).
 Aucune exclusion de chemin, de règle ou de nouveaux commits n'est ajoutée.
+
+## Attente de navigation CI héritée
+
+La suite `web-demo` atteignait les tests navigateur mais `ux01.mjs` attendait
+encore une redirection de `/` vers `/journal`. Depuis UX-02B, l'accueil affiche
+directement le Journal. Le test est aligné sur le code déjà présent sur main :
+URL racine conservée et absence de redirection, sans changement de l'interface.
+
+Le build de production local déconnecté et le parcours UX-01 corrigé passent sur
+cinq tailles d'écran (1440, 1280, 768, 390, 360). Le contrôle du menu attend la
+fin des fragments transitoires de streaming avant de vérifier son unicité et
+ses cinq entrées ; aucun doublon permanent n'est toléré.
