@@ -1,0 +1,35 @@
+{
+  "reference_comparisons": 105,
+  "max_abs_error": 4.263256414560601e-14,
+  "native_prefix_rows": 1922,
+  "native_prefix_scalar_comparisons": 11532,
+  "native_prefix_full_file_equivalence_proven": false,
+  "daily_archive_roundtrips": 60,
+  "cold_replay_bytes_equal": true,
+  "source_dates_continuous": true,
+  "sample_ids": [
+    "pra:29102",
+    "pra:50081",
+    "pra:13244",
+    "pra:2A258",
+    "pra:2B260",
+    "pra:28341",
+    "pra:05236"
+  ],
+  "era5_comparison_pairs": 9030,
+  "era5_68_current_cell_status": "unknown; two-instant legacy probe retained separately",
+  "six_corsican_coverage": {
+    "pra:2A258": 0.9650471163747415,
+    "pra:2A259": 0.9992310390140503,
+    "pra:2A260": 0.9988159731291503,
+    "pra:2B258": 0.9892275798195412,
+    "pra:2B259": 0.9874358077765597,
+    "pra:2B260": 1.0000000000000004
+  },
+  "forecast_candidate_rows": 19964,
+  "station_probe": {
+    "status": "unavailable",
+    "error_type": "MeteoFranceAccessError",
+    "station": "29075001"
+  }
+}

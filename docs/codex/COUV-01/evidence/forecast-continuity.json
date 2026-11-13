@@ -1,0 +1,42 @@
+{
+  "archive_sha256": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+  "start": "2026-11-08",
+  "end": "2026-11-14",
+  "homogeneous_candidate_rows": 19964,
+  "candidate_daily_rows": {
+    "2026-11-08": 2852,
+    "2026-11-09": 2852,
+    "2026-11-10": 2852,
+    "2026-11-11": 2852,
+    "2026-11-12": 2852,
+    "2026-11-13": 2852,
+    "2026-11-14": 2852
+  },
+  "candidate_pra_count": 713,
+  "model": "ifs-oper-0p25",
+  "run_at": "2026-11-07T00:00:00Z",
+  "operational_temperature_segments": {
+    "('arome-0p025', '2026-11-08')": 713,
+    "('arpege-0p1', '2026-11-09')": 713,
+    "('arpege-0p1', '2026-11-10')": 713,
+    "('ifs-oper-0p25', '2026-11-11')": 713,
+    "('ifs-oper-0p25', '2026-11-12')": 713,
+    "('ifs-oper-0p25', '2026-11-13')": 713,
+    "('ifs-oper-0p25', '2026-11-14')": 713
+  },
+  "quality_flags_preserved": [
+    "exploratory",
+    "model_forecast_not_observation",
+    "publication_time_unknown",
+    "sampled_3h_then_6h_not_hourly",
+    "sampled_extrema_not_continuous_daily_extrema",
+    "source_delay_not_assessed",
+    "source_grid_not_land_masked",
+    "total_area_not_agricultural_area",
+    "utc_half_open_day_extrema"
+  ],
+  "scientific_status": "candidate_only_not_independently_validated",
+  "humidity_included": false,
+  "humidity_reason": "partial or unavailable IFS daily humidity; no weekly qualification",
+  "operational_selection_changed": false
+}

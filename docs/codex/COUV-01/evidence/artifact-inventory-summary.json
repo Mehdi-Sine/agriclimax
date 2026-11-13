@@ -1,0 +1,201 @@
+{
+  "examined": 2170,
+  "active_relevant": [
+    {
+      "created_at": "2026-11-07T15:27:39Z",
+      "expired": false,
+      "expires_at": "2026-11-10T15:27:39Z",
+      "id": 13579393233,
+      "name": "era5-archive-checkpoints",
+      "size_in_bytes": 2055383,
+      "workflow_run": {
+        "head_branch": "main",
+        "head_repository_id": 1412986031,
+        "head_sha": "f7eebc5aefa06746c9dd572dd5b68565de47c443",
+        "id": 42383862996,
+        "repository_id": 1412986031
+      }
+    },
+    {
+      "created_at": "2026-11-07T15:27:40Z",
+      "expired": false,
+      "expires_at": "2026-12-07T15:27:40Z",
+      "id": 13579353101,
+      "name": "era5-archive-evidence",
+      "size_in_bytes": 319,
+      "workflow_run": {
+        "head_branch": "main",
+        "head_repository_id": 1412986031,
+        "head_sha": "f7eebc5aefa06746c9dd572dd5b68565de47c443",
+        "id": 42383862996,
+        "repository_id": 1412986031
+      }
+    },
+    {
+      "created_at": "2026-11-07T11:08:20Z",
+      "expired": false,
+      "expires_at": "2026-11-14T11:08:18Z",
+      "id": 13571358993,
+      "name": "task29-coastal-native",
+      "size_in_bytes": 9682683,
+      "workflow_run": {
+        "head_branch": "codex/29-historical-coastal-completion",
+        "head_repository_id": 1412986031,
+        "head_sha": "407eb660471cb7a303f40dd878bd2b5bdf5bdc6b",
+        "id": 42366010270,
+        "repository_id": 1412986031
+      }
+    },
+    {
+      "created_at": "2026-11-07T10:31:08Z",
+      "expired": false,
+      "expires_at": "2026-11-14T10:31:06Z",
+      "id": 13571186804,
+      "name": "task29-coastal-native",
+      "size_in_bytes": 1110114,
+      "workflow_run": {
+        "head_branch": "codex/29-historical-coastal-completion",
+        "head_repository_id": 1412986031,
+        "head_sha": "b209b8909df11088281740608f5ee92370592501",
+        "id": 42362681264,
+        "repository_id": 1412986031
+      }
+    },
+    {
+      "created_at": "2026-11-07T10:54:22Z",
+      "expired": false,
+      "expires_at": "2026-11-14T10:54:20Z",
+      "id": 13570664482,
+      "name": "task29-coastal-native",
+      "size_in_bytes": 7443717,
+      "workflow_run": {
+        "head_branch": "codex/29-historical-coastal-completion",
+        "head_repository_id": 1412986031,
+        "head_sha": "407eb660471cb7a303f40dd878bd2b5bdf5bdc6b",
+        "id": 42364343347,
+        "repository_id": 1412986031
+      }
+    },
+    {
+      "created_at": "2026-11-06T12:54:33Z",
+      "expired": false,
+      "expires_at": "2026-12-06T12:54:32Z",
+      "id": 13503786267,
+      "name": "era5-archive-evidence",
+      "size_in_bytes": 309,
+      "workflow_run": {
+        "head_branch": "codex/26-national-daily-climate",
+        "head_repository_id": 1412986031,
+        "head_sha": "1ff874827ff176da370cc90d811eb57241ac0d9c",
+        "id": 42221119710,
+        "repository_id": 1412986031
+      }
+    },
+    {
+      "created_at": "2026-11-06T12:54:32Z",
+      "expired": false,
+      "expires_at": "2026-11-09T12:54:31Z",
+      "id": 13503576737,
+      "name": "era5-archive-checkpoints",
+      "size_in_bytes": 309,
+      "workflow_run": {
+        "head_branch": "codex/26-national-daily-climate",
+        "head_repository_id": 1412986031,
+        "head_sha": "1ff874827ff176da370cc90d811eb57241ac0d9c",
+        "id": 42221119710,
+        "repository_id": 1412986031
+      }
+    },
+    {
+      "created_at": "2026-11-06T12:28:29Z",
+      "expired": false,
+      "expires_at": "2026-11-09T12:28:26Z",
+      "id": 13502565431,
+      "name": "era5-archive-checkpoints",
+      "size_in_bytes": 4597805,
+      "workflow_run": {
+        "head_branch": "codex/26-national-daily-climate",
+        "head_repository_id": 1412986031,
+        "head_sha": "3742947b302d0d3912f545b54221ed085e5037e3",
+        "id": 42216071668,
+        "repository_id": 1412986031
+      }
+    },
+    {
+      "created_at": "2026-11-06T12:28:31Z",
+      "expired": false,
+      "expires_at": "2026-12-06T12:28:30Z",
+      "id": 13502251700,
+      "name": "era5-archive-evidence",
+      "size_in_bytes": 547,
+      "workflow_run": {
+        "head_branch": "codex/26-national-daily-climate",
+        "head_repository_id": 1412986031,
+        "head_sha": "3742947b302d0d3912f545b54221ed085e5037e3",
+        "id": 42216071668,
+        "repository_id": 1412986031
+      }
+    },
+    {
+      "created_at": "2026-11-06T12:07:50Z",
+      "expired": false,
+      "expires_at": "2026-12-06T12:07:49Z",
+      "id": 13500722135,
+      "name": "era5-archive-evidence",
+      "size_in_bytes": 296,
+      "workflow_run": {
+        "head_branch": "codex/26-national-daily-climate",
+        "head_repository_id": 1412986031,
+        "head_sha": "3742947b302d0d3912f545b54221ed085e5037e3",
+        "id": 42212542234,
+        "repository_id": 1412986031
+      }
+    },
+    {
+      "created_at": "2026-11-06T12:07:49Z",
+      "expired": false,
+      "expires_at": "2026-11-09T12:07:48Z",
+      "id": 13500522841,
+      "name": "era5-archive-checkpoints",
+      "size_in_bytes": 944651,
+      "workflow_run": {
+        "head_branch": "codex/26-national-daily-climate",
+        "head_repository_id": 1412986031,
+        "head_sha": "3742947b302d0d3912f545b54221ed085e5037e3",
+        "id": 42212542234,
+        "repository_id": 1412986031
+      }
+    },
+    {
+      "created_at": "2026-11-06T11:39:37Z",
+      "expired": false,
+      "expires_at": "2026-12-06T11:39:36Z",
+      "id": 13499960746,
+      "name": "era5-archive-evidence",
+      "size_in_bytes": 278,
+      "workflow_run": {
+        "head_branch": "codex/26-national-daily-climate",
+        "head_repository_id": 1412986031,
+        "head_sha": "21cb517a935c8d7ffdecfb391f26ba574bf32393",
+        "id": 42211037211,
+        "repository_id": 1412986031
+      }
+    },
+    {
+      "created_at": "2026-11-06T11:39:35Z",
+      "expired": false,
+      "expires_at": "2026-11-09T11:39:34Z",
+      "id": 13498639461,
+      "name": "era5-archive-checkpoints",
+      "size_in_bytes": 22075,
+      "workflow_run": {
+        "head_branch": "codex/26-national-daily-climate",
+        "head_repository_id": 1412986031,
+        "head_sha": "21cb517a935c8d7ffdecfb391f26ba574bf32393",
+        "id": 42211037211,
+        "repository_id": 1412986031
+      }
+    }
+  ],
+  "payloads_downloaded": false
+}

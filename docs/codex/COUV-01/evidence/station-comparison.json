@@ -1,0 +1,1062 @@
+{
+  "selection": "nearest projected PRA centroid among inside stations with 6 TM days quality 0/1; no value-based selection",
+  "start": "2026-10-31",
+  "end": "2026-11-05",
+  "results": [
+    {
+      "pra_id": "pra:29102",
+      "station_id": "29120001",
+      "station_name": "LANVEOC",
+      "station_lat": 48.279333,
+      "station_lon": -4.439333,
+      "station_altitude_m": 81.0,
+      "inside_pra": true,
+      "candidate_stations": 2,
+      "centroid_distance_m": 5057.467884755429,
+      "variable": "temperature_mean",
+      "unit": "degC",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 10.600000000000001,
+          "station": 11.0,
+          "difference": -0.3999999999999986,
+          "sim_state": "partial_support",
+          "coverage": 0.9981436674146851,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 11.2,
+          "station": 11.4,
+          "difference": -0.20000000000000107,
+          "sim_state": "partial_support",
+          "coverage": 0.9981436674146851,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 11.432661668112814,
+          "station": 11.2,
+          "difference": 0.23266166811281508,
+          "sim_state": "partial_support",
+          "coverage": 0.9981436674146851,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": 10.965669709490362,
+          "station": 10.9,
+          "difference": 0.06566970949036133,
+          "sim_state": "partial_support",
+          "coverage": 0.9981436674146851,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 8.141733015971019,
+          "station": 8.3,
+          "difference": -0.1582669840289821,
+          "sim_state": "partial_support",
+          "coverage": 0.9981436674146851,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 8.333008041377548,
+          "station": 8.6,
+          "difference": -0.2669919586224516,
+          "sim_state": "partial_support",
+          "coverage": 0.9981436674146851,
+          "station_quality": "1"
+        }
+      ],
+      "bias": -0.12115459417470949,
+      "mae": 0.22059838670910162,
+      "p95_absolute": 0.36674798965561184,
+      "minimum_difference": -0.3999999999999986,
+      "maximum_difference": 0.23266166811281508,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    },
+    {
+      "pra_id": "pra:29102",
+      "station_id": "29120001",
+      "station_name": "LANVEOC",
+      "station_lat": 48.279333,
+      "station_lon": -4.439333,
+      "station_altitude_m": 81.0,
+      "inside_pra": true,
+      "candidate_stations": 2,
+      "centroid_distance_m": 5057.467884755429,
+      "variable": "precipitation",
+      "unit": "mm",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 0.2,
+          "station": 0.4,
+          "difference": -0.2,
+          "sim_state": "partial_support",
+          "coverage": 0.9981436674146851,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 0.1,
+          "station": 0.2,
+          "difference": -0.1,
+          "sim_state": "partial_support",
+          "coverage": 0.9981436674146851,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 0.1,
+          "station": 0.2,
+          "difference": -0.1,
+          "sim_state": "partial_support",
+          "coverage": 0.9981436674146851,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": 0.2,
+          "station": 0.8,
+          "difference": -0.6000000000000001,
+          "sim_state": "partial_support",
+          "coverage": 0.9981436674146851,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 0.0,
+          "station": 0.0,
+          "difference": 0.0,
+          "sim_state": "partial_support",
+          "coverage": 0.9981436674146851,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 0.0,
+          "station": 0.0,
+          "difference": 0.0,
+          "sim_state": "partial_support",
+          "coverage": 0.9981436674146851,
+          "station_quality": "1"
+        }
+      ],
+      "bias": -0.16666666666666666,
+      "mae": 0.16666666666666666,
+      "p95_absolute": 0.5000000000000001,
+      "minimum_difference": -0.6000000000000001,
+      "maximum_difference": 0.0,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    },
+    {
+      "pra_id": "pra:50081",
+      "station_id": "50020001",
+      "station_name": "PTE DE LA HAGUE",
+      "station_lat": 49.725167,
+      "station_lon": -1.939833,
+      "station_altitude_m": 6.0,
+      "inside_pra": true,
+      "candidate_stations": 1,
+      "centroid_distance_m": 14405.44999838606,
+      "variable": "temperature_mean",
+      "unit": "degC",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 11.587719218101078,
+          "station": 12.4,
+          "difference": -0.8122807818989219,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 11.87443608448138,
+          "station": 12.8,
+          "difference": -0.9255639155186213,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 11.732032770842036,
+          "station": 12.8,
+          "difference": -1.067967229157965,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": 10.858368015412415,
+          "station": 12.5,
+          "difference": -1.641631984587585,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 8.866868288854004,
+          "station": 10.2,
+          "difference": -1.3331317111459953,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 8.980063696619,
+          "station": 10.2,
+          "difference": -1.2199363033809991,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        }
+      ],
+      "bias": -1.1667519876150145,
+      "mae": 1.1667519876150145,
+      "p95_absolute": 1.5645069162271876,
+      "minimum_difference": -1.641631984587585,
+      "maximum_difference": -0.8122807818989219,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    },
+    {
+      "pra_id": "pra:50081",
+      "station_id": "50020001",
+      "station_name": "PTE DE LA HAGUE",
+      "station_lat": 49.725167,
+      "station_lon": -1.939833,
+      "station_altitude_m": 6.0,
+      "inside_pra": true,
+      "candidate_stations": 1,
+      "centroid_distance_m": 14405.44999838606,
+      "variable": "precipitation",
+      "unit": "mm",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 0.10282297319380035,
+          "station": 0.2,
+          "difference": -0.09717702680619966,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 0.07529961787736814,
+          "station": 0.0,
+          "difference": 0.07529961787736814,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 1.2015508131474884,
+          "station": 0.0,
+          "difference": 1.2015508131474884,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": 10.181036671507814,
+          "station": 3.6,
+          "difference": 6.581036671507814,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 0.0,
+          "station": 0.0,
+          "difference": 0.0,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 0.01194406564023398,
+          "station": 0.0,
+          "difference": 0.01194406564023398,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        }
+      ],
+      "bias": 1.2954423568944509,
+      "mae": 1.3278346991631842,
+      "p95_absolute": 5.2361652069177325,
+      "minimum_difference": -0.09717702680619966,
+      "maximum_difference": 6.581036671507814,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    },
+    {
+      "pra_id": "pra:13244",
+      "station_id": "13004003",
+      "station_name": "ARLES",
+      "station_lat": 43.51,
+      "station_lon": 4.693833,
+      "station_altitude_m": 1.0,
+      "inside_pra": true,
+      "candidate_stations": 1,
+      "centroid_distance_m": 6906.596837348036,
+      "variable": "temperature_mean",
+      "unit": "degC",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 13.423629675330464,
+          "station": 13.7,
+          "difference": -0.2763703246695357,
+          "sim_state": "native_complete",
+          "coverage": 1.000000000000001,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 12.124228220920395,
+          "station": 12.1,
+          "difference": 0.02422822092039567,
+          "sim_state": "native_complete",
+          "coverage": 1.000000000000001,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 9.970621604737987,
+          "station": 9.7,
+          "difference": 0.2706216047379879,
+          "sim_state": "native_complete",
+          "coverage": 1.000000000000001,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": 9.78032333362759,
+          "station": 9.9,
+          "difference": -0.11967666637240981,
+          "sim_state": "native_complete",
+          "coverage": 1.000000000000001,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 9.969459296446407,
+          "station": 9.8,
+          "difference": 0.16945929644640678,
+          "sim_state": "native_complete",
+          "coverage": 1.000000000000001,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 12.950801953000989,
+          "station": 13.6,
+          "difference": -0.6491980469990111,
+          "sim_state": "native_complete",
+          "coverage": 1.000000000000001,
+          "station_quality": "1"
+        }
+      ],
+      "bias": -0.0968226526560277,
+      "mae": 0.25159236002429114,
+      "p95_absolute": 0.5559911164166422,
+      "minimum_difference": -0.6491980469990111,
+      "maximum_difference": 0.2706216047379879,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    },
+    {
+      "pra_id": "pra:13244",
+      "station_id": "13004003",
+      "station_name": "ARLES",
+      "station_lat": 43.51,
+      "station_lon": 4.693833,
+      "station_altitude_m": 1.0,
+      "inside_pra": true,
+      "candidate_stations": 1,
+      "centroid_distance_m": 6906.596837348036,
+      "variable": "precipitation",
+      "unit": "mm",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 0.0017772278125875753,
+          "station": 0.0,
+          "difference": 0.0017772278125875753,
+          "sim_state": "native_complete",
+          "coverage": 1.000000000000001,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 0.008889412177683331,
+          "station": 0.0,
+          "difference": 0.008889412177683331,
+          "sim_state": "native_complete",
+          "coverage": 1.000000000000001,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 0.0,
+          "station": 0.0,
+          "difference": 0.0,
+          "sim_state": "native_complete",
+          "coverage": 1.000000000000001,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": 1.0602344664094523,
+          "station": 3.0,
+          "difference": -1.9397655335905477,
+          "sim_state": "native_complete",
+          "coverage": 1.000000000000001,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 35.07340373378582,
+          "station": 35.0,
+          "difference": 0.07340373378581688,
+          "sim_state": "native_complete",
+          "coverage": 1.000000000000001,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 14.03558521959761,
+          "station": 14.0,
+          "difference": 0.03558521959761052,
+          "sim_state": "native_complete",
+          "coverage": 1.000000000000001,
+          "station_quality": "1"
+        }
+      ],
+      "bias": -0.3033516567028082,
+      "mae": 0.34323685449404095,
+      "p95_absolute": 1.4731750836393651,
+      "minimum_difference": -1.9397655335905477,
+      "maximum_difference": 0.07340373378581688,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    },
+    {
+      "pra_id": "pra:2A258",
+      "station_id": "20004002",
+      "station_name": "AJACCIO",
+      "station_lat": 41.918,
+      "station_lon": 8.792667,
+      "station_altitude_m": 5.0,
+      "inside_pra": true,
+      "candidate_stations": 5,
+      "centroid_distance_m": 11792.863785245434,
+      "variable": "temperature_mean",
+      "unit": "degC",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 14.285139659529168,
+          "station": 14.8,
+          "difference": -0.5148603404708325,
+          "sim_state": "partial_support",
+          "coverage": 0.9650471163747415,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 11.972419504692763,
+          "station": 12.1,
+          "difference": -0.12758049530723703,
+          "sim_state": "partial_support",
+          "coverage": 0.9650471163747415,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 11.444520476615569,
+          "station": 11.9,
+          "difference": -0.4554795233844313,
+          "sim_state": "partial_support",
+          "coverage": 0.9650471163747415,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": 12.45682095511151,
+          "station": 13.2,
+          "difference": -0.743179044888489,
+          "sim_state": "partial_support",
+          "coverage": 0.9650471163747415,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 15.33364491000776,
+          "station": 16.4,
+          "difference": -1.0663550899922392,
+          "sim_state": "partial_support",
+          "coverage": 0.9650471163747415,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 15.449838740349815,
+          "station": 16.5,
+          "difference": -1.050161259650185,
+          "sim_state": "partial_support",
+          "coverage": 0.9650471163747415,
+          "station_quality": "1"
+        }
+      ],
+      "bias": -0.659602625615569,
+      "mae": 0.659602625615569,
+      "p95_absolute": 1.0623066324067256,
+      "minimum_difference": -1.0663550899922392,
+      "maximum_difference": -0.12758049530723703,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    },
+    {
+      "pra_id": "pra:2A258",
+      "station_id": "20004002",
+      "station_name": "AJACCIO",
+      "station_lat": 41.918,
+      "station_lon": 8.792667,
+      "station_altitude_m": 5.0,
+      "inside_pra": true,
+      "candidate_stations": 5,
+      "centroid_distance_m": 11792.863785245434,
+      "variable": "precipitation",
+      "unit": "mm",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 0.19963142974452766,
+          "station": 1.0,
+          "difference": -0.8003685702554724,
+          "sim_state": "partial_support",
+          "coverage": 0.9650471163747415,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 5.974034601124261,
+          "station": 6.3,
+          "difference": -0.3259653988757387,
+          "sim_state": "partial_support",
+          "coverage": 0.9650471163747415,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 0.0014632713187041806,
+          "station": 0.0,
+          "difference": 0.0014632713187041806,
+          "sim_state": "partial_support",
+          "coverage": 0.9650471163747415,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": 0.04860691291879134,
+          "station": 0.0,
+          "difference": 0.04860691291879134,
+          "sim_state": "partial_support",
+          "coverage": 0.9650471163747415,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 13.914408395441022,
+          "station": 0.2,
+          "difference": 13.714408395441023,
+          "sim_state": "partial_support",
+          "coverage": 0.9650471163747415,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 51.927250300684086,
+          "station": 15.1,
+          "difference": 36.827250300684085,
+          "sim_state": "partial_support",
+          "coverage": 0.9650471163747415,
+          "station_quality": "1"
+        }
+      ],
+      "bias": 8.244232485205233,
+      "mae": 8.619677141582303,
+      "p95_absolute": 31.04903982437332,
+      "minimum_difference": -0.8003685702554724,
+      "maximum_difference": 36.827250300684085,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    },
+    {
+      "pra_id": "pra:2B260",
+      "station_id": "20096008",
+      "station_name": "CORTE",
+      "station_lat": 42.2885,
+      "station_lon": 9.193167,
+      "station_altitude_m": 350.0,
+      "inside_pra": true,
+      "candidate_stations": 16,
+      "centroid_distance_m": 3372.8483461400433,
+      "variable": "temperature_mean",
+      "unit": "degC",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 9.00646260434195,
+          "station": 10.4,
+          "difference": -1.3935373956580506,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000004,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 5.596520686249844,
+          "station": 7.2,
+          "difference": -1.6034793137501566,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000004,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 6.893657421615029,
+          "station": 10.3,
+          "difference": -3.4063425783849715,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000004,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": 8.031334987518717,
+          "station": 9.6,
+          "difference": -1.5686650124812829,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000004,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 9.380847721971172,
+          "station": 11.8,
+          "difference": -2.419152278028829,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000004,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 10.316288345533374,
+          "station": 13.1,
+          "difference": -2.783711654466625,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000004,
+          "station_quality": "1"
+        }
+      ],
+      "bias": -2.1958147054616526,
+      "mae": 2.1958147054616526,
+      "p95_absolute": 3.2506848474053847,
+      "minimum_difference": -3.4063425783849715,
+      "maximum_difference": -1.3935373956580506,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    },
+    {
+      "pra_id": "pra:2B260",
+      "station_id": "20096008",
+      "station_name": "CORTE",
+      "station_lat": 42.2885,
+      "station_lon": 9.193167,
+      "station_altitude_m": 350.0,
+      "inside_pra": true,
+      "candidate_stations": 16,
+      "centroid_distance_m": 3372.8483461400433,
+      "variable": "precipitation",
+      "unit": "mm",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 0.01580312710055536,
+          "station": 0.2,
+          "difference": -0.18419687289944464,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000004,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 4.308867163690073,
+          "station": 10.4,
+          "difference": -6.091132836309927,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000004,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 0.4562288870786899,
+          "station": 0.2,
+          "difference": 0.2562288870786899,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000004,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": 0.05787182843547725,
+          "station": 0.0,
+          "difference": 0.05787182843547725,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000004,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 20.99810344303615,
+          "station": 37.0,
+          "difference": -16.00189655696385,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000004,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 52.348216721805265,
+          "station": 38.8,
+          "difference": 13.548216721805268,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000004,
+          "station_quality": "1"
+        }
+      ],
+      "bias": -1.4024848048089644,
+      "mae": 6.023257283915442,
+      "p95_absolute": 15.388476598174204,
+      "minimum_difference": -16.00189655696385,
+      "maximum_difference": 13.548216721805268,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    },
+    {
+      "pra_id": "pra:28341",
+      "station_id": "28190002",
+      "station_name": "GUILLONVILLE",
+      "station_lat": 48.092833,
+      "station_lon": 1.6675,
+      "station_altitude_m": 133.0,
+      "inside_pra": true,
+      "candidate_stations": 3,
+      "centroid_distance_m": 11633.004919424204,
+      "variable": "temperature_mean",
+      "unit": "degC",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 7.853691062066783,
+          "station": 7.8,
+          "difference": 0.053691062066783424,
+          "sim_state": "native_complete",
+          "coverage": 0.999999999999999,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 7.296330226640301,
+          "station": 7.3,
+          "difference": -0.003669773359698425,
+          "sim_state": "native_complete",
+          "coverage": 0.999999999999999,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 8.471915779712125,
+          "station": 8.1,
+          "difference": 0.3719157797121255,
+          "sim_state": "native_complete",
+          "coverage": 0.999999999999999,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": 7.546475258469799,
+          "station": 7.5,
+          "difference": 0.046475258469799385,
+          "sim_state": "native_complete",
+          "coverage": 0.999999999999999,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 6.405096243087722,
+          "station": 6.3,
+          "difference": 0.10509624308772203,
+          "sim_state": "native_complete",
+          "coverage": 0.999999999999999,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 5.849520672910685,
+          "station": 5.9,
+          "difference": -0.050479327089315795,
+          "sim_state": "native_complete",
+          "coverage": 0.999999999999999,
+          "station_quality": "1"
+        }
+      ],
+      "bias": 0.08717154048123603,
+      "mae": 0.10522124063090743,
+      "p95_absolute": 0.30521089555602465,
+      "minimum_difference": -0.050479327089315795,
+      "maximum_difference": 0.3719157797121255,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    },
+    {
+      "pra_id": "pra:28341",
+      "station_id": "28190002",
+      "station_name": "GUILLONVILLE",
+      "station_lat": 48.092833,
+      "station_lon": 1.6675,
+      "station_altitude_m": 133.0,
+      "inside_pra": true,
+      "candidate_stations": 3,
+      "centroid_distance_m": 11633.004919424204,
+      "variable": "precipitation",
+      "unit": "mm",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 0.17616518883061788,
+          "station": 0.2,
+          "difference": -0.02383481116938213,
+          "sim_state": "native_complete",
+          "coverage": 0.999999999999999,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 0.006253872423162459,
+          "station": 0.0,
+          "difference": 0.006253872423162459,
+          "sim_state": "native_complete",
+          "coverage": 0.999999999999999,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 0.96613161086357,
+          "station": 0.8,
+          "difference": 0.16613161086356998,
+          "sim_state": "native_complete",
+          "coverage": 0.999999999999999,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": 0.37399556730731254,
+          "station": 0.0,
+          "difference": 0.37399556730731254,
+          "sim_state": "native_complete",
+          "coverage": 0.999999999999999,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 0.0,
+          "station": 0.0,
+          "difference": 0.0,
+          "sim_state": "native_complete",
+          "coverage": 0.999999999999999,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 0.07341229126737354,
+          "station": 0.2,
+          "difference": -0.12658770873262648,
+          "sim_state": "native_complete",
+          "coverage": 0.999999999999999,
+          "station_quality": "1"
+        }
+      ],
+      "bias": 0.06599308844867273,
+      "mae": 0.11613392841600893,
+      "p95_absolute": 0.3220295781963769,
+      "minimum_difference": -0.12658770873262648,
+      "maximum_difference": 0.37399556730731254,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    },
+    {
+      "pra_id": "pra:05236",
+      "station_id": "05139006",
+      "station_name": "AGNIERES-EN-DEVOLUY",
+      "station_lat": 44.696167,
+      "station_lon": 5.880833,
+      "station_altitude_m": 1244.0,
+      "inside_pra": true,
+      "candidate_stations": 1,
+      "centroid_distance_m": 1494.3531653797477,
+      "variable": "temperature_mean",
+      "unit": "degC",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 3.2682305938962997,
+          "station": 3.9,
+          "difference": -0.6317694061037002,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 1.93489015601965,
+          "station": 2.6,
+          "difference": -0.66510984398035,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 0.3025329384918287,
+          "station": 1.1,
+          "difference": -0.7974670615081714,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": -0.2731622454638911,
+          "station": 0.9,
+          "difference": -1.173162245463891,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 1.8116943092766822,
+          "station": 2.5,
+          "difference": -0.6883056907233178,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 4.872684979150804,
+          "station": 7.0,
+          "difference": -2.1273150208491964,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        }
+      ],
+      "bias": -1.0138548781047712,
+      "mae": 1.0138548781047712,
+      "p95_absolute": 1.8887768270028702,
+      "minimum_difference": -2.1273150208491964,
+      "maximum_difference": -0.6317694061037002,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    },
+    {
+      "pra_id": "pra:05236",
+      "station_id": "05139006",
+      "station_name": "AGNIERES-EN-DEVOLUY",
+      "station_lat": 44.696167,
+      "station_lon": 5.880833,
+      "station_altitude_m": 1244.0,
+      "inside_pra": true,
+      "candidate_stations": 1,
+      "centroid_distance_m": 1494.3531653797477,
+      "variable": "precipitation",
+      "unit": "mm",
+      "pairs": [
+        {
+          "date": "2026-10-31",
+          "sim": 0.0,
+          "station": 0.0,
+          "difference": 0.0,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-01",
+          "sim": 0.0,
+          "station": 0.0,
+          "difference": 0.0,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-02",
+          "sim": 0.0,
+          "station": 0.0,
+          "difference": 0.0,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-03",
+          "sim": 0.0,
+          "station": 0.0,
+          "difference": 0.0,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-04",
+          "sim": 2.3962683725543115,
+          "station": 3.4,
+          "difference": -1.0037316274456884,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        },
+        {
+          "date": "2026-11-05",
+          "sim": 1.1146667903851168,
+          "station": 0.8,
+          "difference": 0.3146667903851168,
+          "sim_state": "native_complete",
+          "coverage": 1.0000000000000002,
+          "station_quality": "1"
+        }
+      ],
+      "bias": -0.11484413951009527,
+      "mae": 0.21973306963846753,
+      "p95_absolute": 0.8314654181805455,
+      "minimum_difference": -1.0037316274456884,
+      "maximum_difference": 0.3146667903851168,
+      "validation_scope": "external_point_diagnostic_not_held_out_or_territorial_validation"
+    }
+  ],
+  "source_calls": 8,
+  "source_bytes": 5457548,
+  "station_may_be_assimilated": true,
+  "sim_date_label_alignment": "nominal same dates; rain 06UTC-06UTC, hourly mean temperature",
+  "not_a_scientific_acceptance_certificate": true
+}
