@@ -1,0 +1,4 @@
+{
+  "extends": "./tsconfig.task33.json",
+  "include": ["edit03_archives.ts", "edit03_simulate.ts"]
+}
