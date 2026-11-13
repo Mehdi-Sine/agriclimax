@@ -1,0 +1,121 @@
+{
+  "entries": [
+    {
+      "family": "era5",
+      "bytes": 258289,
+      "dates": [
+        "2026-10-19"
+      ],
+      "path": "era5/2e277515347af6981b25ee67d02bd940f442d0dc618efbb106f16d9eefe3ace9.json.gz",
+      "sha256": "2e277515347af6981b25ee67d02bd940f442d0dc618efbb106f16d9eefe3ace9",
+      "verified": true
+    },
+    {
+      "family": "era5",
+      "bytes": 474556,
+      "dates": [
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22",
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-26"
+      ],
+      "path": "era5/b52eb1ab39cffc56774386b81e62aca94013c66b06a19bb51d05dc4b7790114a.json.gz",
+      "sha256": "b52eb1ab39cffc56774386b81e62aca94013c66b06a19bb51d05dc4b7790114a",
+      "verified": true
+    },
+    {
+      "family": "era5",
+      "bytes": 351528,
+      "dates": [
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "path": "era5/32a3ededfdf741ed9c7b23201da256a3c2652a781f479b676770830e3c3e512c.json.gz",
+      "sha256": "32a3ededfdf741ed9c7b23201da256a3c2652a781f479b676770830e3c3e512c",
+      "verified": true
+    },
+    {
+      "family": "era5",
+      "bytes": 284028,
+      "dates": [
+        "2026-10-31"
+      ],
+      "path": "era5/1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961.json.gz",
+      "sha256": "1309eaacb1337dfe12ef04d3ad13988ed687d3e65ec963dd31fbd3ce52699961",
+      "verified": true
+    },
+    {
+      "family": "era5",
+      "bytes": 232333,
+      "dates": [
+        "2026-11-01"
+      ],
+      "path": "era5/cbe85befe41c1c92750db41a7d7b65f00c056ad69171b5d5357cf6fd1ee18079.json.gz",
+      "sha256": "cbe85befe41c1c92750db41a7d7b65f00c056ad69171b5d5357cf6fd1ee18079",
+      "verified": true
+    },
+    {
+      "family": "weather",
+      "bytes": 558453,
+      "dates": [
+        "2026-11-06",
+        "2026-11-07",
+        "2026-11-08",
+        "2026-11-09",
+        "2026-11-10",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "method_version": "pra-national-weather-daily-1",
+      "path": "weather/f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3.json.gz",
+      "pra_count": 713,
+      "run_at": "2026-11-07T00:00:00+00:00",
+      "run_date": "2026-11-07",
+      "sha256": "f6ea69aa15b7dffc1e5c19156bd2dcd3c39f0f6e1c2740c16cb68b87747760e3",
+      "verified": true
+    },
+    {
+      "family": "supports",
+      "bytes": 8198,
+      "dates": [
+        "2026-10-31"
+      ],
+      "geometry_entry": {
+        "bytes": 983425,
+        "dates": [],
+        "path": "support/af891d8b40efc5960b1ff4a07a1b9e5b189cb645cb8752ca1283cfa7e2ca7c75.json.gz",
+        "sha256": "af891d8b40efc5960b1ff4a07a1b9e5b189cb645cb8752ca1283cfa7e2ca7c75"
+      },
+      "method_version": "pra-observed-area-mean-90-1",
+      "path": "support/b7b121d8aed7612aaa139475cd0982a9d87febdaf8feffb5e31ed2bb683ef354.json.gz",
+      "sha256": "b7b121d8aed7612aaa139475cd0982a9d87febdaf8feffb5e31ed2bb683ef354",
+      "verified": true
+    },
+    {
+      "family": "supports",
+      "bytes": 12946,
+      "dates": [
+        "2026-11-01"
+      ],
+      "geometry_entry": {
+        "bytes": 983425,
+        "dates": [],
+        "path": "support/af891d8b40efc5960b1ff4a07a1b9e5b189cb645cb8752ca1283cfa7e2ca7c75.json.gz",
+        "sha256": "af891d8b40efc5960b1ff4a07a1b9e5b189cb645cb8752ca1283cfa7e2ca7c75"
+      },
+      "method_version": "pra-observed-area-mean-90-1",
+      "path": "support/8d1ca11beabf6e5240aeadeae583cc9dc6237f2ea292b9e309e929c66d0c1a2c.json.gz",
+      "sha256": "8d1ca11beabf6e5240aeadeae583cc9dc6237f2ea292b9e309e929c66d0c1a2c",
+      "verified": true
+    }
+  ],
+  "remote_writes": 0,
+  "requests": 8
+}
