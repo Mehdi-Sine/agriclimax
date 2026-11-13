@@ -1,5 +1,10 @@
 # Reprise de COUV-01 et compatibilité avec main
 
+Mise à jour finale : la branche intègre désormais `main` **8db047d**, fusion
+d'EDIT-03 (#88), sans conflit et sans altération d'EDIT-03 ou OPS-07.
+Voir [la vérification finale](FINAL_VERIFICATION.md) pour l'audit après merge.
+Le reste du document décrit la reprise initiale depuis `80aa4aa`.
+
 Lecture de la [PR #63](https://github.com/Mehdi-Sine/agriclimax/pull/63), de son
 unique commit `ec7927d794d1f4986bc4ab1d6df39094834e6a1f`, des diagnostics,
 matrices, archives, échantillons, tests et budgets avant développement.

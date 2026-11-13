@@ -1,5 +1,8 @@
 # Validation COUV-02
 
+La [vérification finale après EDIT-03](FINAL_VERIFICATION.md) complète ces
+contrôles initiaux sur `main` **8db047d**, en conservant les preuves ci-dessous.
+
 Contrôles locaux du 13 novembre 2026, base `main` 80aa4aa. Verdict **PARTIAL**,
 pilote historique désactivé en production. Aucun contrôle local ne se substitue
 aux checks distants du commit de PR.

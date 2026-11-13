@@ -1,0 +1,39 @@
+{
+  "base_main": "8db047dbe0e13a9e5d7cbf6a2fcb0720be53daae",
+  "merge_commit": "cfad994bf61f3438d72ac032bc3cd143fb46e94b",
+  "engine_tests": {
+    "passed": 514,
+    "warnings": 63,
+    "seconds": 75.92
+  },
+  "web_regressions": {
+    "passed": 237,
+    "files": 23
+  },
+  "ops_python_tests": 15,
+  "quality_python_tests": 28,
+  "quality_node_tests": 9,
+  "ruff": "passed",
+  "mypy_strict": "passed_14_files",
+  "typescript_web": "passed",
+  "typescript_edit03": "passed",
+  "eslint_edit03": "passed",
+  "pip_check": "passed",
+  "security_guard": "passed",
+  "migrations_guard": "passed",
+  "contracts_guard": "passed",
+  "automation_guard": "passed",
+  "couv01_independent": "passed",
+  "couv02_independent": {
+    "status": "passed",
+    "exact_values": 41354,
+    "homogeneous_series": 1426,
+    "input_checksums": 101
+  },
+  "couv02_replay_exact_files": 10,
+  "edit03_simulation_exact_files": 9,
+  "adapter_enabled_by_default": false,
+  "new_automatic_acquisition": false,
+  "production_modified": false,
+  "github_checks": "See PR #89 for checks on the final pushed head SHA."
+}
