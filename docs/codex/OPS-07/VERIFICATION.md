@@ -157,3 +157,10 @@ Le build de production local déconnecté et le parcours UX-01 corrigé passent 
 cinq tailles d'écran (1440, 1280, 768, 390, 360). Le contrôle du menu attend la
 fin des fragments transitoires de streaming avant de vérifier son unicité et
 ses cinq entrées ; aucun doublon permanent n'est toléré.
+
+La première recette navigateur CI complète passe après cet alignement. Le second
+parcours INT-01 contenait la même attente héritée, ainsi que le script agro-UX01 :
+leurs deux assertions racine sont alignées sans toucher aux contrôles des cartes.
+INT-01 local passe sur quatre tailles, avec les données réelles gelées du dépôt,
+713 identités, absences côtières, Corse, contrôles de périodes et erreurs de
+transport, zéro requête externe et zéro écriture distante.

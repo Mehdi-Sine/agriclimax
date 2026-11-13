@@ -20,7 +20,7 @@ try{
     await context.route("**/*",async route=>{const url=new URL(route.request().url());if(url.origin!==new URL(origin).origin){external.push(url.origin);await route.abort();}else await route.continue();});
     try{
       await page.goto(origin+"/",{waitUntil:"domcontentloaded",timeout:90000});
-      await page.waitForURL("**/journal",{timeout:30000});await ready(page);
+      assert.equal(new URL(page.url()).pathname,"/","UX-02B renders the Journal directly on the homepage");await ready(page);
       assert.match(await page.locator("body").innerText(),/RECETTE.*non publiées/);
       await noOverflow(page);
       await page.screenshot({path:path.join(out,`${name}-journal.png`),fullPage:true,animations:"disabled"});
