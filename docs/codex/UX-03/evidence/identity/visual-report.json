@@ -1,0 +1,104 @@
+[
+  {
+    "label": "desktop",
+    "name": "journal",
+    "route": "/?date=2026-11-12",
+    "identity": {
+      "stripeHeight": "10px",
+      "stripeImage": "url(\"https://agriclimax-git-codex-ux-03-journal-6d87de-mehdi-sines-projects.vercel.app/brand/climate-stripes.png\")",
+      "logoFont": "Georgia, serif",
+      "logoSize": "36px",
+      "ink": "rgb(24, 43, 64)",
+      "background": "rgb(248, 250, 251)",
+      "coral": "rgb(199, 81, 89)",
+      "titleSize": "58px",
+      "overflow": false
+    },
+    "violations": []
+  },
+  {
+    "label": "desktop",
+    "name": "cartes",
+    "route": "/cartes-du-jour?date=2026-11-12",
+    "identity": {
+      "stripeHeight": "10px",
+      "stripeImage": "url(\"https://agriclimax-git-codex-ux-03-journal-6d87de-mehdi-sines-projects.vercel.app/brand/climate-stripes.png\")",
+      "logoFont": "Georgia, serif",
+      "logoSize": "36px",
+      "ink": "rgb(24, 43, 64)",
+      "background": "rgb(248, 250, 251)",
+      "coral": "rgb(199, 81, 89)",
+      "titleSize": "58px",
+      "overflow": false
+    },
+    "violations": []
+  },
+  {
+    "label": "tablet",
+    "name": "journal",
+    "route": "/?date=2026-11-12",
+    "identity": {
+      "stripeHeight": "10px",
+      "stripeImage": "url(\"https://agriclimax-git-codex-ux-03-journal-6d87de-mehdi-sines-projects.vercel.app/brand/climate-stripes.png\")",
+      "logoFont": "Georgia, serif",
+      "logoSize": "36px",
+      "ink": "rgb(24, 43, 64)",
+      "background": "rgb(248, 250, 251)",
+      "coral": "rgb(199, 81, 89)",
+      "titleSize": "34px",
+      "overflow": false
+    },
+    "violations": []
+  },
+  {
+    "label": "tablet",
+    "name": "cartes",
+    "route": "/cartes-du-jour?date=2026-11-12",
+    "identity": {
+      "stripeHeight": "10px",
+      "stripeImage": "url(\"https://agriclimax-git-codex-ux-03-journal-6d87de-mehdi-sines-projects.vercel.app/brand/climate-stripes.png\")",
+      "logoFont": "Georgia, serif",
+      "logoSize": "36px",
+      "ink": "rgb(24, 43, 64)",
+      "background": "rgb(248, 250, 251)",
+      "coral": "rgb(199, 81, 89)",
+      "titleSize": "34px",
+      "overflow": false
+    },
+    "violations": []
+  },
+  {
+    "label": "mobile",
+    "name": "journal",
+    "route": "/?date=2026-11-12",
+    "identity": {
+      "stripeHeight": "10px",
+      "stripeImage": "url(\"https://agriclimax-git-codex-ux-03-journal-6d87de-mehdi-sines-projects.vercel.app/brand/climate-stripes.png\")",
+      "logoFont": "Georgia, serif",
+      "logoSize": "36px",
+      "ink": "rgb(24, 43, 64)",
+      "background": "rgb(248, 250, 251)",
+      "coral": "rgb(199, 81, 89)",
+      "titleSize": "34px",
+      "overflow": false
+    },
+    "violations": []
+  },
+  {
+    "label": "mobile",
+    "name": "cartes",
+    "route": "/cartes-du-jour?date=2026-11-12",
+    "identity": {
+      "stripeHeight": "10px",
+      "stripeImage": "url(\"https://agriclimax-git-codex-ux-03-journal-6d87de-mehdi-sines-projects.vercel.app/brand/climate-stripes.png\")",
+      "logoFont": "Georgia, serif",
+      "logoSize": "36px",
+      "ink": "rgb(24, 43, 64)",
+      "background": "rgb(248, 250, 251)",
+      "coral": "rgb(199, 81, 89)",
+      "titleSize": "34px",
+      "overflow": false
+    },
+    "violations": []
+  }
+]

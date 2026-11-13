@@ -6,6 +6,8 @@ import type {ConsultableEdition} from "./consultable";
 import { frenchDate } from "../journal/ui/stories";
 import { editorialText, frenchPeriod, frenchCycle } from "../journal/ui/editorial-dates";
 import JournalPraMap from "../journal/ui/pra-map";
+import {JournalMapCarousel} from "../edition-maps/carousel";
+import {journalMapCards} from "../edition-maps/carousel-model";
 import {EditionMaps} from "../edition-maps/view";
 import type {EditionMapsView} from "../edition-maps/model";
 function Text({ block, facts }: { block: Block; facts: {id:string}[] }) {
@@ -40,6 +42,7 @@ export function EditorialPreview({
   editionMaps?: EditionMapsView;
 }) {
   const d = a?.draft;
+  const carousel = published && a && editionMaps?.maps.length ? journalMapCards(editionMaps, a.edition_id, a.date) : undefined;
   const cycles=[...new Set(a?.briefing.national.facts.flatMap(f=>{try{const cycle=new URL(f.href,"https://agriclimax.invalid").searchParams.get("cycle");return cycle&&Number.isFinite(Date.parse(cycle))?[cycle]:[];}catch{return [];}})??[])];
   const base=personalStatus?"/journal/personnel":published?"/journal":"/journal/preview";
   const api=personalStatus?"/api/journal/personnel":published?"/api/journal/edition":"/api/journal-preview";
@@ -82,6 +85,7 @@ export function EditorialPreview({
                 <Text facts={a.briefing.national.facts} block={d.lead} />
               </div>
             </div>
+            {carousel && <JournalMapCarousel key={a.edition_id} cards={carousel} preview={editionMaps?.status === "preview"}/>}
             <aside className="ux02b-essential" aria-label="L’essentiel de cette édition">
               <p className="eyebrow">L’ESSENTIEL</p>
               <h2>Une lecture nationale, des réalités locales</h2>
@@ -92,7 +96,7 @@ export function EditorialPreview({
                 <div><strong>{d.regions.length}</strong><small>Éclairages régionaux</small></div>
               </div>
             </aside>
-            <div className="ux02b-map-heading"><h2>La carte de l’édition</h2><Link href={`${mapsBase}?date=${a.date}&id=${a.edition_id}`}>Explorer les cartes →</Link></div>
+            {!carousel && <><div className="ux02b-map-heading"><h2>La carte de l’édition</h2><Link href={`${mapsBase}?date=${a.date}&id=${a.edition_id}`}>Explorer les cartes →</Link></div>
             {editionMaps?.maps.length ? <EditionMaps key={a.edition_id} view={editionMaps} editionId={a.edition_id} main/> : a.illustrations.some(m=>d.illustration_ids.includes(m.id)) ? (
               a.illustrations
                 .filter((m) => d.illustration_ids.includes(m.id))
@@ -117,6 +121,7 @@ export function EditorialPreview({
                 </p>
               </aside>
             )}
+            </>}
             <aside className="ux01-map-context">
                 <h2>Dans cette édition</h2>
                 <a className="ux02b-story-link" href="#regions"><strong>Tour des régions</strong><span>Les éclairages territoriaux de cette édition.</span></a>
@@ -151,7 +156,7 @@ export function EditorialPreview({
               ))}
             </section>
           </section>
-          <section className="ux01-cartes-teasers" aria-labelledby="ux01-carte-title">
+          {!carousel && <section className="ux01-cartes-teasers" aria-labelledby="ux01-carte-title">
               <div className="ux01-teaser-heading">
                 <div><p className="eyebrow">L’ESSENTIEL EN CARTES</p><h2 id="ux01-carte-title">Les cartes de l’édition</h2></div>
                 <Link href={`${mapsBase}?date=${a.date}&id=${a.edition_id}`}>Toutes les cartes →</Link>
@@ -167,7 +172,7 @@ export function EditorialPreview({
                 {editionMaps?.maps.slice(0,3).map(m=><Link key={m.id} href={`${mapsBase}?id=${a.edition_id}&map=${m.id}`} className="ux01-teaser-card"><span className="ux01-kicker">{m.nature==="forecast"?"PRÉVISION":"RÉANALYSE"} · {m.period.join(" → ")}</span><h3>{m.title}</h3><small>{editionMaps.status==="preview"?"Candidate non publiée":"Carte publiée de l’édition"} · {m.unit}</small></Link>)}
                 {!editionMaps?.maps.length&&!a.illustrations.some(m=>d.illustration_ids.includes(m.id))&&<p>Cette édition ne comporte pas de carte archivée compatible. Aucune carte récente ne lui est substituée.</p>}
               </div>
-            </section>
+            </section>}
            <section className="understand">
             <article className="article-column">
               <p className="eyebrow">DÉCRYPTAGE</p>

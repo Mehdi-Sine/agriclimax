@@ -20,10 +20,18 @@ try{
     await context.route("**/*",async route=>{const url=new URL(route.request().url());if(url.origin!==new URL(origin).origin){external.push(url.origin);await route.abort();}else await route.continue();});
     try{
       await page.goto(origin+"/",{waitUntil:"domcontentloaded",timeout:90000});
-      assert.equal(new URL(page.url()).pathname,"/","UX-02B renders the Journal directly on the homepage");await ready(page);
+      assert.equal(new URL(page.url()).pathname,"/","UX-03 renders the Journal directly on the homepage");
+      await page.waitForFunction(()=>document.querySelectorAll('.journal-thumbnail[data-state="ready"]').length===10,{},{timeout:90000});
+      assert.equal(await page.locator(".journal-map-card").count(),10);
+      assert.equal(await page.locator(".maplibregl-canvas").count(),0,"The Journal uses raster previews");
       assert.match(await page.locator("body").innerText(),/RECETTE.*non publiées/);
       await noOverflow(page);
       await page.screenshot({path:path.join(out,`${name}-journal.png`),fullPage:true,animations:"disabled"});
+      // Follow the real thumbnail into the interactive archive before testing PRA selection.
+      const link=page.locator(".journal-map-card-link").first();
+      const linked=new URL(await link.getAttribute("href"),origin);
+      assert.equal(linked.searchParams.get("id"),edition);
+      await link.click();await page.waitForURL("**/cartes-du-jour?**");await ready(page);await noOverflow(page);
       const picker=page.getByRole("combobox",{name:"PRA de l’édition",exact:true});
       assert.equal(await picker.locator("option").count(),714);
       // Breton coastal support is deliberately missing, without imputation.
@@ -35,10 +43,8 @@ try{
       await page.getByRole("complementary",{name:"PRA sélectionnée"}).getByText("LITTORAL CORSE - 2A",{exact:true}).waitFor();
       assert.match(await page.getByRole("complementary",{name:"PRA sélectionnée"}).innerText(),/Couverture surfacique/);
       if(name==="desktop"||name==="mobile"){
-        await ready(page);await page.locator(".journal-pra-map").screenshot({path:path.join(out,`${name}-journal-corse.png`),animations:"disabled"});
+        await ready(page);await page.locator(".journal-pra-map").screenshot({path:path.join(out,`${name}-cartes-corse.png`),animations:"disabled"});
       }
-      const link=page.getByRole("link",{name:"Toutes les cartes de cette édition →",exact:true});
-      await link.click();await page.waitForURL("**/cartes-du-jour?**");await ready(page);await noOverflow(page);
       const rain=candidate.maps.find(m=>m.indicator==="rain"&&m.nature==="reanalysis");
       await page.getByRole("combobox",{name:"Indicateur de l’édition",exact:true}).selectOption(rain.id);await ready(page);
       assert.equal(await page.locator(".journal-pra-map").getAttribute("data-map-id"),rain.id);
