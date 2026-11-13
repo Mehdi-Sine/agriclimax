@@ -1,4 +1,5 @@
 import { prepareDossier } from "./nightly_prepare";
+import {resumeArchivedEdition} from "../apps/web/features/nightly/resume-archive";
 import { revalidateArchive, REVALIDATION_VERSION } from "../apps/web/features/editorial-ai/revalidate";
 import { BriefingContractError } from "../apps/web/features/editorial/validate";
 import { supervise } from "../apps/web/features/nightly/supervise";
@@ -128,10 +129,7 @@ async function main() {
         publishExperimentalMaps(fallback);
         output({status:"experimental_fallback",id:fallback.edition_id,checksum:fallback.checksum,paid_calls:0});return;
       }
-      consultableEdition(recovered);
-      await editorialRPC("recover_archive",{edition_date:date,id:prior.id,checksum:recovered.checksum});
-      publishExperimentalMaps(recovered);
-      output({status:"archive_recovered",id:prior.id,checksum:recovered.checksum,paid_calls:0});return;
+      output(await resumeArchivedEdition(recovered,payload=>editorialRPC("recover_archive",payload),publishExperimentalMaps));return;
     }
   }
   if(!control.ai_enabled) {output({status:"no_op",reason:"ai_disabled",snapshot_id:snapshot.id,quality:snapshot.quality,paid_calls:0});return;}

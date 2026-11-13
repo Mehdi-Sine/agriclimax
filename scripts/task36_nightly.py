@@ -65,7 +65,10 @@ def commands(source: str, edition_date: str | None = None) -> list[list[str]]:
                      [py, 'scripts/national_weather.py', '--mode', 'national', *forecast_date, '--execute', '--national-authorized', '--publish-dev']],
         'era5': [[py, 'scripts/restore_daily_checkpoint.py', 'era5', 'work/era5-archive'],
                  [py, 'scripts/era5_archive_daily.py', '--root', 'work/era5-archive', '--max-downloads', '64', '--execute', '--publish-dev']],
-        'stations': [[py, 'scripts/daily_live.py', '--from', str(end-timedelta(days=6)), '--to', str(end)]],
+        # DPClim daily archives may omit yesterday at the early-morning slot.
+        # Keep a full seven-day window ending D-2, with its actual dates; DPObs
+        # instantaneous samples must never fill the missing daily aggregates.
+        'stations': [[py, 'scripts/daily_live.py', '--from', str(end-timedelta(days=7)), '--to', str(end-timedelta(days=1))]],
         'observations': [[py, 'scripts/ingest_weather.py', '--mode', 'live_meteofrance',
                           '--product', 'observations', '--daily', '--root', 'work/station-observations']],
         'news': [[py, 'scripts/task34_news.py', '--output', 'work/task36/news', '--bundle', 'work/task36/news.json']],
@@ -120,6 +123,8 @@ def acquire(source: str, date: str) -> dict[str, Any]:
             if source == 'news' and not any(s.get('status') == 'ok' for s in report.get('sources', [])):
                 state = 'degraded'
             if state == 'success' and (report.get('status') in ('no_new_data','read_only_existing_archive','not_yet_available_by_conservative_publication_ceiling') or report.get('inserted') is False):
+                state = 'no_new_data'
+            if source == 'stations' and report.get('status') == 'daily_source_unavailable':
                 state = 'no_new_data'
             if report.get('status') == 'partial_previous_publication_preserved':
                 state = 'degraded'

@@ -1,0 +1,102 @@
+{
+  "state": "retryable_failure",
+  "source": "stations",
+  "attempts": 4,
+  "checkpoint": {
+    "report": {
+      "to": "2026-11-12",
+      "date": "2026-11-12",
+      "from": "2026-11-06",
+      "stage": "failed",
+      "reason": "DAILY_NO_COMPLETE_STATION_WINDOW",
+      "resume": "same_date_range",
+      "substage": "validate",
+      "error_type": "ValueError",
+      "successful": false,
+      "computed_at": "2026-11-13T04:15:57.895156+00:00",
+      "failed_stage": "ingestion",
+      "received_rows": 210,
+      "accepted_stations": [],
+      "rejected_station_days": [
+        {
+          "date": "2026-11-12",
+          "issues": [],
+          "reason": "DAILY_INVALID_SOURCE",
+          "station": "29075001",
+          "missing_variables": [
+            "humidity",
+            "precipitation",
+            "temperature",
+            "temperature_max",
+            "temperature_min"
+          ]
+        },
+        {
+          "date": "2026-11-12",
+          "issues": [],
+          "reason": "DAILY_INVALID_SOURCE",
+          "station": "67124001",
+          "missing_variables": [
+            "humidity",
+            "precipitation",
+            "temperature",
+            "temperature_max",
+            "temperature_min"
+          ]
+        },
+        {
+          "date": "2026-11-12",
+          "issues": [],
+          "reason": "DAILY_INVALID_SOURCE",
+          "station": "31069001",
+          "missing_variables": [
+            "humidity",
+            "precipitation",
+            "temperature",
+            "temperature_max",
+            "temperature_min"
+          ]
+        },
+        {
+          "date": "2026-11-12",
+          "issues": [],
+          "reason": "DAILY_INVALID_SOURCE",
+          "station": "13054001",
+          "missing_variables": [
+            "humidity",
+            "precipitation",
+            "temperature",
+            "temperature_max",
+            "temperature_min"
+          ]
+        },
+        {
+          "date": "2026-11-12",
+          "issues": [],
+          "reason": "DAILY_INVALID_SOURCE",
+          "station": "05046001",
+          "missing_variables": [
+            "humidity",
+            "precipitation",
+            "temperature",
+            "temperature_max",
+            "temperature_min"
+          ]
+        }
+      ]
+    },
+    "source": "stations",
+    "exit_code": 1,
+    "started_at": "2026-11-13T04:15:57.660600+00:00",
+    "dispatch_id": "watchdog-20261113-0415",
+    "finished_at": "2026-11-13T04:16:09.559637+00:00",
+    "scheduled_at": "2026-11-13T01:15:00+00:00",
+    "elapsed_seconds": 11.899,
+    "workflow_run_id": "43364269336",
+    "scheduled_at_basis": "dispatch"
+  },
+  "updated_at": "2026-11-13T04:16:09.692639+00:00",
+  "lease_until": null,
+  "edition_date": "2026-11-13",
+  "next_attempt_at": "2026-11-13T04:46:09.692639+00:00"
+}

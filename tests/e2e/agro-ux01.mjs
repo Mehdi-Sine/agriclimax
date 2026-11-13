@@ -45,7 +45,7 @@ for(const width of [1440,1280,768,390,360]){
 const page=await browser.newPage();
 for(const route of ['/','/climat','/productions','/veille','/analyse','/almanach','/cartes-du-jour','/aide-et-documentation','/aide-et-documentation/indicateurs','/journal?date=2000-01-01']){
  const response=await page.goto(origin+route,{waitUntil:'domcontentloaded',timeout:60000});assert.equal(response.status(),200,route);results.push({route,status:200});
- if(route==='/')await page.waitForURL('**/journal',{timeout:20000});
+ if(route==='/')assert.equal(new URL(page.url()).pathname,'/','UX-02B renders the Journal directly on the homepage');
  if(route.endsWith('/indicateurs'))assert.equal(await page.locator('main section').count(),14);
  if(route.includes('2000'))assert.ok((await page.locator('h1').textContent()).includes('Aucune édition'));
 }

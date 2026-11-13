@@ -413,3 +413,47 @@ def test_incomplete_station_preserves_publication_but_persists_other_qualified_w
     assert report["rejected_station_days"][0]["missing_variables"] == ["humidity"]
     assert report["rejected_station_days"][0]["reason"] == "DAILY_REQUIRED_VARIABLES_MISSING"
     assert report["previous_publication_preserved"]
+
+
+@pytest.mark.parametrize("empty_record", [False, True])
+def test_ops07_210_rows_but_latest_dpclim_date_absent(tmp_path, empty_record):
+    """Reproduces the Nov 13 manifest shape; CSV values are synthetic, not live evidence."""
+    from datetime import UTC, datetime
+
+    from agriclimax.ingestion.meteofrance import (
+        DAILY_FIELDS,
+        MVP_STATIONS,
+        MeteoFranceProvider,
+        Station,
+    )
+
+    start, end = date(2026, 11, 6), date(2026, 11, 12)
+    now = datetime(2026, 11, 13, 4, tzinfo=UTC)
+    source = MeteoFranceProvider(MVP_STATIONS, start, end, client=Mock(), clock=lambda: now)
+    source.stations = tuple(Station(id=s, name="synthetic", latitude=48, longitude=2, altitude_m=1, metadata={}) for s in MVP_STATIONS)
+    source.prepared = True
+    for station in MVP_STATIONS:
+        source.archives[station] = ([{"POSTE": station, "DATE": (start + timedelta(days=i)).strftime("%Y%m%d"),
+            "TN": "2", "TX": "12", "TM": "7", "UM": "70", "RR": "0", "ETPMON": "1"} for i in range(6)], "a" * 64)
+        if empty_record:
+            source.archives[station][0].append({"POSTE": station, "DATE": "20261112",
+                "TN": "", "TX": "", "TM": "", "UM": "", "RR": "", "ETPMON": ""})
+    repository, publish = Mock(), Mock()
+    assert not run_daily(source, repository, publish, start=start, end=end, now=now, clock=lambda: now,
+        root=tmp_path, parameters=PARAMS, cattle_rule=Path("config/cattle/thi-v1.json"))
+    report = json.loads((tmp_path / "logs/run.json").read_text())
+    assert report["received_rows"] == 210  # 5 stations x 7 dates x 6 variables, including null rows.
+    assert report["accepted_stations"] == []
+    assert report["status"] == "daily_source_unavailable"
+    assert len(report["rejected_station_days"]) == 5
+    for rejected in report["rejected_station_days"]:
+        assert rejected["date"] == "2026-11-12"
+        assert rejected["source_day_absent"] is (not empty_record)
+        assert rejected["source_values_absent"]
+        assert len(rejected["missing_variables"]) == 5
+        assert {r["field"] for r in rejected["source_fields"]} == set(DAILY_FIELDS)
+        assert {r["temporal_resolution"] for r in rejected["source_fields"]} == {"daily"}
+        assert not any(r["value_present"] for r in rejected["source_fields"])
+    repository.persist.assert_not_called()
+    publish.assert_not_called()
+    source.client.get.assert_not_called()
