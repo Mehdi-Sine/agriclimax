@@ -1,0 +1,120 @@
+{
+  "base": "https://agriclimax-git-codex-ux-03-journal-6d87de-mehdi-sines-projects.vercel.app",
+  "editions": [
+    {
+      "date": "2026-11-12",
+      "label": "desktop",
+      "loadedMs": 14016,
+      "cards": 10,
+      "deepLinksChecked": 10,
+      "thumbnailBytes": 402376,
+      "sizes": [
+        41770,
+        39486,
+        40138,
+        40556,
+        45346,
+        41520,
+        38894,
+        35996,
+        40212,
+        38458
+      ],
+      "layout": {
+        "overflow": false,
+        "afterDeck": true
+      },
+      "violations": []
+    },
+    {
+      "date": "2026-11-13",
+      "label": "desktop",
+      "loadedMs": 7027,
+      "cards": 10,
+      "deepLinksChecked": 10,
+      "thumbnailBytes": 406740,
+      "sizes": [
+        41500,
+        39396,
+        40732,
+        40604,
+        44582,
+        41468,
+        39054,
+        40956,
+        39990,
+        38458
+      ],
+      "layout": {
+        "overflow": false,
+        "afterDeck": true
+      },
+      "violations": []
+    },
+    {
+      "date": "2026-11-12",
+      "label": "mobile",
+      "loadedMs": 1769,
+      "cards": 10,
+      "deepLinksChecked": 10,
+      "thumbnailBytes": 402376,
+      "sizes": [
+        41770,
+        39486,
+        40138,
+        40556,
+        45346,
+        41520,
+        38894,
+        35996,
+        40212,
+        38458
+      ],
+      "layout": {
+        "overflow": false,
+        "afterDeck": true
+      },
+      "violations": []
+    },
+    {
+      "date": "2026-11-13",
+      "label": "mobile",
+      "loadedMs": 1429,
+      "cards": 10,
+      "deepLinksChecked": 10,
+      "thumbnailBytes": 406740,
+      "sizes": [
+        41500,
+        39396,
+        40732,
+        40604,
+        44582,
+        41468,
+        39054,
+        40956,
+        39990,
+        38458
+      ],
+      "layout": {
+        "overflow": false,
+        "afterDeck": true
+      },
+      "violations": []
+    }
+  ],
+  "states": [
+    {
+      "label": "desktop",
+      "loading": true,
+      "missingThumbnail": true,
+      "missingEdition": true
+    },
+    {
+      "label": "mobile",
+      "loading": true,
+      "missingThumbnail": true,
+      "missingEdition": true
+    }
+  ],
+  "errors": []
+}

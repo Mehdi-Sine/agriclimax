@@ -50,6 +50,8 @@ combinant l'identifiant immuable de carte, la version de rendu, les empreintes
 des contours et des tokens. Cache HTTP public d'un jour et revalidation pendant
 sept jours, ETag SHA-256 du raster et réponse conditionnelle 304. Candidats et
 erreurs : `no-store`. Les assets sont explicitement inclus dans la trace Vercel.
+Une modification du rendu, des contours ou des palettes exige de changer
+`THUMBNAIL_VERSION` pour renouveler également les URL conservées par le navigateur.
 
 Le cache est dérivé et jetable, sans nouvelle table, bucket ou écriture distante.
 Un échec de miniature conserve titre, période, légende et lien interactif, avec

@@ -1,0 +1,110 @@
+▲ Next.js 16.4.1 (Turbopack)
+✓ Running next.config.ts took 216ms
+- Experiments (use with caution):
+  ⨯ useTypeScriptCli
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 6.2s
+  Running TypeScript ...
+  Finished TypeScript in 58s ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/49) ...
+  Generating static pages using 2 workers (12/49) 
+  Generating static pages using 2 workers (24/49) 
+  Generating static pages using 2 workers (36/49) 
+✓ Generating static pages using 2 workers (49/49) in 1679ms
+Turbopack build encountered 1 warning:
+./apps/web/features/editorial-ai/archive.ts:73:17
+Warning: Dynamic filesystem access causes tracing of the whole project
+  [90m71 |[0m     mkdirSync(root, { recursive: [36mtrue[0m });
+  [90m72 |[0m     [36mfor[0m ([36mconst[0m d [36mof[0m [[32m"runs"[0m, [32m"editions"[0m, [32m"diagnostics"[0m])
+[33m[1m>[0m [90m73 |[0m       mkdirSync(join(root, d), { recursive: [36mtrue[0m });
+  [90m   |[0m                 [33m[1m^^^^^^^^^^^^^[0m
+  [90m74 |[0m   }
+  [90m75 |[0m   lock() {
+  [90m76 |[0m     [36mconst[0m p = join([36mthis[0m.root, [32m"budget.lock"[0m);
+
+Static analysis determined that this filesystem access causes the whole project to be traced and included in the output.
+This is usually unintentional and leads to all source files (including the public folder) to be deployed as part of the server code.
+This can slow down deployments or lead to failures when size limits are exceeded.
+To resolve this, you can
+- make sure the path is statically scoped to some subfolder, for example path.join(process.cwd(), 'data', bar), or
+- only use them in development, or
+- opt out by adding an ignore comment to the highlighted call: path.join(/*turbopackIgnore: true*/ ...), or
+- remove them.
+
+Import traces:
+  App Route:
+    ./apps/web/features/editorial-ai/archive.ts
+    ./apps/web/lib/server/editorial-personal.ts
+    ./apps/web/app/api/journal/personnel/route.ts
+
+  Server Component:
+    ./apps/web/features/editorial-ai/archive.ts
+    ./apps/web/features/editorial-ai/supabase-store.ts
+    ./apps/web/lib/server/editorial-published.ts
+    ./apps/web/app/cartes-du-jour/page.tsx
+
+
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ○ /aide-et-documentation
+├ ○ /aide-et-documentation/indicateurs
+├ ○ /aide/cartes
+├ ƒ /almanach
+├ ○ /analyse
+├ ƒ /api/agriculture
+├ ƒ /api/agroclimatic
+├ ƒ /api/climate/france
+├ ƒ /api/editorial-briefing/example
+├ ƒ /api/journal
+├ ƒ /api/journal-preview
+├ ƒ /api/journal-preview/map
+├ ƒ /api/journal/availability
+├ ƒ /api/journal/edition
+├ ƒ /api/journal/edition-map
+├ ƒ /api/journal/map
+├ ƒ /api/journal/maps
+├ ƒ /api/journal/personnel
+├ ƒ /api/journal/personnel/map
+├ ƒ /api/journal/thumbnail
+├ ƒ /api/manual-journal
+├ ƒ /api/national
+├ ƒ /api/national/support
+├ ƒ /api/operational
+├ ƒ /api/risks/map
+├ ƒ /api/risks/series
+├ ƒ /api/risks/territory
+├ ƒ /api/territories
+├ ƒ /api/territories/diagnostics
+├ ƒ /api/unified
+├ ƒ /api/veille
+├ ƒ /api/veille/historique
+├ ƒ /api/weather/series
+├ ƒ /api/weather/stations
+├ ƒ /api/wheat
+├ ƒ /cartes-du-jour
+├ ○ /climat
+├ ƒ /demo
+├ ○ /design-system
+├ ƒ /diagnostic
+├ ƒ /history
+├ ƒ /journal
+├ ƒ /journal/personnel
+├ ƒ /journal/preview
+├ ○ /manifest.webmanifest
+├ ○ /productions
+├ ƒ /stations
+├ ƒ /territories
+├ ○ /veille
+└ ƒ /watch
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

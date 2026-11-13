@@ -1,0 +1,135 @@
+{
+  "base": "2f0b47b97f6a6dace4c9abd7d010e572826ba684",
+  "application_commit": "849230f6d5c2bbdc32e49739b9095166725a5a81",
+  "preview": "https://agriclimax-git-codex-ux-03-journal-6d87de-mehdi-sines-projects.vercel.app",
+  "verified_protected_paths_unchanged": [
+    "supabase",
+    "engine",
+    "config",
+    "fixtures",
+    ".github",
+    "scripts",
+    "apps/web/features/editorial-map-selection",
+    "apps/web/features/cartography",
+    "apps/web/styles/tokens.css",
+    "apps/web/lib/server/edition-maps.ts"
+  ],
+  "web_tests": {
+    "passed": 715,
+    "skipped_preexisting": 8
+  },
+  "final_map_tests": 16,
+  "lint": "passed",
+  "typecheck_and_build": "passed",
+  "client_bundle_gzip_bytes": 693899,
+  "client_bundle_budget_bytes": 2097152,
+  "source_and_client_secret_guards": "passed",
+  "contract_and_migration_guards": "passed",
+  "audit_exceptions": null,
+  "int01_viewports": 4,
+  "preview_editions_viewports": 4,
+  "preview_deep_links_checked": 40,
+  "identity_viewports": 3,
+  "screenshots": [
+    {
+      "path": "identity/after-journal-tablet.png",
+      "bytes": 578456,
+      "sha256": "f6f3c094ff7d17438722590a77289b407148b9161ffd4c42ab666f2b8baf28a8"
+    },
+    {
+      "path": "preview/2026-11-12-desktop-carousel.png",
+      "bytes": 206077,
+      "sha256": "26b3fe4b3fd58be9446943c45c3d96ffe49ead212a400ee469956ec5fd8453c7"
+    },
+    {
+      "path": "preview/2026-11-12-desktop-interactive.png",
+      "bytes": 257805,
+      "sha256": "af15f6f0a769967ece3fec7a591347d20df12aac4ef530719aa7c58aeb7d6afc"
+    },
+    {
+      "path": "preview/2026-11-12-desktop-journal.png",
+      "bytes": 691708,
+      "sha256": "071514f975fb5f2b480b99040a68afe7fb804960f63c65ff749e904cb2498c7d"
+    },
+    {
+      "path": "preview/2026-11-12-mobile-carousel.png",
+      "bytes": 76442,
+      "sha256": "e27f14258c1dd255b6e2efab7e8df0656d8d1cdbf44d25b0141f0ae1d3dda812"
+    },
+    {
+      "path": "preview/2026-11-12-mobile-interactive.png",
+      "bytes": 209924,
+      "sha256": "8e1bf6ef67bb68cb865129e588604be13d0e4406f10a610fde5b38cef659f19b"
+    },
+    {
+      "path": "preview/2026-11-12-mobile-journal.png",
+      "bytes": 506006,
+      "sha256": "8d3862af1d6879abceef6141d1d32c2d237293fd4bd4a0edf0e063315c6b4935"
+    },
+    {
+      "path": "preview/2026-11-13-desktop-carousel.png",
+      "bytes": 205693,
+      "sha256": "8cb3094b4652857ececc38c4a4007c477894201be5e16cb1c11b7871b5d34ffd"
+    },
+    {
+      "path": "preview/2026-11-13-desktop-interactive.png",
+      "bytes": 257897,
+      "sha256": "bd0310637e349951c932046f358c4a21fe7e3f937060bca60aefe8e7d1e18406"
+    },
+    {
+      "path": "preview/2026-11-13-desktop-journal.png",
+      "bytes": 462501,
+      "sha256": "69ee788dcb21768bc30c8906345e3c77919fd6a8c588084975fd44abad50bc23"
+    },
+    {
+      "path": "preview/2026-11-13-mobile-carousel.png",
+      "bytes": 76550,
+      "sha256": "2d910647d2bb5a7a780f48a94e9eaba0737048ecafe212100f3308619c8decab"
+    },
+    {
+      "path": "preview/2026-11-13-mobile-interactive.png",
+      "bytes": 210055,
+      "sha256": "96f2f7135d7579f0aa36835d4b44357cd77393e3bc656b8a01a4dee579b879a9"
+    },
+    {
+      "path": "preview/2026-11-13-mobile-journal.png",
+      "bytes": 312999,
+      "sha256": "dcc0899843bed83ac2ecb82967dd9998b23e499c38c2f4946df1c837feb4fc00"
+    },
+    {
+      "path": "preview/desktop-loading.png",
+      "bytes": 326258,
+      "sha256": "ae82edbfb6c6a86bf360d9448616015842a459d1701c162ef53b22d78fe100d3"
+    },
+    {
+      "path": "preview/desktop-missing-thumbnails.png",
+      "bytes": 328491,
+      "sha256": "13ae169d4881783b76a92ee4c5ec3513ff8132b3034103db045be2bd87da0c94"
+    },
+    {
+      "path": "preview/mobile-loading.png",
+      "bytes": 279896,
+      "sha256": "9121fcd13bcc9232b031d1d104af32ec2d539f29a5d89f6a941def97b0e942d7"
+    },
+    {
+      "path": "preview/mobile-missing-thumbnails.png",
+      "bytes": 281049,
+      "sha256": "4a8210c62a7940526f8f05aa3d12ec8c82c0e33a70969f8dcb8472cc8164952f"
+    }
+  ],
+  "ci": {
+    "commit": "849230f6d5c2bbdc32e49739b9095166725a5a81",
+    "quality": {
+      "status": "success",
+      "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43477069328"
+    },
+    "security": {
+      "status": "success",
+      "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43477069348"
+    },
+    "vercel": {
+      "status": "success",
+      "url": "https://vercel.com/mehdi-sines-projects/agriclimax/FSqiAFBHNgkwiFe6a3D4iMMoqCDk"
+    }
+  }
+}
