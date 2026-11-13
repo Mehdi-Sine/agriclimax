@@ -55,6 +55,10 @@ try{
     await page.waitForFunction(()=>document.querySelector('.journal-carousel-track').scrollLeft>80);
     await session.detach();await cards.first().locator('a').focus();await page.keyboard.press('Home');
    }
+   await track.evaluate(el=>el.scrollTo({left:0,behavior:'instant'}));
+   await page.waitForTimeout(500);
+   await track.evaluate(el=>el.scrollTo({left:0,behavior:'instant'}));
+   await page.evaluate(()=>document.activeElement instanceof HTMLElement&&document.activeElement.blur());
    await page.addScriptTag({path:axePath});
    const violations=await page.evaluate(async()=>(await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa']}})).violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))})));
    await page.screenshot({path:`${out}/${date}-${label}-journal.png`,fullPage:true});
