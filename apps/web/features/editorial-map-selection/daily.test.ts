@@ -12,7 +12,7 @@ import type {Archive} from "../editorial-ai/model";
 import {generateOperational,operationalConfig,type AttemptStore} from "../editorial-ai/generate-operational";
 import {fallbackDraft} from "../editorial-ai/fallback";
 import {ProviderFailure,requestBody} from "../editorial-ai/provider";
-import {editorialPayload} from "../editorial-ai/budget";
+import {editorialPayload,budgetReport} from "../editorial-ai/budget";
 import {auditSchema} from "../editorial-ai/request-audit";
 import {consultableEdition} from "../editorial-ai/consultable";
 const sources=DATES.map(readEdit04Archive);
@@ -96,4 +96,19 @@ it("admits no map when all territorial values are excluded by Journal qualificat
  const rebound=sealBundle(body),ranking=rankCatalogue(buildCatalogue(source.archive,rebound),{min_score:45,max_cards:6});
  const s=chooseDaily(ranking,mapsDigest(rebound));verifyDailySelection(s);
  expect(selectedMapIds(s,rebound)).toEqual([]);expect(s.response.hero_map_id).toBeNull();
+});
+
+it("forwards the enriched daily request despite historical budget estimates, without a reservation or second call",async()=>{
+ const s=store(),b=sources[2].archive.briefing,c={...operationalConfig("gpt-6.1-terra"),max_edition_eur:0,monthly_budget_eur:0};
+ let maps:DailySelection;
+ const provider=vi.fn(async(payload:string)=>{
+  const historical=budgetReport(payload,c,[]);
+  expect(historical.allowed).toBe(false);expect(historical.blockers).toContain("EDITION_COST_EXCEEDED");
+  expect(JSON.parse(payload).map_selection.cards).toHaveLength(10);
+  expect(requestBody(payload,c).max_output_tokens).toBe(6000);
+  return {draft:{draft:fallbackDraft(b),map_selection:maps.response},model:c.model,response_id:"synthetic-budget-check",usage:null};
+ });
+ const archive=await generateOperational({briefing:b,config:c,store:s.api,provider,manualRetry:false,prepareSelection:async id=>{maps=forAttempt(id);return maps;}});
+ expect(provider).toHaveBeenCalledTimes(1);expect(archive.mode).toBe("live");expect(archive.map_selection?.mode).toBe("ai");
+ expect(archive.receipt?.usage).toBeNull();expect(archive.receipt?.cost_eur).toBeNull();
 });
