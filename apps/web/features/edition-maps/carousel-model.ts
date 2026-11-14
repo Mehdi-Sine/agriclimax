@@ -3,14 +3,16 @@ import type {SelectionView} from "../editorial-map-selection/model";
 import {frenchPeriod} from "../journal/ui/editorial-dates";
 
 export const THUMBNAIL_VERSION = "ux03-1";
-/** EDIT-03 presentation contract, projected from the published catalogue only.
- * The simulation's hero, ranking and six-card shortlist are never activated. */
+/** Project checked selections onto the exact published catalogue. Historical
+ * editions without an archived selection retain their published order. */
 export type JournalMapCard = SelectionView["cards"][number] & {
   info: EditionMapInfo;
   thumbnail_url: string;
 };
-export function journalMapCards(view: EditionMapsView, editionId: string, date: string): JournalMapCard[] {
-  return view.maps.map((info, order) => ({
+export function journalMapCards(view: EditionMapsView, editionId: string, date: string, selection?: {hero_map_id:string|null;map_ids:string[]}): JournalMapCard[] {
+  const maps=selection?selection.map_ids.map(id=>view.maps.find(m=>m.id===id)).filter((m):m is EditionMapInfo=>!!m):view.maps;
+  if(selection&&(maps.length!==selection.map_ids.length||new Set(selection.map_ids).size!==maps.length||maps.length>6||(maps[0]?.id??null)!==selection.hero_map_id))return [];
+  return maps.map((info, order) => ({
     map_id: info.id, order, role: order === 0 ? "hero" : "complementary",
     title: info.title,
     caption: `${info.nature === "forecast" ? "Prévision" : "Historique · réanalyse"} · ${frenchPeriod(...info.period)}`,

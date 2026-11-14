@@ -4,6 +4,7 @@ import type {Run} from "../../features/editorial-ai/archive";
 import {consultableEdition,verifyConsultable,unpackConsultable,type ConsultableEdition} from "../../features/editorial-ai/consultable";
 import bootstrap from "../../data/editorial/consultable-bootstrap.json";
 import {mapPreviewEdition,readPublishedMaps} from "./edition-maps";
+import {selectedMapIds} from "../../features/editorial-map-selection/daily";
 import {hash} from "../../features/editorial/temporal";
 let previous:ConsultableEdition[]=[];
 let sharedIds=new Set<string>();
@@ -38,7 +39,10 @@ async function readOperationalEditions() {
     if(a?.validation.status==="rejected")a=await read(hash([a.checksum,"experimental-factual-fallback-1"]))??a;
     if(a){const edition=consultableEdition(a);
      // New experimental publications become visible only after the immutable map commit.
-     if((a.prompt_version==="editorial-board-fr-4"||a.mode==="fallback")&&!await readPublishedMaps(a))continue;
+     if(a.map_selection||["editorial-board-fr-4","editorial-board-fr-5"].includes(a.prompt_version)||a.mode==="fallback"){
+      const maps=await readPublishedMaps(a);if(!maps)continue;
+      if(a.map_selection)selectedMapIds(a.map_selection,maps);
+     }
      results[index]=edition;}}catch{/* skip this corrupt/incompatible archive and keep the previous edition */}
    }
   }));

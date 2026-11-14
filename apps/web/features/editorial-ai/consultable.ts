@@ -8,6 +8,7 @@ import {createHash} from "node:crypto";
 /** Public editorial content only. Provider receipts, parameters and diagnostics stay server-side. */
 export type ConsultableEdition=Pick<Archive,"edition_id"|"revision"|"date"|"generated_at"|"mode"|"status"|"draft"|"illustrations"|"validation"|"checksum">&{
  briefing:{bundle_id:string;edition_date:string;validity:Archive["briefing"]["validity"];national:Pick<Archive["briefing"]["national"],"facts">;seasonal:Pick<Archive["briefing"]["seasonal"],"windows">;documentary:Pick<Archive["briefing"]["documentary"],"publications">};
+ map_selection?:{hero_map_id:string|null;map_ids:string[]};
  assessment:Validation;consultable:true;scientifically_validated:boolean;content_sha256:string;
 };
 // Editorial evidence resolution affects certification, not experimental text access.
@@ -17,9 +18,10 @@ export function consultableEdition(a:Archive):ConsultableEdition {
  verifyArchive(a,false);
  if((a.mode!=="fallback"&&(a.mode!=="live"||!a.receipt?.response_id))||a.briefing.status==="insufficient") throw Error("NOT_A_CONSULTABLE_AI_EDITION");
  const assessment=validateDraft(a.draft,a.briefing,a.illustrations);
- if((a.mode==="fallback"||a.prompt_version==="editorial-board-fr-4")&&assessment.status==="rejected")throw Error("INCOMPATIBLE_EDITORIAL_DATA");
+ if((a.mode==="fallback"||["editorial-board-fr-4","editorial-board-fr-5"].includes(a.prompt_version))&&assessment.status==="rejected")throw Error("INCOMPATIBLE_EDITORIAL_DATA");
  if((a.briefing.limitations.some(l=>l.includes("journal-data-quality-1"))&&assessment.status==="rejected")||assessment.errors.some(e=>incompatible.has(e))) throw Error("INCOMPATIBLE_EDITORIAL_DATA");
  const body={edition_id:a.edition_id,revision:a.revision,date:a.date,generated_at:a.generated_at,mode:a.mode,status:a.status,consultable:true as const,scientifically_validated:assessment.status==="validated_automatically"&&a.validation.status==="validated_automatically",
+  ...(a.map_selection?{map_selection:{hero_map_id:a.map_selection.response.hero_map_id,map_ids:[...a.map_selection.response.priority,...a.map_selection.response.complementary].map(c=>c.map_id)}}:{}),
   draft:a.draft,briefing:{bundle_id:a.briefing.bundle_id,edition_date:a.briefing.edition_date,validity:a.briefing.validity,national:{facts:a.briefing.national.facts},seasonal:{windows:a.briefing.seasonal.windows},documentary:{publications:a.briefing.documentary.publications}},illustrations:a.illustrations,validation:a.validation,checksum:a.checksum,assessment};
  return {...body,content_sha256:hash(body)};
 }
@@ -28,6 +30,10 @@ export function verifyConsultable(value:unknown):ConsultableEdition {
  const a=value as ConsultableEdition;
  const {content_sha256,...body}=a;
  if(hash(body)!==content_sha256||!["live","fallback"].includes(a.mode)||a.consultable!==true||typeof a.scientifically_validated!=="boolean"||a.date!==a.draft.edition_date||a.date!==a.briefing.edition_date) throw Error("CONSULTABLE_CONTENT_INTEGRITY");
+ if(a.map_selection){
+  const s=a.map_selection;
+  if(!Array.isArray(s.map_ids)||s.map_ids.length>6||new Set(s.map_ids).size!==s.map_ids.length||s.map_ids.some(id=>!/^[a-f0-9]{64}$/.test(id))||(s.map_ids[0]??null)!==s.hero_map_id)throw Error("CONSULTABLE_SELECTION_INTEGRITY");
+ }
  assertDraft(a.draft);
  if(a.briefing.bundle_id!==a.draft.bundle_id||!Array.isArray(a.briefing.national.facts)||!Array.isArray(a.briefing.seasonal.windows)||!Array.isArray(a.briefing.documentary.publications)||a.assessment.errors.some(e=>incompatible.has(e))) throw Error("INCOMPATIBLE_EDITORIAL_DATA");
  return a;

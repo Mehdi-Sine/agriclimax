@@ -13,6 +13,7 @@ import {editorialPayload} from "./budget";
 import {readConfig,cost,type AIConfig} from "./config";
 import {ProviderFailure,type Provider,type ProviderResult} from "./provider";
 import {consultableEdition} from "./consultable";
+import {dailyRequest,chooseDaily,type DailySelection} from "../editorial-map-selection/daily";
 import {fallbackDraft} from "./fallback";
 
 export interface AttemptStore {
@@ -28,7 +29,7 @@ export function operationalConfig(model:string):AIConfig {
  return {...readConfig({AGRICLIMAX_EDITORIAL_MODEL:model}),enabled:true,max_output_tokens:6000,timeout_ms:120000,
  request_profile:"gpt6-standard-explicit-cache",pricing:{model,version:"diagnostic-estimate-2026-11-09",verified_at:"2026-11-09",input_eur_per_million:model==="gpt-6.1-terra"?1.1:.11,output_eur_per_million:model==="gpt-6.1-terra"?5.5:.55}};
 }
-export async function generateOperational(o:{briefing:EditorialBriefingBundle;config:AIConfig;store:AttemptStore;provider:Provider;manualRetry:boolean}) {
+export async function generateOperational(o:{briefing:EditorialBriefingBundle;config:AIConfig;store:AttemptStore;provider:Provider;manualRetry:boolean;mapSelection?:DailySelection;prepareSelection?:(id:string)=>Promise<DailySelection>}) {
  const b=o.briefing,c=o.config;assertBriefing(b);
  const now=new Date().toISOString();
  const proposed:Run={id:hash([b.edition_date,b.bundle_id,randomUUID()]),edition_date:b.edition_date,scope:"daily",month:now.slice(0,7),state:"running",reserved_eur:0,actual_eur:null,error:null,archive_id:null};
@@ -39,14 +40,20 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
   consultableEdition(existing);
   return existing;
  }
+ const maps=o.prepareSelection?await o.prepareSelection(run.id):o.mapSelection;
+ if(maps)await o.store.diagnostic(hash([run.id,"map-selection"]),{kind:"map_selection_request",run_id:run.id,selection:maps});
+ const request=maps&&maps.ranking.ranked.some(r=>r.card.admission.eligible)?dailyRequest(maps.ranking):undefined;
  const started=performance.now();
  try {
-  const result=await o.provider(editorialPayload(b),c,{usageOptional:true,beforeRequest:async metadata=>{
+  const result=await o.provider(editorialPayload(b,[],request),c,{usageOptional:true,beforeRequest:async metadata=>{
    await o.store.diagnostic(hash([run.id,"request"]),{kind:"provider_request",run_id:run.id,metadata});
   }});
   // Preserve actual output before scientific/contract admission; diagnostics remain private.
   await o.store.diagnostic(hash([run.id,"response"]),{kind:"provider_response",run_id:run.id,received_at:new Date().toISOString(),result});
-  const original=await archiveOperationalResult({...o,run,result,generatedAt:now,durationMs:Math.round(performance.now()-started)});
+  if(result.usage&&result.model===c.model)run.actual_eur=cost(result.usage.input_tokens,result.usage.output_tokens,c.pricing);
+  const envelope=result.draft as {draft?:unknown;map_selection?:unknown}|null;
+  const selection=maps?chooseDaily(maps.ranking,maps.maps_sha256,envelope?.map_selection):undefined;
+  const original=await archiveOperationalResult({...o,run,result:{...result,draft:request?envelope?.draft:result.draft},mapSelection:selection,generatedAt:now,durationMs:Math.round(performance.now()-started)});
   const archive=original.validation.status==="rejected"?await archiveFactualFallback(original,o.store):original;
   const validation=archive.validation,estimate=original.receipt?.cost_eur??null;
   run.state=validation.status==="rejected"?"validation_failed":"completed";run.error=validation.status==="rejected"?"DRAFT_REJECTED":null;run.archive_id=archive.edition_id;run.actual_eur=estimate;
@@ -61,6 +68,11 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
    if(error instanceof ProviderFailure) await o.store.diagnostic(hash([run.id,"error"]),{kind:"provider_error",run_id:run.id,code:error.code,diagnostic:error.diagnostic??null,evidence:error.evidence??null});
    await o.store.finishAttempt(run);
   }
+  if(maps&&(error instanceof ProviderFailure||error instanceof Error&&(error.message.startsWith("DRAFT_CONTRACT")||error.message==="PROVIDER_MODEL_OR_ID_MISMATCH"))) {
+   const archive=await archiveProviderFactualFallback({briefing:b,config:c,store:o.store,runId:run.id,generatedAt:now,mapSelection:maps});
+   run.archive_id=archive.edition_id;run.state="completed";await o.store.finishAttempt(run);
+   return archive;
+  }
   throw error;
  }
 }
@@ -71,13 +83,14 @@ export async function archiveFactualFallback(source:Archive,store:AttemptStore):
  if(validation.status==="rejected")throw Error("FACTUAL_FALLBACK_REJECTED");
  const {checksum,...body}=source;void checksum;
  const archive=sealArchive({...body,edition_id:hash([source.checksum,"experimental-factual-fallback-1"]),
+  ...(source.map_selection?{map_selection:chooseDaily(source.map_selection.ranking,source.map_selection.maps_sha256)}:{}),
   revision:source.revision+1,supersedes:source.edition_id,mode:"fallback",draft,validation,status:validation.status,receipt:null,illustrations:[]});
  await store.save(archive);
  return archive;
 }
 
 /** Rebuild only from a persisted provider response; never invokes a provider. */
-export async function archiveOperationalResult(o:{briefing:EditorialBriefingBundle;config:AIConfig;store:AttemptStore;run:Run;result:ProviderResult;generatedAt:string;durationMs:number}) {
+export async function archiveOperationalResult(o:{briefing:EditorialBriefingBundle;config:AIConfig;store:AttemptStore;run:Run;result:ProviderResult;generatedAt:string;durationMs:number;mapSelection?:DailySelection}) {
  const {briefing:b,config:c,run,result}=o;const now=o.generatedAt;
   if(result.model!==c.model||!result.response_id) throw Error("PROVIDER_MODEL_OR_ID_MISMATCH");
   const validation=validateDraft(result.draft,b,[]);
@@ -87,9 +100,19 @@ export async function archiveOperationalResult(o:{briefing:EditorialBriefingBund
   assertDraft(result.draft);
   const estimate=result.usage?cost(result.usage.input_tokens,result.usage.output_tokens,c.pricing):null;
   const archive=sealArchive({version:"editorial-archive-1",edition_id:run.id,revision:1,supersedes:null,date:b.edition_date,generated_at:now,
+   ...(o.mapSelection?{map_selection:o.mapSelection}:{}),
    engine:ENGINE,prompt_version:PROMPT_VERSION,config_version:CONFIG_VERSION,mode:"live",status:validation.status,draft:result.draft,briefing:b,illustrations:[],validation,
    receipt:{model:result.model,response_id:result.response_id,usage:result.usage,cost_eur:estimate,duration_ms:o.durationMs,pricing_version:c.pricing.version},
    prompt_sha256:hash(INSTRUCTIONS),parameters:{model:c.model,max_output_tokens:c.max_output_tokens,request_profile:c.request_profile}});
   await o.store.save(archive);
   return archive;
+}
+
+/** A provider failure has no prior archive: reuse its existing attempt FK, never create a paid attempt. */
+export async function archiveProviderFactualFallback(o:{briefing:EditorialBriefingBundle;config:AIConfig;store:AttemptStore;runId:string;generatedAt:string;mapSelection:DailySelection}) {
+ const b=o.briefing,c=o.config,draft=fallbackDraft(b),validation=validateDraft(draft,b);
+ const archive=sealArchive({version:"editorial-archive-1",edition_id:o.runId,revision:1,supersedes:null,date:b.edition_date,generated_at:o.generatedAt,
+  engine:ENGINE,prompt_version:PROMPT_VERSION,config_version:CONFIG_VERSION,mode:"fallback",status:validation.status,draft,briefing:b,illustrations:[],validation,receipt:null,
+  map_selection:chooseDaily(o.mapSelection.ranking,o.mapSelection.maps_sha256),prompt_sha256:hash(INSTRUCTIONS),parameters:{model:c.model,max_output_tokens:c.max_output_tokens}});
+ consultableEdition(archive);await o.store.save(archive);return archive;
 }

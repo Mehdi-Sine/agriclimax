@@ -7,9 +7,11 @@ import { inputTokenBound } from "./provider";
 export function editorialPayload(
   briefing: EditorialBriefingBundle,
   assets: Illustration[] = [],
+  mapSelection?: unknown,
 ) {
   return JSON.stringify({
     briefing,
+    ...(mapSelection ? {map_selection: mapSelection} : {}),
     illustrations: assets.map(({ data, ...v }) => {
       void data;
       return v;

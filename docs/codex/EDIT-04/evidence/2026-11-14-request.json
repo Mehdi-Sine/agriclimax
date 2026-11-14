@@ -1,0 +1,2946 @@
+{
+  "version": "edit04-board-fr-1",
+  "mode": "daily_selection",
+  "publication_enabled": true,
+  "instructions": "Les limitation_ids, production_ids et seasonal_ids de chaque carte renvoient au dictionnaire shared, dont toutes les réserves et sources s’appliquent. Une principale et jusqu’à cinq complémentaires ; aucune obligation de remplissage. Cartes admissibles dont le score total atteint le plancher ; recommended est une suggestion. Un seul reason_id par choix ou rejet ; zéro ou un seasonal_id. Références fournies uniquement.",
+  "edition_id": "95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4",
+  "edition_date": "2026-11-14",
+  "weights": {
+    "importance": 0.3,
+    "agriculture": 0.25,
+    "extent": 0.15,
+    "actuality": 0.15,
+    "quality": 0.1,
+    "diversity": 0.05
+  },
+  "policy": {
+    "min_score": 45,
+    "max_cards": 6,
+    "max_redundancy_penalty": 20
+  },
+  "cards": [
+    {
+      "scores": {
+        "axes": {
+          "importance": 45.16,
+          "agriculture": 75,
+          "extent": 100,
+          "actuality": 80,
+          "quality": 90,
+          "diversity": 100
+        },
+        "weighted": 73.3,
+        "redundancy": 0,
+        "total": 73.3
+      },
+      "recommended": true,
+      "reasons": [
+        {
+          "id": "ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9:importance",
+          "text": "Importance éditoriale 45.16/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9:agriculture",
+          "text": "Pertinence 75/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 50. Aucun stade réel documenté."
+        },
+        {
+          "id": "ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9:coverage",
+          "text": "713/713 PRA qualifiées ; 0 partielles exclues, 0 absentes ; étendue 100/100 (couverture descriptive, sans phénomène touchant toutes les PRA affirmé)."
+        },
+        {
+          "id": "ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9:actuality",
+          "text": "Actualité 80/100 ; référence 2026-11-13. Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite."
+        },
+        {
+          "id": "ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9:quality",
+          "text": "Qualité 90/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9:diversity",
+          "text": "Diversité marginale 100/100 ; pénalité de redondance 0/20."
+        }
+      ],
+      "card": {
+        "id": "ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9",
+        "edition_id": "95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4",
+        "edition_date": "2026-11-14",
+        "indicator": "rain",
+        "title": "Pluie cumulée",
+        "nature": "forecast",
+        "family": "precipitation",
+        "period": [
+          "2026-11-15",
+          "2026-11-16"
+        ],
+        "unit": "mm",
+        "sources": [
+          "meteofrance-arpege"
+        ],
+        "cycles": [
+          "2026-11-13T18:00:00Z"
+        ],
+        "input_sha256": "0eee4c4cdf99cf290353bf29b6717df1d46f9eb27686f85b0d733ea8a821c61c",
+        "interactive_url": "/cartes-du-jour?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9",
+        "data_url": "/api/journal/maps?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9",
+        "rule_versions": [
+          "multiproduction-descriptive-1.0.0"
+        ],
+        "data_freshness": {
+          "reference_date": "2026-11-13",
+          "age_days": 1,
+          "metadata_count": 1,
+          "examples": [
+            "unknown"
+          ]
+        },
+        "coverage": {
+          "total": 713,
+          "qualified": 713,
+          "proportion": 1,
+          "partial": 0,
+          "missing": 0,
+          "journal_excluded": 0
+        },
+        "intensity": {
+          "min": 0.006879488529585787,
+          "max": 48.9582710100738,
+          "median": 12.194481134486924,
+          "amplitude": 48.95139152154422
+        },
+        "distribution": {
+          "bounds": [
+            5,
+            20,
+            40,
+            70,
+            null
+          ],
+          "counts": [
+            160,
+            391,
+            156,
+            6,
+            0
+          ],
+          "reference": "semantic-1.0.0/rain-week",
+          "meaning": "Précipitations faibles claires, cumuls élevés bleu soutenu"
+        },
+        "threshold": null,
+        "regions": [
+          {
+            "region": "Auvergne-Rhône-Alpes",
+            "total": 112,
+            "qualified": 112,
+            "affected": null,
+            "min": 0.5689134175765597,
+            "max": 46.72797309722923
+          },
+          {
+            "region": "Bourgogne-Franche-Comté",
+            "total": 61,
+            "qualified": 61,
+            "affected": null,
+            "min": 7.617905858129205,
+            "max": 48.9582710100738
+          },
+          {
+            "region": "Bretagne",
+            "total": 25,
+            "qualified": 25,
+            "affected": null,
+            "min": 14.725300059249848,
+            "max": 36.91243475225761
+          },
+          {
+            "region": "Centre-Val de Loire",
+            "total": 45,
+            "qualified": 45,
+            "affected": null,
+            "min": 5.844980265188016,
+            "max": 24.172489345353686
+          },
+          {
+            "region": "Corse",
+            "total": 6,
+            "qualified": 6,
+            "affected": null,
+            "min": 1.5221921798193185,
+            "max": 10.019886554957527
+          },
+          {
+            "region": "Grand Est",
+            "total": 70,
+            "qualified": 70,
+            "affected": null,
+            "min": 2.3121156776643774,
+            "max": 35.65759657984235
+          },
+          {
+            "region": "Hauts-de-France",
+            "total": 39,
+            "qualified": 39,
+            "affected": null,
+            "min": 8.606249657117443,
+            "max": 31.923036456590545
+          },
+          {
+            "region": "Normandie",
+            "total": 36,
+            "qualified": 36,
+            "affected": null,
+            "min": 13.16914102183896,
+            "max": 34.79860955603921
+          },
+          {
+            "region": "Nouvelle-Aquitaine",
+            "total": 115,
+            "qualified": 115,
+            "affected": null,
+            "min": 1.0004283527137565,
+            "max": 21.24401315108002
+          },
+          {
+            "region": "Occitanie",
+            "total": 93,
+            "qualified": 93,
+            "affected": null,
+            "min": 0.006879488529585787,
+            "max": 20.465387197798886
+          },
+          {
+            "region": "Pays de la Loire",
+            "total": 39,
+            "qualified": 39,
+            "affected": null,
+            "min": 19.58408993713438,
+            "max": 35.996448337560224
+          },
+          {
+            "region": "Provence-Alpes-Côte d'Azur",
+            "total": 35,
+            "qualified": 35,
+            "affected": null,
+            "min": 2.3584098616793003,
+            "max": 22.867517575149396
+          },
+          {
+            "region": "Île-de-France",
+            "total": 37,
+            "qualified": 37,
+            "affected": null,
+            "min": 12.470784368103326,
+            "max": 30.164002957279855
+          }
+        ],
+        "agriculture": {
+          "applicability_reference": "multiproduction-descriptive-1.0.0",
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "grassland",
+            "orchard"
+          ],
+          "seasonal_ids": [
+            "ALM-001",
+            "ALM-005",
+            "ALM-116"
+          ]
+        },
+        "comparison": {
+          "status": "not_comparable",
+          "reason": "Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite.",
+          "previous_map_id": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0",
+          "matched_pra": 0,
+          "median_delta": null
+        },
+        "quality_flags": [
+          "exploratory",
+          "land_sea_representativeness_requires_qualification",
+          "model_forecast_not_observation",
+          "native_24h_interval_verified",
+          "negative_source_precipitation_invalid_null_not_clamped",
+          "publication_time_unknown",
+          "source_land_mask_unavailable",
+          "total_area_not_agricultural_area",
+          "utc_half_open_day_extrema"
+        ],
+        "admission": {
+          "eligible": true,
+          "reasons": []
+        },
+        "limitation_ids": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6"
+        ]
+      }
+    },
+    {
+      "scores": {
+        "axes": {
+          "importance": 46.42,
+          "agriculture": 25,
+          "extent": 100,
+          "actuality": 80,
+          "quality": 90,
+          "diversity": 100
+        },
+        "weighted": 61.18,
+        "redundancy": 0,
+        "total": 61.18
+      },
+      "recommended": true,
+      "reasons": [
+        {
+          "id": "f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead:importance",
+          "text": "Importance éditoriale 46.42/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead:agriculture",
+          "text": "Pertinence 25/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 0. Aucun stade réel documenté."
+        },
+        {
+          "id": "f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead:coverage",
+          "text": "713/713 PRA qualifiées ; 0 partielles exclues, 0 absentes ; étendue 100/100 (couverture descriptive, sans phénomène touchant toutes les PRA affirmé)."
+        },
+        {
+          "id": "f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead:actuality",
+          "text": "Actualité 80/100 ; référence 2026-11-13. Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite."
+        },
+        {
+          "id": "f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead:quality",
+          "text": "Qualité 90/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead:diversity",
+          "text": "Diversité marginale 100/100 ; pénalité de redondance 0/20."
+        }
+      ],
+      "card": {
+        "id": "f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead",
+        "edition_id": "95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4",
+        "edition_date": "2026-11-14",
+        "indicator": "temperature_mean",
+        "title": "Température moyenne",
+        "nature": "forecast",
+        "family": "thermal",
+        "period": [
+          "2026-11-15",
+          "2026-11-16"
+        ],
+        "unit": "°C",
+        "sources": [
+          "meteofrance-arpege"
+        ],
+        "cycles": [
+          "2026-11-13T18:00:00Z"
+        ],
+        "input_sha256": "0eee4c4cdf99cf290353bf29b6717df1d46f9eb27686f85b0d733ea8a821c61c",
+        "interactive_url": "/cartes-du-jour?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead",
+        "data_url": "/api/journal/maps?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead",
+        "rule_versions": [
+          "multiproduction-descriptive-1.0.0"
+        ],
+        "data_freshness": {
+          "reference_date": "2026-11-13",
+          "age_days": 1,
+          "metadata_count": 1,
+          "examples": [
+            "unknown"
+          ]
+        },
+        "coverage": {
+          "total": 713,
+          "qualified": 713,
+          "proportion": 1,
+          "partial": 0,
+          "missing": 0,
+          "journal_excluded": 0
+        },
+        "intensity": {
+          "min": -0.7229621413537956,
+          "max": 15.769125153369803,
+          "median": 9.76975700812978,
+          "amplitude": 16.4920872947236
+        },
+        "distribution": {
+          "bounds": [
+            0,
+            10,
+            20,
+            30,
+            null
+          ],
+          "counts": [
+            3,
+            382,
+            328,
+            0,
+            0
+          ],
+          "reference": "semantic-1.0.0/temperature-absolute",
+          "meaning": "Température absolue, sans comparaison implicite à la normale"
+        },
+        "threshold": null,
+        "regions": [
+          {
+            "region": "Auvergne-Rhône-Alpes",
+            "total": 112,
+            "qualified": 112,
+            "affected": null,
+            "min": -0.7229621413537956,
+            "max": 11.088168243347337
+          },
+          {
+            "region": "Bourgogne-Franche-Comté",
+            "total": 61,
+            "qualified": 61,
+            "affected": null,
+            "min": 6.237455487959904,
+            "max": 10.683584975870374
+          },
+          {
+            "region": "Bretagne",
+            "total": 25,
+            "qualified": 25,
+            "affected": null,
+            "min": 9.547376654843035,
+            "max": 13.09603855154535
+          },
+          {
+            "region": "Centre-Val de Loire",
+            "total": 45,
+            "qualified": 45,
+            "affected": null,
+            "min": 8.732138356040789,
+            "max": 11.257843166254727
+          },
+          {
+            "region": "Corse",
+            "total": 6,
+            "qualified": 6,
+            "affected": null,
+            "min": 10.224304742131448,
+            "max": 15.769125153369803
+          },
+          {
+            "region": "Grand Est",
+            "total": 70,
+            "qualified": 70,
+            "affected": null,
+            "min": 6.495839813883606,
+            "max": 9.973950640323554
+          },
+          {
+            "region": "Hauts-de-France",
+            "total": 39,
+            "qualified": 39,
+            "affected": null,
+            "min": 5.936988636680871,
+            "max": 8.357924465348201
+          },
+          {
+            "region": "Normandie",
+            "total": 36,
+            "qualified": 36,
+            "affected": null,
+            "min": 6.791017854650102,
+            "max": 10.423478242935712
+          },
+          {
+            "region": "Nouvelle-Aquitaine",
+            "total": 115,
+            "qualified": 115,
+            "affected": null,
+            "min": 7.529382712118208,
+            "max": 15.407645860298345
+          },
+          {
+            "region": "Occitanie",
+            "total": 93,
+            "qualified": 93,
+            "affected": null,
+            "min": 2.8902124550308286,
+            "max": 14.481174034137418
+          },
+          {
+            "region": "Pays de la Loire",
+            "total": 39,
+            "qualified": 39,
+            "affected": null,
+            "min": 8.967470481302982,
+            "max": 13.668007316220764
+          },
+          {
+            "region": "Provence-Alpes-Côte d'Azur",
+            "total": 35,
+            "qualified": 35,
+            "affected": null,
+            "min": -0.43458510392881267,
+            "max": 13.783075450683082
+          },
+          {
+            "region": "Île-de-France",
+            "total": 37,
+            "qualified": 37,
+            "affected": null,
+            "min": 8.2392163243235,
+            "max": 9.776642589459488
+          }
+        ],
+        "agriculture": {
+          "applicability_reference": "multiproduction-descriptive-1.0.0",
+          "production_ids": [
+            "wheat",
+            "cattle",
+            "maize",
+            "vine",
+            "grassland",
+            "orchard"
+          ],
+          "seasonal_ids": []
+        },
+        "comparison": {
+          "status": "not_comparable",
+          "reason": "Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite.",
+          "previous_map_id": "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd",
+          "matched_pra": 0,
+          "median_delta": null
+        },
+        "quality_flags": [
+          "exploratory",
+          "land_sea_representativeness_requires_qualification",
+          "model_forecast_not_observation",
+          "publication_time_unknown",
+          "source_land_mask_unavailable",
+          "temperature_sampled_3h_not_continuous",
+          "total_area_not_agricultural_area",
+          "utc_half_open_day_extrema"
+        ],
+        "admission": {
+          "eligible": true,
+          "reasons": []
+        },
+        "limitation_ids": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6"
+        ]
+      }
+    },
+    {
+      "scores": {
+        "axes": {
+          "importance": 37.21,
+          "agriculture": 75,
+          "extent": 90.46,
+          "actuality": 40,
+          "quality": 81.42,
+          "diversity": 50
+        },
+        "weighted": 60.12,
+        "redundancy": 0,
+        "total": 60.12
+      },
+      "recommended": true,
+      "reasons": [
+        {
+          "id": "4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6:importance",
+          "text": "Importance éditoriale 37.21/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6:agriculture",
+          "text": "Pertinence 75/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 50. Aucun stade réel documenté."
+        },
+        {
+          "id": "4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6:coverage",
+          "text": "645/713 PRA qualifiées ; 0 partielles exclues, 68 absentes ; étendue 90.46/100 (couverture descriptive, sans phénomène touchant toutes les PRA affirmé)."
+        },
+        {
+          "id": "4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6:actuality",
+          "text": "Actualité 40/100 ; référence 2026-11-07. Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes."
+        },
+        {
+          "id": "4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6:quality",
+          "text": "Qualité 81.42/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6:diversity",
+          "text": "Diversité marginale 50/100 ; pénalité de redondance 0/20."
+        }
+      ],
+      "card": {
+        "id": "4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6",
+        "edition_id": "95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4",
+        "edition_date": "2026-11-14",
+        "indicator": "rain",
+        "title": "Pluie cumulée",
+        "nature": "reanalysis",
+        "family": "precipitation",
+        "period": [
+          "2026-11-01",
+          "2026-11-07"
+        ],
+        "unit": "mm",
+        "sources": [
+          "era5-land"
+        ],
+        "cycles": [],
+        "input_sha256": "b360c16f4daab03ef29cec5acdfac31aa7f59294394c982322601bcd751774aa",
+        "interactive_url": "/cartes-du-jour?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6",
+        "data_url": "/api/journal/maps?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6",
+        "rule_versions": [
+          "multiproduction-descriptive-1.0.0"
+        ],
+        "data_freshness": {
+          "reference_date": "2026-11-07",
+          "age_days": 7,
+          "metadata_count": 4991,
+          "examples": [
+            "source 2026-11-01; calculated 2026-11-07T15:27:36.503668+00:00",
+            "source 2026-11-07; calculated 2026-11-14T03:01:09.777001+00:00"
+          ]
+        },
+        "coverage": {
+          "total": 713,
+          "qualified": 645,
+          "proportion": 0.9046283309957924,
+          "partial": 0,
+          "missing": 68,
+          "journal_excluded": 0
+        },
+        "intensity": {
+          "min": 0.02283009447,
+          "max": 89.77644177,
+          "median": 2.4969600732000004,
+          "amplitude": 89.75361167553001
+        },
+        "distribution": {
+          "bounds": [
+            5,
+            20,
+            40,
+            70,
+            null
+          ],
+          "counts": [
+            405,
+            178,
+            49,
+            7,
+            6
+          ],
+          "reference": "semantic-1.0.0/rain-week",
+          "meaning": "Précipitations faibles claires, cumuls élevés bleu soutenu"
+        },
+        "threshold": null,
+        "regions": [
+          {
+            "region": "Auvergne-Rhône-Alpes",
+            "total": 112,
+            "qualified": 112,
+            "affected": null,
+            "min": 4.6062683421,
+            "max": 42.98461536492418
+          },
+          {
+            "region": "Bourgogne-Franche-Comté",
+            "total": 61,
+            "qualified": 61,
+            "affected": null,
+            "min": 1.550507874,
+            "max": 14.06480272148
+          },
+          {
+            "region": "Bretagne",
+            "total": 25,
+            "qualified": 14,
+            "affected": null,
+            "min": 0.43279921407000005,
+            "max": 4.729391875699999
+          },
+          {
+            "region": "Centre-Val de Loire",
+            "total": 45,
+            "qualified": 45,
+            "affected": null,
+            "min": 0.4613504022,
+            "max": 9.951178986353199
+          },
+          {
+            "region": "Corse",
+            "total": 6,
+            "qualified": 0,
+            "affected": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "region": "Grand Est",
+            "total": 70,
+            "qualified": 70,
+            "affected": null,
+            "min": 0.6935562050999999,
+            "max": 4.8627477421
+          },
+          {
+            "region": "Hauts-de-France",
+            "total": 39,
+            "qualified": 34,
+            "affected": null,
+            "min": 1.5718885433999996,
+            "max": 12.8643506537
+          },
+          {
+            "region": "Normandie",
+            "total": 36,
+            "qualified": 25,
+            "affected": null,
+            "min": 1.7282894296,
+            "max": 5.799137689
+          },
+          {
+            "region": "Nouvelle-Aquitaine",
+            "total": 115,
+            "qualified": 103,
+            "affected": null,
+            "min": 0.02283009447,
+            "max": 5.311253703499999
+          },
+          {
+            "region": "Occitanie",
+            "total": 93,
+            "qualified": 86,
+            "affected": null,
+            "min": 0.2401347824,
+            "max": 89.77644177
+          },
+          {
+            "region": "Pays de la Loire",
+            "total": 39,
+            "qualified": 31,
+            "affected": null,
+            "min": 0.3274475259,
+            "max": 2.8421958636599998
+          },
+          {
+            "region": "Provence-Alpes-Côte d'Azur",
+            "total": 35,
+            "qualified": 27,
+            "affected": null,
+            "min": 13.270935789740001,
+            "max": 37.54911254
+          },
+          {
+            "region": "Île-de-France",
+            "total": 37,
+            "qualified": 37,
+            "affected": null,
+            "min": 0.8133866448,
+            "max": 3.1135702869999995
+          }
+        ],
+        "agriculture": {
+          "applicability_reference": "multiproduction-descriptive-1.0.0",
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "grassland",
+            "orchard"
+          ],
+          "seasonal_ids": [
+            "ALM-001",
+            "ALM-005",
+            "ALM-116"
+          ]
+        },
+        "comparison": {
+          "status": "not_comparable",
+          "reason": "Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes.",
+          "previous_map_id": "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc",
+          "matched_pra": 0,
+          "median_delta": null
+        },
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "coastal_representativeness_not_guaranteed",
+          "exploratory",
+          "missing",
+          "missing_cells",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "value_unavailable",
+          "variable_unavailable"
+        ],
+        "admission": {
+          "eligible": true,
+          "reasons": []
+        },
+        "limitation_ids": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6"
+        ]
+      }
+    },
+    {
+      "scores": {
+        "axes": {
+          "importance": 25.43,
+          "agriculture": 75,
+          "extent": 23,
+          "actuality": 40,
+          "quality": 81.42,
+          "diversity": 100
+        },
+        "weighted": 48.97,
+        "redundancy": 0,
+        "total": 48.97
+      },
+      "recommended": true,
+      "reasons": [
+        {
+          "id": "2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4:importance",
+          "text": "Importance éditoriale 25.43/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4:agriculture",
+          "text": "Pertinence 75/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 50. Aucun stade réel documenté."
+        },
+        {
+          "id": "2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4:coverage",
+          "text": "645/713 PRA qualifiées ; 0 partielles exclues, 68 absentes ; étendue 23/100 (incidence du seuil / univers archivé)."
+        },
+        {
+          "id": "2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4:actuality",
+          "text": "Actualité 40/100 ; référence 2026-11-07. Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes."
+        },
+        {
+          "id": "2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4:quality",
+          "text": "Qualité 81.42/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4:diversity",
+          "text": "Diversité marginale 100/100 ; pénalité de redondance 0/20."
+        }
+      ],
+      "card": {
+        "id": "2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4",
+        "edition_id": "95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4",
+        "edition_date": "2026-11-14",
+        "indicator": "frost",
+        "title": "Jours de gel",
+        "nature": "reanalysis",
+        "family": "cold",
+        "period": [
+          "2026-11-01",
+          "2026-11-07"
+        ],
+        "unit": "jours",
+        "sources": [
+          "era5-land"
+        ],
+        "cycles": [],
+        "input_sha256": "b360c16f4daab03ef29cec5acdfac31aa7f59294394c982322601bcd751774aa",
+        "interactive_url": "/cartes-du-jour?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4",
+        "data_url": "/api/journal/maps?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4",
+        "rule_versions": [
+          "multiproduction-descriptive-1.0.0"
+        ],
+        "data_freshness": {
+          "reference_date": "2026-11-07",
+          "age_days": 7,
+          "metadata_count": 4991,
+          "examples": [
+            "source 2026-11-01; calculated 2026-11-07T15:27:36.503668+00:00",
+            "source 2026-11-07; calculated 2026-11-14T03:01:09.777001+00:00"
+          ]
+        },
+        "coverage": {
+          "total": 713,
+          "qualified": 645,
+          "proportion": 0.9046283309957924,
+          "partial": 0,
+          "missing": 68,
+          "journal_excluded": 0
+        },
+        "intensity": {
+          "min": 0,
+          "max": 7,
+          "median": 0,
+          "amplitude": 7
+        },
+        "distribution": {
+          "bounds": [
+            0,
+            1,
+            3,
+            5,
+            null
+          ],
+          "counts": [
+            481,
+            49,
+            63,
+            24,
+            28
+          ],
+          "reference": "semantic-1.0.0/frost-days",
+          "meaning": "Bleu croissant : jours de gel, sans dommage inféré"
+        },
+        "threshold": {
+          "criterion": "Σ 1(Tmin < seuil) ; résultat > 0",
+          "count": 164,
+          "proportion": 0.25426356589147286,
+          "source": "frost@multiproduction-descriptive-1.0.0"
+        },
+        "regions": [
+          {
+            "region": "Auvergne-Rhône-Alpes",
+            "total": 112,
+            "qualified": 112,
+            "affected": 88,
+            "min": 0,
+            "max": 7
+          },
+          {
+            "region": "Bourgogne-Franche-Comté",
+            "total": 61,
+            "qualified": 61,
+            "affected": 8,
+            "min": 0,
+            "max": 2
+          },
+          {
+            "region": "Bretagne",
+            "total": 25,
+            "qualified": 14,
+            "affected": 0,
+            "min": 0,
+            "max": 0
+          },
+          {
+            "region": "Centre-Val de Loire",
+            "total": 45,
+            "qualified": 45,
+            "affected": 0,
+            "min": 0,
+            "max": 0
+          },
+          {
+            "region": "Corse",
+            "total": 6,
+            "qualified": 0,
+            "affected": 0,
+            "min": null,
+            "max": null
+          },
+          {
+            "region": "Grand Est",
+            "total": 70,
+            "qualified": 70,
+            "affected": 8,
+            "min": 0,
+            "max": 2
+          },
+          {
+            "region": "Hauts-de-France",
+            "total": 39,
+            "qualified": 34,
+            "affected": 0,
+            "min": 0,
+            "max": 0
+          },
+          {
+            "region": "Normandie",
+            "total": 36,
+            "qualified": 25,
+            "affected": 0,
+            "min": 0,
+            "max": 0
+          },
+          {
+            "region": "Nouvelle-Aquitaine",
+            "total": 115,
+            "qualified": 103,
+            "affected": 11,
+            "min": 0,
+            "max": 6
+          },
+          {
+            "region": "Occitanie",
+            "total": 93,
+            "qualified": 86,
+            "affected": 30,
+            "min": 0,
+            "max": 7
+          },
+          {
+            "region": "Pays de la Loire",
+            "total": 39,
+            "qualified": 31,
+            "affected": 0,
+            "min": 0,
+            "max": 0
+          },
+          {
+            "region": "Provence-Alpes-Côte d'Azur",
+            "total": 35,
+            "qualified": 27,
+            "affected": 19,
+            "min": 0,
+            "max": 7
+          },
+          {
+            "region": "Île-de-France",
+            "total": 37,
+            "qualified": 37,
+            "affected": 0,
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "agriculture": {
+          "applicability_reference": "multiproduction-descriptive-1.0.0",
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "grassland",
+            "orchard"
+          ],
+          "seasonal_ids": [
+            "ALM-114",
+            "ALM-116",
+            "ALM-120"
+          ]
+        },
+        "comparison": {
+          "status": "not_comparable",
+          "reason": "Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes.",
+          "previous_map_id": "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106",
+          "matched_pra": 0,
+          "median_delta": null
+        },
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "coastal_representativeness_not_guaranteed",
+          "exploratory",
+          "missing",
+          "missing_cells",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "value_unavailable",
+          "variable_unavailable"
+        ],
+        "admission": {
+          "eligible": true,
+          "reasons": []
+        },
+        "limitation_ids": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6"
+        ]
+      }
+    },
+    {
+      "scores": {
+        "axes": {
+          "importance": 38.45,
+          "agriculture": 25,
+          "extent": 90.46,
+          "actuality": 40,
+          "quality": 81.42,
+          "diversity": 50
+        },
+        "weighted": 48,
+        "redundancy": 0,
+        "total": 48
+      },
+      "recommended": true,
+      "reasons": [
+        {
+          "id": "1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a:importance",
+          "text": "Importance éditoriale 38.45/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a:agriculture",
+          "text": "Pertinence 25/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 0. Aucun stade réel documenté."
+        },
+        {
+          "id": "1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a:coverage",
+          "text": "645/713 PRA qualifiées ; 0 partielles exclues, 68 absentes ; étendue 90.46/100 (couverture descriptive, sans phénomène touchant toutes les PRA affirmé)."
+        },
+        {
+          "id": "1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a:actuality",
+          "text": "Actualité 40/100 ; référence 2026-11-07. Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes."
+        },
+        {
+          "id": "1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a:quality",
+          "text": "Qualité 81.42/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a:diversity",
+          "text": "Diversité marginale 50/100 ; pénalité de redondance 0/20."
+        }
+      ],
+      "card": {
+        "id": "1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a",
+        "edition_id": "95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4",
+        "edition_date": "2026-11-14",
+        "indicator": "gdd",
+        "title": "Somme de températures",
+        "nature": "reanalysis",
+        "family": "thermal",
+        "period": [
+          "2026-11-01",
+          "2026-11-07"
+        ],
+        "unit": "°C·j",
+        "sources": [
+          "era5-land"
+        ],
+        "cycles": [],
+        "input_sha256": "b360c16f4daab03ef29cec5acdfac31aa7f59294394c982322601bcd751774aa",
+        "interactive_url": "/cartes-du-jour?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a",
+        "data_url": "/api/journal/maps?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a",
+        "rule_versions": [
+          "multiproduction-descriptive-1.0.0"
+        ],
+        "data_freshness": {
+          "reference_date": "2026-11-07",
+          "age_days": 7,
+          "metadata_count": 4991,
+          "examples": [
+            "source 2026-11-01; calculated 2026-11-07T15:27:36.503668+00:00",
+            "source 2026-11-07; calculated 2026-11-14T03:01:09.777001+00:00"
+          ]
+        },
+        "coverage": {
+          "total": 713,
+          "qualified": 645,
+          "proportion": 0.9046283309957924,
+          "partial": 0,
+          "missing": 68,
+          "journal_excluded": 0
+        },
+        "intensity": {
+          "min": 0,
+          "max": 79.446217,
+          "median": 52.759329199999996,
+          "amplitude": 79.446217
+        },
+        "distribution": {
+          "bounds": [
+            50,
+            150,
+            300,
+            600,
+            null
+          ],
+          "counts": [
+            248,
+            397,
+            0,
+            0,
+            0
+          ],
+          "reference": "semantic-1.0.0/gdd",
+          "meaning": "Chaleur accumulée, sans qualification de stress"
+        },
+        "threshold": null,
+        "regions": [
+          {
+            "region": "Auvergne-Rhône-Alpes",
+            "total": 112,
+            "qualified": 112,
+            "affected": null,
+            "min": 0.036416344,
+            "max": 61.1085974
+          },
+          {
+            "region": "Bourgogne-Franche-Comté",
+            "total": 61,
+            "qualified": 61,
+            "affected": null,
+            "min": 32.9169482,
+            "max": 55.224286400000004
+          },
+          {
+            "region": "Bretagne",
+            "total": 25,
+            "qualified": 14,
+            "affected": null,
+            "min": 57.095186,
+            "max": 72.4599935
+          },
+          {
+            "region": "Centre-Val de Loire",
+            "total": 45,
+            "qualified": 45,
+            "affected": null,
+            "min": 45.58666339999999,
+            "max": 59.911300700000005
+          },
+          {
+            "region": "Corse",
+            "total": 6,
+            "qualified": 0,
+            "affected": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "region": "Grand Est",
+            "total": 70,
+            "qualified": 70,
+            "affected": null,
+            "min": 32.366031400000004,
+            "max": 55.5372473
+          },
+          {
+            "region": "Hauts-de-France",
+            "total": 39,
+            "qualified": 34,
+            "affected": null,
+            "min": 47.8281127,
+            "max": 59.097496500000005
+          },
+          {
+            "region": "Normandie",
+            "total": 36,
+            "qualified": 25,
+            "affected": null,
+            "min": 50.2942881,
+            "max": 55.7998517
+          },
+          {
+            "region": "Nouvelle-Aquitaine",
+            "total": 115,
+            "qualified": 103,
+            "affected": null,
+            "min": 33.8011077,
+            "max": 73.082768
+          },
+          {
+            "region": "Occitanie",
+            "total": 93,
+            "qualified": 86,
+            "affected": null,
+            "min": 13.9709168,
+            "max": 69.9297655
+          },
+          {
+            "region": "Pays de la Loire",
+            "total": 39,
+            "qualified": 31,
+            "affected": null,
+            "min": 54.97736210000001,
+            "max": 65.28136699999999
+          },
+          {
+            "region": "Provence-Alpes-Côte d'Azur",
+            "total": 35,
+            "qualified": 27,
+            "affected": null,
+            "min": 0,
+            "max": 79.446217
+          },
+          {
+            "region": "Île-de-France",
+            "total": 37,
+            "qualified": 37,
+            "affected": null,
+            "min": 53.843650600000004,
+            "max": 57.5109989
+          }
+        ],
+        "agriculture": {
+          "applicability_reference": "multiproduction-descriptive-1.0.0",
+          "production_ids": [
+            "wheat",
+            "grassland"
+          ],
+          "seasonal_ids": []
+        },
+        "comparison": {
+          "status": "not_comparable",
+          "reason": "Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes.",
+          "previous_map_id": "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564",
+          "matched_pra": 0,
+          "median_delta": null
+        },
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "coastal_representativeness_not_guaranteed",
+          "exploratory",
+          "missing",
+          "missing_cells",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "value_unavailable",
+          "variable_unavailable"
+        ],
+        "admission": {
+          "eligible": true,
+          "reasons": []
+        },
+        "limitation_ids": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6"
+        ]
+      }
+    },
+    {
+      "scores": {
+        "axes": {
+          "importance": 7.99,
+          "agriculture": 75,
+          "extent": 7.71,
+          "actuality": 80,
+          "quality": 90,
+          "diversity": 50
+        },
+        "weighted": 45.8,
+        "redundancy": 0,
+        "total": 45.8
+      },
+      "recommended": true,
+      "reasons": [
+        {
+          "id": "b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba:importance",
+          "text": "Importance éditoriale 7.99/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba:agriculture",
+          "text": "Pertinence 75/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 50. Aucun stade réel documenté."
+        },
+        {
+          "id": "b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba:coverage",
+          "text": "713/713 PRA qualifiées ; 0 partielles exclues, 0 absentes ; étendue 7.71/100 (incidence du seuil / univers archivé)."
+        },
+        {
+          "id": "b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba:actuality",
+          "text": "Actualité 80/100 ; référence 2026-11-13. Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite."
+        },
+        {
+          "id": "b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba:quality",
+          "text": "Qualité 90/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba:diversity",
+          "text": "Diversité marginale 50/100 ; pénalité de redondance 0/20."
+        }
+      ],
+      "card": {
+        "id": "b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba",
+        "edition_id": "95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4",
+        "edition_date": "2026-11-14",
+        "indicator": "temperature_min",
+        "title": "Minimum des Tmin quotidiennes",
+        "nature": "forecast",
+        "family": "cold",
+        "period": [
+          "2026-11-15",
+          "2026-11-16"
+        ],
+        "unit": "°C",
+        "sources": [
+          "meteofrance-arpege"
+        ],
+        "cycles": [
+          "2026-11-13T18:00:00Z"
+        ],
+        "input_sha256": "0eee4c4cdf99cf290353bf29b6717df1d46f9eb27686f85b0d733ea8a821c61c",
+        "interactive_url": "/cartes-du-jour?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba",
+        "data_url": "/api/journal/maps?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba",
+        "rule_versions": [
+          "multiproduction-descriptive-1.0.0"
+        ],
+        "data_freshness": {
+          "reference_date": "2026-11-13",
+          "age_days": 1,
+          "metadata_count": 1,
+          "examples": [
+            "unknown"
+          ]
+        },
+        "coverage": {
+          "total": 713,
+          "qualified": 713,
+          "proportion": 1,
+          "partial": 0,
+          "missing": 0,
+          "journal_excluded": 0
+        },
+        "intensity": {
+          "min": -9.752996826171852,
+          "max": 11.222772216796898,
+          "median": 4.642388916015648,
+          "amplitude": 20.97576904296875
+        },
+        "distribution": {
+          "bounds": [
+            0,
+            10,
+            20,
+            30,
+            null
+          ],
+          "counts": [
+            55,
+            654,
+            4,
+            0,
+            0
+          ],
+          "reference": "semantic-1.0.0/temperature-absolute",
+          "meaning": "Température absolue, sans comparaison implicite à la normale"
+        },
+        "threshold": {
+          "criterion": "Tmin < 0 °C au moins un jour",
+          "count": 55,
+          "proportion": 0.07713884992987377,
+          "source": "frost@multiproduction-descriptive-1.0.0: Σ 1(Tmin < seuil)"
+        },
+        "regions": [
+          {
+            "region": "Auvergne-Rhône-Alpes",
+            "total": 112,
+            "qualified": 112,
+            "affected": 8,
+            "min": -9.752996826171852,
+            "max": 8.849511718750023
+          },
+          {
+            "region": "Bourgogne-Franche-Comté",
+            "total": 61,
+            "qualified": 61,
+            "affected": 0,
+            "min": 1.2673889160156477,
+            "max": 7.456048583984398
+          },
+          {
+            "region": "Bretagne",
+            "total": 25,
+            "qualified": 25,
+            "affected": 0,
+            "min": 2.0798889160156477,
+            "max": 8.173638916015648
+          },
+          {
+            "region": "Centre-Val de Loire",
+            "total": 45,
+            "qualified": 45,
+            "affected": 0,
+            "min": 1.7673889160156477,
+            "max": 7.861138916015648
+          },
+          {
+            "region": "Corse",
+            "total": 6,
+            "qualified": 6,
+            "affected": 0,
+            "min": 3.0853515625000227,
+            "max": 9.297204589843773
+          },
+          {
+            "region": "Grand Est",
+            "total": 70,
+            "qualified": 70,
+            "affected": 17,
+            "min": -0.7638610839843523,
+            "max": 4.954888916015648
+          },
+          {
+            "region": "Hauts-de-France",
+            "total": 39,
+            "qualified": 39,
+            "affected": 14,
+            "min": -0.9201110839843523,
+            "max": 1.8254333496093977
+          },
+          {
+            "region": "Normandie",
+            "total": 36,
+            "qualified": 36,
+            "affected": 0,
+            "min": 0.39238891601564774,
+            "max": 3.9548889160156477
+          },
+          {
+            "region": "Nouvelle-Aquitaine",
+            "total": 115,
+            "qualified": 115,
+            "affected": 1,
+            "min": -4.337988281249977,
+            "max": 11.222772216796898
+          },
+          {
+            "region": "Occitanie",
+            "total": 93,
+            "qualified": 93,
+            "affected": 7,
+            "min": -5.556738281249977,
+            "max": 9.577233886718773
+          },
+          {
+            "region": "Pays de la Loire",
+            "total": 39,
+            "qualified": 39,
+            "affected": 0,
+            "min": 2.8298889160156477,
+            "max": 7.111138916015648
+          },
+          {
+            "region": "Provence-Alpes-Côte d'Azur",
+            "total": 35,
+            "qualified": 35,
+            "affected": 8,
+            "min": -9.481451416015602,
+            "max": 8.879022216796898
+          },
+          {
+            "region": "Île-de-France",
+            "total": 37,
+            "qualified": 37,
+            "affected": 0,
+            "min": 0.7673889160156477,
+            "max": 4.548638916015648
+          }
+        ],
+        "agriculture": {
+          "applicability_reference": "multiproduction-descriptive-1.0.0",
+          "production_ids": [
+            "maize",
+            "vine",
+            "grassland",
+            "orchard"
+          ],
+          "seasonal_ids": [
+            "ALM-114",
+            "ALM-116",
+            "ALM-120"
+          ]
+        },
+        "comparison": {
+          "status": "not_comparable",
+          "reason": "Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite.",
+          "previous_map_id": "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690",
+          "matched_pra": 0,
+          "median_delta": null
+        },
+        "quality_flags": [
+          "exploratory",
+          "land_sea_representativeness_requires_qualification",
+          "model_forecast_not_observation",
+          "publication_time_unknown",
+          "source_land_mask_unavailable",
+          "temperature_sampled_3h_not_continuous",
+          "total_area_not_agricultural_area",
+          "utc_half_open_day_extrema"
+        ],
+        "admission": {
+          "eligible": true,
+          "reasons": []
+        },
+        "limitation_ids": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6"
+        ]
+      }
+    },
+    {
+      "scores": {
+        "axes": {
+          "importance": 7.71,
+          "agriculture": 75,
+          "extent": 7.71,
+          "actuality": 80,
+          "quality": 90,
+          "diversity": 0
+        },
+        "weighted": 43.22,
+        "redundancy": 12.63,
+        "total": 30.59
+      },
+      "recommended": false,
+      "reasons": [
+        {
+          "id": "65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628:importance",
+          "text": "Importance éditoriale 7.71/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628:agriculture",
+          "text": "Pertinence 75/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 50. Aucun stade réel documenté."
+        },
+        {
+          "id": "65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628:coverage",
+          "text": "713/713 PRA qualifiées ; 0 partielles exclues, 0 absentes ; étendue 7.71/100 (incidence du seuil / univers archivé)."
+        },
+        {
+          "id": "65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628:actuality",
+          "text": "Actualité 80/100 ; référence 2026-11-13. Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite."
+        },
+        {
+          "id": "65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628:quality",
+          "text": "Qualité 90/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628:diversity",
+          "text": "Diversité marginale 0/100 ; pénalité de redondance 12.63/20 avec b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba."
+        },
+        {
+          "id": "65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628:excluded",
+          "text": "Capacité éditoriale atteinte."
+        }
+      ],
+      "card": {
+        "id": "65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628",
+        "edition_id": "95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4",
+        "edition_date": "2026-11-14",
+        "indicator": "frost",
+        "title": "Jours de gel",
+        "nature": "forecast",
+        "family": "cold",
+        "period": [
+          "2026-11-15",
+          "2026-11-16"
+        ],
+        "unit": "jours",
+        "sources": [
+          "meteofrance-arpege"
+        ],
+        "cycles": [
+          "2026-11-13T18:00:00Z"
+        ],
+        "input_sha256": "0eee4c4cdf99cf290353bf29b6717df1d46f9eb27686f85b0d733ea8a821c61c",
+        "interactive_url": "/cartes-du-jour?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628",
+        "data_url": "/api/journal/maps?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628",
+        "rule_versions": [
+          "multiproduction-descriptive-1.0.0"
+        ],
+        "data_freshness": {
+          "reference_date": "2026-11-13",
+          "age_days": 1,
+          "metadata_count": 1,
+          "examples": [
+            "unknown"
+          ]
+        },
+        "coverage": {
+          "total": 713,
+          "qualified": 713,
+          "proportion": 1,
+          "partial": 0,
+          "missing": 0,
+          "journal_excluded": 0
+        },
+        "intensity": {
+          "min": 0,
+          "max": 2,
+          "median": 0,
+          "amplitude": 2
+        },
+        "distribution": {
+          "bounds": [
+            0,
+            1,
+            3,
+            5,
+            null
+          ],
+          "counts": [
+            658,
+            34,
+            21,
+            0,
+            0
+          ],
+          "reference": "semantic-1.0.0/frost-days",
+          "meaning": "Bleu croissant : jours de gel, sans dommage inféré"
+        },
+        "threshold": {
+          "criterion": "Σ 1(Tmin < seuil) ; résultat > 0",
+          "count": 55,
+          "proportion": 0.07713884992987377,
+          "source": "frost@multiproduction-descriptive-1.0.0"
+        },
+        "regions": [
+          {
+            "region": "Auvergne-Rhône-Alpes",
+            "total": 112,
+            "qualified": 112,
+            "affected": 8,
+            "min": 0,
+            "max": 2
+          },
+          {
+            "region": "Bourgogne-Franche-Comté",
+            "total": 61,
+            "qualified": 61,
+            "affected": 0,
+            "min": 0,
+            "max": 0
+          },
+          {
+            "region": "Bretagne",
+            "total": 25,
+            "qualified": 25,
+            "affected": 0,
+            "min": 0,
+            "max": 0
+          },
+          {
+            "region": "Centre-Val de Loire",
+            "total": 45,
+            "qualified": 45,
+            "affected": 0,
+            "min": 0,
+            "max": 0
+          },
+          {
+            "region": "Corse",
+            "total": 6,
+            "qualified": 6,
+            "affected": 0,
+            "min": 0,
+            "max": 0
+          },
+          {
+            "region": "Grand Est",
+            "total": 70,
+            "qualified": 70,
+            "affected": 17,
+            "min": 0,
+            "max": 1
+          },
+          {
+            "region": "Hauts-de-France",
+            "total": 39,
+            "qualified": 39,
+            "affected": 14,
+            "min": 0,
+            "max": 1
+          },
+          {
+            "region": "Normandie",
+            "total": 36,
+            "qualified": 36,
+            "affected": 0,
+            "min": 0,
+            "max": 0
+          },
+          {
+            "region": "Nouvelle-Aquitaine",
+            "total": 115,
+            "qualified": 115,
+            "affected": 1,
+            "min": 0,
+            "max": 2
+          },
+          {
+            "region": "Occitanie",
+            "total": 93,
+            "qualified": 93,
+            "affected": 7,
+            "min": 0,
+            "max": 2
+          },
+          {
+            "region": "Pays de la Loire",
+            "total": 39,
+            "qualified": 39,
+            "affected": 0,
+            "min": 0,
+            "max": 0
+          },
+          {
+            "region": "Provence-Alpes-Côte d'Azur",
+            "total": 35,
+            "qualified": 35,
+            "affected": 8,
+            "min": 0,
+            "max": 2
+          },
+          {
+            "region": "Île-de-France",
+            "total": 37,
+            "qualified": 37,
+            "affected": 0,
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "agriculture": {
+          "applicability_reference": "multiproduction-descriptive-1.0.0",
+          "production_ids": [
+            "wheat",
+            "maize",
+            "vine",
+            "grassland",
+            "orchard"
+          ],
+          "seasonal_ids": [
+            "ALM-114",
+            "ALM-116",
+            "ALM-120"
+          ]
+        },
+        "comparison": {
+          "status": "not_comparable",
+          "reason": "Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite.",
+          "previous_map_id": "43656509aae3fe6a009139001594d83882f4d095d089600debf38cc82d7f1ec3",
+          "matched_pra": 0,
+          "median_delta": null
+        },
+        "quality_flags": [
+          "exploratory",
+          "land_sea_representativeness_requires_qualification",
+          "model_forecast_not_observation",
+          "publication_time_unknown",
+          "source_land_mask_unavailable",
+          "temperature_sampled_3h_not_continuous",
+          "total_area_not_agricultural_area",
+          "utc_half_open_day_extrema"
+        ],
+        "admission": {
+          "eligible": true,
+          "reasons": []
+        },
+        "limitation_ids": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6"
+        ]
+      }
+    },
+    {
+      "scores": {
+        "axes": {
+          "importance": 25.43,
+          "agriculture": 75,
+          "extent": 23,
+          "actuality": 40,
+          "quality": 81.42,
+          "diversity": 0
+        },
+        "weighted": 43.97,
+        "redundancy": 17.25,
+        "total": 26.72
+      },
+      "recommended": false,
+      "reasons": [
+        {
+          "id": "a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84:importance",
+          "text": "Importance éditoriale 25.43/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84:agriculture",
+          "text": "Pertinence 75/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 50. Aucun stade réel documenté."
+        },
+        {
+          "id": "a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84:coverage",
+          "text": "645/713 PRA qualifiées ; 0 partielles exclues, 68 absentes ; étendue 23/100 (incidence du seuil / univers archivé)."
+        },
+        {
+          "id": "a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84:actuality",
+          "text": "Actualité 40/100 ; référence 2026-11-07. Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes."
+        },
+        {
+          "id": "a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84:quality",
+          "text": "Qualité 81.42/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84:diversity",
+          "text": "Diversité marginale 0/100 ; pénalité de redondance 17.25/20 avec 2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4."
+        },
+        {
+          "id": "a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84:excluded",
+          "text": "Capacité éditoriale atteinte."
+        }
+      ],
+      "card": {
+        "id": "a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84",
+        "edition_id": "95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4",
+        "edition_date": "2026-11-14",
+        "indicator": "temperature_min",
+        "title": "Minimum des Tmin quotidiennes",
+        "nature": "reanalysis",
+        "family": "cold",
+        "period": [
+          "2026-11-01",
+          "2026-11-07"
+        ],
+        "unit": "°C",
+        "sources": [
+          "era5-land"
+        ],
+        "cycles": [],
+        "input_sha256": "b360c16f4daab03ef29cec5acdfac31aa7f59294394c982322601bcd751774aa",
+        "interactive_url": "/cartes-du-jour?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84",
+        "data_url": "/api/journal/maps?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84",
+        "rule_versions": [
+          "multiproduction-descriptive-1.0.0"
+        ],
+        "data_freshness": {
+          "reference_date": "2026-11-07",
+          "age_days": 7,
+          "metadata_count": 4991,
+          "examples": [
+            "source 2026-11-01; calculated 2026-11-07T15:27:36.503668+00:00",
+            "source 2026-11-07; calculated 2026-11-14T03:01:09.777001+00:00"
+          ]
+        },
+        "coverage": {
+          "total": 713,
+          "qualified": 645,
+          "proportion": 0.9046283309957924,
+          "partial": 0,
+          "missing": 68,
+          "journal_excluded": 0
+        },
+        "intensity": {
+          "min": -8.084387,
+          "max": 5.4479003,
+          "median": 1.8706299,
+          "amplitude": 13.5322873
+        },
+        "distribution": {
+          "bounds": [
+            0,
+            10,
+            20,
+            30,
+            null
+          ],
+          "counts": [
+            164,
+            481,
+            0,
+            0,
+            0
+          ],
+          "reference": "semantic-1.0.0/temperature-absolute",
+          "meaning": "Température absolue, sans comparaison implicite à la normale"
+        },
+        "threshold": {
+          "criterion": "Tmin < 0 °C au moins un jour",
+          "count": 164,
+          "proportion": 0.25426356589147286,
+          "source": "frost@multiproduction-descriptive-1.0.0: Σ 1(Tmin < seuil)"
+        },
+        "regions": [
+          {
+            "region": "Auvergne-Rhône-Alpes",
+            "total": 112,
+            "qualified": 112,
+            "affected": 88,
+            "min": -8.084387,
+            "max": 3.572412
+          },
+          {
+            "region": "Bourgogne-Franche-Comté",
+            "total": 61,
+            "qualified": 61,
+            "affected": 8,
+            "min": -1.2964844,
+            "max": 2.848413
+          },
+          {
+            "region": "Bretagne",
+            "total": 25,
+            "qualified": 14,
+            "affected": 0,
+            "min": 2.2140136,
+            "max": 5.039697
+          },
+          {
+            "region": "Centre-Val de Loire",
+            "total": 45,
+            "qualified": 45,
+            "affected": 0,
+            "min": 0.6683594,
+            "max": 3.575952
+          },
+          {
+            "region": "Corse",
+            "total": 6,
+            "qualified": 0,
+            "affected": 0,
+            "min": null,
+            "max": null
+          },
+          {
+            "region": "Grand Est",
+            "total": 70,
+            "qualified": 70,
+            "affected": 8,
+            "min": -1.5484375,
+            "max": 2.8464599
+          },
+          {
+            "region": "Hauts-de-France",
+            "total": 39,
+            "qualified": 34,
+            "affected": 0,
+            "min": 2.0333495,
+            "max": 3.8913817
+          },
+          {
+            "region": "Normandie",
+            "total": 36,
+            "qualified": 25,
+            "affected": 0,
+            "min": 2.3219237,
+            "max": 3.3132567
+          },
+          {
+            "region": "Nouvelle-Aquitaine",
+            "total": 115,
+            "qualified": 103,
+            "affected": 11,
+            "min": -2.894629,
+            "max": 4.98208
+          },
+          {
+            "region": "Occitanie",
+            "total": 93,
+            "qualified": 86,
+            "affected": 30,
+            "min": -6.23667,
+            "max": 5.4479003
+          },
+          {
+            "region": "Pays de la Loire",
+            "total": 39,
+            "qualified": 31,
+            "affected": 0,
+            "min": 2.6832519,
+            "max": 4.7105956
+          },
+          {
+            "region": "Provence-Alpes-Côte d'Azur",
+            "total": 35,
+            "qualified": 27,
+            "affected": 19,
+            "min": -7.384619,
+            "max": 3.0733886
+          },
+          {
+            "region": "Île-de-France",
+            "total": 37,
+            "qualified": 37,
+            "affected": 0,
+            "min": 2.5339599,
+            "max": 3.4206786
+          }
+        ],
+        "agriculture": {
+          "applicability_reference": "multiproduction-descriptive-1.0.0",
+          "production_ids": [
+            "maize",
+            "vine",
+            "grassland",
+            "orchard"
+          ],
+          "seasonal_ids": [
+            "ALM-114",
+            "ALM-116",
+            "ALM-120"
+          ]
+        },
+        "comparison": {
+          "status": "not_comparable",
+          "reason": "Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes.",
+          "previous_map_id": "849e1864800f402d750362b1b3c9ff5fdea840df9b8d45bb50cc9e37ef3073f1",
+          "matched_pra": 0,
+          "median_delta": null
+        },
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "coastal_representativeness_not_guaranteed",
+          "exploratory",
+          "missing",
+          "missing_cells",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "value_unavailable",
+          "variable_unavailable"
+        ],
+        "admission": {
+          "eligible": true,
+          "reasons": []
+        },
+        "limitation_ids": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6"
+        ]
+      }
+    },
+    {
+      "scores": {
+        "axes": {
+          "importance": 0,
+          "agriculture": 25,
+          "extent": 100,
+          "actuality": 80,
+          "quality": 90,
+          "diversity": 0
+        },
+        "weighted": 42.25,
+        "redundancy": 20,
+        "total": 22.25
+      },
+      "recommended": false,
+      "reasons": [
+        {
+          "id": "001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26:importance",
+          "text": "Importance éditoriale 0/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26:agriculture",
+          "text": "Pertinence 25/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 0. Aucun stade réel documenté."
+        },
+        {
+          "id": "001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26:coverage",
+          "text": "713/713 PRA qualifiées ; 0 partielles exclues, 0 absentes ; étendue 100/100 (couverture descriptive, sans phénomène touchant toutes les PRA affirmé)."
+        },
+        {
+          "id": "001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26:actuality",
+          "text": "Actualité 80/100 ; référence 2026-11-13. Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite."
+        },
+        {
+          "id": "001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26:quality",
+          "text": "Qualité 90/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26:diversity",
+          "text": "Diversité marginale 0/100 ; pénalité de redondance 20/20 avec f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead."
+        },
+        {
+          "id": "001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26:excluded",
+          "text": "Capacité éditoriale atteinte."
+        }
+      ],
+      "card": {
+        "id": "001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26",
+        "edition_id": "95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4",
+        "edition_date": "2026-11-14",
+        "indicator": "gdd",
+        "title": "Somme de températures",
+        "nature": "forecast",
+        "family": "thermal",
+        "period": [
+          "2026-11-15",
+          "2026-11-16"
+        ],
+        "unit": "°C·j",
+        "sources": [
+          "meteofrance-arpege"
+        ],
+        "cycles": [
+          "2026-11-13T18:00:00Z"
+        ],
+        "input_sha256": "0eee4c4cdf99cf290353bf29b6717df1d46f9eb27686f85b0d733ea8a821c61c",
+        "interactive_url": "/cartes-du-jour?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26",
+        "data_url": "/api/journal/maps?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26",
+        "rule_versions": [
+          "multiproduction-descriptive-1.0.0"
+        ],
+        "data_freshness": {
+          "reference_date": "2026-11-13",
+          "age_days": 1,
+          "metadata_count": 1,
+          "examples": [
+            "unknown"
+          ]
+        },
+        "coverage": {
+          "total": 713,
+          "qualified": 713,
+          "proportion": 1,
+          "partial": 0,
+          "missing": 0,
+          "journal_excluded": 0
+        },
+        "intensity": {
+          "min": 0,
+          "max": 31.538250306739606,
+          "median": 19.53951401625956,
+          "amplitude": 31.538250306739606
+        },
+        "distribution": {
+          "bounds": [
+            50,
+            150,
+            300,
+            600,
+            null
+          ],
+          "counts": [
+            713,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": "semantic-1.0.0/gdd",
+          "meaning": "Chaleur accumulée, sans qualification de stress"
+        },
+        "threshold": null,
+        "regions": [
+          {
+            "region": "Auvergne-Rhône-Alpes",
+            "total": 112,
+            "qualified": 112,
+            "affected": null,
+            "min": 0,
+            "max": 22.176336486694673
+          },
+          {
+            "region": "Bourgogne-Franche-Comté",
+            "total": 61,
+            "qualified": 61,
+            "affected": null,
+            "min": 12.474910975919808,
+            "max": 21.36716995174075
+          },
+          {
+            "region": "Bretagne",
+            "total": 25,
+            "qualified": 25,
+            "affected": null,
+            "min": 19.09475330968607,
+            "max": 26.1920771030907
+          },
+          {
+            "region": "Centre-Val de Loire",
+            "total": 45,
+            "qualified": 45,
+            "affected": null,
+            "min": 17.464276712081578,
+            "max": 22.515686332509453
+          },
+          {
+            "region": "Corse",
+            "total": 6,
+            "qualified": 6,
+            "affected": null,
+            "min": 20.448609484262896,
+            "max": 31.538250306739606
+          },
+          {
+            "region": "Grand Est",
+            "total": 70,
+            "qualified": 70,
+            "affected": null,
+            "min": 12.991679627767212,
+            "max": 19.94790128064711
+          },
+          {
+            "region": "Hauts-de-France",
+            "total": 39,
+            "qualified": 39,
+            "affected": null,
+            "min": 11.873977273361742,
+            "max": 16.715848930696403
+          },
+          {
+            "region": "Normandie",
+            "total": 36,
+            "qualified": 36,
+            "affected": null,
+            "min": 13.582035709300204,
+            "max": 20.846956485871424
+          },
+          {
+            "region": "Nouvelle-Aquitaine",
+            "total": 115,
+            "qualified": 115,
+            "affected": null,
+            "min": 15.058765424236416,
+            "max": 30.81529172059669
+          },
+          {
+            "region": "Occitanie",
+            "total": 93,
+            "qualified": 93,
+            "affected": null,
+            "min": 5.780424910061657,
+            "max": 28.962348068274835
+          },
+          {
+            "region": "Pays de la Loire",
+            "total": 39,
+            "qualified": 39,
+            "affected": null,
+            "min": 17.934940962605964,
+            "max": 27.33601463244153
+          },
+          {
+            "region": "Provence-Alpes-Côte d'Azur",
+            "total": 35,
+            "qualified": 35,
+            "affected": null,
+            "min": 0.26476373898237554,
+            "max": 27.566150901366164
+          },
+          {
+            "region": "Île-de-France",
+            "total": 37,
+            "qualified": 37,
+            "affected": null,
+            "min": 16.478432648647,
+            "max": 19.553285178918976
+          }
+        ],
+        "agriculture": {
+          "applicability_reference": "multiproduction-descriptive-1.0.0",
+          "production_ids": [
+            "wheat",
+            "grassland"
+          ],
+          "seasonal_ids": []
+        },
+        "comparison": {
+          "status": "not_comparable",
+          "reason": "Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite.",
+          "previous_map_id": "d1b1a0e83c652ccf1bfb58d1a9626c4323eca61b0ae86e709c861f5f66a63ac6",
+          "matched_pra": 0,
+          "median_delta": null
+        },
+        "quality_flags": [
+          "exploratory",
+          "land_sea_representativeness_requires_qualification",
+          "model_forecast_not_observation",
+          "publication_time_unknown",
+          "source_land_mask_unavailable",
+          "temperature_sampled_3h_not_continuous",
+          "total_area_not_agricultural_area",
+          "utc_half_open_day_extrema"
+        ],
+        "admission": {
+          "eligible": true,
+          "reasons": []
+        },
+        "limitation_ids": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6"
+        ]
+      }
+    },
+    {
+      "scores": {
+        "axes": {
+          "importance": 1.86,
+          "agriculture": 25,
+          "extent": 90.46,
+          "actuality": 40,
+          "quality": 81.42,
+          "diversity": 0
+        },
+        "weighted": 34.52,
+        "redundancy": 19.97,
+        "total": 14.55
+      },
+      "recommended": false,
+      "reasons": [
+        {
+          "id": "89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9:importance",
+          "text": "Importance éditoriale 1.86/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9:agriculture",
+          "text": "Pertinence 25/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 0. Aucun stade réel documenté."
+        },
+        {
+          "id": "89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9:coverage",
+          "text": "645/713 PRA qualifiées ; 0 partielles exclues, 68 absentes ; étendue 90.46/100 (couverture descriptive, sans phénomène touchant toutes les PRA affirmé)."
+        },
+        {
+          "id": "89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9:actuality",
+          "text": "Actualité 40/100 ; référence 2026-11-07. Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes."
+        },
+        {
+          "id": "89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9:quality",
+          "text": "Qualité 81.42/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9:diversity",
+          "text": "Diversité marginale 0/100 ; pénalité de redondance 19.97/20 avec 1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a."
+        },
+        {
+          "id": "89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9:excluded",
+          "text": "Capacité éditoriale atteinte."
+        }
+      ],
+      "card": {
+        "id": "89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9",
+        "edition_id": "95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4",
+        "edition_date": "2026-11-14",
+        "indicator": "temperature_mean",
+        "title": "Température moyenne",
+        "nature": "reanalysis",
+        "family": "thermal",
+        "period": [
+          "2026-11-01",
+          "2026-11-07"
+        ],
+        "unit": "°C",
+        "sources": [
+          "era5-land"
+        ],
+        "cycles": [],
+        "input_sha256": "b360c16f4daab03ef29cec5acdfac31aa7f59294394c982322601bcd751774aa",
+        "interactive_url": "/cartes-du-jour?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9",
+        "data_url": "/api/journal/maps?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9",
+        "rule_versions": [
+          "multiproduction-descriptive-1.0.0"
+        ],
+        "data_freshness": {
+          "reference_date": "2026-11-07",
+          "age_days": 7,
+          "metadata_count": 4991,
+          "examples": [
+            "source 2026-11-01; calculated 2026-11-07T15:27:36.503668+00:00",
+            "source 2026-11-07; calculated 2026-11-14T03:01:09.777001+00:00"
+          ]
+        },
+        "coverage": {
+          "total": 713,
+          "qualified": 645,
+          "proportion": 0.9046283309957924,
+          "partial": 0,
+          "missing": 68,
+          "journal_excluded": 0
+        },
+        "intensity": {
+          "min": -1.608884457142857,
+          "max": 11.349459571428572,
+          "median": 7.537047028571428,
+          "amplitude": 12.958344028571428
+        },
+        "distribution": {
+          "bounds": [
+            0,
+            10,
+            20,
+            30,
+            null
+          ],
+          "counts": [
+            6,
+            633,
+            6,
+            0,
+            0
+          ],
+          "reference": "semantic-1.0.0/temperature-absolute",
+          "meaning": "Température absolue, sans comparaison implicite à la normale"
+        },
+        "threshold": null,
+        "regions": [
+          {
+            "region": "Auvergne-Rhône-Alpes",
+            "total": 112,
+            "qualified": 112,
+            "affected": null,
+            "min": -0.913421317142857,
+            "max": 8.72979962857143
+          },
+          {
+            "region": "Bourgogne-Franche-Comté",
+            "total": 61,
+            "qualified": 61,
+            "affected": null,
+            "min": 4.702421171428571,
+            "max": 7.889183771428572
+          },
+          {
+            "region": "Bretagne",
+            "total": 25,
+            "qualified": 14,
+            "affected": null,
+            "min": 8.156455142857142,
+            "max": 10.351427642857143
+          },
+          {
+            "region": "Centre-Val de Loire",
+            "total": 45,
+            "qualified": 45,
+            "affected": null,
+            "min": 6.512380485714284,
+            "max": 8.558757242857144
+          },
+          {
+            "region": "Corse",
+            "total": 6,
+            "qualified": 0,
+            "affected": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "region": "Grand Est",
+            "total": 70,
+            "qualified": 70,
+            "affected": null,
+            "min": 4.623718771428572,
+            "max": 7.933892471428571
+          },
+          {
+            "region": "Hauts-de-France",
+            "total": 39,
+            "qualified": 34,
+            "affected": null,
+            "min": 6.832587528571429,
+            "max": 8.4424995
+          },
+          {
+            "region": "Normandie",
+            "total": 36,
+            "qualified": 25,
+            "affected": null,
+            "min": 7.1848983,
+            "max": 7.9714073857142855
+          },
+          {
+            "region": "Nouvelle-Aquitaine",
+            "total": 115,
+            "qualified": 103,
+            "affected": null,
+            "min": 4.8287296714285715,
+            "max": 10.44039542857143
+          },
+          {
+            "region": "Occitanie",
+            "total": 93,
+            "qualified": 86,
+            "affected": null,
+            "min": 1.995845257142857,
+            "max": 9.9899665
+          },
+          {
+            "region": "Pays de la Loire",
+            "total": 39,
+            "qualified": 31,
+            "affected": null,
+            "min": 7.8539088714285725,
+            "max": 9.32590957142857
+          },
+          {
+            "region": "Provence-Alpes-Côte d'Azur",
+            "total": 35,
+            "qualified": 27,
+            "affected": null,
+            "min": -1.608884457142857,
+            "max": 11.349459571428572
+          },
+          {
+            "region": "Île-de-France",
+            "total": 37,
+            "qualified": 37,
+            "affected": null,
+            "min": 7.691950085714287,
+            "max": 8.215856985714286
+          }
+        ],
+        "agriculture": {
+          "applicability_reference": "multiproduction-descriptive-1.0.0",
+          "production_ids": [
+            "wheat",
+            "cattle",
+            "maize",
+            "vine",
+            "grassland",
+            "orchard"
+          ],
+          "seasonal_ids": []
+        },
+        "comparison": {
+          "status": "not_comparable",
+          "reason": "Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes.",
+          "previous_map_id": "c6c332634ce19448e53b28a8df9e5ce4ae5f5f477df3d962006e1b68a13c806e",
+          "matched_pra": 0,
+          "median_delta": null
+        },
+        "quality_flags": [
+          "24_hourly_samples_required",
+          "coastal_representativeness_not_guaranteed",
+          "exploratory",
+          "missing",
+          "missing_cells",
+          "publication_time_unknown",
+          "total_area_not_agricultural_area",
+          "tp_next_day_00_utc_accumulation",
+          "utc_daily_reduction",
+          "value_unavailable",
+          "variable_unavailable"
+        ],
+        "admission": {
+          "eligible": true,
+          "reasons": []
+        },
+        "limitation_ids": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6"
+        ]
+      }
+    }
+  ],
+  "response_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "version",
+      "hero_map_id",
+      "priority",
+      "complementary",
+      "excluded"
+    ],
+    "properties": {
+      "version": {
+        "const": "edit03-board-response-1"
+      },
+      "hero_map_id": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "enum": [
+          null,
+          "ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9",
+          "f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead",
+          "4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6",
+          "2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4",
+          "1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a",
+          "b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba",
+          "65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628",
+          "a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84",
+          "001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26",
+          "89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9"
+        ]
+      },
+      "priority": {
+        "type": "array",
+        "maxItems": 1,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "map_id",
+            "reason_ids",
+            "seasonal_ids"
+          ],
+          "properties": {
+            "map_id": {
+              "type": "string",
+              "enum": [
+                "ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9",
+                "f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead",
+                "4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6",
+                "2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4",
+                "1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a",
+                "b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba",
+                "65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628",
+                "a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84",
+                "001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26",
+                "89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9"
+              ]
+            },
+            "reason_ids": {
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "seasonal_ids": {
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "complementary": {
+        "type": "array",
+        "maxItems": 5,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "map_id",
+            "reason_ids",
+            "seasonal_ids"
+          ],
+          "properties": {
+            "map_id": {
+              "type": "string",
+              "enum": [
+                "ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9",
+                "f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead",
+                "4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6",
+                "2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4",
+                "1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a",
+                "b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba",
+                "65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628",
+                "a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84",
+                "001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26",
+                "89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9"
+              ]
+            },
+            "reason_ids": {
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "seasonal_ids": {
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "excluded": {
+        "type": "array",
+        "maxItems": 40,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "map_id",
+            "reason_ids",
+            "seasonal_ids"
+          ],
+          "properties": {
+            "map_id": {
+              "type": "string",
+              "enum": [
+                "ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9",
+                "f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead",
+                "4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6",
+                "2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4",
+                "1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a",
+                "b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba",
+                "65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628",
+                "a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84",
+                "001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26",
+                "89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9"
+              ]
+            },
+            "reason_ids": {
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "seasonal_ids": {
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "shared": {
+    "limitations": {
+      "L1": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+      "L2": "Concordance de sujet uniquement, aucun effet agronomique ni stade inféré.",
+      "L3": "Classes cartographiques : conventions éditoriales, jamais seuils de dommage ou anomalie climatique.",
+      "L4": "Dénombrements de PRA, pas de surfaces agricoles. Extrêmes locaux, pas de moyennes régionales.",
+      "L5": "Contexte saisonnier théorique ; présence des productions, stades et conséquences non établis.",
+      "L6": "Fraîcheur de référence distincte du délai de publication source, non évalué."
+    },
+    "productions": {
+      "wheat": {
+        "id": "wheat",
+        "label": "Blé tendre",
+        "limits": "Semis, variété, stade et réserve hydrique inconnus ; aucun stade déduit des sommes thermiques."
+      },
+      "maize": {
+        "id": "maize",
+        "label": "Maïs",
+        "limits": "Bases conventionnelles explicites sans plafond ; semis, stade, variété, irrigation et eau du sol inconnus."
+      },
+      "vine": {
+        "id": "vine",
+        "label": "Vigne",
+        "limits": "Gel météorologique sans dommage démontré ; débourrement, cépage et sensibilité inconnus, jamais inférés du calendrier."
+      },
+      "grassland": {
+        "id": "grassland",
+        "label": "Prairies et fourrages",
+        "limits": "Aucune pousse, production fourragère ou sécheresse agricole déduite ; sol et conduite inconnus."
+      },
+      "orchard": {
+        "id": "orchard",
+        "label": "Vergers",
+        "limits": "Contrat générique ; espèce, floraison, variété et sensibilité au gel inconnues. Aucun dommage inféré."
+      },
+      "cattle": {
+        "id": "cattle",
+        "label": "Bovins",
+        "limits": "Couple Tmoy/RHmoy journalier compatible requis ; THI synthétique, jamais maximum horaire ni stress animal démontré. Élevage, abri et adaptation inconnus."
+      }
+    },
+    "seasonal": {
+      "ALM-001": {
+        "id": "ALM-001",
+        "question": "Les pluies récentes changent-elles la lecture de la saison ?",
+        "productions": [
+          "Toutes productions"
+        ],
+        "source_ids": [
+          "MF_SECH",
+          "MF_SAIS"
+        ],
+        "sources": [
+          {
+            "id": "MF_SECH",
+            "url": "https://meteofrance.com/changement-climatique/comment-le-rechauffement-climatique-accentue-les-secheresses"
+          },
+          {
+            "id": "MF_SAIS",
+            "url": "https://meteofrance.com/meteo-a-z/pourquoi-les-saisons-meteorologiques-different-elles-des-saisons-astronomiques"
+          }
+        ],
+        "reserve": "Dates variables selon année, bassin, variété et conduite."
+      },
+      "ALM-005": {
+        "id": "ALM-005",
+        "question": "L'accès aux parcelles est-il facilité ou compliqué par la météo ?",
+        "productions": [
+          "Sols et grandes cultures"
+        ],
+        "source_ids": [
+          "MF_SECH",
+          "ARV_SEMIS"
+        ],
+        "sources": [
+          {
+            "id": "ARV_SEMIS",
+            "url": "https://www.arvalis.fr/infos-techniques/risque-graminees-en-cereales-paille-mieux-vaut-attendre-pour-semer"
+          },
+          {
+            "id": "MF_SECH",
+            "url": "https://meteofrance.com/changement-climatique/comment-le-rechauffement-climatique-accentue-les-secheresses"
+          }
+        ],
+        "reserve": "Dates variables selon année, bassin, variété et conduite."
+      },
+      "ALM-116": {
+        "id": "ALM-116",
+        "question": "Froid et humidité ralentissent-ils les récoltes en plein champ ?",
+        "productions": [
+          "Choux",
+          "poireau",
+          "endive"
+        ],
+        "source_ids": [
+          "FR_TRAV"
+        ],
+        "sources": [
+          {
+            "id": "FR_TRAV",
+            "url": "https://www.francetravail.fr/actualites/le-dossier/emplois-saisonniers/les-travaux-agricoles.html"
+          }
+        ],
+        "reserve": "Dates variables selon année, bassin, variété et conduite."
+      },
+      "ALM-114": {
+        "id": "ALM-114",
+        "question": "Vignobles et vendanges tardives : événement local à qualifier.",
+        "productions": [
+          "Vigne"
+        ],
+        "source_ids": [
+          "VITI_GUIDE"
+        ],
+        "sources": [
+          {
+            "id": "VITI_GUIDE",
+            "url": "https://www.irqualim.fr/wp-content/uploads/2025/05/250407_guide_vins_IRQUALIM_A4_Web-1.pdf"
+          }
+        ],
+        "reserve": "Dates variables selon année, bassin, variété et conduite."
+      },
+      "ALM-120": {
+        "id": "ALM-120",
+        "question": "La météo influence-t-elle la période de repos des colonies ?",
+        "productions": [
+          "Abeilles"
+        ],
+        "source_ids": [
+          "APIC"
+        ],
+        "sources": [
+          {
+            "id": "APIC",
+            "url": "https://www.apiculture.net/blog/le-calendrier-des-miellees-n345"
+          }
+        ],
+        "reserve": "Dates variables selon année, bassin, variété et conduite."
+      }
+    }
+  }
+}

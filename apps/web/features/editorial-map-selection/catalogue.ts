@@ -38,8 +38,7 @@ function comparison(m: EditionMap, prior?: EditionMapBundle): CatalogueCard["com
 /** Read existing archives only. Verification precedes every descriptor and score. */
 export function buildCatalogue(archive: Archive, bundle: EditionMapBundle, previous?: {archive: Archive; bundle: EditionMapBundle}): CatalogueCard[] {
   verifyArchive(archive,false); verifyBundle(bundle,archive);
-  if(!["2026-11-12","2026-11-13"].includes(archive.date))throw Error("EDIT03_ARCHIVE_DATE_ONLY");
-  if(previous){verifyArchive(previous.archive,false);verifyBundle(previous.bundle,previous.archive);if(previous.archive.date!=="2026-11-12"||archive.date!=="2026-11-13")throw Error("EDIT03_PREVIOUS_DATE");}
+  if(previous){verifyArchive(previous.archive,false);verifyBundle(previous.bundle,previous.archive);if(previous.archive.date>=archive.date)throw Error("EDIT03_PREVIOUS_DATE");}
   return bundle.maps.map(m=>{
     const recipe=RECIPES.find(r=>r.id===m.indicator)!,valid=m.rows.filter(qualified),values=valid.map(r=>r.value!);
     const palette=semanticPalette(m.indicator,m.unit,days(...m.period)+1),counts=palette.bounds.map(()=>0);
