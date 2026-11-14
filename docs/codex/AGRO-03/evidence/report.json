@@ -1,0 +1,179 @@
+{
+  "version": "multiproduction-agro03-1.0.0",
+  "executed_at": "2026-11-14T14:03:13.805Z",
+  "source": {
+    "path": "docs/codex/CORE-01/evidence/frozen-inputs.json.gz",
+    "sha256": "b9899f56b75bc9b1351a4d5da1ec5ecbbea63c8c4638e8d12ee09194a3fa60b5",
+    "nature": "Frozen operational archive replay; no assertion of current live availability"
+  },
+  "independent": {
+    "cases": 119784,
+    "mismatches": 0,
+    "examples": []
+  },
+  "baseline_result_checks": 278070,
+  "baseline": {
+    "recipes": 20,
+    "productions": 6,
+    "active_indicators": 14
+  },
+  "extension": {
+    "recipes": 28,
+    "new_recipes": 8,
+    "productions": 11
+  },
+  "selected_places": [
+    {
+      "id": "pra:05236",
+      "name": "DEVOLUY - 05",
+      "region": "Provence-Alpes-Côte d'Azur"
+    },
+    {
+      "id": "pra:28341",
+      "name": "BEAUCE DUNOISE - 28",
+      "region": "Centre-Val de Loire"
+    },
+    {
+      "id": "pra:29102",
+      "name": "PRESQU ILE DE CROZON - 29",
+      "region": "Bretagne"
+    },
+    {
+      "id": "pra:2A259",
+      "name": "COTEAUX CORSES - 2A",
+      "region": "Corse"
+    },
+    {
+      "id": "pra:50086",
+      "name": "BOCAGE DE COUTANCES ET SAINT-LO - 50",
+      "region": "Normandie"
+    }
+  ],
+  "metrics": [
+    {
+      "nature": "reanalysis",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "milliseconds": 2521.4291630000007,
+      "calculations": 19251,
+      "cache_hits": 96968,
+      "pra_count": 713,
+      "measurements": 116219,
+      "storage": {
+        "jsonl_bytes": 254478092,
+        "gzip_bytes": 6889151
+      },
+      "baseline_storage": {
+        "jsonl_bytes": 102533473,
+        "gzip_bytes": 2212580
+      }
+    },
+    {
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "milliseconds": 2719.5847740000027,
+      "calculations": 19251,
+      "cache_hits": 96968,
+      "pra_count": 713,
+      "measurements": 116219,
+      "storage": {
+        "jsonl_bytes": 490423882,
+        "gzip_bytes": 11908087
+      },
+      "baseline_storage": {
+        "jsonl_bytes": 199951243,
+        "gzip_bytes": 5538880
+      }
+    },
+    {
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-19",
+        "2026-11-01"
+      ],
+      "milliseconds": 5463.709898000008,
+      "calculations": 19251,
+      "cache_hits": 96968,
+      "pra_count": 713,
+      "measurements": 116219,
+      "storage": {
+        "jsonl_bytes": 751501594,
+        "gzip_bytes": 18557009
+      },
+      "baseline_storage": {
+        "jsonl_bytes": 302676224,
+        "gzip_bytes": 8042731
+      }
+    },
+    {
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "milliseconds": 3520.976136000012,
+      "calculations": 19251,
+      "cache_hits": 96968,
+      "pra_count": 713,
+      "measurements": 116219,
+      "storage": {
+        "jsonl_bytes": 942753160,
+        "gzip_bytes": 18366534
+      },
+      "baseline_storage": {
+        "jsonl_bytes": 376367966,
+        "gzip_bytes": 7708948
+      }
+    },
+    {
+      "nature": "forecast",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "milliseconds": 3212.2775249999977,
+      "calculations": 19251,
+      "cache_hits": 96968,
+      "pra_count": 713,
+      "measurements": 116219,
+      "storage": {
+        "jsonl_bytes": 289089376,
+        "gzip_bytes": 7213502
+      },
+      "baseline_storage": {
+        "jsonl_bytes": 116770421,
+        "gzip_bytes": 2603488
+      }
+    },
+    {
+      "nature": "forecast",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "milliseconds": 2105.4606459999923,
+      "calculations": 19251,
+      "cache_hits": 96968,
+      "pra_count": 713,
+      "measurements": 116219,
+      "storage": {
+        "jsonl_bytes": 604314263,
+        "gzip_bytes": 12171827
+      },
+      "baseline_storage": {
+        "jsonl_bytes": 241531889,
+        "gzip_bytes": 4904754
+      }
+    }
+  ],
+  "elapsed_ms": 170667.579227,
+  "peak_rss_bytes": 1502834688,
+  "network_calls": 0,
+  "remote_writes": 0,
+  "production_activation": false
+}

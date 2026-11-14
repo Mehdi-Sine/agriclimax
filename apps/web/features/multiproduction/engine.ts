@@ -42,7 +42,7 @@ function immutable<T>(value: T): Immutable<T> {
   return value as Immutable<T>;
 }
 export interface Measurement {
-  version: typeof VERSION;
+  version: string;
   production: string;
   indicator: string;
   period: [string, string];
@@ -128,8 +128,13 @@ export function computeBatch(
   period: [string, string],
   inputs: InputProvider,
   productions = PRODUCTIONS,
+  catalogue: { version: string; recipes: readonly Recipe[] } = {
+    version: VERSION,
+    recipes: RECIPES,
+  },
 ) {
-  validateRegistry(productions);
+  const { version, recipes } = catalogue;
+  validateRegistry(productions, recipes, version);
   const dates = calendarDays(...period);
   if (
     !dates.length ||
@@ -142,10 +147,10 @@ export function computeBatch(
   let calculations = 0,
     hits = 0;
   const recipeKeys = new Map(
-    RECIPES.map((r) => [
+    recipes.map((r) => [
       r.id,
       JSON.stringify([
-        VERSION,
+        version,
         r.kernel.variables,
         r.kernel.operator,
         r.kernel.threshold,
@@ -173,7 +178,7 @@ export function computeBatch(
     >();
     for (const production of productions)
       for (const id of production.indicators) {
-        const recipe = RECIPES.find((r) => r.id === id);
+        const recipe = recipes.find((r) => r.id === id);
         if (!recipe || !recipe.windows.includes(dates.length))
           throw Error("UNKNOWN_RECIPE_OR_WINDOW");
         // recipe identity includes unit, formula, parameters and coverage policy.
@@ -227,7 +232,7 @@ export function computeBatch(
         // Share immutable scientific results: adding productions does not copy the
         // daily series, provenance or quality evidence for each applicability.
         measurements.push({
-          version: VERSION,
+          version,
           production: production.id,
           indicator: id,
           period: [...period],
@@ -236,7 +241,7 @@ export function computeBatch(
       }
   }
   return {
-    version: VERSION,
+    version,
     measurements,
     metrics: { calculations, cache_hits: hits, pra_count: praIds.length },
   };

@@ -168,7 +168,7 @@ export const PRODUCTIONS: readonly Production[] = [
       "Contrat générique ; espèce, floraison, variété et sensibilité au gel inconnues. Aucun dommage inféré.",
   },
 ];
-export function validateRegistry(productions = PRODUCTIONS, recipes = RECIPES) {
+export function validateRegistry(productions = PRODUCTIONS, recipes = RECIPES, version: string = VERSION) {
   if (
     new Set(recipes.map((r) => r.id)).size !== recipes.length ||
     new Set(productions.map((p) => p.id)).size !== productions.length ||
@@ -181,7 +181,7 @@ export function validateRegistry(productions = PRODUCTIONS, recipes = RECIPES) {
     ) ||
     recipes.some(
       (r) =>
-        r.kernel.version !== VERSION ||
+        r.kernel.version !== version ||
         r.classification === "agronomic_interpretative" ||
         !r.kernel.formula ||
         !r.kernel.source ||

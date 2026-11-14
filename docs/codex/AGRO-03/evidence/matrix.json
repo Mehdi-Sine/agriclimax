@@ -1,0 +1,2722 @@
+[
+  {
+    "indicator": "gdd",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "cattle_heat",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd_base6",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd_base10",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot30",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot30_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "warm_nights20",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "warm_nights20_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "wet_days1",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "wet_sequence1",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain10_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain_max1day",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "ice_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "ice_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-11-01",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "cattle_heat",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd_base6",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd_base10",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot30",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot30_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "warm_nights20",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "warm_nights20_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "wet_days1",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "wet_sequence1",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain10_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain_max1day",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "ice_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "ice_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-26",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "cattle_heat",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd_base6",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd_base10",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot30",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot30_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "warm_nights20",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "warm_nights20_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "wet_days1",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "wet_sequence1",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain10_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain_max1day",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "ice_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "ice_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-19",
+      "2026-11-01"
+    ],
+    "states": {
+      "native_complete": 645,
+      "observed_partial": 67,
+      "unavailable": 1
+    },
+    "reasons": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "frost",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "frost_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "heavy_rain",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "dry",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "dry_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "cattle_heat",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "temperature_mean",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd_base6",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd_base10",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot30",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot30_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "temperature_min",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain_frequency",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "warm_nights20",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "warm_nights20_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "wet_days1",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "wet_sequence1",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain10_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain_max1day",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "ice_days",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "ice_sequence",
+    "nature": "reanalysis",
+    "period": [
+      "2026-10-03",
+      "2026-11-01"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "incomplete_period": 712,
+      "variable_unavailable": 1
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "hot",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "hot_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "frost",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "frost_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "heavy_rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "dry",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "dry_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "thi",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi_days",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "unavailable": 713
+    },
+    "reasons": {
+      "humidity_missing": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "cattle_heat",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "gdd_base6",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "gdd_base10",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "hot30",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "hot30_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "temperature_min",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "rain_frequency",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "warm_nights20",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "warm_nights20_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "wet_days1",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "wet_sequence1",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "rain10_days",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "rain_max1day",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "ice_days",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "ice_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-08"
+    ],
+    "states": {
+      "native_complete": 713
+    },
+    "reasons": {},
+    "total": 713
+  },
+  {
+    "indicator": "gdd",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "frost",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "frost_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "heavy_rain",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "dry",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "dry_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi_days",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "thi_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "cattle_heat",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "temperature_mean",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd_base6",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "gdd_base10",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot30",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "hot30_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "temperature_min",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain_frequency",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "warm_nights20",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "warm_nights20_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "wet_days1",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "wet_sequence1",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain10_days",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "rain_max1day",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "ice_days",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  },
+  {
+    "indicator": "ice_sequence",
+    "nature": "forecast",
+    "period": [
+      "2026-11-08",
+      "2026-11-14"
+    ],
+    "states": {
+      "unknown": 713
+    },
+    "reasons": {
+      "incompatible_sources_or_runs": 713
+    },
+    "total": 713
+  }
+]
