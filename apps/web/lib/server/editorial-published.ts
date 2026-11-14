@@ -23,7 +23,7 @@ async function readOperationalEditions() {
  try {for(const a of unpackConsultable(bootstrap))editions.set(a.edition_id,a);}catch{/* corrupted copy is never served */}
  try {
   const runs=await editorialRPC<Run[]>("runs");
-  const ids=[...new Set(runs.filter(r=>r.archive_id&&["completed","validation_failed"].includes(r.state)).slice(-60).map(r=>r.archive_id!))];
+  const ids=[...new Set(runs.filter(r=>r.archive_id&&["completed","validation_failed","outcome_unknown"].includes(r.state)).slice(-60).map(r=>r.archive_id!))];
   const store=new SupabaseEditorialStore("");
   // Rejected runs can point to the same fallback as a completed run. Read each
   // immutable archive once per refresh, including failed reads (retried next time).
@@ -36,6 +36,7 @@ async function readOperationalEditions() {
   await Promise.all(Array.from({length:Math.min(6,ids.length)},async()=>{
    for(let index=next++;index<ids.length;index=next++) {
    try {let a=await read(ids[index]);
+    if(runs.some(r=>r.archive_id===ids[index]&&r.state==="outcome_unknown")&&a?.mode!=="fallback")continue;
     if(a?.validation.status==="rejected")a=await read(hash([a.checksum,"experimental-factual-fallback-1"]))??a;
     if(a){const edition=consultableEdition(a);
      // New experimental publications become visible only after the immutable map commit.

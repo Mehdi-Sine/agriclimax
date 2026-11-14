@@ -64,14 +64,18 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
   return archive;
  } catch(error) {
   if(run.state==="running") {
-   run.state="outcome_unknown";run.error=error instanceof ProviderFailure?error.code:"PROVIDER_OR_ARCHIVE_FAILED";
-   if(error instanceof ProviderFailure) await o.store.diagnostic(hash([run.id,"error"]),{kind:"provider_error",run_id:run.id,code:error.code,diagnostic:error.diagnostic??null,evidence:error.evidence??null});
-   await o.store.finishAttempt(run);
-  }
-  if(maps&&(error instanceof ProviderFailure||error instanceof Error&&(error.message.startsWith("DRAFT_CONTRACT")||error.message==="PROVIDER_MODEL_OR_ID_MISMATCH"))) {
-   const archive=await archiveProviderFactualFallback({briefing:b,config:c,store:o.store,runId:run.id,generatedAt:now,mapSelection:maps});
-   run.archive_id=archive.edition_id;run.state="completed";await o.store.finishAttempt(run);
-   return archive;
+   run.error=error instanceof ProviderFailure?error.code:"PROVIDER_OR_ARCHIVE_FAILED";
+   if(error instanceof ProviderFailure)await o.store.diagnostic(hash([run.id,"error"]),{kind:"provider_error",run_id:run.id,code:error.code,diagnostic:error.diagnostic??null,evidence:error.evidence??null});
+   if(maps&&(error instanceof ProviderFailure||error instanceof Error&&(error.message.startsWith("DRAFT_CONTRACT")||error.message==="PROVIDER_MODEL_OR_ID_MISMATCH"))) {
+    let archive:Archive;
+    try {archive=await archiveProviderFactualFallback({briefing:b,config:c,store:o.store,runId:run.id,generatedAt:now,mapSelection:maps});}
+    catch(failure){run.state="outcome_unknown";await o.store.finishAttempt(run);throw failure;}
+    // attempt_write only admits a transition from running. Persist exactly once,
+    // after the factual archive exists; retain the provider error and unknown cost.
+    run.archive_id=archive.edition_id;run.state="completed";await o.store.finishAttempt(run);
+    return archive;
+   }
+   run.state="outcome_unknown";await o.store.finishAttempt(run);
   }
   throw error;
  }

@@ -1,18 +1,18 @@
 ▲ Next.js 16.4.1 (Turbopack)
-✓ Running next.config.ts took 188ms
+✓ Running next.config.ts took 110ms
 - Experiments (use with caution):
   ⨯ useTypeScriptCli
 
   Creating an optimized production build ...
-✓ Compiled successfully in 11.5s
+✓ Compiled successfully in 10.1s
   Running TypeScript ...
-  Finished TypeScript in 28.8s ...
+  Finished TypeScript in 49s ...
   Collecting page data using 2 workers ...
   Generating static pages using 2 workers (0/49) ...
   Generating static pages using 2 workers (12/49) 
   Generating static pages using 2 workers (24/49) 
   Generating static pages using 2 workers (36/49) 
-✓ Generating static pages using 2 workers (49/49) in 1292ms
+✓ Generating static pages using 2 workers (49/49) in 1204ms
 Turbopack build encountered 1 warning:
 ./apps/web/features/editorial-ai/archive.ts:74:17
 Warning: Dynamic filesystem access causes tracing of the whole project

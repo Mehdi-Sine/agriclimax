@@ -7,7 +7,7 @@ Base main : `bdce460`, branche `codex/edit-04`. Vérifications locales le 14 nov
 | Préparation depuis les trois snapshots gelés | Empreintes exactes des cartes publiées retrouvées : [preparation.json](evidence/preparation.json) |
 | Comparaison avant/après | Trois éditions réelles, dix cartes publiées chacune, six retenues par classement sans quota : [comparaison](evidence/COMPARISON.md) |
 | Préservation distante | Relecture des trois archives et bundles, checksums identiques aux copies initiales : [remote-preservation.json](evidence/remote-preservation.json) |
-| Unitaires éditoriaux, cartes, OPS-07 et préparation | **262 tests, 27 fichiers, tous réussis** : [tests.log](evidence/tests.log), cas de réponse IA valide, principale différente, édition courte, aucune carte admissible, références inventées/croisées, doublons, panne, modèle incompatible et rejet scientifique |
+| Unitaires éditoriaux, cartes, OPS-07 et préparation | **263 tests, 28 fichiers, tous réussis** : [tests.log](evidence/tests.log), cas de réponse IA valide, principale différente, édition courte, aucune carte admissible, références inventées/croisées, doublons, panne, modèle incompatible et rejet scientifique |
 | Types web et scripts | TypeScript strict, projets web et `scripts/tsconfig.edit04.json`, succès |
 | Lint | ESLint sur tous les modules web touchés, succès |
 | Build | Compilation Next production avec bootstrap original et sans accès Supabase : [build.log](evidence/build.log) |

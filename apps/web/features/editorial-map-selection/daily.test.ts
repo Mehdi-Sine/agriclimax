@@ -45,7 +45,7 @@ function forAttempt(id:string):DailySelection {
 }
 function store(){
  let run:Run|undefined;const archives=new Map<string,Archive>(),diagnostics:unknown[]=[];
- const api:AttemptStore={claimAttempt:async r=>{if(run?.archive_id)return run;run={...r};return r;},finishAttempt:async r=>{run={...r};},save:async a=>{verifyArchive(a);if(a.mode==="fallback"&&a.supersedes===null)expect(a.edition_id).toBe(run?.id);archives.set(a.edition_id,a);},read:async id=>archives.get(id)??null,diagnostic:async(_,v)=>{diagnostics.push(v);}};
+ const api:AttemptStore={claimAttempt:async r=>{if(run?.archive_id)return run;run={...r};return r;},finishAttempt:async r=>{if(run?.state!=="running")throw Error("INVALID_ATTEMPT_TRANSITION");run={...r};},save:async a=>{verifyArchive(a);if(a.mode==="fallback"&&a.supersedes===null)expect(a.edition_id).toBe(run?.id);archives.set(a.edition_id,a);},read:async id=>archives.get(id)??null,diagnostic:async(_,v)=>{diagnostics.push(v);}};
  return {api,archives,diagnostics};
 }
 for(const kind of ["valid","short","invented","evidence","duplicate","missing","throw","malformed","science","model"] as const)it(`single-call ${kind}, idempotent factual/deterministic recovery`,async()=>{

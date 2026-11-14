@@ -143,7 +143,10 @@ async function main() {
         publishExperimentalMaps(fallback);
         output({status:"experimental_fallback",id:fallback.edition_id,checksum:fallback.checksum,paid_calls:0});return;
       }
-      if(savedMaps&&recovered.mode==="fallback")await store.finishAttempt({...prior,state:"completed",archive_id:recovered.edition_id});
+      if(savedMaps&&recovered.mode==="fallback"&&recovered.edition_id===prior.id){
+       if(prior.state==="running")await store.finishAttempt({...prior,state:"completed",archive_id:recovered.edition_id});
+       else await store.writeRun({...prior,archive_id:recovered.edition_id}); // Same-state attachment permitted by run_write; no financial transition.
+      }
       output(await resumeArchivedEdition(recovered,payload=>editorialRPC("recover_archive",payload),publishExperimentalMaps));return;
     }
   }
