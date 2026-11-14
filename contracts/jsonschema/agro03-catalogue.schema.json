@@ -1,0 +1,403 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:agriclimax:agro03-catalogue:1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "productions",
+    "recipes",
+    "agronomy",
+    "references"
+  ],
+  "properties": {
+    "version": {
+      "const": "multiproduction-agro03-1.0.0"
+    },
+    "productions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "family",
+          "indicators",
+          "limits"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "family": {
+            "type": "string",
+            "minLength": 1
+          },
+          "indicators": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "limits": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "recipes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "classification",
+          "kernel",
+          "windows",
+          "natures",
+          "editorial"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "classification": {
+            "enum": [
+              "meteorological",
+              "agroclimatic_descriptive",
+              "agronomic_interpretative"
+            ]
+          },
+          "editorial": {
+            "const": "qualified_descriptive_only"
+          },
+          "windows": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 30
+            }
+          },
+          "natures": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "observation",
+                "reanalysis",
+                "forecast"
+              ]
+            }
+          },
+          "kernel": {
+            "type": "object",
+            "required": [
+              "id",
+              "version",
+              "variables",
+              "operator",
+              "threshold",
+              "formula",
+              "unit",
+              "source",
+              "scientific_status",
+              "quality",
+              "limits",
+              "coverage_family"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "version": {
+                "const": "multiproduction-agro03-1.0.0"
+              },
+              "variables": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "temperature",
+                    "temperature_min",
+                    "temperature_max",
+                    "precipitation",
+                    "humidity"
+                  ]
+                }
+              },
+              "operator": {
+                "enum": [
+                  "min",
+                  "mean",
+                  "gdd",
+                  "above",
+                  "below",
+                  "sum",
+                  "longestAbove",
+                  "longestBelow",
+                  "thi",
+                  "thiAbove",
+                  "thiLongest",
+                  "atLeast",
+                  "longestAtLeast",
+                  "max"
+                ]
+              },
+              "threshold": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "formula": {
+                "type": "string",
+                "minLength": 1
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1
+              },
+              "scientific_status": {
+                "const": "exploratory"
+              },
+              "quality": {
+                "type": "string",
+                "minLength": 1
+              },
+              "limits": {
+                "type": "string",
+                "minLength": 1
+              },
+              "coverage_family": {
+                "enum": [
+                  "mean_sum",
+                  "extreme_event",
+                  "sequence",
+                  "normal_anomaly",
+                  "specific"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "references": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "url",
+          "scope"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "agronomy": {
+      "type": "object",
+      "minProperties": 28,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "description",
+          "productions",
+          "parameters",
+          "relevant_periods",
+          "references",
+          "validation",
+          "availability",
+          "interpretation_limits",
+          "editorial"
+        ],
+        "properties": {
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "productions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "parameters": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "scope",
+              "threshold",
+              "unit",
+              "comparator",
+              "interpretation"
+            ],
+            "properties": {
+              "scope": {
+                "enum": [
+                  "generic_meteorological",
+                  "production_configuration_required"
+                ]
+              },
+              "threshold": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "unit": {
+                "enum": [
+                  "degC",
+                  "mm",
+                  "THI",
+                  null
+                ]
+              },
+              "comparator": {
+                "enum": [
+                  ">",
+                  ">=",
+                  "<",
+                  "base",
+                  null
+                ]
+              },
+              "interpretation": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "relevant_periods": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "production",
+                "period",
+                "status"
+              ],
+              "properties": {
+                "production": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "period": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "status": {
+                  "const": "context_only"
+                }
+              }
+            }
+          },
+          "references": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "enum": [
+                "etccdi",
+                "thermal",
+                "cattle",
+                "era5"
+              ]
+            }
+          },
+          "validation": {
+            "const": "documented_method_exploratory_application"
+          },
+          "availability": {
+            "type": "string",
+            "minLength": 1
+          },
+          "interpretation_limits": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "editorial": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "agricultural_interest",
+              "causal_claims_allowed",
+              "damage_threshold",
+              "required_context"
+            ],
+            "properties": {
+              "kind": {
+                "const": "hazard_descriptor"
+              },
+              "agricultural_interest": {
+                "type": "string",
+                "minLength": 1
+              },
+              "causal_claims_allowed": {
+                "const": false
+              },
+              "damage_threshold": {
+                "type": "null"
+              },
+              "required_context": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

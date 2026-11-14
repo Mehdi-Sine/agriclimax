@@ -143,11 +143,14 @@ export function calculate(
   const above = ["above", "longestAbove", "thiAbove", "thiLongest"].includes(
     rule.operator,
   );
+  const inclusive = ["atLeast", "longestAtLeast"].includes(rule.operator);
+  const exceeds = (value: number, limit: number) =>
+    inclusive ? value >= limit : above ? value > limit : value < limit;
   for (const row of series) {
     if (
       row.value !== null &&
       threshold !== null &&
-      (above ? row.value > threshold : row.value < threshold)
+      exceeds(row.value, threshold)
     ) {
       count++;
       if (!run) episodes++;
@@ -155,12 +158,12 @@ export function calculate(
       longest = Math.max(longest, run);
     } else run = 0;
   }
-  const thresholdRule = !["gdd", "mean", "min", "sum", "thi"].includes(rule.operator);
+  const thresholdRule = !["gdd", "mean", "min", "max", "sum", "thi"].includes(rule.operator);
   const signals =
     thresholdRule && threshold !== null
       ? series.flatMap((r) =>
           r.value !== null &&
-          (above ? r.value > threshold : r.value < threshold)
+          exceeds(r.value, threshold)
             ? [
                 {
                   date: r.date,
@@ -170,7 +173,7 @@ export function calculate(
                     : rule.variables[0],
                   value: r.value,
                   threshold,
-                  comparison: above ? ">" : "<",
+                  comparison: inclusive ? ">=" : above ? ">" : "<",
                   source: r.source,
                   run: r.run,
                 },
@@ -182,11 +185,11 @@ export function calculate(
     ? null
     : rule.operator === "min"
       ? Math.min(...good)
-    : rule.operator === "thi"
+    : ["thi", "max"].includes(rule.operator)
       ? Math.max(...good)
-      : ["above", "below", "thiAbove"].includes(rule.operator)
+      : ["above", "below", "thiAbove", "atLeast"].includes(rule.operator)
         ? count
-        : ["longestAbove", "longestBelow", "thiLongest"].includes(rule.operator)
+        : ["longestAbove", "longestBelow", "thiLongest", "longestAtLeast"].includes(rule.operator)
           ? longest
           : rule.operator === "mean"
             ? good.reduce((a, b) => a + b, 0) / good.length

@@ -1,0 +1,4203 @@
+{
+  "version": "multiproduction-agro03-1.0.0",
+  "productions": [
+    {
+      "id": "wheat",
+      "label": "Blé tendre",
+      "family": "Grandes cultures",
+      "indicators": [
+        "gdd",
+        "hot",
+        "hot_sequence",
+        "frost",
+        "frost_sequence",
+        "rain",
+        "heavy_rain",
+        "dry",
+        "dry_sequence",
+        "temperature_mean",
+        "warm_nights20",
+        "warm_nights20_sequence",
+        "wet_days1",
+        "wet_sequence1",
+        "rain10_days",
+        "rain_max1day",
+        "ice_days",
+        "ice_sequence"
+      ],
+      "limits": "Semis, variété, stade et réserve hydrique inconnus ; aucun stade déduit des sommes thermiques."
+    },
+    {
+      "id": "cattle",
+      "label": "Bovins",
+      "family": "Élevage",
+      "indicators": [
+        "cattle_heat",
+        "temperature_mean",
+        "thi",
+        "thi_days",
+        "thi_sequence",
+        "warm_nights20",
+        "warm_nights20_sequence",
+        "wet_days1",
+        "wet_sequence1",
+        "rain10_days",
+        "rain_max1day",
+        "ice_days",
+        "ice_sequence"
+      ],
+      "limits": "Couple Tmoy/RHmoy journalier compatible requis ; THI synthétique, jamais maximum horaire ni stress animal démontré. Élevage, abri et adaptation inconnus."
+    },
+    {
+      "id": "maize",
+      "label": "Maïs",
+      "family": "Grandes cultures",
+      "indicators": [
+        "temperature_mean",
+        "temperature_min",
+        "hot",
+        "hot_sequence",
+        "frost",
+        "frost_sequence",
+        "rain",
+        "rain_frequency",
+        "heavy_rain",
+        "dry",
+        "dry_sequence",
+        "gdd_base6",
+        "gdd_base10",
+        "hot30",
+        "hot30_sequence",
+        "warm_nights20",
+        "warm_nights20_sequence",
+        "wet_days1",
+        "wet_sequence1",
+        "rain10_days",
+        "rain_max1day",
+        "ice_days",
+        "ice_sequence"
+      ],
+      "limits": "Bases conventionnelles explicites sans plafond ; semis, stade, variété, irrigation et eau du sol inconnus."
+    },
+    {
+      "id": "vine",
+      "label": "Vigne",
+      "family": "Viticulture",
+      "indicators": [
+        "temperature_mean",
+        "temperature_min",
+        "hot",
+        "hot_sequence",
+        "frost",
+        "frost_sequence",
+        "rain",
+        "rain_frequency",
+        "heavy_rain",
+        "dry",
+        "dry_sequence",
+        "gdd_base10",
+        "warm_nights20",
+        "warm_nights20_sequence",
+        "wet_days1",
+        "wet_sequence1",
+        "rain10_days",
+        "rain_max1day",
+        "ice_days",
+        "ice_sequence"
+      ],
+      "limits": "Gel météorologique sans dommage démontré ; débourrement, cépage et sensibilité inconnus, jamais inférés du calendrier."
+    },
+    {
+      "id": "grassland",
+      "label": "Prairies et fourrages",
+      "family": "Fourrages",
+      "indicators": [
+        "temperature_mean",
+        "temperature_min",
+        "hot",
+        "hot_sequence",
+        "frost",
+        "frost_sequence",
+        "rain",
+        "rain_frequency",
+        "heavy_rain",
+        "dry",
+        "dry_sequence",
+        "gdd",
+        "warm_nights20",
+        "warm_nights20_sequence",
+        "wet_days1",
+        "wet_sequence1",
+        "rain10_days",
+        "rain_max1day",
+        "ice_days",
+        "ice_sequence"
+      ],
+      "limits": "Aucune pousse, production fourragère ou sécheresse agricole déduite ; sol et conduite inconnus."
+    },
+    {
+      "id": "orchard",
+      "label": "Vergers",
+      "family": "Arboriculture",
+      "indicators": [
+        "temperature_mean",
+        "temperature_min",
+        "hot",
+        "hot_sequence",
+        "frost",
+        "frost_sequence",
+        "rain",
+        "rain_frequency",
+        "heavy_rain",
+        "dry",
+        "dry_sequence",
+        "warm_nights20",
+        "warm_nights20_sequence",
+        "wet_days1",
+        "wet_sequence1",
+        "rain10_days",
+        "rain_max1day",
+        "ice_days",
+        "ice_sequence"
+      ],
+      "limits": "Contrat générique ; espèce, floraison, variété et sensibilité au gel inconnues. Aucun dommage inféré."
+    },
+    {
+      "id": "rapeseed",
+      "label": "Colza",
+      "family": "Grandes cultures",
+      "indicators": [
+        "temperature_mean",
+        "temperature_min",
+        "hot",
+        "hot_sequence",
+        "frost",
+        "frost_sequence",
+        "rain",
+        "rain_frequency",
+        "heavy_rain",
+        "dry",
+        "dry_sequence",
+        "warm_nights20",
+        "warm_nights20_sequence",
+        "wet_days1",
+        "wet_sequence1",
+        "rain10_days",
+        "rain_max1day",
+        "ice_days",
+        "ice_sequence"
+      ],
+      "limits": "Semis, stade, variété, enracinement, réserve hydrique et pratiques inconnus. Aucun dégât de gel ou déficit hydrique déduit."
+    },
+    {
+      "id": "dairy_cattle",
+      "label": "Bovins lait",
+      "family": "Élevage",
+      "indicators": [
+        "temperature_mean",
+        "hot",
+        "hot_sequence",
+        "warm_nights20",
+        "warm_nights20_sequence",
+        "ice_days",
+        "ice_sequence",
+        "thi",
+        "thi_days",
+        "thi_sequence"
+      ],
+      "limits": "Météo extérieure territoriale ; bâtiment, ventilation, densité, âge, race et acclimatation inconnus. Aucun stress animal, récupération nocturne ou effet zootechnique déduit. Tmin UTC n'est pas une mesure nocturne de bâtiment. THI quotidien hérité exploratoire, couples T/RH qualifiés requis ; seuil 72 non universel."
+    },
+    {
+      "id": "beef_cattle",
+      "label": "Bovins viande",
+      "family": "Élevage",
+      "indicators": [
+        "temperature_mean",
+        "hot",
+        "hot_sequence",
+        "warm_nights20",
+        "warm_nights20_sequence",
+        "ice_days",
+        "ice_sequence"
+      ],
+      "limits": "Météo extérieure territoriale ; bâtiment, ventilation, densité, âge, race et acclimatation inconnus. Aucun stress animal, récupération nocturne ou effet zootechnique déduit. Tmin UTC n'est pas une mesure nocturne de bâtiment. THI laitier non transposé ; rayonnement, vent et contexte animal nécessaires à une règle dédiée."
+    },
+    {
+      "id": "pigs",
+      "label": "Porcins",
+      "family": "Élevage",
+      "indicators": [
+        "temperature_mean",
+        "hot",
+        "hot_sequence",
+        "warm_nights20",
+        "warm_nights20_sequence",
+        "ice_days",
+        "ice_sequence"
+      ],
+      "limits": "Météo extérieure territoriale ; bâtiment, ventilation, densité, âge, race et acclimatation inconnus. Aucun stress animal, récupération nocturne ou effet zootechnique déduit. Tmin UTC n'est pas une mesure nocturne de bâtiment. THI porcin reporté faute de règle espèce/stade/bâtiment et mesures adéquates."
+    },
+    {
+      "id": "poultry",
+      "label": "Volailles",
+      "family": "Élevage",
+      "indicators": [
+        "temperature_mean",
+        "hot",
+        "hot_sequence",
+        "warm_nights20",
+        "warm_nights20_sequence",
+        "ice_days",
+        "ice_sequence"
+      ],
+      "limits": "Météo extérieure territoriale ; bâtiment, ventilation, densité, âge, race et acclimatation inconnus. Aucun stress animal, récupération nocturne ou effet zootechnique déduit. Tmin UTC n'est pas une mesure nocturne de bâtiment. Espèce et âge nécessaires ; THI bovin non transposé."
+    }
+  ],
+  "recipes": [
+    {
+      "id": "gdd",
+      "classification": "agroclimatic_descriptive",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "gdd",
+        "production": "wheat",
+        "label": "Somme de températures",
+        "family": "Températures",
+        "variables": [
+          "temperature"
+        ],
+        "operator": "gdd",
+        "unit": "°C·j",
+        "threshold": 0,
+        "formula": "Σ max(0, Tmoy − base)",
+        "description": "Somme de températures sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://doi.org/10.1016/S0168-1923(97)00027-0",
+        "coverage_family": "mean_sum"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "hot",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "hot",
+        "production": "wheat",
+        "label": "Jours de chaleur",
+        "family": "Chaleur",
+        "variables": [
+          "temperature_max"
+        ],
+        "operator": "above",
+        "unit": "jours",
+        "threshold": 25,
+        "formula": "Σ 1(Tmax > seuil)",
+        "description": "Jours de chaleur sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+        "coverage_family": "extreme_event"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "hot_sequence",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "hot_sequence",
+        "production": "wheat",
+        "label": "Séquence chaude maximale",
+        "family": "Chaleur",
+        "variables": [
+          "temperature_max"
+        ],
+        "operator": "longestAbove",
+        "unit": "jours",
+        "threshold": 25,
+        "formula": "max longueur des séquences calendaires Tmax > seuil",
+        "description": "Séquence chaude maximale sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+        "coverage_family": "sequence"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "frost",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "frost",
+        "production": "wheat",
+        "label": "Jours de gel",
+        "family": "Gel",
+        "variables": [
+          "temperature_min"
+        ],
+        "operator": "below",
+        "unit": "jours",
+        "threshold": 0,
+        "formula": "Σ 1(Tmin < seuil)",
+        "description": "Jours de gel sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+        "coverage_family": "extreme_event"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "frost_sequence",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "frost_sequence",
+        "production": "wheat",
+        "label": "Séquence de gel maximale",
+        "family": "Gel",
+        "variables": [
+          "temperature_min"
+        ],
+        "operator": "longestBelow",
+        "unit": "jours",
+        "threshold": 0,
+        "formula": "max longueur des séquences calendaires Tmin < seuil",
+        "description": "Séquence de gel maximale sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+        "coverage_family": "sequence"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "rain",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "rain",
+        "production": "wheat",
+        "label": "Pluie cumulée",
+        "family": "Précipitations",
+        "variables": [
+          "precipitation"
+        ],
+        "operator": "sum",
+        "unit": "mm",
+        "threshold": null,
+        "formula": "Σ précipitation quotidienne",
+        "description": "Pluie cumulée sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+        "coverage_family": "mean_sum"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "heavy_rain",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "heavy_rain",
+        "production": "wheat",
+        "label": "Jours de pluie importante",
+        "family": "Précipitations",
+        "variables": [
+          "precipitation"
+        ],
+        "operator": "above",
+        "unit": "jours",
+        "threshold": 20,
+        "formula": "Σ 1(pluie > seuil)",
+        "description": "Jours de pluie importante sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+        "coverage_family": "extreme_event"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "dry",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "dry",
+        "production": "wheat",
+        "label": "Jours secs",
+        "family": "Précipitations",
+        "variables": [
+          "precipitation"
+        ],
+        "operator": "below",
+        "unit": "jours",
+        "threshold": 1,
+        "formula": "Σ 1(pluie < seuil)",
+        "description": "Jours secs sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+        "coverage_family": "extreme_event"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "dry_sequence",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "dry_sequence",
+        "production": "wheat",
+        "label": "Séquence sèche maximale",
+        "family": "Précipitations",
+        "variables": [
+          "precipitation"
+        ],
+        "operator": "longestBelow",
+        "unit": "jours",
+        "threshold": 1,
+        "formula": "max longueur des séquences calendaires pluie < seuil",
+        "description": "Séquence sèche maximale sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+        "coverage_family": "sequence"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "thi",
+      "classification": "agroclimatic_descriptive",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Indicateur climatique d’exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique. Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "thi",
+        "production": "cattle",
+        "label": "THI journalier synthétique",
+        "family": "Exposition thermique",
+        "variables": [
+          "temperature",
+          "humidity"
+        ],
+        "operator": "thi",
+        "unit": "THI",
+        "threshold": null,
+        "formula": "(1.8*T_C+32)-(0.55-0.0055*RH_pct)*(1.8*T_C-26) ; maximum des synthèses quotidiennes",
+        "description": "THI synthétique journalier à partir de Tmoy et RHmoy compatibles ; jamais un maximum horaire.",
+        "source": "https://www.ars.usda.gov/ARSUserFiles/80420530/Publications/Scientific/Conferences/2005/IB_33_160_BohmanovaEtAl.pdf",
+        "coverage_family": "specific"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "thi_days",
+      "classification": "agroclimatic_descriptive",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Indicateur climatique d’exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique. Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "thi_days",
+        "production": "cattle",
+        "label": "Jours au-dessus du seuil THI",
+        "family": "Exposition thermique",
+        "variables": [
+          "temperature",
+          "humidity"
+        ],
+        "operator": "thiAbove",
+        "unit": "jours",
+        "threshold": 72,
+        "formula": "(1.8*T_C+32)-(0.55-0.0055*RH_pct)*(1.8*T_C-26) ; nombre de jours THI > seuil",
+        "description": "THI synthétique journalier à partir de Tmoy et RHmoy compatibles ; jamais un maximum horaire.",
+        "source": "https://www.ars.usda.gov/ARSUserFiles/80420530/Publications/Scientific/Conferences/2005/IB_33_160_BohmanovaEtAl.pdf",
+        "coverage_family": "specific"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "thi_sequence",
+      "classification": "agroclimatic_descriptive",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Indicateur climatique d’exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique. Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "thi_sequence",
+        "production": "cattle",
+        "label": "Séquence de dépassement THI",
+        "family": "Exposition thermique",
+        "variables": [
+          "temperature",
+          "humidity"
+        ],
+        "operator": "thiLongest",
+        "unit": "jours",
+        "threshold": 72,
+        "formula": "(1.8*T_C+32)-(0.55-0.0055*RH_pct)*(1.8*T_C-26) ; plus longue séquence THI > seuil",
+        "description": "THI synthétique journalier à partir de Tmoy et RHmoy compatibles ; jamais un maximum horaire.",
+        "source": "https://www.ars.usda.gov/ARSUserFiles/80420530/Publications/Scientific/Conferences/2005/IB_33_160_BohmanovaEtAl.pdf",
+        "coverage_family": "specific"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "cattle_heat",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Information de température indépendante du THI ; ne remplace pas une humidité absente. Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "cattle_heat",
+        "production": "cattle",
+        "label": "Jours de chaleur météorologique",
+        "family": "Chaleur",
+        "variables": [
+          "temperature_max"
+        ],
+        "operator": "above",
+        "unit": "jours",
+        "threshold": 25,
+        "formula": "Σ 1(Tmax > seuil)",
+        "description": "Jours de chaleur météorologique sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+        "coverage_family": "extreme_event"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "temperature_mean",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "temperature_mean",
+        "production": "wheat",
+        "label": "Température moyenne",
+        "family": "Températures",
+        "variables": [
+          "temperature"
+        ],
+        "operator": "mean",
+        "unit": "°C",
+        "threshold": null,
+        "formula": "Moyenne des Tmoy quotidiennes sur un support spatial explicitement défini",
+        "description": "Température moyenne sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land",
+        "coverage_family": "mean_sum"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "gdd_base6",
+      "classification": "agroclimatic_descriptive",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "gdd_base6",
+        "production": "wheat",
+        "label": "Somme thermique base 6 °C",
+        "family": "Températures",
+        "variables": [
+          "temperature"
+        ],
+        "operator": "gdd",
+        "unit": "°C·j",
+        "threshold": 6,
+        "formula": "Σ max(0, Tmoy − base)",
+        "description": "Somme de températures sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://doi.org/10.1016/S0168-1923(97)00027-0",
+        "coverage_family": "mean_sum"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "gdd_base10",
+      "classification": "agroclimatic_descriptive",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "gdd_base10",
+        "production": "wheat",
+        "label": "Somme thermique base 10 °C",
+        "family": "Températures",
+        "variables": [
+          "temperature"
+        ],
+        "operator": "gdd",
+        "unit": "°C·j",
+        "threshold": 10,
+        "formula": "Σ max(0, Tmoy − base)",
+        "description": "Somme de températures sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://doi.org/10.1016/S0168-1923(97)00027-0",
+        "coverage_family": "mean_sum"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "hot30",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "hot30",
+        "production": "wheat",
+        "label": "Jours Tmax > 30 °C",
+        "family": "Chaleur",
+        "variables": [
+          "temperature_max"
+        ],
+        "operator": "above",
+        "unit": "jours",
+        "threshold": 30,
+        "formula": "Σ 1(Tmax > seuil)",
+        "description": "Jours de chaleur sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+        "coverage_family": "extreme_event"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "hot30_sequence",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "hot30_sequence",
+        "production": "wheat",
+        "label": "Séquence Tmax > 30 °C",
+        "family": "Chaleur",
+        "variables": [
+          "temperature_max"
+        ],
+        "operator": "longestAbove",
+        "unit": "jours",
+        "threshold": 30,
+        "formula": "max longueur des séquences calendaires Tmax > seuil",
+        "description": "Séquence chaude maximale sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+        "coverage_family": "sequence"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "temperature_min",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "temperature_min",
+        "production": "wheat",
+        "label": "Minimum des Tmin quotidiennes",
+        "family": "Gel",
+        "variables": [
+          "temperature_min"
+        ],
+        "operator": "min",
+        "unit": "°C",
+        "threshold": null,
+        "formula": "min(Tmin)",
+        "description": "Jours de gel sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+        "coverage_family": "extreme_event"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "rain_frequency",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "rain_frequency",
+        "production": "wheat",
+        "label": "Jours pluie > 0,1 mm",
+        "family": "Précipitations",
+        "variables": [
+          "precipitation"
+        ],
+        "operator": "above",
+        "unit": "jours",
+        "threshold": 0.1,
+        "formula": "Σ 1(pluie > seuil)",
+        "description": "Jours de pluie importante sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+        "source": "https://www.wcrp-climate.org/etccdi — méthodes de comptes et séquences ; seuils personnalisés exploratoires, pas indices ETCCDI standard.",
+        "coverage_family": "extreme_event"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "warm_nights20",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "warm_nights20",
+        "production": "wheat",
+        "label": "Jours à Tmin > 20 °C",
+        "family": "Chaleur",
+        "variables": [
+          "temperature_min"
+        ],
+        "operator": "above",
+        "unit": "jours",
+        "threshold": 20,
+        "formula": "Σ 1(Tmin > 20 °C)",
+        "description": "Jours à Tmin > 20 °C sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+        "source": "https://etccdi.pacificclimate.org/list_27_indices.shtml",
+        "coverage_family": "extreme_event"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "warm_nights20_sequence",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "warm_nights20_sequence",
+        "production": "wheat",
+        "label": "Séquence de jours à Tmin > 20 °C",
+        "family": "Chaleur",
+        "variables": [
+          "temperature_min"
+        ],
+        "operator": "longestAbove",
+        "unit": "jours",
+        "threshold": 20,
+        "formula": "max longueur calendaire Tmin > 20 °C",
+        "description": "Séquence de jours à Tmin > 20 °C sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+        "source": "https://etccdi.pacificclimate.org/list_27_indices.shtml",
+        "coverage_family": "sequence"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "wet_days1",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "wet_days1",
+        "production": "wheat",
+        "label": "Jours humides (pluie ≥ 1 mm)",
+        "family": "Précipitations",
+        "variables": [
+          "precipitation"
+        ],
+        "operator": "atLeast",
+        "unit": "jours",
+        "threshold": 1,
+        "formula": "Σ 1(P ≥ 1 mm)",
+        "description": "Jours humides (pluie ≥ 1 mm) sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+        "source": "https://etccdi.pacificclimate.org/list_27_indices.shtml",
+        "coverage_family": "extreme_event"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "wet_sequence1",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "wet_sequence1",
+        "production": "wheat",
+        "label": "Séquence humide maximale (pluie ≥ 1 mm)",
+        "family": "Précipitations",
+        "variables": [
+          "precipitation"
+        ],
+        "operator": "longestAtLeast",
+        "unit": "jours",
+        "threshold": 1,
+        "formula": "max longueur calendaire P ≥ 1 mm",
+        "description": "Séquence humide maximale (pluie ≥ 1 mm) sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+        "source": "https://etccdi.pacificclimate.org/list_27_indices.shtml",
+        "coverage_family": "sequence"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "rain10_days",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "rain10_days",
+        "production": "wheat",
+        "label": "Jours de pluie ≥ 10 mm",
+        "family": "Précipitations",
+        "variables": [
+          "precipitation"
+        ],
+        "operator": "atLeast",
+        "unit": "jours",
+        "threshold": 10,
+        "formula": "Σ 1(P ≥ 10 mm)",
+        "description": "Jours de pluie ≥ 10 mm sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+        "source": "https://etccdi.pacificclimate.org/list_27_indices.shtml",
+        "coverage_family": "extreme_event"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "rain_max1day",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "rain_max1day",
+        "production": "wheat",
+        "label": "Maximum de pluie quotidienne",
+        "family": "Précipitations",
+        "variables": [
+          "precipitation"
+        ],
+        "operator": "max",
+        "unit": "mm",
+        "threshold": null,
+        "formula": "max(P quotidienne)",
+        "description": "Maximum de pluie quotidienne sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+        "source": "https://etccdi.pacificclimate.org/list_27_indices.shtml",
+        "coverage_family": "extreme_event"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "ice_days",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "ice_days",
+        "production": "wheat",
+        "label": "Jours sans dégel (Tmax < 0 °C)",
+        "family": "Gel",
+        "variables": [
+          "temperature_max"
+        ],
+        "operator": "below",
+        "unit": "jours",
+        "threshold": 0,
+        "formula": "Σ 1(Tmax < 0 °C)",
+        "description": "Jours sans dégel (Tmax < 0 °C) sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+        "source": "https://etccdi.pacificclimate.org/list_27_indices.shtml",
+        "coverage_family": "extreme_event"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    },
+    {
+      "id": "ice_sequence",
+      "classification": "meteorological",
+      "kernel": {
+        "version": "multiproduction-agro03-1.0.0",
+        "scientific_status": "exploratory",
+        "spatial_scale": "pra",
+        "temporal_scale": "daily",
+        "admissible_period": "Fenêtre explicite de 1 à 30 jours ; prévisions J+1 à J+7 du cycle archivé choisi.",
+        "meteorological_source": "ERA5-Land pra-native-1 ; sélection nationale AROME/ARPEGE/IFS existante.",
+        "quality": "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
+        "unavailable": "Variable absente ou invalide, couverture insuffisante, période incomplète ou provenance incompatible : NULL avec motif.",
+        "limits": "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "id": "ice_sequence",
+        "production": "wheat",
+        "label": "Séquence de jours sans dégel",
+        "family": "Gel",
+        "variables": [
+          "temperature_max"
+        ],
+        "operator": "longestBelow",
+        "unit": "jours",
+        "threshold": 0,
+        "formula": "max longueur calendaire Tmax < 0 °C",
+        "description": "Séquence de jours sans dégel sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+        "source": "https://etccdi.pacificclimate.org/list_27_indices.shtml",
+        "coverage_family": "sequence"
+      },
+      "windows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "natures": [
+        "observation",
+        "reanalysis",
+        "forecast"
+      ],
+      "editorial": "qualified_descriptive_only"
+    }
+  ],
+  "agronomy": {
+    "gdd": {
+      "description": "Somme de températures sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "wheat",
+        "grassland"
+      ],
+      "parameters": {
+        "scope": "production_configuration_required",
+        "threshold": 0,
+        "unit": "degC",
+        "comparator": "base",
+        "interpretation": "Base descriptive héritée ; choix espèce/variété/stade à justifier. Aucun stade calculé."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "thermal",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Décrire l'accumulation de chaleur avec une base explicite, sans inférer de stade.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "hot": {
+      "description": "Jours de chaleur sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "wheat",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed",
+        "dairy_cattle",
+        "beef_cattle",
+        "pigs",
+        "poultry"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 25,
+        "unit": "degC",
+        "comparator": ">",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "dairy_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "beef_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "pigs",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "poultry",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser la persistance de chaleur ou de froid autour de productions potentiellement sensibles, sans démontrer d'exposition ni de dommage.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "hot_sequence": {
+      "description": "Séquence chaude maximale sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "wheat",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed",
+        "dairy_cattle",
+        "beef_cattle",
+        "pigs",
+        "poultry"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 25,
+        "unit": "degC",
+        "comparator": ">",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "dairy_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "beef_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "pigs",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "poultry",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser la persistance de chaleur ou de froid autour de productions potentiellement sensibles, sans démontrer d'exposition ni de dommage.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "frost": {
+      "description": "Jours de gel sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "wheat",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 0,
+        "unit": "degC",
+        "comparator": "<",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser la persistance de chaleur ou de froid autour de productions potentiellement sensibles, sans démontrer d'exposition ni de dommage.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "frost_sequence": {
+      "description": "Séquence de gel maximale sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "wheat",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 0,
+        "unit": "degC",
+        "comparator": "<",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser la persistance de chaleur ou de froid autour de productions potentiellement sensibles, sans démontrer d'exposition ni de dommage.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "rain": {
+      "description": "Pluie cumulée sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "wheat",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": null,
+        "unit": null,
+        "comparator": null,
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser les apports et persistances de pluie autour des travaux et besoins hydriques, sans bilan de sol.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "heavy_rain": {
+      "description": "Jours de pluie importante sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "wheat",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 20,
+        "unit": "mm",
+        "comparator": ">",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser les apports et persistances de pluie autour des travaux et besoins hydriques, sans bilan de sol.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "dry": {
+      "description": "Jours secs sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "wheat",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 1,
+        "unit": "mm",
+        "comparator": "<",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser les apports et persistances de pluie autour des travaux et besoins hydriques, sans bilan de sol.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "dry_sequence": {
+      "description": "Séquence sèche maximale sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "wheat",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 1,
+        "unit": "mm",
+        "comparator": "<",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser les apports et persistances de pluie autour des travaux et besoins hydriques, sans bilan de sol.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "thi": {
+      "description": "THI synthétique journalier à partir de Tmoy et RHmoy compatibles ; jamais un maximum horaire.",
+      "productions": [
+        "cattle",
+        "dairy_cattle"
+      ],
+      "parameters": {
+        "scope": "production_configuration_required",
+        "threshold": null,
+        "unit": null,
+        "comparator": null,
+        "interpretation": "Seuil bovin exploratoire ; non universel, jamais transposé aux autres espèces."
+      },
+      "relevant_periods": [
+        {
+          "production": "cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "dairy_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "cattle",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Indicateur climatique d’exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique. Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Décrire l'environnement thermo-hygrométrique bovin si le couple journalier est qualifié.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "thi_days": {
+      "description": "THI synthétique journalier à partir de Tmoy et RHmoy compatibles ; jamais un maximum horaire.",
+      "productions": [
+        "cattle",
+        "dairy_cattle"
+      ],
+      "parameters": {
+        "scope": "production_configuration_required",
+        "threshold": 72,
+        "unit": "THI",
+        "comparator": ">",
+        "interpretation": "Seuil bovin exploratoire ; non universel, jamais transposé aux autres espèces."
+      },
+      "relevant_periods": [
+        {
+          "production": "cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "dairy_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "cattle",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Indicateur climatique d’exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique. Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Décrire l'environnement thermo-hygrométrique bovin si le couple journalier est qualifié.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "thi_sequence": {
+      "description": "THI synthétique journalier à partir de Tmoy et RHmoy compatibles ; jamais un maximum horaire.",
+      "productions": [
+        "cattle",
+        "dairy_cattle"
+      ],
+      "parameters": {
+        "scope": "production_configuration_required",
+        "threshold": 72,
+        "unit": "THI",
+        "comparator": ">",
+        "interpretation": "Seuil bovin exploratoire ; non universel, jamais transposé aux autres espèces."
+      },
+      "relevant_periods": [
+        {
+          "production": "cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "dairy_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "cattle",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Indicateur climatique d’exposition pour bovins. Seuils contextuels non universels. Aucun diagnostic zootechnique ou clinique, aucun conseil automatique. Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Décrire l'environnement thermo-hygrométrique bovin si le couple journalier est qualifié.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "cattle_heat": {
+      "description": "Jours de chaleur météorologique sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "cattle"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 25,
+        "unit": "degC",
+        "comparator": ">",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Information de température indépendante du THI ; ne remplace pas une humidité absente. Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser la persistance de chaleur ou de froid autour de productions potentiellement sensibles, sans démontrer d'exposition ni de dommage.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "temperature_mean": {
+      "description": "Température moyenne sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "wheat",
+        "cattle",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed",
+        "dairy_cattle",
+        "beef_cattle",
+        "pigs",
+        "poultry"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": null,
+        "unit": null,
+        "comparator": null,
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "dairy_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "beef_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "pigs",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "poultry",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser la persistance de chaleur ou de froid autour de productions potentiellement sensibles, sans démontrer d'exposition ni de dommage.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "gdd_base6": {
+      "description": "Somme de températures sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "maize"
+      ],
+      "parameters": {
+        "scope": "production_configuration_required",
+        "threshold": 6,
+        "unit": "degC",
+        "comparator": "base",
+        "interpretation": "Base descriptive héritée ; choix espèce/variété/stade à justifier. Aucun stade calculé."
+      },
+      "relevant_periods": [
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "thermal",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Décrire l'accumulation de chaleur avec une base explicite, sans inférer de stade.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "gdd_base10": {
+      "description": "Somme de températures sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "maize",
+        "vine"
+      ],
+      "parameters": {
+        "scope": "production_configuration_required",
+        "threshold": 10,
+        "unit": "degC",
+        "comparator": "base",
+        "interpretation": "Base descriptive héritée ; choix espèce/variété/stade à justifier. Aucun stade calculé."
+      },
+      "relevant_periods": [
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "thermal",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Décrire l'accumulation de chaleur avec une base explicite, sans inférer de stade.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "hot30": {
+      "description": "Jours de chaleur sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "maize"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 30,
+        "unit": "degC",
+        "comparator": ">",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser la persistance de chaleur ou de froid autour de productions potentiellement sensibles, sans démontrer d'exposition ni de dommage.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "hot30_sequence": {
+      "description": "Séquence chaude maximale sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "maize"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 30,
+        "unit": "degC",
+        "comparator": ">",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser la persistance de chaleur ou de froid autour de productions potentiellement sensibles, sans démontrer d'exposition ni de dommage.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "temperature_min": {
+      "description": "Jours de gel sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": null,
+        "unit": null,
+        "comparator": null,
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser la persistance de chaleur ou de froid autour de productions potentiellement sensibles, sans démontrer d'exposition ni de dommage.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "rain_frequency": {
+      "description": "Jours de pluie importante sur une fenêtre fournie explicitement, sans stade phénologique inféré.",
+      "productions": [
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 0.1,
+        "unit": "mm",
+        "comparator": ">",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser les apports et persistances de pluie autour des travaux et besoins hydriques, sans bilan de sol.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "warm_nights20": {
+      "description": "Jours à Tmin > 20 °C sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+      "productions": [
+        "wheat",
+        "cattle",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed",
+        "dairy_cattle",
+        "beef_cattle",
+        "pigs",
+        "poultry"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 20,
+        "unit": "degC",
+        "comparator": ">",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "dairy_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "beef_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "pigs",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "poultry",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser la persistance de chaleur ou de froid autour de productions potentiellement sensibles, sans démontrer d'exposition ni de dommage.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "warm_nights20_sequence": {
+      "description": "Séquence de jours à Tmin > 20 °C sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+      "productions": [
+        "wheat",
+        "cattle",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed",
+        "dairy_cattle",
+        "beef_cattle",
+        "pigs",
+        "poultry"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 20,
+        "unit": "degC",
+        "comparator": ">",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "dairy_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "beef_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "pigs",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "poultry",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser la persistance de chaleur ou de froid autour de productions potentiellement sensibles, sans démontrer d'exposition ni de dommage.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "wet_days1": {
+      "description": "Jours humides (pluie ≥ 1 mm) sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+      "productions": [
+        "wheat",
+        "cattle",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 1,
+        "unit": "mm",
+        "comparator": ">=",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser les apports et persistances de pluie autour des travaux et besoins hydriques, sans bilan de sol.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "wet_sequence1": {
+      "description": "Séquence humide maximale (pluie ≥ 1 mm) sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+      "productions": [
+        "wheat",
+        "cattle",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 1,
+        "unit": "mm",
+        "comparator": ">=",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser les apports et persistances de pluie autour des travaux et besoins hydriques, sans bilan de sol.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "rain10_days": {
+      "description": "Jours de pluie ≥ 10 mm sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+      "productions": [
+        "wheat",
+        "cattle",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 10,
+        "unit": "mm",
+        "comparator": ">=",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser les apports et persistances de pluie autour des travaux et besoins hydriques, sans bilan de sol.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "rain_max1day": {
+      "description": "Maximum de pluie quotidienne sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+      "productions": [
+        "wheat",
+        "cattle",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": null,
+        "unit": null,
+        "comparator": null,
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser les apports et persistances de pluie autour des travaux et besoins hydriques, sans bilan de sol.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "ice_days": {
+      "description": "Jours sans dégel (Tmax < 0 °C) sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+      "productions": [
+        "wheat",
+        "cattle",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed",
+        "dairy_cattle",
+        "beef_cattle",
+        "pigs",
+        "poultry"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 0,
+        "unit": "degC",
+        "comparator": "<",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "dairy_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "beef_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "pigs",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "poultry",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser la persistance de chaleur ou de froid autour de productions potentiellement sensibles, sans démontrer d'exposition ni de dommage.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    },
+    "ice_sequence": {
+      "description": "Séquence de jours sans dégel sur une fenêtre UTC explicite, descriptive et sans stade inféré.",
+      "productions": [
+        "wheat",
+        "cattle",
+        "maize",
+        "vine",
+        "grassland",
+        "orchard",
+        "rapeseed",
+        "dairy_cattle",
+        "beef_cattle",
+        "pigs",
+        "poultry"
+      ],
+      "parameters": {
+        "scope": "generic_meteorological",
+        "threshold": 0,
+        "unit": "degC",
+        "comparator": "<",
+        "interpretation": "Convention météo documentée ; aucun seuil de dommage agricole."
+      },
+      "relevant_periods": [
+        {
+          "production": "wheat",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "maize",
+          "period": "Campagne printemps–automne ; semis et stades à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "vine",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "grassland",
+          "period": "Période de végétation et fenêtres de récolte définies par l'utilisateur.",
+          "status": "context_only"
+        },
+        {
+          "production": "orchard",
+          "period": "Repos et cycle végétatif ; espèce, stade et dates locales à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "rapeseed",
+          "period": "Fenêtre choisie selon semis et stades observés ; automne à été, calendrier local à fournir.",
+          "status": "context_only"
+        },
+        {
+          "production": "dairy_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "beef_cattle",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "pigs",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        },
+        {
+          "production": "poultry",
+          "period": "Toute l'année ; vigilance thermique selon saison et conditions réelles d'élevage.",
+          "status": "context_only"
+        }
+      ],
+      "references": [
+        "etccdi",
+        "era5"
+      ],
+      "validation": "documented_method_exploratory_application",
+      "availability": "1–30 jours UTC complets ; variables en °C/mm/% qualifiées individuellement ; même source, cycle, nature et support. Prévision limitée aux jours archivés J+1…J+7. CORE-01 inchangé : portion observée séparée, aucun certificat inventé. Absence/incompatibilité : null et motif. RH qualifiée absente des archives opérationnelles inspectées : THI indisponible.",
+      "interpretation_limits": [
+        "Aléa territorial descriptif. Aucun stade, dommage, rendement, hectare touché ni conseil automatique. Extrêmes météo échantillonnés, représentativité littorale non garantie. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+        "Phénomène sur la météo agrégée d'un support PRA, pas fraction de parcelles ou d'animaux affectés.",
+        "Séquences censurées aux bornes ; durée totale d'un épisode extérieur à la fenêtre inconnue.",
+        "Tmin/Tmax quotidiens archivés peuvent être issus d'échantillons horaires ; Tmin UTC n'identifie ni nuit locale ni récupération physiologique."
+      ],
+      "editorial": {
+        "kind": "hazard_descriptor",
+        "causal_claims_allowed": false,
+        "damage_threshold": null,
+        "agricultural_interest": "Contextualiser la persistance de chaleur ou de froid autour de productions potentiellement sensibles, sans démontrer d'exposition ni de dommage.",
+        "required_context": [
+          "présence réelle de la production",
+          "stade/âge",
+          "sol et pratiques ou conditions du bâtiment",
+          "représentativité locale"
+        ]
+      }
+    }
+  },
+  "references": {
+    "etccdi": {
+      "title": "ETCCDI — Definitions of the 27 core indices",
+      "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml",
+      "scope": "TR: Tmin >20 °C ; ID: Tmax <0 °C ; R10mm: P ≥10 mm ; CWD: P ≥1 mm ; Rx1day: max P. Fenêtres ici explicites, pas indices annuels officiels."
+    },
+    "thermal": {
+      "title": "McMaster & Wilhelm (1997), Growing degree-days: one equation, two interpretations",
+      "url": "https://doi.org/10.1016/S0168-1923(97)00027-0",
+      "scope": "Méthode des sommes thermiques ; ne valide ni base spécifique, ni stade, ni variété."
+    },
+    "cattle": {
+      "title": "Bohmanova et al. (2005), Temperature-humidity indices as indicators of milk production losses due to heat stress",
+      "url": "https://www.ars.usda.gov/ARSUserFiles/80420530/Publications/Scientific/Conferences/2005/IB_33_160_BohmanovaEtAl.pdf",
+      "scope": "Formule THI héritée, contexte bovin laitier ; aucune transposition automatique viande, porcs ou volailles."
+    },
+    "era5": {
+      "title": "Muñoz-Sabater et al. (2021), ERA5-Land: a state-of-the-art global reanalysis dataset for land applications",
+      "url": "https://doi.org/10.5194/essd-13-4349-2021",
+      "scope": "Source météorologique ; ne démontre pas la représentativité de chaque élevage ou parcelle."
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "base": "167adec",
+  "modified_existing_files": [
+    "apps/web/features/agroclimatic/calculate.ts",
+    "apps/web/features/agroclimatic/catalogue.ts",
+    "apps/web/features/multiproduction/engine.ts",
+    "apps/web/features/multiproduction/registry.ts"
+  ],
+  "active_registry_declarations_unchanged": true,
+  "production_activation": false,
+  "preserved_paths": {
+    ".github/workflows": true,
+    "apps/web/app": true,
+    "apps/web/features/editorial-ai": true,
+    "apps/web/features/nightly": true,
+    "apps/web/features/editorial-map-selection": true,
+    "engine/src/agriclimax/climate": true,
+    "scripts/task36_editorial.ts": true,
+    "scripts/manual_indicators.ts": true,
+    "scripts/int01_map_builder.ts": true
+  }
+}
