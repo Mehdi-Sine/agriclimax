@@ -9,6 +9,16 @@ from pathlib import Path
 
 def export(root: Path, destination: Path) -> dict[str, object]:
     report_path = root / "report.json"
+    candidate = root / "sim-candidate"
+    # SIM errors must never prevent the pre-existing ERA checkpoint export.
+    try:
+        if not candidate.is_symlink() and (candidate / "index.json").exists():
+            candidate_files = [p for p in candidate.rglob("*") if p.is_file()]
+            if (not any(p.is_symlink() for p in candidate_files)
+                    and sum(p.stat().st_size for p in candidate_files) <= 16 * 1024**2):
+                shutil.copytree(candidate, destination / "sim-candidate", dirs_exist_ok=True)
+    except OSError:
+        pass  # optional shadow checkpoint, original ERA export continues
     if not report_path.exists():
         return {"exported": False, "reason": "no_run_report"}
     report = json.loads(report_path.read_text())

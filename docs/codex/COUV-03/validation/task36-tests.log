@@ -1,0 +1,22 @@
+test_candidate_checkpoint_without_new_era_day (test_couv03_pipeline.SimCheckpointTests.test_candidate_checkpoint_without_new_era_day) ... ok
+test_sim_export_failure_preserves_era_checkpoint (test_couv03_pipeline.SimCheckpointTests.test_sim_export_failure_preserves_era_checkpoint) ... ok
+test_adapter_receipt_classification_and_finish_are_persistent (test_retry.AcquisitionLedgerTests.test_adapter_receipt_classification_and_finish_are_persistent) ... ok
+test_denial_records_explicit_noop_without_running_adapter (test_retry.AcquisitionLedgerTests.test_denial_records_explicit_noop_without_running_adapter) ... ok
+test_no_openai_in_acquisition (test_retry.RetryTests.test_no_openai_in_acquisition) ... ok
+test_retry_after (test_retry.RetryTests.test_retry_after) ... ok
+test_supplier_classes (test_retry.RetryTests.test_supplier_classes) ... ok
+test_safe_receipt_keeps_auth_status_and_omits_exception_text (test_retry.SourceReceiptTests.test_safe_receipt_keeps_auth_status_and_omits_exception_text) ... ok
+test_long_supplier_cooldown_does_not_trigger_immediate_retries (test_retry.StationCooldownTests.test_long_supplier_cooldown_does_not_trigger_immediate_retries) ... ok
+test_missing_daily_source_is_no_new_data_not_a_transport_retry (test_retry.StationDailyWindowTests.test_missing_daily_source_is_no_new_data_not_a_transport_retry) ... ok
+test_november_13_window_ends_two_days_before_edition (test_retry.StationDailyWindowTests.test_november_13_window_ends_two_days_before_edition) ... ok
+test_standalone_cli_uses_the_same_conservative_window (test_retry.StationStandaloneDefaultsTests.test_standalone_cli_uses_the_same_conservative_window) ... ok
+test_dispatch_and_supabase_preserve_explicit_date_and_slot (test_schedule.ScheduleTests.test_dispatch_and_supabase_preserve_explicit_date_and_slot) ... ok
+test_dst_and_rerun (test_schedule.ScheduleTests.test_dst_and_rerun) ... ok
+test_every_cron_keeps_stage_at_any_runner_start (test_schedule.ScheduleTests.test_every_cron_keeps_stage_at_any_runner_start) ... ok
+test_unknown_cron_is_never_a_green_report (test_schedule.ScheduleTests.test_unknown_cron_is_never_a_green_report) ... ok
+test_workflow_crons_match_exact_registry (test_schedule.ScheduleTests.test_workflow_crons_match_exact_registry) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.054s
+
+OK

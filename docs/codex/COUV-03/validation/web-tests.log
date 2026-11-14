@@ -1,0 +1,12 @@
+
+> @agriclimax/web@ test /workspace/agriclimax/apps/web
+> vitest run "features/nightly" "features/editorial-map-selection" "features/editorial-ai" "features/journal" "features/agroclimatic" "lib/server/manual-journal.test.ts"
+
+
+ RUN  v4.1.12 /workspace/agriclimax/apps/web
+
+
+ Test Files  35 passed | 2 skipped (37)
+      Tests  344 passed | 2 skipped (346)
+   Start at  12:44:23
+   Duration  55.02s (transform 3.38s, setup 0ms, import 18.05s, tests 29.49s, environment 4ms)
