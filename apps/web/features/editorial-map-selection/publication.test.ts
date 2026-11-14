@@ -1,0 +1,27 @@
+import {it,expect,vi} from "vitest";
+vi.mock("server-only",()=>({}));
+const mocks=vi.hoisted(()=>({rpc:vi.fn(),read:vi.fn(),maps:vi.fn()}));
+vi.mock("../editorial-ai/supabase-store",()=>({editorialRPC:mocks.rpc,SupabaseEditorialStore:class{read=mocks.read;}}));
+vi.mock("../../lib/server/edition-maps",()=>({mapPreviewEdition:()=>null,readPublishedMaps:mocks.maps}));
+import {operationalEditions} from "../../lib/server/editorial-published";
+import {readEdit04Archive} from "../../../../scripts/edit04_archives";
+import {fallbackDraft} from "../editorial-ai/fallback";
+import {validateDraft} from "../editorial-ai/validate";
+import {sealArchive} from "../editorial-ai/archive";
+import {sealBundle} from "../edition-maps/model";
+import {buildCatalogue} from "./catalogue";
+import {rankCatalogue} from "./rank";
+import {chooseDaily,mapsDigest} from "./daily";
+it("serves a checked factual archive after an unknown provider outcome without changing its financial state",async()=>{
+ const source=readEdit04Archive("2026-11-14"),draft=fallbackDraft(source.archive.briefing),validation=validateDraft(draft,source.archive.briefing);
+ const {checksum,...body}=source.archive;void checksum;
+ const selection=chooseDaily(rankCatalogue(buildCatalogue(source.archive,source.bundle),{min_score:45,max_cards:6}),mapsDigest(source.bundle));
+ const archive=sealArchive({...body,mode:"fallback",draft,validation,status:validation.status,receipt:null,map_selection:selection});
+ const {sha256,...bundle}=source.bundle;void sha256;
+ const maps=sealBundle({...bundle,edition_checksum:archive.checksum});
+ const run={id:archive.edition_id,archive_id:archive.edition_id,state:"outcome_unknown",actual_eur:null};
+ mocks.rpc.mockResolvedValue([run]);mocks.read.mockResolvedValue(archive);mocks.maps.mockResolvedValue(maps);
+ const editions=await operationalEditions(),edition=editions.find(e=>e.edition_id===archive.edition_id);
+ expect(edition?.mode).toBe("fallback");expect(edition?.map_selection?.map_ids).toHaveLength(6);
+ expect(run.state).toBe("outcome_unknown");expect(run.actual_eur).toBeNull();expect(mocks.rpc).toHaveBeenCalledExactlyOnceWith("runs");
+});

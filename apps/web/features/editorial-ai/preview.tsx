@@ -42,7 +42,9 @@ export function EditorialPreview({
   editionMaps?: EditionMapsView;
 }) {
   const d = a?.draft;
-  const carousel = published && a && editionMaps?.maps.length ? journalMapCards(editionMaps, a.edition_id, a.date) : undefined;
+  const selection=a?.map_selection;
+  const selectedMaps=selection ? ("map_ids" in selection ? selection : {hero_map_id:selection.response.hero_map_id,map_ids:[...selection.response.priority,...selection.response.complementary].map(c=>c.map_id)}) : undefined;
+  const carousel = published && a && editionMaps?.maps.length ? journalMapCards(editionMaps, a.edition_id, a.date, selectedMaps) : undefined;
   const cycles=[...new Set(a?.briefing.national.facts.flatMap(f=>{try{const cycle=new URL(f.href,"https://agriclimax.invalid").searchParams.get("cycle");return cycle&&Number.isFinite(Date.parse(cycle))?[cycle]:[];}catch{return [];}})??[])];
   const base=personalStatus?"/journal/personnel":published?"/journal":"/journal/preview";
   const api=personalStatus?"/api/journal/personnel":published?"/api/journal/edition":"/api/journal-preview";

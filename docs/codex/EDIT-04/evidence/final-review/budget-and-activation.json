@@ -1,0 +1,60 @@
+{
+  "version": "edit04-final-review-1",
+  "checked_at": "2026-11-14T10:36:50.297389+00:00",
+  "reviewed_head": "d12bd9f215f746ca85f663b1435797aff3088fc8",
+  "model_observed": "gpt-6.1-terra",
+  "observation": {
+    "edition_date": "2026-11-14",
+    "generated_at": "2026-11-14T05:15:58.666Z",
+    "workflow_run_id": 43560610803,
+    "job_id": 132343288224,
+    "resolved_job_env": "AGRICLIMAX_EDITORIAL_MODEL: gpt-6.1-terra"
+  },
+  "limits": {
+    "operational_output_tokens": 6000,
+    "operational_cost_cap_eur": null,
+    "operational_monthly_cap_eur": null,
+    "historical_edition_reference_eur": 0.15,
+    "historical_monthly_reference_eur": 5,
+    "historical_limits_used_by_daily_generation": false
+  },
+  "past_usage_returned_by_provider": {
+    "input_tokens": 17583,
+    "output_tokens": 1743,
+    "reasoning_tokens": 37
+  },
+  "past_cost_estimate_eur": 0.028928,
+  "pricing_version": "diagnostic-estimate-2026-11-09",
+  "invoiced_cost_eur": null,
+  "available_openai_credit_eur": null,
+  "provider_budget_margin_eur": null,
+  "reason_unknown": "Account/project billing and remaining credits are not exposed by Responses receipts or this repository. No OpenAI endpoint queried. GitHub variable enumeration is denied (403).",
+  "enriched_estimate": {
+    "model": "gpt-6.1-terra",
+    "month": "2026-11",
+    "pricing_version": "diagnostic-estimate-2026-11-09",
+    "input_bytes": 109589,
+    "input_token_upper_bound": 139098,
+    "max_output_tokens": 6000,
+    "reserved_eur": 0.186008,
+    "edition_cap_eur": 0.15,
+    "monthly_cap_eur": 5,
+    "accounted_month_eur": 0,
+    "available_month_eur": 5,
+    "blockers": [
+      "EDITION_COST_EXCEEDED"
+    ],
+    "allowed": false
+  },
+  "legacy_reference_margin_eur": -0.036008,
+  "control": {
+    "ai_enabled": true,
+    "emergency_stop": false,
+    "publication_enabled": false
+  },
+  "request_volume_changed": false,
+  "selection_changed": false,
+  "new_financial_mechanism": false,
+  "openai_calls": 0,
+  "remote_writes": 0
+}

@@ -45,7 +45,9 @@ export function requestBody(payload: string, c: AIConfig) {
   const { $schema: dialect, title, ...outputSchema } = schema;
   void dialect;
   void title;
-  const normalized=providerSchema(outputSchema);
+  let dossier:{map_selection?: {response_schema: unknown}}={};
+  try {const value:unknown=JSON.parse(payload);if(value&&typeof value==="object")dossier=value;}catch{/* Legacy plain-text payloads use the original draft schema. */}
+  const normalized=providerSchema(dossier.map_selection ? {type:"object",additionalProperties:false,required:["draft","map_selection"],properties:{draft:outputSchema,map_selection:dossier.map_selection.response_schema}} : outputSchema);
   auditSchema(normalized);
   return {
     model: c.model,

@@ -1,4 +1,5 @@
 import "server-only";
+import {verifyDailySelection} from "../editorial-map-selection/daily";
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
 import archiveSchema from "../../../../contracts/jsonschema/editorial-archive-1.schema.json";
@@ -185,6 +186,11 @@ export function verifyArchive(value: unknown,revalidate=true): asserts value is 
     (!a.receipt || a.receipt.model !== a.parameters.model)
   )
     throw Error("LIVE_ARCHIVE_MISSING_PROVIDER_RECEIPT");
+  if(a.map_selection){
+    const s=a.map_selection;
+    if(s.version!=="edit04-1"||!validId(s.maps_sha256)||s.ranking.edition_date!==a.date||s.ranking.edition_id!==a.edition_id&&a.mode!=="fallback"||!["ai","deterministic"].includes(s.mode)||s.response.priority.length>1||s.response.complementary.length>5)throw Error("EDIT04_ARCHIVE_SELECTION");
+    verifyDailySelection(s);
+  }
   assertBriefing(a.briefing);
   assertDraft(a.draft);
   if (a.status === "published" || a.status === "approved")

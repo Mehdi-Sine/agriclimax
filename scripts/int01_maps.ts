@@ -1,14 +1,13 @@
 /** INT-01: read-only preparation by default; publication requires an exact reviewed bundle. No AI imports. */
 import {mkdirSync,writeFileSync,readFileSync} from "node:fs";
 import {join,resolve} from "node:path";
-import {gunzipSync} from "node:zlib";
-import {createHash} from "node:crypto";
+import {readFrozenMapInputs} from "./edit04_frozen";
 import {editorialRPC,SupabaseEditorialStore} from "../apps/web/features/editorial-ai/supabase-store";
 import {consultableEdition} from "../apps/web/features/editorial-ai/consultable";
 import {verifySnapshot,type DailyEditorialSnapshot} from "../apps/web/features/nightly/snapshot";
 import {verifyBundle,mapInfo,type MapApproval} from "../apps/web/features/edition-maps/model";
 import {publishMapBundle,encodeMapBundle} from "../apps/web/lib/server/edition-maps";
-import type {ArchivedDaily,NationalWeatherDocument} from "../apps/web/lib/server/weather-archives";
+import {selectedMapIds} from "../apps/web/features/editorial-map-selection/daily";
 import {buildEditionMaps} from "./int01_map_builder";
 const [command,id]=process.argv.slice(2);
 function arg(name:string){const i=process.argv.indexOf(name);return i<0?undefined:process.argv[i+1];}
@@ -20,18 +19,9 @@ async function main(){
   if(publish&&(!process.argv.includes("--execute")||!arg("--bundle")||!arg("--approval")||!arg("--expected-bundle")))throw Error("EXPLICIT_MAP_PUBLICATION_REQUIRED");
   const snapshot=await editorialRPC<DailyEditorialSnapshot|null>("snapshot_read",{edition_date:archive.date});
   if(!snapshot?.input_archive)throw Error("MAP_FROZEN_INPUTS_MISSING");verifySnapshot(snapshot);
-  const entry=snapshot.input_archive;
-  if(entry.path!==`editorial-inputs/${entry.sha256}.json.gz`||entry.bytes>8*1024**2)throw Error("MAP_INPUT_PATH");
-  const url=new URL(process.env.NEXT_PUBLIC_SUPABASE_URL!);
-  url.pathname=`/storage/v1/object/pra-climate-archives/${entry.path}`;
-  const r=await fetch(url,{headers:{apikey:process.env.SUPABASE_SECRET_KEY!},redirect:"error",cache:"no-store",signal:AbortSignal.timeout(30000)});
-  if(!r.ok||!r.body)throw Error("MAP_INPUT_READ");
-  const reader=r.body.getReader(),chunks:Uint8Array[]=[];let size=0;
-  while(true){const {value,done}=await reader.read();if(done)break;size+=value.length;if(size>8*1024**2){await reader.cancel();throw Error("MAP_INPUT_BUDGET");}chunks.push(value);}
-  const bytes=Buffer.concat(chunks,size);
-  if(bytes.length!==entry.bytes||createHash("sha256").update(bytes).digest("hex")!==entry.sha256)throw Error("MAP_INPUT_CHECKSUM");
-  const inputs=JSON.parse(gunzipSync(bytes,{maxOutputLength:96*1024**2}).toString()) as {history:ArchivedDaily[];document:NationalWeatherDocument|null};
+  const {inputs,bytes}=await readFrozenMapInputs(snapshot);
   const bundle=buildEditionMaps(archive,snapshot,inputs);
+  if(archive.map_selection)selectedMapIds(archive.map_selection,bundle);
   if(command==="publish-experimental"){
     const control=await editorialRPC<{emergency_stop:boolean}>("control");
     if(control.emergency_stop)throw Error("EMERGENCY_STOP");
@@ -63,7 +53,7 @@ async function main(){
   writeFileSync(join(out,"snapshot.json"),JSON.stringify(snapshot));
   writeFileSync(join(out,"archive.json"),JSON.stringify(archive));
   const report={status:"candidate_not_published",edition_id:id,edition_checksum:archive.checksum,bundle_sha256:bundle.sha256,
-    snapshot_id:snapshot.id,input_archive_sha256:entry.sha256,maps:bundle.maps.map(mapInfo),remote_writes:0,openai_calls:0};
+    snapshot_id:snapshot.id,input_archive_sha256:snapshot.input_archive.sha256,maps:bundle.maps.map(mapInfo),remote_writes:0,openai_calls:0};
   writeFileSync(join(out,"report.json"),JSON.stringify(report,null,2));
   console.log(JSON.stringify({...report,maps:report.maps.map(m=>({indicator:m.indicator,nature:m.nature,period:m.period,coverage:m.coverage}))}));
 }

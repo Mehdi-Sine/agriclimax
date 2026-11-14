@@ -12,7 +12,7 @@ export interface CommitteeResponse {version:"edit03-board-response-1";hero_map_i
 export function committeeRequest(s:Simulation) {
   // Include all admitted cards: at most ten in these archives. Rejected-by-score
   // alternatives retain their metadata so the committee can explain exclusions.
-  const cards=s.ranked.filter(r=>r.card.admission.eligible).slice(0,10).map(r=>{
+  const cards=s.ranked.filter(r=>r.card.admission.eligible).map(r=>{
     const {qualified_values: _internal,...card}=r.card;void _internal;
     return {card,scores:{axes:r.axes,weighted:r.weighted_score,redundancy:r.redundancy_penalty,total:r.score},recommended:r.selected,reasons:r.reasons};
   });
@@ -23,7 +23,7 @@ export function committeeRequest(s:Simulation) {
 }
 const object=(v:unknown):v is Record<string,unknown>=>!!v&&typeof v==="object"&&!Array.isArray(v);
 const exact=(v:Record<string,unknown>,keys:string[])=>Object.keys(v).length===keys.length&&keys.every(k=>k in v);
-export function validateCommittee(value:unknown,s:Simulation):CommitteeResponse {
+export function validateCommittee(value:unknown,s:Simulation,allowAlternatives=false):CommitteeResponse {
   if(!object(value)||!exact(value,["version","hero_map_id","priority","complementary","excluded"])||value.version!=="edit03-board-response-1"||![value.priority,value.complementary,value.excluded].every(Array.isArray))throw Error("EDIT03_BOARD_CONTRACT");
   const lists=[value.priority,value.complementary,value.excluded] as unknown[][],seen=new Set<string>();
   const offered=committeeRequest(s).cards;
@@ -31,20 +31,19 @@ export function validateCommittee(value:unknown,s:Simulation):CommitteeResponse 
     if(!object(entry)||!exact(entry,["map_id","reason_ids","seasonal_ids"])||typeof entry.map_id!=="string"||seen.has(entry.map_id))throw Error("EDIT03_BOARD_REFERENCE");
     const r=offered.find(r=>r.card.id===entry.map_id);if(!r)throw Error("EDIT03_BOARD_REFERENCE");
     if(!Array.isArray(entry.reason_ids)||!entry.reason_ids.length||new Set(entry.reason_ids).size!==entry.reason_ids.length||entry.reason_ids.some(id=>typeof id!=="string"||!r.reasons.some(reason=>reason.id===id))||!Array.isArray(entry.seasonal_ids)||new Set(entry.seasonal_ids).size!==entry.seasonal_ids.length||entry.seasonal_ids.some(id=>typeof id!=="string"||!r.card.agriculture.seasonal.some(w=>w.id===id)))throw Error("EDIT03_BOARD_EVIDENCE");
-    if(index<2&&!r.recommended)throw Error("EDIT03_BOARD_INADMISSIBLE_SELECTION");
+    if(index<2&&(!allowAlternatives&&!r.recommended||allowAlternatives&&r.scores.total<s.policy.min_score))throw Error("EDIT03_BOARD_INADMISSIBLE_SELECTION");
     seen.add(entry.map_id);
   }
   const v=value as unknown as CommitteeResponse;
   if(seen.size!==offered.length||v.priority.length>5||v.priority.length+v.complementary.length>s.policy.max_cards||
-    (v.priority.length===0?(v.hero_map_id!==null||v.complementary.length>0):(!v.priority.some(p=>p.map_id===v.hero_map_id)))||
-    (v.priority.length>0&&v.priority.length<Math.min(3,s.selected_ids.length)))throw Error("EDIT03_BOARD_SELECTION");
+    (v.priority.length===0?(v.hero_map_id!==null||v.complementary.length>0):(!v.priority.some(p=>p.map_id===v.hero_map_id))))throw Error("EDIT03_BOARD_SELECTION");
   return v;
 }
 /** A deterministic control, explicitly not an AI evaluation. */
 export function deterministicCommittee(s:Simulation):CommitteeResponse {
   const selected=s.ranked.filter(r=>r.selected),n=Math.min(5,selected.length);
   const choice=(r:Simulation["ranked"][number]):CommitteeChoice=>({map_id:r.card.id,reason_ids:r.reasons.map(x=>x.id),seasonal_ids:r.card.agriculture.seasonal.map(w=>w.id)});
-  return validateCommittee({version:"edit03-board-response-1",hero_map_id:selected[0]?.card.id??null,priority:selected.slice(0,n).map(choice),complementary:selected.slice(n).map(choice),excluded:s.ranked.filter(r=>!r.selected&&r.card.admission.eligible).slice(0,10-selected.length).map(choice)},s);
+  return validateCommittee({version:"edit03-board-response-1",hero_map_id:selected[0]?.card.id??null,priority:selected.slice(0,n).map(choice),complementary:selected.slice(n).map(choice),excluded:s.ranked.filter(r=>!r.selected&&r.card.admission.eligible).map(choice)},s);
 }
 export function selectionView(s:Simulation,response:CommitteeResponse):SelectionView {
   const r=validateCommittee(response,s),all=[...r.priority,...r.complementary];

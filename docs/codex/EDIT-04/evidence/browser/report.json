@@ -1,0 +1,146 @@
+{
+  "base": "http://localhost:3001",
+  "editions": [
+    {
+      "date": "2026-11-12",
+      "label": "desktop",
+      "loadedMs": 3741,
+      "cards": 6,
+      "deepLinksChecked": 6,
+      "thumbnailBytes": 242450,
+      "sizes": [
+        41520,
+        35996,
+        40138,
+        38894,
+        45346,
+        40556
+      ],
+      "layout": {
+        "overflow": false,
+        "afterDeck": true
+      },
+      "violations": []
+    },
+    {
+      "date": "2026-11-13",
+      "label": "desktop",
+      "loadedMs": 3292,
+      "cards": 6,
+      "deepLinksChecked": 6,
+      "thumbnailBytes": 247396,
+      "sizes": [
+        40956,
+        41468,
+        40732,
+        39054,
+        44582,
+        40604
+      ],
+      "layout": {
+        "overflow": false,
+        "afterDeck": true
+      },
+      "violations": []
+    },
+    {
+      "date": "2026-11-14",
+      "label": "desktop",
+      "loadedMs": 5479,
+      "cards": 6,
+      "deepLinksChecked": 6,
+      "thumbnailBytes": 249008,
+      "sizes": [
+        40530,
+        41710,
+        40894,
+        41282,
+        45514,
+        39078
+      ],
+      "layout": {
+        "overflow": false,
+        "afterDeck": true
+      },
+      "violations": []
+    },
+    {
+      "date": "2026-11-12",
+      "label": "mobile",
+      "loadedMs": 2849,
+      "cards": 6,
+      "deepLinksChecked": 6,
+      "thumbnailBytes": 242450,
+      "sizes": [
+        41520,
+        35996,
+        40138,
+        38894,
+        45346,
+        40556
+      ],
+      "layout": {
+        "overflow": false,
+        "afterDeck": true
+      },
+      "violations": []
+    },
+    {
+      "date": "2026-11-13",
+      "label": "mobile",
+      "loadedMs": 1981,
+      "cards": 6,
+      "deepLinksChecked": 6,
+      "thumbnailBytes": 247396,
+      "sizes": [
+        40956,
+        41468,
+        40732,
+        39054,
+        44582,
+        40604
+      ],
+      "layout": {
+        "overflow": false,
+        "afterDeck": true
+      },
+      "violations": []
+    },
+    {
+      "date": "2026-11-14",
+      "label": "mobile",
+      "loadedMs": 2025,
+      "cards": 6,
+      "deepLinksChecked": 6,
+      "thumbnailBytes": 249008,
+      "sizes": [
+        40530,
+        41710,
+        40894,
+        41282,
+        45514,
+        39078
+      ],
+      "layout": {
+        "overflow": false,
+        "afterDeck": true
+      },
+      "violations": []
+    }
+  ],
+  "states": [
+    {
+      "label": "desktop",
+      "loading": true,
+      "missingThumbnail": true,
+      "missingEdition": true
+    },
+    {
+      "label": "mobile",
+      "loading": true,
+      "missingThumbnail": true,
+      "missingEdition": true
+    }
+  ],
+  "errors": []
+}

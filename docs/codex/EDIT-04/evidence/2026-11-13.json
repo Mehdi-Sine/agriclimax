@@ -1,0 +1,972 @@
+{
+  "date": "2026-11-13",
+  "edition_id": "35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222",
+  "archive_checksum": "bd1a261966ef5b01aa3a7373e639ca1230fa44d90f58a8c83a3d3696e97b349f",
+  "bundle_sha256": "03e68d7726e6a109936e67773b47e0c8742d8551bb772fe2f05b1d5c14a95c1f",
+  "before": {
+    "hero": "849e1864800f402d750362b1b3c9ff5fdea840df9b8d45bb50cc9e37ef3073f1",
+    "order": [
+      "849e1864800f402d750362b1b3c9ff5fdea840df9b8d45bb50cc9e37ef3073f1",
+      "c6c332634ce19448e53b28a8df9e5ce4ae5f5f477df3d962006e1b68a13c806e",
+      "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc",
+      "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106",
+      "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564",
+      "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690",
+      "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd",
+      "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0",
+      "43656509aae3fe6a009139001594d83882f4d095d089600debf38cc82d7f1ec3",
+      "d1b1a0e83c652ccf1bfb58d1a9626c4323eca61b0ae86e709c861f5f66a63ac6"
+    ]
+  },
+  "after": {
+    "hero": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0",
+    "order": [
+      "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0",
+      "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690",
+      "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc",
+      "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd",
+      "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564",
+      "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106"
+    ]
+  },
+  "rows": [
+    {
+      "map_id": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0",
+      "indicator": "rain",
+      "nature": "forecast",
+      "period": [
+        "2026-11-14",
+        "2026-11-15"
+      ],
+      "before_order": 8,
+      "after_order": 1,
+      "score": 72.67,
+      "axes": {
+        "importance": 43.06,
+        "agriculture": 75,
+        "extent": 100,
+        "actuality": 80,
+        "quality": 90,
+        "diversity": 100
+      },
+      "penalty": 0,
+      "reasons": [
+        {
+          "id": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0:importance",
+          "text": "Importance éditoriale 43.06/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0:agriculture",
+          "text": "Pertinence 75/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 50. Aucun stade réel documenté."
+        },
+        {
+          "id": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0:coverage",
+          "text": "713/713 PRA qualifiées ; 0 partielles exclues, 0 absentes ; étendue 100/100 (couverture descriptive, sans phénomène touchant toutes les PRA affirmé)."
+        },
+        {
+          "id": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0:actuality",
+          "text": "Actualité 80/100 ; référence 2026-11-12. Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite."
+        },
+        {
+          "id": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0:quality",
+          "text": "Qualité 90/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0:diversity",
+          "text": "Diversité marginale 100/100 ; pénalité de redondance 0/20."
+        }
+      ],
+      "coverage": {
+        "total": 713,
+        "qualified": 713,
+        "proportion": 1,
+        "partial": 0,
+        "missing": 0,
+        "journal_excluded": 0
+      },
+      "threshold": null,
+      "comparison": {
+        "status": "not_comparable",
+        "reason": "Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite.",
+        "previous_map_id": "5842d0d24b5eee47ed0d13b1d0e2bd0fb6802548344a5cc3aa57429c7906247c",
+        "matched_pra": 0,
+        "median_delta": null
+      }
+    },
+    {
+      "map_id": "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690",
+      "indicator": "temperature_min",
+      "nature": "forecast",
+      "period": [
+        "2026-11-14",
+        "2026-11-15"
+      ],
+      "before_order": 6,
+      "after_order": 2,
+      "score": 61.79,
+      "axes": {
+        "importance": 37.94,
+        "agriculture": 75,
+        "extent": 37.73,
+        "actuality": 80,
+        "quality": 90,
+        "diversity": 100
+      },
+      "penalty": 0,
+      "reasons": [
+        {
+          "id": "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690:importance",
+          "text": "Importance éditoriale 37.94/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690:agriculture",
+          "text": "Pertinence 75/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 50. Aucun stade réel documenté."
+        },
+        {
+          "id": "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690:coverage",
+          "text": "713/713 PRA qualifiées ; 0 partielles exclues, 0 absentes ; étendue 37.73/100 (incidence du seuil / univers archivé)."
+        },
+        {
+          "id": "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690:actuality",
+          "text": "Actualité 80/100 ; référence 2026-11-12. Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite."
+        },
+        {
+          "id": "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690:quality",
+          "text": "Qualité 90/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690:diversity",
+          "text": "Diversité marginale 100/100 ; pénalité de redondance 0/20."
+        }
+      ],
+      "coverage": {
+        "total": 713,
+        "qualified": 713,
+        "proportion": 1,
+        "partial": 0,
+        "missing": 0,
+        "journal_excluded": 0
+      },
+      "threshold": {
+        "criterion": "Tmin < 0 °C au moins un jour",
+        "count": 269,
+        "proportion": 0.37727910238429174,
+        "source": "frost@multiproduction-descriptive-1.0.0: Σ 1(Tmin < seuil)"
+      },
+      "comparison": {
+        "status": "not_comparable",
+        "reason": "Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite.",
+        "previous_map_id": "c794a212918c07818d2387366e8599b807b20270fcea7c32bb18646b0a0e82d6",
+        "matched_pra": 0,
+        "median_delta": null
+      }
+    },
+    {
+      "map_id": "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc",
+      "indicator": "rain",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-31",
+        "2026-11-06"
+      ],
+      "before_order": 3,
+      "after_order": 3,
+      "score": 59.33,
+      "axes": {
+        "importance": 34.57,
+        "agriculture": 75,
+        "extent": 90.46,
+        "actuality": 40,
+        "quality": 81.42,
+        "diversity": 50
+      },
+      "penalty": 0,
+      "reasons": [
+        {
+          "id": "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc:importance",
+          "text": "Importance éditoriale 34.57/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc:agriculture",
+          "text": "Pertinence 75/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 50. Aucun stade réel documenté."
+        },
+        {
+          "id": "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc:coverage",
+          "text": "645/713 PRA qualifiées ; 0 partielles exclues, 68 absentes ; étendue 90.46/100 (couverture descriptive, sans phénomène touchant toutes les PRA affirmé)."
+        },
+        {
+          "id": "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc:actuality",
+          "text": "Actualité 40/100 ; référence 2026-11-06. Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes."
+        },
+        {
+          "id": "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc:quality",
+          "text": "Qualité 81.42/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc:diversity",
+          "text": "Diversité marginale 50/100 ; pénalité de redondance 0/20."
+        }
+      ],
+      "coverage": {
+        "total": 713,
+        "qualified": 645,
+        "proportion": 0.9046283309957924,
+        "partial": 0,
+        "missing": 68,
+        "journal_excluded": 0
+      },
+      "threshold": null,
+      "comparison": {
+        "status": "not_comparable",
+        "reason": "Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes.",
+        "previous_map_id": "fe300971142154eff46951e3a4a835271c5fa9e87c1e8ae26cbe2b9a7ab73bf6",
+        "matched_pra": 0,
+        "median_delta": null
+      }
+    },
+    {
+      "map_id": "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd",
+      "indicator": "temperature_mean",
+      "nature": "forecast",
+      "period": [
+        "2026-11-14",
+        "2026-11-15"
+      ],
+      "before_order": 7,
+      "after_order": 4,
+      "score": 52.8,
+      "axes": {
+        "importance": 18.51,
+        "agriculture": 25,
+        "extent": 100,
+        "actuality": 80,
+        "quality": 90,
+        "diversity": 100
+      },
+      "penalty": 0,
+      "reasons": [
+        {
+          "id": "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd:importance",
+          "text": "Importance éditoriale 18.51/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd:agriculture",
+          "text": "Pertinence 25/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 0. Aucun stade réel documenté."
+        },
+        {
+          "id": "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd:coverage",
+          "text": "713/713 PRA qualifiées ; 0 partielles exclues, 0 absentes ; étendue 100/100 (couverture descriptive, sans phénomène touchant toutes les PRA affirmé)."
+        },
+        {
+          "id": "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd:actuality",
+          "text": "Actualité 80/100 ; référence 2026-11-12. Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite."
+        },
+        {
+          "id": "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd:quality",
+          "text": "Qualité 90/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd:diversity",
+          "text": "Diversité marginale 100/100 ; pénalité de redondance 0/20."
+        }
+      ],
+      "coverage": {
+        "total": 713,
+        "qualified": 713,
+        "proportion": 1,
+        "partial": 0,
+        "missing": 0,
+        "journal_excluded": 0
+      },
+      "threshold": null,
+      "comparison": {
+        "status": "not_comparable",
+        "reason": "Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite.",
+        "previous_map_id": "7507471a45f38ff237a5159a45aaf21d0d31c4d1bab73821d907859ff9a46170",
+        "matched_pra": 0,
+        "median_delta": null
+      }
+    },
+    {
+      "map_id": "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564",
+      "indicator": "gdd",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-31",
+        "2026-11-06"
+      ],
+      "before_order": 5,
+      "after_order": 5,
+      "score": 47.35,
+      "axes": {
+        "importance": 36.28,
+        "agriculture": 25,
+        "extent": 90.46,
+        "actuality": 40,
+        "quality": 81.42,
+        "diversity": 50
+      },
+      "penalty": 0,
+      "reasons": [
+        {
+          "id": "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564:importance",
+          "text": "Importance éditoriale 36.28/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564:agriculture",
+          "text": "Pertinence 25/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 0. Aucun stade réel documenté."
+        },
+        {
+          "id": "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564:coverage",
+          "text": "645/713 PRA qualifiées ; 0 partielles exclues, 68 absentes ; étendue 90.46/100 (couverture descriptive, sans phénomène touchant toutes les PRA affirmé)."
+        },
+        {
+          "id": "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564:actuality",
+          "text": "Actualité 40/100 ; référence 2026-11-06. Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes."
+        },
+        {
+          "id": "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564:quality",
+          "text": "Qualité 81.42/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564:diversity",
+          "text": "Diversité marginale 50/100 ; pénalité de redondance 0/20."
+        }
+      ],
+      "coverage": {
+        "total": 713,
+        "qualified": 645,
+        "proportion": 0.9046283309957924,
+        "partial": 0,
+        "missing": 68,
+        "journal_excluded": 0
+      },
+      "threshold": null,
+      "comparison": {
+        "status": "not_comparable",
+        "reason": "Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes.",
+        "previous_map_id": "bdcec35cfd92dd979ad02adcee927e27a64d8f0859678b4f7ed8810105e31930",
+        "matched_pra": 0,
+        "median_delta": null
+      }
+    },
+    {
+      "map_id": "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106",
+      "indicator": "frost",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-31",
+        "2026-11-06"
+      ],
+      "before_order": 4,
+      "after_order": 6,
+      "score": 45.93,
+      "axes": {
+        "importance": 24.19,
+        "agriculture": 75,
+        "extent": 21.88,
+        "actuality": 40,
+        "quality": 81.42,
+        "diversity": 50
+      },
+      "penalty": 0,
+      "reasons": [
+        {
+          "id": "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106:importance",
+          "text": "Importance éditoriale 24.19/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106:agriculture",
+          "text": "Pertinence 75/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 50. Aucun stade réel documenté."
+        },
+        {
+          "id": "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106:coverage",
+          "text": "645/713 PRA qualifiées ; 0 partielles exclues, 68 absentes ; étendue 21.88/100 (incidence du seuil / univers archivé)."
+        },
+        {
+          "id": "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106:actuality",
+          "text": "Actualité 40/100 ; référence 2026-11-06. Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes."
+        },
+        {
+          "id": "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106:quality",
+          "text": "Qualité 81.42/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106:diversity",
+          "text": "Diversité marginale 50/100 ; pénalité de redondance 0/20."
+        }
+      ],
+      "coverage": {
+        "total": 713,
+        "qualified": 645,
+        "proportion": 0.9046283309957924,
+        "partial": 0,
+        "missing": 68,
+        "journal_excluded": 0
+      },
+      "threshold": {
+        "criterion": "Σ 1(Tmin < seuil) ; résultat > 0",
+        "count": 156,
+        "proportion": 0.24186046511627907,
+        "source": "frost@multiproduction-descriptive-1.0.0"
+      },
+      "comparison": {
+        "status": "not_comparable",
+        "reason": "Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes.",
+        "previous_map_id": "ba5c5ed960eebe012579fec6009376280a29f87af155b7ebfae9ee85b2d0bdb0",
+        "matched_pra": 0,
+        "median_delta": null
+      }
+    },
+    {
+      "map_id": "43656509aae3fe6a009139001594d83882f4d095d089600debf38cc82d7f1ec3",
+      "indicator": "frost",
+      "nature": "forecast",
+      "period": [
+        "2026-11-14",
+        "2026-11-15"
+      ],
+      "before_order": 9,
+      "after_order": null,
+      "score": 42.88,
+      "axes": {
+        "importance": 37.73,
+        "agriculture": 75,
+        "extent": 37.73,
+        "actuality": 80,
+        "quality": 90,
+        "diversity": 0
+      },
+      "penalty": 13.85,
+      "reasons": [
+        {
+          "id": "43656509aae3fe6a009139001594d83882f4d095d089600debf38cc82d7f1ec3:importance",
+          "text": "Importance éditoriale 37.73/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "43656509aae3fe6a009139001594d83882f4d095d089600debf38cc82d7f1ec3:agriculture",
+          "text": "Pertinence 75/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 50. Aucun stade réel documenté."
+        },
+        {
+          "id": "43656509aae3fe6a009139001594d83882f4d095d089600debf38cc82d7f1ec3:coverage",
+          "text": "713/713 PRA qualifiées ; 0 partielles exclues, 0 absentes ; étendue 37.73/100 (incidence du seuil / univers archivé)."
+        },
+        {
+          "id": "43656509aae3fe6a009139001594d83882f4d095d089600debf38cc82d7f1ec3:actuality",
+          "text": "Actualité 80/100 ; référence 2026-11-12. Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite."
+        },
+        {
+          "id": "43656509aae3fe6a009139001594d83882f4d095d089600debf38cc82d7f1ec3:quality",
+          "text": "Qualité 90/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "43656509aae3fe6a009139001594d83882f4d095d089600debf38cc82d7f1ec3:diversity",
+          "text": "Diversité marginale 0/100 ; pénalité de redondance 13.85/20 avec e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690."
+        },
+        {
+          "id": "43656509aae3fe6a009139001594d83882f4d095d089600debf38cc82d7f1ec3:excluded",
+          "text": "Capacité éditoriale atteinte."
+        }
+      ],
+      "coverage": {
+        "total": 713,
+        "qualified": 713,
+        "proportion": 1,
+        "partial": 0,
+        "missing": 0,
+        "journal_excluded": 0
+      },
+      "threshold": {
+        "criterion": "Σ 1(Tmin < seuil) ; résultat > 0",
+        "count": 269,
+        "proportion": 0.37727910238429174,
+        "source": "frost@multiproduction-descriptive-1.0.0"
+      },
+      "comparison": {
+        "status": "not_comparable",
+        "reason": "Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite.",
+        "previous_map_id": "74c3174ce6541ab37c0efe84cb9c235b2d90aff1885a1bbfbefb90c59e2d990c",
+        "matched_pra": 0,
+        "median_delta": null
+      }
+    },
+    {
+      "map_id": "849e1864800f402d750362b1b3c9ff5fdea840df9b8d45bb50cc9e37ef3073f1",
+      "indicator": "temperature_min",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-31",
+        "2026-11-06"
+      ],
+      "before_order": 1,
+      "after_order": null,
+      "score": 26.57,
+      "axes": {
+        "importance": 24.19,
+        "agriculture": 75,
+        "extent": 21.88,
+        "actuality": 40,
+        "quality": 81.42,
+        "diversity": 0
+      },
+      "penalty": 16.86,
+      "reasons": [
+        {
+          "id": "849e1864800f402d750362b1b3c9ff5fdea840df9b8d45bb50cc9e37ef3073f1:importance",
+          "text": "Importance éditoriale 24.19/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "849e1864800f402d750362b1b3c9ff5fdea840df9b8d45bb50cc9e37ef3073f1:agriculture",
+          "text": "Pertinence 75/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 50. Aucun stade réel documenté."
+        },
+        {
+          "id": "849e1864800f402d750362b1b3c9ff5fdea840df9b8d45bb50cc9e37ef3073f1:coverage",
+          "text": "645/713 PRA qualifiées ; 0 partielles exclues, 68 absentes ; étendue 21.88/100 (incidence du seuil / univers archivé)."
+        },
+        {
+          "id": "849e1864800f402d750362b1b3c9ff5fdea840df9b8d45bb50cc9e37ef3073f1:actuality",
+          "text": "Actualité 40/100 ; référence 2026-11-06. Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes."
+        },
+        {
+          "id": "849e1864800f402d750362b1b3c9ff5fdea840df9b8d45bb50cc9e37ef3073f1:quality",
+          "text": "Qualité 81.42/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "849e1864800f402d750362b1b3c9ff5fdea840df9b8d45bb50cc9e37ef3073f1:diversity",
+          "text": "Diversité marginale 0/100 ; pénalité de redondance 16.86/20 avec f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106."
+        },
+        {
+          "id": "849e1864800f402d750362b1b3c9ff5fdea840df9b8d45bb50cc9e37ef3073f1:excluded",
+          "text": "Capacité éditoriale atteinte."
+        }
+      ],
+      "coverage": {
+        "total": 713,
+        "qualified": 645,
+        "proportion": 0.9046283309957924,
+        "partial": 0,
+        "missing": 68,
+        "journal_excluded": 0
+      },
+      "threshold": {
+        "criterion": "Tmin < 0 °C au moins un jour",
+        "count": 156,
+        "proportion": 0.24186046511627907,
+        "source": "frost@multiproduction-descriptive-1.0.0: Σ 1(Tmin < seuil)"
+      },
+      "comparison": {
+        "status": "not_comparable",
+        "reason": "Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes.",
+        "previous_map_id": "d5d377ea9554dcaa2e7f449016efcfd45c7205a3d82ecaea1a262b14199e25d5",
+        "matched_pra": 0,
+        "median_delta": null
+      }
+    },
+    {
+      "map_id": "d1b1a0e83c652ccf1bfb58d1a9626c4323eca61b0ae86e709c861f5f66a63ac6",
+      "indicator": "gdd",
+      "nature": "forecast",
+      "period": [
+        "2026-11-14",
+        "2026-11-15"
+      ],
+      "before_order": 10,
+      "after_order": null,
+      "score": 22.26,
+      "axes": {
+        "importance": 0,
+        "agriculture": 25,
+        "extent": 100,
+        "actuality": 80,
+        "quality": 90,
+        "diversity": 0
+      },
+      "penalty": 19.99,
+      "reasons": [
+        {
+          "id": "d1b1a0e83c652ccf1bfb58d1a9626c4323eca61b0ae86e709c861f5f66a63ac6:importance",
+          "text": "Importance éditoriale 0/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "d1b1a0e83c652ccf1bfb58d1a9626c4323eca61b0ae86e709c861f5f66a63ac6:agriculture",
+          "text": "Pertinence 25/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 0. Aucun stade réel documenté."
+        },
+        {
+          "id": "d1b1a0e83c652ccf1bfb58d1a9626c4323eca61b0ae86e709c861f5f66a63ac6:coverage",
+          "text": "713/713 PRA qualifiées ; 0 partielles exclues, 0 absentes ; étendue 100/100 (couverture descriptive, sans phénomène touchant toutes les PRA affirmé)."
+        },
+        {
+          "id": "d1b1a0e83c652ccf1bfb58d1a9626c4323eca61b0ae86e709c861f5f66a63ac6:actuality",
+          "text": "Actualité 80/100 ; référence 2026-11-12. Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite."
+        },
+        {
+          "id": "d1b1a0e83c652ccf1bfb58d1a9626c4323eca61b0ae86e709c861f5f66a63ac6:quality",
+          "text": "Qualité 90/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "d1b1a0e83c652ccf1bfb58d1a9626c4323eca61b0ae86e709c861f5f66a63ac6:diversity",
+          "text": "Diversité marginale 0/100 ; pénalité de redondance 19.99/20 avec eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd."
+        },
+        {
+          "id": "d1b1a0e83c652ccf1bfb58d1a9626c4323eca61b0ae86e709c861f5f66a63ac6:excluded",
+          "text": "Capacité éditoriale atteinte."
+        }
+      ],
+      "coverage": {
+        "total": 713,
+        "qualified": 713,
+        "proportion": 1,
+        "partial": 0,
+        "missing": 0,
+        "journal_excluded": 0
+      },
+      "threshold": null,
+      "comparison": {
+        "status": "not_comparable",
+        "reason": "Prévisions : périodes et/ou cycles distincts ; aucune évolution observée déduite.",
+        "previous_map_id": "d6f778124bcf6928c2628d0ce480909df21fd99c4aa0e6d177c7c93020103413",
+        "matched_pra": 0,
+        "median_delta": null
+      }
+    },
+    {
+      "map_id": "c6c332634ce19448e53b28a8df9e5ce4ae5f5f477df3d962006e1b68a13c806e",
+      "indicator": "temperature_mean",
+      "nature": "reanalysis",
+      "period": [
+        "2026-10-31",
+        "2026-11-06"
+      ],
+      "before_order": 2,
+      "after_order": null,
+      "score": 14.73,
+      "axes": {
+        "importance": 2.48,
+        "agriculture": 25,
+        "extent": 90.46,
+        "actuality": 40,
+        "quality": 81.42,
+        "diversity": 0
+      },
+      "penalty": 19.98,
+      "reasons": [
+        {
+          "id": "c6c332634ce19448e53b28a8df9e5ce4ae5f5f477df3d962006e1b68a13c806e:importance",
+          "text": "Importance éditoriale 2.48/100 : moitié incidence du seuil documenté (ou contraste si absent), moitié contraste des classes. Aucun indice de dommage."
+        },
+        {
+          "id": "c6c332634ce19448e53b28a8df9e5ce4ae5f5f477df3d962006e1b68a13c806e:agriculture",
+          "text": "Pertinence 25/100 : applicabilité de référentiel 25, contexte saisonnier sourcé 0. Aucun stade réel documenté."
+        },
+        {
+          "id": "c6c332634ce19448e53b28a8df9e5ce4ae5f5f477df3d962006e1b68a13c806e:coverage",
+          "text": "645/713 PRA qualifiées ; 0 partielles exclues, 68 absentes ; étendue 90.46/100 (couverture descriptive, sans phénomène touchant toutes les PRA affirmé)."
+        },
+        {
+          "id": "c6c332634ce19448e53b28a8df9e5ce4ae5f5f477df3d962006e1b68a13c806e:actuality",
+          "text": "Actualité 40/100 ; référence 2026-11-06. Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes."
+        },
+        {
+          "id": "c6c332634ce19448e53b28a8df9e5ce4ae5f5f477df3d962006e1b68a13c806e:quality",
+          "text": "Qualité 81.42/100 : proportion de PRA admises au Journal, décote de 10 % si heure de publication source inconnue. Réserves scientifiques conservées."
+        },
+        {
+          "id": "c6c332634ce19448e53b28a8df9e5ce4ae5f5f477df3d962006e1b68a13c806e:diversity",
+          "text": "Diversité marginale 0/100 ; pénalité de redondance 19.98/20 avec 5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564."
+        },
+        {
+          "id": "c6c332634ce19448e53b28a8df9e5ce4ae5f5f477df3d962006e1b68a13c806e:excluded",
+          "text": "Capacité éditoriale atteinte."
+        }
+      ],
+      "coverage": {
+        "total": 713,
+        "qualified": 645,
+        "proportion": 0.9046283309957924,
+        "partial": 0,
+        "missing": 68,
+        "journal_excluded": 0
+      },
+      "threshold": null,
+      "comparison": {
+        "status": "not_comparable",
+        "reason": "Fenêtres historiques chevauchantes, non adjacentes ou de durées différentes.",
+        "previous_map_id": "91076f495582ecca8ad5f714b94ed2ddaa39c392fd7363fde332e79d8aa32142",
+        "matched_pra": 0,
+        "median_delta": null
+      }
+    }
+  ],
+  "cards": [
+    {
+      "map_id": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0",
+      "order": 0,
+      "role": "hero",
+      "title": "Pluie cumulée",
+      "caption": "Prévision · du 14 au 15 novembre 2026",
+      "interactive_url": "/cartes-du-jour?date=2026-11-13&id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0",
+      "thumbnail_url": "/api/journal/thumbnail?id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0&v=ux03-1",
+      "info": {
+        "indicator": "rain",
+        "title": "Pluie cumulée",
+        "nature": "forecast",
+        "period": [
+          "2026-11-14",
+          "2026-11-15"
+        ],
+        "unit": "mm",
+        "input_sha256": "21387da37402d4906b5bb75930746e95ecbb3dbb602fc95a1d1aee58bdd287cd",
+        "sources": [
+          "meteofrance-arpege"
+        ],
+        "cycles": [
+          "2026-11-12T18:00:00Z"
+        ],
+        "id": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0",
+        "coverage": {
+          "whole": 713,
+          "partial": 0,
+          "missing": 0
+        }
+      }
+    },
+    {
+      "map_id": "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690",
+      "order": 1,
+      "role": "complementary",
+      "title": "Minimum des Tmin quotidiennes",
+      "caption": "Prévision · du 14 au 15 novembre 2026",
+      "interactive_url": "/cartes-du-jour?date=2026-11-13&id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690",
+      "thumbnail_url": "/api/journal/thumbnail?id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690&v=ux03-1",
+      "info": {
+        "indicator": "temperature_min",
+        "title": "Minimum des Tmin quotidiennes",
+        "nature": "forecast",
+        "period": [
+          "2026-11-14",
+          "2026-11-15"
+        ],
+        "unit": "°C",
+        "input_sha256": "21387da37402d4906b5bb75930746e95ecbb3dbb602fc95a1d1aee58bdd287cd",
+        "sources": [
+          "meteofrance-arpege"
+        ],
+        "cycles": [
+          "2026-11-12T18:00:00Z"
+        ],
+        "id": "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690",
+        "coverage": {
+          "whole": 713,
+          "partial": 0,
+          "missing": 0
+        }
+      }
+    },
+    {
+      "map_id": "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc",
+      "order": 2,
+      "role": "complementary",
+      "title": "Pluie cumulée",
+      "caption": "Historique · réanalyse · du 31 octobre au 6 novembre 2026",
+      "interactive_url": "/cartes-du-jour?date=2026-11-13&id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc",
+      "thumbnail_url": "/api/journal/thumbnail?id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc&v=ux03-1",
+      "info": {
+        "indicator": "rain",
+        "title": "Pluie cumulée",
+        "nature": "reanalysis",
+        "period": [
+          "2026-10-31",
+          "2026-11-06"
+        ],
+        "unit": "mm",
+        "input_sha256": "11df69543b679af3b94961fdb7104feb185dbac3b881614426a7d2f13491b927",
+        "sources": [
+          "era5-land"
+        ],
+        "cycles": [],
+        "id": "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc",
+        "coverage": {
+          "whole": 645,
+          "partial": 0,
+          "missing": 68
+        }
+      }
+    },
+    {
+      "map_id": "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd",
+      "order": 3,
+      "role": "complementary",
+      "title": "Température moyenne",
+      "caption": "Prévision · du 14 au 15 novembre 2026",
+      "interactive_url": "/cartes-du-jour?date=2026-11-13&id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd",
+      "thumbnail_url": "/api/journal/thumbnail?id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd&v=ux03-1",
+      "info": {
+        "indicator": "temperature_mean",
+        "title": "Température moyenne",
+        "nature": "forecast",
+        "period": [
+          "2026-11-14",
+          "2026-11-15"
+        ],
+        "unit": "°C",
+        "input_sha256": "21387da37402d4906b5bb75930746e95ecbb3dbb602fc95a1d1aee58bdd287cd",
+        "sources": [
+          "meteofrance-arpege"
+        ],
+        "cycles": [
+          "2026-11-12T18:00:00Z"
+        ],
+        "id": "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd",
+        "coverage": {
+          "whole": 713,
+          "partial": 0,
+          "missing": 0
+        }
+      }
+    },
+    {
+      "map_id": "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564",
+      "order": 4,
+      "role": "complementary",
+      "title": "Somme de températures",
+      "caption": "Historique · réanalyse · du 31 octobre au 6 novembre 2026",
+      "interactive_url": "/cartes-du-jour?date=2026-11-13&id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564",
+      "thumbnail_url": "/api/journal/thumbnail?id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564&v=ux03-1",
+      "info": {
+        "indicator": "gdd",
+        "title": "Somme de températures",
+        "nature": "reanalysis",
+        "period": [
+          "2026-10-31",
+          "2026-11-06"
+        ],
+        "unit": "°C·j",
+        "input_sha256": "11df69543b679af3b94961fdb7104feb185dbac3b881614426a7d2f13491b927",
+        "sources": [
+          "era5-land"
+        ],
+        "cycles": [],
+        "id": "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564",
+        "coverage": {
+          "whole": 645,
+          "partial": 0,
+          "missing": 68
+        }
+      }
+    },
+    {
+      "map_id": "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106",
+      "order": 5,
+      "role": "complementary",
+      "title": "Jours de gel",
+      "caption": "Historique · réanalyse · du 31 octobre au 6 novembre 2026",
+      "interactive_url": "/cartes-du-jour?date=2026-11-13&id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106",
+      "thumbnail_url": "/api/journal/thumbnail?id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106&v=ux03-1",
+      "info": {
+        "indicator": "frost",
+        "title": "Jours de gel",
+        "nature": "reanalysis",
+        "period": [
+          "2026-10-31",
+          "2026-11-06"
+        ],
+        "unit": "jours",
+        "input_sha256": "11df69543b679af3b94961fdb7104feb185dbac3b881614426a7d2f13491b927",
+        "sources": [
+          "era5-land"
+        ],
+        "cycles": [],
+        "id": "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106",
+        "coverage": {
+          "whole": 645,
+          "partial": 0,
+          "missing": 68
+        }
+      }
+    }
+  ],
+  "costs": [
+    {
+      "model": "gpt-6.1-terra",
+      "old": {
+        "model": "gpt-6.1-terra",
+        "month": "2026-11",
+        "pricing_version": "diagnostic-estimate-2026-11-09",
+        "input_bytes": 47438,
+        "input_token_upper_bound": 67596,
+        "max_output_tokens": 6000,
+        "reserved_eur": 0.107356,
+        "edition_cap_eur": 0.15,
+        "monthly_cap_eur": 5,
+        "accounted_month_eur": 0,
+        "available_month_eur": 5,
+        "blockers": [],
+        "allowed": true
+      },
+      "enriched": {
+        "model": "gpt-6.1-terra",
+        "month": "2026-11",
+        "pricing_version": "diagnostic-estimate-2026-11-09",
+        "input_bytes": 109380,
+        "input_token_upper_bound": 138921,
+        "max_output_tokens": 6000,
+        "reserved_eur": 0.185814,
+        "edition_cap_eur": 0.15,
+        "monthly_cap_eur": 5,
+        "accounted_month_eur": 0,
+        "available_month_eur": 5,
+        "blockers": [
+          "EDITION_COST_EXCEEDED"
+        ],
+        "allowed": false
+      },
+      "incremental_input_token_bound": 71325,
+      "incremental_cost_bound_eur": 0.07845800000000001,
+      "estimate_only": true,
+      "output_cap_unchanged": 6000
+    },
+    {
+      "model": "gpt-6-luna",
+      "old": {
+        "model": "gpt-6-luna",
+        "month": "2026-11",
+        "pricing_version": "diagnostic-estimate-2026-11-09",
+        "input_bytes": 47438,
+        "input_token_upper_bound": 67593,
+        "max_output_tokens": 6000,
+        "reserved_eur": 0.010736,
+        "edition_cap_eur": 0.15,
+        "monthly_cap_eur": 5,
+        "accounted_month_eur": 0,
+        "available_month_eur": 5,
+        "blockers": [],
+        "allowed": true
+      },
+      "enriched": {
+        "model": "gpt-6-luna",
+        "month": "2026-11",
+        "pricing_version": "diagnostic-estimate-2026-11-09",
+        "input_bytes": 109380,
+        "input_token_upper_bound": 138918,
+        "max_output_tokens": 6000,
+        "reserved_eur": 0.018581,
+        "edition_cap_eur": 0.15,
+        "monthly_cap_eur": 5,
+        "accounted_month_eur": 0,
+        "available_month_eur": 5,
+        "blockers": [],
+        "allowed": true
+      },
+      "incremental_input_token_bound": 71325,
+      "incremental_cost_bound_eur": 0.007845,
+      "estimate_only": true,
+      "output_cap_unchanged": 6000
+    }
+  ],
+  "preservation": {
+    "source_unchanged": true,
+    "remote_writes": 0,
+    "openai_calls": 0,
+    "actual_cost_eur": 0
+  }
+}

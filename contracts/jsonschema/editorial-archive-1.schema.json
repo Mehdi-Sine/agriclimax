@@ -2073,6 +2073,38 @@
     "checksum": {
       "type": "string",
       "pattern": "^[a-f0-9]{64}$"
+    },
+    "map_selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "maps_sha256",
+        "ranking",
+        "response",
+        "mode"
+      ],
+      "properties": {
+        "version": {
+          "const": "edit04-1"
+        },
+        "maps_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "ranking": {
+          "type": "object"
+        },
+        "response": {
+          "type": "object"
+        },
+        "mode": {
+          "enum": [
+            "ai",
+            "deterministic"
+          ]
+        }
+      }
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"
