@@ -1,0 +1,15 @@
+{
+  "base": "60ff41a",
+  "protected_files_identical": 1349,
+  "source_archives_changed": false,
+  "app_db_contracts_changed": false,
+  "editorial_job_identical": true,
+  "schedules_identical": true,
+  "source_matrix_identical": true,
+  "sim_default_off": true,
+  "sim_nonblocking": true,
+  "production_activation": false,
+  "remote_writes": 0,
+  "original_job_budget_preserved_when_disabled": true,
+  "optional_sim_extra_minutes": 2
+}
