@@ -1,0 +1,29 @@
+{
+  "scope": "Frozen actual candidate replay, no new acquisition",
+  "pra_ids": 713,
+  "targeted_pra": 32,
+  "not_collected_pra": 681,
+  "dates": [
+    "2026-11-08",
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-11",
+    "2026-11-12",
+    "2026-11-13"
+  ],
+  "variables": [
+    "hourly_temperature_max_mean",
+    "hourly_temperature_min_mean",
+    "precipitation",
+    "relative_humidity_mean",
+    "temperature_mean"
+  ],
+  "rows": 21390,
+  "usable_pra_days_at90": {
+    "precipitation": 192,
+    "temperature_mean": 192
+  },
+  "latest_source_date": "2026-11-13",
+  "indicator_eligible": false,
+  "journal_eligible": false
+}

@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 vi.mock('server-only',()=>({}));
 vi.mock('./spatial-restitution',()=>({observedSupportDay:vi.fn().mockResolvedValue({verified:false,rows:[],geometries:{},identity:'unavailable'})}));
 import { parseContextRow, readNational } from './national';
+import {coveragePaint} from '../../features/cartography/coverage';
 import { unifiedData } from './unified';
 import { DAYS } from '../../features/national/model';
 const base={current_value:12,normal_1991_2020:10,anomaly:2,sample_years:30,expected_years:30,reference_coverage:1,current_coverage:[0.7,0.8,0.9,1],current_status:'partial',status:'available',normal_status:'available'};
@@ -40,6 +41,9 @@ it('aggregates two real-contract paginated national dates into 713 bounded DTOs'
  });
  const result=await unifiedData(new URLSearchParams({start:'2026-10-17',end:'2026-10-18',indicator:'rain'}),f);
  expect(result.data).toHaveLength(713);expect(result.data[0].observed_series).toBeUndefined();expect(result.data[0]).toMatchObject({value:5,normal:2,anomaly:3,status:'available',expectedDays:2});expect(f).toHaveBeenCalledTimes(16);
+ expect(result.data[0].quality?.evidence.reference_compatible).toBe(true);
+ expect(coveragePaint({value:result.data[0].normal,field:'normal',quality:result.data[0].quality}).target).toBe('whole');
+ expect(coveragePaint({value:result.data[0].anomaly,field:'anomaly',quality:result.data[0].quality}).target).toBe('whole');
 });
 it('rejects invalid ranges before upstream reads',async()=>{
  configure();const f=vi.fn<typeof fetch>();

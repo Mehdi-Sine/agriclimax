@@ -8,6 +8,10 @@ import type {FeatureCollection, Polygon, MultiPolygon} from "geojson";
 import type {EditionMap} from "../../features/edition-maps/model";
 import {semanticPalette, classIndex, PALETTE_VERSION} from "../../features/cartography/registry";
 import {THUMBNAIL_VERSION} from "../../features/edition-maps/carousel-model";
+import {coveragePaint} from "../../features/cartography/coverage";
+import type {PraCollection} from "../../features/national/map";
+
+export interface ThumbnailCoverage {exhaustive: boolean; coveredSupport?: PraCollection | null}
 
 const WIDTH = 480, HEIGHT = 300;
 let assets: ReturnType<typeof readAssets> | undefined;
@@ -25,31 +29,40 @@ function readAssets() {
   const scale = Math.min((WIDTH - 32) / (right - left), (HEIGHT - 32) / (top - bottom));
   const x0 = (WIDTH - (right - left) * scale) / 2, y0 = (HEIGHT - (top - bottom) * scale) / 2;
   const ring = (points: number[][]) => points.map(([lon, lat], i) => `${i ? "L" : "M"}${(x0 + (lon * Math.PI / 180 - left) * scale).toFixed(2)},${(y0 + (top - mercator(lat)) * scale).toFixed(2)}`).join("") + "Z";
-  const paths = collection.features.map(f => ({id: String(f.id), d: (f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates).flatMap(p => p.map(ring)).join("")}));
-  return {paths, color, fingerprint: createHash("sha256").update(geometry).update(css).update(PALETTE_VERSION).update(THUMBNAIL_VERSION).digest("hex")};
+  const path = (geometry: Polygon | MultiPolygon) => (geometry.type === "Polygon" ? [geometry.coordinates] : geometry.coordinates).flatMap(p => p.map(ring)).join("");
+  const paths = collection.features.map(f => ({id: String(f.id), d: path(f.geometry)}));
+  return {paths, path, color, fingerprint: createHash("sha256").update(geometry).update(css).update(PALETTE_VERSION).update(THUMBNAIL_VERSION).digest("hex")};
 }
 /** Same values, classification, projection, opacity, missing grey and partial
  * hatching as EditionMaps/NationalMap. No recalculation or imputation. */
-export function thumbnailSvg(map: EditionMap): string {
+export function thumbnailSvg(map: EditionMap, coverage?: ThumbnailCoverage): string {
   const a = assets ??= readAssets();
   const days = (Date.parse(map.period[1]) - Date.parse(map.period[0])) / 86400000 + 1;
   const palette = semanticPalette(map.indicator, map.unit, days);
   const rows = new Map(map.rows.map(r => [r.territoryId, r]));
-  const background = a.color("--surface-subtle"), ink = a.color("--text-primary"), missing = a.color("--national-unavailable");
+  const background = a.color("--surface-subtle"), ink = a.color("--text-primary"), missing = a.color(coverage?.exhaustive ? "--map-coverage-unavailable" : "--national-unavailable");
+  const supports = new Map(coverage?.coveredSupport?.features.map(f => [String(f.id),f]));
   const shapes = a.paths.map(({id, d}) => {
     const row = rows.get(id);
     const value = row?.value ?? (row?.support_scope === "observed_area" ? row.observed_value : null);
     const band = classIndex(value, palette), fill = band < 0 ? missing : a.color(palette.tokens[band]);
+    if (coverage?.exhaustive) {
+      const support = supports.get(id);
+      const paint = coveragePaint({value:value??null,field:'value',quality:row?.quality,geometrySupportId:support?.properties.support_id});
+      const polygon = support && ['Polygon','MultiPolygon'].includes(support.geometry.type) ? a.path(support.geometry as Polygon | MultiPolygon) : null;
+      return `<path d="${d}" fill="${paint.target==='whole'?fill:missing}" fill-opacity=".9"/>${paint.target==='covered'&&polygon?`<path d="${polygon}" fill="${fill}" fill-opacity=".9"/>`:''}`;
+    }
     return `<path d="${d}" fill="${fill}" fill-opacity=".9" stroke="${ink}" stroke-opacity=".55" stroke-width=".45"/>${row?.status === "partial" ? `<path d="${d}" fill="url(#partial)"/>` : ""}`;
   }).join("");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}"><defs><pattern id="partial" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 8L8 0" stroke="${ink}" stroke-opacity=".25"/></pattern></defs><rect width="100%" height="100%" fill="${background}"/>${shapes}</svg>`;
+  const outlines=coverage?.exhaustive?a.paths.map(({d})=>`<path data-pra-outline="true" d="${d}" fill="none" stroke="${ink}" stroke-opacity=".55" stroke-width=".45"/>`).join(''):'';
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}"><defs><pattern id="partial" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 8L8 0" stroke="${ink}" stroke-opacity=".25"/></pattern></defs><rect width="100%" height="100%" fill="${background}"/>${shapes}${outlines}</svg>`;
 }
 const cache = new Map<string, Promise<{bytes: Buffer; etag: string}>>();
-export function mapThumbnail(map: EditionMap) {
-  const a = assets ??= readAssets(), key = `${a.fingerprint}:${map.id}`;
+export function mapThumbnail(map: EditionMap, coverage?: ThumbnailCoverage) {
+  const a = assets ??= readAssets(), key = `${a.fingerprint}:${map.id}:${coverage?.exhaustive?createHash('sha256').update(JSON.stringify(coverage)).digest('hex'):'original'}`;
   let pending = cache.get(key);
   if (!pending) {
-    pending = sharp(Buffer.from(thumbnailSvg(map))).webp({lossless: true, effort: 6}).toBuffer().then(bytes => ({bytes, etag: `"${createHash("sha256").update(bytes).digest("hex")}"`}));
+    pending = sharp(Buffer.from(thumbnailSvg(map,coverage))).webp({lossless: true, effort: 6}).toBuffer().then(bytes => ({bytes, etag: `"${createHash("sha256").update(bytes).digest("hex")}"`}));
     // Bounded process cache; HTTP/CDN caches handle subsequent cold instances.
     if (cache.size >= 40) cache.delete(cache.keys().next().value!);
     cache.set(key, pending);

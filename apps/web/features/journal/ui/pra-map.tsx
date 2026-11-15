@@ -127,6 +127,7 @@ export default function JournalPraMap({
       current
         ? {
             values: current.data.rows.map((r) => ({
+              quality: r.quality,
               territoryId: r.id,
               value: r.value,
               normal: null,
@@ -191,6 +192,7 @@ export default function JournalPraMap({
               </span>
             </div>
             <NationalMap
+              coverageEnabled={archiveUrl ? false : undefined}
               collection={current.collection}
               rows={null}
               contextRows={null}
