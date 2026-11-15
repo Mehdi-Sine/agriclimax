@@ -54,7 +54,7 @@ for(const kind of ["valid","short","invented","evidence","duplicate","missing","
   expect(JSON.parse(payload).map_selection.cards).toHaveLength(10);
   if(kind==="throw")throw new ProviderFailure("PROVIDER_TIMEOUT_OR_TRANSPORT");
   const response=structuredClone(prepared.response);
-  if(kind==="short"){response.excluded.push(...response.complementary);response.complementary=[];}
+  if(kind==="short"||kind==="science"){response.excluded.push(...response.complementary);response.complementary=[];}
   if(kind==="invented")response.priority[0].map_id="invented";
   if(kind==="evidence")response.priority[0].reason_ids=["invented"];
   if(kind==="duplicate")response.complementary.push(response.priority[0]);
@@ -67,8 +67,8 @@ for(const kind of ["valid","short","invented","evidence","duplicate","missing","
  const options={briefing:b,config:c,store:s.api,provider,manualRetry:false,prepareSelection:async(id:string)=>{prepared=forAttempt(id);return prepared;}};
  const a=await generateOperational(options);
  expect(provider).toHaveBeenCalledTimes(1);expect(a.validation.status).not.toBe("rejected");
- expect(a.map_selection?.mode).toBe(kind==="valid"||kind==="short"?"ai":"deterministic");
- if(kind==="short")expect(a.map_selection?.response.complementary).toHaveLength(0);
+ expect(a.map_selection?.mode).toBe(kind==="valid"||kind==="short"||kind==="science"?"ai":"deterministic");
+ if(kind==="short"||kind==="science")expect(a.map_selection?.response.complementary).toHaveLength(0);
  if(["throw","malformed","science","model"].includes(kind))expect(a.mode).toBe("fallback");
  expect(consultableEdition(a).map_selection?.map_ids[0]).toBe(a.map_selection?.response.hero_map_id);
  expect((await generateOperational(options)).checksum).toBe(a.checksum);expect(provider).toHaveBeenCalledTimes(1);

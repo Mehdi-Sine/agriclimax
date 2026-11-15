@@ -87,7 +87,7 @@ export async function archiveFactualFallback(source:Archive,store:AttemptStore):
  if(validation.status==="rejected")throw Error("FACTUAL_FALLBACK_REJECTED");
  const {checksum,...body}=source;void checksum;
  const archive=sealArchive({...body,edition_id:hash([source.checksum,"experimental-factual-fallback-1"]),
-  ...(source.map_selection?{map_selection:chooseDaily(source.map_selection.ranking,source.map_selection.maps_sha256)}:{}),
+  // Text rejection does not invalidate the independently checked map selection in body.
   revision:source.revision+1,supersedes:source.edition_id,mode:"fallback",draft,validation,status:validation.status,receipt:null,illustrations:[]});
  await store.save(archive);
  return archive;

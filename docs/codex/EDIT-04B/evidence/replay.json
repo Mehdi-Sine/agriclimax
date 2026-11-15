@@ -1,0 +1,577 @@
+{
+  "rows": [
+    {
+      "date": "2026-11-13",
+      "archive_checksum": "bd1a261966ef5b01aa3a7373e639ca1230fa44d90f58a8c83a3d3696e97b349f",
+      "bundle_sha256": "03e68d7726e6a109936e67773b47e0c8742d8551bb772fe2f05b1d5c14a95c1f",
+      "validation": {
+        "status": "needs_editorial_review",
+        "errors": [],
+        "review": [
+          "SEMANTIC_REVIEW_REQUIRED"
+        ]
+      },
+      "comparison": [
+        {
+          "id": "849e1864800f402d750362b1b3c9ff5fdea840df9b8d45bb50cc9e37ef3073f1",
+          "indicator": "temperature_min",
+          "nature": "reanalysis",
+          "period": [
+            "2026-10-31",
+            "2026-11-06"
+          ],
+          "before_order": 1,
+          "after_deterministic_order": null
+        },
+        {
+          "id": "c6c332634ce19448e53b28a8df9e5ce4ae5f5f477df3d962006e1b68a13c806e",
+          "indicator": "temperature_mean",
+          "nature": "reanalysis",
+          "period": [
+            "2026-10-31",
+            "2026-11-06"
+          ],
+          "before_order": 2,
+          "after_deterministic_order": null
+        },
+        {
+          "id": "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc",
+          "indicator": "rain",
+          "nature": "reanalysis",
+          "period": [
+            "2026-10-31",
+            "2026-11-06"
+          ],
+          "before_order": 3,
+          "after_deterministic_order": 3
+        },
+        {
+          "id": "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106",
+          "indicator": "frost",
+          "nature": "reanalysis",
+          "period": [
+            "2026-10-31",
+            "2026-11-06"
+          ],
+          "before_order": 4,
+          "after_deterministic_order": 6
+        },
+        {
+          "id": "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564",
+          "indicator": "gdd",
+          "nature": "reanalysis",
+          "period": [
+            "2026-10-31",
+            "2026-11-06"
+          ],
+          "before_order": 5,
+          "after_deterministic_order": 5
+        },
+        {
+          "id": "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690",
+          "indicator": "temperature_min",
+          "nature": "forecast",
+          "period": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "before_order": 6,
+          "after_deterministic_order": 2
+        },
+        {
+          "id": "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd",
+          "indicator": "temperature_mean",
+          "nature": "forecast",
+          "period": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "before_order": 7,
+          "after_deterministic_order": 4
+        },
+        {
+          "id": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0",
+          "indicator": "rain",
+          "nature": "forecast",
+          "period": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "before_order": 8,
+          "after_deterministic_order": 1
+        },
+        {
+          "id": "43656509aae3fe6a009139001594d83882f4d095d089600debf38cc82d7f1ec3",
+          "indicator": "frost",
+          "nature": "forecast",
+          "period": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "before_order": 9,
+          "after_deterministic_order": null
+        },
+        {
+          "id": "d1b1a0e83c652ccf1bfb58d1a9626c4323eca61b0ae86e709c861f5f66a63ac6",
+          "indicator": "gdd",
+          "nature": "forecast",
+          "period": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "before_order": 10,
+          "after_deterministic_order": null
+        }
+      ],
+      "carousel": [
+        {
+          "id": "a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0",
+          "role": "hero",
+          "period": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-13&id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=a7e78ee1f6eedede0dfb8afff84b88ebb2b26595c1d2755b3d3437c5215cfac0"
+        },
+        {
+          "id": "e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690",
+          "role": "complementary",
+          "period": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-13&id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=e9581197816167e5e80aaab2ea951a9b94691648f7bc348d9ef5a00e60628690"
+        },
+        {
+          "id": "7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc",
+          "role": "complementary",
+          "period": [
+            "2026-10-31",
+            "2026-11-06"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-13&id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=7307d13d6e5dc0e209fdc74ae0c00f5f5f1ea244529579ab5f00216f8b3383cc"
+        },
+        {
+          "id": "eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd",
+          "role": "complementary",
+          "period": [
+            "2026-11-14",
+            "2026-11-15"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-13&id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=eaaea46ee426d60024f3c87bc3feba12e90c4bc16c880fc8482c8fd08c0274fd"
+        },
+        {
+          "id": "5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564",
+          "role": "complementary",
+          "period": [
+            "2026-10-31",
+            "2026-11-06"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-13&id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=5695399ad69898e8919b16bab5f96b522591ae38be0b2957da5ed3bf5f463564"
+        },
+        {
+          "id": "f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106",
+          "role": "complementary",
+          "period": [
+            "2026-10-31",
+            "2026-11-06"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-13&id=35d91c82ce9e11e6d93526499955492f240d3704b5ea3ea242ddb859d8a28222&map=f0b57fdefb644445c6c8c8c9da501fc612eeb780fb8377aeb89f614cea7b8106"
+        }
+      ],
+      "immutable": true
+    },
+    {
+      "date": "2026-11-14",
+      "archive_checksum": "8c7ffff427bfe1cf4197105146b06c3bba6c92d73fe4aee7080b6e6159913ab8",
+      "bundle_sha256": "a4f30138f941bd6acfb585cf3816bee27258ef6b1535e4ca0ed45fa7990bbde5",
+      "validation": {
+        "status": "needs_editorial_review",
+        "errors": [],
+        "review": [
+          "SEMANTIC_REVIEW_REQUIRED"
+        ]
+      },
+      "comparison": [
+        {
+          "id": "a430876f791167f9f572b156819a7166f1805432fc33c679ded8bf63ca7bbd84",
+          "indicator": "temperature_min",
+          "nature": "reanalysis",
+          "period": [
+            "2026-11-01",
+            "2026-11-07"
+          ],
+          "before_order": 1,
+          "after_deterministic_order": null
+        },
+        {
+          "id": "89688eb57c1a26403fef2777b96607400bf7d9fdb0d93288e1c1da9ad59fc2d9",
+          "indicator": "temperature_mean",
+          "nature": "reanalysis",
+          "period": [
+            "2026-11-01",
+            "2026-11-07"
+          ],
+          "before_order": 2,
+          "after_deterministic_order": null
+        },
+        {
+          "id": "4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6",
+          "indicator": "rain",
+          "nature": "reanalysis",
+          "period": [
+            "2026-11-01",
+            "2026-11-07"
+          ],
+          "before_order": 3,
+          "after_deterministic_order": 3
+        },
+        {
+          "id": "2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4",
+          "indicator": "frost",
+          "nature": "reanalysis",
+          "period": [
+            "2026-11-01",
+            "2026-11-07"
+          ],
+          "before_order": 4,
+          "after_deterministic_order": 4
+        },
+        {
+          "id": "1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a",
+          "indicator": "gdd",
+          "nature": "reanalysis",
+          "period": [
+            "2026-11-01",
+            "2026-11-07"
+          ],
+          "before_order": 5,
+          "after_deterministic_order": 5
+        },
+        {
+          "id": "b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba",
+          "indicator": "temperature_min",
+          "nature": "forecast",
+          "period": [
+            "2026-11-15",
+            "2026-11-16"
+          ],
+          "before_order": 6,
+          "after_deterministic_order": 6
+        },
+        {
+          "id": "f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead",
+          "indicator": "temperature_mean",
+          "nature": "forecast",
+          "period": [
+            "2026-11-15",
+            "2026-11-16"
+          ],
+          "before_order": 7,
+          "after_deterministic_order": 2
+        },
+        {
+          "id": "ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9",
+          "indicator": "rain",
+          "nature": "forecast",
+          "period": [
+            "2026-11-15",
+            "2026-11-16"
+          ],
+          "before_order": 8,
+          "after_deterministic_order": 1
+        },
+        {
+          "id": "65f58f2e84cd7391025550f71db0dea2644c859953665a5dd19930e0728e5628",
+          "indicator": "frost",
+          "nature": "forecast",
+          "period": [
+            "2026-11-15",
+            "2026-11-16"
+          ],
+          "before_order": 9,
+          "after_deterministic_order": null
+        },
+        {
+          "id": "001c79add526e35b9d26fa5b47d393c2d693aad36b49d2ebee977848f88eef26",
+          "indicator": "gdd",
+          "nature": "forecast",
+          "period": [
+            "2026-11-15",
+            "2026-11-16"
+          ],
+          "before_order": 10,
+          "after_deterministic_order": null
+        }
+      ],
+      "carousel": [
+        {
+          "id": "ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9",
+          "role": "hero",
+          "period": [
+            "2026-11-15",
+            "2026-11-16"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-14&id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=ec0c06bdb88e09f201afc514a8cf2f8ac16c91d7309a831b39edc4febeed62e9"
+        },
+        {
+          "id": "f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead",
+          "role": "complementary",
+          "period": [
+            "2026-11-15",
+            "2026-11-16"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-14&id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=f3807ffc5dc9b51f719ed0647f3f45f864fc072d807e6c222a1f779ae3673ead"
+        },
+        {
+          "id": "4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6",
+          "role": "complementary",
+          "period": [
+            "2026-11-01",
+            "2026-11-07"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-14&id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=4abaacb0280b1f6abc7169f441198b8f8c218cbda9fcc4cfe7c5042baa77aef6"
+        },
+        {
+          "id": "2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4",
+          "role": "complementary",
+          "period": [
+            "2026-11-01",
+            "2026-11-07"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-14&id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=2e491699484b5cf6490b8ba59407dc56f6461ca4f6ba5fc6fb711acb0fca95b4"
+        },
+        {
+          "id": "1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a",
+          "role": "complementary",
+          "period": [
+            "2026-11-01",
+            "2026-11-07"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-14&id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=1463dc4b8a5f1d3701e2daef1384f96745d77ec91aa15948353568b8ead2604a"
+        },
+        {
+          "id": "b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba",
+          "role": "complementary",
+          "period": [
+            "2026-11-15",
+            "2026-11-16"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-14&id=95d5128010125bd182510f6de4bfc4095e5b46b10ba78fd66e97c07eef5a52f4&map=b41fdc2f2dfe83248785c8b23f37dcc2aedddb1444d80854171efc6ec28cf4ba"
+        }
+      ],
+      "immutable": true
+    },
+    {
+      "date": "2026-11-15",
+      "archive_checksum": "49bee5938c48c8a28638753124abdfede05ed8438a63f72a98f94ed602f8a09e",
+      "bundle_sha256": "eea4f1296aa03ca4a67eea7c16ff96addad975cd1a99a1e937d587a8ec075acb",
+      "validation": {
+        "status": "needs_editorial_review",
+        "errors": [],
+        "review": [
+          "SEMANTIC_REVIEW_REQUIRED"
+        ]
+      },
+      "comparison": [
+        {
+          "id": "98178e395498ab74764133cbc50081f926ab078ac73d20cc3d44a517c2a7b26a",
+          "indicator": "temperature_min",
+          "nature": "reanalysis",
+          "period": [
+            "2026-11-02",
+            "2026-11-08"
+          ],
+          "before_order": null,
+          "after_deterministic_order": null
+        },
+        {
+          "id": "2c2acaf9dd7bc517771b83907e84c7d2fcc81203421691796f29a6778eadbcd7",
+          "indicator": "temperature_mean",
+          "nature": "reanalysis",
+          "period": [
+            "2026-11-02",
+            "2026-11-08"
+          ],
+          "before_order": null,
+          "after_deterministic_order": null
+        },
+        {
+          "id": "b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5",
+          "indicator": "rain",
+          "nature": "reanalysis",
+          "period": [
+            "2026-11-02",
+            "2026-11-08"
+          ],
+          "before_order": 2,
+          "after_deterministic_order": 2
+        },
+        {
+          "id": "3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06",
+          "indicator": "frost",
+          "nature": "reanalysis",
+          "period": [
+            "2026-11-02",
+            "2026-11-08"
+          ],
+          "before_order": 4,
+          "after_deterministic_order": 4
+        },
+        {
+          "id": "3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91",
+          "indicator": "gdd",
+          "nature": "reanalysis",
+          "period": [
+            "2026-11-02",
+            "2026-11-08"
+          ],
+          "before_order": 5,
+          "after_deterministic_order": 5
+        },
+        {
+          "id": "d033fdbb0f361301295d588ae3cbc54e3f1af0e01248455f0d3d77ceca4c39b6",
+          "indicator": "temperature_min",
+          "nature": "forecast",
+          "period": [
+            "2026-11-16",
+            "2026-11-17"
+          ],
+          "before_order": null,
+          "after_deterministic_order": null
+        },
+        {
+          "id": "e1bb8d895d49a632124298937485d749c9cdadf349578be7d61b8f1619d99704",
+          "indicator": "temperature_mean",
+          "nature": "forecast",
+          "period": [
+            "2026-11-16",
+            "2026-11-17"
+          ],
+          "before_order": 3,
+          "after_deterministic_order": 3
+        },
+        {
+          "id": "6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae",
+          "indicator": "rain",
+          "nature": "forecast",
+          "period": [
+            "2026-11-16",
+            "2026-11-17"
+          ],
+          "before_order": 1,
+          "after_deterministic_order": 1
+        },
+        {
+          "id": "002f88051d7875054100bf8c56cc54dcbe8d3ac150b9ebbd4bd7d9e63e802bab",
+          "indicator": "frost",
+          "nature": "forecast",
+          "period": [
+            "2026-11-16",
+            "2026-11-17"
+          ],
+          "before_order": null,
+          "after_deterministic_order": null
+        },
+        {
+          "id": "fdb701c0bc5ccf5208c845d77f4ece0d430d8949be818b71dab7cb3ff58b36a1",
+          "indicator": "gdd",
+          "nature": "forecast",
+          "period": [
+            "2026-11-16",
+            "2026-11-17"
+          ],
+          "before_order": null,
+          "after_deterministic_order": null
+        }
+      ],
+      "carousel": [
+        {
+          "id": "6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae",
+          "role": "hero",
+          "period": [
+            "2026-11-16",
+            "2026-11-17"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-15&id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae"
+        },
+        {
+          "id": "b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5",
+          "role": "complementary",
+          "period": [
+            "2026-11-02",
+            "2026-11-08"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-15&id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5"
+        },
+        {
+          "id": "e1bb8d895d49a632124298937485d749c9cdadf349578be7d61b8f1619d99704",
+          "role": "complementary",
+          "period": [
+            "2026-11-16",
+            "2026-11-17"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=e1bb8d895d49a632124298937485d749c9cdadf349578be7d61b8f1619d99704&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-15&id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=e1bb8d895d49a632124298937485d749c9cdadf349578be7d61b8f1619d99704"
+        },
+        {
+          "id": "3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06",
+          "role": "complementary",
+          "period": [
+            "2026-11-02",
+            "2026-11-08"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-15&id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06"
+        },
+        {
+          "id": "3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91",
+          "role": "complementary",
+          "period": [
+            "2026-11-02",
+            "2026-11-08"
+          ],
+          "thumbnail": "/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91&v=ux03-1",
+          "link": "/cartes-du-jour?date=2026-11-15&id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91"
+        }
+      ],
+      "immutable": true
+    }
+  ],
+  "rejected15": {
+    "before": {
+      "status": "rejected",
+      "errors": [
+        "REGIONAL_EXTRAPOLATION",
+        "TEXT_NUMBER_OR_DATE"
+      ],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "after": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    }
+  },
+  "remote_writes": 0,
+  "openai_calls": 0,
+  "publication_calls": 0
+}
