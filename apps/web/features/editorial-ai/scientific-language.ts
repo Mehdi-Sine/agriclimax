@@ -1,6 +1,6 @@
 /** Lexical checks only: these helpers do not infer scientific facts. */
 export function numericTokens(text:string) {
- return (text.replace(/\b(\d{4})-(\d{2})-(\d{2})\b/g,"$1 $2 $3").replace(/,/g,".").match(/-?\d+(?:\.\d+)?/g)??[]).map(n=>String(Number(n)));
+ return (text.replace(/−/g,"-").replace(/\b(\d{4})-(\d{2})-(\d{2})\b/g,"$1 $2 $3").replace(/,/g,".").match(/-?\d+(?:\.\d+)?/g)??[]).map(n=>String(Number(n)));
 }
 const months=["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
 export function unsupportedFrenchDate(text:string,allowed:string) {
@@ -21,7 +21,9 @@ export function unqualifiedAssertion(text:string,pattern:RegExp) {
   const start=match.index!;
   const before=text.slice(0,start).split(/[.!?;,]|\b(?:mais|pourtant|cependant|toutefois)\b/i).at(-1)??"";
   const after=text.slice(start+match[0].length);
-  const negated=/(?:\baucun(?:e|s)?\b|\bsans\b).{0,65}$/i.test(before)
+  // A local nominal denial qualifies only the immediately following assertion.
+  const negated= /\bpas\s+d[’']une?\s*$/i.test(before)
+   || /(?:\baucun(?:e|s)?\b|\bsans\b).{0,65}$/i.test(before)
    || /(?:\bne\b|\bn[’']).{0,45}\b(?:pas|jamais|aucun(?:e)?)\b.{0,65}$/i.test(before)
    || /\bnon\s+(?:un[e]?\s+)?(?:constat|observation).{0,25}$/i.test(before)
    || (/(?:\bne|\bn[’'])\s*$/i.test(before)&&/^[a-zà-ÿ]{0,8}\s+(?:pas|jamais|aucun(?:e|s)?)\b/i.test(after));
