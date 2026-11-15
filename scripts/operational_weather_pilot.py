@@ -27,6 +27,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 from agriclimax.ingestion.source_retry import retry_read
+from agriclimax.territories.forecast_masks import capture_native
 from agriclimax.ingestion.storage import atomic_write
 from agriclimax.territories.aggregate import Family, aggregate
 from agriclimax.territories.national_daily import REFERENCE
@@ -83,9 +84,8 @@ def main() -> None:
     calls = 0
     transferred = 0
     args.root.mkdir(parents=True, exist_ok=True)
-    reference = json.loads(
-        (Path("config/coverage") / REFERENCE / "reference.json").read_text()
-    )
+    reference_raw = (Path("config/coverage") / REFERENCE / "reference.json").read_bytes()
+    reference = json.loads(reference_raw)
     if args.scope == "pilot":
         reference["features"] = [
             f for f in reference["features"] if f["properties"]["code"] in PILOT_CODES
@@ -399,6 +399,17 @@ def main() -> None:
                 )
                 / 24
             )
+        if args.scope == "national" and os.environ.get("COUV05_CAPTURE_NATIVE_MASKS") == "true":
+            # Candidate native cells stay on the runner; never in a live archive.
+            candidate = args.root / "couv05-native" / f"ifs-{(run + timedelta(hours=start)).date()}.json.gz"
+            candidate.parent.mkdir(exist_ok=True)
+            atomic_write(candidate, capture_native(
+                model="ifs", run=run.isoformat(),
+                day=str((run + timedelta(hours=start)).date()), grid_version=GRID,
+                reference_sha256=hashlib.sha256(reference_raw).hexdigest(),
+                weights_sha256=weight_fingerprint(weights),
+                values=native, temporal=temporal,
+            ))
         for t in territories:
             ws = [w for w in weights if w.pra_id == t.id]
             for variable, values in native.items():
