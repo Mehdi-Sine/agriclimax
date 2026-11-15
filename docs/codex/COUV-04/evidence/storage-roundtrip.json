@@ -1,0 +1,37 @@
+{
+  "scope": "Real private storage roundtrip of frozen 8\u201313 November SIM candidate, no fresh acquisition",
+  "save": {
+    "version": "sim-rolling-1",
+    "generation": 0,
+    "slot": 0,
+    "sha256": "5ac52199ed5dc1090031fb453dc11de82d24ade4aa74642343db202ff60d461e",
+    "bytes": 27914,
+    "saved_at": "2026-11-15T10:28:01.227710+00:00",
+    "status": "saved",
+    "writes": 2,
+    "remote_budget_bytes": 16781312
+  },
+  "restore": {
+    "bytes": 27914,
+    "generation": 0,
+    "saved_at": "2026-11-15T10:28:01.227710+00:00",
+    "sha256": "5ac52199ed5dc1090031fb453dc11de82d24ade4aa74642343db202ff60d461e",
+    "slot": 0,
+    "version": "sim-rolling-1",
+    "status": "restored",
+    "remote_writes": 0
+  },
+  "published_before": {
+    "catalogue.json": "4433c6cf1a4cb9909f66dc2f8bbdee254fb856fe3fe156671caebe9df4a93f44",
+    "current.json": "4733405f83f375409052b3c063d84c3ee70eaa28ad8ea2976a3adeab78c03c0e"
+  },
+  "published_after": {
+    "catalogue.json": "4433c6cf1a4cb9909f66dc2f8bbdee254fb856fe3fe156671caebe9df4a93f44",
+    "current.json": "4733405f83f375409052b3c063d84c3ee70eaa28ad8ea2976a3adeab78c03c0e"
+  },
+  "published_unchanged": true,
+  "index_identical": true,
+  "seconds": 5.955072820000055,
+  "requests": 13,
+  "writes": 2
+}

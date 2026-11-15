@@ -1,0 +1,1625 @@
+{
+  "input": {
+    "path": "docs/codex/CORE-01/evidence/frozen-inputs.json.gz",
+    "sha256": "b9899f56b75bc9b1351a4d5da1ec5ecbbea63c8c4638e8d12ee09194a3fa60b5"
+  },
+  "scope": "Frozen operational inputs replay; presentation validation, not live availability or browser certification",
+  "rows": 282348,
+  "pra": 713,
+  "corsica": 6,
+  "baseline_checks": 556140,
+  "elapsed_ms": 58723.02461,
+  "peak_rss_kib": 1680008,
+  "matrix_bytes": 2919111,
+  "network_calls": 0,
+  "external_writes": 0,
+  "palettes": [
+    {
+      "indicator": "rain",
+      "id": "rain-day",
+      "family": "precipitation",
+      "nature": "cumulative",
+      "unit": "mm",
+      "bounds": [
+        1,
+        5,
+        10,
+        20,
+        null
+      ],
+      "tokens": [
+        "--map-rain-1",
+        "--map-rain-2",
+        "--map-rain-3",
+        "--map-rain-4",
+        "--map-rain-5"
+      ],
+      "meaning": "Précipitations faibles claires, cumuls élevés bleu soutenu",
+      "reference": null,
+      "classification": "fixed-upper-inclusive",
+      "version": "semantic-1.0.0",
+      "justification": "Convention éditoriale stable ; ces classes ne sont pas des seuils de dommage.",
+      "documentation": "/aide/cartes#rain-day",
+      "missing": "Gris : NULL distinct de zéro",
+      "partial": "Hachures et support renseigné ; reconstruction indiquée séparément"
+    },
+    {
+      "indicator": "temperature",
+      "id": "temperature-absolute",
+      "family": "temperature",
+      "nature": "absolute",
+      "unit": "°C",
+      "bounds": [
+        0,
+        10,
+        20,
+        30,
+        null
+      ],
+      "tokens": [
+        "--map-cool",
+        "--map-cool-light",
+        "--map-mid",
+        "--map-warm-light",
+        "--map-warm"
+      ],
+      "meaning": "Température absolue, sans comparaison implicite à la normale",
+      "reference": null,
+      "classification": "fixed-upper-inclusive",
+      "version": "semantic-1.0.0",
+      "justification": "Convention éditoriale stable ; ces classes ne sont pas des seuils de dommage.",
+      "documentation": "/aide/cartes#temperature-absolute",
+      "missing": "Gris : NULL distinct de zéro",
+      "partial": "Hachures et support renseigné ; reconstruction indiquée séparément"
+    },
+    {
+      "indicator": "temperature_min",
+      "id": "temperature-absolute",
+      "family": "temperature",
+      "nature": "absolute",
+      "unit": "°C",
+      "bounds": [
+        0,
+        10,
+        20,
+        30,
+        null
+      ],
+      "tokens": [
+        "--map-cool",
+        "--map-cool-light",
+        "--map-mid",
+        "--map-warm-light",
+        "--map-warm"
+      ],
+      "meaning": "Température absolue, sans comparaison implicite à la normale",
+      "reference": null,
+      "classification": "fixed-upper-inclusive",
+      "version": "semantic-1.0.0",
+      "justification": "Convention éditoriale stable ; ces classes ne sont pas des seuils de dommage.",
+      "documentation": "/aide/cartes#temperature-absolute",
+      "missing": "Gris : NULL distinct de zéro",
+      "partial": "Hachures et support renseigné ; reconstruction indiquée séparément"
+    }
+  ],
+  "cases": [
+    {
+      "nature": "reanalysis",
+      "source_scope": "era5-land",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "recipes": 28,
+      "raw_variables": 5,
+      "counts": {
+        "gdd": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "hot": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "hot_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "frost": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "frost_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "rain": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "heavy_rain": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "dry": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "dry_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "temperature_mean": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "warm_nights20": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "warm_nights20_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "wet_days1": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "wet_sequence1": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "rain10_days": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "rain_max1day": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "ice_days": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "ice_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "cattle_heat": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "thi": {
+          "unavailable": 713
+        },
+        "thi_days": {
+          "unavailable": 713
+        },
+        "thi_sequence": {
+          "unavailable": 713
+        },
+        "temperature_min": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "rain_frequency": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "gdd_base6": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "gdd_base10": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "hot30": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "hot30_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:temperature": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:temperature_min": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:temperature_max": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:precipitation": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:humidity": {
+          "unavailable": 713
+        }
+      },
+      "caveat": null
+    },
+    {
+      "nature": "reanalysis",
+      "source_scope": "era5-land",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "recipes": 28,
+      "raw_variables": 5,
+      "counts": {
+        "gdd": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "hot": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "hot_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "frost": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "frost_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "rain": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "heavy_rain": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "dry": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "dry_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "temperature_mean": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "warm_nights20": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "warm_nights20_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "wet_days1": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "wet_sequence1": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "rain10_days": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "rain_max1day": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "ice_days": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "ice_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "cattle_heat": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "thi": {
+          "unavailable": 713
+        },
+        "thi_days": {
+          "unavailable": 713
+        },
+        "thi_sequence": {
+          "unavailable": 713
+        },
+        "temperature_min": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "rain_frequency": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "gdd_base6": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "gdd_base10": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "hot30": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "hot30_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:temperature": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:temperature_min": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:temperature_max": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:precipitation": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:humidity": {
+          "unavailable": 713
+        }
+      },
+      "caveat": null
+    },
+    {
+      "nature": "reanalysis",
+      "source_scope": "era5-land",
+      "period": [
+        "2026-10-19",
+        "2026-11-01"
+      ],
+      "recipes": 28,
+      "raw_variables": 5,
+      "counts": {
+        "gdd": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "hot": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "hot_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "frost": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "frost_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "rain": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "heavy_rain": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "dry": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "dry_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "temperature_mean": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "warm_nights20": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "warm_nights20_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "wet_days1": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "wet_sequence1": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "rain10_days": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "rain_max1day": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "ice_days": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "ice_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "cattle_heat": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "thi": {
+          "unavailable": 713
+        },
+        "thi_days": {
+          "unavailable": 713
+        },
+        "thi_sequence": {
+          "unavailable": 713
+        },
+        "temperature_min": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "rain_frequency": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "gdd_base6": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "gdd_base10": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "hot30": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "hot30_sequence": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:temperature": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:temperature_min": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:temperature_max": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:precipitation": {
+          "whole": 681,
+          "covered": 31,
+          "unavailable": 1
+        },
+        "raw:humidity": {
+          "unavailable": 713
+        }
+      },
+      "caveat": null
+    },
+    {
+      "nature": "reanalysis",
+      "source_scope": "era5-land",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "recipes": 28,
+      "raw_variables": 5,
+      "counts": {
+        "gdd": {
+          "unavailable": 713
+        },
+        "hot": {
+          "unavailable": 713
+        },
+        "hot_sequence": {
+          "unavailable": 713
+        },
+        "frost": {
+          "unavailable": 713
+        },
+        "frost_sequence": {
+          "unavailable": 713
+        },
+        "rain": {
+          "unavailable": 713
+        },
+        "heavy_rain": {
+          "unavailable": 713
+        },
+        "dry": {
+          "unavailable": 713
+        },
+        "dry_sequence": {
+          "unavailable": 713
+        },
+        "temperature_mean": {
+          "unavailable": 713
+        },
+        "warm_nights20": {
+          "unavailable": 713
+        },
+        "warm_nights20_sequence": {
+          "unavailable": 713
+        },
+        "wet_days1": {
+          "unavailable": 713
+        },
+        "wet_sequence1": {
+          "unavailable": 713
+        },
+        "rain10_days": {
+          "unavailable": 713
+        },
+        "rain_max1day": {
+          "unavailable": 713
+        },
+        "ice_days": {
+          "unavailable": 713
+        },
+        "ice_sequence": {
+          "unavailable": 713
+        },
+        "cattle_heat": {
+          "unavailable": 713
+        },
+        "thi": {
+          "unavailable": 713
+        },
+        "thi_days": {
+          "unavailable": 713
+        },
+        "thi_sequence": {
+          "unavailable": 713
+        },
+        "temperature_min": {
+          "unavailable": 713
+        },
+        "rain_frequency": {
+          "unavailable": 713
+        },
+        "gdd_base6": {
+          "unavailable": 713
+        },
+        "gdd_base10": {
+          "unavailable": 713
+        },
+        "hot30": {
+          "unavailable": 713
+        },
+        "hot30_sequence": {
+          "unavailable": 713
+        },
+        "raw:temperature": {
+          "unavailable": 713
+        },
+        "raw:temperature_min": {
+          "unavailable": 713
+        },
+        "raw:temperature_max": {
+          "unavailable": 713
+        },
+        "raw:precipitation": {
+          "unavailable": 713
+        },
+        "raw:humidity": {
+          "unavailable": 713
+        }
+      },
+      "caveat": null
+    },
+    {
+      "nature": "forecast",
+      "source_scope": "selected",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "recipes": 28,
+      "raw_variables": 5,
+      "counts": {
+        "gdd": {
+          "whole": 713
+        },
+        "hot": {
+          "whole": 713
+        },
+        "hot_sequence": {
+          "whole": 713
+        },
+        "frost": {
+          "whole": 713
+        },
+        "frost_sequence": {
+          "whole": 713
+        },
+        "rain": {
+          "whole": 713
+        },
+        "heavy_rain": {
+          "whole": 713
+        },
+        "dry": {
+          "whole": 713
+        },
+        "dry_sequence": {
+          "whole": 713
+        },
+        "temperature_mean": {
+          "whole": 713
+        },
+        "warm_nights20": {
+          "whole": 713
+        },
+        "warm_nights20_sequence": {
+          "whole": 713
+        },
+        "wet_days1": {
+          "whole": 713
+        },
+        "wet_sequence1": {
+          "whole": 713
+        },
+        "rain10_days": {
+          "whole": 713
+        },
+        "rain_max1day": {
+          "whole": 713
+        },
+        "ice_days": {
+          "whole": 713
+        },
+        "ice_sequence": {
+          "whole": 713
+        },
+        "cattle_heat": {
+          "whole": 713
+        },
+        "thi": {
+          "unavailable": 713
+        },
+        "thi_days": {
+          "unavailable": 713
+        },
+        "thi_sequence": {
+          "unavailable": 713
+        },
+        "temperature_min": {
+          "whole": 713
+        },
+        "rain_frequency": {
+          "whole": 713
+        },
+        "gdd_base6": {
+          "whole": 713
+        },
+        "gdd_base10": {
+          "whole": 713
+        },
+        "hot30": {
+          "whole": 713
+        },
+        "hot30_sequence": {
+          "whole": 713
+        },
+        "raw:temperature": {
+          "whole": 713
+        },
+        "raw:temperature_min": {
+          "whole": 713
+        },
+        "raw:temperature_max": {
+          "whole": 713
+        },
+        "raw:precipitation": {
+          "whole": 713
+        },
+        "raw:humidity": {
+          "unavailable": 713
+        }
+      },
+      "caveat": "Selected-source snapshot filtered by source; absent alternatives are untested, not proven unavailable in the model."
+    },
+    {
+      "nature": "forecast",
+      "source_scope": "meteofrance-arome",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "recipes": 28,
+      "raw_variables": 5,
+      "counts": {
+        "gdd": {
+          "whole": 713
+        },
+        "hot": {
+          "whole": 713
+        },
+        "hot_sequence": {
+          "whole": 713
+        },
+        "frost": {
+          "whole": 713
+        },
+        "frost_sequence": {
+          "whole": 713
+        },
+        "rain": {
+          "whole": 713
+        },
+        "heavy_rain": {
+          "whole": 713
+        },
+        "dry": {
+          "whole": 713
+        },
+        "dry_sequence": {
+          "whole": 713
+        },
+        "temperature_mean": {
+          "whole": 713
+        },
+        "warm_nights20": {
+          "whole": 713
+        },
+        "warm_nights20_sequence": {
+          "whole": 713
+        },
+        "wet_days1": {
+          "whole": 713
+        },
+        "wet_sequence1": {
+          "whole": 713
+        },
+        "rain10_days": {
+          "whole": 713
+        },
+        "rain_max1day": {
+          "whole": 713
+        },
+        "ice_days": {
+          "whole": 713
+        },
+        "ice_sequence": {
+          "whole": 713
+        },
+        "cattle_heat": {
+          "whole": 713
+        },
+        "thi": {
+          "unavailable": 713
+        },
+        "thi_days": {
+          "unavailable": 713
+        },
+        "thi_sequence": {
+          "unavailable": 713
+        },
+        "temperature_min": {
+          "whole": 713
+        },
+        "rain_frequency": {
+          "whole": 713
+        },
+        "gdd_base6": {
+          "whole": 713
+        },
+        "gdd_base10": {
+          "whole": 713
+        },
+        "hot30": {
+          "whole": 713
+        },
+        "hot30_sequence": {
+          "whole": 713
+        },
+        "raw:temperature": {
+          "whole": 713
+        },
+        "raw:temperature_min": {
+          "whole": 713
+        },
+        "raw:temperature_max": {
+          "whole": 713
+        },
+        "raw:precipitation": {
+          "whole": 713
+        },
+        "raw:humidity": {
+          "unavailable": 713
+        }
+      },
+      "caveat": "Selected-source snapshot filtered by source; absent alternatives are untested, not proven unavailable in the model."
+    },
+    {
+      "nature": "forecast",
+      "source_scope": "meteofrance-arpege",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "recipes": 28,
+      "raw_variables": 5,
+      "counts": {
+        "gdd": {
+          "unavailable": 713
+        },
+        "hot": {
+          "unavailable": 713
+        },
+        "hot_sequence": {
+          "unavailable": 713
+        },
+        "frost": {
+          "unavailable": 713
+        },
+        "frost_sequence": {
+          "unavailable": 713
+        },
+        "rain": {
+          "unavailable": 713
+        },
+        "heavy_rain": {
+          "unavailable": 713
+        },
+        "dry": {
+          "unavailable": 713
+        },
+        "dry_sequence": {
+          "unavailable": 713
+        },
+        "temperature_mean": {
+          "unavailable": 713
+        },
+        "warm_nights20": {
+          "unavailable": 713
+        },
+        "warm_nights20_sequence": {
+          "unavailable": 713
+        },
+        "wet_days1": {
+          "unavailable": 713
+        },
+        "wet_sequence1": {
+          "unavailable": 713
+        },
+        "rain10_days": {
+          "unavailable": 713
+        },
+        "rain_max1day": {
+          "unavailable": 713
+        },
+        "ice_days": {
+          "unavailable": 713
+        },
+        "ice_sequence": {
+          "unavailable": 713
+        },
+        "cattle_heat": {
+          "unavailable": 713
+        },
+        "thi": {
+          "unavailable": 713
+        },
+        "thi_days": {
+          "unavailable": 713
+        },
+        "thi_sequence": {
+          "unavailable": 713
+        },
+        "temperature_min": {
+          "unavailable": 713
+        },
+        "rain_frequency": {
+          "unavailable": 713
+        },
+        "gdd_base6": {
+          "unavailable": 713
+        },
+        "gdd_base10": {
+          "unavailable": 713
+        },
+        "hot30": {
+          "unavailable": 713
+        },
+        "hot30_sequence": {
+          "unavailable": 713
+        },
+        "raw:temperature": {
+          "unavailable": 713
+        },
+        "raw:temperature_min": {
+          "unavailable": 713
+        },
+        "raw:temperature_max": {
+          "unavailable": 713
+        },
+        "raw:precipitation": {
+          "unavailable": 713
+        },
+        "raw:humidity": {
+          "unavailable": 713
+        }
+      },
+      "caveat": "Selected-source snapshot filtered by source; absent alternatives are untested, not proven unavailable in the model."
+    },
+    {
+      "nature": "forecast",
+      "source_scope": "ecmwf-open-data",
+      "period": [
+        "2026-11-08",
+        "2026-11-08"
+      ],
+      "recipes": 28,
+      "raw_variables": 5,
+      "counts": {
+        "gdd": {
+          "unavailable": 713
+        },
+        "hot": {
+          "unavailable": 713
+        },
+        "hot_sequence": {
+          "unavailable": 713
+        },
+        "frost": {
+          "unavailable": 713
+        },
+        "frost_sequence": {
+          "unavailable": 713
+        },
+        "rain": {
+          "unavailable": 713
+        },
+        "heavy_rain": {
+          "unavailable": 713
+        },
+        "dry": {
+          "unavailable": 713
+        },
+        "dry_sequence": {
+          "unavailable": 713
+        },
+        "temperature_mean": {
+          "unavailable": 713
+        },
+        "warm_nights20": {
+          "unavailable": 713
+        },
+        "warm_nights20_sequence": {
+          "unavailable": 713
+        },
+        "wet_days1": {
+          "unavailable": 713
+        },
+        "wet_sequence1": {
+          "unavailable": 713
+        },
+        "rain10_days": {
+          "unavailable": 713
+        },
+        "rain_max1day": {
+          "unavailable": 713
+        },
+        "ice_days": {
+          "unavailable": 713
+        },
+        "ice_sequence": {
+          "unavailable": 713
+        },
+        "cattle_heat": {
+          "unavailable": 713
+        },
+        "thi": {
+          "unavailable": 713
+        },
+        "thi_days": {
+          "unavailable": 713
+        },
+        "thi_sequence": {
+          "unavailable": 713
+        },
+        "temperature_min": {
+          "unavailable": 713
+        },
+        "rain_frequency": {
+          "unavailable": 713
+        },
+        "gdd_base6": {
+          "unavailable": 713
+        },
+        "gdd_base10": {
+          "unavailable": 713
+        },
+        "hot30": {
+          "unavailable": 713
+        },
+        "hot30_sequence": {
+          "unavailable": 713
+        },
+        "raw:temperature": {
+          "unavailable": 713
+        },
+        "raw:temperature_min": {
+          "unavailable": 713
+        },
+        "raw:temperature_max": {
+          "unavailable": 713
+        },
+        "raw:precipitation": {
+          "unavailable": 713
+        },
+        "raw:humidity": {
+          "unavailable": 713
+        }
+      },
+      "caveat": "Selected-source snapshot filtered by source; absent alternatives are untested, not proven unavailable in the model."
+    },
+    {
+      "nature": "forecast",
+      "source_scope": "selected",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "recipes": 28,
+      "raw_variables": 5,
+      "counts": {
+        "gdd": {
+          "unavailable": 713
+        },
+        "hot": {
+          "unavailable": 713
+        },
+        "hot_sequence": {
+          "unavailable": 713
+        },
+        "frost": {
+          "unavailable": 713
+        },
+        "frost_sequence": {
+          "unavailable": 713
+        },
+        "rain": {
+          "unavailable": 713
+        },
+        "heavy_rain": {
+          "unavailable": 713
+        },
+        "dry": {
+          "unavailable": 713
+        },
+        "dry_sequence": {
+          "unavailable": 713
+        },
+        "temperature_mean": {
+          "unavailable": 713
+        },
+        "warm_nights20": {
+          "unavailable": 713
+        },
+        "warm_nights20_sequence": {
+          "unavailable": 713
+        },
+        "wet_days1": {
+          "unavailable": 713
+        },
+        "wet_sequence1": {
+          "unavailable": 713
+        },
+        "rain10_days": {
+          "unavailable": 713
+        },
+        "rain_max1day": {
+          "unavailable": 713
+        },
+        "ice_days": {
+          "unavailable": 713
+        },
+        "ice_sequence": {
+          "unavailable": 713
+        },
+        "cattle_heat": {
+          "unavailable": 713
+        },
+        "thi": {
+          "unavailable": 713
+        },
+        "thi_days": {
+          "unavailable": 713
+        },
+        "thi_sequence": {
+          "unavailable": 713
+        },
+        "temperature_min": {
+          "unavailable": 713
+        },
+        "rain_frequency": {
+          "unavailable": 713
+        },
+        "gdd_base6": {
+          "unavailable": 713
+        },
+        "gdd_base10": {
+          "unavailable": 713
+        },
+        "hot30": {
+          "unavailable": 713
+        },
+        "hot30_sequence": {
+          "unavailable": 713
+        },
+        "raw:temperature": {
+          "unavailable": 713
+        },
+        "raw:temperature_min": {
+          "unavailable": 713
+        },
+        "raw:temperature_max": {
+          "unavailable": 713
+        },
+        "raw:precipitation": {
+          "unavailable": 713
+        },
+        "raw:humidity": {
+          "unavailable": 713
+        }
+      },
+      "caveat": "Selected-source snapshot filtered by source; absent alternatives are untested, not proven unavailable in the model."
+    },
+    {
+      "nature": "forecast",
+      "source_scope": "meteofrance-arome",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "recipes": 28,
+      "raw_variables": 5,
+      "counts": {
+        "gdd": {
+          "unavailable": 713
+        },
+        "hot": {
+          "unavailable": 713
+        },
+        "hot_sequence": {
+          "unavailable": 713
+        },
+        "frost": {
+          "unavailable": 713
+        },
+        "frost_sequence": {
+          "unavailable": 713
+        },
+        "rain": {
+          "unavailable": 713
+        },
+        "heavy_rain": {
+          "unavailable": 713
+        },
+        "dry": {
+          "unavailable": 713
+        },
+        "dry_sequence": {
+          "unavailable": 713
+        },
+        "temperature_mean": {
+          "unavailable": 713
+        },
+        "warm_nights20": {
+          "unavailable": 713
+        },
+        "warm_nights20_sequence": {
+          "unavailable": 713
+        },
+        "wet_days1": {
+          "unavailable": 713
+        },
+        "wet_sequence1": {
+          "unavailable": 713
+        },
+        "rain10_days": {
+          "unavailable": 713
+        },
+        "rain_max1day": {
+          "unavailable": 713
+        },
+        "ice_days": {
+          "unavailable": 713
+        },
+        "ice_sequence": {
+          "unavailable": 713
+        },
+        "cattle_heat": {
+          "unavailable": 713
+        },
+        "thi": {
+          "unavailable": 713
+        },
+        "thi_days": {
+          "unavailable": 713
+        },
+        "thi_sequence": {
+          "unavailable": 713
+        },
+        "temperature_min": {
+          "unavailable": 713
+        },
+        "rain_frequency": {
+          "unavailable": 713
+        },
+        "gdd_base6": {
+          "unavailable": 713
+        },
+        "gdd_base10": {
+          "unavailable": 713
+        },
+        "hot30": {
+          "unavailable": 713
+        },
+        "hot30_sequence": {
+          "unavailable": 713
+        },
+        "raw:temperature": {
+          "unavailable": 713
+        },
+        "raw:temperature_min": {
+          "unavailable": 713
+        },
+        "raw:temperature_max": {
+          "unavailable": 713
+        },
+        "raw:precipitation": {
+          "unavailable": 713
+        },
+        "raw:humidity": {
+          "unavailable": 713
+        }
+      },
+      "caveat": "Selected-source snapshot filtered by source; absent alternatives are untested, not proven unavailable in the model."
+    },
+    {
+      "nature": "forecast",
+      "source_scope": "meteofrance-arpege",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "recipes": 28,
+      "raw_variables": 5,
+      "counts": {
+        "gdd": {
+          "unavailable": 713
+        },
+        "hot": {
+          "unavailable": 713
+        },
+        "hot_sequence": {
+          "unavailable": 713
+        },
+        "frost": {
+          "unavailable": 713
+        },
+        "frost_sequence": {
+          "unavailable": 713
+        },
+        "rain": {
+          "unavailable": 713
+        },
+        "heavy_rain": {
+          "unavailable": 713
+        },
+        "dry": {
+          "unavailable": 713
+        },
+        "dry_sequence": {
+          "unavailable": 713
+        },
+        "temperature_mean": {
+          "unavailable": 713
+        },
+        "warm_nights20": {
+          "unavailable": 713
+        },
+        "warm_nights20_sequence": {
+          "unavailable": 713
+        },
+        "wet_days1": {
+          "unavailable": 713
+        },
+        "wet_sequence1": {
+          "unavailable": 713
+        },
+        "rain10_days": {
+          "unavailable": 713
+        },
+        "rain_max1day": {
+          "unavailable": 713
+        },
+        "ice_days": {
+          "unavailable": 713
+        },
+        "ice_sequence": {
+          "unavailable": 713
+        },
+        "cattle_heat": {
+          "unavailable": 713
+        },
+        "thi": {
+          "unavailable": 713
+        },
+        "thi_days": {
+          "unavailable": 713
+        },
+        "thi_sequence": {
+          "unavailable": 713
+        },
+        "temperature_min": {
+          "unavailable": 713
+        },
+        "rain_frequency": {
+          "unavailable": 713
+        },
+        "gdd_base6": {
+          "unavailable": 713
+        },
+        "gdd_base10": {
+          "unavailable": 713
+        },
+        "hot30": {
+          "unavailable": 713
+        },
+        "hot30_sequence": {
+          "unavailable": 713
+        },
+        "raw:temperature": {
+          "unavailable": 713
+        },
+        "raw:temperature_min": {
+          "unavailable": 713
+        },
+        "raw:temperature_max": {
+          "unavailable": 713
+        },
+        "raw:precipitation": {
+          "unavailable": 713
+        },
+        "raw:humidity": {
+          "unavailable": 713
+        }
+      },
+      "caveat": "Selected-source snapshot filtered by source; absent alternatives are untested, not proven unavailable in the model."
+    },
+    {
+      "nature": "forecast",
+      "source_scope": "ecmwf-open-data",
+      "period": [
+        "2026-11-08",
+        "2026-11-14"
+      ],
+      "recipes": 28,
+      "raw_variables": 5,
+      "counts": {
+        "gdd": {
+          "unavailable": 713
+        },
+        "hot": {
+          "unavailable": 713
+        },
+        "hot_sequence": {
+          "unavailable": 713
+        },
+        "frost": {
+          "unavailable": 713
+        },
+        "frost_sequence": {
+          "unavailable": 713
+        },
+        "rain": {
+          "unavailable": 713
+        },
+        "heavy_rain": {
+          "unavailable": 713
+        },
+        "dry": {
+          "unavailable": 713
+        },
+        "dry_sequence": {
+          "unavailable": 713
+        },
+        "temperature_mean": {
+          "unavailable": 713
+        },
+        "warm_nights20": {
+          "unavailable": 713
+        },
+        "warm_nights20_sequence": {
+          "unavailable": 713
+        },
+        "wet_days1": {
+          "unavailable": 713
+        },
+        "wet_sequence1": {
+          "unavailable": 713
+        },
+        "rain10_days": {
+          "unavailable": 713
+        },
+        "rain_max1day": {
+          "unavailable": 713
+        },
+        "ice_days": {
+          "unavailable": 713
+        },
+        "ice_sequence": {
+          "unavailable": 713
+        },
+        "cattle_heat": {
+          "unavailable": 713
+        },
+        "thi": {
+          "unavailable": 713
+        },
+        "thi_days": {
+          "unavailable": 713
+        },
+        "thi_sequence": {
+          "unavailable": 713
+        },
+        "temperature_min": {
+          "unavailable": 713
+        },
+        "rain_frequency": {
+          "unavailable": 713
+        },
+        "gdd_base6": {
+          "unavailable": 713
+        },
+        "gdd_base10": {
+          "unavailable": 713
+        },
+        "hot30": {
+          "unavailable": 713
+        },
+        "hot30_sequence": {
+          "unavailable": 713
+        },
+        "raw:temperature": {
+          "unavailable": 713
+        },
+        "raw:temperature_min": {
+          "unavailable": 713
+        },
+        "raw:temperature_max": {
+          "unavailable": 713
+        },
+        "raw:precipitation": {
+          "unavailable": 713
+        },
+        "raw:humidity": {
+          "unavailable": 713
+        }
+      },
+      "caveat": "Selected-source snapshot filtered by source; absent alternatives are untested, not proven unavailable in the model."
+    }
+  ]
+}

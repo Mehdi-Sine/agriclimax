@@ -1,4 +1,5 @@
 'use client';
+import {EXHAUSTIVE_COVERAGE} from '../cartography/coverage';
 import {semanticPalette,classLabel} from '../cartography/registry';
 import {usePaletteColors} from '../cartography/use-palette';
 import {SemanticLegend} from '../cartography/legend';
@@ -676,7 +677,7 @@ export function useAgroclimatic(
     loading:active&&!resource.data&&!resource.error,
     error:resource.error,
     filters,
-    coveredSupport: data.some(r => r.quality) ? null : coveredSupport,
+    coveredSupport: !EXHAUSTIVE_COVERAGE && data.some(r => r.quality) ? null : coveredSupport,
     panel,
     summary,
     mapTitle: (

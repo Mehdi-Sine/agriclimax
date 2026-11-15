@@ -1,4 +1,6 @@
 'use client';
+import { coveragePaint, EXHAUSTIVE_COVERAGE } from '../cartography/coverage';
+import type { CoverageQuality } from '../climate-quality/policy';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Map as LibreMap, GeoJSONSource, ExpressionSpecification } from 'maplibre-gl';
 import type { FeatureCollection, Geometry } from 'geojson';
@@ -36,6 +38,7 @@ export default function NationalMap({
   onSelect,
   quantitative,
   coveredSupport,
+  coverageEnabled = EXHAUSTIVE_COVERAGE,
   highlighted,
   loading=false,
   geography = { prefix: 'pra:', label: '713 PRA', attribution: 'PRA · OFB / MASA · contours source inchangés' },
@@ -43,16 +46,17 @@ export default function NationalMap({
   highlighted?:string[];
   loading?:boolean;
   coveredSupport?:PraCollection|null;
+  coverageEnabled?:boolean;
   collection: PraCollection;
   rows: TerritoryRow[] | null;
   contextRows: ClimateContextRow[] | null;
   mode: 'availability' | 'anomaly';
   selected: string;
   onSelect: (id: string) => void;
-  quantitative?: { values: (Pick<TerritorialValue, 'territoryId' | 'value' | 'normal' | 'anomaly'> & { status: TerritorialValue['status'] | AgriculturalStatus })[]; field: 'value' | 'normal' | 'anomaly'; unit: string; bounds: number[]; colors: string[] };
+  quantitative?: { values: (Pick<TerritorialValue, 'territoryId' | 'value' | 'normal' | 'anomaly'> & { status: TerritorialValue['status'] | AgriculturalStatus; quality?: CoverageQuality })[]; field: 'value' | 'normal' | 'anomaly'; unit: string; bounds: number[]; colors: string[] };
   geography?: { prefix: string; label: string; attribution: string };
 }) {
-  const paintIdentity=useMemo(()=>({quantitative,rows,contextRows,collection,coveredSupport,mode,selected,highlighted}),[quantitative,rows,contextRows,collection,coveredSupport,mode,selected,highlighted]);
+  const paintIdentity=useMemo(()=>({quantitative,rows,contextRows,collection,coveredSupport,coverageEnabled,mode,selected,highlighted}),[quantitative,rows,contextRows,collection,coveredSupport,coverageEnabled,mode,selected,highlighted]);
   const paintRef=useRef(paintIdentity);
   const [paintedIdentity,setPaintedIdentity]=useState<typeof paintIdentity|null>(null);
   useEffect(()=>{paintRef.current=paintIdentity;},[paintIdentity]);
@@ -63,9 +67,11 @@ export default function NationalMap({
     quantRef = useRef(quantitative),
     collectionRef = useRef(collection),
     supportRef=useRef(coveredSupport),
+    coverageRef=useRef(coverageEnabled),
     geographyRef = useRef(geography);
   const [ready, setReady] = useState(false),
     [rendered, setRendered] = useState(false),
+    [renderedContourCount,setRenderedContourCount] = useState(0),
     [failed, setFailed] = useState(false),
     [hover, setHover] = useState('');
 
@@ -78,8 +84,9 @@ export default function NationalMap({
     quantRef.current = quantitative;
     collectionRef.current = collection;
     supportRef.current=coveredSupport;
+    coverageRef.current=coverageEnabled;
     geographyRef.current = geography;
-  }, [mode, quantitative, collection, geography,coveredSupport]);
+  }, [mode, quantitative, collection, geography,coveredSupport,coverageEnabled]);
 
   useEffect(() => {
     let disposed = false;
@@ -144,7 +151,7 @@ export default function NationalMap({
         m.on('load', () => {
           if (disposed) return;
           m.addSource('national-silhouette',{type:'geojson',data:'/maps/france-silhouette.geojson'});
-          m.addLayer({id:'national-shadow',type:'line',source:'national-silhouette',paint:{'line-color':color('--text-primary'),'line-width':10,'line-blur':7,'line-opacity':0.12,'line-translate':[2,3]}});
+          m.addLayer({id:'national-shadow',type:'line',source:'national-silhouette',paint:{'line-color':color('--text-primary'),'line-width':10,'line-blur':7,'line-opacity':coverageRef.current?0:0.12,'line-translate':[2,3]}});
           m.addSource('pra', {
             type: 'geojson',
             data: collectionRef.current,
@@ -197,7 +204,7 @@ export default function NationalMap({
           });
           setReady(true);
         });
-        m.on('idle', () => { if (m.getSource('pra') && m.isSourceLoaded('pra') && (!m.getSource('pra-covered')||m.isSourceLoaded('pra-covered'))) {setRendered(true);setPaintedIdentity(paintRef.current);} });
+        m.on('idle', () => { if (m.getSource('pra') && m.isSourceLoaded('pra') && (!m.getSource('pra-covered')||m.isSourceLoaded('pra-covered'))) {setRenderedContourCount(new Set(m.queryRenderedFeatures({layers:['pra-outline']}).map(f=>f.properties?.code)).size);setRendered(true);setPaintedIdentity(paintRef.current);} });
         m.on('error', () => setFailed(true));
       } catch {
         if (!disposed) setFailed(true);
@@ -221,17 +228,29 @@ export default function NationalMap({
   useEffect(() => {
     if (!ready || !map.current || loading) return;
     const m=map.current;
+    if(m.getLayer('national-shadow'))m.setPaintProperty('national-shadow','line-opacity',coverageEnabled?0:0.12);
     const frame=requestAnimationFrame(()=>{setRendered(false);m.triggerRepaint();});
     const byId = new Map(rows?.map((r) => [r.id, r]));
     const quantitativeById = new Map(quantitative?.values.map(r=>[r.territoryId,r]));
     const css = getComputedStyle(document.documentElement);
     const contextById = new Map(contextRows?.map((r) => [r.pra_id, r]));
-    if(map.current.getSource('pra-covered'))(map.current.getSource('pra-covered') as GeoJSONSource).setData(coveredSupport??{type:'FeatureCollection',features:[]});
+    const supportsByCode = new Map(coveredSupport?.features.map(f => [f.properties.code, f]));
+    const paints = new Map(collection.features.map(f => {
+      const q = quantitativeById.get(String(f.id));
+      return [f.properties.code, coveragePaint({value: q && quantitative ? q[quantitative.field] : null,
+        quality: q?.quality, field: quantitative?.field ?? 'value',
+        geometrySupportId: supportsByCode.get(f.properties.code)?.properties.support_id})];
+    }));
+    const drawnSupport = coverageEnabled && quantitative && coveredSupport
+      ? {...coveredSupport, features: coveredSupport.features.filter(f => paints.get(f.properties.code)?.target === 'covered')}
+      : coveredSupport;
+    if(map.current.getSource('pra-covered'))(map.current.getSource('pra-covered') as GeoJSONSource).setData(drawnSupport??{type:'FeatureCollection',features:[]});
     for (const f of collection.features) {
       const id = String(f.id);
       const climate = contextById.get(id);
       const q = quantitativeById.get(id);
       const value = q && quantitative ? q[quantitative.field] : null;
+      const paint = coverageEnabled && quantitative ? paints.get(f.properties.code) : undefined;
       const band = value == null || !quantitative ? -1 : quantitative.bounds.findIndex(b=>value<=b);
       const ink = quantitative ? (band<0 ? quantitative.colors.at(-1)! : quantitative.colors[band]) : null;
       map.current.setFeatureState(
@@ -241,20 +260,20 @@ export default function NationalMap({
             mode === 'anomaly'
               ? anomalyBand(climate?.anomaly)
               : availability(byId.get(id)),
-          coveredOnly:!!coveredSupport?.features.some(g=>g.properties.code===f.properties.code),
-          color: quantitative ? (coveredSupport?.features.some(g=>g.properties.code===f.properties.code)||value == null ? css.getPropertyValue('--national-unavailable').trim() : ink) : null,
-          value: value ?? null,
-          quality: q ? ({ available: 'Disponible', partial: 'Partiel', unavailable: 'Indisponible', not_applicable: 'Non applicable', source_error: 'Erreur source', suppressed: 'Secret statistique', stale: 'Ancien millésime' }[q.status]) : 'Indisponible',
+          coveredOnly:paint ? paint.target === 'covered' : supportsByCode.has(f.properties.code),
+          color: quantitative ? ((paint ? paint.target !== 'whole' : supportsByCode.has(f.properties.code)||value == null) ? css.getPropertyValue(coverageEnabled ? '--map-coverage-unavailable' : '--national-unavailable').trim() : ink) : null,
+          value: paint ? paint.value : value ?? null,
+          quality: paint ? paint.label : q ? ({ available: 'Disponible', partial: 'Partiel', unavailable: 'Indisponible', not_applicable: 'Non applicable', source_error: 'Erreur source', suppressed: 'Secret statistique', stale: 'Ancien millésime' }[q.status]) : 'Indisponible',
           suppressed: q?.status === 'suppressed',
-          partial: q?.status === 'partial',
+          partial: paint ? paint.target === 'covered' : q?.status === 'partial',
           anomaly: climate?.anomaly ?? null,
           selected: f.id === selected || !!highlighted?.includes(String(f.id)),
         },
       );
-      if(map.current.getSource('pra-covered'))map.current.setFeatureState({source:'pra-covered',id:f.properties.code},{color:value==null?css.getPropertyValue('--national-unavailable').trim():ink,value:value??null,quality:q?.status==='partial'?'Partiel · aire renseignée':'Disponible'});
+      if(map.current.getSource('pra-covered'))map.current.setFeatureState({source:'pra-covered',id:f.properties.code},{color:(paint ? paint.target !== 'covered' : value == null)?css.getPropertyValue(coverageEnabled ? '--map-coverage-unavailable' : '--national-unavailable').trim():ink,value:paint ? paint.value : value??null,quality:paint ? paint.label : q?.status==='partial'?'Partiel · aire renseignée':'Disponible'});
     }
     return()=>cancelAnimationFrame(frame);
-  }, [ready, rows, contextRows, mode, selected, collection, quantitative,coveredSupport,highlighted,loading]);
+  }, [ready, rows, contextRows, mode, selected, collection, quantitative,coveredSupport,coverageEnabled,highlighted,loading]);
 
   useEffect(() => {
     if (!ready || !map.current || !selected || (quantitative&&!highlighted)) return;
@@ -296,6 +315,7 @@ export default function NationalMap({
         className="national-map"
         data-ready={ready && rendered && !loading && paintedIdentity===paintIdentity}
         data-feature-count={collection.features.length}
+        data-rendered-contour-count={renderedContourCount}
         data-quantitative-count={quantitative?.values.filter(v => v[quantitative.field] !== null).length ?? 0}
         data-partial-value-count={quantitative?.values.filter(v => v.status === "partial" && v[quantitative.field] !== null).length ?? 0}
         data-covered-support-count={coveredSupport?.features.length??0}

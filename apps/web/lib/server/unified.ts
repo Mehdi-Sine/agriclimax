@@ -230,6 +230,11 @@ export async function unifiedData(
       return {
         ...result,
         ...next,
+        // Preserve the reference qualification already established by aggregate().
+        // The value-only calculator cannot know whether a homologous normal exists.
+        ...(next.quality ? {quality: {...next.quality, evidence: {...next.quality.evidence,
+          reference_compatible: next.quality.state === "native_complete" && result.normal !== null && result.anomaly !== null,
+        }}} : {}),
         normal: next.quality?.state === "native_complete" ? result.normal : next.normal,
         anomaly: next.quality?.state === "native_complete" ? result.anomaly : next.anomaly,
         ...(next.quality?.state === "native_complete" ? {} : {observed_series: next.series.map((r) => ({

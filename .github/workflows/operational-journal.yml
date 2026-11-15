@@ -136,7 +136,7 @@ jobs:
         run: python scripts/task36_nightly.py --source "$SOURCE"
       # COUV-03 shadow acquisition shares the ERA job; production remains disabled.
       - name: Optional bounded SIM candidate, no publication
-        if: always() && matrix.source == 'era5' && vars.AGRICLIMAX_SIM_CANDIDATE_ENABLED == 'true'
+        if: always() && matrix.source == 'era5' && vars.AGRICLIMAX_SIM_CANDIDATE_ENABLED == 'true' && vars.AGRICLIMAX_SIM_PERSISTENCE_ENABLED != 'true'
         continue-on-error: true
         timeout-minutes: 2
         env:
@@ -163,6 +163,37 @@ jobs:
           name: t36-${{ matrix.source }}-logs
           path: work/task36/logs/
           retention-days: 21
+  sim-candidate:
+    # Independent from ERA and editorial dependencies; one writer for the whole transaction.
+    needs: plan
+    if: needs.plan.outputs.stage == 'acquire' && vars.AGRICLIMAX_SIM_CANDIDATE_ENABLED == 'true' && vars.AGRICLIMAX_SIM_PERSISTENCE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    continue-on-error: true
+    concurrency:
+      group: sim-candidate-private-persistence
+      cancel-in-progress: false
+    env:
+      PYTHONPATH: engine/src:scripts
+      OPENBLAS_NUM_THREADS: '1'
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r engine/requirements-dev.lock -r engine/requirements-geo.lock -r engine/requirements-safran.lock
+      - name: Restore private candidate independently of Actions retention
+        run: python scripts/couv04_checkpoint.py restore --root work/couv04/sim-candidate
+      - name: Collect only actual available SIM days
+        run: python scripts/couv03_collect.py --root work/couv04/sim-candidate
+      - name: Persist bounded private snapshot with verified readback
+        run: python scripts/couv04_checkpoint.py save --root work/couv04/sim-candidate
+      - name: Verify recovery from private storage
+        run: python scripts/couv04_checkpoint.py restore --root work/couv04/recovery-check
   editorial:
     needs: plan
     if: needs.plan.outputs.stage != 'acquire'

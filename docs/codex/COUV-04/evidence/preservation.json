@@ -1,0 +1,19 @@
+{
+  "base": "9ff71e4100db5df911f1193daadec6dec53d6341",
+  "protected_paths": [
+    "engine/src",
+    "apps/web/features/climate-quality",
+    "apps/web/features/agroclimatic/calculate.ts",
+    "apps/web/features/agroclimatic/catalogue.ts",
+    "apps/web/features/multiproduction",
+    "apps/web/data",
+    "supabase",
+    "docs/codex/COUV-01",
+    "docs/codex/COUV-02",
+    "docs/codex/COUV-03",
+    "docs/codex/COUV-03B",
+    "docs/codex/AGRO-03"
+  ],
+  "changed_protected_files": [],
+  "published_remote_checks": "storage-roundtrip.json"
+}

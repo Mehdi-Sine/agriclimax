@@ -72,6 +72,7 @@
   --national-complete: #66a98e;
   --national-partial: #e7c75c;
   --national-unavailable: #8a969b;
+  --map-coverage-unavailable: #e5e7eb;
 }
 
 /* Shared map tokens: available independently of the legacy national workspace. */
