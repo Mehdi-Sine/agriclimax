@@ -1,0 +1,20 @@
+{
+  "project": "yyfbpecxvxglzxopsmel",
+  "bucket": "pra-climate-archives",
+  "public": false,
+  "rls_enabled": true,
+  "storage_object_policies": [],
+  "before": {
+    "objects": 71,
+    "project_bytes": 56380664,
+    "forecast_objects": 0,
+    "forecast_bytes": 0
+  },
+  "after": {
+    "forecast_objects": 260,
+    "forecast_bytes": 172331262
+  },
+  "reviewed_project_projection_bytes": 228711926,
+  "storage_guard_bytes": 943718400,
+  "scope": "SQL metadata reads only; no schema, policy, role or key changes"
+}

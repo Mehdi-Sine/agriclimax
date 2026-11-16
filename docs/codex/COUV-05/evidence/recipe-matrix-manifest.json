@@ -1,0 +1,12 @@
+{
+  "bytes": 5798701,
+  "sha256": "5f3e42a419f8996297921f76e2845abcac2a6979a27a595e3731c236c416429c",
+  "rows": 758632,
+  "full_identity_matrix_sha256": "9fc785b2126cddd27619e67b9af3cfa7b2661cebd17a658355e9c87ae8f84ba3",
+  "derived_columns_omitted": [
+    "support_id",
+    "input_sha256",
+    "cellset_sha256"
+  ],
+  "reconstruction": "scripts/couv05_recipes.py with retained native captures and regenerated verified weights / qualified native geometries"
+}

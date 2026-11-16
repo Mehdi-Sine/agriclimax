@@ -1,0 +1,8 @@
+
+ RUN  v4.1.12 /workspace/agriclimax/apps/web
+
+
+ Test Files  97 passed | 9 skipped (106)
+      Tests  774 passed | 11 skipped (785)
+   Start at  00:07:59
+   Duration  165.17s (transform 5.89s, setup 0ms, import 39.89s, tests 102.32s, environment 12ms)

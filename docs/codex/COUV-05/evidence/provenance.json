@@ -1,0 +1,195 @@
+{
+  "archive_sha256": "ed93ab41472f81cec83a6039d8634133fa1feb42fe71d6513090d74d6985a398",
+  "archive_bytes": 561740,
+  "reference_sha256": "51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669",
+  "checkpoint_artifact": {
+    "id": 14142890041,
+    "run": 43665661543,
+    "repository": "Mehdi-Sine/agriclimax",
+    "bytes": 90641402,
+    "sha256": "6967d31fac70d5345d6e74a4801def795e23b5d3673872a04fbb3935cbabb6b2"
+  },
+  "captures": [
+    {
+      "path": "native-captures/arpege-2026-11-15-H18.json.gz",
+      "sha256": "e1ce65695251b63855712a6dd88e84b5807a6722cc3dec58f47a008aafc569c1",
+      "bytes": 99150,
+      "model": "arpege",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "grid_version": "arpege-0p1-centre-footprints-epsg3035-1",
+      "source_sha256": "eadea762af0a9b82e0ce9fe902f2a1cd65169b92ecf55ed1de6dbefcc479d979",
+      "weights_sha256": "71ca86b2b99049a7137ad8c2a15dc25fbc910392a65481a04520bfbf4477375d"
+    },
+    {
+      "path": "native-captures/arome-2026-11-14.json.gz",
+      "sha256": "068625fa2d4b5d40be343805ec0d26aab8e533770d9a8bad8375786beee7af93",
+      "bytes": 1488135,
+      "model": "arome",
+      "run": "2026-11-14T00:00:00+00:00",
+      "date": "2026-11-14",
+      "grid_version": "arome-0p025-centre-footprints-epsg3035-1",
+      "source_sha256": "1e8edce0000c9e9c4fe7c33bd39ce5b934658af53010cd20562f5a94fc7de6c8",
+      "weights_sha256": "1bd9e0884f650228149ed05235e513dfd7d273e833a3d2050cd6985518d8e5cb"
+    },
+    {
+      "path": "native-captures/arpege-2026-11-14.json.gz",
+      "sha256": "60e27797cdd2908b6a254155d6934ebb197d0b3328891ab30572cd4d41710659",
+      "bytes": 100790,
+      "model": "arpege",
+      "run": "2026-11-14T00:00:00+00:00",
+      "date": "2026-11-14",
+      "grid_version": "arpege-0p1-centre-footprints-epsg3035-1",
+      "source_sha256": "11c3d6369bd8d187ea33d14290738971570d1d285fbaa008d25479d910dac3cb",
+      "weights_sha256": "71ca86b2b99049a7137ad8c2a15dc25fbc910392a65481a04520bfbf4477375d"
+    },
+    {
+      "path": "native-captures/arpege-2026-11-16-H18.json.gz",
+      "sha256": "cbfc259fac1261ca5496c0392cab27eefc8db0e0271873946646804786e04e2d",
+      "bytes": 100706,
+      "model": "arpege",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-16",
+      "grid_version": "arpege-0p1-centre-footprints-epsg3035-1",
+      "source_sha256": "59e272db6328fc87fcc9a1a4b8a161b0b6338a0c0bfffa3faf207ea721aea379",
+      "weights_sha256": "71ca86b2b99049a7137ad8c2a15dc25fbc910392a65481a04520bfbf4477375d"
+    },
+    {
+      "path": "native-captures/arome-2026-11-13.json.gz",
+      "sha256": "68ece0b88f80183f0cd5063ea635f19f7b97d29bf96432796826a1e392468135",
+      "bytes": 1494491,
+      "model": "arome",
+      "run": "2026-11-13T00:00:00+00:00",
+      "date": "2026-11-13",
+      "grid_version": "arome-0p025-centre-footprints-epsg3035-1",
+      "source_sha256": "12b76f1c14f4c99dcc1d0544295d5e95c3e8d6d494a35ccf1d2041935bb8b8b9",
+      "weights_sha256": "1bd9e0884f650228149ed05235e513dfd7d273e833a3d2050cd6985518d8e5cb"
+    },
+    {
+      "path": "native-captures/arpege-2026-11-17-H18.json.gz",
+      "sha256": "efda37192017c62b92af60b7353dd6581c50fc6fbc6e7d9a3cf16486eb44b8ef",
+      "bytes": 100660,
+      "model": "arpege",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-17",
+      "grid_version": "arpege-0p1-centre-footprints-epsg3035-1",
+      "source_sha256": "f19eef09eab1b0e3cf3f86a696eb4689094963460dc256c999e9e529f75f56a2",
+      "weights_sha256": "71ca86b2b99049a7137ad8c2a15dc25fbc910392a65481a04520bfbf4477375d"
+    },
+    {
+      "path": "native-captures/arome-2026-11-15-H18.json.gz",
+      "sha256": "6bd40c697f67b92f47defc42e3dd4ce71b9ae332d2b7df18d0b8bec7e9e820e6",
+      "bytes": 1484628,
+      "model": "arome",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "grid_version": "arome-0p025-centre-footprints-epsg3035-1",
+      "source_sha256": "3e8176a6a6a073302b3e8e25d38543a0d9706c4c2d4d4f44f8818773879d3231",
+      "weights_sha256": "1bd9e0884f650228149ed05235e513dfd7d273e833a3d2050cd6985518d8e5cb"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-17.json.gz",
+      "sha256": "d436aade254376be21d32f5a10ba87d9a2f831c4b9ee7f2271157ca588e5a124",
+      "bytes": 4648,
+      "model": "ifs",
+      "run": "2026-11-14T00:00:00+00:00",
+      "date": "2026-11-17",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "8e68d77f0a9ffab67c694cc28f8e600e4e1835708e8a97d05406a951046147e6",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-16.json.gz",
+      "sha256": "3de01b914ffb05837f4fecb9b0b3b45048934a96f9c8f20b49bfa2afef9d0b7f",
+      "bytes": 4520,
+      "model": "ifs",
+      "run": "2026-11-14T00:00:00+00:00",
+      "date": "2026-11-16",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "8e68d77f0a9ffab67c694cc28f8e600e4e1835708e8a97d05406a951046147e6",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-15.json.gz",
+      "sha256": "a0e3c5f2c777283a2355e39874ae939518886649bfc656b644a3b5f155f9fa14",
+      "bytes": 4532,
+      "model": "ifs",
+      "run": "2026-11-14T00:00:00+00:00",
+      "date": "2026-11-15",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "8e68d77f0a9ffab67c694cc28f8e600e4e1835708e8a97d05406a951046147e6",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-20.json.gz",
+      "sha256": "3edb590624b94722537b16c8445add939110a180b85e4936664bed709a02cfb6",
+      "bytes": 4867,
+      "model": "ifs",
+      "run": "2026-11-14T00:00:00+00:00",
+      "date": "2026-11-20",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "8e68d77f0a9ffab67c694cc28f8e600e4e1835708e8a97d05406a951046147e6",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-18.json.gz",
+      "sha256": "2502a1402b1a3179955bb614fbd09d8d3c65211bccf05ca140b1f0608fef8f51",
+      "bytes": 4615,
+      "model": "ifs",
+      "run": "2026-11-14T00:00:00+00:00",
+      "date": "2026-11-18",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "8e68d77f0a9ffab67c694cc28f8e600e4e1835708e8a97d05406a951046147e6",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-19.json.gz",
+      "sha256": "88ea3139b527ac52800eb5deb6111a6d1803f02f195109e3041596e603e19e36",
+      "bytes": 4421,
+      "model": "ifs",
+      "run": "2026-11-14T00:00:00+00:00",
+      "date": "2026-11-19",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "8e68d77f0a9ffab67c694cc28f8e600e4e1835708e8a97d05406a951046147e6",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-21.json.gz",
+      "sha256": "5133d896d99099ce36c4efef9851bcff1fc5b827a47ba43afdd78d2d5c8cc711",
+      "bytes": 4897,
+      "model": "ifs",
+      "run": "2026-11-14T00:00:00+00:00",
+      "date": "2026-11-21",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "8e68d77f0a9ffab67c694cc28f8e600e4e1835708e8a97d05406a951046147e6",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    }
+  ],
+  "weights": [
+    {
+      "model": "arome",
+      "path": "weights/arome.json.gz",
+      "sha256": "f9604918b426fff49b816e8e19a15c65ec14a0620f9d376d90b44ca409075081",
+      "bytes": 3187044
+    },
+    {
+      "model": "arpege",
+      "path": "weights/arpege.json.gz",
+      "sha256": "bbb2fdcf411a289a0e331f570d98de5322a45c0797aba18004f8359c53fae130",
+      "bytes": 414063
+    },
+    {
+      "model": "ifs",
+      "path": "weights/ifs.json.gz",
+      "sha256": "77e751527e69927f0c7c05e6f08378329baeb59f08584bc81c91cf36880d9b9a",
+      "bytes": 128387
+    }
+  ],
+  "storage_publication_executed": true,
+  "native_index": {
+    "path": "native-index.json.gz",
+    "sha256": "df8d1c4abc3a3427cee3df3daf200dc7058f408fa22be274bff84e476fbd9145",
+    "bytes": 4146
+  },
+  "storage_receipt": "storage-publication.json"
+}

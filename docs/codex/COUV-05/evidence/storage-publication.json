@@ -1,0 +1,26 @@
+{
+  "requests": 782,
+  "writes": 260,
+  "index": "forecast-masks/indexes/df8d1c4abc3a3427cee3df3daf200dc7058f408fa22be274bff84e476fbd9145.json.gz",
+  "bytes_upper_bound": 172331262,
+  "activation": false,
+  "published_pointer_changed": false,
+  "physical_bucket_bytes_before": 56380664,
+  "physical_forecast_bytes_before": 0,
+  "audited_projected_bucket_bytes": 228711926,
+  "object_count": 260,
+  "upload_body_bytes": 172331262,
+  "readback_object_bytes": 172331262,
+  "seconds": 595.5096938030001,
+  "pointer_sha256_before": {
+    "catalogue.json": "4433c6cf1a4cb9909f66dc2f8bbdee254fb856fe3fe156671caebe9df4a93f44",
+    "current.json": "4733405f83f375409052b3c063d84c3ee70eaa28ad8ea2976a3adeab78c03c0e"
+  },
+  "pointer_sha256_after": {
+    "catalogue.json": "4433c6cf1a4cb9909f66dc2f8bbdee254fb856fe3fe156671caebe9df4a93f44",
+    "current.json": "4733405f83f375409052b3c063d84c3ee70eaa28ad8ea2976a3adeab78c03c0e"
+  },
+  "pointers_unchanged": true,
+  "remote_workflows_triggered": false,
+  "supplier_acquisitions": 0
+}

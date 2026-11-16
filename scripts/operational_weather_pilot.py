@@ -27,9 +27,10 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 from agriclimax.ingestion.source_retry import retry_read
-from agriclimax.territories.forecast_masks import capture_native
 from agriclimax.ingestion.storage import atomic_write
+from agriclimax.news.batch import immutable_write
 from agriclimax.territories.aggregate import Family, aggregate
+from agriclimax.territories.forecast_masks import capture_native
 from agriclimax.territories.national_daily import REFERENCE
 from agriclimax.territories.operational import (
     CALCULATION_VERSION,
@@ -400,14 +401,20 @@ def main() -> None:
                 / 24
             )
         if args.scope == "national" and os.environ.get("COUV05_CAPTURE_NATIVE_MASKS") == "true":
+            # A cached numeric grid is evidence only if it remains linked to its original manifest.
+            if native_fields:
+                cache_manifest = json.loads((args.root / "native-manifest.json").read_text())
+                if (cache_manifest["native_sha256"] != hashlib.sha256(native_cache.read_bytes()).hexdigest()
+                        or cache_manifest["provenance_sha256"] != provenance):
+                    raise ValueError("Cached native capture manifest mismatch")
             # Candidate native cells stay on the runner; never in a live archive.
             candidate = args.root / "couv05-native" / f"ifs-{(run + timedelta(hours=start)).date()}.json.gz"
             candidate.parent.mkdir(exist_ok=True)
-            atomic_write(candidate, capture_native(
+            immutable_write(candidate, capture_native(
                 model="ifs", run=run.isoformat(),
                 day=str((run + timedelta(hours=start)).date()), grid_version=GRID,
                 reference_sha256=hashlib.sha256(reference_raw).hexdigest(),
-                weights_sha256=weight_fingerprint(weights),
+                weights_sha256=weight_fingerprint(weights), source_sha256=provenance,
                 values=native, temporal=temporal,
             ))
         for t in territories:

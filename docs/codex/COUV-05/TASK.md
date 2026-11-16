@@ -20,6 +20,6 @@ Ne jamais déduire une géométrie à partir d'une valeur agrégée ou d'une fra
 8. Mesurer temps, RAM, taille et coûts des supports, contrôle budgétaire et rollback.
 9. Pas de fusion, publication, changement de flag, nouveau cron ni exécution du workflow distant sans validation explicite.
 
-## Situation de cette draft
+## Situation après COUV-05B
 
-Cette PR fournit une **fondation candidate** et sa capture facultative depuis les cellules natives, avec tests unitaires. Elle **ne** revendique pas avoir achevé les points 2 à 8, ni prouvé la couverture nationale sur des cycles complets réels. Voir README et VALIDATION pour le NO-GO.
+La preuve native réelle du cycle étudié est constituée sur 49 910 combinaisons. Les 28 recettes sont examinées spatialement sur 758 632 lignes, avec supports inconnus explicitement conservés. Le lecteur météo candidat est inactif par défaut. La recommandation demeure PARTIAL / NO-GO pour activation ; voir README, VALIDATION et COSTS-LIMITS pour les résultats et blocages restants.

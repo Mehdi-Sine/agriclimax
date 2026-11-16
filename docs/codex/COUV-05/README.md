@@ -1,33 +1,47 @@
-# COUV-05 — Première livraison candidate : PARTIAL / activation NO-GO
+# COUV-05B — supports natifs réels ; PARTIAL / activation NO-GO
 
-Base : `main` après #96 (`874e561`). Aucun merge, déploiement, flag public, job Actions, ni écriture Supabase déclenchés par cette PR.
+La draft #97 est poursuivie sur sa branche existante. Aucun merge, déploiement, activation, workflow climatique distant, acquisition fournisseur, publication de pointeur ou réécriture d'archive n'a été exécuté.
 
-## Résultat réalisé
+## Résultat national réel
 
-- `forecast_masks.py` : identité de support par **modèle, cycle, variable, date, grille, référence et poids**, avec 713 lignes PRA exactes. Le support de cellules explicitement capturé est comparé aux poids surfaciques de la grille ; `None` = inconnu, ensemble vide = preuve d'absence de cellule valide. À partir de 90 % la géométrie existe mais le moteur COUV-04 décidera de colorer le contour entier ; de 0 à moins de 90 % la géométrie partielle est calculée par intersection des *empreintes natives* avec la PRA en EPSG:3035. Aucune extrapolation.
-- `combine` : intersection des ensembles de cellules natifs d'un **même modèle/cycle/grille/référence/poids** ; une preuve manquante impose `unknown`. Les journées non consécutives et supports hétérogènes sont refusés.
-- Capture facultative `COUV05_CAPTURE_NATIVE_MASKS=true` dans AROME/ARPEGE/IFS **avant l'agrégation** : enregistre uniquement l'identité des cellules qualifiées par variable/date dans l'espace de travail local `couv05-native/`, sans grille de valeurs. Par défaut cette capture est inactive ; cycles météo, calculs, archive et publication sont inchangés.
-- `scripts/couv05_masks.py` : construit une matrice **candidate** des 713 PRA × 5 variables × horizons natifs de chaque modèle et, si demandé, des GeoJSON compressés partiels. Vérifie identités des poids, références et correspondance avec les agrégats du cycle d'origine. Lorsque la capture manque, le résultat est **unknown**, jamais absence climatique.
-- Six tests synthétiques de garde-fous, sans prétendre qualifier un cycle réel.
+Un checkpoint GitHub existant a permis une reprise **entièrement hors ligne** des champs AROME, ARPEGE et IFS. Les **49 910 lignes scientifiques** reproduites sont identiques aux réductions d'origine. L'archive compacte du checkpoint a exactement le SHA-256 de l'archive privée auditée : `ed93ab41472f81cec83a6039d8634133fa1feb42fe71d6513090d74d6985a398`.
 
-## Sources, limites et risques scientifiques
+Les 70 combinaisons modèle/journée/variable couvrent les **713 PRA, dont les six corses**, les cinq variables natives et toutes les échéances de ce cycle. Les cycles d'émission réellement différents sont conservés : aucune conversion artificielle de H18 en H00.
 
-| Source | Preuve exploitable dès maintenant | Déficit à résoudre |
-| --- | --- | --- |
-| AROME (0,025°) | Cellules numériques valides lors de la réduction WCS, empreintes de grille et poids propres au modèle | Pas de capture dans les anciens checkpoints réduits, ni de support public par cycle/date/variable |
-| ARPEGE (0,1°) | Même mécanisme natif à la résolution du modèle | Idem |
-| IFS (0,25°) | Cellules de la réduction GRIB, pondération EPSG:3035, cache natif local | Pas de sidecar support publié et rattaché aux archives |
-| Masques terre/mer | Fractions de terre ou métadonnées officielles utiles à l'audit côtier | Une fraction de terre ne prouve **pas** la validité d'un champ thermique ou pluvieux |
-| Anciennes archives | Valeur, proportion, identités partielles | Ne contiennent pas les cellules valides nécessaires à un dessin correct des portions manquantes |
+| Source | demonstrated ≥90 % | partial >0–<90 % | absent | unknown |
+| --- | ---: | ---: | ---: | ---: |
+| AROME | 10 412 | 280 | 3 | 0 |
+| ARPEGE | 14 057 | 203 | 0 | 0 |
+| IFS | 24 135 | 799 | 21 | 0 |
+| Total | **48 604** | **1 282** | **24** | **0** |
 
-**Précision** : "support démontré" signifie cellules de grille ayant réellement des données natives utilisables ; il ne certifie ni représentativité agronomique terrestre ni qualité de la valeur dans toute la PRA. Les modèles prédictifs ne sont pas complétés par SAFRAN/SIM. Une géométrie n'autorise pas, seule, à transformer une valeur agrégée nulle en valeur exploitable.
+Il s'agit de la validité des cellules natives pour la variable et la journée, pas d'un masque terre/mer ni d'une certification de représentativité agronomique. La disponibilité d'une valeur numérique reste indépendante : 47 552 valeurs exploitables dans l'archive, sans nouvelle imputation.
 
-## Contrat de présentation
+## Recettes
 
-`apps/web/features/cartography/coverage.ts` est conservé à l'identique. En l'absence d'un document de support persistant, versionné et accessible au serveur, **aucune nouvelle géométrie n'est branchée au moteur**. Toutes les cartes et miniatures publiées conservent leur rendu courant. Les 713 contours de référence restent propriété de COUV-04.
+La matrice réelle de **758 632 lignes** examine les 28 recettes AGRO-03 sur toutes les fenêtres contiguës compatibles des cycles disponibles. Elle utilise l'intersection des cellules et ne mélange pas les cycles. Résultats spatiaux : **739 567 demonstrated, 15 828 partial, 660 absent, 2 577 unknown**. Une géométrie déjà vérifiée n'est réutilisée que pour un ensemble de cellules **strictement identique**, avec une nouvelle identité de support attachée à la recette, sa définition, ses entrées et sa période. Les 2 577 nouveaux supports communs non certifiés restent inconnus.
 
-## GO / PARTIAL / NO-GO
+Les valeurs des recettes ne sont **pas** recalculées depuis des agrégats sur des surfaces différentes. Aucun indicateur AGRO-03 hors production n'est activé. La qualification des valeurs sur les supports communs et leur raccordement à toutes les cartes restent bloquants.
 
-**PARTIAL** sur la fondation de preuve. **NO-GO** sur le rendu prévisionnel national et toute activation. Manquent : acquisition candidate complète vérifiée AROME/ARPEGE/IFS, stockage immuable/versionné, lien `support_id` ↔ qualité scientifique dans tous les calculateurs, intersections des 28 recettes, tests réels des 713 PRA et comparaisons visuelles MapLibre/miniatures/Journal. Ces éléments ne sont **ni exécutés ni prétendus validés** dans cette draft.
+## Livraison technique
 
-La capture facultative n'est pas une activation du rendu. Aucun changement au flag `NEXT_PUBLIC_COUV04_RENDER_ENABLED`. Une nouvelle PR ou révision approuvée de cette draft est nécessaire avant tout GO.
+- Capture native v2 avec empreinte des reçus sources, distinction preuve manquante / cellules vides / erreur, empreintes globale et PRA distinctes, identités composites non ambiguës.
+- Intersections EPSG:3035, contrôle de topologie et d'aire, rendu calculé à partir des mêmes cellules en WGS84 puis contrôlé en aire contre l'intersection EPSG:3035. Aucune réparation des contours officiels.
+- **260 objets candidats conservés dans le bucket privé existant**, avec relecture exacte ; `catalogue.json` et `current.json` inchangés. Rendu inactif.
+- Géométries fragmentées, immuables et dédupliquées par SHA-256 ; identité climatique séparée des coordonnées partagées. Limite d'objet existante de 8 Mio conservée. Index immuable lié à l'archive numérique exacte.
+- Reconstruction depuis les preuves spatiales conservées dans cette PR, sans données numériques de grille météo ni dépendance à la conservation indéfinie du checkpoint GitHub.
+- Lecteur serveur et carte météo raccordés au **seul** moteur `coverage.ts`, inchangé. `COUV05_RENDER_ENABLED` reste distinct et inactif par défaut. Un support absent ou incompatible devient inconnu ; ≥90 % agrégés seuls ne suffisent plus dans ce chemin activé.
+- Comparaisons de miniatures réelles et de repli gris à **1440, 768 et 390 px** : 713 contours, six PRA corses incluses, valeurs préservées. Ces captures ne certifient pas les cartes interactives, le Journal ou les recettes.
+
+## Preuves et limites
+
+- [Audit initial et corrections](AUDIT-05B.md)
+- [Validation et reproduction](VALIDATION.md)
+- [Coûts, limites et décision](COSTS-LIMITS.md)
+- [Activation / rollback](ACTIVATION-ROLLBACK.md)
+- `evidence/native-matrix.csv.gz` : 49 910 lignes de preuve native réelle.
+- `evidence/recipe-matrix.csv.gz` : 758 632 lignes de qualification spatiale des recettes ; colonnes d'identité dérivables omises pour éviter 67,8 Mo de redondance. Le SHA de la matrice complète et son générateur sont conservés.
+- `evidence/archive-matrix.csv.gz` : diagnostic de ce que **l'archive agrégée seule** permet de prouver, avant consultation des captures ; ses états inconnus ne sont pas les résultats de la qualification native.
+- `evidence/provenance.json`, captures natives, poids certifiés et index : preuve durable et reconstruction sans réacquisition.
+
+**PARTIAL** : la preuve native de ce cycle est constituée et vérifiée. **NO-GO pour activation** : valeurs composites non qualifiées sur support commun, 2 577 supports de recettes encore inconnus, raccordement et tests réels de toutes les surfaces non terminés, rétention Storage inter-cycles à résoudre. La prévisualisation Vercel automatique est bloquée uniquement sur cette branche, conformément à l’interdiction de déploiement. Aucun GO national ni validation multi-cycles exhaustive n'est revendiqué.

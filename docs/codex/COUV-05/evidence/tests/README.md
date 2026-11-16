@@ -1,0 +1,3 @@
+# Contrôles locaux COUV-05B
+
+Commandes et périmètres : ../../VALIDATION.md. Les fichiers vides TypeScript/ESLint correspondent à une sortie réussie sans diagnostic. Le replay réel et sa vérification après changement UTC sont dans ../native-replay.json et ../native-replay-rollover.json. Le rebuild compact borné vérifie un objet national, pas l’index intégral. Le test visuel réel est exécuté avec les chemins explicites d’archive et de sidecars, séparément de la suite web complète. Les schémas Vercel sont validés par jsonschema Draft4Validator contre le schéma officiel téléchargé ; les deux configurations ne désactivent que la branche de la PR.

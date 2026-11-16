@@ -9,8 +9,9 @@ from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
-from agriclimax.territories.forecast_masks import capture_native
 from agriclimax.ingestion.storage import atomic_write
+from agriclimax.news.batch import immutable_write
+from agriclimax.territories.forecast_masks import capture_native
 from agriclimax.territories.national_daily import REFERENCE
 from agriclimax.territories.national_weather import (
     GRID_VERSIONS,
@@ -192,10 +193,11 @@ def model_day(
         # Isolated candidate proof, derived before PRA aggregation.
         candidate = root / "couv05-native" / f"{provider.product}-{day}{suffix}.json.gz"
         candidate.parent.mkdir(exist_ok=True)
-        atomic_write(candidate, capture_native(
+        immutable_write(candidate, capture_native(
             model=provider.product, run=run.isoformat(), day=str(day),
             grid_version=GRID_VERSIONS[provider.product],
             reference_sha256=reference_sha, weights_sha256=fingerprint,
+            source_sha256=digest(receipts),
             values=values, temporal=temporal,
         ))
     provenance = digest(receipts)
