@@ -124,11 +124,14 @@ def qualify(
     make_geometry: bool = True,
     geometry_cache: dict[tuple[Any, ...], tuple[Any, float]] | None = None,
     reject_invalid_geometry: bool = False,
+    geometry_pra_ids: frozenset[str] | None = None,
 ) -> dict[str, Any]:
     """Compute 713 native proof states and exact partial polygons, not estimates.
 
     The optional aggregates only cross-check cycle, source, variable, day and
     fraction; they never produce a geographic mask from numeric coverage.
+    geometry_pra_ids restricts expensive geometric checks; other rows remain
+    geometry_verified=False and must never be persisted as certified geometry.
     """
     _validated(proof)
     if proof.inputs and aggregated is not None:
@@ -138,6 +141,8 @@ def qualify(
     valid_to = str(date.fromisoformat(last_day) + timedelta(days=1)) + "T00:00:00+00:00"
     if len(territories) != 713 or len({t.id for t in territories}) != 713:
         raise ValueError("713 distinct official PRA required")
+    if geometry_pra_ids is not None and not geometry_pra_ids <= {t.id for t in territories}:
+        raise ValueError("Foreign PRA requested for geometry qualification")
     from .operational import weight_fingerprint
     if weight_fingerprint(list(weights)) != proof.weights_sha256:
         raise ValueError("Global weight fingerprint mismatch")
@@ -210,7 +215,8 @@ def qualify(
                  "geometry_verified": False,
                  "native_cells": len(ws), "valid_native_cells": None if valid is None else len(valid)}
         results.append(entry)
-        if make_geometry and status in {"partial", "demonstrated"} and valid:
+        if (make_geometry and status in {"partial", "demonstrated"} and valid
+                and (geometry_pra_ids is None or t.id in geometry_pra_ids)):
             from shapely.errors import GEOSException
             try:
                 from shapely.geometry import box, mapping, shape

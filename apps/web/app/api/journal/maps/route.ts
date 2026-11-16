@@ -1,3 +1,4 @@
+import {editionForecastRendering} from '../../../../lib/server/edition-forecast';
 import {operationalEditions} from "../../../../lib/server/editorial-published";
 import {editionMaps} from "../../../../lib/server/edition-maps";
 export async function GET(request:Request){
@@ -11,6 +12,7 @@ export async function GET(request:Request){
     if(!mapId)return Response.json({edition_id:id,edition_checksum:edition.checksum,...view},{headers});
     const map=bundle?.maps.find(m=>m.id===mapId);
     if(!map)return Response.json({status:view.status,code:view.code},{status:view.status==="error"?503:404,headers});
-    return Response.json({map,edition_id:id,edition_checksum:edition.checksum,bundle_sha256:bundle!.sha256,publication_state:view.status},{headers:{"Cache-Control":view.status==="published"?"public, max-age=31536000, immutable":"no-store",ETag:`"${map.id}"`}});
+    const rendering=await editionForecastRendering(map,view.status);
+    return Response.json({... (rendering?{forecast_rendering:rendering}:{}),map,edition_id:id,edition_checksum:edition.checksum,bundle_sha256:bundle!.sha256,publication_state:view.status},{headers:{"Cache-Control":view.status==="published"?"public, max-age=31536000, immutable":"no-store",ETag:`"${map.id}"`}});
   }catch{return Response.json({status:"error",code:"MAP_ARCHIVE_UNAVAILABLE"},{status:503,headers});}
 }

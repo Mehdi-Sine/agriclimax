@@ -1,3 +1,5 @@
+import {forecastRecipeMasks} from './forecast-composites';
+import type {PraCollection} from '../../features/national/map';
 import {calculateQualified, coverageRule, UNIFIED_AGRO_VERSION, type QualifiedDay} from "../../features/climate-quality/calculate";
 import {forecastSupport, applyObservedSupport} from "./climate-quality";
 import "server-only";
@@ -29,6 +31,8 @@ import { ApiError } from "./query";
 import type { ClimateContextRow } from "../../features/national/model";
 import type { WeatherRow } from "../../features/operational/model";
 export interface AgroPayload {
+  forecast_support?: PraCollection;
+  forecast_support_rejections?: Record<string,string>;
   contract_version: string;
   rule: Rule;
   parameters: { threshold: number | null };
@@ -189,16 +193,20 @@ export async function agroclimaticData(params: URLSearchParams) {
     start,
     end,
     version,
+    process.env.COUV05_RENDER_ENABLED,
+    process.env.COUV05_INDEX_SHA256,
   ]);
   const hit = cache.get(key);
   if (hit && hit.expires > Date.now()) return project(await hit.value);
   const value = compute();
   async function compute() {
     const grouped = new Map<string, (SupportedDay & QualifiedDay)[]>();
+    let spatial: Awaited<ReturnType<typeof forecastRecipeMasks>>;
     if (document) {
       const selected = document.selected_indices
         .map((i) => document.rows[i])
         .filter((r) => dates.includes(r.valid_date));
+      if (unified) spatial = await forecastRecipeMasks(selected.filter(r=>rule!.variables.includes(r.variable)), document.archive_sha256, rule!, start, end, threshold);
       const daily = new Map<string, WeatherRow[]>();
       for (const row of selected) {
         const key = `${row.pra_id}/${row.valid_date}`,
@@ -220,7 +228,7 @@ export async function agroclimaticData(params: URLSearchParams) {
                   `${r.source_id}/${r.model_run_at}/${r.valid_from}/${r.valid_to}`,
               ),
             ).size === 1,
-          climate_support: forecastSupport(needed),
+          climate_support: spatial ? spatial.supports.get(first.pra_id) : forecastSupport(needed),
           complete:
             needed.length === rule!.variables.length &&
             needed.every(
@@ -419,6 +427,7 @@ export async function agroclimaticData(params: URLSearchParams) {
         crozon.complementary = complementary;
     }
     const payload = {
+      ...(spatial ? {forecast_support: spatial.collection,forecast_support_rejections:spatial.rejected} : {}),
       contract_version: "agroclimatic-1",
       rule: rule!,
       parameters: { threshold },

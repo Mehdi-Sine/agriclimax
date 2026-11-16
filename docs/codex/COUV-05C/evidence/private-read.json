@@ -1,0 +1,18 @@
+{
+  "objects": 263,
+  "bytes": 172907551,
+  "pointers": {
+    "catalogue.json": "4b9b1e0109669045aa5b92519c8152d60ab3a73f4c45fe8a33d37258289994ab",
+    "current.json": "a7ce03e6302648fe7e9f4f9929bbe5bb410088a6cbad73ada604a50c3db669af"
+  },
+  "remote_writes": 0,
+  "source_acquisitions": 0,
+  "seconds": 43.21273584800008,
+  "pointers_after": {
+    "catalogue.json": "4b9b1e0109669045aa5b92519c8152d60ab3a73f4c45fe8a33d37258289994ab",
+    "current.json": "a7ce03e6302648fe7e9f4f9929bbe5bb410088a6cbad73ada604a50c3db669af"
+  },
+  "pointers_unchanged_in_session": true,
+  "native_objects_reused": 260,
+  "native_object_bytes": 172331262
+}

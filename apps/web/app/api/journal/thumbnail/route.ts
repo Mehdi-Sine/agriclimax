@@ -1,3 +1,4 @@
+import {editionForecastRendering} from '../../../../lib/server/edition-forecast';
 import {operationalEditions} from "../../../../lib/server/editorial-published";
 import {editionMaps} from "../../../../lib/server/edition-maps";
 import {EXHAUSTIVE_COVERAGE} from "../../../../features/cartography/coverage";
@@ -21,7 +22,9 @@ export async function GET(request: Request) {
     const variables = RECIPES.find(r=>r.id===map.indicator)?.kernel.variables;
     const spatial = exhaustive && map.nature==='reanalysis' && variables?.length===1 && variables[0]!=='humidity'
       ? await periodSupportDocument(map.period[0],map.period[1],variables[0]) : null;
-    const {bytes, etag} = await mapThumbnail(map,{exhaustive,coveredSupport:spatial?.verified?spatial.collection:null});
+    const rendering=exhaustive?await editionForecastRendering(map,view.status):undefined;
+    const rendered=rendering?{...map,rows:map.rows.map(r=>({...r,quality:rendering.qualities[r.territoryId]}))}:map;
+    const {bytes, etag} = await mapThumbnail(rendered,{exhaustive,coveredSupport:rendering?.collection??(spatial?.verified?spatial.collection:null)});
     const headers = {"Content-Type": "image/webp", "X-Content-Type-Options": "nosniff", ETag: etag,
       "Cache-Control": view.status === "published" ? "public, max-age=86400, stale-while-revalidate=604800" : "no-store"};
     if (view.status === "published" && request.headers.get("if-none-match") === etag) return new Response(null, {status: 304, headers});
