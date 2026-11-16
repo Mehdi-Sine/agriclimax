@@ -1,0 +1,12 @@
+{
+  "accepted": 1185,
+  "partial": 540,
+  "shards": 243,
+  "local_reader_ms": {
+    "median": 24.483164999999644,
+    "p95": 59.10978999999861,
+    "max": 109.25078600000006
+  },
+  "transport": "local retained bytes; no HTTP or browser latency",
+  "real_route_replay": false
+}

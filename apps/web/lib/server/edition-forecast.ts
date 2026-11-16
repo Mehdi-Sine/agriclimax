@@ -47,8 +47,9 @@ export async function editionForecastRendering(map:EditionMap,state:string):Prom
     const accepted=new Set<string>();
     for(const original of map.rows){
       const support=spatial.supports.get(original.territoryId);
-      if(!support)continue;
-      const result=calculateQualified(original.territoryId,(inputs[original.territoryId]??[]).map(r=>({...r,climate_support:support})),...map.period,rule,rule.threshold);
+      const retained=spatial.qualified?.get(original.territoryId);
+      if(!support&&!retained)continue;
+      const result=retained??calculateQualified(original.territoryId,(inputs[original.territoryId]??[]).map(r=>({...r,climate_support:support})),...map.period,rule,rule.threshold);
       // An attachment cannot silently replace or numerically change an archived result.
       if(result.quality?.indicator_eligible && (result.value??result.observed_value??null)===(original.value??original.observed_value??null)){
         unknown.qualities[original.territoryId]=result.quality;accepted.add(original.territoryId);
