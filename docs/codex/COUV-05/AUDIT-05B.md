@@ -28,3 +28,5 @@ Un masque composite démontre un **support spatial commun**, pas une valeur reca
 La CI de la base #97 échouait sur trois constats Ruff (ordre des imports et itération des paires de dates). Ils sont corrigés ; les contrôles locaux sont joints. Une seconde reproduction après passage de minuit UTC conserve le classement temporel d'origine et vérifie à nouveau les 49 910 lignes et les captures. Le garde Vercel ajouté est limité à cette branche : il répond à la contrainte explicite de ne pas déployer automatiquement.
 
 La version de preuve v2 certifie les contrats de réduction `pra-national-weather-daily-1` pour AROME/ARPEGE et `pra-weather-daily-2` pour IFS. Un résultat d'une autre règle est refusé ; une évolution de contrat scientifique devra versionner la preuve.
+
+Le contrôle final conserve aussi la famille scientifique `mean_sum` des précipitations et refuse une unité ou une échéance discordante. Ces contrôles ne changent pas les règles de qualification existantes ; ils renforcent la liaison d'identité du lecteur candidat.

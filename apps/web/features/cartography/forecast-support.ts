@@ -1,6 +1,6 @@
 /** COUV-05 binding only. COUV-04 remains the sole paint policy. */
 import type { WeatherRow } from '../operational/model';
-import { indicatorFamily, qualifyCoverage, type CoverageQuality } from '../climate-quality/policy';
+import { qualifyCoverage, type CoverageQuality } from '../climate-quality/policy';
 import type { PraCollection } from '../national/map';
 
 export const FORECAST_MASK_VERSION = 'couv05-native-cells-2';
@@ -17,7 +17,9 @@ const digest = (value: string | null): value is string => !!value && /^[a-f0-9]{
 export function matchesForecastSupport(row: WeatherRow, proof: ForecastSupport, referenceSha: string): boolean {
   const model = models[row.model];
   return !!model && row.nature === 'forecast' && row.source_id === sources[model] &&
-    row.rule_version === rules[model] && row.pra_id === proof.pra_id && model === proof.model && row.variable === proof.variable &&
+    row.rule_version === rules[model] &&
+    row.unit === (row.variable === 'humidity' ? '%' : row.variable === 'precipitation' ? 'mm' : 'degC') &&
+    row.lead_hours === (Date.parse(row.valid_to) - Date.parse(proof.run)) / 3600000 && row.pra_id === proof.pra_id && model === proof.model && row.variable === proof.variable &&
     row.valid_date === proof.period && Number.isFinite(Date.parse(proof.run)) &&
     Date.parse(row.model_run_at ?? '') === Date.parse(proof.run) &&
     Date.parse(row.valid_from) === Date.parse(row.valid_date + 'T00:00:00Z') &&
@@ -37,7 +39,7 @@ export function matchesForecastSupport(row: WeatherRow, proof: ForecastSupport, 
 export function forecastSpatialQuality(row: WeatherRow, proof: ForecastSupport | undefined, referenceSha: string): CoverageQuality {
   const matched = !!proof && matchesForecastSupport(row, proof, referenceSha);
   return qualifyCoverage(row.status === 'unavailable' ? null : row.value,
-    row.variable === 'humidity' ? 'specific' : indicatorFamily(row.variable), {
+    row.variable === 'humidity' ? 'specific' : ['temperature_min', 'temperature_max'].includes(row.variable) ? 'extreme_event' : 'mean_sum', {
       fraction: matched ? proof.fraction : null, support_id: matched ? proof.support_id : null,
       mask: matched ? 'native_valid_cells' : 'unknown', represented_area_m2: null,
       expected_days: 1, available_days: row.temporal_coverage === 1 ? 1 : 0,

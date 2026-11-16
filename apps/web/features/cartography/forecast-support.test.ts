@@ -32,6 +32,8 @@ describe('forecast native support binding',()=>{
     }
     expect(matchesForecastSupport({...row,valid_to:row.valid_from},proof,ref)).toBe(false);
     expect(matchesForecastSupport({...row,rule_version:'another-scientific-rule'},proof,ref)).toBe(false);
+    expect(matchesForecastSupport({...row,unit:'%'},proof,ref)).toBe(false);
+    expect(matchesForecastSupport({...row,lead_hours:999},proof,ref)).toBe(false);
   });
   it('preserves unknown proof separately from the numeric zero',()=>{
     const bundle=weatherQualityBundle([row],{proofs:[],referenceSha:ref});
@@ -54,4 +56,10 @@ it('distinguishes native absence from missing proof',()=>{
   const q=forecastSpatialQuality(unavailable,{...proof,status:'absent',fraction:0,geometry_verified:false,valid_native_cells:0},ref);
   expect(q.state).toBe('unavailable');expect(q.evidence.fraction).toBe(0);
   expect(q.evidence.mask).toBe('native_valid_cells');
+});
+
+it('preserves the existing mean/sum family for precipitation',()=>{
+  const rain={...row,variable:'precipitation' as const,unit:'mm' as const,value:0,spatial_coverage:.5};
+  const q=forecastSpatialQuality(rain,{...proof,variable:'precipitation',fraction:.5,status:'partial'},ref);
+  expect(q.state).toBe('observed_partial');expect(q.evidence.fraction).toBe(.5);
 });
