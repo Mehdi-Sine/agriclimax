@@ -1,3 +1,4 @@
+import {forecastSpatialQuality, type ForecastSupport} from "../cartography/forecast-support";
 import {qualifyCoverage, type CoverageQuality} from "./policy";
 import type {QualifiedDay} from "./calculate";
 import type {WeatherRow} from "../operational/model";
@@ -16,11 +17,11 @@ export function weatherQualityKey(row: Pick<WeatherRow,"pra_id"|"valid_date"|"va
 }
 
 export interface WeatherQualityBundle {lookup: Record<string,string>; definitions: Record<string,CoverageQuality>}
-export function weatherQualityBundle(rows: WeatherRow[]): WeatherQualityBundle {
+export function weatherQualityBundle(rows: WeatherRow[], spatial?: {proofs:ForecastSupport[];referenceSha:string}): WeatherQualityBundle {
  const lookup: Record<string,string>={},definitions: Record<string,CoverageQuality>={},ids=new Map<string,string>();
  for(const row of rows){
   const support=forecastSupport([row]);
-  const q=qualifyCoverage(row.status==="unavailable"?null:row.value,row.variable==="humidity"?"specific":["temperature_min","temperature_max"].includes(row.variable)?"extreme_event":"mean_sum",{
+  const q=spatial?forecastSpatialQuality(row,spatial.proofs.find(p=>p.pra_id===row.pra_id&&p.variable===row.variable&&p.period===row.valid_date),spatial.referenceSha):qualifyCoverage(row.status==="unavailable"?null:row.value,row.variable==="humidity"?"specific":["temperature_min","temperature_max"].includes(row.variable)?"extreme_event":"mean_sum",{
    fraction:row.spatial_coverage,support_id:support?.id??null,mask:support?.mask??"unknown",represented_area_m2:null,
    expected_days:1,available_days:row.temporal_coverage===1?1:0,continuous:row.temporal_coverage===1,homogeneous:!!support,
    method:support?.method??"",estimate_certificate:null,reference_compatible:false,

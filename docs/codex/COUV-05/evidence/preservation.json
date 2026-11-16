@@ -1,0 +1,107 @@
+[
+  {
+    "path": "apps/web/features/cartography/coverage.ts",
+    "sha256": "ce67879d73fd54e3f4cc1f431e9530d74e36eda42fa86d28bea5e384e0f11143",
+    "unchanged": true
+  },
+  {
+    "path": "apps/web/features/agroclimatic/calculate.ts",
+    "sha256": "c55068c8e9e27580f5852360a42c62ba8761a434f056aab4c70ad99f9a18aea9",
+    "unchanged": true
+  },
+  {
+    "path": "apps/web/features/agroclimatic/catalogue.ts",
+    "sha256": "35fec7e729510f08b48f8e74c1a5291628e12688fa6ec4740708f47e47dd819f",
+    "unchanged": true
+  },
+  {
+    "path": "apps/web/features/multiproduction/agro03.ts",
+    "sha256": "e3634e883d07b55ba7bdbfd03e48fe6c86326966e332630daf2080cc30b060d4",
+    "unchanged": true
+  },
+  {
+    "path": "engine/src/agriclimax/territories/operational.py",
+    "sha256": "f5786bfed4f5b817da5d3323bf3e21551d191e287622000e5d267a0316a967c4",
+    "unchanged": true
+  },
+  {
+    "path": "engine/src/agriclimax/territories/national_weather.py",
+    "sha256": "d473378ee3e5ece7c281bac11fec7df20b64511e5cc7fc9bfba166ba2a6f911d",
+    "unchanged": true
+  },
+  {
+    "path": "engine/src/agriclimax/territories/weather_archive.py",
+    "sha256": "38ff0b8513d245f48b1559313bf34652929bafefa548f4973385dd20334b4eeb",
+    "unchanged": true
+  },
+  {
+    "path": ".github/workflows/agriculture-annual.yml",
+    "sha256": "b34db801fe56adfb75ee457072da68695edae665e9bc0e929a7bd09e6cb65527",
+    "unchanged": true
+  },
+  {
+    "path": ".github/workflows/daily-live.yml",
+    "sha256": "43e69b3fd5c33291d6116dcf3270ff389254f692eb56dafd274d241a812ccf9a",
+    "unchanged": true
+  },
+  {
+    "path": ".github/workflows/data-ingestion.yml",
+    "sha256": "17423cc769c37dbb0ffb224cba39b0240469bee53a41cfbd0462dd3bc30476fe",
+    "unchanged": true
+  },
+  {
+    "path": ".github/workflows/edition-maps.yml",
+    "sha256": "b187a6f76af76eeb363a249751f3399c06e8f9244c70b1387675aee41df6e92a",
+    "unchanged": true
+  },
+  {
+    "path": ".github/workflows/editorial-ai-manual.yml",
+    "sha256": "92f50f60ce2426bfe625c1ae90bd344988e4ff5294df8f44325b71f2b9f78f7b",
+    "unchanged": true
+  },
+  {
+    "path": ".github/workflows/manual-journal.yml",
+    "sha256": "f8e3211f40bc4a4070e58e33601f0e53adf2b14dcb25025f0c4bf995b80b9bac",
+    "unchanged": true
+  },
+  {
+    "path": ".github/workflows/meteofrance-ingestion.yml",
+    "sha256": "60f1abc12c628c3fab1f7ace1213f13f3b58a13d65a7da35748798855aa682bb",
+    "unchanged": true
+  },
+  {
+    "path": ".github/workflows/operational-journal.yml",
+    "sha256": "d623913cabc2d514bab66e5436d3d0278ffa22886daecbcac9d5e5766b87958a",
+    "unchanged": true
+  },
+  {
+    "path": ".github/workflows/pra-climate.yml",
+    "sha256": "71e11fafd51038c92feef147cc1067943672d7dad3e0f6225d2c5e1fa8065eb9",
+    "unchanged": true
+  },
+  {
+    "path": ".github/workflows/quality.yml",
+    "sha256": "9b81be1cc38cb63b29d6f1e0621f950e7824bf2de2e135188ced27be9ab066c2",
+    "unchanged": true
+  },
+  {
+    "path": ".github/workflows/security.yml",
+    "sha256": "dcca2831c53f520484d49c9c4765a4567e434669fac941167f85415025bb8cd2",
+    "unchanged": true
+  },
+  {
+    "path": ".github/workflows/task12-era5-real-validation.yml",
+    "sha256": "98c8ddc20d95404297c5a1006e8ee6ea8a302ba39260ed21ce80fb161abe7b30",
+    "unchanged": true
+  },
+  {
+    "path": "scripts/national_weather_models.py",
+    "scientific_ast_unchanged_excluding_opt_in_capture": true,
+    "ast_sha256": "9d5b7e7e47f68cd3a984f212ecc8410e88b122e27fe551866b6bb9569b662916"
+  },
+  {
+    "path": "scripts/operational_weather_pilot.py",
+    "scientific_ast_unchanged_excluding_opt_in_capture": true,
+    "ast_sha256": "10994b0fe44ee63a449725eeac67f8b1e42888528867600f7e6e47fdc917a85e"
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "verdict": "PARTIAL / NO-GO activation",
+  "archive_sha256": "ed93ab41472f81cec83a6039d8634133fa1feb42fe71d6513090d74d6985a398",
+  "archive_bytes": 561740,
+  "reference_sha256": "51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669",
+  "recipe_catalogue_sha256": "bc8481c2c43c48b41ae443905b064db572f5312c6eee43efa20bab2da41b7580",
+  "pra": 713,
+  "corsica": [
+    "pra:2A258",
+    "pra:2A259",
+    "pra:2A260",
+    "pra:2B258",
+    "pra:2B259",
+    "pra:2B260"
+  ],
+  "native": {
+    "arome-0p025": {
+      "rows": 10695,
+      "numeric_available": 9956
+    },
+    "arpege-0p1": {
+      "rows": 14260,
+      "numeric_available": 13829
+    },
+    "ifs-oper-0p25": {
+      "rows": 24955,
+      "numeric_available": 23767
+    }
+  },
+  "matrix_rows": 808542,
+  "matrix_sections": {
+    "native": 49910,
+    "recipe": 758632
+  },
+  "matrix_sha256": "3eee0475f8d637b0fc5d600c3b306272568d03925ae75e9c46c82f1422e76567",
+  "matrix_bytes": 2575946,
+  "recipes": 28,
+  "spatial_states": {
+    "unknown": 808542,
+    "absent": 0,
+    "partial": 0,
+    "demonstrated": 0
+  },
+  "numeric_recipes": "not evaluated; spatial audit does not change scientific formulae",
+  "geometry_validation": "not demonstrated by aggregate archive alone; consult native-summary.json",
+  "visual_validation": "archive-only diagnostic; external native proofs intentionally not consulted",
+  "remote_acquisitions": 0,
+  "remote_writes": 0,
+  "seconds": 8.20981190699996,
+  "max_rss_kib": 233600
+}

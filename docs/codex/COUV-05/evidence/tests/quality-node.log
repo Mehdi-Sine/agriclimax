@@ -1,0 +1,17 @@
+✔ repository has no active exception or advisory exclusion after withdrawal (5.647641ms)
+✔ accepts only the approved exact lint chain/version within its lifetime (1.084637ms)
+✔ fails at expiry, before approval and on an unlimited extension (1.777267ms)
+✔ fails if another advisory or a broad CVE exclusion is configured (0.791551ms)
+✔ fails when the same package enters production, changes version or introducer (2.426044ms)
+✔ fails on a stale exclusion and allows complete removal after an upgrade (1.483692ms)
+✔ fails if braces is copied into any Next production server trace (0.8032ms)
+✔ logs allowlisted context and drops raw credentials/PII/errors (1.580129ms)
+✔ rejects unsafe identifiers and invalid metadata (0.409073ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 239.321316

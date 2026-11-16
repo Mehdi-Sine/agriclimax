@@ -1,0 +1,17 @@
+{
+  "rows": 758632,
+  "statuses": {
+    "demonstrated": 739567,
+    "partial": 15828,
+    "absent": 660,
+    "unknown": 2577
+  },
+  "recipes": 28,
+  "matrix_sha256": "9fc785b2126cddd27619e67b9af3cfa7b2661cebd17a658355e9c87ae8f84ba3",
+  "matrix_bytes": 67796840,
+  "seconds": 101.3405668219998,
+  "numeric_recipes": "not evaluated",
+  "activation": false,
+  "geometry_reuse": "only identical per-PRA native cell membership; new support_id per recipe/period/inputs",
+  "source_requests": 0
+}

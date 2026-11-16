@@ -136,3 +136,9 @@ export async function nationalLandMasks(){
  const result:Record<string,Record<string,{native_cells:number;physical_land_mask_available:boolean;source_land_fraction:number;mask_sha256:string}>>={};
  for(const name of ['arome','arpege']){const source=raw.sources[name];if(!record(source)||!record(source.pra)||Object.keys(source.pra).length!==713)throw new Error('LAND_MASK_IDENTITIES');result[name]={};for(const [pra,q] of Object.entries(source.pra)){if(!identities.ids.includes(pra)||!record(q)||typeof q.native_cells!=='number'||q.physical_land_mask_available!==true||typeof q.source_land_fraction!=='number'||q.source_land_fraction<0||q.source_land_fraction>1.0001||typeof q.mask_sha256!=='string'||!/^[a-f0-9]{64}$/.test(q.mask_sha256))throw new Error('LAND_MASK_VALUE');result[name][pra]={native_cells:q.native_cells,physical_land_mask_available:true,source_land_fraction:q.source_land_fraction,mask_sha256:q.mask_sha256};}}return result;})();landCache={sha:e.sha256,value};void value.catch(()=>{if(landCache?.value===value)landCache=undefined;});return value;
 }
+
+/** Read-only COUV-05 namespace; never consults or changes published pointers. */
+export async function forecastMaskObject(path:string,limit:number):Promise<Uint8Array|null>{
+  if(!/^forecast-masks\/(blobs|indexes|geometries)\/[a-f0-9]{64}\.json\.gz$/.test(path))throw Error('FORECAST_MASK_PATH');
+  return storage(path,limit);
+}

@@ -3,12 +3,15 @@
 import gzip
 import hashlib
 import json
+import os
 from dataclasses import asdict
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
 from agriclimax.ingestion.storage import atomic_write
+from agriclimax.news.batch import immutable_write
+from agriclimax.territories.forecast_masks import capture_native
 from agriclimax.territories.national_daily import REFERENCE
 from agriclimax.territories.national_weather import (
     GRID_VERSIONS,
@@ -144,6 +147,7 @@ def model_day(
     territories: list[Territory],
     weights: list[Weight],
     root: Path,
+    reference_sha: str,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     directory = root / "reduced"
     directory.mkdir(exist_ok=True)
@@ -185,6 +189,17 @@ def model_day(
     values, temporal, anomalies = reduce_native_day(
         temperatures, humidities, rain, steps, factor
     )
+    if os.environ.get("COUV05_CAPTURE_NATIVE_MASKS") == "true":
+        # Isolated candidate proof, derived before PRA aggregation.
+        candidate = root / "couv05-native" / f"{provider.product}-{day}{suffix}.json.gz"
+        candidate.parent.mkdir(exist_ok=True)
+        immutable_write(candidate, capture_native(
+            model=provider.product, run=run.isoformat(), day=str(day),
+            grid_version=GRID_VERSIONS[provider.product],
+            reference_sha256=reference_sha, weights_sha256=fingerprint,
+            source_sha256=digest(receipts),
+            values=values, temporal=temporal,
+        ))
     provenance = digest(receipts)
     acquired = max(datetime.fromisoformat(r["acquired_at"]) for r in receipts)
     rows = aggregate_day(
@@ -246,7 +261,7 @@ def wcs_models(
             day = run.date() + timedelta(days=offset)
             source_run = run.replace(hour=0) - timedelta(days=1) if offset == -1 else run.replace(hour=0) if offset == 0 else run
             output, audit = model_day(
-                provider, source_run, day, territories, weights, root
+                provider, source_run, day, territories, weights, root, reference_sha
             )
             rows.extend(output)
             audits.append(audit)
