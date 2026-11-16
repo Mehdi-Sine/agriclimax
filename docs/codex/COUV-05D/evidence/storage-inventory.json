@@ -1,0 +1,31 @@
+{
+  "project": "yyfbpecxvxglzxopsmel",
+  "bucket": "pra-climate-archives",
+  "method": "read-only SELECT storage.objects; name LIKE forecast-masks/%",
+  "objects": [
+    {
+      "kind": "blobs",
+      "objects": 70,
+      "bytes": 12190201
+    },
+    {
+      "kind": "geometries",
+      "objects": 189,
+      "bytes": 160136915
+    },
+    {
+      "kind": "indexes",
+      "objects": 1,
+      "bytes": 4146
+    }
+  ],
+  "total_objects": 260,
+  "total_bytes": 172331262,
+  "indexes": [
+    {
+      "sha256": "df8d1c4abc3a3427cee3df3daf200dc7058f408fa22be274bff84e476fbd9145",
+      "created_at": "2026-11-16T00:02:16.454486Z"
+    }
+  ],
+  "mutation": false
+}

@@ -1,0 +1,35 @@
+{
+  "run_date": "2026-11-15",
+  "per_model": {
+    "arome": {
+      "demonstrated": 10389,
+      "partial": 303,
+      "absent": 3
+    },
+    "arpege": {
+      "demonstrated": 14017,
+      "partial": 243
+    },
+    "ifs": {
+      "demonstrated": 24387,
+      "partial": 551,
+      "absent": 17
+    }
+  },
+  "visual_verified": false,
+  "rejections": [],
+  "spatial_index": {
+    "path": "forecast-masks/indexes/e1da3cfb5e17a85cd6193661ed01d119421796a34a664c79c98e167cdd935347.json.gz",
+    "sha256": "e1da3cfb5e17a85cd6193661ed01d119421796a34a664c79c98e167cdd935347",
+    "bytes": 4155
+  },
+  "matrix_rows": 49910,
+  "matrix_sha256": "6524933135a060e68a67e8f34ad4a4209ec4f843bbf47cbdbaa3a8ac77016210",
+  "candidate_only": true,
+  "seconds": 824.732799076,
+  "max_rss_kib": 1046012,
+  "geometry_cache_entries": 3986,
+  "sidecar_bytes": 180137728,
+  "sidecar_objects": 267,
+  "activation": "NO-GO"
+}

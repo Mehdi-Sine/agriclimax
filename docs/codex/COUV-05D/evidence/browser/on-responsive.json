@@ -1,0 +1,2577 @@
+{
+  "kind": "full product pages, real API and Storage, no response interception",
+  "mode": "on-responsive",
+  "checks": [
+    {
+      "name": "analyse-pluie-homogene",
+      "width": 768,
+      "mode": "on-responsive",
+      "url": "/analyse?temporal=forecast&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&agro=rain&agro_start=2026-11-16&agro_end=2026-11-17",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 713,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 14.426554787999999,
+      "api": [
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75424,
+          "sha256": "cc1b60c80535c05e6c279db6b33eafcf6b3dbb1af28f2a221b6ce52d59434c11",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        },
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/agroclimatic",
+          "query": "?indicator=rain&temporal=forecast&start=2026-11-16&end=2026-11-17&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 1195153,
+          "sha256": "6b370166924da9263e7ae8ad5da7116896cc9dbe5e732c26642f29e3176c5cbd",
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          },
+          "rows": 713,
+          "eligible": 713,
+          "rule": "rain"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=temperature",
+          "status": 200,
+          "bytes": 1398895,
+          "sha256": "660afe8bfc8ffe21fc298633b1bfbf34c7739aa35cc371aebc2aca6ea7938734",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "analyse-thi-homogene",
+      "width": 768,
+      "mode": "on-responsive",
+      "url": "/analyse?temporal=forecast&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&production=cattle&agro=thi&agro_start=2026-11-19&agro_end=2026-11-21",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 389,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 72> 72 à 75> 75 à 80> 80 à 85> 85THI · THI synthétique ; seuil descriptif strict > 72, variante Bohmanova 2005 · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 72> 72 à 75> 75 à 80> 80 à 85> 85"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 15.958865327,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75424,
+          "sha256": "cc1b60c80535c05e6c279db6b33eafcf6b3dbb1af28f2a221b6ce52d59434c11",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=temperature",
+          "status": 200,
+          "bytes": 1398895,
+          "sha256": "660afe8bfc8ffe21fc298633b1bfbf34c7739aa35cc371aebc2aca6ea7938734",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/agroclimatic",
+          "query": "?indicator=thi&temporal=forecast&start=2026-11-19&end=2026-11-21&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 1113075,
+          "sha256": "5beb721801cce3630b5c3bd63c238900c581bc23a9a346b46a48434596117bf3",
+          "paint": {
+            "whole": 389,
+            "covered": 0,
+            "unavailable": 324
+          },
+          "rows": 713,
+          "eligible": 389,
+          "rule": "thi"
+        }
+      ]
+    },
+    {
+      "name": "climat-pluie-ifs-partiel",
+      "width": 768,
+      "mode": "on-responsive",
+      "url": "/climat?temporal=forecast&weather_model=ifs&weather_variable=precipitation&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&forecast_date=2026-11-19",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 706,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 1> 1 à 5> 5 à 10> 10 à 20> 20mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 1> 1 à 5> 5 à 10> 10 à 20> 20"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 11.154220421999998,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9513,
+          "sha256": "02a1591ed8aabedc5367c3fccd3ba1c359adc1fbed1d6833bdeab908a00e6c9e",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 60240,
+          "sha256": "e2ad5f6c4395a8f417fdddcadb690c53b5819d9014218a9faadd1650dbe44acc",
+          "rows": 35,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 35
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-19&variable=precipitation",
+          "status": 200,
+          "bytes": 1388460,
+          "sha256": "87206d465fd7e3b118158f63eb8a165606c45ad99b8b3fb1dc55fecc216e033e",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-19"
+          ],
+          "sources": [
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 706,
+            "covered": 0,
+            "unavailable": 7
+          }
+        }
+      ]
+    },
+    {
+      "name": "climat-cycle-precedent",
+      "width": 768,
+      "mode": "on-responsive",
+      "url": "/climat?temporal=forecast&weather_model=selected&weather_variable=temperature&weather_run=2026-11-13T18%3A00%3A00%2B00%3A00&forecast_date=2026-11-14",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 0,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 0> 0 à 10> 10 à 20> 20 à 30> 30°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 0> 0 à 10> 10 à 20> 20 à 30> 30"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 14.407854539,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-13T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "9db5f962afb2ccaf6ad87404468d25195003fcfefd884a7ffd80e1421f963b69",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-13T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-13T18%3A00%3A00%2B00%3A00&date=2026-11-14&variable=temperature",
+          "status": 200,
+          "bytes": 1017085,
+          "sha256": "64c2562eec644e2ec39ee2c4f8c78e93e09fd8d327dff2e9caa8cdf0c3f8a8ba",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-13T18:00:00+00:00",
+          "dates": [
+            "2026-11-14"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 713
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-13T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75907,
+          "sha256": "10cbe62543fcbf55e05607a3dde6b91f8499dd7c31e5afda7ed5c053b717a6c9",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-13T18:00:00+00:00",
+          "dates": [
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        }
+      ]
+    },
+    {
+      "name": "climat-cycle-suivant",
+      "width": 768,
+      "mode": "on-responsive",
+      "url": "/climat?temporal=forecast&weather_model=selected&weather_variable=temperature&weather_run=2026-11-15T18%3A00%3A00%2B00%3A00&forecast_date=2026-11-16",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 0,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 0> 0 à 10> 10 à 20> 20 à 30> 30°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 0> 0 à 10> 10 à 20> 20 à 30> 30"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 23.905819654,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-15T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "67815ca47d1dee88756fead871c49fd66b65049888da0e882132e5fd0bccd4b7",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-15T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-15T18%3A00%3A00%2B00%3A00&date=2026-11-16&variable=temperature",
+          "status": 200,
+          "bytes": 1017313,
+          "sha256": "5d2bc4ba9112136c7c9d33a7b3a0b534ae26c730c08422982d5889df08a97fe1",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-15T18:00:00+00:00",
+          "dates": [
+            "2026-11-16"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 713
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-15T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75957,
+          "sha256": "e5201bddc79161ee1fc4f668d11020091bd80f9119600c1e0986fbf3e88695ae",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-15T18:00:00+00:00",
+          "dates": [
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21",
+            "2026-11-22"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        }
+      ]
+    },
+    {
+      "name": "climat-temperature",
+      "width": 768,
+      "mode": "on-responsive",
+      "url": "/climat?temporal=forecast&weather_model=selected&weather_variable=temperature&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&forecast_date=2026-11-15",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 713,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 0> 0 à 10> 10 à 20> 20 à 30> 30°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 0> 0 à 10> 10 à 20> 20 à 30> 30"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 24.576487485999998,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75424,
+          "sha256": "cc1b60c80535c05e6c279db6b33eafcf6b3dbb1af28f2a221b6ce52d59434c11",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=temperature",
+          "status": 200,
+          "bytes": 1398895,
+          "sha256": "660afe8bfc8ffe21fc298633b1bfbf34c7739aa35cc371aebc2aca6ea7938734",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "climat-pluie-ifs",
+      "width": 768,
+      "mode": "on-responsive",
+      "url": "/climat?temporal=forecast&weather_model=ifs&weather_variable=precipitation&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&forecast_date=2026-11-15",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 713,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 1> 1 à 5> 5 à 10> 10 à 20> 20mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 1> 1 à 5> 5 à 10> 10 à 20> 20"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 23.65050925300001,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9513,
+          "sha256": "02a1591ed8aabedc5367c3fccd3ba1c359adc1fbed1d6833bdeab908a00e6c9e",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 60240,
+          "sha256": "e2ad5f6c4395a8f417fdddcadb690c53b5819d9014218a9faadd1650dbe44acc",
+          "rows": 35,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 35
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=precipitation",
+          "status": 200,
+          "bytes": 1387063,
+          "sha256": "968527cfb97794d940a5ba808d14ed226ab629507f6def9a9d5bef897de337fc",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "climat-humidite-ifs",
+      "width": 768,
+      "mode": "on-responsive",
+      "url": "/climat?temporal=forecast&weather_model=ifs&weather_variable=humidity&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&forecast_date=2026-11-15",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 586,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 20> 20 à 40> 40 à 60> 60 à 80> 80% · Humidité relative estimée · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 20> 20 à 40> 40 à 60> 60 à 80> 80"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 25.793041026000004,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9513,
+          "sha256": "02a1591ed8aabedc5367c3fccd3ba1c359adc1fbed1d6833bdeab908a00e6c9e",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 60240,
+          "sha256": "e2ad5f6c4395a8f417fdddcadb690c53b5819d9014218a9faadd1650dbe44acc",
+          "rows": 35,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 35
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=humidity",
+          "status": 200,
+          "bytes": 1415863,
+          "sha256": "adfa06c15a766686ac74e5d621976d8b4d47982658c3534c30cebe715ee83720",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 586,
+            "covered": 0,
+            "unavailable": 127
+          }
+        }
+      ]
+    },
+    {
+      "name": "analyse-pluie-multi-modeles",
+      "width": 768,
+      "mode": "on-responsive",
+      "url": "/analyse?temporal=forecast&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&agro=rain&agro_start=2026-11-15&agro_end=2026-11-21",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 0,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 22.779791792000005,
+      "api": [
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75424,
+          "sha256": "cc1b60c80535c05e6c279db6b33eafcf6b3dbb1af28f2a221b6ce52d59434c11",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=temperature",
+          "status": 200,
+          "bytes": 1398895,
+          "sha256": "660afe8bfc8ffe21fc298633b1bfbf34c7739aa35cc371aebc2aca6ea7938734",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/agroclimatic",
+          "query": "?indicator=rain&temporal=forecast&start=2026-11-15&end=2026-11-21&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 1380582,
+          "sha256": "eda65cadad572bb363bfbcb068b8661df85283cbe123a0b074a3c34dad65c536",
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 713
+          },
+          "rows": 713,
+          "eligible": 0,
+          "rule": "rain"
+        }
+      ]
+    },
+    {
+      "name": "analyse-thi-multi-modeles",
+      "width": 768,
+      "mode": "on-responsive",
+      "url": "/analyse?temporal=forecast&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&production=cattle&agro=thi&agro_start=2026-11-15&agro_end=2026-11-21",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 0,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 72> 72 à 75> 75 à 80> 80 à 85> 85THI · THI synthétique ; seuil descriptif strict > 72, variante Bohmanova 2005 · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 72> 72 à 75> 75 à 80> 80 à 85> 85"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 17.07756464300002,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75424,
+          "sha256": "cc1b60c80535c05e6c279db6b33eafcf6b3dbb1af28f2a221b6ce52d59434c11",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=temperature",
+          "status": 200,
+          "bytes": 1398895,
+          "sha256": "660afe8bfc8ffe21fc298633b1bfbf34c7739aa35cc371aebc2aca6ea7938734",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/agroclimatic",
+          "query": "?indicator=thi&temporal=forecast&start=2026-11-15&end=2026-11-21&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 1483457,
+          "sha256": "0ce0ea049d4040e3f9ca491322f442b7a0f4dbf26b25c61d12a47f29a378a4b2",
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 713
+          },
+          "rows": 713,
+          "eligible": 0,
+          "rule": "thi"
+        }
+      ]
+    },
+    {
+      "name": "cartes-du-jour",
+      "width": 768,
+      "mode": "on-responsive",
+      "url": "/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&date=2026-11-15&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 713,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 24.91302557300002,
+      "api": [
+        {
+          "path": "/api/journal/maps",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae",
+          "status": 200,
+          "bytes": 1447097,
+          "sha256": "fda28ef996fe3c6ae036c64e0bcc40a97adedea2b719b60ef6eb925a3b7f1617",
+          "eligible": 713
+        }
+      ]
+    },
+    {
+      "name": "journal",
+      "width": 768,
+      "mode": "on-responsive",
+      "url": "/journal?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&date=2026-11-15",
+      "thumbnails": [
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=e1bb8d895d49a632124298937485d749c9cdadf349578be7d61b8f1619d99704&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91&v=ux03-1"
+        }
+      ],
+      "journal_inline_map": false,
+      "journal_path": "real carousel -> real interactive Cartes du jour",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 713,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 34.43010340700002,
+      "api": [
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91&v=ux03-1",
+          "status": 200,
+          "bytes": 44246,
+          "sha256": "51825a726aab0c00d1467886e5fa89f9239d51d3b260aaa995da66df0a17bcc4",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5&v=ux03-1",
+          "status": 200,
+          "bytes": 40286,
+          "sha256": "b53fd401f71b9181efb253656d636bdc5484f8dd0739ec7de5f2529ffa97866e",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06&v=ux03-1",
+          "status": 200,
+          "bytes": 40138,
+          "sha256": "9bde51bc7fbc206aa3e9243604987e4f01e59fda705c1eae73b8fd2f81897b9f",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=e1bb8d895d49a632124298937485d749c9cdadf349578be7d61b8f1619d99704&v=ux03-1",
+          "status": 200,
+          "bytes": 40630,
+          "sha256": "a6a95135fba22f7dad24d38f1abee88c159415ccedc68069b0ef8f0b97353126",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae&v=ux03-1",
+          "status": 200,
+          "bytes": 42186,
+          "sha256": "869d3eb18d2b1ab6d60d8636e59130eceb182503836d8375f4ffd4f6b52a2baf",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/maps",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae",
+          "status": 200,
+          "bytes": 1447097,
+          "sha256": "fda28ef996fe3c6ae036c64e0bcc40a97adedea2b719b60ef6eb925a3b7f1617",
+          "eligible": 713
+        }
+      ]
+    },
+    {
+      "name": "analyse-pluie-homogene",
+      "width": 390,
+      "mode": "on-responsive",
+      "url": "/analyse?temporal=forecast&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&agro=rain&agro_start=2026-11-16&agro_end=2026-11-17",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 713,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 17.665363871999986,
+      "api": [
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75424,
+          "sha256": "cc1b60c80535c05e6c279db6b33eafcf6b3dbb1af28f2a221b6ce52d59434c11",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        },
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/agroclimatic",
+          "query": "?indicator=rain&temporal=forecast&start=2026-11-16&end=2026-11-17&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 1195153,
+          "sha256": "8fb65872a428a4d4d61a459692fa6984b4c920ae71f1eb52199925a9a5156af9",
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          },
+          "rows": 713,
+          "eligible": 713,
+          "rule": "rain"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=temperature",
+          "status": 200,
+          "bytes": 1398895,
+          "sha256": "660afe8bfc8ffe21fc298633b1bfbf34c7739aa35cc371aebc2aca6ea7938734",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "analyse-thi-homogene",
+      "width": 390,
+      "mode": "on-responsive",
+      "url": "/analyse?temporal=forecast&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&production=cattle&agro=thi&agro_start=2026-11-19&agro_end=2026-11-21",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 389,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 72> 72 à 75> 75 à 80> 80 à 85> 85THI · THI synthétique ; seuil descriptif strict > 72, variante Bohmanova 2005 · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 72> 72 à 75> 75 à 80> 80 à 85> 85"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 15.006244877999997,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75424,
+          "sha256": "cc1b60c80535c05e6c279db6b33eafcf6b3dbb1af28f2a221b6ce52d59434c11",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=temperature",
+          "status": 200,
+          "bytes": 1398895,
+          "sha256": "660afe8bfc8ffe21fc298633b1bfbf34c7739aa35cc371aebc2aca6ea7938734",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/agroclimatic",
+          "query": "?indicator=thi&temporal=forecast&start=2026-11-19&end=2026-11-21&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 1113074,
+          "sha256": "9068d01b0f984599c1a591d4dd7af316caccf74fcc82893f596bdc7eb7c9aabb",
+          "paint": {
+            "whole": 389,
+            "covered": 0,
+            "unavailable": 324
+          },
+          "rows": 713,
+          "eligible": 389,
+          "rule": "thi"
+        }
+      ]
+    },
+    {
+      "name": "climat-pluie-ifs-partiel",
+      "width": 390,
+      "mode": "on-responsive",
+      "url": "/climat?temporal=forecast&weather_model=ifs&weather_variable=precipitation&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&forecast_date=2026-11-19",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 706,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 1> 1 à 5> 5 à 10> 10 à 20> 20mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 1> 1 à 5> 5 à 10> 10 à 20> 20"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 11.380758508,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9513,
+          "sha256": "02a1591ed8aabedc5367c3fccd3ba1c359adc1fbed1d6833bdeab908a00e6c9e",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 60240,
+          "sha256": "e2ad5f6c4395a8f417fdddcadb690c53b5819d9014218a9faadd1650dbe44acc",
+          "rows": 35,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 35
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-19&variable=precipitation",
+          "status": 200,
+          "bytes": 1388460,
+          "sha256": "87206d465fd7e3b118158f63eb8a165606c45ad99b8b3fb1dc55fecc216e033e",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-19"
+          ],
+          "sources": [
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 706,
+            "covered": 0,
+            "unavailable": 7
+          }
+        }
+      ]
+    },
+    {
+      "name": "climat-cycle-precedent",
+      "width": 390,
+      "mode": "on-responsive",
+      "url": "/climat?temporal=forecast&weather_model=selected&weather_variable=temperature&weather_run=2026-11-13T18%3A00%3A00%2B00%3A00&forecast_date=2026-11-14",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 0,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 0> 0 à 10> 10 à 20> 20 à 30> 30°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 0> 0 à 10> 10 à 20> 20 à 30> 30"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 11.843017334999983,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-13T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "9db5f962afb2ccaf6ad87404468d25195003fcfefd884a7ffd80e1421f963b69",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-13T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-13T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75907,
+          "sha256": "10cbe62543fcbf55e05607a3dde6b91f8499dd7c31e5afda7ed5c053b717a6c9",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-13T18:00:00+00:00",
+          "dates": [
+            "2026-11-12",
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-13T18%3A00%3A00%2B00%3A00&date=2026-11-14&variable=temperature",
+          "status": 200,
+          "bytes": 1017085,
+          "sha256": "64c2562eec644e2ec39ee2c4f8c78e93e09fd8d327dff2e9caa8cdf0c3f8a8ba",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-13T18:00:00+00:00",
+          "dates": [
+            "2026-11-14"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 713
+          }
+        }
+      ]
+    },
+    {
+      "name": "climat-cycle-suivant",
+      "width": 390,
+      "mode": "on-responsive",
+      "url": "/climat?temporal=forecast&weather_model=selected&weather_variable=temperature&weather_run=2026-11-15T18%3A00%3A00%2B00%3A00&forecast_date=2026-11-16",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 0,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 0> 0 à 10> 10 à 20> 20 à 30> 30°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 0> 0 à 10> 10 à 20> 20 à 30> 30"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 13.315849127000023,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-15T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "67815ca47d1dee88756fead871c49fd66b65049888da0e882132e5fd0bccd4b7",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-15T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-15T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75957,
+          "sha256": "e5201bddc79161ee1fc4f668d11020091bd80f9119600c1e0986fbf3e88695ae",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-15T18:00:00+00:00",
+          "dates": [
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21",
+            "2026-11-22"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-15T18%3A00%3A00%2B00%3A00&date=2026-11-16&variable=temperature",
+          "status": 200,
+          "bytes": 1017313,
+          "sha256": "5d2bc4ba9112136c7c9d33a7b3a0b534ae26c730c08422982d5889df08a97fe1",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-15T18:00:00+00:00",
+          "dates": [
+            "2026-11-16"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 713
+          }
+        }
+      ]
+    },
+    {
+      "name": "climat-temperature",
+      "width": 390,
+      "mode": "on-responsive",
+      "url": "/climat?temporal=forecast&weather_model=selected&weather_variable=temperature&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&forecast_date=2026-11-15",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 713,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 0> 0 à 10> 10 à 20> 20 à 30> 30°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 0> 0 à 10> 10 à 20> 20 à 30> 30"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 11.223594520000042,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75424,
+          "sha256": "cc1b60c80535c05e6c279db6b33eafcf6b3dbb1af28f2a221b6ce52d59434c11",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=temperature",
+          "status": 200,
+          "bytes": 1398895,
+          "sha256": "660afe8bfc8ffe21fc298633b1bfbf34c7739aa35cc371aebc2aca6ea7938734",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "climat-pluie-ifs",
+      "width": 390,
+      "mode": "on-responsive",
+      "url": "/climat?temporal=forecast&weather_model=ifs&weather_variable=precipitation&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&forecast_date=2026-11-15",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 713,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 1> 1 à 5> 5 à 10> 10 à 20> 20mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 1> 1 à 5> 5 à 10> 10 à 20> 20"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 18.312829853000004,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9513,
+          "sha256": "02a1591ed8aabedc5367c3fccd3ba1c359adc1fbed1d6833bdeab908a00e6c9e",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 60240,
+          "sha256": "e2ad5f6c4395a8f417fdddcadb690c53b5819d9014218a9faadd1650dbe44acc",
+          "rows": 35,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 35
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=precipitation",
+          "status": 200,
+          "bytes": 1387063,
+          "sha256": "968527cfb97794d940a5ba808d14ed226ab629507f6def9a9d5bef897de337fc",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "climat-humidite-ifs",
+      "width": 390,
+      "mode": "on-responsive",
+      "url": "/climat?temporal=forecast&weather_model=ifs&weather_variable=humidity&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&forecast_date=2026-11-15",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 586,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 20> 20 à 40> 40 à 60> 60 à 80> 80% · Humidité relative estimée · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 20> 20 à 40> 40 à 60> 60 à 80> 80"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 17.765976449999958,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9513,
+          "sha256": "02a1591ed8aabedc5367c3fccd3ba1c359adc1fbed1d6833bdeab908a00e6c9e",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 60240,
+          "sha256": "e2ad5f6c4395a8f417fdddcadb690c53b5819d9014218a9faadd1650dbe44acc",
+          "rows": 35,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 35
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=ifs&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=humidity",
+          "status": 200,
+          "bytes": 1415863,
+          "sha256": "adfa06c15a766686ac74e5d621976d8b4d47982658c3534c30cebe715ee83720",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 586,
+            "covered": 0,
+            "unavailable": 127
+          }
+        }
+      ]
+    },
+    {
+      "name": "analyse-pluie-multi-modeles",
+      "width": 390,
+      "mode": "on-responsive",
+      "url": "/analyse?temporal=forecast&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&agro=rain&agro_start=2026-11-15&agro_end=2026-11-21",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 0,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 11.344210681999975,
+      "api": [
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75424,
+          "sha256": "cc1b60c80535c05e6c279db6b33eafcf6b3dbb1af28f2a221b6ce52d59434c11",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=temperature",
+          "status": 200,
+          "bytes": 1398895,
+          "sha256": "660afe8bfc8ffe21fc298633b1bfbf34c7739aa35cc371aebc2aca6ea7938734",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/agroclimatic",
+          "query": "?indicator=rain&temporal=forecast&start=2026-11-15&end=2026-11-21&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 1380582,
+          "sha256": "5a9b3263df438374537b5af1a5a6a8e76c3b1276554590a1241f2c1b83427707",
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 713
+          },
+          "rows": 713,
+          "eligible": 0,
+          "rule": "rain"
+        }
+      ]
+    },
+    {
+      "name": "analyse-thi-multi-modeles",
+      "width": 390,
+      "mode": "on-responsive",
+      "url": "/analyse?temporal=forecast&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&production=cattle&agro=thi&agro_start=2026-11-15&agro_end=2026-11-21",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 0,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 72> 72 à 75> 75 à 80> 80 à 85> 85THI · THI synthétique ; seuil descriptif strict > 72, variante Bohmanova 2005 · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 72> 72 à 75> 75 à 80> 80 à 85> 85"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 16.041733178000023,
+      "api": [
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 9544,
+          "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+          "rows": 0,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [],
+          "sources": [],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+          "status": 200,
+          "bytes": 75424,
+          "sha256": "cc1b60c80535c05e6c279db6b33eafcf6b3dbb1af28f2a221b6ce52d59434c11",
+          "rows": 45,
+          "corsica": 0,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-13",
+            "2026-11-14",
+            "2026-11-15",
+            "2026-11-16",
+            "2026-11-17",
+            "2026-11-18",
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "sources": [
+            "meteofrance-arome",
+            "meteofrance-arpege",
+            "ecmwf-open-data"
+          ],
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 45
+          }
+        },
+        {
+          "path": "/api/national",
+          "query": "?action=availability",
+          "status": 200,
+          "bytes": 911,
+          "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+        },
+        {
+          "path": "/api/operational",
+          "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=temperature",
+          "status": 200,
+          "bytes": 1398895,
+          "sha256": "660afe8bfc8ffe21fc298633b1bfbf34c7739aa35cc371aebc2aca6ea7938734",
+          "rows": 713,
+          "corsica": 6,
+          "run": "2026-11-14T18:00:00+00:00",
+          "dates": [
+            "2026-11-15"
+          ],
+          "sources": [
+            "meteofrance-arome"
+          ],
+          "paint": {
+            "whole": 713,
+            "covered": 0,
+            "unavailable": 0
+          }
+        },
+        {
+          "path": "/api/agroclimatic",
+          "query": "?indicator=thi&temporal=forecast&start=2026-11-15&end=2026-11-21&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+          "status": 200,
+          "bytes": 1483457,
+          "sha256": "a376820825767986da19ab159c5fdfead73cc187a893d64456544081ef521c1a",
+          "paint": {
+            "whole": 0,
+            "covered": 0,
+            "unavailable": 713
+          },
+          "rows": 713,
+          "eligible": 0,
+          "rule": "thi"
+        }
+      ]
+    },
+    {
+      "name": "cartes-du-jour",
+      "width": 390,
+      "mode": "on-responsive",
+      "url": "/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&date=2026-11-15&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 713,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 17.018834675999997,
+      "api": [
+        {
+          "path": "/api/journal/maps",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae",
+          "status": 200,
+          "bytes": 1447097,
+          "sha256": "fda28ef996fe3c6ae036c64e0bcc40a97adedea2b719b60ef6eb925a3b7f1617",
+          "eligible": 713
+        }
+      ]
+    },
+    {
+      "name": "journal",
+      "width": 390,
+      "mode": "on-responsive",
+      "url": "/journal?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&date=2026-11-15",
+      "thumbnails": [
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=e1bb8d895d49a632124298937485d749c9cdadf349578be7d61b8f1619d99704&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91&v=ux03-1"
+        }
+      ],
+      "journal_inline_map": false,
+      "journal_path": "real carousel -> real interactive Cartes du jour",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 713,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 28.334974161999998,
+      "api": [
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06&v=ux03-1",
+          "status": 200,
+          "bytes": 40138,
+          "sha256": "9bde51bc7fbc206aa3e9243604987e4f01e59fda705c1eae73b8fd2f81897b9f",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5&v=ux03-1",
+          "status": 200,
+          "bytes": 40286,
+          "sha256": "b53fd401f71b9181efb253656d636bdc5484f8dd0739ec7de5f2529ffa97866e",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91&v=ux03-1",
+          "status": 200,
+          "bytes": 44246,
+          "sha256": "51825a726aab0c00d1467886e5fa89f9239d51d3b260aaa995da66df0a17bcc4",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=e1bb8d895d49a632124298937485d749c9cdadf349578be7d61b8f1619d99704&v=ux03-1",
+          "status": 200,
+          "bytes": 40630,
+          "sha256": "a6a95135fba22f7dad24d38f1abee88c159415ccedc68069b0ef8f0b97353126",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae&v=ux03-1",
+          "status": 200,
+          "bytes": 42186,
+          "sha256": "869d3eb18d2b1ab6d60d8636e59130eceb182503836d8375f4ffd4f6b52a2baf",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/maps",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae",
+          "status": 200,
+          "bytes": 1447097,
+          "sha256": "fda28ef996fe3c6ae036c64e0bcc40a97adedea2b719b60ef6eb925a3b7f1617",
+          "eligible": 713
+        }
+      ]
+    }
+  ],
+  "failures": []
+}

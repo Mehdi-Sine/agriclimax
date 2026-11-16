@@ -3,7 +3,8 @@
   "git": {
     "deploymentEnabled": {
       "codex/COUV-05-native-forecast-masks": false,
-      "codex/COUV-05C-composite-masks": false
+      "codex/COUV-05C-composite-masks": false,
+      "codex/COUV-05D-finalisation": false
     }
   }
 }

@@ -1,6 +1,6 @@
 'use client';
 import {EXHAUSTIVE_COVERAGE} from '../cartography/coverage';
-import {semanticPalette,classLabel} from '../cartography/registry';
+import {semanticPalette,classLabel,classIndex} from '../cartography/registry';
 import {usePaletteColors} from '../cartography/use-palette';
 import {SemanticLegend} from '../cartography/legend';
 
@@ -633,17 +633,14 @@ export function useAgroclimatic(
         {start} → {end} UTC.
       </p>
       <div className="agro-class-distribution">
-        {bounds.map((b, i) => (
+        {bounds.map((_, i) => (
           <span key={i} style={{ borderTopColor: `var(${semantic.tokens[i]})` }}>
             <span>
               {classLabel(semantic,i)} :{" "}
               {
                 eligible.filter(
                   (r) =>
-                    r.value! <= bounds[0] &&
-                    (i === 0
-                      ? r.value! <= b
-                      : r.value! > bounds[i - 1] && r.value! <= b),
+                    classIndex(r.value, semantic) === i,
                 ).length
               }{" "}
               PRA

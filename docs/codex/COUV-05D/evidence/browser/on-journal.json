@@ -1,0 +1,215 @@
+{
+  "kind": "full product pages, real API and Storage, no response interception",
+  "mode": "on-journal",
+  "checks": [
+    {
+      "name": "journal",
+      "width": 1440,
+      "mode": "on-journal",
+      "url": "/journal?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&date=2026-11-15",
+      "thumbnails": [
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=e1bb8d895d49a632124298937485d749c9cdadf349578be7d61b8f1619d99704&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91&v=ux03-1"
+        }
+      ],
+      "journal_inline_map": false,
+      "journal_path": "real carousel -> real interactive Cartes du jour",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 713,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 27.975505749,
+      "api": [
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91&v=ux03-1",
+          "status": 200,
+          "bytes": 44246,
+          "sha256": "51825a726aab0c00d1467886e5fa89f9239d51d3b260aaa995da66df0a17bcc4",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5&v=ux03-1",
+          "status": 200,
+          "bytes": 40286,
+          "sha256": "b53fd401f71b9181efb253656d636bdc5484f8dd0739ec7de5f2529ffa97866e",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06&v=ux03-1",
+          "status": 200,
+          "bytes": 40138,
+          "sha256": "9bde51bc7fbc206aa3e9243604987e4f01e59fda705c1eae73b8fd2f81897b9f",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae&v=ux03-1",
+          "status": 200,
+          "bytes": 42186,
+          "sha256": "869d3eb18d2b1ab6d60d8636e59130eceb182503836d8375f4ffd4f6b52a2baf",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=e1bb8d895d49a632124298937485d749c9cdadf349578be7d61b8f1619d99704&v=ux03-1",
+          "status": 200,
+          "bytes": 40630,
+          "sha256": "a6a95135fba22f7dad24d38f1abee88c159415ccedc68069b0ef8f0b97353126",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/maps",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae",
+          "status": 200,
+          "bytes": 1447097,
+          "sha256": "fda28ef996fe3c6ae036c64e0bcc40a97adedea2b719b60ef6eb925a3b7f1617",
+          "eligible": 713
+        }
+      ]
+    },
+    {
+      "name": "journal",
+      "width": 390,
+      "mode": "on-journal",
+      "url": "/journal?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&date=2026-11-15",
+      "thumbnails": [
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=e1bb8d895d49a632124298937485d749c9cdadf349578be7d61b8f1619d99704&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06&v=ux03-1"
+        },
+        {
+          "loaded": true,
+          "src": "http://127.0.0.1:3015/api/journal/thumbnail?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91&v=ux03-1"
+        }
+      ],
+      "journal_inline_map": false,
+      "journal_path": "real carousel -> real interactive Cartes du jour",
+      "maps": [
+        {
+          "ready": "true",
+          "contours": 713,
+          "features": 713,
+          "values": 713,
+          "partial_values": 0,
+          "covered_geometries": 0
+        }
+      ],
+      "api_data_received": true,
+      "overflow": false,
+      "legends": [
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70mm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0Gris : NULL distinct de zéro. Hachures et support renseigné ; reconstruction indiquée séparément.Comprendre cette carte",
+        "≤ 5> 5 à 20> 20 à 40> 40 à 70> 70"
+      ],
+      "errors": [],
+      "passed": true,
+      "seconds": 25.634636156999996,
+      "api": [
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5&v=ux03-1",
+          "status": 200,
+          "bytes": 40286,
+          "sha256": "b53fd401f71b9181efb253656d636bdc5484f8dd0739ec7de5f2529ffa97866e",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06&v=ux03-1",
+          "status": 200,
+          "bytes": 40138,
+          "sha256": "9bde51bc7fbc206aa3e9243604987e4f01e59fda705c1eae73b8fd2f81897b9f",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91&v=ux03-1",
+          "status": 200,
+          "bytes": 44246,
+          "sha256": "51825a726aab0c00d1467886e5fa89f9239d51d3b260aaa995da66df0a17bcc4",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae&v=ux03-1",
+          "status": 200,
+          "bytes": 42186,
+          "sha256": "869d3eb18d2b1ab6d60d8636e59130eceb182503836d8375f4ffd4f6b52a2baf",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/thumbnail",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=e1bb8d895d49a632124298937485d749c9cdadf349578be7d61b8f1619d99704&v=ux03-1",
+          "status": 200,
+          "bytes": 40630,
+          "sha256": "a6a95135fba22f7dad24d38f1abee88c159415ccedc68069b0ef8f0b97353126",
+          "content_type": "image/webp",
+          "real_thumbnail": true
+        },
+        {
+          "path": "/api/journal/maps",
+          "query": "?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae",
+          "status": 200,
+          "bytes": 1447097,
+          "sha256": "fda28ef996fe3c6ae036c64e0bcc40a97adedea2b719b60ef6eb925a3b7f1617",
+          "eligible": 713
+        }
+      ]
+    }
+  ],
+  "failures": []
+}

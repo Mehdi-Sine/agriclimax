@@ -1,0 +1,16 @@
+{
+  "project": "yyfbpecxvxglzxopsmel",
+  "bucket": "pra-climate-archives",
+  "method": "read-only SELECT storage.objects after candidate insertion",
+  "bucket_objects": 558,
+  "bucket_bytes": 377064475,
+  "forecast_objects": 479,
+  "forecast_bytes": 311427564,
+  "indexes": 2,
+  "new_objects": 219,
+  "new_bytes": 139096302,
+  "old_index_sha256": "df8d1c4abc3a3427cee3df3daf200dc7058f408fa22be274bff84e476fbd9145",
+  "new_index_sha256": "e1da3cfb5e17a85cd6193661ed01d119421796a34a664c79c98e167cdd935347",
+  "pointers_changed": false,
+  "production_activation": false
+}

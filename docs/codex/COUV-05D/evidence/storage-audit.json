@@ -1,0 +1,41 @@
+{
+  "version": "couv05d-read-only-1",
+  "cycles": [
+    {
+      "run": "2026-11-13T18:00:00+00:00",
+      "sha256": "09c77ef31f85608f4788a48b396872d4f8d45b4724ddafeb1f5d7fdc024494fb",
+      "bytes": 561604,
+      "read_seconds": 1.40053029500001
+    },
+    {
+      "run": "2026-11-14T18:00:00+00:00",
+      "sha256": "ed93ab41472f81cec83a6039d8634133fa1feb42fe71d6513090d74d6985a398",
+      "bytes": 561740,
+      "read_seconds": 0.7194792710000115
+    },
+    {
+      "run": "2026-11-15T18:00:00+00:00",
+      "sha256": "884df12701c810cc39ed73b8fd1a21b1980d72e444e6e6185564bf6f001bc7fd",
+      "bytes": 562577,
+      "read_seconds": 0.42125940099998616
+    }
+  ],
+  "mask_indexes_observed": 1,
+  "mask_archive_sha256": "ed93ab41472f81cec83a6039d8634133fa1feb42fe71d6513090d74d6985a398",
+  "index_sha256": "df8d1c4abc3a3427cee3df3daf200dc7058f408fa22be274bff84e476fbd9145",
+  "verified_objects": 260,
+  "verified_bytes": 172331262,
+  "pointers_before": {
+    "catalogue.json": "4b9b1e0109669045aa5b92519c8152d60ab3a73f4c45fe8a33d37258289994ab",
+    "current.json": "a7ce03e6302648fe7e9f4f9929bbe5bb410088a6cbad73ada604a50c3db669af"
+  },
+  "pointers_after": {
+    "catalogue.json": "4b9b1e0109669045aa5b92519c8152d60ab3a73f4c45fe8a33d37258289994ab",
+    "current.json": "a7ce03e6302648fe7e9f4f9929bbe5bb410088a6cbad73ada604a50c3db669af"
+  },
+  "pointers_unchanged": true,
+  "writes": 0,
+  "requests": 267,
+  "seconds": 28.715544370000032,
+  "multi_cycle_mask_persistence": "not_demonstrated_only_one_retained_index"
+}

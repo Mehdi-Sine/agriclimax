@@ -1,0 +1,19 @@
+{
+  "test": "interrupt second-cycle local producer before index creation; resume same directory",
+  "completed_manifests_before_resume": 4,
+  "indexes_before_resume": 0,
+  "completed_manifest_sha256": {
+    "0bb115198573d3ca13523dc0831076b19d24c962483dc8dbee7bf32894632ebb.json.gz": "0bb115198573d3ca13523dc0831076b19d24c962483dc8dbee7bf32894632ebb",
+    "7696b01f69ad40c6527850d6ceb6ee08d3ff2671d19827441185eb522364513e.json.gz": "7696b01f69ad40c6527850d6ceb6ee08d3ff2671d19827441185eb522364513e",
+    "e25be6f841790ab664aca6379be0848667498964d43ee292f58b7708f5d16244.json.gz": "e25be6f841790ab664aca6379be0848667498964d43ee292f58b7708f5d16244",
+    "fa7c01f4c77bc49d78baef466119b10bf89ddb62e90838a1105b6f546be0ff41.json.gz": "fa7c01f4c77bc49d78baef466119b10bf89ddb62e90838a1105b6f546be0ff41"
+  },
+  "remote_writes": 0,
+  "completed_manifests_preserved_after_resume": true,
+  "index_after_resume": {
+    "path": "forecast-masks/indexes/e1da3cfb5e17a85cd6193661ed01d119421796a34a664c79c98e167cdd935347.json.gz",
+    "sha256": "e1da3cfb5e17a85cd6193661ed01d119421796a34a664c79c98e167cdd935347",
+    "bytes": 4155
+  },
+  "complete_matrix_rows_after_resume": 49910
+}

@@ -1,0 +1,30 @@
+{
+  "examined": 1185,
+  "qualified": 1185,
+  "counts": {
+    "thi": 80,
+    "thi_days": 80,
+    "thi_sequence": 80,
+    "rain": 105,
+    "heavy_rain": 105,
+    "dry": 105,
+    "dry_sequence": 105,
+    "rain_frequency": 105,
+    "wet_days1": 105,
+    "wet_sequence1": 105,
+    "rain10_days": 105,
+    "rain_max1day": 105
+  },
+  "previous_qualified": 730387,
+  "total_qualified": 731572,
+  "unchanged_partial_thi_null": 26400,
+  "unchanged_absent_null": 660,
+  "inputs_sha256": "fa0cb2c86189139d4a6d624411a33e0a25907ef7797556061f27038e4f6ce233",
+  "output_sha256": "8fd4fb1fc3d0461767e71162256988620761112a0fe8f89471570a79bbf0e025",
+  "output_bytes": 273447,
+  "seconds": 0.5891997900000001,
+  "max_rss_kib": 140080,
+  "supplier_requests": 0,
+  "remote_writes": 0,
+  "production_activation": false
+}
