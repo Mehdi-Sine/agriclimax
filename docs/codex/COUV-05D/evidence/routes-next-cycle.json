@@ -1,0 +1,81 @@
+{
+  "mode": "next-cycle",
+  "checks": [
+    {
+      "name": "temperature",
+      "path": "/api/operational?experimental=weather&run=2026-11-15T18%3A00%3A00%2B00%3A00&model=selected&date=2026-11-16&variable=temperature",
+      "rows": 713,
+      "corsica": 6,
+      "paint": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "geometry_features": 0,
+      "bytes": 1399008,
+      "sha256": "a6ee101fa665a51b3e50e2cef07dd9ff4096c73d85819b783353b0a7c4af1161",
+      "seconds": 6.766523987
+    },
+    {
+      "name": "partial-rain",
+      "path": "/api/operational?experimental=weather&run=2026-11-15T18%3A00%3A00%2B00%3A00&model=ifs&date=2026-11-18&variable=precipitation",
+      "rows": 713,
+      "corsica": 6,
+      "paint": {
+        "whole": 694,
+        "covered": 0,
+        "unavailable": 19
+      },
+      "geometry_features": 0,
+      "bytes": 1388729,
+      "sha256": "b2ef7e0cd4cfce20ebccac084f1e2be0b19e6eb1138f8c91220a1096a6cfccdc",
+      "seconds": 3.493752764000001
+    },
+    {
+      "name": "humidity",
+      "path": "/api/operational?experimental=weather&run=2026-11-15T18%3A00%3A00%2B00%3A00&model=ifs&date=2026-11-16&variable=humidity",
+      "rows": 713,
+      "corsica": 6,
+      "paint": {
+        "whole": 494,
+        "covered": 0,
+        "unavailable": 219
+      },
+      "geometry_features": 0,
+      "bytes": 1423155,
+      "sha256": "50aa333401fc908e697f5b52fb6b3469c3564852c6e202fee581e3cf510e1d23",
+      "seconds": 2.940554798999998
+    },
+    {
+      "name": "homogeneous-rain",
+      "path": "/api/agroclimatic?indicator=rain&temporal=forecast&run=2026-11-15T18%3A00%3A00%2B00%3A00&start=2026-11-17&end=2026-11-18",
+      "rows": 713,
+      "corsica": 6,
+      "paint": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "geometry_features": 0,
+      "bytes": 1195090,
+      "sha256": "4eb8ba35b809fed65e505df333c6a972fb81e151a0691ec2b0e92fca52fb70e8",
+      "seconds": 3.2060468220000002
+    },
+    {
+      "name": "homogeneous-thi",
+      "path": "/api/agroclimatic?indicator=thi&temporal=forecast&run=2026-11-15T18%3A00%3A00%2B00%3A00&start=2026-11-20&end=2026-11-22",
+      "rows": 713,
+      "corsica": 6,
+      "paint": {
+        "whole": 474,
+        "covered": 0,
+        "unavailable": 239
+      },
+      "geometry_features": 0,
+      "bytes": 1110131,
+      "sha256": "4cd9fd9b560997f78eb0d0312d2b589b7c3e131b8e0be5c22bd8097c120d5a15",
+      "seconds": 3.798595404
+    }
+  ],
+  "mutations": 0
+}

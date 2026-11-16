@@ -1,0 +1,230 @@
+{
+  "scope": "first cold local production run during concurrent offline native batch; later six complete production checks passed",
+  "observation": {
+    "name": "analyse-pluie-homogene",
+    "width": 1440,
+    "mode": "on-final",
+    "url": "/analyse?temporal=forecast&weather_run=2026-11-14T18%3A00%3A00%2B00%3A00&agro=rain&agro_start=2026-11-16&agro_end=2026-11-17",
+    "passed": false,
+    "error": "locator.waitFor: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.national-map[data-ready=\"true\"]').first() to be visible\u001b[22m\n",
+    "seconds": 109.838246419,
+    "api": [
+      {
+        "path": "/api/operational",
+        "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+        "status": 200,
+        "bytes": 9544,
+        "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+        "rows": 0,
+        "corsica": 0,
+        "run": "2026-11-14T18:00:00+00:00",
+        "dates": [],
+        "sources": [],
+        "paint": {
+          "whole": 0,
+          "covered": 0,
+          "unavailable": 0
+        }
+      },
+      {
+        "path": "/api/operational",
+        "query": "?experimental=weather&catalogue=1&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+        "status": 200,
+        "bytes": 9544,
+        "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+        "rows": 0,
+        "corsica": 0,
+        "run": "2026-11-14T18:00:00+00:00",
+        "dates": [],
+        "sources": [],
+        "paint": {
+          "whole": 0,
+          "covered": 0,
+          "unavailable": 0
+        }
+      },
+      {
+        "path": "/api/national",
+        "query": "?action=availability",
+        "status": 200,
+        "bytes": 911,
+        "sha256": "656f6b0e1ed8c5b5b068052967186a1ae85c5b08d179c96d38750f594ccbddc5"
+      },
+      {
+        "path": "/api/operational",
+        "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+        "status": 200,
+        "bytes": 75424,
+        "sha256": "cc1b60c80535c05e6c279db6b33eafcf6b3dbb1af28f2a221b6ce52d59434c11",
+        "rows": 45,
+        "corsica": 0,
+        "run": "2026-11-14T18:00:00+00:00",
+        "dates": [
+          "2026-11-13",
+          "2026-11-14",
+          "2026-11-15",
+          "2026-11-16",
+          "2026-11-17",
+          "2026-11-18",
+          "2026-11-19",
+          "2026-11-20",
+          "2026-11-21"
+        ],
+        "sources": [
+          "meteofrance-arome",
+          "meteofrance-arpege",
+          "ecmwf-open-data"
+        ],
+        "paint": {
+          "whole": 0,
+          "covered": 0,
+          "unavailable": 45
+        }
+      },
+      {
+        "path": "/api/agroclimatic",
+        "query": "?indicator=rain&temporal=forecast&start=2026-11-16&end=2026-11-17&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+        "status": 200,
+        "bytes": 1195153,
+        "sha256": "894da9c91e16c6f40f76c1e4865749c411d9dcdf702c9438e9347623440ce5dc",
+        "paint": {
+          "whole": 713,
+          "covered": 0,
+          "unavailable": 0
+        },
+        "rows": 713,
+        "eligible": 713,
+        "rule": "rain"
+      },
+      {
+        "path": "/api/operational",
+        "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=temperature",
+        "status": 200,
+        "bytes": 1398895,
+        "sha256": "660afe8bfc8ffe21fc298633b1bfbf34c7739aa35cc371aebc2aca6ea7938734",
+        "rows": 713,
+        "corsica": 6,
+        "run": "2026-11-14T18:00:00+00:00",
+        "dates": [
+          "2026-11-15"
+        ],
+        "sources": [
+          "meteofrance-arome"
+        ],
+        "paint": {
+          "whole": 713,
+          "covered": 0,
+          "unavailable": 0
+        }
+      },
+      {
+        "path": "/api/operational",
+        "query": "?experimental=weather&catalogue=1&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+        "status": 200,
+        "bytes": 9544,
+        "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+        "rows": 0,
+        "corsica": 0,
+        "run": "2026-11-14T18:00:00+00:00",
+        "dates": [],
+        "sources": [],
+        "paint": {
+          "whole": 0,
+          "covered": 0,
+          "unavailable": 0
+        }
+      },
+      {
+        "path": "/api/operational",
+        "query": "?experimental=weather&catalogue=1&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+        "status": 200,
+        "bytes": 9544,
+        "sha256": "c7d9eff09a13b48cb39fc9cdb6e3d6c76c12830f8959402c3644d294c094ebf8",
+        "rows": 0,
+        "corsica": 0,
+        "run": "2026-11-14T18:00:00+00:00",
+        "dates": [],
+        "sources": [],
+        "paint": {
+          "whole": 0,
+          "covered": 0,
+          "unavailable": 0
+        }
+      },
+      {
+        "path": "/api/national",
+        "query": "?action=availability",
+        "status": 502,
+        "bytes": 32,
+        "sha256": "ddd6312b71a31038cd5e7c608b0c2c3e8a6184abb36b8c44bfc436a177d94c81"
+      },
+      {
+        "path": "/api/operational",
+        "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&pra=pra%3A28341",
+        "status": 200,
+        "bytes": 75424,
+        "sha256": "cc1b60c80535c05e6c279db6b33eafcf6b3dbb1af28f2a221b6ce52d59434c11",
+        "rows": 45,
+        "corsica": 0,
+        "run": "2026-11-14T18:00:00+00:00",
+        "dates": [
+          "2026-11-13",
+          "2026-11-14",
+          "2026-11-15",
+          "2026-11-16",
+          "2026-11-17",
+          "2026-11-18",
+          "2026-11-19",
+          "2026-11-20",
+          "2026-11-21"
+        ],
+        "sources": [
+          "meteofrance-arome",
+          "meteofrance-arpege",
+          "ecmwf-open-data"
+        ],
+        "paint": {
+          "whole": 0,
+          "covered": 0,
+          "unavailable": 45
+        }
+      },
+      {
+        "path": "/api/operational",
+        "query": "?experimental=weather&model=selected&run=2026-11-14T18%3A00%3A00%2B00%3A00&date=2026-11-15&variable=temperature",
+        "status": 200,
+        "bytes": 1017200,
+        "sha256": "1d139718b83a547837c53c6f67f9e5abfbf9006763a2584446b33bac50c1fd61",
+        "rows": 713,
+        "corsica": 6,
+        "run": "2026-11-14T18:00:00+00:00",
+        "dates": [
+          "2026-11-15"
+        ],
+        "sources": [
+          "meteofrance-arome"
+        ],
+        "paint": {
+          "whole": 0,
+          "covered": 0,
+          "unavailable": 713
+        }
+      },
+      {
+        "path": "/api/agroclimatic",
+        "query": "?indicator=rain&temporal=forecast&start=2026-11-16&end=2026-11-17&run=2026-11-14T18%3A00%3A00%2B00%3A00",
+        "status": 200,
+        "bytes": 1149122,
+        "sha256": "e9492b46f4cf2117739106fb5c6736e8baf6c1608a26bc8b9587b07fe35cee77",
+        "paint": {
+          "whole": 0,
+          "covered": 0,
+          "unavailable": 713
+        },
+        "rows": 713,
+        "eligible": 0,
+        "rule": "rain"
+      }
+    ]
+  }
+}

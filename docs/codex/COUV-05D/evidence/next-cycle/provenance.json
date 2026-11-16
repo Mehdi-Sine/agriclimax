@@ -1,0 +1,194 @@
+{
+  "archive_sha256": "884df12701c810cc39ed73b8fd1a21b1980d72e444e6e6185564bf6f001bc7fd",
+  "archive_bytes": 562577,
+  "reference_sha256": "51bfc7b24222819a24dab1bdb5e6ffcdc483f8371e14a3c4ac9adddbc0f9d669",
+  "checkpoint_artifact": {
+    "id": 14191415161,
+    "run": 43786617246,
+    "repository": "Mehdi-Sine/agriclimax",
+    "bytes": 89035335,
+    "sha256": "7f69386dca5d4d38f093f7573a0ccd2dd8ff52b1d2fcee0593fb9b52f4a1f7d3"
+  },
+  "captures": [
+    {
+      "path": "native-captures/arome-2026-11-14.json.gz",
+      "sha256": "f73d99dedcc824e4ab7d3e46403baa42a6026021e855f74fd8b4d4803d43ef32",
+      "bytes": 1488136,
+      "model": "arome",
+      "run": "2026-11-14T00:00:00+00:00",
+      "date": "2026-11-14",
+      "grid_version": "arome-0p025-centre-footprints-epsg3035-1",
+      "source_sha256": "13c0c827c8a00d9c5c0d67fab9a9de2731c3bbabe7bfbbdf771fa1ccd68b589c",
+      "weights_sha256": "1bd9e0884f650228149ed05235e513dfd7d273e833a3d2050cd6985518d8e5cb"
+    },
+    {
+      "path": "native-captures/arome-2026-11-15.json.gz",
+      "sha256": "144bc9933afe3f24f54b6f6382919938c2d83ef94ce3ce6ce664aa77145a4d70",
+      "bytes": 1472798,
+      "model": "arome",
+      "run": "2026-11-15T00:00:00+00:00",
+      "date": "2026-11-15",
+      "grid_version": "arome-0p025-centre-footprints-epsg3035-1",
+      "source_sha256": "6c0fd35ab9f0126df37eb2a4d4d2503520394385f9cd1c461ab381b2318b74fd",
+      "weights_sha256": "1bd9e0884f650228149ed05235e513dfd7d273e833a3d2050cd6985518d8e5cb"
+    },
+    {
+      "path": "native-captures/arome-2026-11-16-H18.json.gz",
+      "sha256": "cd5bb0da8f27d919feb7a21e3e983b58d1898296071bf7e78d6e4dcf33dcfc49",
+      "bytes": 1502472,
+      "model": "arome",
+      "run": "2026-11-15T18:00:00+00:00",
+      "date": "2026-11-16",
+      "grid_version": "arome-0p025-centre-footprints-epsg3035-1",
+      "source_sha256": "d9111e34c518880bd02998d8db117880499316537208d1f130d25f1baf1f80f5",
+      "weights_sha256": "1bd9e0884f650228149ed05235e513dfd7d273e833a3d2050cd6985518d8e5cb"
+    },
+    {
+      "path": "native-captures/arpege-2026-11-15.json.gz",
+      "sha256": "59827e81fa7ef4cba9723e30003b3544c1ff7f57965fae36cdef7d29c216a1d7",
+      "bytes": 99155,
+      "model": "arpege",
+      "run": "2026-11-15T00:00:00+00:00",
+      "date": "2026-11-15",
+      "grid_version": "arpege-0p1-centre-footprints-epsg3035-1",
+      "source_sha256": "b0e171a0c892807d06e101a14dd7c2810e14a255edfa81e6bc517a6b3fb5922d",
+      "weights_sha256": "71ca86b2b99049a7137ad8c2a15dc25fbc910392a65481a04520bfbf4477375d"
+    },
+    {
+      "path": "native-captures/arpege-2026-11-16-H18.json.gz",
+      "sha256": "3976c059c930e9c7b20450bd400dea29567fa8fcd662fa817fd77a01514d21d5",
+      "bytes": 100434,
+      "model": "arpege",
+      "run": "2026-11-15T18:00:00+00:00",
+      "date": "2026-11-16",
+      "grid_version": "arpege-0p1-centre-footprints-epsg3035-1",
+      "source_sha256": "130c52edfd1a0e1f0580776634d9b70b0b4487ad9b58dc6862e38ad3ca4ac6d7",
+      "weights_sha256": "71ca86b2b99049a7137ad8c2a15dc25fbc910392a65481a04520bfbf4477375d"
+    },
+    {
+      "path": "native-captures/arpege-2026-11-17-H18.json.gz",
+      "sha256": "6ab91bb28ebf6ee310d3d8974eaa2a5f72ba049645cb4b4ce2678a725a8ffc7f",
+      "bytes": 100560,
+      "model": "arpege",
+      "run": "2026-11-15T18:00:00+00:00",
+      "date": "2026-11-17",
+      "grid_version": "arpege-0p1-centre-footprints-epsg3035-1",
+      "source_sha256": "efbddcf50ef064a2184607c926dbadecebf1fa5795539fb1fae26e666fdf28b6",
+      "weights_sha256": "71ca86b2b99049a7137ad8c2a15dc25fbc910392a65481a04520bfbf4477375d"
+    },
+    {
+      "path": "native-captures/arpege-2026-11-18-H18.json.gz",
+      "sha256": "4fc9f907c326a6945d1188e180164df4e39ae6e5d4dc25e4944b832056fc77e9",
+      "bytes": 100780,
+      "model": "arpege",
+      "run": "2026-11-15T18:00:00+00:00",
+      "date": "2026-11-18",
+      "grid_version": "arpege-0p1-centre-footprints-epsg3035-1",
+      "source_sha256": "f983fa99c640a6c0d00b9529edefc0edd6664ae1f005bb0ba385eae74847a09c",
+      "weights_sha256": "71ca86b2b99049a7137ad8c2a15dc25fbc910392a65481a04520bfbf4477375d"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-16.json.gz",
+      "sha256": "0574754e3ff25080d1f9d7b95492f97fef89553144b80c95c84541507ad20389",
+      "bytes": 4710,
+      "model": "ifs",
+      "run": "2026-11-15T00:00:00+00:00",
+      "date": "2026-11-16",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "f7ea33828d0c33d3d3da3bcd8893fac9394658ade1012542d37d271d236160ce",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-17.json.gz",
+      "sha256": "32281cc8abf191a61a1f9e27c0976d29364a64291d59ba0e3faaa9ac127d1bfa",
+      "bytes": 4512,
+      "model": "ifs",
+      "run": "2026-11-15T00:00:00+00:00",
+      "date": "2026-11-17",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "f7ea33828d0c33d3d3da3bcd8893fac9394658ade1012542d37d271d236160ce",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-18.json.gz",
+      "sha256": "be481e5222c9678c32fc693393a245a6c94e77bbeb8a70e221c227850d1dc097",
+      "bytes": 4521,
+      "model": "ifs",
+      "run": "2026-11-15T00:00:00+00:00",
+      "date": "2026-11-18",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "f7ea33828d0c33d3d3da3bcd8893fac9394658ade1012542d37d271d236160ce",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-19.json.gz",
+      "sha256": "249a41797932c38d29ae071a8756c9f6ad2acf160069922de9837491ffdcc56d",
+      "bytes": 4412,
+      "model": "ifs",
+      "run": "2026-11-15T00:00:00+00:00",
+      "date": "2026-11-19",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "f7ea33828d0c33d3d3da3bcd8893fac9394658ade1012542d37d271d236160ce",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-20.json.gz",
+      "sha256": "7f81ead926b98281b1ce8e9277d24e85ffd7a39108d797ba812497eba717c1ec",
+      "bytes": 4413,
+      "model": "ifs",
+      "run": "2026-11-15T00:00:00+00:00",
+      "date": "2026-11-20",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "f7ea33828d0c33d3d3da3bcd8893fac9394658ade1012542d37d271d236160ce",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-21.json.gz",
+      "sha256": "79728378af56ea84fafe1f4787d68f49330afc251682a77ef477c5bde84df72e",
+      "bytes": 4659,
+      "model": "ifs",
+      "run": "2026-11-15T00:00:00+00:00",
+      "date": "2026-11-21",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "f7ea33828d0c33d3d3da3bcd8893fac9394658ade1012542d37d271d236160ce",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    },
+    {
+      "path": "native-captures/ifs-2026-11-22.json.gz",
+      "sha256": "200afea89255c4d283015ae3b94f6ff1ffb1ca931e5a606517034bae71d45e19",
+      "bytes": 4326,
+      "model": "ifs",
+      "run": "2026-11-15T00:00:00+00:00",
+      "date": "2026-11-22",
+      "grid_version": "ifs-regular-0p25-centre-footprints-epsg3035-1",
+      "source_sha256": "f7ea33828d0c33d3d3da3bcd8893fac9394658ade1012542d37d271d236160ce",
+      "weights_sha256": "b0191436c466e84faf58eb37fd89fbbb261ac827919e858c59761998fd8da3a6"
+    }
+  ],
+  "weights": [
+    {
+      "model": "arome",
+      "path": "../../../COUV-05/evidence/weights/arome.json.gz",
+      "sha256": "f9604918b426fff49b816e8e19a15c65ec14a0620f9d376d90b44ca409075081",
+      "bytes": 3187044
+    },
+    {
+      "model": "arpege",
+      "path": "../../../COUV-05/evidence/weights/arpege.json.gz",
+      "sha256": "bbb2fdcf411a289a0e331f570d98de5322a45c0797aba18004f8359c53fae130",
+      "bytes": 414063
+    },
+    {
+      "model": "ifs",
+      "path": "../../../COUV-05/evidence/weights/ifs.json.gz",
+      "sha256": "77e751527e69927f0c7c05e6f08378329baeb59f08584bc81c91cf36880d9b9a",
+      "bytes": 128387
+    }
+  ],
+  "native_index": {
+    "path": "native-index.json.gz",
+    "sha256": "e1da3cfb5e17a85cd6193661ed01d119421796a34a664c79c98e167cdd935347",
+    "bytes": 4155
+  },
+  "source_requests": 0
+}

@@ -1,0 +1,4 @@
+{
+  "extends": "./tsconfig.task33.json",
+  "include": ["couv05d_routes.ts"]
+}

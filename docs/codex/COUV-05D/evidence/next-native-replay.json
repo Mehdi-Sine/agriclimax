@@ -1,0 +1,68 @@
+{
+  "zip_bytes": 89035335,
+  "extracted_bytes": 136201735,
+  "files": 1018,
+  "zip_sha256": "7f69386dca5d4d38f093f7573a0ccd2dd8ff52b1d2fcee0593fb9b52f4a1f7d3",
+  "cycle": "20261115T18",
+  "comparisons": [
+    {
+      "model": "arome",
+      "day": "2026-11-14",
+      "run": "2026-11-14T00:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "arome",
+      "day": "2026-11-15",
+      "run": "2026-11-15T00:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "arome",
+      "day": "2026-11-16",
+      "run": "2026-11-15T18:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "arpege",
+      "day": "2026-11-15",
+      "run": "2026-11-15T00:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "arpege",
+      "day": "2026-11-16",
+      "run": "2026-11-15T18:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "arpege",
+      "day": "2026-11-17",
+      "run": "2026-11-15T18:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "arpege",
+      "day": "2026-11-18",
+      "run": "2026-11-15T18:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "ifs",
+      "rows": 24955,
+      "identical": true
+    }
+  ],
+  "source_requests": 0,
+  "source_bytes": 0,
+  "seconds": 79.11912485999983,
+  "max_rss_kib": 673308,
+  "child_max_rss_kib": 673308
+}

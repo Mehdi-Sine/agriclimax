@@ -1,0 +1,58 @@
+{
+  "completed_checks": 52,
+  "passed": 52,
+  "legend_comparisons": [
+    {
+      "name": "analyse-pluie-homogene",
+      "width": 1440,
+      "legends_identical": true
+    },
+    {
+      "name": "analyse-thi-homogene",
+      "width": 1440,
+      "legends_identical": true
+    },
+    {
+      "name": "climat-humidite-ifs",
+      "width": 1440,
+      "legends_identical": true
+    },
+    {
+      "name": "cartes-du-jour",
+      "width": 1440,
+      "legends_identical": true
+    },
+    {
+      "name": "journal",
+      "width": 1440,
+      "legends_identical": true
+    },
+    {
+      "name": "analyse-pluie-homogene",
+      "width": 390,
+      "legends_identical": true
+    },
+    {
+      "name": "analyse-thi-homogene",
+      "width": 390,
+      "legends_identical": true
+    },
+    {
+      "name": "climat-humidite-ifs",
+      "width": 390,
+      "legends_identical": true
+    },
+    {
+      "name": "cartes-du-jour",
+      "width": 390,
+      "legends_identical": true
+    },
+    {
+      "name": "journal",
+      "width": 390,
+      "legends_identical": true
+    }
+  ],
+  "note": "Completed checks across campaigns; some journeys deliberately repeated. Preliminary cold-load timeout retained separately.",
+  "next_cycle_checks": 2
+}

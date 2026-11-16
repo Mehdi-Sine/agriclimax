@@ -1,0 +1,232 @@
+{
+  "status": "candidate_not_published",
+  "edition_id": "6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0",
+  "edition_checksum": "49bee5938c48c8a28638753124abdfede05ed8438a63f72a98f94ed602f8a09e",
+  "bundle_sha256": "eea4f1296aa03ca4a67eea7c16ff96addad975cd1a99a1e937d587a8ec075acb",
+  "snapshot_id": "ca7f56b78f3e9a761d9a721506a88dd186d93d8d65ce127a223cdeffdae452ee",
+  "input_archive_sha256": "1bd4664155d5183b14f43059a5455bff8bdb69df8c4fd83411094b58e8bc812f",
+  "maps": [
+    {
+      "indicator": "temperature_min",
+      "title": "Minimum des Tmin quotidiennes",
+      "nature": "reanalysis",
+      "period": [
+        "2026-11-02",
+        "2026-11-08"
+      ],
+      "unit": "°C",
+      "input_sha256": "d733b6c0195adcb0aed0bf251c0d96f78eecb68fffb360012a7b83e6c0e00d50",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "98178e395498ab74764133cbc50081f926ab078ac73d20cc3d44a517c2a7b26a",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "temperature_mean",
+      "title": "Température moyenne",
+      "nature": "reanalysis",
+      "period": [
+        "2026-11-02",
+        "2026-11-08"
+      ],
+      "unit": "°C",
+      "input_sha256": "d733b6c0195adcb0aed0bf251c0d96f78eecb68fffb360012a7b83e6c0e00d50",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "2c2acaf9dd7bc517771b83907e84c7d2fcc81203421691796f29a6778eadbcd7",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "rain",
+      "title": "Pluie cumulée",
+      "nature": "reanalysis",
+      "period": [
+        "2026-11-02",
+        "2026-11-08"
+      ],
+      "unit": "mm",
+      "input_sha256": "d733b6c0195adcb0aed0bf251c0d96f78eecb68fffb360012a7b83e6c0e00d50",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "frost",
+      "title": "Jours de gel",
+      "nature": "reanalysis",
+      "period": [
+        "2026-11-02",
+        "2026-11-08"
+      ],
+      "unit": "jours",
+      "input_sha256": "d733b6c0195adcb0aed0bf251c0d96f78eecb68fffb360012a7b83e6c0e00d50",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "gdd",
+      "title": "Somme de températures",
+      "nature": "reanalysis",
+      "period": [
+        "2026-11-02",
+        "2026-11-08"
+      ],
+      "unit": "°C·j",
+      "input_sha256": "d733b6c0195adcb0aed0bf251c0d96f78eecb68fffb360012a7b83e6c0e00d50",
+      "sources": [
+        "era5-land"
+      ],
+      "cycles": [],
+      "id": "3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91",
+      "coverage": {
+        "whole": 645,
+        "partial": 0,
+        "missing": 68
+      }
+    },
+    {
+      "indicator": "temperature_min",
+      "title": "Minimum des Tmin quotidiennes",
+      "nature": "forecast",
+      "period": [
+        "2026-11-16",
+        "2026-11-17"
+      ],
+      "unit": "°C",
+      "input_sha256": "cdba6194943752dbafc86557e2df197d870f5a6cda33751c53dc2110dd41acd6",
+      "sources": [
+        "meteofrance-arpege"
+      ],
+      "cycles": [
+        "2026-11-14T18:00:00Z"
+      ],
+      "id": "d033fdbb0f361301295d588ae3cbc54e3f1af0e01248455f0d3d77ceca4c39b6",
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    },
+    {
+      "indicator": "temperature_mean",
+      "title": "Température moyenne",
+      "nature": "forecast",
+      "period": [
+        "2026-11-16",
+        "2026-11-17"
+      ],
+      "unit": "°C",
+      "input_sha256": "cdba6194943752dbafc86557e2df197d870f5a6cda33751c53dc2110dd41acd6",
+      "sources": [
+        "meteofrance-arpege"
+      ],
+      "cycles": [
+        "2026-11-14T18:00:00Z"
+      ],
+      "id": "e1bb8d895d49a632124298937485d749c9cdadf349578be7d61b8f1619d99704",
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    },
+    {
+      "indicator": "rain",
+      "title": "Pluie cumulée",
+      "nature": "forecast",
+      "period": [
+        "2026-11-16",
+        "2026-11-17"
+      ],
+      "unit": "mm",
+      "input_sha256": "cdba6194943752dbafc86557e2df197d870f5a6cda33751c53dc2110dd41acd6",
+      "sources": [
+        "meteofrance-arpege"
+      ],
+      "cycles": [
+        "2026-11-14T18:00:00Z"
+      ],
+      "id": "6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae",
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    },
+    {
+      "indicator": "frost",
+      "title": "Jours de gel",
+      "nature": "forecast",
+      "period": [
+        "2026-11-16",
+        "2026-11-17"
+      ],
+      "unit": "jours",
+      "input_sha256": "cdba6194943752dbafc86557e2df197d870f5a6cda33751c53dc2110dd41acd6",
+      "sources": [
+        "meteofrance-arpege"
+      ],
+      "cycles": [
+        "2026-11-14T18:00:00Z"
+      ],
+      "id": "002f88051d7875054100bf8c56cc54dcbe8d3ac150b9ebbd4bd7d9e63e802bab",
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    },
+    {
+      "indicator": "gdd",
+      "title": "Somme de températures",
+      "nature": "forecast",
+      "period": [
+        "2026-11-16",
+        "2026-11-17"
+      ],
+      "unit": "°C·j",
+      "input_sha256": "cdba6194943752dbafc86557e2df197d870f5a6cda33751c53dc2110dd41acd6",
+      "sources": [
+        "meteofrance-arpege"
+      ],
+      "cycles": [
+        "2026-11-14T18:00:00Z"
+      ],
+      "id": "fdb701c0bc5ccf5208c845d77f4ece0d430d8949be818b71dab7cb3ff58b36a1",
+      "coverage": {
+        "whole": 713,
+        "partial": 0,
+        "missing": 0
+      }
+    }
+  ],
+  "remote_writes": 0,
+  "openai_calls": 0
+}

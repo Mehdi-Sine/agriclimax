@@ -1,0 +1,70 @@
+{
+  "records": 1185,
+  "capture_days": 14,
+  "archive_sha256": "ed93ab41472f81cec83a6039d8634133fa1feb42fe71d6513090d74d6985a398",
+  "checkpoint_sha256": "6967d31fac70d5345d6e74a4801def795e23b5d3673872a04fbb3935cbabb6b2",
+  "residuals_sha256": "54b9c32190017aeb03015ce95a120ce24e01cdf021c133afb918a2930dd32223",
+  "inputs_sha256": "fa0cb2c86189139d4a6d624411a33e0a25907ef7797556061f27038e4f6ce233",
+  "inputs_bytes": 200778,
+  "source_requests": 0,
+  "remote_writes": 0,
+  "retained_proofs_identical": true,
+  "original_reductions_identical": [
+    {
+      "model": "arome",
+      "day": "2026-11-13",
+      "run": "2026-11-13T00:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "arome",
+      "day": "2026-11-14",
+      "run": "2026-11-14T00:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "arome",
+      "day": "2026-11-15",
+      "run": "2026-11-14T18:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "arpege",
+      "day": "2026-11-14",
+      "run": "2026-11-14T00:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "arpege",
+      "day": "2026-11-15",
+      "run": "2026-11-14T18:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "arpege",
+      "day": "2026-11-16",
+      "run": "2026-11-14T18:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "arpege",
+      "day": "2026-11-17",
+      "run": "2026-11-14T18:00:00+00:00",
+      "rows": 3565,
+      "identical": true
+    },
+    {
+      "model": "ifs",
+      "rows": 24955,
+      "identical": true
+    }
+  ],
+  "seconds": 293.56290322999996,
+  "max_rss_kib": 1084972
+}

@@ -1,0 +1,41 @@
+{
+  "version": "couv05d-read-only-2",
+  "cycles": [
+    {
+      "run": "2026-11-13T18:00:00+00:00",
+      "sha256": "09c77ef31f85608f4788a48b396872d4f8d45b4724ddafeb1f5d7fdc024494fb",
+      "bytes": 561604,
+      "read_seconds": 0.6281138990002546
+    },
+    {
+      "run": "2026-11-14T18:00:00+00:00",
+      "sha256": "ed93ab41472f81cec83a6039d8634133fa1feb42fe71d6513090d74d6985a398",
+      "bytes": 561740,
+      "read_seconds": 0.41365282900005695
+    },
+    {
+      "run": "2026-11-15T18:00:00+00:00",
+      "sha256": "884df12701c810cc39ed73b8fd1a21b1980d72e444e6e6185564bf6f001bc7fd",
+      "bytes": 562577,
+      "read_seconds": 0.5401471160002984
+    }
+  ],
+  "mask_indexes_read_in_this_call": 1,
+  "mask_archive_sha256": "884df12701c810cc39ed73b8fd1a21b1980d72e444e6e6185564bf6f001bc7fd",
+  "index_sha256": "e1da3cfb5e17a85cd6193661ed01d119421796a34a664c79c98e167cdd935347",
+  "verified_objects": 267,
+  "verified_bytes": 180137728,
+  "pointers_before": {
+    "catalogue.json": "4b9b1e0109669045aa5b92519c8152d60ab3a73f4c45fe8a33d37258289994ab",
+    "current.json": "a7ce03e6302648fe7e9f4f9929bbe5bb410088a6cbad73ada604a50c3db669af"
+  },
+  "pointers_after": {
+    "catalogue.json": "4b9b1e0109669045aa5b92519c8152d60ab3a73f4c45fe8a33d37258289994ab",
+    "current.json": "a7ce03e6302648fe7e9f4f9929bbe5bb410088a6cbad73ada604a50c3db669af"
+  },
+  "pointers_unchanged": true,
+  "writes": 0,
+  "requests": 274,
+  "seconds": 28.307107543000257,
+  "multi_cycle_inventory": "see separate storage.objects inventory; this call verifies one exact index"
+}

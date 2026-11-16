@@ -1,0 +1,17 @@
+{
+  "physical_bucket_bytes_before": 237968173,
+  "retained_forecast_bytes_before": 172331262,
+  "candidate_bytes": 180137728,
+  "candidate_objects": 267,
+  "projected_bucket_bytes_upper_bound": 418105901,
+  "guard_bytes": 943718400,
+  "index_sha256": "e1da3cfb5e17a85cd6193661ed01d119421796a34a664c79c98e167cdd935347",
+  "archive_sha256": "884df12701c810cc39ed73b8fd1a21b1980d72e444e6e6185564bf6f001bc7fd",
+  "pointers_before": {
+    "catalogue.json": "4b9b1e0109669045aa5b92519c8152d60ab3a73f4c45fe8a33d37258289994ab",
+    "current.json": "a7ce03e6302648fe7e9f4f9929bbe5bb410088a6cbad73ada604a50c3db669af"
+  },
+  "objects_first_index_last": true,
+  "upsert": false,
+  "activation": false
+}
