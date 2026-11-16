@@ -61,3 +61,23 @@ it('rejects a missing geometry shard, including above 90 percent',async()=>{
   remote.mockImplementation(async(p:string)=>p===f.geometryPath?null:p.includes('/indexes/')?f.index:f.blob);
   expect((await forecastMasks([row],'a'.repeat(64)))?.proofs).toHaveLength(0);
 });
+it('reuses verified coordinates for composite inputs only with identical PRA memberships',async()=>{
+  const {gunzipSync}=await import('node:zlib');
+  for(const different of [false,true]){
+    const f=fixture('a'.repeat(64),true),first=JSON.parse(gunzipSync(f.blob).toString());
+    first.rows=first.rows.map((p:Record<string,unknown>)=>({...p,valid_cells:['cell:1','cell:2']}));
+    const second={...first,variable:'humidity',rows:first.rows.map((p:Record<string,unknown>)=>({...p,variable:'humidity',support_id:hash(Buffer.from(String(p.pra_id)+'/humidity')),valid_cells:different?['cell:2','cell:3']:['cell:1','cell:2']})),
+      geometry_entries:[{path:`forecast-masks/geometries/${'e'.repeat(64)}.json.gz`,sha256:'e'.repeat(64),bytes:100,pra_ids:[...identities.ids].sort()}]};
+    const objects=new Map<string,Buffer>(),entries=[first,second].map(d=>{
+      const blob=gzipSync(JSON.stringify(d)),sha=hash(blob),path=`forecast-masks/blobs/${sha}.json.gz`;objects.set(path,blob);
+      return {version:d.version,model:d.model,run:d.run,period:d.period,variable:d.variable,grid_version:d.grid_version,weights_sha256:d.weights_sha256,reference_sha256:d.reference_sha256,path,sha256:sha,bytes:blob.length};
+    });
+    const geometry=await remote(f.geometryPath);objects.set(f.geometryPath,geometry);
+    const index=gzipSync(JSON.stringify({version:FORECAST_MASK_VERSION,archive_sha256:'a'.repeat(64),entries}));
+    vi.stubEnv('COUV05_INDEX_SHA256',hash(index));remote.mockClear();
+    remote.mockImplementation(async(path:string)=>path.includes('/indexes/')?index:objects.get(path)??null);
+    const result=await forecastMasks([row,{...row,variable:'humidity',unit:'%'}],'a'.repeat(64),{identicalMemberships:true});
+    expect(result?.proofs).toHaveLength(different?1:2);
+    expect(remote).toHaveBeenCalledTimes(4);
+  }
+});

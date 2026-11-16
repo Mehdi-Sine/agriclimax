@@ -8,6 +8,7 @@ export interface ForecastSupport {
   pra_id: string; model: string; run: string; period: string; variable: string;
   grid_version: string; weights_sha256: string; pra_weights_sha256: string; reference_sha256: string;
   source_sha256: string; support_id: string | null; fraction: number | null;
+  valid_cells?: string[] | null;
   status: 'unknown' | 'absent' | 'partial' | 'demonstrated'; geometry_verified: boolean; valid_native_cells?: number | null;
 }
 const models: Record<string, string> = { 'arome-0p025': 'arome', 'arpege-0p1': 'arpege', 'ifs-oper-0p25': 'ifs' };
@@ -58,7 +59,8 @@ export function boundForecastGeometries(rows: WeatherRow[], proofs: ForecastSupp
     const proof = supports.get(`${row.pra_id}/${row.variable}/${row.valid_date}`);
     return proof && matchesForecastSupport(row, proof, referenceSha) ? [proof.support_id!] : [];
   }));
+  const pairs=new Set(proofs.map(p=>JSON.stringify([p.pra_id,p.support_id])));
   return {type: 'FeatureCollection', features: collection.features.filter(f =>
     !!f.properties.support_id && ids.has(f.properties.support_id) &&
-    proofs.some(p => p.pra_id === f.id && p.support_id === f.properties.support_id))};
+    pairs.has(JSON.stringify([f.id,f.properties.support_id])))};
 }

@@ -429,7 +429,7 @@
                   },
                   "unit": {
                     "enum": [
-                      "\u00b0C",
+                      "°C",
                       "mm/j"
                     ]
                   }
@@ -602,6 +602,87 @@
           }
         },
         "additionalProperties": false
+      }
+    },
+    "forecast_support": {
+      "type": "object",
+      "required": [
+        "type",
+        "features"
+      ],
+      "properties": {
+        "type": {
+          "const": "FeatureCollection"
+        },
+        "features": {
+          "type": "array",
+          "maxItems": 713,
+          "items": {
+            "type": "object",
+            "required": [
+              "type",
+              "id",
+              "properties",
+              "geometry"
+            ],
+            "properties": {
+              "type": {
+                "const": "Feature"
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^pra:[0-9A-Z]{5}$"
+              },
+              "properties": {
+                "type": "object",
+                "required": [
+                  "code",
+                  "support_id"
+                ],
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "support_id": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  }
+                }
+              },
+              "geometry": {
+                "type": "object",
+                "required": [
+                  "type",
+                  "coordinates"
+                ],
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "Polygon",
+                      "MultiPolygon"
+                    ]
+                  },
+                  "coordinates": {
+                    "type": "array"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "forecast_support_rejections": {
+      "type": "object",
+      "maxProperties": 713,
+      "propertyNames": {
+        "pattern": "^pra:[0-9A-Z]{5}$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_]+$",
+        "maxLength": 160
       }
     }
   },

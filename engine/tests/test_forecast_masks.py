@@ -294,3 +294,16 @@ def test_utc_serializations_share_one_support_identity():
     a = qualify(p, territories, weights, make_geometry=False)["rows"][0]
     b = qualify(replace(p, run=p.run.replace("+00:00", "Z")), territories, weights, make_geometry=False)["rows"][0]
     assert a["support_id"] == b["support_id"]
+
+
+def test_targeted_geometry_keeps_all_rows_without_certifying_untargeted_geometries():
+    territories, weights = national_fixture()
+    native = proof(weights, {"arpege.0.0", "arpege.1"})
+    selected = frozenset({territories[0].id})
+    result = qualify(native, territories, weights, geometry_pra_ids=selected)
+    assert len(result['rows']) == 713
+    assert {f['id'] for f in result['collection']['features']} == selected
+    assert {r['pra_id'] for r in result['rows'] if r['geometry_verified']} == selected
+    full = qualify(native, territories, weights)
+    assert result['collection']['features'][0] == full['collection']['features'][0]
+    assert result['rows'][0] == full['rows'][0]

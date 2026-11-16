@@ -59,7 +59,7 @@ export function thumbnailSvg(map: EditionMap, coverage?: ThumbnailCoverage): str
 }
 const cache = new Map<string, Promise<{bytes: Buffer; etag: string}>>();
 export function mapThumbnail(map: EditionMap, coverage?: ThumbnailCoverage) {
-  const a = assets ??= readAssets(), key = `${a.fingerprint}:${map.id}:${coverage?.exhaustive?createHash('sha256').update(JSON.stringify(coverage)).digest('hex'):'original'}`;
+  const a = assets ??= readAssets(), key = `${a.fingerprint}:${map.id}:${coverage?.exhaustive?createHash('sha256').update(JSON.stringify([coverage,map.rows.map(r=>r.quality)])).digest('hex'):'original'}`;
   let pending = cache.get(key);
   if (!pending) {
     pending = sharp(Buffer.from(thumbnailSvg(map,coverage))).webp({lossless: true, effort: 6}).toBuffer().then(bytes => ({bytes, etag: `"${createHash("sha256").update(bytes).digest("hex")}"`}));

@@ -103,7 +103,7 @@ export function useAgroclimatic(
       .join(",") ?? "";
   const coveredSupport = useMemo(() => {
     const ids = new Set(validSupportKey.split(","));
-    const source = supportResource.data?.collection;
+    const source = mode === "history" ? supportResource.data?.collection : resource.data?.forecast_support;
     return source
       ? {
           ...source,
@@ -112,7 +112,7 @@ export function useAgroclimatic(
           ),
         }
       : null;
-  }, [supportResource.data, validSupportKey]);
+  }, [supportResource.data, resource.data?.forecast_support, mode, validSupportKey]);
   const data = resource.data?.data ?? [],
     current = data.find((r) => r.territoryId === pra),
     feature = collection?.features.find((f) => f.id === pra);

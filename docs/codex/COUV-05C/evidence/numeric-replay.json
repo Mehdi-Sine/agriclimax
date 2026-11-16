@@ -1,0 +1,32 @@
+{
+  "archive_sha256": "ed93ab41472f81cec83a6039d8634133fa1feb42fe71d6513090d74d6985a398",
+  "rows": 758632,
+  "windows": 38,
+  "recipes": 28,
+  "qualified": 730387,
+  "unqualified": 28245,
+  "counts": {
+    "whole_pra": 730387,
+    "unqualified": 28245
+  },
+  "reasons": {
+    "qualified": 730387,
+    "common_cells_require_native_numeric_recalculation": 27924,
+    "no_common_native_cells": 258,
+    "numeric_or_temporal_input_unavailable": 63
+  },
+  "matrix_sha256": "f8905766c36f3503a72cf2e2134e3d981ef0b90afe5690a247b792e327aa7aa9",
+  "matrix_bytes": 5866122,
+  "seconds": 137.706890461,
+  "max_rss_kib": 631416,
+  "local_object_reads": 3058,
+  "local_packed_bytes_read": 1955347682,
+  "numeric_values_changed": 0,
+  "source_requests": 0,
+  "remote_writes": 0,
+  "activation": false,
+  "derived_columns_omitted": [
+    "support_id"
+  ],
+  "reconstruction": "qualifyForecastRecipe with exact retained archive/index, recipe kernel and threshold"
+}

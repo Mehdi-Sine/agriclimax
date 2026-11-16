@@ -1,0 +1,28 @@
+{
+  "rows": 28245,
+  "classification": {
+    "scientifically_ineligible_partial_thi": 26400,
+    "native_common_thi_recalculation_required": 240,
+    "no_common_native_cells": 660,
+    "native_common_rain_recalculation_required": 945
+  },
+  "runtime_reasons": {
+    "common_cells_require_native_numeric_recalculation": 27924,
+    "no_common_native_cells": 258,
+    "numeric_or_temporal_input_unavailable": 63
+  },
+  "indicators": {
+    "thi": 9100,
+    "thi_days": 9100,
+    "thi_sequence": 9100,
+    "rain": 105,
+    "heavy_rain": 105,
+    "dry": 105,
+    "dry_sequence": 105,
+    "rain_frequency": 105,
+    "wet_days1": 105,
+    "wet_sequence1": 105,
+    "rain10_days": 105,
+    "rain_max1day": 105
+  }
+}
