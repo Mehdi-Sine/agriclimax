@@ -7,10 +7,10 @@
 | Base initiale #97, tests d'origine rejoués isolément | 6 réussis |
 | Suite Python complète | **535 réussis** ; 63 avertissements de dépendances, aucun échec |
 | Tests natifs COUV-05 ciblés | **18 réussis** |
-| Suite web complète | **774 réussis, 11 ignorés** ; les deux tests sur preuves réelles sont exécutés séparément avec chemins explicites |
+| Suite web complète | **775 réussis, 11 ignorés** ; les deux tests sur preuves réelles sont exécutés séparément avec chemins explicites |
 | Archive réelle + lecteur serveur + miniatures | **2 réussis**, dont liaison des 713 supports ARPEGE réels ; valeurs inchangées |
 | TypeScript | `tsc --noEmit` réussi |
-| Ruff / mypy | Modules de masque/stockage typés ; contrôle strict et lint exécutés |
+| Ruff / mypy | Modules de masque/stockage typés ; contrôle strict du périmètre CI de 23 fichiers réussi |
 | Qualité Python / Node | 28 + 9 tests réussis |
 | Contrats | Validation hors ligne réussie |
 | Secrets | Garde source et bundle exécutés ; aucune clé copiée dans les preuves |

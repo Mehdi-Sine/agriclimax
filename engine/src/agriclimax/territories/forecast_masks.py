@@ -273,11 +273,11 @@ def qualify(
             "collection": {"type": "FeatureCollection", "features": features}}
 
 
-def capture_native(
+def capture_native[VariableName: str](
     *, model: str, run: str, day: str, grid_version: str,
     reference_sha256: str, weights_sha256: str, source_sha256: str,
-    values: Mapping[str, Mapping[str, float | None]],
-    temporal: Mapping[str, Mapping[str, float]],
+    values: Mapping[VariableName, Mapping[str, float | None]],
+    temporal: Mapping[VariableName, Mapping[str, float]],
 ) -> bytes:
     """Opt-in source evidence capture before aggregation, without numeric grids."""
     if not source_sha256:
@@ -289,7 +289,7 @@ def capture_native(
         raise ValueError("Native cells are not identical across variables/intervals")
     proofs = {v: sorted(cell for cell in expected if values[v][cell] is not None
                         and math.isfinite(values[v][cell] or 0.0) and temporal[v][cell] == 1)
-              for v in sorted(VARIABLES)}
+              for v in sorted(values)}
     packed = {"version": VERSION, "model": model, "run": run, "date": day,
               "grid_version": grid_version, "reference_sha256": reference_sha256,
               "weights_sha256": weights_sha256,

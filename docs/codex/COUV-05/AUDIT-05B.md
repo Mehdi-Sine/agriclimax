@@ -30,3 +30,5 @@ La CI de la base #97 échouait sur trois constats Ruff (ordre des imports et it�
 La version de preuve v2 certifie les contrats de réduction `pra-national-weather-daily-1` pour AROME/ARPEGE et `pra-weather-daily-2` pour IFS. Un résultat d'une autre règle est refusé ; une évolution de contrat scientifique devra versionner la preuve.
 
 Le contrôle final conserve aussi la famille scientifique `mean_sum` des précipitations et refuse une unité ou une échéance discordante. Ces contrôles ne changent pas les règles de qualification existantes ; ils renforcent la liaison d'identité du lecteur candidat.
+
+Le contrôle CI intégré a également révélé l’invariance des clés `Mapping` avec les clés littérales IFS. La capture accepte désormais un paramètre de type de variable borné à `str` ; l'ensemble des cinq variables reste contrôlé exactement avant capture. Le contrôle strict des 23 fichiers de la CI et les 18 tests natifs passent. Le schéma et les octets de preuve ne changent pas : les clés validées sont les mêmes et triées de la même manière.
