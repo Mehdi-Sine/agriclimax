@@ -1,4 +1,6 @@
 import 'server-only';
+import {forecastQualified} from './forecast-qualified';
+import type {AgroResult} from '../../features/agroclimatic/calculate';
 import {createHash} from 'node:crypto';
 import type {Rule} from '../../features/agroclimatic/catalogue';
 import type {QualifiedDay} from '../../features/climate-quality/calculate';
@@ -9,6 +11,7 @@ import {matchesForecastSupport, type ForecastSupport} from '../../features/carto
 import {forecastMasks} from './forecast-masks';
 
 export interface ForecastRecipeSupport {
+  qualified?: Map<string,AgroResult>;
   supports: Map<string, NonNullable<QualifiedDay['climate_support']>>;
   collection: PraCollection;
   rejected: Record<string,string>;
@@ -52,12 +55,20 @@ export function qualifyForecastRecipe(rows:WeatherRow[], spatial:Spatial, rule:R
   return out;
 }
 export async function forecastRecipeMasks(rows:WeatherRow[],archiveSha:string,rule:Rule,start:string,end:string,threshold:number|null){
-  const spatial=await forecastMasks(rows,archiveSha,{identicalMemberships:true});
+  const [retained,spatial]=await Promise.all([
+    forecastQualified(rows,archiveSha,rule,start,end,threshold),
+    forecastMasks(rows,archiveSha,{identicalMemberships:true}),
+  ]);
   if(!spatial)return undefined;
   const result=qualifyForecastRecipe(rows,spatial,rule,start,end,threshold);
   if('membershipRejections' in spatial)for(const pra of Object.keys(result.rejected)){
     const reason=spatial.membershipRejections?.[pra];if(reason)result.rejected[pra]=reason;
   }
   if('reason' in spatial&&spatial.reason)for(const pra of Object.keys(result.rejected))result.rejected[pra]=spatial.reason;
+  result.qualified=retained.results;
+  for(const pra of retained.results.keys())delete result.rejected[pra];
+  const retainedIds=new Set(retained.results.keys());
+  result.collection.features=result.collection.features.filter(f=>!retainedIds.has(String(f.id)));
+  result.collection.features.push(...retained.collection.features);
   return result;
 }

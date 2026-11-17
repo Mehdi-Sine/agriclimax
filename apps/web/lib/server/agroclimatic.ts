@@ -408,7 +408,7 @@ export async function agroclimaticData(params: URLSearchParams) {
     }
     const began = performance.now();
     const data = identities.ids.map((pra) =>
-      (unified ? calculateQualified : useSupport ? calculateObserved : calculate)(
+      spatial?.qualified?.get(pra) ?? (unified ? calculateQualified : useSupport ? calculateObserved : calculate)(
         pra,
         grouped.get(pra) ?? [],
         start,
