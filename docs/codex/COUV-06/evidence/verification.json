@@ -1,0 +1,22 @@
+{
+  "base_commit": "39b5031",
+  "web_tests": {"passed": 792, "skipped": 16, "passed_files": 103, "skipped_files": 12},
+  "python_targeted_tests": {"passed": 7},
+  "typecheck_web_and_scripts": "passed",
+  "eslint": "passed",
+  "ruff_new_audits": "passed",
+  "mypy_new_audits_strict_follow_imports_silent": "passed",
+  "contracts": "passed",
+  "migrations": "passed",
+  "source_and_bundle_secret_guards": "passed",
+  "client_bundle_gzip_bytes": 700527,
+  "client_bundle_budget_bytes": 2097152,
+  "production_build_historical_on": "passed after existing Next security advisory acknowledgement",
+  "production_build_historical_off": "passed after existing Next security advisory acknowledgement",
+  "known_dependency_reservation": "Installed Next.js emits a known-vulnerability advisory; dependencies unchanged in COUV-06",
+  "remote_writes": 0,
+  "openai_calls": 0,
+  "automatic_activation": false,
+  "archive_republication": false,
+  "automatic_merge": false
+}

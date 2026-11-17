@@ -1,4 +1,5 @@
 "use client";
+import {coverageEnabledFor} from '../cartography/coverage';
 import dynamic from "next/dynamic";
 import {useId,useState} from "react";
 import Link from "next/link";
@@ -25,7 +26,7 @@ export function EditionMaps({view,editionId,initialMapId,main=false}:{view:Editi
   const days=info?(Date.parse(info.period[1])-Date.parse(info.period[0]))/86400000+1:1;
   const palette=semanticPalette(info?.indicator??"temperature_mean",info?.unit??"°C",days),colors=usePaletteColors(palette);
   const variables=RECIPES.find(r=>r.id===info?.indicator)?.kernel.variables;
-  const spatial=useResource<{verified:boolean;collection:PraCollection}>(view.status==='preview'&&info?.nature==='reanalysis'&&variables?.length===1&&variables[0]!=='humidity'?`/api/national/support?${new URLSearchParams({start:info.period[0],end:info.period[1],variable:variables[0]})}`:null);
+  const spatial=useResource<{verified:boolean;collection:PraCollection}>(view.status==='preview'&&!info?.rendering_version&&info?.nature==='reanalysis'&&variables?.length===1&&variables[0]!=='humidity'?`/api/national/support?${new URLSearchParams({start:info.period[0],end:info.period[1],variable:variables[0]})}`:null);
   const map=result.data?.map.id===info?.id&&result.data?.bundle_sha256===view.bundle_sha256?result.data?.map:undefined;
   const row=map?.rows.find(r=>r.territoryId===selected);
   const shape=geometry.data;
@@ -40,7 +41,7 @@ export function EditionMaps({view,editionId,initialMapId,main=false}:{view:Editi
       <p>Carte de contexte associée aux données gelées de cette édition. Sa période propre peut différer de celle de l’article ; elle ne décrit pas nécessairement la situation du jour.</p>
       <div className="pra-stage">
         {result.error||geometry.error||shape&&!validShape?<p role="alert">Carte indisponible ou contours incompatibles. Les archives et l’article restent consultables.</p>:map&&shape&&validShape?<>
-          <NationalMap coverageEnabled={view.status==="preview"?undefined:false} coveredSupport={info.nature==='forecast'?result.data?.forecast_rendering?.collection:(spatial.data?.verified?spatial.data.collection:null)} collection={shape} rows={null} contextRows={null} mode="availability" selected={selected} onSelect={setSelected} quantitative={{values:map.rows.map(r=>({quality:info.nature==='forecast'&&result.data?.forecast_rendering?result.data.forecast_rendering.qualities[r.territoryId]:r.quality,territoryId:r.territoryId,value:r.value??(r.support_scope==="observed_area"?r.observed_value??null:null),normal:null,anomaly:null,status:r.status})),field:"value",unit:info.unit,bounds:palette.bounds,colors}} geography={{prefix:"pra:",label:"713 PRA",attribution:"PRA · OFB / MASA · contours simplifiés T32B"}}/>
+          <NationalMap coverageEnabled={info.rendering_version==="couv06-history-1"||(view.status==="preview"&&coverageEnabledFor(info.nature))} coveredSupport={info.nature==='forecast'?result.data?.forecast_rendering?.collection:(map.rendering?.covered_support??(spatial.data?.verified?spatial.data.collection:null))} collection={shape} rows={null} contextRows={null} mode="availability" selected={selected} onSelect={setSelected} quantitative={{values:map.rows.map(r=>({quality:info.nature==='forecast'&&result.data?.forecast_rendering?result.data.forecast_rendering.qualities[r.territoryId]:r.quality,territoryId:r.territoryId,value:r.value??(r.support_scope==="observed_area"?r.observed_value??null:null),normal:null,anomaly:null,status:r.status})),field:"value",unit:info.unit,bounds:palette.bounds,colors}} geography={{prefix:"pra:",label:"713 PRA",attribution:"PRA · OFB / MASA · contours simplifiés T32B"}}/>
           <label className="pra-picker">Consulter une PRA <select aria-label="PRA de l’édition" value={selected} onChange={e=>setSelected(e.target.value)}><option value="">Choisir un territoire</option>{places.places.map(p=><option key={p.id} value={p.id}>{p.name} · {p.region}</option>)}</select></label>
           {row&&<aside className="pra-selection" aria-label="PRA sélectionnée"><h3>{places.places.find(p=>p.id===selected)?.name}</h3><p>{places.places.find(p=>p.id===selected)?.region}</p><strong>{row.value===null?row.support_scope==="observed_area"&&row.observed_value!=null?`${row.observed_value.toLocaleString("fr-FR",{maximumFractionDigits:2})} ${info.unit} sur la portion observée uniquement`:"Valeur non évaluable":`${row.value.toLocaleString("fr-FR",{maximumFractionDigits:2})} ${info.unit}`}</strong>
             <p>{row.support_scope==="observed_area"?"Couverture partielle : aucune extrapolation à la PRA entière ; valeur exclue des chiffres clés.":row.value===null?"Données absentes ou insuffisantes ; NULL distinct de zéro.":"Valeur descriptive sur le support qualifié par le moteur."}</p>
@@ -49,8 +50,8 @@ export function EditionMaps({view,editionId,initialMapId,main=false}:{view:Editi
           </aside>}
         </>:<p role="status">Chargement de la carte des 713 PRA…</p>}
       </div>
-      <SemanticLegend palette={palette}/>
-      <p>{info.coverage.whole}/713 PRA avec valeur territoriale · {info.coverage.partial} sur portion observée uniquement · {info.coverage.missing} non évaluables. Les hachures signalent les supports partiels ; aucune valeur absente n’est remplacée.</p>
+      <SemanticLegend palette={palette} coverage={info.rendering_version==='couv06-history-1'||view.status==='preview'&&coverageEnabledFor(info.nature)}/>
+      <p>{info.coverage.whole}/713 PRA avec valeur territoriale · {info.coverage.partial} sur portion observée uniquement · {info.coverage.missing} non évaluables. {info.rendering_version==='couv06-history-1'||view.status==='preview'&&coverageEnabledFor(info.nature)?'La coloration suit la couverture qualifiée ; aucune valeur absente n’est remplacée.':'Les hachures signalent les supports partiels ; aucune valeur absente n’est remplacée.'}</p>
       <p className="pra-source">Sources : {info.sources.join(", ")} · {info.cycles.length?`cycles ${info.cycles.map(frenchCycle).join(" ; ")}`:"historique de réanalyse"}. Validité : {info.period.join(" → ")}. Résultats descriptifs exploratoires, sans dommage agricole déduit.</p>
       <details><summary>Traçabilité de la carte</summary><p>Carte {info.id} · bundle {view.bundle_sha256}.</p><p>Empreinte des entrées : {info.input_sha256}.</p><a href={url??undefined}>Données structurées de cette carte</a></details>
     </figure>

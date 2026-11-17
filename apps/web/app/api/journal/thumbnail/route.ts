@@ -1,7 +1,7 @@
 import {editionForecastRendering} from '../../../../lib/server/edition-forecast';
 import {operationalEditions} from "../../../../lib/server/editorial-published";
 import {editionMaps} from "../../../../lib/server/edition-maps";
-import {EXHAUSTIVE_COVERAGE} from "../../../../features/cartography/coverage";
+import {coverageEnabledFor} from "../../../../features/cartography/coverage";
 import {RECIPES} from "../../../../features/multiproduction/registry";
 import {periodSupportDocument} from "../../../../lib/server/spatial-restitution";
 import {mapThumbnail} from "../../../../lib/server/map-thumbnail";
@@ -17,14 +17,14 @@ export async function GET(request: Request) {
     if (!edition) return Response.json({status: "absent"}, {status: 404, headers: noStore});
     const {view, bundle} = await editionMaps(edition), map = bundle?.maps.find(m => m.id === mapId);
     if (!map) return Response.json({status: view.status, code: view.code}, {status: view.status === "error" ? 503 : 404, headers: noStore});
-    // Published editions retain their original rendering. Only unpublished previews opt in.
-    const exhaustive = EXHAUSTIVE_COVERAGE && view.status === 'preview';
+    // Published rendering is frozen by the bundle version; rollout changes cannot repaint an archive.
+    const exhaustive = map.rendering?.version === 'couv06-history-1' || (coverageEnabledFor(map.nature) && view.status === 'preview');
     const variables = RECIPES.find(r=>r.id===map.indicator)?.kernel.variables;
-    const spatial = exhaustive && map.nature==='reanalysis' && variables?.length===1 && variables[0]!=='humidity'
+    const spatial = exhaustive && !map.rendering && map.nature==='reanalysis' && variables?.length===1 && variables[0]!=='humidity'
       ? await periodSupportDocument(map.period[0],map.period[1],variables[0]) : null;
     const rendering=exhaustive?await editionForecastRendering(map,view.status):undefined;
     const rendered=rendering?{...map,rows:map.rows.map(r=>({...r,quality:rendering.qualities[r.territoryId]}))}:map;
-    const {bytes, etag} = await mapThumbnail(rendered,{exhaustive,coveredSupport:rendering?.collection??(spatial?.verified?spatial.collection:null)});
+    const {bytes, etag} = await mapThumbnail(rendered,{exhaustive,coveredSupport:map.rendering?.covered_support??rendering?.collection??(spatial?.verified?spatial.collection:null)});
     const headers = {"Content-Type": "image/webp", "X-Content-Type-Options": "nosniff", ETag: etag,
       "Cache-Control": view.status === "published" ? "public, max-age=86400, stale-while-revalidate=604800" : "no-store"};
     if (view.status === "published" && request.headers.get("if-none-match") === etag) return new Response(null, {status: 304, headers});

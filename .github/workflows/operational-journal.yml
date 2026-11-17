@@ -173,6 +173,9 @@ jobs:
     concurrency:
       group: sim-candidate-private-persistence
       cancel-in-progress: false
+    defaults:
+      run:
+        shell: bash
     env:
       PYTHONPATH: engine/src:scripts
       OPENBLAS_NUM_THREADS: '1'
@@ -187,13 +190,21 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r engine/requirements-dev.lock -r engine/requirements-geo.lock -r engine/requirements-safran.lock
       - name: Restore private candidate independently of Actions retention
-        run: python scripts/couv04_checkpoint.py restore --root work/couv04/sim-candidate
+        run: |
+          mkdir -p work/couv04/receipts
+          python scripts/couv04_checkpoint.py restore --root work/couv04/sim-candidate | tee work/couv04/receipts/restore.json
       - name: Collect only actual available SIM days
-        run: python scripts/couv03_collect.py --root work/couv04/sim-candidate
+        run: python scripts/couv03_collect.py --root work/couv04/sim-candidate | tee work/couv04/receipts/collect.json
       - name: Persist bounded private snapshot with verified readback
-        run: python scripts/couv04_checkpoint.py save --root work/couv04/sim-candidate
+        run: python scripts/couv04_checkpoint.py save --root work/couv04/sim-candidate | tee work/couv04/receipts/save.json
       - name: Verify recovery from private storage
-        run: python scripts/couv04_checkpoint.py restore --root work/couv04/recovery-check
+        run: python scripts/couv04_checkpoint.py restore --root work/couv04/recovery-check | tee work/couv04/receipts/readback.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: sim-persistence-receipts-${{ github.run_id }}
+          path: work/couv04/receipts/
+          retention-days: 21
   editorial:
     needs: plan
     if: needs.plan.outputs.stage != 'acquire'
@@ -229,6 +240,7 @@ jobs:
           AGRICLIMAX_EDITORIAL_MODEL: ${{ inputs.model || vars.AGRICLIMAX_EDITORIAL_MODEL || 'gpt-6.1-terra' }}
           AGRICLIMAX_JOURNAL_HEALTH_URL: ${{ vars.AGRICLIMAX_JOURNAL_HEALTH_URL }}
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+          AGRICLIMAX_COUV06_EDITION_ENABLED: ${{ vars.AGRICLIMAX_COUV06_EDITION_ENABLED }}
           STAGE: ${{ needs.plan.outputs.stage }}
           RECOVERY: ${{ inputs.recovery }}
           AUTHORIZED_SNAPSHOT: ${{ inputs.authorized_snapshot }}

@@ -293,6 +293,20 @@ export default function NationalMap({
     );
   }, [ready, selected, collection, quantitative,highlighted]);
 
+  const coverageCounts = useMemo(() => {
+    if (!coverageEnabled || !quantitative) return null;
+    const values = new Map(quantitative.values.map(r => [r.territoryId, r]));
+    const supports = new Map(coveredSupport?.features.map(f => [String(f.id), f.properties.support_id]));
+    const counts = {whole: 0, covered: 0, unavailable: 0};
+    for (const f of collection.features) {
+      const row = values.get(String(f.id));
+      const paint = coveragePaint({value: row?.[quantitative.field] ?? null,
+        quality: row?.quality, field: quantitative.field, geometrySupportId: supports.get(String(f.id))});
+      counts[paint.target]++;
+    }
+    return counts;
+  }, [collection, quantitative, coveredSupport, coverageEnabled]);
+
   return (
     <section aria-label={`Carte des ${geography.label}`} className="national-map-wrap">
       <button
@@ -320,6 +334,10 @@ export default function NationalMap({
         data-partial-value-count={quantitative?.values.filter(v => v.status === "partial" && v[quantitative.field] !== null).length ?? 0}
         data-covered-support-count={coveredSupport?.features.length??0}
         data-mode={mode}
+        data-coverage-enabled={coverageEnabled}
+        data-whole-count={coverageCounts?.whole}
+        data-covered-count={coverageCounts?.covered}
+        data-unavailable-count={coverageCounts?.unavailable}
       />
       {!failed && (loading||!ready||!rendered||paintedIdentity!==paintIdentity) && <p className="map-updating" role="status" aria-live="polite">{loading?'Actualisation de la carte… Carte précédente conservée.':!ready?'Chargement des contours…':'Application des couleurs…'}</p>}
       {failed && (
@@ -328,6 +346,10 @@ export default function NationalMap({
           sélectionner une PRA.
         </p>
       )}
+      {coverageCounts && !loading && <p className="coverage-line" aria-live="polite">
+        {coverageCounts.whole} PRA entièrement colorées · {coverageCounts.covered} partiellement colorées · {coverageCounts.unavailable} grisées.
+        {' '}À partir de 90 % de couverture qualifiée : coloration entière ; en dessous : seule la surface qualifiée est colorée, le complément reste gris. Gris : données indisponibles ou non qualifiées pour cette carte.
+      </p>}
       <p className="national-hover" aria-live="polite">
         {hover ||
           'Survolez un territoire pour lire sa valeur. Cliquez pour ouvrir sa fiche.'}

@@ -1,0 +1,257 @@
+[
+  {
+    "job_id": 133044522913,
+    "report": {
+      "candidate_bytes": 29866,
+      "contributing_cells": 807,
+      "first_requested": "2026-11-09",
+      "indicator_eligible": false,
+      "journal_eligible": false,
+      "lag_days": 2,
+      "last_requested": "2026-11-15",
+      "missing_dates": [
+        "2026-11-15"
+      ],
+      "new_day_revisions": 0,
+      "peak_rss_kib": 122428,
+      "pra_count": 32,
+      "remote_writes": 0,
+      "seconds": 0,
+      "source_bytes": 118735,
+      "source_calls": 1,
+      "source_first": "2026-09-16",
+      "source_last": "2026-11-14",
+      "source_receipt": {
+        "acquired_at": "2026-11-16T01:31:04.357090+00:00",
+        "bytes": 11208000,
+        "headers": {
+          "Content-Length": "11208000",
+          "ETag": "\"cfc1a5dc3cacd784b5bbd0dc0e093b2f-2\"",
+          "Last-Modified": "Sun, 15 Nov 2026 09:31:24 GMT"
+        },
+        "sha256": "f1823ba9fb8b80f11d7e911ed6345c98cf4e9cad5f76a808d729734a76f1a715",
+        "url": "https://hydra.s3.rbx.io.cloud.ovh.net/parquet/aa3dac55-39e3-4308-b0ed-e03eec59cc6b.parquet"
+      },
+      "source_resource": {
+        "checksum": null,
+        "created_at": "2026-10-05T08:13:52.223000+00:00",
+        "description": "Données quotidiennes SIM sur les 60 jours glissants, actualisées quotidiennement",
+        "extras": {
+          "analysis:check_id": 56865567,
+          "analysis:checksum": "97e630c6b1c56228b034430b638ed42162532c0f",
+          "analysis:content-length": 89824978,
+          "analysis:last-modified-at": "2026-11-15T08:03:25+00:00",
+          "analysis:last-modified-detection": "last-modified-header",
+          "analysis:mime-type": "text/plain",
+          "analysis:parsing:finished_at": "2026-11-15T09:31:01.171700+00:00",
+          "analysis:parsing:parquet_size": 11208000,
+          "analysis:parsing:parquet_url": "https://hydra.s3.rbx.io.cloud.ovh.net/parquet/aa3dac55-39e3-4308-b0ed-e03eec59cc6b.parquet",
+          "analysis:parsing:parsing_table": "e926f6b3c40292391549511b96fe911e",
+          "analysis:parsing:started_at": "2026-11-15T09:30:40.114460+00:00",
+          "check:available": true,
+          "check:date": "2026-11-15T09:30:36.679102+00:00",
+          "check:headers:content-length": 20019236,
+          "check:headers:content-type": "binary/octet-stream",
+          "check:id": 56865567,
+          "check:status": 200,
+          "check:timeout": false
+        },
+        "filesize": null,
+        "filetype": "remote",
+        "format": "csv.gz",
+        "geopf": null,
+        "harvest": null,
+        "id": "aa3dac55-39e3-4308-b0ed-e03eec59cc6b",
+        "internal": {
+          "created_at_internal": "2026-10-05T08:13:52.223000+00:00",
+          "last_modified_internal": "2026-11-15T09:30:22.670000+00:00"
+        },
+        "last_modified": "2026-11-15T08:03:25+00:00",
+        "latest": "https://www.data.gouv.fr/api/1/datasets/r/aa3dac55-39e3-4308-b0ed-e03eec59cc6b",
+        "metrics": {
+          "views": 414
+        },
+        "mime": null,
+        "preview_url": "https://explore.data.gouv.fr/fr/resources/aa3dac55-39e3-4308-b0ed-e03eec59cc6b",
+        "schema": null,
+        "title": "QUOT_SIM2_latest",
+        "type": "main",
+        "url": "https://meteofrance.s3.sbg.io.cloud.ovh.net/data/REF_CC/SIM/QUOT_SIM2_latest.csv.gz"
+      },
+      "source_sha256": "f1823ba9fb8b80f11d7e911ed6345c98cf4e9cad5f76a808d729734a76f1a715",
+      "status": "unchanged_source",
+      "support_sha256": "5efd4b6b81bbc11ada8bc0fba3b27db3b9f38c8c3c82f542e8830b73fa5e4a32",
+      "total_seconds": 2.188
+    }
+  },
+  {
+    "job_id": 133760594838,
+    "report": {
+      "status": "partial",
+      "first_requested": "2026-11-10",
+      "last_requested": "2026-11-16",
+      "source_first": "2026-09-17",
+      "source_last": "2026-11-15",
+      "lag_days": 2,
+      "source_sha256": "31da9bb0c1ce0cbedea8bff83952f73973d38cea6ce6cce919f0a48fa6d253b3",
+      "support_sha256": "5efd4b6b81bbc11ada8bc0fba3b27db3b9f38c8c3c82f542e8830b73fa5e4a32",
+      "source_resource": {
+        "checksum": null,
+        "created_at": "2026-10-05T08:13:52.223000+00:00",
+        "description": "Données quotidiennes SIM sur les 60 jours glissants, actualisées quotidiennement",
+        "extras": {
+          "analysis:check_id": 56913287,
+          "analysis:checksum": "479cf89babb231f5dff2d3309f558ba766f5d132",
+          "analysis:content-length": 89800821,
+          "analysis:last-modified-at": "2026-11-16T08:03:23+00:00",
+          "analysis:last-modified-detection": "last-modified-header",
+          "analysis:mime-type": "text/plain",
+          "analysis:parsing:finished_at": "2026-11-16T09:33:41.412167+00:00",
+          "analysis:parsing:parquet_size": 11245420,
+          "analysis:parsing:parquet_url": "https://hydra.s3.rbx.io.cloud.ovh.net/parquet/aa3dac55-39e3-4308-b0ed-e03eec59cc6b.parquet",
+          "analysis:parsing:parsing_table": "e926f6b3c40292391549511b96fe911e",
+          "analysis:parsing:started_at": "2026-11-16T09:33:18.914635+00:00",
+          "check:available": true,
+          "check:date": "2026-11-16T09:33:10.657864+00:00",
+          "check:headers:content-length": 20066457,
+          "check:headers:content-type": "binary/octet-stream",
+          "check:id": 56913287,
+          "check:status": 200,
+          "check:timeout": false
+        },
+        "filesize": null,
+        "filetype": "remote",
+        "format": "csv.gz",
+        "geopf": null,
+        "harvest": null,
+        "id": "aa3dac55-39e3-4308-b0ed-e03eec59cc6b",
+        "internal": {
+          "created_at_internal": "2026-10-05T08:13:52.223000+00:00",
+          "last_modified_internal": "2026-11-16T09:30:20.850000+00:00"
+        },
+        "last_modified": "2026-11-16T08:03:23+00:00",
+        "latest": "https://www.data.gouv.fr/api/1/datasets/r/aa3dac55-39e3-4308-b0ed-e03eec59cc6b",
+        "metrics": {
+          "views": 414
+        },
+        "mime": null,
+        "preview_url": "https://explore.data.gouv.fr/fr/resources/aa3dac55-39e3-4308-b0ed-e03eec59cc6b",
+        "schema": null,
+        "title": "QUOT_SIM2_latest",
+        "type": "main",
+        "url": "https://meteofrance.s3.sbg.io.cloud.ovh.net/data/REF_CC/SIM/QUOT_SIM2_latest.csv.gz"
+      },
+      "source_receipt": {
+        "acquired_at": "2026-11-17T02:00:56.013125+00:00",
+        "bytes": 11245420,
+        "headers": {
+          "Content-Length": "11245420",
+          "ETag": "\"e4d5c87c3f1df390ead1d89bf571c171-2\"",
+          "Last-Modified": "Mon, 16 Nov 2026 09:35:38 GMT"
+        },
+        "sha256": "31da9bb0c1ce0cbedea8bff83952f73973d38cea6ce6cce919f0a48fa6d253b3",
+        "url": "https://hydra.s3.rbx.io.cloud.ovh.net/parquet/aa3dac55-39e3-4308-b0ed-e03eec59cc6b.parquet"
+      },
+      "pra_count": 32,
+      "contributing_cells": 807,
+      "new_day_revisions": 6,
+      "missing_dates": [
+        "2026-11-16"
+      ],
+      "seconds": 1.894,
+      "peak_rss_kib": 171996,
+      "candidate_bytes": 27151,
+      "remote_writes": 0,
+      "journal_eligible": false,
+      "indicator_eligible": false,
+      "source_calls": 6,
+      "source_bytes": 12284781,
+      "total_seconds": 8.619
+    }
+  },
+  {
+    "job_id": 133778988567,
+    "report": {
+      "candidate_bytes": 29883,
+      "contributing_cells": 807,
+      "first_requested": "2026-11-10",
+      "indicator_eligible": false,
+      "journal_eligible": false,
+      "lag_days": 2,
+      "last_requested": "2026-11-16",
+      "missing_dates": [
+        "2026-11-16"
+      ],
+      "new_day_revisions": 0,
+      "peak_rss_kib": 122528,
+      "pra_count": 32,
+      "remote_writes": 0,
+      "seconds": 0,
+      "source_bytes": 118590,
+      "source_calls": 1,
+      "source_first": "2026-09-17",
+      "source_last": "2026-11-15",
+      "source_receipt": {
+        "acquired_at": "2026-11-17T02:00:56.013125+00:00",
+        "bytes": 11245420,
+        "headers": {
+          "Content-Length": "11245420",
+          "ETag": "\"e4d5c87c3f1df390ead1d89bf571c171-2\"",
+          "Last-Modified": "Mon, 16 Nov 2026 09:35:38 GMT"
+        },
+        "sha256": "31da9bb0c1ce0cbedea8bff83952f73973d38cea6ce6cce919f0a48fa6d253b3",
+        "url": "https://hydra.s3.rbx.io.cloud.ovh.net/parquet/aa3dac55-39e3-4308-b0ed-e03eec59cc6b.parquet"
+      },
+      "source_resource": {
+        "checksum": null,
+        "created_at": "2026-10-05T08:13:52.223000+00:00",
+        "description": "Données quotidiennes SIM sur les 60 jours glissants, actualisées quotidiennement",
+        "extras": {
+          "analysis:check_id": 56913287,
+          "analysis:checksum": "479cf89babb231f5dff2d3309f558ba766f5d132",
+          "analysis:content-length": 89800821,
+          "analysis:last-modified-at": "2026-11-16T08:03:23+00:00",
+          "analysis:last-modified-detection": "last-modified-header",
+          "analysis:mime-type": "text/plain",
+          "analysis:parsing:finished_at": "2026-11-16T09:33:41.412167+00:00",
+          "analysis:parsing:parquet_size": 11245420,
+          "analysis:parsing:parquet_url": "https://hydra.s3.rbx.io.cloud.ovh.net/parquet/aa3dac55-39e3-4308-b0ed-e03eec59cc6b.parquet",
+          "analysis:parsing:parsing_table": "e926f6b3c40292391549511b96fe911e",
+          "analysis:parsing:started_at": "2026-11-16T09:33:18.914635+00:00",
+          "check:available": true,
+          "check:date": "2026-11-16T09:33:10.657864+00:00",
+          "check:headers:content-length": 20066457,
+          "check:headers:content-type": "binary/octet-stream",
+          "check:id": 56913287,
+          "check:status": 200,
+          "check:timeout": false
+        },
+        "filesize": null,
+        "filetype": "remote",
+        "format": "csv.gz",
+        "geopf": null,
+        "harvest": null,
+        "id": "aa3dac55-39e3-4308-b0ed-e03eec59cc6b",
+        "internal": {
+          "created_at_internal": "2026-10-05T08:13:52.223000+00:00",
+          "last_modified_internal": "2026-11-16T09:30:20.850000+00:00"
+        },
+        "last_modified": "2026-11-16T08:03:23+00:00",
+        "latest": "https://www.data.gouv.fr/api/1/datasets/r/aa3dac55-39e3-4308-b0ed-e03eec59cc6b",
+        "metrics": {
+          "views": 414
+        },
+        "mime": null,
+        "preview_url": "https://explore.data.gouv.fr/fr/resources/aa3dac55-39e3-4308-b0ed-e03eec59cc6b",
+        "schema": null,
+        "title": "QUOT_SIM2_latest",
+        "type": "main",
+        "url": "https://meteofrance.s3.sbg.io.cloud.ovh.net/data/REF_CC/SIM/QUOT_SIM2_latest.csv.gz"
+      },
+      "source_sha256": "31da9bb0c1ce0cbedea8bff83952f73973d38cea6ce6cce919f0a48fa6d253b3",
+      "status": "unchanged_source",
+      "support_sha256": "5efd4b6b81bbc11ada8bc0fba3b27db3b9f38c8c3c82f542e8830b73fa5e4a32",
+      "total_seconds": 1.445
+    }
+  }
+]

@@ -1,3 +1,4 @@
+import type {PraCollection} from "../national/map";
 import {hash} from "../editorial/temporal";
 import {isCalendarDate} from "../national/daily-availability";
 import {RECIPES} from "../multiproduction/registry";
@@ -8,9 +9,10 @@ import type {AgroResult} from "../agroclimatic/calculate";
 export interface EditionMap {
   id:string; indicator:string; title:string; nature:"reanalysis"|"forecast";
   period:[string,string]; unit:string; sources:string[]; cycles:string[]; input_sha256:string;
+  rendering?: {version:"couv06-history-1";covered_support:PraCollection};
   rows:Pick<AgroResult,"territoryId"|"value"|"observed_value"|"status"|"reason"|"support_scope"|"support_id"|"spatial_coverage"|"temporal_coverage"|"data_freshness"|"rule_version"|"quality_flags"|"provenance"|"quality">[];
 }
-export type EditionMapInfo=Omit<EditionMap,"rows">&{coverage:{whole:number;partial:number;missing:number}};
+export type EditionMapInfo=Omit<EditionMap,"rows"|"rendering">&{rendering_version?:"couv06-history-1";coverage:{whole:number;partial:number;missing:number}};
 export interface EditionMapBundle {
   version:"edition-maps-1"; edition_id:string; edition_checksum:string; edition_date:string;
   snapshot_id:string; input_archive_sha256:string; maps:EditionMap[]; sha256:string;
@@ -26,7 +28,7 @@ export interface EditionMapsView {
   status:"published"|"preview"|"absent"|"error"; code:string;
   bundle_sha256?:string; maps:EditionMapInfo[];
 }
-export const mapInfo=({rows,...m}:EditionMap):EditionMapInfo=>({...m,coverage:{
+export const mapInfo=({rows,rendering,...m}:EditionMap):EditionMapInfo=>({...m,...(rendering?{rendering_version:rendering.version}:{}),coverage:{
   whole:rows.filter(r=>r.value!==null).length,
   partial:rows.filter(r=>r.support_scope==="observed_area"&&r.observed_value!=null).length,
   missing:rows.filter(r=>r.value===null&&!(r.support_scope==="observed_area"&&r.observed_value!=null)).length,
@@ -52,6 +54,14 @@ export function verifyBundle(value:unknown,edition:{edition_id:string;checksum:s
       !strings(m.sources)||!m.sources.length||!strings(m.cycles)||m.cycles.some(c=>!Number.isFinite(Date.parse(c)))||
       (m.nature==="forecast"&&!m.cycles.length)||
       !Array.isArray(m.rows)||m.rows.length!==713||new Set(m.rows.map(r=>r.territoryId)).size!==713)throw Error("MAP_CONTRACT");
+    if(m.rendering){
+      const rendering=m.rendering;
+      if(rendering.version!=="couv06-history-1"||m.nature!=="reanalysis"||rendering.covered_support?.type!=="FeatureCollection"||!Array.isArray(rendering.covered_support.features)||rendering.covered_support.features.length>713||new Set(rendering.covered_support.features.map(f=>f.id)).size!==rendering.covered_support.features.length)throw Error("MAP_HISTORICAL_RENDERING");
+      for(const feature of rendering.covered_support.features){
+        const row=m.rows.find(r=>r.territoryId===feature.id);
+        if(!row||!feature.properties?.support_id||feature.properties.support_id!==row.quality?.evidence.support_id||!['Polygon','MultiPolygon'].includes(feature.geometry?.type))throw Error("MAP_HISTORICAL_GEOMETRY_BINDING");
+      }
+    }
     for(const r of m.rows){
       const finite=(v:unknown)=>typeof v==="number"&&Number.isFinite(v);
       if(!identities.ids.includes(r.territoryId)||!(r.value===null||finite(r.value))||!(r.observed_value===null||finite(r.observed_value))||

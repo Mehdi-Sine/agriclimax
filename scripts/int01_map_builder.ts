@@ -1,3 +1,4 @@
+import {HISTORICAL_RENDERING_VERSION,type FrozenHistoricalCartography} from "../apps/web/lib/server/historical-cartography";
 import {historicalWheatInputs} from "../apps/web/lib/server/wheat";
 import {forecastProvider} from "../apps/web/features/multiproduction/archives";
 import {homogeneousForecastPeriod} from "../apps/web/features/multiproduction/forecast-period";
@@ -13,11 +14,13 @@ import places from "../apps/web/data/operational/pra-watch-places.json";
 
 /** Bounded initial catalogue, existing recipes only. No acquisition or scientific fallback. */
 const indicators=["temperature_min","temperature_mean","rain","frost","gdd"];
-export function buildEditionMaps(archive:Archive,snapshot:DailyEditorialSnapshot,inputs:{history:ArchivedDaily[];document:NationalWeatherDocument|null}){
+export function buildEditionMaps(archive:Archive,snapshot:DailyEditorialSnapshot,inputs:{history:ArchivedDaily[];document:NationalWeatherDocument|null;historical_cartography?:FrozenHistoricalCartography}){
   if(snapshot.test_only||!snapshot.input_archive||snapshot.edition_date!==archive.date||snapshot.briefing?.bundle_id!==archive.briefing.bundle_id)throw Error("MAP_FROZEN_INPUT_BINDING");
   const groups:{nature:EditionMap["nature"];period:[string,string];provider:InputProvider}[]=[];
   const end=archive.briefing.validity.history_cutoff;
   const period:[string,string]=[shift(end,-6),end];
+  const frozen=inputs.historical_cartography;
+  if(frozen&&(frozen.version!==HISTORICAL_RENDERING_VERSION||frozen.period.join()!==period.join()))throw Error("MAP_HISTORICAL_SUPPORT_BINDING");
   const history=inputs.history.filter(r=>r.valid_date>=period[0]&&r.valid_date<=end);
   if(history.length){
     // Use only frozen native rows. A later coastal support release cannot change an archive.
@@ -26,7 +29,15 @@ export function buildEditionMaps(archive:Archive,snapshot:DailyEditorialSnapshot
       const recipe=RECIPES.find(r=>r.kernel.variables.join()===variables.join())!;
       const key=variables.join();
       if(!cache.has(key))cache.set(key,historicalWheatInputs(history,recipe.kernel));
-      return cache.get(key)?.[pra]??[];
+      const native=cache.get(key)?.[pra]??[];
+      const partial=variables.length===1?frozen?.variables[variables[0]]?.inputs[pra]:undefined;
+      if(!partial)return native;
+      return native.map(row=>{
+        const proof=partial.days.find(d=>d[0]===row.date);
+        return proof?{...row,complete:true,climate_support:partial.support,
+          values:{...row.values,[variables[0]]:proof[1]},
+          provenance:[...row.provenance,...proof[2]],quality_flags:[...row.quality_flags,...proof[3]]}:row;
+      });
     };
     groups.push({nature:"reanalysis",period,provider});
   }
@@ -47,6 +58,8 @@ export function buildEditionMaps(archive:Archive,snapshot:DailyEditorialSnapshot
       if(!values.some(m=>m.result.value!==null||m.result.observed_value!=null))continue;
       const recipe=RECIPES.find(r=>r.id===indicator)!;
       maps.push(sealMap({indicator,title:recipe.kernel.label,nature:g.nature,period:g.period,unit:recipe.kernel.unit,input_sha256,
+        ...(g.nature==='reanalysis'&&frozen?{rendering:{version:HISTORICAL_RENDERING_VERSION,
+          covered_support:{type:'FeatureCollection' as const,features:values.flatMap(m=>{const id=m.result.quality?.evidence.support_id;return id&&frozen.geometries[id]?[frozen.geometries[id]]:[];})}}}:{}),
         sources:[...new Set(values.flatMap(m=>m.origins.map(o=>o.source)))].sort(),
         cycles:[...new Set(values.flatMap(m=>m.origins.flatMap(o=>o.run?[o.run]:[])))].sort(),
         rows:values.map(m=>{const r=m.result;return {territoryId:r.territoryId,value:r.value,observed_value:r.observed_value??null,status:r.status,reason:r.reason,

@@ -1,0 +1,12 @@
+{
+  "run_id": 43868608459,
+  "job_id": 133303616887,
+  "date": "2026-11-16",
+  "step_started_at": "2026-11-16T12:40:24Z",
+  "collector_terminated_at": "2026-11-16T12:42:21Z",
+  "collector_exit_code": 142,
+  "reported_step_conclusion": "success",
+  "actual_outcome": "failure: SIGALRM / 115-second collector limit",
+  "fresh_report": false,
+  "reason": "continue-on-error masks failure in the job step conclusion"
+}
