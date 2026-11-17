@@ -1,0 +1,554 @@
+{
+  "checks": [
+    {
+      "id": "gdd",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 1738
+    },
+    {
+      "id": "hot",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 113
+    },
+    {
+      "id": "hot_sequence",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 100
+    },
+    {
+      "id": "frost",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 120
+    },
+    {
+      "id": "frost_sequence",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 83
+    },
+    {
+      "id": "rain",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 119
+    },
+    {
+      "id": "heavy_rain",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 230
+    },
+    {
+      "id": "dry",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 146
+    },
+    {
+      "id": "dry_sequence",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 114
+    },
+    {
+      "id": "thi",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 75
+    },
+    {
+      "id": "thi_days",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 92
+    },
+    {
+      "id": "thi_sequence",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 77
+    },
+    {
+      "id": "cattle_heat",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 103
+    },
+    {
+      "id": "temperature_mean",
+      "period": [
+        "2026-11-01",
+        "2026-11-01"
+      ],
+      "days": 1,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 58
+    },
+    {
+      "id": "gdd",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 2035
+    },
+    {
+      "id": "hot",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 676
+    },
+    {
+      "id": "hot_sequence",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 1347
+    },
+    {
+      "id": "frost",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 1644
+    },
+    {
+      "id": "frost_sequence",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 4239
+    },
+    {
+      "id": "rain",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 1783
+    },
+    {
+      "id": "heavy_rain",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 3924
+    },
+    {
+      "id": "dry",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 2668
+    },
+    {
+      "id": "dry_sequence",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 2928
+    },
+    {
+      "id": "thi",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 1781
+    },
+    {
+      "id": "thi_days",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 2018
+    },
+    {
+      "id": "thi_sequence",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 462
+    },
+    {
+      "id": "cattle_heat",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 1744
+    },
+    {
+      "id": "temperature_mean",
+      "period": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "days": 7,
+      "states": {
+        "native_complete": 645,
+        "observed_partial": 67,
+        "unavailable": 1
+      },
+      "ms": 603
+    },
+    {
+      "id": "gdd",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 3436
+    },
+    {
+      "id": "hot",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 4250
+    },
+    {
+      "id": "hot_sequence",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 2865
+    },
+    {
+      "id": "frost",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 3344
+    },
+    {
+      "id": "frost_sequence",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 6234
+    },
+    {
+      "id": "rain",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 2977
+    },
+    {
+      "id": "heavy_rain",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 2608
+    },
+    {
+      "id": "dry",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 4488
+    },
+    {
+      "id": "dry_sequence",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 4607
+    },
+    {
+      "id": "thi",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 4635
+    },
+    {
+      "id": "thi_days",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 3924
+    },
+    {
+      "id": "thi_sequence",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 3260
+    },
+    {
+      "id": "cattle_heat",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 5448
+    },
+    {
+      "id": "temperature_mean",
+      "period": [
+        "2026-10-03",
+        "2026-11-01"
+      ],
+      "days": 30,
+      "states": {
+        "unavailable": 713
+      },
+      "ms": 5376
+    }
+  ],
+  "openai_calls": 0,
+  "remote_writes": 0
+}

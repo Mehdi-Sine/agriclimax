@@ -1,0 +1,198 @@
+{
+  "dates": [
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-11",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-14",
+    "2026-11-15"
+  ],
+  "rows": 1120,
+  "variables": {
+    "hourly_temperature_max_mean": {
+      "pra_days": 224,
+      "pra": 32,
+      "numeric": 224,
+      "coverage_min": 0.9650471163747415,
+      "coverage_max": 1.000000000000001,
+      "units": [
+        "degC"
+      ],
+      "periods": [
+        "]06UTC-06UTC]"
+      ],
+      "states": {
+        "native_complete": 91,
+        "partial_support": 133
+      },
+      "validation": [
+        "technical_checks_only"
+      ]
+    },
+    "hourly_temperature_min_mean": {
+      "pra_days": 224,
+      "pra": 32,
+      "numeric": 224,
+      "coverage_min": 0.9650471163747415,
+      "coverage_max": 1.000000000000001,
+      "units": [
+        "degC"
+      ],
+      "periods": [
+        "]18UTC-18UTC]"
+      ],
+      "states": {
+        "native_complete": 91,
+        "partial_support": 133
+      },
+      "validation": [
+        "technical_checks_only"
+      ]
+    },
+    "precipitation": {
+      "pra_days": 224,
+      "pra": 32,
+      "numeric": 224,
+      "coverage_min": 0.9650471163747415,
+      "coverage_max": 1.000000000000001,
+      "units": [
+        "mm"
+      ],
+      "periods": [
+        "]06UTC-06UTC]"
+      ],
+      "states": {
+        "native_complete": 91,
+        "partial_support": 133
+      },
+      "validation": [
+        "technical_checks_only"
+      ]
+    },
+    "relative_humidity_mean": {
+      "pra_days": 224,
+      "pra": 32,
+      "numeric": 224,
+      "coverage_min": 0.9650471163747415,
+      "coverage_max": 1.000000000000001,
+      "units": [
+        "%"
+      ],
+      "periods": [
+        "]00UTC-00UTC]"
+      ],
+      "states": {
+        "native_complete": 91,
+        "partial_support": 133
+      },
+      "validation": [
+        "technical_checks_only"
+      ]
+    },
+    "temperature_mean": {
+      "pra_days": 224,
+      "pra": 32,
+      "numeric": 224,
+      "coverage_min": 0.9650471163747415,
+      "coverage_max": 1.000000000000001,
+      "units": [
+        "degC"
+      ],
+      "periods": [
+        "]00UTC-00UTC]"
+      ],
+      "states": {
+        "native_complete": 91,
+        "partial_support": 133
+      },
+      "validation": [
+        "technical_checks_only"
+      ]
+    }
+  },
+  "report": {
+    "candidate_bytes": 38918,
+    "contributing_cells": 807,
+    "first_requested": "2026-11-10",
+    "indicator_eligible": false,
+    "journal_eligible": false,
+    "lag_days": 2,
+    "last_requested": "2026-11-16",
+    "missing_dates": [
+      "2026-11-16"
+    ],
+    "new_day_revisions": 2,
+    "peak_rss_kib": 172780,
+    "pra_count": 32,
+    "remote_writes": 0,
+    "seconds": 1.944,
+    "source_bytes": 12284806,
+    "source_calls": 6,
+    "source_first": "2026-09-17",
+    "source_last": "2026-11-15",
+    "source_receipt": {
+      "acquired_at": "2026-11-17T01:51:59.233224+00:00",
+      "bytes": 11245420,
+      "headers": {
+        "Content-Length": "11245420",
+        "ETag": "\"e4d5c87c3f1df390ead1d89bf571c171-2\"",
+        "Last-Modified": "Mon, 16 Nov 2026 09:35:38 GMT"
+      },
+      "sha256": "31da9bb0c1ce0cbedea8bff83952f73973d38cea6ce6cce919f0a48fa6d253b3",
+      "url": "https://hydra.s3.rbx.io.cloud.ovh.net/parquet/aa3dac55-39e3-4308-b0ed-e03eec59cc6b.parquet"
+    },
+    "source_resource": {
+      "checksum": null,
+      "created_at": "2026-10-05T08:13:52.223000+00:00",
+      "description": "Donn\u00e9es quotidiennes SIM sur les 60 jours glissants, actualis\u00e9es quotidiennement",
+      "extras": {
+        "analysis:check_id": 56913287,
+        "analysis:checksum": "479cf89babb231f5dff2d3309f558ba766f5d132",
+        "analysis:content-length": 89800821,
+        "analysis:last-modified-at": "2026-11-16T08:03:23+00:00",
+        "analysis:last-modified-detection": "last-modified-header",
+        "analysis:mime-type": "text/plain",
+        "analysis:parsing:finished_at": "2026-11-16T09:33:41.412167+00:00",
+        "analysis:parsing:parquet_size": 11245420,
+        "analysis:parsing:parquet_url": "https://hydra.s3.rbx.io.cloud.ovh.net/parquet/aa3dac55-39e3-4308-b0ed-e03eec59cc6b.parquet",
+        "analysis:parsing:parsing_table": "e926f6b3c40292391549511b96fe911e",
+        "analysis:parsing:started_at": "2026-11-16T09:33:18.914635+00:00",
+        "check:available": true,
+        "check:date": "2026-11-16T09:33:10.657864+00:00",
+        "check:headers:content-length": 20066457,
+        "check:headers:content-type": "binary/octet-stream",
+        "check:id": 56913287,
+        "check:status": 200,
+        "check:timeout": false
+      },
+      "filesize": null,
+      "filetype": "remote",
+      "format": "csv.gz",
+      "geopf": null,
+      "harvest": null,
+      "id": "aa3dac55-39e3-4308-b0ed-e03eec59cc6b",
+      "internal": {
+        "created_at_internal": "2026-10-05T08:13:52.223000+00:00",
+        "last_modified_internal": "2026-11-16T09:30:20.850000+00:00"
+      },
+      "last_modified": "2026-11-16T08:03:23+00:00",
+      "latest": "https://www.data.gouv.fr/api/1/datasets/r/aa3dac55-39e3-4308-b0ed-e03eec59cc6b",
+      "metrics": {
+        "views": 414
+      },
+      "mime": null,
+      "preview_url": "https://explore.data.gouv.fr/fr/resources/aa3dac55-39e3-4308-b0ed-e03eec59cc6b",
+      "schema": null,
+      "title": "QUOT_SIM2_latest",
+      "type": "main",
+      "url": "https://meteofrance.s3.sbg.io.cloud.ovh.net/data/REF_CC/SIM/QUOT_SIM2_latest.csv.gz"
+    },
+    "source_sha256": "31da9bb0c1ce0cbedea8bff83952f73973d38cea6ce6cce919f0a48fa6d253b3",
+    "status": "partial",
+    "support_sha256": "5efd4b6b81bbc11ada8bc0fba3b27db3b9f38c8c3c82f542e8830b73fa5e4a32",
+    "total_seconds": 10.36
+  },
+  "remote_writes": 0,
+  "public_sim_decision": "NO-GO: technical checks only; source-day qualification required"
+}

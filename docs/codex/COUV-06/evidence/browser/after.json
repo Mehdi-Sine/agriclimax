@@ -1,0 +1,3337 @@
+{
+  "origin": "http://127.0.0.1:3016",
+  "label": "after",
+  "checks": [
+    {
+      "width": 1440,
+      "indicator": "temperature",
+      "url": "http://127.0.0.1:3016/climat?temporal=history&date=2026-11-01&start=2026-11-01&periode=jour&mode=value&indicateur=temperature",
+      "ms": 10233,
+      "states": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      },
+      "overflow": false,
+      "regional": [
+        {
+          "pra": "pra:13469",
+          "value": null,
+          "observed_value": 11.531567071453386,
+          "coverage": 0.9260709079747366,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9260709079747366,
+              "support_id": "f00bcb43a4a60f6ecf50525dd6b41f82f6935eee41ca7b05759a2a9cda75ba39",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:17111",
+          "value": null,
+          "observed_value": 10.176042059466804,
+          "coverage": 0.9599558028371323,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9599558028371323,
+              "support_id": "3cf12f8ecdec8affd209a653cb2965cd5a7f388a65a52fd48581c6aafcb43b88",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29101",
+          "value": null,
+          "observed_value": 12.207824389013798,
+          "coverage": 0.8486596116160978,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8486596116160978,
+              "support_id": "31ab98e356fe8bc24b360795f6b1f4f1de28657fab5d30cb751fe9859b243bea",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29102",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0,
+              "support_id": "era5land-national-20260919-20261018-v1/pra-native-1",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A258",
+          "value": null,
+          "observed_value": 12.572694984231227,
+          "coverage": 0.4692215787208781,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.4692215787208781,
+              "support_id": "dd207254edcfe5136f24eeb53c7f006b56fd416be575fbeeb5aad02e035a84d8",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A259",
+          "value": null,
+          "observed_value": 12.670239377860996,
+          "coverage": 0.8845635429854587,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8845635429854587,
+              "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A260",
+          "value": null,
+          "observed_value": 8.510675284741682,
+          "coverage": 0.9926908133329774,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9926908133329774,
+              "support_id": "6ff71e887fb66406fa7d5188b23ddecb85eec300b526299ad143e5ac6f593470",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B258",
+          "value": null,
+          "observed_value": 11.691046939270144,
+          "coverage": 0.8523500667147054,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8523500667147054,
+              "support_id": "e8c45f2a36903d2606e72958de801828bbddc6d243fbf817be5d96241874502c",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B259",
+          "value": null,
+          "observed_value": 11.002249514003053,
+          "coverage": 0.7645953157328961,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.7645953157328961,
+              "support_id": "0313462492fef7f881b5cf08ff86d9e7991117bb91e10bd221e7317746b1988f",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B260",
+          "value": null,
+          "observed_value": 8.227117819671836,
+          "coverage": 0.9998391064170352,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9998391064170352,
+              "support_id": "aed0d271f1810dea4acebd94a36ab38d01f802d7f446bfdba04d431b226a7c58",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:33115",
+          "value": null,
+          "observed_value": 10.397781647361112,
+          "coverage": 0.6250895705887968,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.6250895705887968,
+              "support_id": "9c1b844662e9cf28a2e0c118978b195d2166239c15c573435b7f78c702c58407",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:83469",
+          "value": null,
+          "observed_value": 12.376542066017885,
+          "coverage": 0.7874651605721475,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.7874651605721475,
+              "support_id": "c608d39df5ea6f4a3bdf9805524d392b30bdbac62139449fef8c81def0ae2f62",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "indicator": "rain",
+      "url": "http://127.0.0.1:3016/climat?temporal=history&date=2026-11-01&start=2026-11-01&periode=jour&mode=value&indicateur=rain",
+      "ms": 6888,
+      "states": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      },
+      "overflow": false,
+      "regional": [
+        {
+          "pra": "pra:13469",
+          "value": null,
+          "observed_value": 1.7110080027287284,
+          "coverage": 0.9260709079747366,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9260709079747366,
+              "support_id": "f00bcb43a4a60f6ecf50525dd6b41f82f6935eee41ca7b05759a2a9cda75ba39",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:17111",
+          "value": null,
+          "observed_value": 0,
+          "coverage": 0.9599558028371323,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9599558028371323,
+              "support_id": "3cf12f8ecdec8affd209a653cb2965cd5a7f388a65a52fd48581c6aafcb43b88",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29101",
+          "value": null,
+          "observed_value": 0.006832950050675617,
+          "coverage": 0.8486596116160978,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8486596116160978,
+              "support_id": "31ab98e356fe8bc24b360795f6b1f4f1de28657fab5d30cb751fe9859b243bea",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29102",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0,
+              "support_id": "era5land-national-20260919-20261018-v1/pra-native-1",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A258",
+          "value": null,
+          "observed_value": 4.046551708835143,
+          "coverage": 0.4692215787208781,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.4692215787208781,
+              "support_id": "dd207254edcfe5136f24eeb53c7f006b56fd416be575fbeeb5aad02e035a84d8",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A259",
+          "value": null,
+          "observed_value": 4.234755452983838,
+          "coverage": 0.8845635429854587,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8845635429854587,
+              "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A260",
+          "value": null,
+          "observed_value": 4.257603067105117,
+          "coverage": 0.9926908133329774,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9926908133329774,
+              "support_id": "6ff71e887fb66406fa7d5188b23ddecb85eec300b526299ad143e5ac6f593470",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B258",
+          "value": null,
+          "observed_value": 5.506578191070781,
+          "coverage": 0.8523500667147054,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8523500667147054,
+              "support_id": "e8c45f2a36903d2606e72958de801828bbddc6d243fbf817be5d96241874502c",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B259",
+          "value": null,
+          "observed_value": 4.351683020460111,
+          "coverage": 0.7645953157328961,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.7645953157328961,
+              "support_id": "0313462492fef7f881b5cf08ff86d9e7991117bb91e10bd221e7317746b1988f",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B260",
+          "value": null,
+          "observed_value": 4.562767588509257,
+          "coverage": 0.9998391064170352,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9998391064170352,
+              "support_id": "aed0d271f1810dea4acebd94a36ab38d01f802d7f446bfdba04d431b226a7c58",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:33115",
+          "value": null,
+          "observed_value": 0,
+          "coverage": 0.6250895705887968,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.6250895705887968,
+              "support_id": "9c1b844662e9cf28a2e0c118978b195d2166239c15c573435b7f78c702c58407",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:83469",
+          "value": null,
+          "observed_value": 1.0441533210346032,
+          "coverage": 0.7874651605721475,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.7874651605721475,
+              "support_id": "c608d39df5ea6f4a3bdf9805524d392b30bdbac62139449fef8c81def0ae2f62",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "indicator": "temperature_min",
+      "url": "http://127.0.0.1:3016/climat?temporal=history&date=2026-11-01&start=2026-11-01&periode=jour&mode=value&indicateur=temperature_min",
+      "ms": 10228,
+      "states": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      },
+      "overflow": false,
+      "regional": [
+        {
+          "pra": "pra:13469",
+          "value": null,
+          "observed_value": 5.421411132812523,
+          "coverage": 0.9260709079747366,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9260709079747366,
+              "support_id": "f00bcb43a4a60f6ecf50525dd6b41f82f6935eee41ca7b05759a2a9cda75ba39",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:17111",
+          "value": null,
+          "observed_value": 6.148095703125023,
+          "coverage": 0.9599558028371323,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9599558028371323,
+              "support_id": "3cf12f8ecdec8affd209a653cb2965cd5a7f388a65a52fd48581c6aafcb43b88",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29101",
+          "value": null,
+          "observed_value": 9.162133789062523,
+          "coverage": 0.8486596116160978,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8486596116160978,
+              "support_id": "31ab98e356fe8bc24b360795f6b1f4f1de28657fab5d30cb751fe9859b243bea",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29102",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0,
+              "support_id": "era5land-national-20260919-20261018-v1/pra-native-1",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A258",
+          "value": null,
+          "observed_value": 7.969873046875023,
+          "coverage": 0.4692215787208781,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.4692215787208781,
+              "support_id": "dd207254edcfe5136f24eeb53c7f006b56fd416be575fbeeb5aad02e035a84d8",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A259",
+          "value": null,
+          "observed_value": 5.059716796875023,
+          "coverage": 0.8845635429854587,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8845635429854587,
+              "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A260",
+          "value": null,
+          "observed_value": 3.0189453125000227,
+          "coverage": 0.9926908133329774,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9926908133329774,
+              "support_id": "6ff71e887fb66406fa7d5188b23ddecb85eec300b526299ad143e5ac6f593470",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B258",
+          "value": null,
+          "observed_value": 6.067773437500023,
+          "coverage": 0.8523500667147054,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8523500667147054,
+              "support_id": "e8c45f2a36903d2606e72958de801828bbddc6d243fbf817be5d96241874502c",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B259",
+          "value": null,
+          "observed_value": 3.8392578125000227,
+          "coverage": 0.7645953157328961,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.7645953157328961,
+              "support_id": "0313462492fef7f881b5cf08ff86d9e7991117bb91e10bd221e7317746b1988f",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B260",
+          "value": null,
+          "observed_value": 2.6380859375000227,
+          "coverage": 0.9998391064170352,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9998391064170352,
+              "support_id": "aed0d271f1810dea4acebd94a36ab38d01f802d7f446bfdba04d431b226a7c58",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:33115",
+          "value": null,
+          "observed_value": 6.333642578125023,
+          "coverage": 0.6250895705887968,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.6250895705887968,
+              "support_id": "9c1b844662e9cf28a2e0c118978b195d2166239c15c573435b7f78c702c58407",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:83469",
+          "value": null,
+          "observed_value": 6.638208007812523,
+          "coverage": 0.7874651605721475,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.7874651605721475,
+              "support_id": "c608d39df5ea6f4a3bdf9805524d392b30bdbac62139449fef8c81def0ae2f62",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "indicator": "temperature_max",
+      "url": "http://127.0.0.1:3016/climat?temporal=history&date=2026-11-01&start=2026-11-01&periode=jour&mode=value&indicateur=temperature_max",
+      "ms": 20385,
+      "states": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      },
+      "overflow": false,
+      "regional": [
+        {
+          "pra": "pra:13469",
+          "value": null,
+          "observed_value": 16.038598632812523,
+          "coverage": 0.9260709079747366,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9260709079747366,
+              "support_id": "f00bcb43a4a60f6ecf50525dd6b41f82f6935eee41ca7b05759a2a9cda75ba39",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:17111",
+          "value": null,
+          "observed_value": 15.418298339843773,
+          "coverage": 0.9599558028371323,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9599558028371323,
+              "support_id": "3cf12f8ecdec8affd209a653cb2965cd5a7f388a65a52fd48581c6aafcb43b88",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29101",
+          "value": null,
+          "observed_value": 15.609704589843773,
+          "coverage": 0.8486596116160978,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8486596116160978,
+              "support_id": "31ab98e356fe8bc24b360795f6b1f4f1de28657fab5d30cb751fe9859b243bea",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29102",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0,
+              "support_id": "era5land-national-20260919-20261018-v1/pra-native-1",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A258",
+          "value": null,
+          "observed_value": 16.708642578125023,
+          "coverage": 0.4692215787208781,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.4692215787208781,
+              "support_id": "dd207254edcfe5136f24eeb53c7f006b56fd416be575fbeeb5aad02e035a84d8",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A259",
+          "value": null,
+          "observed_value": 17.834130859375023,
+          "coverage": 0.8845635429854587,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8845635429854587,
+              "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A260",
+          "value": null,
+          "observed_value": 16.376367187500023,
+          "coverage": 0.9926908133329774,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9926908133329774,
+              "support_id": "6ff71e887fb66406fa7d5188b23ddecb85eec300b526299ad143e5ac6f593470",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B258",
+          "value": null,
+          "observed_value": 15.767236328125023,
+          "coverage": 0.8523500667147054,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8523500667147054,
+              "support_id": "e8c45f2a36903d2606e72958de801828bbddc6d243fbf817be5d96241874502c",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B259",
+          "value": null,
+          "observed_value": 15.767236328125023,
+          "coverage": 0.7645953157328961,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.7645953157328961,
+              "support_id": "0313462492fef7f881b5cf08ff86d9e7991117bb91e10bd221e7317746b1988f",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B260",
+          "value": null,
+          "observed_value": 14.849023437500023,
+          "coverage": 0.9998391064170352,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9998391064170352,
+              "support_id": "aed0d271f1810dea4acebd94a36ab38d01f802d7f446bfdba04d431b226a7c58",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:33115",
+          "value": null,
+          "observed_value": 15.637048339843773,
+          "coverage": 0.6250895705887968,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.6250895705887968,
+              "support_id": "9c1b844662e9cf28a2e0c118978b195d2166239c15c573435b7f78c702c58407",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:83469",
+          "value": null,
+          "observed_value": 16.545800781250023,
+          "coverage": 0.7874651605721475,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.7874651605721475,
+              "support_id": "c608d39df5ea6f4a3bdf9805524d392b30bdbac62139449fef8c81def0ae2f62",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-native-extrema-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "indicator": "thi",
+      "url": "http://127.0.0.1:3016/analyse?production=cattle&agro=thi&temporal=history&agro_start=2026-11-01&agro_end=2026-11-01",
+      "ms": 26912,
+      "states": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "0",
+        "partialValueCount": "0",
+        "coveredSupportCount": "0",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "0",
+        "coveredCount": "0",
+        "unavailableCount": "713"
+      },
+      "overflow": false,
+      "regional": [
+        {
+          "pra": "pra:13469",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.9260709,
+              "support_id": "[\"pra-native-1\",\"6d05aa6ac26ff27a3551cfda3825081dd047ec1282531683a448bb840e9ec83b\",\"f5e9abd7b51816b1612bd72e838a5cad59c8fc0b4c27bbb1240fc64669398e37\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:17111",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.9599558,
+              "support_id": "[\"pra-native-1\",\"ee9be80a15568b07f92f383aa7965554dbe9e7d3d5a129d20bb0b325cc01f24e\",\"52e6f68b5f8dd66f285d57fd5790534b28eec19abca1ca376f224aa5061c898b\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29101",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.84865963,
+              "support_id": "[\"pra-native-1\",\"75826408cd0a08e6f523a10e7dfd7ad84f881f752fbef1d8e7598eae6b9475f5\",\"63d0b0984889802417779480ed1602c65e72bc6270c6ec5042e2c0da5f04b790\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29102",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0,
+              "support_id": "[\"pra-native-1\",\"668887b8ad261c4d5211a2302e3e3af7cd35fef21a946746bd5be9a64defcb73\",\"c62981eb851c80e6d8c8b0461fe8cf1d422e1e5448895196139bafab2896798d\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A258",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.4692216,
+              "support_id": "[\"pra-native-1\",\"376544fb76fde66a738f5c1cb416fbdb4349b63e74f6e7e435e545b964adb0a0\",\"83d215033ee8360437923787822d03c970dc768e4003db51a733e14ddb4ecf13\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A259",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.88456357,
+              "support_id": "[\"pra-native-1\",\"5d57b972cd2b02ebcb2368e7b3fb3c9c628698a8b025428b8e0852aa518e40f4\",\"748589418a0d3b828ca0d52c62e3c63567b124ff678796f0f52bbc6e1dbcb331\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A260",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.9926908,
+              "support_id": "[\"pra-native-1\",\"fa6081f0353250ef0d5472b04fa21be8a195f6794bfc1ba77699a365966593ee\",\"1033a2fbf8a6c7ef6a1cc1e99ec15c85debe000548441a68d4df06fec7cfe280\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B258",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.85235006,
+              "support_id": "[\"pra-native-1\",\"0784e13fe64ce6de042ec818baa68f0d9a2a3b2271225d3cd0666eafc009f532\",\"924f7fdee973fe4d65af7f4c1e22a6e370e1669a0209c9902c8f7d38fedd6cb2\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B259",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.7645953,
+              "support_id": "[\"pra-native-1\",\"43fced9fe400e3341636b66f7c09be8d9a6775b07bf43053f1ea823bafc21abc\",\"deafe2fdb6548a7d4ba61f1b5622fa89f7af1a069124ccbac7b3f56c62ede37e\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B260",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.9998391,
+              "support_id": "[\"pra-native-1\",\"de7ab53c06f9404d35ebeb860e2df48bd9c0cc0edd3a3bb2991ff2da97157d66\",\"9d35855cecc86bb8c59e8c1d6cbeeae30fa49d6dd6c8b90f2de216b7b64276b0\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:33115",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.6250896,
+              "support_id": "[\"pra-native-1\",\"eb04dee1eb4bf5b5a913680de704f46b0d018b20f98cc8f473b77aed619809d2\",\"97f2b582a2ae8252d8636f05b6afb2bfa68f12c42b0feaa49fb7c51fc6e6fbf2\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:83469",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.78746516,
+              "support_id": "[\"pra-native-1\",\"f48d760939027eeb0741fb29855f2897329bf414711f438f0183e33e53a30807\",\"097b79c0b5dd334ab0adb13d7c30d433804a9ee39841b994c949c0b3df56f92f\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "indicator": "temperature",
+      "url": "http://127.0.0.1:3016/climat?temporal=history&date=2026-11-01&start=2026-11-01&periode=jour&mode=value&indicateur=temperature",
+      "ms": 13377,
+      "states": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      },
+      "overflow": false,
+      "regional": [
+        {
+          "pra": "pra:13469",
+          "value": null,
+          "observed_value": 11.531567071453386,
+          "coverage": 0.9260709079747366,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9260709079747366,
+              "support_id": "f00bcb43a4a60f6ecf50525dd6b41f82f6935eee41ca7b05759a2a9cda75ba39",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:17111",
+          "value": null,
+          "observed_value": 10.176042059466804,
+          "coverage": 0.9599558028371323,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9599558028371323,
+              "support_id": "3cf12f8ecdec8affd209a653cb2965cd5a7f388a65a52fd48581c6aafcb43b88",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29101",
+          "value": null,
+          "observed_value": 12.207824389013798,
+          "coverage": 0.8486596116160978,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8486596116160978,
+              "support_id": "31ab98e356fe8bc24b360795f6b1f4f1de28657fab5d30cb751fe9859b243bea",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29102",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0,
+              "support_id": "era5land-national-20260919-20261018-v1/pra-native-1",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A258",
+          "value": null,
+          "observed_value": 12.572694984231227,
+          "coverage": 0.4692215787208781,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.4692215787208781,
+              "support_id": "dd207254edcfe5136f24eeb53c7f006b56fd416be575fbeeb5aad02e035a84d8",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A259",
+          "value": null,
+          "observed_value": 12.670239377860996,
+          "coverage": 0.8845635429854587,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8845635429854587,
+              "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A260",
+          "value": null,
+          "observed_value": 8.510675284741682,
+          "coverage": 0.9926908133329774,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9926908133329774,
+              "support_id": "6ff71e887fb66406fa7d5188b23ddecb85eec300b526299ad143e5ac6f593470",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B258",
+          "value": null,
+          "observed_value": 11.691046939270144,
+          "coverage": 0.8523500667147054,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8523500667147054,
+              "support_id": "e8c45f2a36903d2606e72958de801828bbddc6d243fbf817be5d96241874502c",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B259",
+          "value": null,
+          "observed_value": 11.002249514003053,
+          "coverage": 0.7645953157328961,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.7645953157328961,
+              "support_id": "0313462492fef7f881b5cf08ff86d9e7991117bb91e10bd221e7317746b1988f",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B260",
+          "value": null,
+          "observed_value": 8.227117819671836,
+          "coverage": 0.9998391064170352,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9998391064170352,
+              "support_id": "aed0d271f1810dea4acebd94a36ab38d01f802d7f446bfdba04d431b226a7c58",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:33115",
+          "value": null,
+          "observed_value": 10.397781647361112,
+          "coverage": 0.6250895705887968,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.6250895705887968,
+              "support_id": "9c1b844662e9cf28a2e0c118978b195d2166239c15c573435b7f78c702c58407",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:83469",
+          "value": null,
+          "observed_value": 12.376542066017885,
+          "coverage": 0.7874651605721475,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.7874651605721475,
+              "support_id": "c608d39df5ea6f4a3bdf9805524d392b30bdbac62139449fef8c81def0ae2f62",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "indicator": "thi",
+      "url": "http://127.0.0.1:3016/analyse?production=cattle&agro=thi&temporal=history&agro_start=2026-11-01&agro_end=2026-11-01",
+      "ms": 23430,
+      "states": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "0",
+        "partialValueCount": "0",
+        "coveredSupportCount": "0",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "0",
+        "coveredCount": "0",
+        "unavailableCount": "713"
+      },
+      "overflow": false,
+      "regional": [
+        {
+          "pra": "pra:13469",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.9260709,
+              "support_id": "[\"pra-native-1\",\"6d05aa6ac26ff27a3551cfda3825081dd047ec1282531683a448bb840e9ec83b\",\"f5e9abd7b51816b1612bd72e838a5cad59c8fc0b4c27bbb1240fc64669398e37\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:17111",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.9599558,
+              "support_id": "[\"pra-native-1\",\"ee9be80a15568b07f92f383aa7965554dbe9e7d3d5a129d20bb0b325cc01f24e\",\"52e6f68b5f8dd66f285d57fd5790534b28eec19abca1ca376f224aa5061c898b\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29101",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.84865963,
+              "support_id": "[\"pra-native-1\",\"75826408cd0a08e6f523a10e7dfd7ad84f881f752fbef1d8e7598eae6b9475f5\",\"63d0b0984889802417779480ed1602c65e72bc6270c6ec5042e2c0da5f04b790\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29102",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0,
+              "support_id": "[\"pra-native-1\",\"668887b8ad261c4d5211a2302e3e3af7cd35fef21a946746bd5be9a64defcb73\",\"c62981eb851c80e6d8c8b0461fe8cf1d422e1e5448895196139bafab2896798d\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A258",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.4692216,
+              "support_id": "[\"pra-native-1\",\"376544fb76fde66a738f5c1cb416fbdb4349b63e74f6e7e435e545b964adb0a0\",\"83d215033ee8360437923787822d03c970dc768e4003db51a733e14ddb4ecf13\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A259",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.88456357,
+              "support_id": "[\"pra-native-1\",\"5d57b972cd2b02ebcb2368e7b3fb3c9c628698a8b025428b8e0852aa518e40f4\",\"748589418a0d3b828ca0d52c62e3c63567b124ff678796f0f52bbc6e1dbcb331\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A260",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.9926908,
+              "support_id": "[\"pra-native-1\",\"fa6081f0353250ef0d5472b04fa21be8a195f6794bfc1ba77699a365966593ee\",\"1033a2fbf8a6c7ef6a1cc1e99ec15c85debe000548441a68d4df06fec7cfe280\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B258",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.85235006,
+              "support_id": "[\"pra-native-1\",\"0784e13fe64ce6de042ec818baa68f0d9a2a3b2271225d3cd0666eafc009f532\",\"924f7fdee973fe4d65af7f4c1e22a6e370e1669a0209c9902c8f7d38fedd6cb2\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B259",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.7645953,
+              "support_id": "[\"pra-native-1\",\"43fced9fe400e3341636b66f7c09be8d9a6775b07bf43053f1ea823bafc21abc\",\"deafe2fdb6548a7d4ba61f1b5622fa89f7af1a069124ccbac7b3f56c62ede37e\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B260",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.9998391,
+              "support_id": "[\"pra-native-1\",\"de7ab53c06f9404d35ebeb860e2df48bd9c0cc0edd3a3bb2991ff2da97157d66\",\"9d35855cecc86bb8c59e8c1d6cbeeae30fa49d6dd6c8b90f2de216b7b64276b0\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:33115",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.6250896,
+              "support_id": "[\"pra-native-1\",\"eb04dee1eb4bf5b5a913680de704f46b0d018b20f98cc8f473b77aed619809d2\",\"97f2b582a2ae8252d8636f05b6afb2bfa68f12c42b0feaa49fb7c51fc6e6fbf2\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:83469",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.78746516,
+              "support_id": "[\"pra-native-1\",\"f48d760939027eeb0741fb29855f2897329bf414711f438f0183e33e53a30807\",\"097b79c0b5dd334ab0adb13d7c30d433804a9ee39841b994c949c0b3df56f92f\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "indicator": "temperature",
+      "url": "http://127.0.0.1:3016/climat?temporal=history&date=2026-11-01&start=2026-11-01&periode=jour&mode=value&indicateur=temperature",
+      "ms": 17019,
+      "states": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      },
+      "overflow": false,
+      "regional": [
+        {
+          "pra": "pra:13469",
+          "value": null,
+          "observed_value": 11.531567071453386,
+          "coverage": 0.9260709079747366,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9260709079747366,
+              "support_id": "f00bcb43a4a60f6ecf50525dd6b41f82f6935eee41ca7b05759a2a9cda75ba39",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:17111",
+          "value": null,
+          "observed_value": 10.176042059466804,
+          "coverage": 0.9599558028371323,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9599558028371323,
+              "support_id": "3cf12f8ecdec8affd209a653cb2965cd5a7f388a65a52fd48581c6aafcb43b88",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29101",
+          "value": null,
+          "observed_value": 12.207824389013798,
+          "coverage": 0.8486596116160978,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8486596116160978,
+              "support_id": "31ab98e356fe8bc24b360795f6b1f4f1de28657fab5d30cb751fe9859b243bea",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29102",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0,
+              "support_id": "era5land-national-20260919-20261018-v1/pra-native-1",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A258",
+          "value": null,
+          "observed_value": 12.572694984231227,
+          "coverage": 0.4692215787208781,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.4692215787208781,
+              "support_id": "dd207254edcfe5136f24eeb53c7f006b56fd416be575fbeeb5aad02e035a84d8",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A259",
+          "value": null,
+          "observed_value": 12.670239377860996,
+          "coverage": 0.8845635429854587,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8845635429854587,
+              "support_id": "7e10a4aba1231bbdbd0de8b780caa95d9bb4872de237f04c7674e83fc0d0740a",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A260",
+          "value": null,
+          "observed_value": 8.510675284741682,
+          "coverage": 0.9926908133329774,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9926908133329774,
+              "support_id": "6ff71e887fb66406fa7d5188b23ddecb85eec300b526299ad143e5ac6f593470",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B258",
+          "value": null,
+          "observed_value": 11.691046939270144,
+          "coverage": 0.8523500667147054,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.8523500667147054,
+              "support_id": "e8c45f2a36903d2606e72958de801828bbddc6d243fbf817be5d96241874502c",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B259",
+          "value": null,
+          "observed_value": 11.002249514003053,
+          "coverage": 0.7645953157328961,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.7645953157328961,
+              "support_id": "0313462492fef7f881b5cf08ff86d9e7991117bb91e10bd221e7317746b1988f",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B260",
+          "value": null,
+          "observed_value": 8.227117819671836,
+          "coverage": 0.9998391064170352,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.9998391064170352,
+              "support_id": "aed0d271f1810dea4acebd94a36ab38d01f802d7f446bfdba04d431b226a7c58",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:33115",
+          "value": null,
+          "observed_value": 10.397781647361112,
+          "coverage": 0.6250895705887968,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.6250895705887968,
+              "support_id": "9c1b844662e9cf28a2e0c118978b195d2166239c15c573435b7f78c702c58407",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:83469",
+          "value": null,
+          "observed_value": 12.376542066017885,
+          "coverage": 0.7874651605721475,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "observed_partial",
+            "numeric_value": true,
+            "scope": "observed_area",
+            "scientific_status": "exploratory",
+            "indicator_eligible": true,
+            "journal_eligible": false,
+            "reason": "observed_area_only",
+            "evidence": {
+              "fraction": 0.7874651605721475,
+              "support_id": "c608d39df5ea6f4a3bdf9805524d392b30bdbac62139449fef8c81def0ae2f62",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 1,
+              "continuous": true,
+              "homogeneous": true,
+              "method": "pra-observed-area-mean-90-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "indicator": "thi",
+      "url": "http://127.0.0.1:3016/analyse?production=cattle&agro=thi&temporal=history&agro_start=2026-11-01&agro_end=2026-11-01",
+      "ms": 18601,
+      "states": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "0",
+        "partialValueCount": "0",
+        "coveredSupportCount": "0",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "0",
+        "coveredCount": "0",
+        "unavailableCount": "713"
+      },
+      "overflow": false,
+      "regional": [
+        {
+          "pra": "pra:13469",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.9260709,
+              "support_id": "[\"pra-native-1\",\"6d05aa6ac26ff27a3551cfda3825081dd047ec1282531683a448bb840e9ec83b\",\"f5e9abd7b51816b1612bd72e838a5cad59c8fc0b4c27bbb1240fc64669398e37\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:17111",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.9599558,
+              "support_id": "[\"pra-native-1\",\"ee9be80a15568b07f92f383aa7965554dbe9e7d3d5a129d20bb0b325cc01f24e\",\"52e6f68b5f8dd66f285d57fd5790534b28eec19abca1ca376f224aa5061c898b\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29101",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.84865963,
+              "support_id": "[\"pra-native-1\",\"75826408cd0a08e6f523a10e7dfd7ad84f881f752fbef1d8e7598eae6b9475f5\",\"63d0b0984889802417779480ed1602c65e72bc6270c6ec5042e2c0da5f04b790\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:29102",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0,
+              "support_id": "[\"pra-native-1\",\"668887b8ad261c4d5211a2302e3e3af7cd35fef21a946746bd5be9a64defcb73\",\"c62981eb851c80e6d8c8b0461fe8cf1d422e1e5448895196139bafab2896798d\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A258",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.4692216,
+              "support_id": "[\"pra-native-1\",\"376544fb76fde66a738f5c1cb416fbdb4349b63e74f6e7e435e545b964adb0a0\",\"83d215033ee8360437923787822d03c970dc768e4003db51a733e14ddb4ecf13\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A259",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.88456357,
+              "support_id": "[\"pra-native-1\",\"5d57b972cd2b02ebcb2368e7b3fb3c9c628698a8b025428b8e0852aa518e40f4\",\"748589418a0d3b828ca0d52c62e3c63567b124ff678796f0f52bbc6e1dbcb331\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2A260",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.9926908,
+              "support_id": "[\"pra-native-1\",\"fa6081f0353250ef0d5472b04fa21be8a195f6794bfc1ba77699a365966593ee\",\"1033a2fbf8a6c7ef6a1cc1e99ec15c85debe000548441a68d4df06fec7cfe280\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B258",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.85235006,
+              "support_id": "[\"pra-native-1\",\"0784e13fe64ce6de042ec818baa68f0d9a2a3b2271225d3cd0666eafc009f532\",\"924f7fdee973fe4d65af7f4c1e22a6e370e1669a0209c9902c8f7d38fedd6cb2\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B259",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.7645953,
+              "support_id": "[\"pra-native-1\",\"43fced9fe400e3341636b66f7c09be8d9a6775b07bf43053f1ea823bafc21abc\",\"deafe2fdb6548a7d4ba61f1b5622fa89f7af1a069124ccbac7b3f56c62ede37e\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:2B260",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.9998391,
+              "support_id": "[\"pra-native-1\",\"de7ab53c06f9404d35ebeb860e2df48bd9c0cc0edd3a3bb2991ff2da97157d66\",\"9d35855cecc86bb8c59e8c1d6cbeeae30fa49d6dd6c8b90f2de216b7b64276b0\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:33115",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.6250896,
+              "support_id": "[\"pra-native-1\",\"eb04dee1eb4bf5b5a913680de704f46b0d018b20f98cc8f473b77aed619809d2\",\"97f2b582a2ae8252d8636f05b6afb2bfa68f12c42b0feaa49fb7c51fc6e6fbf2\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        },
+        {
+          "pra": "pra:83469",
+          "value": null,
+          "observed_value": null,
+          "coverage": 0,
+          "quality": {
+            "version": "climate-coverage-1.0.0",
+            "state": "unavailable",
+            "numeric_value": false,
+            "scope": "unavailable",
+            "scientific_status": "exploratory",
+            "indicator_eligible": false,
+            "journal_eligible": false,
+            "reason": "value_unavailable",
+            "evidence": {
+              "fraction": 0.78746516,
+              "support_id": "[\"pra-native-1\",\"f48d760939027eeb0741fb29855f2897329bf414711f438f0183e33e53a30807\",\"097b79c0b5dd334ab0adb13d7c30d433804a9ee39841b994c949c0b3df56f92f\",{\"catalogue_id\":\"reanalysis-era5-land\",\"dataset_version\":\"era5land-national-20260919-20261018-v1\",\"doi\":\"10.24381/cds.e2161bac\",\"reference_period\":{\"end_year\":2020,\"minimum_years\":24,\"start_year\":1991},\"resolution\":\"0.1 degree CDS regular grid; native approximately 9 km\",\"source_id\":\"era5-land\",\"transformation_version\":\"era5-land-utc-daily-1\"}]",
+              "mask": "native_valid_cells",
+              "represented_area_m2": null,
+              "expected_days": 1,
+              "available_days": 0,
+              "continuous": false,
+              "homogeneous": true,
+              "method": "pra-native-1",
+              "estimate_certificate": null,
+              "reference_compatible": false
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

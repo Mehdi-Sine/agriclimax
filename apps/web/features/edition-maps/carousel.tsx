@@ -22,7 +22,7 @@ function CardLegend({card}: {card: JournalMapCard}) {
   return <div className="journal-card-legend" aria-label={`Légende · ${m.unit}`}>
     <div className="journal-card-ramp">{palette.bounds.map((_, i) => <span key={i}><i aria-hidden="true" style={{background: `var(${palette.tokens[i]})`}}/>{classLabel(palette, i)}</span>)}</div>
     <p>{m.unit} · {palette.meaning}.</p>
-    <p><i className="journal-missing-key" aria-hidden="true"/> Gris : non évaluable · <i className="journal-partial-key" aria-hidden="true"/> Hachures : support partiel.</p>
+    <p><i className="journal-missing-key" aria-hidden="true"/> Gris : non évaluable · {m.rendering_version==='couv06-history-1'?'Sous 90 %, seule la surface qualifiée est colorée.':<><i className="journal-partial-key" aria-hidden="true"/> Hachures : support partiel.</>}</p>
   </div>;
 }
 export function JournalMapCarousel({cards, preview = false}: {cards: JournalMapCard[]; preview?: boolean}) {

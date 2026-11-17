@@ -1,0 +1,565 @@
+[
+  {
+    "run_id": 44027976050,
+    "created_at": "2026-11-17T06:00:03Z",
+    "head_sha": "9944e05bb88088a9470aabb0330adbd7a64d6a11",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/44027976050",
+    "jobs": [
+      {
+        "id": 133852941451,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-17T06:00:22Z",
+        "completed_at": "2026-11-17T06:00:21Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 44026264533,
+    "created_at": "2026-11-17T05:45:02Z",
+    "head_sha": "9944e05bb88088a9470aabb0330adbd7a64d6a11",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/44026264533",
+    "jobs": [
+      {
+        "id": 133847334617,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-17T05:45:18Z",
+        "completed_at": "2026-11-17T05:45:18Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 44024527188,
+    "created_at": "2026-11-17T05:30:02Z",
+    "head_sha": "9944e05bb88088a9470aabb0330adbd7a64d6a11",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/44024527188",
+    "jobs": [
+      {
+        "id": 133841687331,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-17T05:30:17Z",
+        "completed_at": "2026-11-17T05:30:17Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 44020964291,
+    "created_at": "2026-11-17T05:00:02Z",
+    "head_sha": "9944e05bb88088a9470aabb0330adbd7a64d6a11",
+    "conclusion": "failure",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/44020964291",
+    "jobs": [
+      {
+        "id": 133830205900,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-17T05:00:18Z",
+        "completed_at": "2026-11-17T05:00:18Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 44005245934,
+    "created_at": "2026-11-17T02:45:02Z",
+    "head_sha": "9944e05bb88088a9470aabb0330adbd7a64d6a11",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/44005245934",
+    "jobs": [
+      {
+        "id": 133778988567,
+        "name": "acquire (era5)",
+        "conclusion": "success",
+        "started_at": "2026-11-17T02:45:19Z",
+        "completed_at": "2026-11-17T02:52:14Z",
+        "sim_steps": [
+          {
+            "name": "Optional bounded SIM candidate, no publication",
+            "conclusion": "success",
+            "started_at": "2026-11-17T02:52:03Z",
+            "completed_at": "2026-11-17T02:52:06Z"
+          }
+        ]
+      },
+      {
+        "id": 133778991103,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-17T02:45:17Z",
+        "completed_at": "2026-11-17T02:45:17Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43999719350,
+    "created_at": "2026-11-17T02:00:03Z",
+    "head_sha": "9944e05bb88088a9470aabb0330adbd7a64d6a11",
+    "conclusion": "failure",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43999719350",
+    "jobs": [
+      {
+        "id": 133760594838,
+        "name": "acquire (era5)",
+        "conclusion": "success",
+        "started_at": "2026-11-17T02:00:23Z",
+        "completed_at": "2026-11-17T02:01:05Z",
+        "sim_steps": [
+          {
+            "name": "Optional bounded SIM candidate, no publication",
+            "conclusion": "success",
+            "started_at": "2026-11-17T02:00:50Z",
+            "completed_at": "2026-11-17T02:01:01Z"
+          }
+        ]
+      },
+      {
+        "id": 133760597375,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-17T02:00:22Z",
+        "completed_at": "2026-11-17T02:00:21Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43996036456,
+    "created_at": "2026-11-17T01:30:02Z",
+    "head_sha": "9944e05bb88088a9470aabb0330adbd7a64d6a11",
+    "conclusion": "failure",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43996036456",
+    "jobs": [
+      {
+        "id": 133748341018,
+        "name": "acquire (era5)",
+        "conclusion": "failure",
+        "started_at": "2026-11-17T01:30:19Z",
+        "completed_at": "2026-11-17T01:52:11Z",
+        "sim_steps": [
+          {
+            "name": "Optional bounded SIM candidate, no publication",
+            "conclusion": "success",
+            "started_at": "2026-11-17T01:51:53Z",
+            "completed_at": "2026-11-17T01:52:05Z"
+          }
+        ]
+      },
+      {
+        "id": 133748343655,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-17T01:30:17Z",
+        "completed_at": "2026-11-17T01:30:17Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43884451850,
+    "created_at": "2026-11-16T14:19:06Z",
+    "head_sha": "191cdb5fef4bf219931a8ebdbe8e3002f92cde93",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43884451850",
+    "jobs": [
+      {
+        "id": 133358812391,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-16T14:19:18Z",
+        "completed_at": "2026-11-16T14:19:18Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43879883567,
+    "created_at": "2026-11-16T13:51:48Z",
+    "head_sha": "191cdb5fef4bf219931a8ebdbe8e3002f92cde93",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43879883567",
+    "jobs": [
+      {
+        "id": 133342801055,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-16T13:52:07Z",
+        "completed_at": "2026-11-16T13:52:07Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43875229753,
+    "created_at": "2026-11-16T13:23:04Z",
+    "head_sha": "191cdb5fef4bf219931a8ebdbe8e3002f92cde93",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43875229753",
+    "jobs": [
+      {
+        "id": 133326603253,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-16T13:23:25Z",
+        "completed_at": "2026-11-16T13:23:25Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43872387873,
+    "created_at": "2026-11-16T13:04:58Z",
+    "head_sha": "191cdb5fef4bf219931a8ebdbe8e3002f92cde93",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43872387873",
+    "jobs": [
+      {
+        "id": 133316751941,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-16T13:05:11Z",
+        "completed_at": "2026-11-16T13:05:11Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43868608459,
+    "created_at": "2026-11-16T12:39:45Z",
+    "head_sha": "191cdb5fef4bf219931a8ebdbe8e3002f92cde93",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43868608459",
+    "jobs": [
+      {
+        "id": 133303616887,
+        "name": "acquire (era5)",
+        "conclusion": "success",
+        "started_at": "2026-11-16T12:40:00Z",
+        "completed_at": "2026-11-16T12:42:24Z",
+        "sim_steps": [
+          {
+            "name": "Optional bounded SIM candidate, no publication",
+            "conclusion": "success",
+            "started_at": "2026-11-16T12:40:24Z",
+            "completed_at": "2026-11-16T12:42:21Z"
+          }
+        ]
+      },
+      {
+        "id": 133303618804,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-16T12:39:58Z",
+        "completed_at": "2026-11-16T12:39:58Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43828021440,
+    "created_at": "2026-11-16T08:01:47Z",
+    "head_sha": "191cdb5fef4bf219931a8ebdbe8e3002f92cde93",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43828021440",
+    "jobs": [
+      {
+        "id": 133166472311,
+        "name": "acquire (era5)",
+        "conclusion": "success",
+        "started_at": "2026-11-16T08:02:09Z",
+        "completed_at": "2026-11-16T08:03:02Z",
+        "sim_steps": [
+          {
+            "name": "Optional bounded SIM candidate, no publication",
+            "conclusion": "success",
+            "started_at": "2026-11-16T08:02:39Z",
+            "completed_at": "2026-11-16T08:02:57Z"
+          }
+        ]
+      },
+      {
+        "id": 133166474043,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-16T08:02:07Z",
+        "completed_at": "2026-11-16T08:02:07Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43810628713,
+    "created_at": "2026-11-16T05:30:02Z",
+    "head_sha": "874e561ce77421fec34244e676b7dec466e51257",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43810628713",
+    "jobs": [
+      {
+        "id": 133111384610,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-16T05:30:20Z",
+        "completed_at": "2026-11-16T05:30:20Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43808987082,
+    "created_at": "2026-11-16T05:15:02Z",
+    "head_sha": "874e561ce77421fec34244e676b7dec466e51257",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43808987082",
+    "jobs": [
+      {
+        "id": 133106280508,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-16T05:15:21Z",
+        "completed_at": "2026-11-16T05:15:21Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43807410049,
+    "created_at": "2026-11-16T05:00:02Z",
+    "head_sha": "874e561ce77421fec34244e676b7dec466e51257",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43807410049",
+    "jobs": [
+      {
+        "id": 133101379307,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-16T05:00:28Z",
+        "completed_at": "2026-11-16T05:00:27Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43789481205,
+    "created_at": "2026-11-16T02:00:02Z",
+    "head_sha": "874e561ce77421fec34244e676b7dec466e51257",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43789481205",
+    "jobs": [
+      {
+        "id": 133044522913,
+        "name": "acquire (era5)",
+        "conclusion": "success",
+        "started_at": "2026-11-16T02:00:22Z",
+        "completed_at": "2026-11-16T02:22:00Z",
+        "sim_steps": [
+          {
+            "name": "Optional bounded SIM candidate, no publication",
+            "conclusion": "success",
+            "started_at": "2026-11-16T02:21:47Z",
+            "completed_at": "2026-11-16T02:21:52Z"
+          }
+        ]
+      },
+      {
+        "id": 133044524512,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-16T02:00:21Z",
+        "completed_at": "2026-11-16T02:00:20Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43786617246,
+    "created_at": "2026-11-16T01:30:02Z",
+    "head_sha": "874e561ce77421fec34244e676b7dec466e51257",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43786617246",
+    "jobs": [
+      {
+        "id": 133035710016,
+        "name": "acquire (era5)",
+        "conclusion": "success",
+        "started_at": "2026-11-16T01:30:24Z",
+        "completed_at": "2026-11-16T01:31:13Z",
+        "sim_steps": [
+          {
+            "name": "Optional bounded SIM candidate, no publication",
+            "conclusion": "success",
+            "started_at": "2026-11-16T01:30:59Z",
+            "completed_at": "2026-11-16T01:31:10Z"
+          }
+        ]
+      },
+      {
+        "id": 133035711873,
+        "name": "sim-candidate",
+        "conclusion": "skipped",
+        "started_at": "2026-11-16T01:30:23Z",
+        "completed_at": "2026-11-16T01:30:23Z",
+        "sim_steps": []
+      }
+    ]
+  },
+  {
+    "run_id": 43717692987,
+    "created_at": "2026-11-15T13:11:25Z",
+    "head_sha": "9ff71e4100db5df911f1193daadec6dec53d6341",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43717692987",
+    "jobs": []
+  },
+  {
+    "run_id": 43716026180,
+    "created_at": "2026-11-15T12:52:09Z",
+    "head_sha": "9ff71e4100db5df911f1193daadec6dec53d6341",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43716026180",
+    "jobs": []
+  },
+  {
+    "run_id": 43714216186,
+    "created_at": "2026-11-15T12:30:42Z",
+    "head_sha": "9ff71e4100db5df911f1193daadec6dec53d6341",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43714216186",
+    "jobs": []
+  },
+  {
+    "run_id": 43712632584,
+    "created_at": "2026-11-15T12:12:11Z",
+    "head_sha": "9ff71e4100db5df911f1193daadec6dec53d6341",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43712632584",
+    "jobs": []
+  },
+  {
+    "run_id": 43711179309,
+    "created_at": "2026-11-15T11:54:34Z",
+    "head_sha": "9ff71e4100db5df911f1193daadec6dec53d6341",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43711179309",
+    "jobs": [
+      {
+        "id": 132802905859,
+        "name": "acquire (era5)",
+        "conclusion": "success",
+        "started_at": "2026-11-15T11:54:50Z",
+        "completed_at": "2026-11-15T11:55:34Z",
+        "sim_steps": [
+          {
+            "name": "Optional bounded SIM candidate, no publication",
+            "conclusion": "success",
+            "started_at": "2026-11-15T11:55:21Z",
+            "completed_at": "2026-11-15T11:55:31Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "run_id": 43691989238,
+    "created_at": "2026-11-15T07:53:59Z",
+    "head_sha": "1677bb17ae2cbc2410feae59974708dc2fc5d853",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43691989238",
+    "jobs": [
+      {
+        "id": 132744448236,
+        "name": "acquire (era5)",
+        "conclusion": "success",
+        "started_at": "2026-11-15T07:54:16Z",
+        "completed_at": "2026-11-15T07:54:49Z",
+        "sim_steps": [
+          {
+            "name": "Optional bounded SIM candidate, no publication",
+            "conclusion": "skipped",
+            "started_at": "2026-11-15T07:54:46Z",
+            "completed_at": "2026-11-15T07:54:46Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "run_id": 43681324857,
+    "created_at": "2026-11-15T05:30:02Z",
+    "head_sha": "1677bb17ae2cbc2410feae59974708dc2fc5d853",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43681324857",
+    "jobs": []
+  },
+  {
+    "run_id": 43680259485,
+    "created_at": "2026-11-15T05:15:02Z",
+    "head_sha": "1677bb17ae2cbc2410feae59974708dc2fc5d853",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43680259485",
+    "jobs": []
+  },
+  {
+    "run_id": 43679137837,
+    "created_at": "2026-11-15T05:00:02Z",
+    "head_sha": "1677bb17ae2cbc2410feae59974708dc2fc5d853",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43679137837",
+    "jobs": []
+  },
+  {
+    "run_id": 43665661543,
+    "created_at": "2026-11-15T02:00:02Z",
+    "head_sha": "1677bb17ae2cbc2410feae59974708dc2fc5d853",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43665661543",
+    "jobs": [
+      {
+        "id": 132664411456,
+        "name": "acquire (era5)",
+        "conclusion": "success",
+        "started_at": "2026-11-15T02:00:20Z",
+        "completed_at": "2026-11-15T02:00:54Z",
+        "sim_steps": [
+          {
+            "name": "Optional bounded SIM candidate, no publication",
+            "conclusion": "skipped",
+            "started_at": "2026-11-15T02:00:50Z",
+            "completed_at": "2026-11-15T02:00:50Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "run_id": 43663362302,
+    "created_at": "2026-11-15T01:30:02Z",
+    "head_sha": "1677bb17ae2cbc2410feae59974708dc2fc5d853",
+    "conclusion": "success",
+    "url": "https://github.com/Mehdi-Sine/agriclimax/actions/runs/43663362302",
+    "jobs": [
+      {
+        "id": 132657409985,
+        "name": "acquire (era5)",
+        "conclusion": "success",
+        "started_at": "2026-11-15T01:30:20Z",
+        "completed_at": "2026-11-15T01:47:38Z",
+        "sim_steps": [
+          {
+            "name": "Optional bounded SIM candidate, no publication",
+            "conclusion": "skipped",
+            "started_at": "2026-11-15T01:47:33Z",
+            "completed_at": "2026-11-15T01:47:33Z"
+          }
+        ]
+      }
+    ]
+  }
+]

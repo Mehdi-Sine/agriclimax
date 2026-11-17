@@ -2,6 +2,9 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
+import {gzipSync} from "node:zlib";
+import {freezeHistoricalCartography,type FrozenHistoricalCartography} from "../apps/web/lib/server/historical-cartography";
+import {shift} from "../apps/web/features/editorial/temporal";
 import { archiveInputs } from "../apps/web/features/nightly/immutable-inputs";
 import { archiveCatalogue, nationalWeatherDocument, archivedEra5Day, type ArchivedDaily, type ArchiveEntry, type NationalWeatherDocument } from "../apps/web/lib/server/weather-archives";
 import { nationalWatch } from "../apps/web/lib/server/national-watch";
@@ -115,7 +118,23 @@ export async function prepareDossier(options:PreparationOptions) {
     briefing.limitations.push(...qualityLimitations(historyQuality,!!forecast,report.acquisitions));
     briefing.bundle_id=hash({...briefing,bundle_id:undefined});
     // Immutable inputs retained alongside snapshot. Existing methods are reused without changing science.
-    const inputs = {catalogue,document:forecast?.doc??null,quality:historyQuality,acquisitions:report.acquisitions,history:rows,episodes,comparisons,news:news??null,previous_edition:prior?{id:prior.edition_id,date:prior.date,checksum:prior.checksum}:null};
+    let historical_cartography:FrozenHistoricalCartography|undefined;
+    let historical_cartography_status="disabled";
+    if(process.env.AGRICLIMAX_COUV06_EDITION_ENABLED === "true"){
+      try{
+        historical_cartography=await freezeHistoricalCartography(rows,[shift(historyCutoff,-6),historyCutoff]);
+        historical_cartography_status="frozen";
+      }catch{
+        historical_cartography_status="unavailable_preserved_original_maps";
+        console.warn("COUV06_HISTORICAL_SUPPORT_UNAVAILABLE_ORIGINAL_MAPS_PRESERVED");
+      }
+    }
+    const inputs = {...(historical_cartography ? {historical_cartography} : {}),catalogue,document:forecast?.doc??null,quality:historyQuality,acquisitions:report.acquisitions,history:rows,episodes,comparisons,news:news??null,previous_edition:prior?{id:prior.edition_id,date:prior.date,checksum:prior.checksum}:null};
+    if(inputs.historical_cartography&&(Buffer.byteLength(JSON.stringify(inputs))>96*1024**2||gzipSync(JSON.stringify(inputs)).length>8*1024**2)){
+      delete inputs.historical_cartography;
+      historical_cartography_status="budget_exceeded_preserved_original_maps";
+      console.warn("COUV06_HISTORICAL_SUPPORT_BUDGET_ORIGINAL_MAPS_PRESERVED");
+    }
     if(options.persistInputs!==false)writeFileSync(join(out,"frozen-inputs.json"),JSON.stringify(inputs));
     phase("snapshot");
     const snapshot = freezeSnapshot(date,cycles,briefing,now,historyQuality,cutoff,options.testOnly);
@@ -125,7 +144,7 @@ export async function prepareDossier(options:PreparationOptions) {
     snapshot.id=hash(body);
     writeFileSync(join(out,"preparation-metrics.json"),JSON.stringify({date,snapshot_id:snapshot.id,
       quality:snapshot.quality,forecast_archive:forecast?.entry.sha256??null,history_rows:rows.length,
-      facts:briefing.national.facts.length,elapsed_seconds:(performance.now()-began)/1000,
+      historical_cartography_status,facts:briefing.national.facts.length,elapsed_seconds:(performance.now()-began)/1000,
       rss_mib:process.memoryUsage().rss/1024**2,read_only:options.readOnly,openai_calls:0}));
     return {snapshot,inputs};
 }

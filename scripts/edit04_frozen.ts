@@ -1,3 +1,4 @@
+import type {FrozenHistoricalCartography} from "../apps/web/lib/server/historical-cartography";
 import {gunzipSync} from "node:zlib";
 import {createHash} from "node:crypto";
 import type {DailyEditorialSnapshot} from "../apps/web/features/nightly/snapshot";
@@ -14,6 +15,6 @@ export async function readFrozenMapInputs(snapshot:DailyEditorialSnapshot){
   while(true){const {value,done}=await reader.read();if(done)break;size+=value.length;if(size>8*1024**2){await reader.cancel();throw Error("MAP_INPUT_BUDGET");}chunks.push(value);}
   const bytes=Buffer.concat(chunks,size);
   if(bytes.length!==entry.bytes||createHash("sha256").update(bytes).digest("hex")!==entry.sha256)throw Error("MAP_INPUT_CHECKSUM");
-  const inputs=JSON.parse(gunzipSync(bytes,{maxOutputLength:96*1024**2}).toString()) as {history:ArchivedDaily[];document:NationalWeatherDocument|null};
+  const inputs=JSON.parse(gunzipSync(bytes,{maxOutputLength:96*1024**2}).toString()) as {history:ArchivedDaily[];document:NationalWeatherDocument|null;historical_cartography?:FrozenHistoricalCartography};
   return {inputs,bytes};
 }

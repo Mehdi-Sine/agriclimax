@@ -1,5 +1,7 @@
 import {it, expect, vi, beforeEach} from "vitest";
 vi.mock("server-only",()=>({}));
+vi.mock("../cartography/coverage",async importOriginal=>({...await importOriginal<typeof import("../cartography/coverage")>(),coverageEnabledFor:vi.fn().mockReturnValue(false)}));
+import {coverageEnabledFor} from "../cartography/coverage";
 vi.mock("../../lib/server/editorial-published",()=>({operationalEditions:vi.fn()}));
 vi.mock("../../lib/server/edition-maps",()=>({editionMaps:vi.fn()}));
 import {operationalEditions} from "../../lib/server/editorial-published";
@@ -28,4 +30,28 @@ it("rejects invalid or cross-edition identifiers and never substitutes a recent 
  expect((await GET(request(query.replace(edition.edition_id,"0".repeat(64))))).status).toBe(404);
  expect((await GET(request(query.replace(bundle.maps[0].id,"0".repeat(64))))).status).toBe(404);
  expect((await GET(request(query.replace("ux03-1","old")))).status).toBe(400);
+});
+
+it("keeps published legacy rasters byte-identical with the historical rollout on",async()=>{
+ vi.mocked(coverageEnabledFor).mockReturnValue(false);
+ const before=await GET(request()),a=await before.arrayBuffer();
+ vi.mocked(coverageEnabledFor).mockReturnValue(true);
+ const after=await GET(request());
+ expect(after.headers.get("etag")).toBe(before.headers.get("etag"));
+ expect(Buffer.from(await after.arrayBuffer())).toEqual(Buffer.from(a));
+});
+
+it("keeps new published rendering frozen when the rollout switch is removed",async()=>{
+ const original=bundle.maps.find(m=>m.nature==='reanalysis')!;
+ const enhanced={...original,rendering:{version:'couv06-history-1' as const,covered_support:{type:'FeatureCollection' as const,features:[]}}};
+ const replacement={...bundle,maps:[enhanced]};
+ vi.mocked(editionMaps).mockResolvedValue({bundle:replacement,view:{status:'published',code:'MAP_PUBLISHED',maps:replacement.maps.map(mapInfo)}});
+ const q=`id=${edition.edition_id}&map=${enhanced.id}&v=ux03-1`;
+ vi.mocked(coverageEnabledFor).mockReturnValue(true);
+ const before=await GET(request(q)),a=await before.arrayBuffer();
+ vi.mocked(coverageEnabledFor).mockReturnValue(false);
+ const after=await GET(request(q));
+ expect(after.status).toBe(200);
+ expect(after.headers.get('etag')).toBe(before.headers.get('etag'));
+ expect(Buffer.from(await after.arrayBuffer())).toEqual(Buffer.from(a));
 });

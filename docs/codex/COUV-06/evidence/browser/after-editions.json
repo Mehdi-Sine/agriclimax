@@ -1,0 +1,177 @@
+{
+  "label": "after",
+  "checks": [
+    {
+      "width": 1440,
+      "indicator": "temperature_min",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=ce99fa31c08f6b8af2332bd9e7a6f32a3a25d06213163507ebc1394db23f8a21",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "width": 1440,
+      "indicator": "temperature_mean",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=912a4ea95d9056d71b1f1e162ecf086d5e5b65ff8d1c957595d36c0034ae4101",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "width": 1440,
+      "indicator": "rain",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=eaa1d4fd60300b5c7707da187c780f34435fb5b0d3d912353304347ec7981959",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "width": 1440,
+      "indicator": "frost",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=141f0883a0fd84f662c393734c5470a9b1551161c8e5d8ebd771d6c26dcebf61",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "width": 1440,
+      "indicator": "gdd",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=ff7c95963e91ba2d9639a2d17b0d9e70c186aff04ffb8494ce94693bc890a703",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "width": 1440,
+      "flow": "journal-carousel-to-interactive",
+      "cards": "713",
+      "href": "/cartes-du-jour?date=2026-11-15&id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae"
+    },
+    {
+      "width": 768,
+      "indicator": "temperature_mean",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=912a4ea95d9056d71b1f1e162ecf086d5e5b65ff8d1c957595d36c0034ae4101",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "width": 768,
+      "flow": "journal-carousel-to-interactive",
+      "cards": "713",
+      "href": "/cartes-du-jour?date=2026-11-15&id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae"
+    },
+    {
+      "width": 390,
+      "indicator": "temperature_mean",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=912a4ea95d9056d71b1f1e162ecf086d5e5b65ff8d1c957595d36c0034ae4101",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "width": 390,
+      "flow": "journal-carousel-to-interactive",
+      "cards": "713",
+      "href": "/cartes-du-jour?date=2026-11-15&id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae"
+    }
+  ],
+  "errors": [],
+  "thumbnails": [
+    {
+      "indicator": "temperature_min",
+      "bytes": 41708,
+      "sha256": "f1b021c5ea07b25605915103085a4520262a624838f8dc187315789eb2957c75"
+    },
+    {
+      "indicator": "temperature_mean",
+      "bytes": 38918,
+      "sha256": "9deb893586d8678aeb90645832cf9ee3827b2e6207f7cce82255cc1648a3a0a4"
+    },
+    {
+      "indicator": "rain",
+      "bytes": 39598,
+      "sha256": "9f06ff56103da9881c501cd224fc9299193ab4a1541794cf3f5d81856d6738ad"
+    },
+    {
+      "indicator": "frost",
+      "bytes": 39304,
+      "sha256": "aab02e03036ac37a6933f8fe7fef50411c250c18f1b03b53c3fbf901bb1e95f8"
+    },
+    {
+      "indicator": "gdd",
+      "bytes": 43688,
+      "sha256": "26c9627b1101fd3ca4865e3aedb59e20f2f665cd9727f050611a37dcd205b71a"
+    }
+  ]
+}

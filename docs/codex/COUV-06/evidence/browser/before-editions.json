@@ -1,0 +1,156 @@
+{
+  "label": "before",
+  "checks": [
+    {
+      "width": 1440,
+      "indicator": "temperature_min",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=98178e395498ab74764133cbc50081f926ab078ac73d20cc3d44a517c2a7b26a",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "645",
+        "partialValueCount": "0",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "false"
+      }
+    },
+    {
+      "width": 1440,
+      "indicator": "temperature_mean",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=2c2acaf9dd7bc517771b83907e84c7d2fcc81203421691796f29a6778eadbcd7",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "645",
+        "partialValueCount": "0",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "false"
+      }
+    },
+    {
+      "width": 1440,
+      "indicator": "rain",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=b5b005a11ab57a697b7f9b244e84dc0d7ff06711671eda7443b3886c27e4eca5",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "645",
+        "partialValueCount": "0",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "false"
+      }
+    },
+    {
+      "width": 1440,
+      "indicator": "frost",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3da6ae7de2bea6b2996b64c3b9b91fea631f19908aad13056db4e7424749fb06",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "645",
+        "partialValueCount": "0",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "false"
+      }
+    },
+    {
+      "width": 1440,
+      "indicator": "gdd",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=3a9123b433324e47db388be50b760e817cd4b71100438882a47f98d7a1744c91",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "645",
+        "partialValueCount": "0",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "false"
+      }
+    },
+    {
+      "width": 1440,
+      "flow": "journal-carousel-to-interactive",
+      "cards": "713",
+      "href": "/cartes-du-jour?date=2026-11-15&id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae"
+    },
+    {
+      "width": 768,
+      "indicator": "temperature_mean",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=2c2acaf9dd7bc517771b83907e84c7d2fcc81203421691796f29a6778eadbcd7",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "645",
+        "partialValueCount": "0",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "false"
+      }
+    },
+    {
+      "width": 768,
+      "flow": "journal-carousel-to-interactive",
+      "cards": "713",
+      "href": "/cartes-du-jour?date=2026-11-15&id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae"
+    },
+    {
+      "width": 390,
+      "indicator": "temperature_mean",
+      "url": "http://127.0.0.1:3016/cartes-du-jour?id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=2c2acaf9dd7bc517771b83907e84c7d2fcc81203421691796f29a6778eadbcd7",
+      "state": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "645",
+        "partialValueCount": "0",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "false"
+      }
+    },
+    {
+      "width": 390,
+      "flow": "journal-carousel-to-interactive",
+      "cards": "713",
+      "href": "/cartes-du-jour?date=2026-11-15&id=6e625f034fc43ff35021c71722766a768af71566be3edd7db58af6715ed0a2b0&map=6aa05e977bd080d6c219b4d3489140d998fba265b07ed8290bdafb30d98a43ae"
+    }
+  ],
+  "errors": [],
+  "thumbnails": [
+    {
+      "indicator": "temperature_min",
+      "bytes": 41558,
+      "sha256": "f3f6f598a086e124699b859dfdc11eb1df595f2bdf5ec941c1ec1b50f7e58e27"
+    },
+    {
+      "indicator": "temperature_mean",
+      "bytes": 39354,
+      "sha256": "249ba223031d5eeb7f64af381bc541e7c3fa7f43ba80ae211e029aec76b5301f"
+    },
+    {
+      "indicator": "rain",
+      "bytes": 40966,
+      "sha256": "7f34526696be42ab74bf38d666958d35235e58e41910f2134ad9170dc88d1397"
+    },
+    {
+      "indicator": "frost",
+      "bytes": 40850,
+      "sha256": "2e317f830cf594dbc8003e02cc89d5ae4ee693c620b40a29c03c6bd507d606d4"
+    },
+    {
+      "indicator": "gdd",
+      "bytes": 45886,
+      "sha256": "0f491b17e498ee456bc130c218663cdcd02e4b46e0260e683b5b4110d0f9bec3"
+    }
+  ]
+}
