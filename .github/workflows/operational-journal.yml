@@ -101,8 +101,8 @@ jobs:
       matrix:
         source: [forecast, era5, stations, observations, news]
     runs-on: ubuntu-latest
-    # Preserve the original 26-minute allowance plus the optional 2-minute canary.
-    timeout-minutes: ${{ matrix.source == 'era5' && vars.AGRICLIMAX_SIM_CANDIDATE_ENABLED == 'true' && 28 || 26 }}
+    # SIM now runs independently, including persistence, when the existing canary is enabled.
+    timeout-minutes: 26
     env:
       AGRICLIMAX_RECOVERY: ${{ inputs.recovery && 'true' || 'false' }}
       AGRICLIMAX_EDITION_DATE: ${{ needs.plan.outputs.edition_date }}
@@ -134,17 +134,6 @@ jobs:
           OPENBLAS_NUM_THREADS: '1'
           SOURCE: ${{ matrix.source }}
         run: python scripts/task36_nightly.py --source "$SOURCE"
-      # COUV-03 shadow acquisition shares the ERA job; production remains disabled.
-      - name: Optional bounded SIM candidate, no publication
-        if: always() && matrix.source == 'era5' && vars.AGRICLIMAX_SIM_CANDIDATE_ENABLED == 'true' && vars.AGRICLIMAX_SIM_PERSISTENCE_ENABLED != 'true'
-        continue-on-error: true
-        timeout-minutes: 2
-        env:
-          PYTHONPATH: engine/src:scripts
-          OPENBLAS_NUM_THREADS: '1'
-        run: |
-          python -m pip install -r engine/requirements-safran.lock
-          python scripts/couv03_collect.py
       - name: Export bounded climate recovery files
         if: always() && (matrix.source == 'forecast' || matrix.source == 'era5')
         env:
@@ -166,7 +155,7 @@ jobs:
   sim-candidate:
     # Independent from ERA and editorial dependencies; one writer for the whole transaction.
     needs: plan
-    if: needs.plan.outputs.stage == 'acquire' && vars.AGRICLIMAX_SIM_CANDIDATE_ENABLED == 'true' && vars.AGRICLIMAX_SIM_PERSISTENCE_ENABLED == 'true'
+    if: needs.plan.outputs.stage == 'acquire' && vars.AGRICLIMAX_SIM_CANDIDATE_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     continue-on-error: true
@@ -240,7 +229,7 @@ jobs:
           AGRICLIMAX_EDITORIAL_MODEL: ${{ inputs.model || vars.AGRICLIMAX_EDITORIAL_MODEL || 'gpt-6.1-terra' }}
           AGRICLIMAX_JOURNAL_HEALTH_URL: ${{ vars.AGRICLIMAX_JOURNAL_HEALTH_URL }}
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
-          AGRICLIMAX_COUV06_EDITION_ENABLED: ${{ vars.AGRICLIMAX_COUV06_EDITION_ENABLED }}
+          AGRICLIMAX_COUV06_EDITION_ENABLED: ${{ vars.AGRICLIMAX_COUV06_EDITION_ENABLED || 'true' }}
           STAGE: ${{ needs.plan.outputs.stage }}
           RECOVERY: ${{ inputs.recovery }}
           AUTHORIZED_SNAPSHOT: ${{ inputs.authorized_snapshot }}

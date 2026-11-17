@@ -1,4 +1,8 @@
-# COUV-06 — Cartes historiques activables séparément
+# COUV-06 — Cartes historiques
+
+**Mise à jour du 17/11 : activation directe demandée par l’utilisateur ; voir
+[activation du 17 novembre](ACTIVATION-20261117.md). Le bilan ci-dessous décrit
+la livraison et les preuves de la PR #102 avant cette activation.**
 
 Le rendu historique ERA5 est raccordé au catalogue actif et aux nouvelles cartes
 versionnées du Journal. **Aucune activation, fusion, republication ou écriture de

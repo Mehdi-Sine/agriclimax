@@ -3,8 +3,9 @@ import type { CoverageQuality } from '../climate-quality/policy';
 export const CARTOGRAPHIC_COVERAGE_VERSION = 'couv04-1';
 // A build-time switch, deliberately independent of acquisition and qualification.
 export const EXHAUSTIVE_COVERAGE = process.env.NEXT_PUBLIC_COUV04_RENDER_ENABLED === 'true';
-// Historical rollout is independent of experimental forecast masks and SIM acquisition.
-export const HISTORICAL_COVERAGE = EXHAUSTIVE_COVERAGE || process.env.NEXT_PUBLIC_COUV06_HISTORICAL_RENDER_ENABLED === 'true';
+// Historical rendering is operational by default; an explicit false remains a rollback.
+// Forecast rendering and SIM scientific eligibility remain independent.
+export const HISTORICAL_COVERAGE = EXHAUSTIVE_COVERAGE || process.env.NEXT_PUBLIC_COUV06_HISTORICAL_RENDER_ENABLED !== 'false';
 export function coverageEnabledFor(nature: string): boolean {
   return nature === 'reanalysis' ? HISTORICAL_COVERAGE : EXHAUSTIVE_COVERAGE;
 }
