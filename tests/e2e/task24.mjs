@@ -7,6 +7,15 @@ const base=process.env.TASK24_BASE_URL||'http://127.0.0.1:3020';
 assert.ok(['127.0.0.1','localhost'].includes(new URL(base).hostname));
 const reference=JSON.parse(readFileSync('config/coverage/ofb-masa-pra-2017-snapshot-20261017/reference.json','utf8'));
 const fixture=reference.features.map((f,i)=>({territoryId:`pra:${f.properties.code}`,value:f.properties.code==='29102'?null:12+i%5,normal:f.properties.code==='29102'?null:10,anomaly:f.properties.code==='29102'?null:2+i%5,coverage:f.properties.code==='29102'?0:1,observedDays:f.properties.code==='29102'?0:1,expectedDays:1,status:f.properties.code==='29102'?'unavailable':f.properties.code==='01451'?'partial':'available',dataScale:'pra',datasetVersion:'synthetic-test-only',freshness:'synthetic-test-only',rule_version:'synthetic-test-only',provenance:'synthetic-test-only',quality_flags:[]}));
+// The operational renderer requires explicit support evidence. These complete
+// UI-only fixtures use a synthetic identity; missing/partial fixtures stay unqualified.
+for(const row of fixture)if(row.status==='available')row.quality={
+ version:'climate-coverage-1.0.0',state:'native_complete',numeric_value:true,scope:'whole_pra',
+ scientific_status:'exploratory',indicator_eligible:true,journal_eligible:true,reason:null,
+ evidence:{fraction:1,support_id:`synthetic-test-only/${row.territoryId}`,mask:'native_valid_cells',
+ represented_area_m2:null,expected_days:1,available_days:1,continuous:true,homogeneous:true,
+ method:'synthetic-test-only',estimate_certificate:null,reference_compatible:true},
+};
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),args:['--no-sandbox','--enable-unsafe-swiftshader']});
 const report={syntheticTransport:true,cases:[],errors:[]};
 try{
