@@ -43,6 +43,10 @@ fi
 for task04_migration in "$task04_root"/supabase/migrations/*.sql; do
   task04_psql -f "/repo/supabase/migrations/$(basename "$task04_migration")" \
     >>"$task04_results/migrations.log" 2>&1
+  if [[ $(basename "$task04_migration") == 20261110111915_ops02_reliable_daily_journal.sql ]]; then
+    # Exercise the historical schedule at the migration that defines it.
+    task04_psql -f /repo/tests/task36/ops02.sql >"$task04_results/ops02.log" 2>&1
+  fi
 done
 PYTHONPATH="$task04_root/engine/src" "${PYTHON:-python}" "$task04_root/supabase/tests/prepare_pra_import.py" "$task04_results/pra-import.sql"
 task04_psql -f "/repo/work/task04-${task04_mode}/pra-import.sql" >"$task04_results/pra-import.log" 2>&1
@@ -60,7 +64,7 @@ task04_psql -f /repo/supabase/tests/pra_storage.sql >"$task04_results/pra-storag
 task04_psql -f /repo/supabase/tests/postgis_access.sql >"$task04_results/postgis-access.log" 2>&1
 task04_psql -f /repo/supabase/tests/security.sql >"$task04_results/security.log" 2>&1
 task04_psql -f /repo/tests/task36/review.sql >"$task04_results/editorial-review.log" 2>&1
-task04_psql -f /repo/tests/task36/ops02.sql >"$task04_results/ops02.log" 2>&1
+task04_psql -f /repo/tests/task36/ops08b.sql >"$task04_results/ops08b.log" 2>&1
 task04_psql -f /repo/tests/task36/ledger.sql >"$task04_results/editorial-ledger.log" 2>&1
 task04_psql -f /repo/tests/task36/ops07.sql >"$task04_results/ops07.log" 2>&1
 task04_psql -f /repo/supabase/tests/benchmark.sql >"$task04_results/explain.log" 2>&1

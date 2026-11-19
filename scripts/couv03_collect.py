@@ -20,7 +20,6 @@ from typing import Any
 
 from agriclimax.climate.safran import VARIABLES, CellWeight, aggregate, cell_id
 from agriclimax.climate.safran_incremental import CandidateRevisionExcluded, CandidateStore, serialized, sha
-from safran_pilot import CATALOGUE, Acquisition, acquire
 
 FROZEN = Path("docs/codex/COUV-01/evidence")
 
@@ -140,6 +139,8 @@ def main() -> None:
                          national=args.national)
         report.update(source_calls=0, source_bytes=0)
     else:
+        from safran_pilot import CATALOGUE, Acquisition, acquire
+
         if args.root == Path("work/era5-archive/sim-candidate"):
             used = sum(p.stat().st_size for p in args.root.parent.rglob("*") if p.is_file())
             if used + 16 * 1024**2 > 448 * 1024**2:
