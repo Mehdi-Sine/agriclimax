@@ -4,6 +4,7 @@ import { renderReport } from "./render";
 import { date, scenarios } from "./scenarios";
 import { authorizedReport, deliverReport } from "./delivery";
 import { editorialRPC } from "../editorial-ai/supabase-store";
+import { POST } from "../../app/api/internal/admin-report/route";
 import { checkJournal } from "../nightly/journal-health";
 
 vi.mock("server-only",()=>({}));
@@ -11,6 +12,10 @@ vi.mock("../editorial-ai/supabase-store",()=>({editorialRPC:vi.fn()}));
 vi.mock("../nightly/journal-health",()=>({
   checkJournal:vi.fn(),journalOrigin:()=>new URL("https://example.com"),
 }));
+const { createTransport, sendMail, verifySmtp } = vi.hoisted(() => ({
+  createTransport: vi.fn(), sendMail: vi.fn(), verifySmtp: vi.fn(),
+}));
+vi.mock("nodemailer", () => ({ default: { createTransport } }));
 const store = vi.mocked(editorialRPC);
 const verify = vi.mocked(checkJournal);
 const before = new Date("2026-11-19T06:29:59Z");
@@ -45,77 +50,139 @@ describe("rapport Climacta",()=>{
   });
 });
 
-describe("envoi",()=>{
-  let saved: string | undefined;
+describe("envoi SMTP", () => {
+  let claimId: string | undefined;
   let sent: boolean;
   let dropAck: boolean;
-  beforeEach(()=>{
+
+  beforeEach(() => {
     vi.resetAllMocks();
-    vi.stubEnv("RESEND_API_KEY","resend-synthetic");
-    vi.stubEnv("AGRICLIMAX_ADMIN_FROM","rapports@example.com");
-    vi.stubEnv("AGRICLIMAX_ADMIN_EMAIL","admin@example.com");
-    saved=undefined; sent=false; dropAck=false;
-    store.mockImplementation(async (action,input)=>{
-      const payload = input as {message:string};
-      switch(action) {
-        case "admin_report:outbox": return sent ? {status:"sent"} : saved ? {status:"reserved",message:saved} : {status:"new"};
+    vi.stubEnv("SMTP_HOST", "smtp.gmail.com");
+    vi.stubEnv("SMTP_PORT", "587");
+    vi.stubEnv("SMTP_USER", "rapports@example.com");
+    vi.stubEnv("SMTP_PASS", "synthetic password");
+    vi.stubEnv("AGRICLIMAX_ADMIN_EMAIL", "admin@example.com");
+    vi.stubEnv("AGRICLIMAX_ADMIN_REPORT_TOKEN", "t".repeat(32));
+    createTransport.mockReturnValue({ sendMail, verify: verifySmtp });
+    sendMail.mockResolvedValue({ accepted: ["admin@example.com"], rejected: [] });
+    verifySmtp.mockResolvedValue(true);
+    claimId = undefined;
+    sent = false;
+    dropAck = false;
+    store.mockImplementation(async (action, input) => {
+      const payload = input as {claim_id: string};
+      switch (action) {
+        case "admin_report:outbox": return {status: sent ? "sent" : claimId ? "uncertain" : "new"};
         case "admin_report:diagnostics": return nominal.data;
         case "admin_report:edition": return nominal.edition;
-        case "admin_report:reserve": saved ??= payload.message; return {status:"reserved",message:saved};
-        case "admin_report:accept":
-          if(dropAck) {dropAck=false; throw Error("lost acknowledgment");}
-          sent=true; return {status:"sent"};
+        case "admin_report:smtp_claim":
+          if (sent || claimId) return {status: sent ? "sent" : "uncertain"};
+          claimId = payload.claim_id;
+          return {status: "claimed"};
+        case "admin_report:smtp_accept":
+          expect(payload.claim_id).toBe(claimId);
+          if (dropAck) throw Error("lost database acknowledgment");
+          sent = true;
+          return {status: "sent"};
         default: throw Error(action);
       }
     });
   });
-  afterEach(()=>{vi.unstubAllEnvs();vi.unstubAllGlobals();});
 
-  it("exige une seule adresse et un jeton correct",async ()=>{
-    expect(authorizedReport(null,"t".repeat(32))).toBe(false);
-    expect(authorizedReport(`Bearer ${"t".repeat(32)}`,"t".repeat(32))).toBe(true);
-    expect(authorizedReport(`Bearer ${"u".repeat(32)}`,"t".repeat(32))).toBe(false);
-    vi.stubEnv("AGRICLIMAX_ADMIN_EMAIL","admin@example.com,other@example.com");
+  afterEach(() => { vi.unstubAllEnvs(); vi.unstubAllGlobals(); });
+
+  it("exige une seule adresse et un jeton correct", async () => {
+    expect(authorizedReport(null)).toBe(false);
+    expect(authorizedReport(`Bearer ${"t".repeat(32)}`)).toBe(true);
+    expect(authorizedReport(`Bearer ${"u".repeat(32)}`)).toBe(false);
+    vi.stubEnv("AGRICLIMAX_ADMIN_EMAIL", "admin@example.com,other@example.com");
     await expect(deliverReport(before)).rejects.toThrow("ADMIN_REPORT_CONFIGURATION");
+    expect(store).not.toHaveBeenCalled();
+    expect(sendMail).not.toHaveBeenCalled();
+  });
+
+  it("vérifie STARTTLS et l’authentification sur la route privée sans toucher au registre", async () => {
+    const url = "https://example.com/api/internal/admin-report?verify=smtp";
+    expect((await POST(new Request(url, {method: "POST"}))).status).toBe(404);
+    expect(verifySmtp).not.toHaveBeenCalled();
+    const request = new Request(url, {method: "POST", headers: {authorization: `Bearer ${"t".repeat(32)}`}});
+    const response = await POST(request);
+    expect(await response.json()).toEqual({status: "smtp_verified"});
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(createTransport).toHaveBeenCalledWith(expect.objectContaining({
+      host: "smtp.gmail.com", port: 587, secure: false, requireTLS: true,
+      auth: {user: "rapports@example.com", pass: "syntheticpassword"},
+      disableFileAccess: true, disableUrlAccess: true,
+    }));
+    expect(verifySmtp).toHaveBeenCalledOnce();
+    expect(sendMail).not.toHaveBeenCalled();
     expect(store).not.toHaveBeenCalled();
   });
 
-  it("attend tant que la publication est absente avant 07 h 30",async ()=>{
+  it("attend tant que la publication est absente avant 07 h 30", async () => {
     verify.mockResolvedValue(null);
-    const transport=vi.fn();
-    vi.stubGlobal("fetch",transport);
     expect(await deliverReport(before)).toBe("waiting");
-    expect(transport).not.toHaveBeenCalled();
-    expect(saved).toBeUndefined();
+    expect(sendMail).not.toHaveBeenCalled();
+    expect(claimId).toBeUndefined();
   });
 
-  it.each([winterDeadline,summerDeadline])("envoie ROUGE dès 07 h 30 Paris (%s)",async now=>{
+  it.each([winterDeadline, summerDeadline])("envoie ROUGE dès 07 h 30 Paris (%s)", async now => {
     verify.mockResolvedValue(null);
-    const transport=vi.fn(async ()=>Response.json({id:"receipt-1"}));
-    vi.stubGlobal("fetch",transport);
     expect(await deliverReport(now)).toBe("sent");
-    expect(JSON.parse(saved!).subject).toContain("ROUGE");
-    expect(transport).toHaveBeenCalledTimes(1);
+    expect(sendMail).toHaveBeenCalledExactlyOnceWith(expect.objectContaining({
+      subject: expect.stringContaining("ROUGE"),
+      from: {name: "Climacta", address: "rapports@example.com"},
+      to: "admin@example.com",
+    }));
+    expect(await deliverReport(now)).toBe("sent");
+    expect(sendMail).toHaveBeenCalledOnce();
   });
 
-  it("envoie immédiatement une édition vérifiée et déduplique la concurrence et la perte du reçu",async ()=>{
+  it("envoie une seule fois une édition vérifiée malgré deux revendications concurrentes", async () => {
     verify.mockResolvedValue(identity);
-    dropAck=true;
-    const accepted=new Map<string,string>();
-    const transport=vi.fn(async (_url: string, options: RequestInit)=>{
-      const key=new Headers(options.headers).get("Idempotency-Key")!;
-      const body=options.body as string;
-      if(accepted.has(key)) expect(body).toBe(accepted.get(key));
-      accepted.set(key,body);
-      return Response.json({id:"receipt-1"});
+    const results = await Promise.allSettled([deliverReport(before), deliverReport(before)]);
+    expect(results).toContainEqual({status: "fulfilled", value: "sent"});
+    expect(store.mock.calls.filter(([action]) => action === "admin_report:smtp_claim")).toHaveLength(2);
+    expect(sendMail).toHaveBeenCalledOnce();
+    expect(sendMail.mock.calls[0][0].messageId).toContain(claimId);
+  });
+
+  it("préserve la miniature intégrée, le HTML et le texte", async () => {
+    verify.mockResolvedValue(identity);
+    const hero = "b".repeat(64);
+    store.mockImplementationOnce(async () => ({status: "new"}))
+      .mockImplementationOnce(async () => nominal.data)
+      .mockImplementationOnce(async () => ({...nominal.edition, hero}));
+    const image = Buffer.from([1, 2, 3]);
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(image, {headers: {"Content-Type": "image/webp"}})));
+    expect(await deliverReport(before)).toBe("sent");
+    expect(sendMail).toHaveBeenCalledExactlyOnceWith(expect.objectContaining({
+      text: expect.stringContaining("Aucune intervention nécessaire"),
+      html: expect.stringContaining("cid:climacta-carte"),
+      attachments: [{filename: "carte.webp", cid: "climacta-carte", content: image, contentType: "image/webp"}],
+    }));
+  });
+
+  it("ne soumet aucun message si la réponse de la réservation est perdue", async () => {
+    verify.mockResolvedValue(identity);
+    const ledger = store.getMockImplementation()!;
+    store.mockImplementation(async (action, input) => {
+      const result = await ledger(action, input);
+      if (action === "admin_report:smtp_claim") throw Error("claim committed, response lost");
+      return result;
     });
-    vi.stubGlobal("fetch",transport);
-    const results=await Promise.allSettled([deliverReport(before),deliverReport(before)]);
-    expect(results.some(r=>r.status==="fulfilled" && r.value==="sent")).toBe(true);
-    expect(accepted.size).toBe(1);
-    expect(JSON.parse(saved!).to).toEqual(["admin@example.com"]);
-    const attempts=transport.mock.calls.length;
-    expect(await deliverReport(winterDeadline)).toBe("sent");
-    expect(transport).toHaveBeenCalledTimes(attempts);
+    await expect(deliverReport(before)).rejects.toThrow("claim committed, response lost");
+    await expect(deliverReport(winterDeadline)).rejects.toThrow("ADMIN_REPORT_RECONCILIATION_REQUIRED");
+    expect(sendMail).not.toHaveBeenCalled();
+  });
+
+  it.each(["smtp", "database"])("bloque toute nouvelle tentative après la perte du reçu %s", async failure => {
+    verify.mockResolvedValue(identity);
+    if (failure === "smtp") sendMail.mockRejectedValueOnce(Error("connection lost after DATA"));
+    else dropAck = true;
+    await expect(deliverReport(before)).rejects.toThrow("ADMIN_REPORT_RECONCILIATION_REQUIRED");
+    await expect(deliverReport(winterDeadline)).rejects.toThrow("ADMIN_REPORT_RECONCILIATION_REQUIRED");
+    expect(sendMail).toHaveBeenCalledOnce();
+    expect(sent).toBe(false);
   });
 });

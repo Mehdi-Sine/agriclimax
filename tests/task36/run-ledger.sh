@@ -43,3 +43,6 @@ docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supaba
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/tests/task36/ops08.sql"
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supabase/migrations/20261119073437_ops08b_journal_operations.sql"
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/tests/task36/ops08b.sql"
+docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supabase/migrations/20261119164136_ops08c_gmail_smtp.sql"
+docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/tests/task36/ops08c.sql"
+python "$root/tests/task36/ops08c_concurrency.py" "$name"
