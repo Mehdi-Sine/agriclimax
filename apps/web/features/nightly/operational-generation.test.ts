@@ -7,7 +7,7 @@ import type {EditorialBriefingBundle} from "../editorial/briefing";
 import type {Archive} from "../editorial-ai/model";
 import type {Run} from "../editorial-ai/archive";
 import {verifyArchive} from "../editorial-ai/archive";
-import {generateOperational,operationalConfig,type AttemptStore} from "../editorial-ai/generate-operational";
+import {archiveProviderFactualFallback,generateOperational,operationalConfig,type AttemptStore} from "../editorial-ai/generate-operational";
 import {ProviderFailure} from "../editorial-ai/provider";
 const briefing=example as unknown as EditorialBriefingBundle;
 function store() {
@@ -32,10 +32,24 @@ describe("project-managed OpenAI spending and operational attempts",()=>{
   expect(a.mode).toBe("live");expect(a.receipt?.usage).toBeNull();expect(a.receipt?.cost_eur).toBeNull();expect(s.runs[0].reserved_eur).toBe(0);expect(s.runs[0].state).toBe("completed");
   await generateOperational({briefing,config:c,store:s.api,provider,manualRetry:true});expect(provider).toHaveBeenCalledTimes(1);
  });
- it("keeps separate attempts on the same real date after a failure, without automatic retries or fallback articles",async()=>{
+ it("uses the same checked fallback when the provider fails with map selection disabled",async()=>{
   const s=store(),config=operationalConfig("gpt-6.1-terra"),provider=vi.fn().mockRejectedValue(new ProviderFailure("PROVIDER_HTTP_400"));
-  for(let i=0;i<2;i++) await expect(generateOperational({briefing,config,store:s.api,provider,manualRetry:true})).rejects.toThrow("PROVIDER_HTTP_400");
-  expect(provider).toHaveBeenCalledTimes(2);expect(s.runs[0].id).not.toBe(s.runs[1].id);expect(s.runs.every(r=>r.edition_date===briefing.edition_date&&r.state==="outcome_unknown")).toBe(true);expect(s.archives.size).toBe(0);
+  const fallback=await generateOperational({briefing,config,store:s.api,provider,manualRetry:false});
+  expect(fallback).toMatchObject({mode:"fallback",receipt:null});
+  expect(fallback.validation.errors).toEqual([]);
+  expect(s.runs).toMatchObject([{state:"completed",error:"PROVIDER_HTTP_400",archive_id:fallback.edition_id}]);
+  await generateOperational({briefing,config,store:s.api,provider,manualRetry:false});
+  expect(provider).toHaveBeenCalledTimes(1);
+ });
+ it("archives a standalone factual edition without allocating a provider attempt",async()=>{
+  const s=store(),saveStandaloneFallback=vi.fn(async(a:Archive)=>verifyArchive(a));
+  const archive=await archiveProviderFactualFallback({briefing,config:operationalConfig("gpt-6.1-terra"),
+   store:{...s.api,saveStandaloneFallback},runId:"1".repeat(64),generatedAt:"2026-11-10T05:05:00Z",standaloneReason:"openai_key_missing"});
+  expect(archive).toMatchObject({mode:"fallback",receipt:null});
+  expect(archive.validation.errors).toEqual([]);
+  expect(saveStandaloneFallback).toHaveBeenCalledWith(archive,"openai_key_missing");
+  expect(s.api.claimAttempt).not.toHaveBeenCalled();
+  expect(s.api.save).not.toHaveBeenCalled();
  });
  it("retains rejected output and publishes a separately checked factual replacement with one call",async()=>{
   const s=store(),config=operationalConfig("gpt-6.1-terra"),provider=vi.fn().mockResolvedValue({draft:{...simulated.draft,bundle_id:"invented"},model:config.model,response_id:"resp_synthetic",usage:{input_tokens:1,output_tokens:1,reasoning_tokens:0}});

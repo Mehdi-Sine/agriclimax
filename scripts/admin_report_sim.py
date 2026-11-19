@@ -28,7 +28,7 @@ def record() -> None:
                 and save["sha256"] == readback.get("sha256"))
     state = "retryable_failure"
     if verified:
-        state = "degraded" if collect.get("missing_dates") else "success"
+        state = "degraded" if collect.get("missing_dates") or collect.get("excluded_revisions") else "success"
     run = os.environ.get("GITHUB_RUN_ID", str(time.time_ns()))
     attempt = os.environ.get("GITHUB_RUN_ATTEMPT", "1")
     rpc("diagnostic", {"edition_date": today, "id": f"sim-admin-{today}-{run}-{attempt}",

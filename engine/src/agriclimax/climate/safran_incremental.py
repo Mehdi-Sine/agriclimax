@@ -35,6 +35,10 @@ def sha(raw: bytes) -> str:
     return hashlib.sha256(raw).hexdigest()
 
 
+class CandidateRevisionExcluded(ValueError):
+    """An existing day is immutable under the automatic collection policy."""
+
+
 class CandidateStore:
     def __init__(self, root: Path) -> None:
         self.root = root
@@ -87,9 +91,9 @@ class CandidateStore:
             self.read(day)  # verify before treating an existing blob as reusable
             return False
         if revisions and day < today - timedelta(days=3):
-            raise ValueError("Revision outside three-day window requires manual campaign")
+            raise CandidateRevisionExcluded("Revision outside three-day window requires manual campaign")
         if len(revisions) == 2:
-            raise ValueError("Two revisions already retained; preserve current index")
+            raise CandidateRevisionExcluded("Two revisions already retained; preserve current index")
         raw = encode({"date": str(day), "rows": list(rows)})
         digest = sha(raw)
         if decode(raw, digest)["rows"] != list(rows):

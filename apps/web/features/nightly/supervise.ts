@@ -15,7 +15,7 @@ export interface OperationalReport {
 }
 export async function supervise(editionDate?:string) {
   const now=new Date().toISOString(), date=editionDate??parisDate(now);
-  const report=await editorialRPC<OperationalReport>("report",{edition_date:date});
+  const report=await editorialRPC<OperationalReport>("edition_context",{edition_date:date});
   const today=report.snapshots.find(s=>s.edition_date===date);
   const publication=report.publications.find(p=>p.edition_date===date);
   const editions=await operationalEditions();

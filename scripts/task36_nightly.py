@@ -12,19 +12,21 @@ from datetime import date as calendar_date
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.request import Request, build_opener
+from urllib.request import HTTPRedirectHandler, Request, build_opener
 from zoneinfo import ZoneInfo
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / 'engine/src'))
-from agriclimax.ingestion.meteofrance import NoRedirect
+
+class NoRedirect(HTTPRedirectHandler):
+    def redirect_request(self, *args: Any, **kwargs: Any) -> None:
+        return None
 
 
 def rpc(action: str, payload: dict[str, Any] | None = None) -> Any:
     base = os.environ['NEXT_PUBLIC_SUPABASE_URL'].rstrip('/')
     if base != 'https://yyfbpecxvxglzxopsmel.supabase.co':
         raise ValueError('DEV_ORIGIN_REQUIRED')
-    request = Request(base + '/rest/v1/rpc/agriclimax_editorial', method='POST',
+    endpoint = 'agriclimax_editorial_ops08b' if action in ('acquisition_plan', 'sim_claim') else 'agriclimax_editorial'
+    request = Request(base + '/rest/v1/rpc/' + endpoint, method='POST',
                       headers={'apikey': os.environ['SUPABASE_SECRET_KEY'], 'Content-Type': 'application/json'},
                       data=json.dumps({'p_action': action, 'p_payload': payload or {}}).encode())
     with build_opener(NoRedirect()).open(request, timeout=15) as response:
@@ -130,12 +132,15 @@ def acquire(source: str, date: str) -> dict[str, Any]:
                 state = 'degraded'
             if report.get('permanent_auth_failure'):
                 state = 'permanent_failure'
-            if isinstance(report.get('http_status'), int):
-                state, wait = failure(report['http_status'], report.get('retry_after'))
-            for issue in [*report.get('source_failures', []), *report.get('days', [])]:
-                status = issue.get('http_status', issue.get('status_code',issue.get('status')))
-                if isinstance(status, int):
-                    state, wait = failure(status, issue.get('retry_after'))
+            for issue in [report, *report.get('source_failures', []), *report.get('days', [])]:
+                status = issue.get('http_status', issue.get('status_code', issue.get('status')))
+                if not isinstance(status, int) or status < 400 and status != 204:
+                    continue
+                issue_state, issue_wait = failure(status, issue.get('retry_after'))
+                wait = max(wait, issue_wait)
+                # A temporary error in one subrequest cannot downgrade an auth/configuration error in another.
+                if state != 'permanent_failure' and (issue_state != 'no_new_data' or state == 'success'):
+                    state = issue_state
         if state == 'success' and source != 'news':
             checkpoint['result'] = 'adapter_completed_qualification_retained'
     except HTTPError as error:

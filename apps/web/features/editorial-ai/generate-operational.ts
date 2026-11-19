@@ -21,6 +21,7 @@ export interface AttemptStore {
  finishAttempt(run:Run):Promise<void>;
  diagnostic(id:string,value:unknown):Promise<void>;
  save(archive:Archive):Promise<void>;
+ saveStandaloneFallback?(archive:Archive,reason:string):Promise<void>;
  read(id:string):Promise<Archive|null>;
 }
 /** Pricing is an optional diagnostic estimate; no balance, reservation or reconciliation gate. */
@@ -66,7 +67,7 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
   if(run.state==="running") {
    run.error=error instanceof ProviderFailure?error.code:"PROVIDER_OR_ARCHIVE_FAILED";
    if(error instanceof ProviderFailure)await o.store.diagnostic(hash([run.id,"error"]),{kind:"provider_error",run_id:run.id,code:error.code,diagnostic:error.diagnostic??null,evidence:error.evidence??null});
-   if(maps&&(error instanceof ProviderFailure||error instanceof Error&&(error.message.startsWith("DRAFT_CONTRACT")||error.message==="PROVIDER_MODEL_OR_ID_MISMATCH"))) {
+   if(error instanceof ProviderFailure||error instanceof Error&&(error.message.startsWith("DRAFT_CONTRACT")||error.message==="PROVIDER_MODEL_OR_ID_MISMATCH")) {
     let archive:Archive;
     try {archive=await archiveProviderFactualFallback({briefing:b,config:c,store:o.store,runId:run.id,generatedAt:now,mapSelection:maps});}
     catch(failure){run.state="outcome_unknown";await o.store.finishAttempt(run);throw failure;}
@@ -113,10 +114,15 @@ export async function archiveOperationalResult(o:{briefing:EditorialBriefingBund
 }
 
 /** A provider failure has no prior archive: reuse its existing attempt FK, never create a paid attempt. */
-export async function archiveProviderFactualFallback(o:{briefing:EditorialBriefingBundle;config:AIConfig;store:AttemptStore;runId:string;generatedAt:string;mapSelection:DailySelection}) {
+export async function archiveProviderFactualFallback(o:{briefing:EditorialBriefingBundle;config:AIConfig;store:AttemptStore;runId:string;generatedAt:string;mapSelection?:DailySelection;standaloneReason?:string}) {
  const b=o.briefing,c=o.config,draft=fallbackDraft(b),validation=validateDraft(draft,b);
  const archive=sealArchive({version:"editorial-archive-1",edition_id:o.runId,revision:1,supersedes:null,date:b.edition_date,generated_at:o.generatedAt,
   engine:ENGINE,prompt_version:PROMPT_VERSION,config_version:CONFIG_VERSION,mode:"fallback",status:validation.status,draft,briefing:b,illustrations:[],validation,receipt:null,
-  map_selection:chooseDaily(o.mapSelection.ranking,o.mapSelection.maps_sha256),prompt_sha256:hash(INSTRUCTIONS),parameters:{model:c.model,max_output_tokens:c.max_output_tokens}});
- consultableEdition(archive);await o.store.save(archive);return archive;
+  ...(o.mapSelection?{map_selection:chooseDaily(o.mapSelection.ranking,o.mapSelection.maps_sha256)}:{}),prompt_sha256:hash(INSTRUCTIONS),parameters:{model:c.model,max_output_tokens:c.max_output_tokens}});
+ consultableEdition(archive);
+ if(o.standaloneReason) {
+  if(!o.store.saveStandaloneFallback)throw Error("STANDALONE_FALLBACK_STORE_REQUIRED");
+  await o.store.saveStandaloneFallback(archive,o.standaloneReason);
+ } else await o.store.save(archive);
+ return archive;
 }

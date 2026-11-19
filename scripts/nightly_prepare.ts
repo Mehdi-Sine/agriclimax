@@ -56,7 +56,7 @@ export async function prepareDossier(options:PreparationOptions) {
   const comparisons = compareHistory(history,historyCutoff,geography.places);
   const episodes = reconstructEpisodes(history,historyCutoff);
   phase("acquisition_report");
-  const report=options.readOnly ? {acquisitions:[]} : await editorialRPC<{acquisitions:{source:string;state:string;edition_date:string;checkpoint:{report?:NewsContext}}[]}>("report",{edition_date:date});
+  const report=options.readOnly ? {acquisitions:[]} : await editorialRPC<{acquisitions:{source:string;state:string;edition_date:string;checkpoint:{report?:NewsContext}}[]}>("edition_context",{edition_date:date});
   phase("forecast");
   const candidates = [...(options.extraWeather?[options.extraWeather.entry]:[]),...catalogue.weather].sort((a,b)=>(b.run_at??b.run_date!).localeCompare(a.run_at??a.run_date!));
   let forecast: {doc: NonNullable<Awaited<ReturnType<typeof nationalWeatherDocument>>>; entry: typeof candidates[number]; cycles: Cycle[]} | undefined;

@@ -8,12 +8,8 @@ from typing import Any
 from zoneinfo import ZoneInfo
 
 SCHEDULES = {
-    '15,45 2-4 * * *': ('acquire', [(h, m) for h in range(2, 5) for m in (15, 45)]),
-    '15 5 * * *': ('acquire', [(5, 15)]),
-    '40 5 * * *': ('prepare', [(5, 40)]),
-    '5 6 * * *': ('run', [(6, 5)]),
-    '30,45 6 * * *': ('report', [(6, 30), (6, 45)]),
-    '0 7 * * *': ('report', [(7, 0)]),
+    '50 5 * * *': ('run', [(5, 50)]),
+    '45 6 * * *': ('report', [(6, 45)]),
 }
 STAGES = {'acquire', 'prepare', 'preflight', 'qualify', 'run', 'report'}
 
@@ -54,6 +50,16 @@ def main() -> None:
     with open(os.environ['GITHUB_EVENT_PATH']) as stream:
         event = json.load(stream)
     result = resolve(event, os.environ['RUN_CREATED_AT'], datetime.now(UTC).isoformat())
+    if result['stage'] == 'acquire':
+        from task36_nightly import rpc
+
+        sources = rpc('acquisition_plan', {
+            **result,
+            'workflow_run_id': os.environ['GITHUB_RUN_ID'],
+            'command': 'acquire',
+            'recovery': (event.get('inputs') or {}).get('recovery') == 'true',
+        })
+        result['sources'] = json.dumps(sources, separators=(',', ':'))
     with open(os.environ['GITHUB_OUTPUT'], 'a') as stream:
         for key, value in result.items():
             if '\n' in value or '\r' in value:

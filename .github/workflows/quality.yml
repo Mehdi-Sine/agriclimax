@@ -53,7 +53,7 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-          cache-dependency-path: engine/requirements-dev.lock
+          cache-dependency-path: engine/requirements-*.lock
       - run: python -m pip install -r engine/requirements-dev.lock -r engine/requirements-climate.lock -r engine/requirements-geo.lock -r engine/requirements-agriculture.lock -r engine/requirements-operational.lock -e 'engine[dev]'
       - run: python -m ruff check engine/src/agriclimax/agriculture scripts/agriculture*.py engine/tests/test_agriculture*.py
       - run: python scripts/agriculture_server_index.py --check

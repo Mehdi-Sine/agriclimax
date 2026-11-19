@@ -19,8 +19,7 @@ from pathlib import Path
 from typing import Any
 
 from agriclimax.climate.safran import VARIABLES, CellWeight, aggregate, cell_id
-from agriclimax.climate.safran_incremental import CandidateStore, serialized, sha
-from safran_pilot import CATALOGUE, Acquisition, acquire
+from agriclimax.climate.safran_incremental import CandidateRevisionExcluded, CandidateStore, serialized, sha
 
 FROZEN = Path("docs/codex/COUV-01/evidence")
 
@@ -84,7 +83,7 @@ def collect(source: Path, store: CandidateStore, start: date, end: date,
             days[day][cid] = r
     if not available or max(available) > today or len(available) > 60:
         raise ValueError("Invalid rolling source dates")
-    writes, missing = 0, []
+    writes, missing, excluded = 0, [], {}
     for offset in range((end - start).days + 1):
         day = start + timedelta(days=offset)
         if day not in days:
@@ -94,14 +93,18 @@ def collect(source: Path, store: CandidateStore, start: date, end: date,
                           support_sha256=support_sha,
                           acquired_at=entry["extras"]["analysis:last-modified-at"])
                 for pra, ws in sorted(selected.items()) for variable in VARIABLES]
-        writes += store.put(day, rows, today=today)
-    return {"status": "partial" if missing else "success", "first_requested": str(start),
+        try:
+            writes += store.put(day, rows, today=today)
+        except CandidateRevisionExcluded as error:
+            store.read(day)  # a policy exclusion must not hide a corrupt retained revision
+            excluded[str(day)] = str(error)
+    return {"status": "partial" if missing or excluded else "success", "first_requested": str(start),
             "last_requested": str(end), "source_first": str(min(available)),
             "source_last": str(max(available)), "lag_days": (today-max(available)).days,
             "source_sha256": source_sha, "support_sha256": support_sha,
             "source_resource": entry, "source_receipt": receipt,
             "pra_count": len(selected), "contributing_cells": len(needed),
-            "new_day_revisions": writes, "missing_dates": missing,
+            "new_day_revisions": writes, "missing_dates": missing, "excluded_revisions": excluded,
             "seconds": round(time.monotonic()-begun, 3),
             "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
             "candidate_bytes": sum(p.stat().st_size for p in store.root.rglob('*') if p.is_file()),
@@ -136,6 +139,8 @@ def main() -> None:
                          national=args.national)
         report.update(source_calls=0, source_bytes=0)
     else:
+        from safran_pilot import CATALOGUE, Acquisition, acquire
+
         if args.root == Path("work/era5-archive/sim-candidate"):
             used = sum(p.stat().st_size for p in args.root.parent.rglob("*") if p.is_file())
             if used + 16 * 1024**2 > 448 * 1024**2:
@@ -165,6 +170,8 @@ def main() -> None:
                     report = {**previous, "first_requested": str(start), "last_requested": str(end),
                               "new_day_revisions": 0,
                               "missing_dates": [str(d) for d in requested if str(d) not in available],
+                              "excluded_revisions": {str(d): previous["excluded_revisions"][str(d)] for d in requested
+                                                     if str(d) in previous.get("excluded_revisions", {})},
                               "source_calls": fetch.calls, "source_bytes": fetch.bytes,
                               "status": "unchanged_source", "seconds": 0,
                               "lag_days": (today-date.fromisoformat(previous["source_last"])).days,

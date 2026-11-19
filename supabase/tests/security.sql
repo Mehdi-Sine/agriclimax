@@ -94,7 +94,8 @@ begin
     'public.agriclimax_persist_pra_climatology_daily(text,text,jsonb,jsonb)'::regprocedure,
     'public.agriclimax_pra_climatology_daily_read(text,text,text,date,date)'::regprocedure,
     'public.agriclimax_pra_climatology_day_read(text,text,date,text,text,integer)'::regprocedure,
-    'public.agriclimax_admin_report(text,jsonb)'::regprocedure] loop
+    'public.agriclimax_admin_report(text,jsonb)'::regprocedure,
+    'public.agriclimax_editorial_ops08b(text,jsonb)'::regprocedure] loop
     if has_function_privilege('anon',f,'EXECUTE')
       or has_function_privilege('authenticated',f,'EXECUTE')
       or not has_function_privilege('service_role',f,'EXECUTE')

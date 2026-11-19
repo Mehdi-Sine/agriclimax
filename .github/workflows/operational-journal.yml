@@ -1,17 +1,9 @@
 name: T36 operational nightly Journal
 on:
   schedule:
-    - cron: '15,45 2-4 * * *'
+    - cron: '50 5 * * *'
       timezone: Europe/Paris
-    - cron: '15 5 * * *'
-      timezone: Europe/Paris
-    - cron: '40 5 * * *'
-      timezone: Europe/Paris
-    - cron: '5 6 * * *'
-      timezone: Europe/Paris
-    - cron: '30,45 6 * * *'
-      timezone: Europe/Paris
-    - cron: '0 7 * * *'
+    - cron: '45 6 * * *'
       timezone: Europe/Paris
   workflow_dispatch:
     inputs:
@@ -34,7 +26,7 @@ on:
         required: false
       authorized_snapshot:
         type: string
-        description: Exact frozen snapshot ID authorizing one manual trial; spending controlled in OpenAI
+        description: Optional exact snapshot assertion; never authorizes a second OpenAI call
         required: false
       recovery:
         type: boolean
@@ -55,8 +47,10 @@ jobs:
     # Persistent Supabase control is authoritative for both cron and dispatch.
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     runs-on: ubuntu-latest
+    timeout-minutes: 2
     outputs:
       stage: ${{ steps.clock.outputs.stage }}
+      sources: ${{ steps.clock.outputs.sources }}
       edition_date: ${{ steps.clock.outputs.edition_date }}
       scheduled_at: ${{ steps.clock.outputs.scheduled_at }}
       scheduled_at_basis: ${{ steps.clock.outputs.scheduled_at_basis }}
@@ -68,40 +62,20 @@ jobs:
       - id: clock
         env:
           GH_TOKEN: ${{ github.token }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: |
           RUN_CREATED_AT=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" --jq .created_at)
           export RUN_CREATED_AT
           python scripts/task36_schedule.py
-      - name: Repository acquisition bindings and switches, metadata only
-        env:
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-          METEOFRANCE_CLIMATOLOGY_API_KEY: ${{ secrets.METEOFRANCE_CLIMATOLOGY_API_KEY }}
-          METEOFRANCE_CLIMATOLOGY_APPLICATION_ID: ${{ secrets.METEOFRANCE_CLIMATOLOGY_APPLICATION_ID }}
-          METEOFRANCE_OBSERVATIONS_API_KEY: ${{ secrets.METEOFRANCE_OBSERVATIONS_API_KEY }}
-          METEOFRANCE_OBSERVATIONS_APPLICATION_ID: ${{ secrets.METEOFRANCE_OBSERVATIONS_APPLICATION_ID }}
-          METEOFRANCE_AROME_API_KEY: ${{ secrets.METEOFRANCE_AROME_API_KEY }}
-          METEOFRANCE_ARPEGE_API_KEY: ${{ secrets.METEOFRANCE_ARPEGE_API_KEY }}
-          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
-          NIGHTLY_ENABLED: ${{ vars.AGRICLIMAX_NIGHTLY_ENABLED }}
-          NIGHTLY_KILL_SWITCH: ${{ vars.AGRICLIMAX_NIGHTLY_KILL_SWITCH }}
-          AI_ENABLED: ${{ vars.AGRICLIMAX_AI_ENABLED }}
-          PUBLICATION_ENABLED: ${{ vars.AGRICLIMAX_PUBLICATION_ENABLED }}
-        run: |
-          python - <<'PYTHON'
-          import os,json
-          names=['NEXT_PUBLIC_SUPABASE_URL','SUPABASE_SECRET_KEY','METEOFRANCE_CLIMATOLOGY_API_KEY','METEOFRANCE_CLIMATOLOGY_APPLICATION_ID','METEOFRANCE_OBSERVATIONS_API_KEY','METEOFRANCE_OBSERVATIONS_APPLICATION_ID','METEOFRANCE_AROME_API_KEY','METEOFRANCE_ARPEGE_API_KEY','CDSAPI_KEY']
-          print(json.dumps({'repository_bindings_present':{n:bool(os.environ.get(n)) for n in names},'switches':{n:os.environ.get(n)=='true' for n in ['NIGHTLY_ENABLED','NIGHTLY_KILL_SWITCH','AI_ENABLED','PUBLICATION_ENABLED']}}))
-          PYTHON
   acquire:
     needs: plan
-    if: needs.plan.outputs.stage == 'acquire'
+    if: needs.plan.outputs.stage == 'acquire' && needs.plan.outputs.sources != '[]'
     strategy:
       fail-fast: false
       matrix:
-        source: [forecast, era5, stations, observations, news]
+        source: ${{ fromJSON(needs.plan.outputs.sources || '[]') }}
     runs-on: ubuntu-latest
-    # SIM now runs independently, including persistence, when the existing canary is enabled.
     timeout-minutes: 26
     env:
       AGRICLIMAX_RECOVERY: ${{ inputs.recovery && 'true' || 'false' }}
@@ -116,7 +90,18 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.12'
-      - run: python -m pip install -r engine/requirements-dev.lock -r engine/requirements-geo.lock -r engine/requirements-climate.lock -r engine/requirements-operational.lock
+          cache: pip
+          cache-dependency-path: engine/requirements-*.lock
+      - name: Install locked dependencies for the selected source
+        env:
+          SOURCE: ${{ matrix.source }}
+        run: |
+          requirements=(-r engine/requirements-dev.lock)
+          case "$SOURCE" in
+            forecast) requirements+=(-r engine/requirements-geo.lock -r engine/requirements-climate.lock -r engine/requirements-operational.lock) ;;
+            era5) requirements+=(-r engine/requirements-geo.lock -r engine/requirements-climate.lock) ;;
+          esac
+          python -m pip install "${requirements[@]}"
       - name: Claim shared lease, acquire only missing data, qualify and checkpoint
         env:
           AGRICLIMAX_CHECKPOINT_OWNER: t36
@@ -152,56 +137,9 @@ jobs:
           name: t36-${{ matrix.source }}-logs
           path: work/task36/logs/
           retention-days: 21
-  sim-candidate:
-    # Independent from ERA and editorial dependencies; one writer for the whole transaction.
-    needs: plan
-    if: needs.plan.outputs.stage == 'acquire' && vars.AGRICLIMAX_SIM_CANDIDATE_ENABLED == 'true'
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    continue-on-error: true
-    concurrency:
-      group: sim-candidate-private-persistence
-      cancel-in-progress: false
-    defaults:
-      run:
-        shell: bash
-    env:
-      PYTHONPATH: engine/src:scripts
-      OPENBLAS_NUM_THREADS: '1'
-      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-    steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with:
-          persist-credentials: false
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
-        with:
-          python-version: '3.12'
-      - run: python -m pip install -r engine/requirements-dev.lock -r engine/requirements-geo.lock -r engine/requirements-safran.lock
-      - name: Restore private candidate independently of Actions retention
-        run: |
-          mkdir -p work/couv04/receipts
-          python scripts/couv04_checkpoint.py restore --root work/couv04/sim-candidate | tee work/couv04/receipts/restore.json
-      - name: Collect only actual available SIM days
-        run: python scripts/couv03_collect.py --root work/couv04/sim-candidate | tee work/couv04/receipts/collect.json
-      - name: Persist bounded private snapshot with verified readback
-        run: python scripts/couv04_checkpoint.py save --root work/couv04/sim-candidate | tee work/couv04/receipts/save.json
-      - name: Verify recovery from private storage
-        run: python scripts/couv04_checkpoint.py restore --root work/couv04/recovery-check | tee work/couv04/receipts/readback.json
-      - name: Record the existing SIM receipts for the admin report
-        if: always()
-        env:
-          AGRICLIMAX_EDITION_DATE: ${{ needs.plan.outputs.edition_date }}
-        run: python scripts/admin_report_sim.py
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        if: always()
-        with:
-          name: sim-persistence-receipts-${{ github.run_id }}
-          path: work/couv04/receipts/
-          retention-days: 21
   editorial:
     needs: plan
-    if: needs.plan.outputs.stage != 'acquire'
+    if: needs.plan.result == 'success' && needs.plan.outputs.stage != 'acquire'
     runs-on: ubuntu-latest
     environment: editorial-ai-dev
     timeout-minutes: 25
@@ -221,11 +159,16 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22'
-      - run: pnpm install --frozen-lockfile --ignore-scripts
+          cache: pnpm
+      - run: pnpm --filter @agriclimax/web install --frozen-lockfile --ignore-scripts
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        if: needs.plan.outputs.stage != 'report'
         with:
           python-version: '3.12'
-      - run: python -m pip install -r engine/requirements-dev.lock
+          cache: pip
+          cache-dependency-path: engine/requirements-dev.lock
+      - if: needs.plan.outputs.stage != 'report'
+        run: python -m pip install -r engine/requirements-dev.lock
       - name: Frozen dossier, operational generation, private archive or independent report
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
