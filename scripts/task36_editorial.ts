@@ -16,8 +16,10 @@ import type { Archive } from "../apps/web/features/editorial-ai/model";
 import type {Run} from "../apps/web/features/editorial-ai/archive";
 import type {ProviderResult} from "../apps/web/features/editorial-ai/provider";
 import {consultableEdition} from "../apps/web/features/editorial-ai/consultable";
+import { hash } from "../apps/web/features/editorial/temporal";
+import { readPublishedMaps } from "../apps/web/lib/server/edition-maps";
 import {spawnSync} from "node:child_process";
-import { openAIProvider, verifyModel } from "../apps/web/features/editorial-ai/provider";
+import { openAIProvider } from "../apps/web/features/editorial-ai/provider";
 const command = process.argv[2] ?? "preflight";
 const date = process.env.AGRICLIMAX_EDITION_DATE || parisDate(new Date().toISOString());
 if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isFinite(Date.parse(date))||new Date(date).toISOString().slice(0,10)!==date||date>parisDate(new Date().toISOString())) throw Error("EDITION_DATE_REQUIRED");
@@ -68,7 +70,7 @@ async function main() {
     output({status:process.argv.includes("--execute-revalidation")?"archive_revalidated":"revalidation_ready",id:revised.edition_id,
       checksum:revised.checksum,supersedes:original.edition_id,validation:revised.validation,paid_calls:0});return;
   }
-  if(command==="report") { const report=await supervise(date); output(report); if(report.alerts.length) process.exitCode=2; return; }
+  if(command==="report") { phase="health_report"; const report=await supervise(date); output(report); if(report.alerts.length) process.exitCode=2; return; }
   if(command==="promote") { output(await promoteEdition(process.argv[3]??"")); return; }
   if(command==="approve"||command==="reject") {
     const i=process.argv.indexOf("--review-checksum"),r=process.argv.indexOf("--reviewer");
@@ -80,13 +82,10 @@ async function main() {
     const snapshot=await prepare();
     output(snapshot); return;
   }
+  phase="control";
   const control=await editorialRPC<{emergency_stop:boolean;ai_enabled:boolean}>("control");
   if(control.emergency_stop) {output({status:"no_op",reason:"emergency_stop",paid_calls:0});return;}
-  if(command==="run") {
-    const {operationalEditions,sharedArchiveRead}=await import("../apps/web/lib/server/editorial-published");
-    const existing=(await operationalEditions()).find(a=>a.date===date);
-    if(existing&&sharedArchiveRead(existing.edition_id)){publishExperimentalMaps(existing);output({status:"no_op",reason:"already_consultable",id:existing.edition_id,checksum:existing.checksum,paid_calls:0});return;}
-  }
+  phase="snapshot_read";
   let snapshot = await editorialRPC<DailyEditorialSnapshot|null>("snapshot_read",{edition_date:date});
   if(!snapshot && ["prepare","run","qualify"].includes(command)) {
     snapshot=await prepare();
@@ -103,7 +102,7 @@ async function main() {
   if(command==="prepare") { output({snapshot_id:snapshot.id,quality:snapshot.quality,date}); return; }
   if(snapshot.quality==="insufficient" || !snapshot.briefing) { output({status:"no_op",reason:"insufficient_data",paid_calls:0,previous_retained:true}); return; }
   const config = operationalConfig(process.env.AGRICLIMAX_EDITORIAL_MODEL??"gpt-6.1-terra");
-  const store = new SupabaseEditorialStore(snapshot.id);
+  const store = new SupabaseEditorialStore(snapshot.id,date);
   if(command==="preflight"||command==="qualify") {
     output({snapshot_id:snapshot.id,quality:snapshot.quality,facts:snapshot.briefing.national.facts.length,model:config.model,financial_control:"openai_project",
       api_key_present:!!process.env.OPENAI_API_KEY,control:await editorialRPC("control"),paid_calls:0});return;
@@ -113,8 +112,12 @@ async function main() {
   if(authorized>=0&&process.argv[authorized+1]!==snapshot.id) throw Error("EXACT_SNAPSHOT_AUTHORIZATION_REQUIRED");
   // An interrupted process may have persisted the response before saving the
   // edition. Replay only that response through the same validator/archive engine.
-  const history=await editorialRPC<{runs:Run[];diagnostics:{kind?:string;run_id?:string;result?:ProviderResult;received_at?:string;metadata?:{started_at?:string};selection?:DailySelection}[]}>("report",{edition_date:date});
-  for(const prior of history.runs.filter(r=>r.edition_date===date)) {
+  phase="edition_history";
+  const history=await editorialRPC<{runs:Run[];publications:{archive_id:string}[];diagnostics:{kind?:string;run_id?:string;result?:ProviderResult;received_at?:string;metadata?:{started_at?:string};selection?:DailySelection}[]}>("edition_context",{edition_date:date});
+  if(history.publications.length) {
+    output({status:"no_op",reason:"already_consultable",id:history.publications[0].archive_id,paid_calls:0});return;
+  }
+  for(const prior of history.runs) {
     let recovered=await store.read(prior.archive_id??prior.id);
     const savedMaps=history.diagnostics.find(d=>d.kind==="map_selection_request"&&d.run_id===prior.id)?.selection;
     if(!recovered) {
@@ -127,39 +130,52 @@ async function main() {
        const selection=savedMaps?chooseDaily(savedMaps.ranking,savedMaps.maps_sha256,envelope?.map_selection):undefined;
        try {recovered=await archiveOperationalResult({mapSelection:selection,briefing:snapshot.briefing,config,store,run:prior,result:{...response,draft:savedMaps?.ranking.ranked.some(r=>r.card.admission.eligible)?envelope?.draft:response.draft},
         generatedAt,durationMs:0});}catch(error){
-        if(!savedMaps||!(error instanceof Error)||!(error.message.startsWith("DRAFT_CONTRACT")||error.message==="PROVIDER_MODEL_OR_ID_MISMATCH"))throw error;
+        if(!(error instanceof Error)||!(error.message.startsWith("DRAFT_CONTRACT")||error.message==="PROVIDER_MODEL_OR_ID_MISMATCH"))throw error;
         recovered=await archiveProviderFactualFallback({briefing:snapshot.briefing,config,store,runId:prior.id,generatedAt,mapSelection:savedMaps});
        }
-     } else if(savedMaps&&prior.state==="outcome_unknown") {
+     } else if(["running","outcome_unknown"].includes(prior.state)) {
        const startedAt=history.diagnostics.find(d=>d.kind==="provider_request"&&d.run_id===prior.id)?.metadata?.started_at;
-       if(!startedAt)throw Error("RECOVERY_TIMESTAMP_MISSING");
-       recovered=await archiveProviderFactualFallback({briefing:snapshot.briefing,config,store,runId:prior.id,generatedAt:startedAt,mapSelection:savedMaps});
+       recovered=await archiveProviderFactualFallback({briefing:snapshot.briefing,config,store,runId:prior.id,
+        generatedAt:startedAt??snapshot.frozen_at,mapSelection:savedMaps??await prepareDailySelection(snapshot,prior.id)});
      }
     }
     if(recovered) {
-      if(recovered.validation.status==="rejected"&&authorized>=0) continue;
+      phase="archive_recovery";
+      const publicState=prior.state==="completed"||(prior.state==="outcome_unknown"&&recovered.mode==="fallback");
+      if(publicState && recovered.validation.status!=="rejected" && prior.archive_id===recovered.edition_id && await readPublishedMaps(recovered)) {
+        output({status:"no_op",reason:"already_consultable",id:recovered.edition_id,checksum:recovered.checksum,paid_calls:0});return;
+      }
       if(recovered.validation.status==="rejected"){
         const fallback=await archiveFactualFallback(recovered,store);
         publishExperimentalMaps(fallback);
         output({status:"experimental_fallback",id:fallback.edition_id,checksum:fallback.checksum,paid_calls:0});return;
       }
-      if(savedMaps&&recovered.mode==="fallback"&&recovered.edition_id===prior.id){
-       if(prior.state==="running")await store.finishAttempt({...prior,state:"completed",archive_id:recovered.edition_id});
+      if(recovered.mode==="fallback"&&recovered.edition_id===prior.id&&prior.archive_id!==recovered.edition_id){
+       if(prior.state==="running")await store.finishAttempt({...prior,state:"completed",error:prior.error??"PROVIDER_INTERRUPTED",archive_id:recovered.edition_id});
        else await store.writeRun({...prior,archive_id:recovered.edition_id}); // Same-state attachment permitted by run_write; no financial transition.
       }
       output(await resumeArchivedEdition(recovered,payload=>editorialRPC("recover_archive",payload),publishExperimentalMaps));return;
     }
   }
-  if(!control.ai_enabled) {output({status:"no_op",reason:"ai_disabled",snapshot_id:snapshot.id,quality:snapshot.quality,paid_calls:0});return;}
   const key=process.env.OPENAI_API_KEY;
-  if(!key) throw Error("OPENAI_API_KEY_MISSING");
-  await verifyModel(key,config.model);
-  const archive=await generateOperational({briefing:snapshot.briefing,config,store,provider:openAIProvider(key),manualRetry:authorized>=0,prepareSelection:process.env.AGRICLIMAX_EDITORIAL_MAP_SELECTION==="false"?undefined:id=>prepareDailySelection(snapshot!,id)});
+  const fallbackReason=!control.ai_enabled?"ai_disabled":!key?"openai_key_missing":null;
+  phase="generation";
+  let archive:Archive;
+  if(fallbackReason) {
+    if(history.runs.length) throw Error("EXISTING_ATTEMPT_REQUIRES_RECOVERY");
+    const id=hash([snapshot.id,"standalone-factual-fallback-1"]);
+    const selection=await prepareDailySelection(snapshot,id);
+    archive=await archiveProviderFactualFallback({briefing:snapshot.briefing,config,store,runId:id,
+      generatedAt:snapshot.frozen_at,mapSelection:selection,standaloneReason:fallbackReason});
+  } else {
+    archive=await generateOperational({briefing:snapshot.briefing,config,store,provider:openAIProvider(key!),manualRetry:false,
+      prepareSelection:process.env.AGRICLIMAX_EDITORIAL_MAP_SELECTION==="false"?undefined:id=>prepareDailySelection(snapshot,id)});
+  }
   const run=await store.readRun(archive.edition_id);
-  output({id:archive.edition_id,mode:archive.mode,status:"consultable",
-    validation_status:archive.status,provider_receipt_archived:!!archive.receipt,checksum:archive.checksum,run_state:run?.state,error:run?.error??null});
   consultableEdition(archive);
   publishExperimentalMaps(archive);
+  output({id:archive.edition_id,mode:archive.mode,status:"consultable",
+    validation_status:archive.status,provider_receipt_archived:!!archive.receipt,checksum:archive.checksum,run_state:run?.state,fallback_reason:fallbackReason,error:run?.error??null});
   // Archiving makes an experimental edition consultable. Certification/promotion remains explicit.
 }
 async function execute() {
@@ -168,13 +184,19 @@ async function execute() {
   const metadata={edition_date:date,stage:command,command,owner,workflow_run_id:process.env.GITHUB_RUN_ID??null,
     dispatch_id:process.env.AGRICLIMAX_DISPATCH_ID??null,scheduled_at:process.env.AGRICLIMAX_SCHEDULED_AT??null,
     scheduled_at_basis:process.env.AGRICLIMAX_SCHEDULED_AT_BASIS??null};
+  phase="stage_claim";
   const claim=await editorialRPC<{status?:string;reason?:string}>("stage_claim",metadata);
   if(claim.status==="no_op") {output(claim);return;}
   try {await main();}
   catch(error) {resultForLedger={status:"failed",error:failureCode(error),phase,error_type:error instanceof Error?error.name:"UnknownError",contract_diagnostics:error instanceof BriefingContractError?error.diagnostics:undefined};throw error;}
   finally {
     const state=resultForLedger.status==="failed"||process.exitCode?"failed":resultForLedger.status==="no_op"?"no_op":"completed";
-    await editorialRPC("stage_finish",{...metadata,state,result:resultForLedger});
+    try {
+      await editorialRPC("stage_finish",{...metadata,state,result:resultForLedger});
+    } catch(error) {
+      if(resultForLedger.status!=="failed") {phase="stage_finish";throw error;}
+      console.error("STAGE_FINISH_FAILED");
+    }
   }
 }
 execute().catch(error=>{output({status:"failed",error:failureCode(error),phase,error_type:error instanceof Error?error.name:"UnknownError",contract_diagnostics:error instanceof BriefingContractError?error.diagnostics:undefined,automatic_paid_retry:false});process.exitCode=1;});

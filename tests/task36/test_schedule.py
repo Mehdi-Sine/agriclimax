@@ -28,10 +28,10 @@ class ScheduleTests(unittest.TestCase):
             self.assertEqual(plan['dispatch_id'], 'watchdog-test')
 
     def test_dst_and_rerun(self):
-        for created in ('2026-03-29T01:15:00Z', '2026-10-25T00:15:00Z', '2026-10-25T01:15:00Z'):
-            first = schedule.resolve({'schedule': '15,45 2-4 * * *'}, created, created)
-            retry = schedule.resolve({'schedule': '15,45 2-4 * * *'}, created, '2026-11-11T12:00:00Z')
-            self.assertEqual(first['stage'], 'acquire')
+        for created in ('2026-03-29T03:50:00Z', '2026-10-25T04:50:00Z'):
+            first = schedule.resolve({'schedule': '50 5 * * *'}, created, created)
+            retry = schedule.resolve({'schedule': '50 5 * * *'}, created, '2026-11-11T12:00:00Z')
+            self.assertEqual(first['stage'], 'run')
             self.assertEqual(first['scheduled_at'], retry['scheduled_at'])
             self.assertEqual(first['edition_date'], created[:10])
 

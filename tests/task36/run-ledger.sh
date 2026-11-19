@@ -41,3 +41,5 @@ docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supaba
 docker_local exec "$name" psql -U postgres -v ON_ERROR_STOP=1 -c 'create schema storage; create table storage.objects(bucket_id text, name text, created_at timestamptz); grant usage on schema storage to service_role; grant select on storage.objects to service_role;'
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supabase/migrations/20261119055621_ops08_admin_report.sql"
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/tests/task36/ops08.sql"
+docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supabase/migrations/20261119073437_ops08b_journal_operations.sql"
+docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/tests/task36/ops08b.sql"

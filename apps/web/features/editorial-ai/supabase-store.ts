@@ -11,6 +11,7 @@ export async function editorialRPC<T>(action: string, payload: unknown = {}): Pr
   if (url.protocol !== "https:" || url.username || url.password || url.pathname !== "/" || url.search || url.hash)
     throw Error("EDITORIAL_STORE_ORIGIN");
   const rpc = action.startsWith("admin_report:") ? "agriclimax_admin_report" :
+    ["edition_context","fallback_save"].includes(action) ? "agriclimax_editorial_ops08b" :
     ["attempt_claim","attempt_write"].includes(action) ? "agriclimax_editorial_attempt" : "agriclimax_editorial";
   url.pathname = "/rest/v1/rpc/"+rpc;
   const response = await fetch(url, { method: "POST", redirect: "error", cache: "no-store",
@@ -28,7 +29,7 @@ export async function editorialRPC<T>(action: string, payload: unknown = {}): Pr
   return value as T;
 }
 export class SupabaseEditorialStore implements GenerationStore {
-  constructor(readonly snapshotId: string) {}
+  constructor(readonly snapshotId: string, readonly editionDate?: string) {}
   // The reservation RPC is the lock authority. No SQL transaction survives its response.
   lock() { return () => {}; }
   async readRun(id: string) { return editorialRPC<Run | null>("run_read", { id }); }
@@ -40,13 +41,19 @@ export class SupabaseEditorialStore implements GenerationStore {
   }
   async writeRun(run: Run) { await editorialRPC("run_write", { id: run.id, run }); }
   async diagnostic(id: string, value: unknown) {
-    await editorialRPC("diagnostic", { id: hash([id, value]), body: value });
+    await editorialRPC("diagnostic", { id: hash([id, value]), edition_date:this.editionDate, body: value });
   }
   async save(archive: Archive) {
     verifyArchive(archive);
     await editorialRPC("archive_save", { id: archive.edition_id, archive, archive_json:JSON.stringify(archive) });
     const restored = await this.read(archive.edition_id);
     if (!restored || restored.checksum !== archive.checksum) throw Error("ARCHIVE_READBACK_FAILED");
+  }
+  async saveStandaloneFallback(archive:Archive,reason:string) {
+    verifyArchive(archive);
+    await editorialRPC("fallback_save",{edition_date:archive.date,snapshot_id:this.snapshotId,id:archive.edition_id,
+      archive,archive_json:JSON.stringify(archive),reason});
+    if((await this.read(archive.edition_id))?.checksum!==archive.checksum)throw Error("ARCHIVE_READBACK_FAILED");
   }
   async read(id: string) {
     const a = await editorialRPC<Archive | null>("archive_read", { id });

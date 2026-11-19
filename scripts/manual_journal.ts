@@ -46,7 +46,7 @@ function run(stage:string,args:string[]=[]) {
 function files(dir:string):string[]{return existsSync(dir)?readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?files(join(dir,e.name)):[join(dir,e.name)]):[];}
 async function main() {
  const date=options.edition_date;
- const before=await editorialRPC<{acquisitions:{source:string;state:string;checkpoint?:{report?:Record<string,unknown>}}[];runs:Run[];publications:{edition_date:string;archive_id:string}[]}>("report",{edition_date:date});
+ const before=await editorialRPC<{acquisitions:{source:string;state:string;checkpoint?:{report?:Record<string,unknown>}}[];runs:Run[];publications:{edition_date:string;archive_id:string}[]}>("edition_context",{edition_date:date});
  const control=await editorialRPC<{emergency_stop:boolean;publication_enabled:boolean}>("control");
  const existing=await editorialRPC<DailyEditorialSnapshot|null>("snapshot_read",{edition_date:date});
  if(existing)verifySnapshot(existing);
@@ -153,7 +153,7 @@ async function main() {
   // Actual paid calls are determined below from persistent receipts, never guessed from runner success.
   if(receipt.exit_code!==0)report.blockers=[typeof receipt.receipt?.error==='string'?receipt.receipt.error:'RESUME_FAILED_CHECK_PERSISTENT_DIAGNOSTICS'];
  }
- const after=await editorialRPC<{runs:Run[];diagnostics:{kind?:string;run_id?:string}[]}>("report",{edition_date:date});
+ const after=await editorialRPC<{runs:Run[];diagnostics:{kind?:string;run_id?:string}[]}>("edition_context",{edition_date:date});
  const beforeIds=new Set(before.runs.map(r=>r.id));const newIds=new Set(after.runs.filter(r=>!beforeIds.has(r.id)).map(r=>r.id));
  report.openai={status:newIds.size?'persistent_attempt_checked':compatible?'reused_compatible_response':'preserved',calls:after.diagnostics.filter(d=>d.kind==='provider_request'&&d.run_id&&newIds.has(d.run_id)).length};
  const persisted=await editorialRPC<DailyEditorialSnapshot|null>('snapshot_read',{edition_date:date});
