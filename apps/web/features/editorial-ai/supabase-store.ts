@@ -10,10 +10,12 @@ export async function editorialRPC<T>(action: string, payload: unknown = {}): Pr
   const url = new URL(base);
   if (url.protocol !== "https:" || url.username || url.password || url.pathname !== "/" || url.search || url.hash)
     throw Error("EDITORIAL_STORE_ORIGIN");
-  url.pathname = "/rest/v1/rpc/"+(["attempt_claim","attempt_write"].includes(action)?"agriclimax_editorial_attempt":"agriclimax_editorial");
+  const rpc = action.startsWith("admin_report:") ? "agriclimax_admin_report" :
+    ["attempt_claim","attempt_write"].includes(action) ? "agriclimax_editorial_attempt" : "agriclimax_editorial";
+  url.pathname = "/rest/v1/rpc/"+rpc;
   const response = await fetch(url, { method: "POST", redirect: "error", cache: "no-store",
     signal: AbortSignal.timeout(12000), headers: { apikey: key, "Content-Type": "application/json" },
-    body: JSON.stringify({ p_action: action, p_payload: payload }) });
+    body: JSON.stringify({ p_action: action.replace(/^admin_report:/,""), p_payload: payload }) });
   if (!response.ok) throw Error("EDITORIAL_RPC_FAILED");
   const raw = await response.text();
   if (Buffer.byteLength(raw) > 16 * 1024 ** 2) throw Error("EDITORIAL_RESPONSE_BUDGET");

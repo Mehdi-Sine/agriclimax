@@ -188,6 +188,11 @@ jobs:
         run: python scripts/couv04_checkpoint.py save --root work/couv04/sim-candidate | tee work/couv04/receipts/save.json
       - name: Verify recovery from private storage
         run: python scripts/couv04_checkpoint.py restore --root work/couv04/recovery-check | tee work/couv04/receipts/readback.json
+      - name: Record the existing SIM receipts for the admin report
+        if: always()
+        env:
+          AGRICLIMAX_EDITION_DATE: ${{ needs.plan.outputs.edition_date }}
+        run: python scripts/admin_report_sim.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
@@ -238,6 +243,15 @@ jobs:
           if [[ "$RECOVERY" == true ]]; then args+=(--recover); fi
           if [[ -n "$AUTHORIZED_SNAPSHOT" ]]; then args+=(--authorize-snapshot "$AUTHORIZED_SNAPSHOT"); fi
           pnpm editorial:nightly "${args[@]}"
+      - name: Send admin report when publication is verified
+        if: always() && !cancelled() && (needs.plan.outputs.stage == 'run' || needs.plan.outputs.stage == 'report')
+        env:
+          ADMIN_REPORT_TOKEN: ${{ secrets.AGRICLIMAX_ADMIN_REPORT_TOKEN }}
+        run: |
+          if [[ -z "$ADMIN_REPORT_TOKEN" || "$AGRICLIMAX_EDITION_DATE" != "$(TZ=Europe/Paris date +%F)" ]]; then exit 0; fi
+          curl --silent --show-error --fail --max-time 48 --output /dev/null \
+            --header "Authorization: Bearer $ADMIN_REPORT_TOKEN" \
+            --request POST https://agriclimax.vercel.app/api/internal/admin-report
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:

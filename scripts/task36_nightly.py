@@ -153,7 +153,7 @@ def acquire(source: str, date: str) -> dict[str, Any]:
     outcome = {'source': source, 'state': state, 'seconds': checkpoint['elapsed_seconds']}
     rpc('diagnostic', {'edition_date': date, 'id': f"acquire-result-{date}-{source}-{os.environ.get('GITHUB_RUN_ID', time.time_ns())}",
                        'body': {**metadata, 'acquisition_state': state, 'state': 'failed' if state in ('retryable_failure', 'permanent_failure') else 'completed',
-                                'finished_at': checkpoint['finished_at']}})
+                                'finished_at': checkpoint['finished_at'], 'elapsed_seconds': checkpoint['elapsed_seconds']}})
     return outcome
 
 

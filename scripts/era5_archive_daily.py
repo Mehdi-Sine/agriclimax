@@ -61,11 +61,11 @@ def main() -> None:
     day = args.date or resume_day or (latest if args.replay_latest else planned)
     if day is None:
         args.root.mkdir(parents=True, exist_ok=True)
-        atomic_write(args.root / "report.json", json.dumps({"status": planning_status,
+        atomic_write(args.root / "report.json", json.dumps({"status": planning_status, "latest_available": str(latest),
                      "database_writes": 0, "storage_writes": 0, "source_requests": 0}).encode())
         return
     args.root.mkdir(parents=True, exist_ok=True)
-    report: dict[str, Any] = {"date": str(day), "database_writes": 0, "source_requests": 0, "source_bytes": 0, "storage_writes": 0}
+    report: dict[str, Any] = {"date": str(day), "latest_available": str(latest), "database_writes": 0, "source_requests": 0, "source_bytes": 0, "storage_writes": 0}
     atomic_write(args.root / "report.json", json.dumps(report, indent=2).encode())
     entry = next((e for e in catalogue["era5"] if str(day) in e["dates"]), None)
     if entry:

@@ -3,6 +3,7 @@ import { editorialRPC } from "../editorial-ai/supabase-store";
 import { parisDate } from "../editorial/almanac";
 import { hash } from "../editorial/temporal";
 import {operationalEditions} from "../../lib/server/editorial-published";
+import { checkJournal } from "./journal-health";
 import type { Run } from "../editorial-ai/archive";
 import type { DailyEditorialSnapshot } from "./snapshot";
 export interface OperationalReport {
@@ -25,25 +26,9 @@ export async function supervise(editionDate?:string) {
   if(!edition) alerts.push("CONSULTABLE_EDITION_MISSING");
   else if(edition.date!==date) alerts.push("EDITION_DELAYED");
   if(edition&&(edition.validation.status!=="validated_automatically"||edition.assessment.status!=="validated_automatically")) notices.push("EXPERIMENTAL_SCIENTIFIC_RESERVATIONS");
-  let pageStatus:"verified"|"unavailable"|"not_configured"="not_configured";
-  const base=process.env.AGRICLIMAX_JOURNAL_HEALTH_URL||"https://agriclimax.vercel.app";
-  if(base) {
-    const url=new URL(base);
-    if(url.protocol!=="https:"||url.username||url.password||url.pathname!=="/"||url.search||url.hash) throw Error("HEALTH_URL_ORIGIN");
-    try {
-      const headers:Record<string,string>={};
-      const secret=process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
-      if(secret) {
-        headers["x-vercel-protection-bypass"]=secret;
-      }
-      const response=await fetch(new URL("/api/journal/availability",url),{cache:"no-store",redirect:"error",signal:AbortSignal.timeout(10000),headers});
-      const data:unknown=await response.json();
-      if(data&&typeof data==="object"&&"storage" in data&&data.storage!=="shared_archive") notices.push("RETAINED_COPY_SHARED_ARCHIVE_NOT_REACHED");
-      const page=await fetch(new URL("/journal",url),{cache:"no-store",redirect:"error",signal:AbortSignal.timeout(10000),headers});
-      const expected=edition;
-      pageStatus=response.ok&&page.ok&&!!expected&&typeof data==="object"&&data!==null&&"checksum" in data&&data.checksum===expected.checksum?"verified":"unavailable";
-    } catch {pageStatus="unavailable";}
-  }
+  const checked = await checkJournal();
+  if(checked && !checked.shared) notices.push("RETAINED_COPY_SHARED_ARCHIVE_NOT_REACHED");
+  const pageStatus = checked && edition?.checksum===checked.checksum ? "verified" : "unavailable";
   if(pageStatus!=="verified") alerts.push("PAGE_"+pageStatus.toUpperCase());
   if(!edition&&report.runs.some(r=>r.state==="outcome_unknown")) alerts.push("OPENAI_ATTEMPT_FAILED");
   const result={observed_at:now,date,quality:today?.quality??"insufficient",sources:today?.sources??[],
