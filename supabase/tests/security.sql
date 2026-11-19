@@ -54,7 +54,7 @@ begin
   select count(*) into n from pg_class c join pg_namespace s on s.oid=c.relnamespace
     where s.nspname in ('public','agriclimax_private') and c.relkind='r'
       and c.relname <> 'spatial_ref_sys' and c.relrowsecurity and c.relforcerowsecurity;
-  if n <> 42 then raise exception 'Expected 42 RLS tables, got %', n; end if;
+  if n <> 43 then raise exception 'Expected 43 RLS tables, got %', n; end if;
   foreach t in array array['public.risk_results'::regclass, 'public.grid_cells'::regclass,
     'agriclimax_private.observations'::regclass, 'agriclimax_private.rule_versions'::regclass,
     'agriclimax_private.parameter_versions'::regclass, 'agriclimax_private.run_manifests'::regclass,
@@ -71,7 +71,8 @@ begin
     'agriclimax_private.editorial_publications'::regclass,
     'agriclimax_private.editorial_acquisitions'::regclass,
     'agriclimax_private.editorial_diagnostics'::regclass,
-    'agriclimax_private.editorial_reviews'::regclass] loop
+    'agriclimax_private.editorial_reviews'::regclass,
+    'agriclimax_private.editorial_admin_mail'::regclass] loop
     if has_table_privilege('anon', t, 'SELECT,INSERT,UPDATE,DELETE')
       or has_table_privilege('authenticated', t, 'SELECT,INSERT,UPDATE,DELETE') then
       raise exception 'Client table privilege leak: %', t;
@@ -92,12 +93,13 @@ begin
     'public.agriclimax_pra_climatology_read(text,text,text,date,date)'::regprocedure,
     'public.agriclimax_persist_pra_climatology_daily(text,text,jsonb,jsonb)'::regprocedure,
     'public.agriclimax_pra_climatology_daily_read(text,text,text,date,date)'::regprocedure,
-    'public.agriclimax_pra_climatology_day_read(text,text,date,text,text,integer)'::regprocedure] loop
+    'public.agriclimax_pra_climatology_day_read(text,text,date,text,text,integer)'::regprocedure,
+    'public.agriclimax_admin_report(text,jsonb)'::regprocedure] loop
     if has_function_privilege('anon',f,'EXECUTE')
       or has_function_privilege('authenticated',f,'EXECUTE')
       or not has_function_privilege('service_role',f,'EXECUTE')
       or (select prosecdef from pg_proc where oid=f) then
-      raise exception 'Climatology RPC not server-only SECURITY INVOKER: %', f;
+      raise exception 'RPC not server-only SECURITY INVOKER: %', f;
     end if;
   end loop;
   if (select rolbypassrls from pg_roles where rolname='agriclimax_api_reader')
