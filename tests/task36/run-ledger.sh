@@ -34,3 +34,10 @@ docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supaba
 docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/tests/task36/ops03.sql"
 # Recheck simultaneous freezing and paid-call admission after the recovery migration.
 python "$root/tests/task36/ops03_concurrency.py" "$name"
+
+docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supabase/migrations/20261113120438_ops07_factual_fallback_ledger.sql"
+# The production storage schema is managed by Supabase. Mirror the metadata
+# fields needed by the read-only publication timestamp lookup in this fixture.
+docker_local exec "$name" psql -U postgres -v ON_ERROR_STOP=1 -c 'create schema storage; create table storage.objects(bucket_id text, name text, created_at timestamptz); grant usage on schema storage to service_role; grant select on storage.objects to service_role;'
+docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/supabase/migrations/20261119055621_ops08_admin_report.sql"
+docker_local exec -i "$name" psql -U postgres -v ON_ERROR_STOP=1 < "$root/tests/task36/ops08.sql"

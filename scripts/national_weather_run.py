@@ -153,6 +153,16 @@ def coastal_audit(
     return result
 
 
+def model_horizons(rows: list[dict[str, Any]]) -> dict[str, str]:
+    """Last verified date available for each model, before editorial selection."""
+    horizons: dict[str, str] = {}
+    for row in rows:
+        if row["value"] is not None:
+            model = row["model"]
+            horizons[model] = max(horizons.get(model, ""), row["valid_date"])
+    return horizons
+
+
 def run_national(
     root: Path, run: datetime, budget: Budget, publish: bool
 ) -> dict[str, Any]:
@@ -179,6 +189,7 @@ def run_national(
             validation = validate_document(saved, expected_ids)
             report = {
                 "status": "idempotent_existing_publication",
+                "model_horizons": model_horizons(saved["rows"]),
                 "validation": validation,
                 "source_requests": budget.requests,
                 "source_bytes": budget.bytes,
@@ -285,6 +296,7 @@ def run_national(
         "archive_sha256": checksum,
         "restoration_rows": len(rows),
         "source_dates": sorted({r["valid_date"] for r in rows}),
+        "model_horizons": model_horizons(rows),
         "storage_24_month_projection_bytes": 730 * len(packed) + 730 * 258289,
         "storage_guard_bytes": 900 * 1024**2,
         "coastal": {

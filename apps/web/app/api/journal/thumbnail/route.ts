@@ -8,10 +8,19 @@ import {mapThumbnail} from "../../../../lib/server/map-thumbnail";
 import {THUMBNAIL_VERSION} from "../../../../features/edition-maps/carousel-model";
 export const runtime = "nodejs";
 const noStore = {"Cache-Control": "no-store"};
+// The report can reuse an already-rendered published thumbnail. A cache miss
+// returns immediately, without fetching a map or calling the image renderer.
+const publishedThumbnails = new Map<string, Uint8Array>();
 export async function GET(request: Request) {
   const p = new URL(request.url).searchParams, id = p.get("id"), mapId = p.get("map");
   if (!id || !mapId || !/^[a-f0-9]{64}$/.test(id) || !/^[a-f0-9]{64}$/.test(mapId) || p.get("v") !== THUMBNAIL_VERSION)
     return Response.json({status: "absent", code: "THUMBNAIL_ID"}, {status: 400, headers: noStore});
+  const key = `${id}/${mapId}`;
+  if (p.get("cached") === "1") {
+    const existing = publishedThumbnails.get(key);
+    return existing ? new Response(new Uint8Array(existing), {headers:{...noStore,"Content-Type":"image/webp"}})
+      : new Response(null, {status:404,headers:noStore});
+  }
   try {
     const edition = (await operationalEditions()).find(e => e.edition_id === id);
     if (!edition) return Response.json({status: "absent"}, {status: 404, headers: noStore});
@@ -25,6 +34,10 @@ export async function GET(request: Request) {
     const rendering=exhaustive?await editionForecastRendering(map,view.status):undefined;
     const rendered=rendering?{...map,rows:map.rows.map(r=>({...r,quality:rendering.qualities[r.territoryId]}))}:map;
     const {bytes, etag} = await mapThumbnail(rendered,{exhaustive,coveredSupport:map.rendering?.covered_support??rendering?.collection??(spatial?.verified?spatial.collection:null)});
+    if (view.status === "published" && !publishedThumbnails.has(key) && bytes.length <= 192*1024) {
+      if (publishedThumbnails.size >= 24) publishedThumbnails.delete(publishedThumbnails.keys().next().value!);
+      publishedThumbnails.set(key, bytes);
+    }
     const headers = {"Content-Type": "image/webp", "X-Content-Type-Options": "nosniff", ETag: etag,
       "Cache-Control": view.status === "published" ? "public, max-age=86400, stale-while-revalidate=604800" : "no-store"};
     if (view.status === "published" && request.headers.get("if-none-match") === etag) return new Response(null, {status: 304, headers});

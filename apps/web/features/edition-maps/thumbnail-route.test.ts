@@ -14,6 +14,16 @@ const {archive,bundle}=readArchivedMaps("2026-11-13"), edition=consultableEditio
 const query=`id=${edition.edition_id}&map=${bundle.maps[0].id}&v=ux03-1`;
 const request=(q=query,headers?:HeadersInit)=>new Request(`https://example.invalid/api/journal/thumbnail?${q}`,{headers});
 beforeEach(()=>{vi.resetAllMocks();vi.mocked(operationalEditions).mockResolvedValue([edition]);vi.mocked(editionMaps).mockResolvedValue({bundle,view:{status:"published",code:"MAP_PUBLISHED",bundle_sha256:bundle.sha256,maps:bundle.maps.map(mapInfo)}});});
+it("returns only existing published thumbnail bytes on a cache-only request",async()=>{
+ const cachedQuery=query+"&cached=1";
+ expect((await GET(request(cachedQuery))).status).toBe(404);
+ expect(operationalEditions).not.toHaveBeenCalled();
+ const rendered=await GET(request());
+ const reuse=await GET(request(cachedQuery));
+ expect(reuse.status).toBe(200);
+ expect(Buffer.from(await reuse.arrayBuffer())).toEqual(Buffer.from(await rendered.arrayBuffer()));
+ expect(operationalEditions).toHaveBeenCalledTimes(1);
+});
 it("serves a cacheable raster and supports conditional revalidation",async()=>{
  const r=await GET(request());expect(r.status).toBe(200);expect(r.headers.get("content-type")).toBe("image/webp");expect(r.headers.get("cache-control")).toContain("public");
  expect((await r.arrayBuffer()).byteLength).toBeLessThan(50000);
