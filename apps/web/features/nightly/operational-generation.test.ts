@@ -41,6 +41,38 @@ describe("project-managed OpenAI spending and operational attempts",()=>{
   await generateOperational({briefing,config,store:s.api,provider,manualRetry:false});
   expect(provider).toHaveBeenCalledTimes(1);
  });
+ it("archives a factual edition under the existing attempt when map preparation throws",async()=>{
+  const s=store(),config=operationalConfig("gpt-6.1-terra"),provider=vi.fn();
+  const prepareSelection=vi.fn().mockRejectedValue(new RangeError("Cannot create a Buffer larger than 100663296 bytes"));
+  const options={briefing,config,store:s.api,provider,manualRetry:false,prepareSelection};
+  const fallback=await generateOperational(options);
+  expect(fallback).toMatchObject({mode:"fallback",receipt:null,validation:{errors:[]}});
+  expect(s.runs).toMatchObject([{state:"completed",error:"GENERATION_MAP_SELECTION_FAILED",actual_eur:0,archive_id:fallback.edition_id}]);
+  expect((await generateOperational(options)).checksum).toBe(fallback.checksum);
+  expect(prepareSelection).toHaveBeenCalledTimes(1);
+  expect(provider).not.toHaveBeenCalled();
+ });
+ it("falls back after an unexpected provider exception without a second request",async()=>{
+  const s=store(),config=operationalConfig("gpt-6.1-terra"),provider=vi.fn().mockRejectedValue(new TypeError("response decoding failed"));
+  const options={briefing,config,store:s.api,provider,manualRetry:false};
+  const fallback=await generateOperational(options);
+  expect(fallback).toMatchObject({mode:"fallback",receipt:null,validation:{errors:[]}});
+  expect(s.runs).toMatchObject([{state:"completed",error:"GENERATION_PROVIDER_FAILED",actual_eur:null,archive_id:fallback.edition_id}]);
+  expect((await generateOperational(options)).checksum).toBe(fallback.checksum);
+  expect(provider).toHaveBeenCalledTimes(1);
+ });
+ it("reuses the immutable archive when an archive write committed before readback failed",async()=>{
+  const s=store(),config=operationalConfig("gpt-6.1-terra");
+  const provider=vi.fn().mockResolvedValue({draft:simulated.draft,model:config.model,response_id:"resp_synthetic",usage:null});
+  const save=s.api.save;
+  s.api.save=vi.fn(async archive=>{await save(archive);throw Error("ARCHIVE_READBACK_FAILED");});
+  const a=await generateOperational({briefing,config,store:s.api,provider,manualRetry:false});
+  expect(a.mode).toBe("live");
+  expect(s.api.save).toHaveBeenCalledTimes(1);
+  expect(s.api.finishAttempt).toHaveBeenCalledTimes(1);
+  expect(s.runs).toMatchObject([{state:"completed",archive_id:a.edition_id}]);
+  expect(provider).toHaveBeenCalledTimes(1);
+ });
  it("archives a standalone factual edition without allocating a provider attempt",async()=>{
   const s=store(),saveStandaloneFallback=vi.fn(async(a:Archive)=>verifyArchive(a));
   const archive=await archiveProviderFactualFallback({briefing,config:operationalConfig("gpt-6.1-terra"),
