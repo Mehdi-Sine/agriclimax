@@ -6,7 +6,7 @@ import {semanticPalette} from '../cartography/registry';
 import {usePaletteColors} from '../cartography/use-palette';
 import {SemanticLegend} from '../cartography/legend';
 import {useEffect,useMemo,useState} from 'react';
-import {usePathname,useRouter,useSearchParams} from 'next/navigation';
+import {usePathname,useSearchParams} from 'next/navigation';
 import type {PraCollection} from '../national/map';
 import {modeDates,modeDate,type TemporalMode} from '../unified/temporal';
 import {VARIABLES,cumulativeRain,type WeatherVariable,type WeatherCycle,type WeatherModel} from './model';
@@ -16,7 +16,7 @@ import {useResource} from '../unified/resource';
 const label=(v:number|null|undefined)=>v==null?'Indisponible':new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(v);
 const status={available:'Grille renseignée',partial:'Support incomplet ou invalide',unavailable:'Indisponible'};
 export function useOperationalWeather(active:boolean,requestedMode:TemporalMode,geometry:PraCollection|null){
-  const search=useSearchParams(),router=useRouter(),pathname=usePathname();
+  const search=useSearchParams(),pathname=usePathname();
   const model=(search.get('weather_model')??'selected') as WeatherModel;
   const variable=(search.get('weather_variable')??'temperature') as WeatherVariable;
   const selected=search.get('pra')??'pra:28341';
@@ -25,7 +25,7 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode,
   const [now,setNow]=useState<number|null>(null);
   useEffect(()=>{const refresh=()=>setNow(Date.now());const initial=setTimeout(refresh,0);const timer=setInterval(()=>setNow(Date.now()),60000);return()=>{clearTimeout(initial);clearInterval(timer);};},[]);
   const today=now===null?'':new Date(now).toISOString().slice(0,10);
-  function change(values:Record<string,string>){const q=new URLSearchParams(search.toString());q.delete('experimental');q.set('temporal',temporalMode);for(const [k,v] of Object.entries(values)){const key=k==='weather_date'?`${temporalMode}_date`:k;if(v)q.set(key,v);else q.delete(key);}q.delete('weather_date');router.replace(`${pathname}?${q}`,{scroll:false});}
+  function change(values:Record<string,string>){const q=new URLSearchParams(search.toString());q.delete('experimental');q.set('temporal',temporalMode);for(const [k,v] of Object.entries(values)){const key=k==='weather_date'?`${temporalMode}_date`:k;if(v)q.set(key,v);else q.delete(key);}q.delete('weather_date');window.history.replaceState(null,'',`${pathname}?${q}`);}
   const catalogueResource=useResource<WeatherCycle>(`/api/operational?${new URLSearchParams({experimental:'weather',catalogue:'1',model,...runQuery})}`),catalogue=catalogueResource.data;
   const legacy=search.get('experimental')==='weather'&&!search.has('temporal')?search.get('weather_date'):null;
   const temporalMode:TemporalMode=legacy&&catalogue?.run?(legacy<=catalogue.run.slice(0,10)?'recent':'forecast'):requestedMode;

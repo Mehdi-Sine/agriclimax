@@ -60,6 +60,8 @@ it.skipIf(!existsSync(root))('reads all 1185 retained results and binds all 540 
         pra:r.pra_id, fraction:r.fraction, support:r.support_id, exactReplayed:true,
         explorer: !base ? 'indicator_absent' : !explorerEquivalent ? 'rule_divergence' :
           !eligibleWindow ? 'window_outside_route' : routed?.results.has(r.pra_id) ? 'eligible_selected_transport' : 'source_not_selected',
+        explorerExplicitModel: !base ? 'indicator_absent' : !explorerEquivalent ? 'rule_divergence' :
+          !eligibleWindow ? 'window_outside_route' : adapted?.results.has(r.pra_id) ? 'eligible_exact_model' : 'identity_not_verified',
         edition: !edition ? 'indicator_absent' : !editionEquivalent ? 'rule_divergence' : 'eligible_if_frozen_value_matches',
       });
       if(r.fraction<.9){partial++;expect(coveragePaint({...reading,geometrySupportId:'incompatible'}).target).toBe('unavailable');}

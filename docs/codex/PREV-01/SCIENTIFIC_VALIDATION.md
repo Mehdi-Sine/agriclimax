@@ -12,7 +12,7 @@ Les contrats correspondants utilisent le même `calculateQualified`, la même po
 | `wet_days1`, `wet_sequence1`, `rain10_days`, `rain_max1day` | 105 chacune | 0 | 0 | 0 |
 | **Total** | **1 185** | **252** | **660** | **765** |
 
-Les **525 refus Explorer** portent sur des règles absentes du registre actif. Dans la sélection nationale, **408** autres résultats ont une source différente de celle requise par la sélection de l’archive. Le paramètre `model` permet une lecture explicite de ces 408 résultats sans modifier la sélection nationale. Parmi les 540 résultats sous 90 %, 96 appartiennent à la sélection nationale, 144 aux autres modèles disponibles pour les règles Explorer et 300 aux règles absentes de son registre. Une pièce d’édition exige également l’identité de la valeur gelée et des entrées capturées. Les 765 correspondances de règle ne constituent pas 765 résultats publiés.
+Les comptes incluent 12 valeurs de la fenêtre de météo récente du 14 novembre, dont 9 dans la sélection nationale. Les fenêtres strictement prévisionnelles totalisent 648 résultats par modèle, dont 243 dans la sélection nationale. Les **525 refus Explorer** portent sur des règles absentes du registre actif. Dans la sélection nationale, **408** autres résultats ont une source différente de celle requise par la sélection de l’archive. Le paramètre `model` permet une lecture explicite de ces 408 résultats sans modifier la sélection nationale. Parmi les 540 résultats sous 90 %, 96 appartiennent à la sélection nationale, 144 aux autres modèles disponibles pour les règles Explorer et 300 aux règles absentes de son registre. Une pièce d’édition exige également l’identité de la valeur gelée et des entrées capturées. Les 765 correspondances de règle ne constituent pas 765 résultats publiés.
 
 Les 26 400 THI partiels non admissibles et les 660 supports absents ne figurent pas dans le paquet. Les 240 THI retenus satisfont la tolérance scientifique de complétude existante. La fraction de 90 % est un seuil de peinture. Aucun seuil scientifique ni calcul n’a changé.
 
@@ -28,4 +28,4 @@ PREV01_SCIENTIFIC_MATRIX="$(cd ../.. && pwd)/work/prev01/scientific.json" \
   lib/server/forecast-residuals.real.test.ts
 ```
 
-Ce contrôle requiert le paquet authentique reproduit selon le [runbook](DEPLOYMENT.md). Les [preuves numériques d’origine](../COUV-05D/evidence/numeric-report.json) et le [contrat du paquet](../COUV-05E/README.md) restent les références de qualification.
+Le contrôle HTTP complémentaire vérifie 660 résultats distincts avec leur choix de modèle, ainsi que la répétition des 252 résultats accessibles par sélection nationale. Les autres cas restent refusés dans Explorer. Ce contrôle requiert le paquet authentique reproduit selon le [runbook](DEPLOYMENT.md). Les [preuves numériques d’origine](../COUV-05D/evidence/numeric-report.json) et le [contrat du paquet](../COUV-05E/README.md) restent les références de qualification.

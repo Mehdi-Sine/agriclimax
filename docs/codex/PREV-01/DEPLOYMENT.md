@@ -16,10 +16,10 @@ Le SHA de l’index reproduit est `40cc3aebeb338f5cb63898f77a12680104749a7d9f67c
 ```sh
 openssl req -x509 -newkey rsa:2048 -nodes -days 2 -subj /CN=127.0.0.1 \
   -addext subjectAltName=IP:127.0.0.1 -keyout /tmp/prev01.key -out /tmp/prev01.crt
-node tests/e2e/prev01-sidecar-origin.mjs work/couv05e-candidate /tmp/prev01.key /tmp/prev01.crt
+node tests/e2e/prev01-sidecar-origin.mjs work/couv05e-candidate /tmp/prev01.key /tmp/prev01.crt 3443 work/couv05e-store
 ```
 
-Démarrer un second processus Next avec `NODE_EXTRA_CA_CERTS=/tmp/prev01.crt`, `NEXT_PUBLIC_SUPABASE_URL=https://127.0.0.1:3443` côté serveur, et remplacer le pin du 14 novembre par celui du candidat. Garder l’origine de stockage privée habituelle lors du build. La recette utilise les vraies routes Next et MapLibre.
+Compiler puis démarrer une copie isolée avec `NODE_EXTRA_CA_CERTS=/tmp/prev01.crt` et `NEXT_PUBLIC_SUPABASE_URL=https://127.0.0.1:3443`. Next compile cette variable publique dans le bundle serveur. Remplacer le pin du 14 novembre par celui du candidat dans ce processus. La recette utilise les vraies routes Next et MapLibre. Un aperçu d’édition requiert également le pin historique unique `COUV05_INDEX_SHA256` du même couple archive–index, en complément de la table utilisée par Explorer.
 
 ## Promotion après qualification
 

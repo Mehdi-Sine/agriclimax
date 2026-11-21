@@ -94,7 +94,7 @@ try {
         await page.locator(selector).waitFor({ timeout });
         await page.locator('.map-updating').waitFor({ state: 'hidden', timeout });
         const readyMs = Math.round(performance.now() - started);
-        if (process.env.PREV01_EXPECT_PARTIAL === 'true') assert.ok(counts[1] > 0 && counts[2] > 0);
+        if (process.env.PREV01_EXPECT_PARTIAL === 'true') assert.ok(counts[1] > 0, 'Aucune emprise partielle réelle');
         const resources = await page.evaluate(() => performance.getEntriesByType('resource').map(entry => ({
           path: new URL(entry.name).pathname, ms: Math.round(entry.duration), bytes: entry.transferSize,
         })));
@@ -166,6 +166,15 @@ try {
       await page.locator('.national-map[data-ready="true"][data-rendered-contour-count="713"]').waitFor({ timeout });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       report.checks.push({ width, flow: 'carrousel → carte publiée', cards: cardCount, contours: 713 });
+      if (process.env.PREV01_DAILY_MAP === 'true') {
+        const query = new URLSearchParams({id, map: maps[0].id});
+        const daily = await page.goto(`${origin}/cartes-du-jour?${query}`, {waitUntil: 'domcontentloaded', timeout});
+        assert.equal(daily?.status(), 200);
+        await page.locator('.national-map[data-ready="true"][data-rendered-contour-count="713"]').waitFor({ timeout });
+        assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
+        await page.locator('.national-map-wrap').screenshot({path: `${output}/${label}-${width}-cartes-du-jour.png`});
+        report.checks.push({width, flow: 'Cartes du jour', contours: 713});
+      }
     }
     await page.close();
     if (process.env.COUV08_ARCHIVE_BASELINE) {

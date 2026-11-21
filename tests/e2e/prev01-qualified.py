@@ -27,7 +27,7 @@ for row in json.loads(args.matrix.read_bytes()):
 def verify(case):
     (indicator, start, end, model), expected = case
     url = args.origin + '/api/agroclimatic?' + urlencode(dict(
-        indicator=indicator, start=start, end=end, model=model, temporal='forecast', run='2026-11-14',
+        indicator=indicator, start=start, end=end, model=model, temporal='recent' if end <= '2026-11-14' else 'forecast', run='2026-11-14',
     ))
     began = time.monotonic()
     with urlopen(Request(url, headers={'Accept-Encoding': 'gzip'}), timeout=30) as response:
