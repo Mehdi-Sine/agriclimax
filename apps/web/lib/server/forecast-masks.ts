@@ -37,7 +37,7 @@ export async function forecastMasks(rows:WeatherRow[], archiveSha:string, option
   try {
     const location=await forecastIndexLocation(archiveSha);
     if(!location)throw Error('FORECAST_MASK_INDEX_PIN');
-    const {pin,prefix}=location;
+    const {pin,prefix,certified}=location;
     const index=unpack(await forecastMaskObject(`${prefix}forecast-masks/indexes/${pin}.json.gz`,1024**2),pin,budget);
     if(!record(index)||index.version!==FORECAST_MASK_VERSION||index.archive_sha256!==archiveSha||!Array.isArray(index.entries)||index.entries.length>200)throw Error('FORECAST_MASK_ARCHIVE_BINDING');
     referenceSha=FORECAST_REFERENCE_SHA256;
@@ -50,15 +50,25 @@ export async function forecastMasks(rows:WeatherRow[], archiveSha:string, option
       keys.has(JSON.stringify([entry.model, entry.period, entry.variable, Date.parse(String(entry.run))])));
     if(!wanted.length)throw Error('FORECAST_MASK_NO_MATCHING_ENTRY');
     if(wanted.length>(options?.identicalMemberships?14:5))throw Error('FORECAST_MASK_REQUEST_BUDGET');
-    const baseline=new Map<string,{proof:ForecastSupport;feature:PraCollection['features'][number]}>();
+    const baseline=new Map<string,{proof:ForecastSupport;feature?:PraCollection['features'][number]}>();
     let firstManifest=true;
-    for(const entry of wanted){
-      if(!record(entry)||typeof entry.sha256!=='string'||!/^[a-f0-9]{64}$/.test(entry.sha256)||entry.path!==`forecast-masks/blobs/${entry.sha256}.json.gz`)throw Error('FORECAST_MASK_ENTRY');
-      const raw=await forecastMaskObject(prefix+String(entry.path),8*1024**2);
+    const manifests = wanted.map((entry: unknown) => {
+      if(!record(entry)||typeof entry.sha256!=='string'||!/^[a-f0-9]{64}$/.test(entry.sha256)||entry.path!==`forecast-masks/blobs/${entry.sha256}.json.gz` ||
+        typeof entry.bytes !== 'number' || !Number.isInteger(entry.bytes) || entry.bytes <= 0 || entry.bytes > 8*1024**2) {
+        throw Error('FORECAST_MASK_ENTRY');
+      }
+      return {identity: entry, path: entry.path, sha256: entry.sha256, bytes: entry.bytes};
+    });
+    if (manifests.reduce((total, entry) => total + entry.bytes, budget.packed) > 16*1024**2) {
+      throw Error('FORECAST_MASK_TRANSFER_BUDGET');
+    }
+    const packed = await Promise.all(manifests.map(entry => forecastMaskObject(prefix+entry.path,entry.bytes)));
+    for(const [i, entry] of manifests.entries()){
+      const raw = packed[i];
       if(!raw||raw.length!==entry.bytes)throw Error('FORECAST_MASK_SIZE');
       const d=unpack(raw,entry.sha256,budget);
       if(!record(d)||d.version!==FORECAST_MASK_VERSION||!Array.isArray(d.rows)||d.rows.length!==713||!d.rows.every(support)||new Set(d.rows.map(p=>p.pra_id)).size!==713||d.rows.some(p=>!identities.ids.includes(p.pra_id))||!record(d.collection)||d.collection.type!=='FeatureCollection'||!Array.isArray(d.collection.features))throw Error('FORECAST_MASK_SCHEMA');
-      for(const key of ['model','run','period','variable','grid_version','reference_sha256','weights_sha256'])if(d[key]!==entry[key]||d.rows.some(p=>p[key as keyof ForecastSupport]!==entry[key]))throw Error('FORECAST_MASK_IDENTITY');
+      for(const key of ['model','run','period','variable','grid_version','reference_sha256','weights_sha256'])if(d[key]!==entry.identity[key]||d.rows.some(p=>p[key as keyof ForecastSupport]!==entry.identity[key]))throw Error('FORECAST_MASK_IDENTITY');
       if(d.reference_sha256!==referenceSha)throw Error('FORECAST_MASK_REFERENCE');
       // Geometry topology/area is certified by the producer; immutable bytes and identities are checked here.
       let features:unknown[]=d.collection.features;
@@ -73,19 +83,31 @@ export async function forecastMasks(rows:WeatherRow[], archiveSha:string, option
             JSON.stringify([...cells].sort())!==JSON.stringify([...prior.proof.valid_cells].sort())){
             membershipRejections[p.pra_id]='common_cells_require_native_numeric_recalculation';return [];
           }
+          if (!prior.feature) {
+            if (p.support_id && p.fraction !== null && p.fraction >= .9) certifiedWhole.add(p.support_id);
+            return [];
+          }
           return [{...prior.feature,properties:{...prior.feature.properties,support_id:p.support_id}}];
         });
       }else if(d.geometry_entries!==undefined){
         if(!Array.isArray(d.geometry_entries)||d.geometry_entries.length>12||features.length)throw Error('FORECAST_MASK_GEOMETRY_INDEX');
         const byId=new Map(d.rows.map(p=>[p.pra_id,p]));
+        const claimed = new Set<string>();
         const groups=await Promise.all(d.geometry_entries.map(async(ref:unknown)=>{
           if(!record(ref)||typeof ref.sha256!=='string'||!/^[a-f0-9]{64}$/.test(ref.sha256)||ref.path!==`forecast-masks/geometries/${ref.sha256}.json.gz`||!Array.isArray(ref.pra_ids))throw Error('FORECAST_MASK_GEOMETRY_REF');
-          if (prefix && !options?.identicalMemberships) {
+          for (const id of ref.pra_ids) {
+            if (typeof id !== 'string' || !byId.has(id) || claimed.has(id)) {
+              throw Error('FORECAST_MASK_GEOMETRY_PRA');
+            }
+            claimed.add(id);
+          }
+          if (certified) {
             // The committed producer already verified every polygon. For a whole-PRA
             // paint, the browser uses its official reference and needs no clipped coordinates.
             const needsCoordinates = ref.pra_ids.some(id => {
               const proof = byId.get(String(id));
               if (!proof?.geometry_verified || !proof.support_id) throw Error('FORECAST_MASK_GEOMETRY_BINDING');
+              if (options?.identicalMemberships) return proof.fraction === null || proof.fraction < .9;
               const row = rowByKey.get(`${proof.pra_id}/${proof.variable}/${proof.period}`);
               return row && coveragePaint({ value: row.value, quality: forecastSpatialQuality(row, proof, referenceSha),
                 field: 'value', geometrySupportId: proof.support_id }).target === 'covered';
@@ -118,6 +140,9 @@ export async function forecastMasks(rows:WeatherRow[], archiveSha:string, option
         for(const f of features as PraCollection['features']){
           const proof=ps.get(String(f.id));
           if(proof?.geometry_verified&&proof.support_id===f.properties.support_id)baseline.set(String(f.id),{proof,feature:f});
+        }
+        for (const proof of d.rows) {
+          if (proof.support_id && certifiedWhole.has(proof.support_id)) baseline.set(proof.pra_id, {proof});
         }
         firstManifest=false;
       }

@@ -26,7 +26,7 @@ export function forecastIndexPin(archiveSha: string): string | undefined {
   return pins.get(archiveSha);
 }
 
-export type ForecastIndexLocation = { pin: string; prefix: string };
+export type ForecastIndexLocation = { pin: string; prefix: string; certified?: true };
 
 const bindingCache = new Map<string, { value: Promise<ForecastIndexLocation | undefined>; expires: number }>();
 
@@ -53,7 +53,8 @@ export function forecastIndexLocation(archiveSha: string): Promise<ForecastIndex
         !digest.test(binding.index_sha256) || !['cycle', 'shared'].includes(String(binding.layout))) {
       throw Error('FORECAST_MASK_ARCHIVE_BINDING');
     }
-    return { pin: binding.index_sha256, prefix: binding.layout === 'cycle' ? `forecast-native/v1/${archiveSha}/` : '' };
+    return { pin: binding.index_sha256, certified: true as const,
+      prefix: binding.layout === 'cycle' ? `forecast-native/v1/${archiveSha}/` : '' };
   })();
   bindingCache.delete(archiveSha);
   if (bindingCache.size >= 32) bindingCache.delete(bindingCache.keys().next().value!);

@@ -54,7 +54,7 @@ it('discovers a committed binding only for its exact archive and rolls back with
     index_sha256: firstPin,
     layout: 'cycle',
   })));
-  expect(await forecastIndexLocation(archive)).toEqual({pin: firstPin, prefix: `forecast-native/v1/${archive}/`});
+  expect(await forecastIndexLocation(archive)).toEqual({pin: firstPin, certified: true, prefix: `forecast-native/v1/${archive}/`});
   await expect(forecastIndexLocation(unrelated)).rejects.toThrow('FORECAST_MASK_ARCHIVE_BINDING');
   vi.stubEnv('COUV05_RENDER_ENABLED', 'false');
   expect(await forecastIndexLocation(archive)).toBeUndefined();
