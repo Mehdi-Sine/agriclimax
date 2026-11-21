@@ -23,7 +23,7 @@ Compiler puis démarrer une copie isolée avec `NODE_EXTRA_CA_CERTS=/tmp/prev01.
 
 ## Promotion après qualification
 
-La branche est exclue du déploiement Vercel automatique dans les deux configurations du dépôt. Pour un futur GO, faire vérifier les critères scientifiques, les parcours, les paramètres Vercel et les objectifs de performance sur un canari. Les deux index retenus ne suffisent pas à couvrir les nouveaux cycles. Le flux de qualification doit produire et vérifier l’index de chaque archive avant de l’ajouter aux cycles proposés. Pour un cycle absent, le rendu qualifié indique explicitement l’absence de preuve.
+La branche est exclue du déploiement Vercel automatique dans les deux configurations du dépôt. Pour un futur GO, faire vérifier les critères scientifiques, les parcours, les paramètres Vercel et les objectifs de performance sur un canari. L’inventaire physique en lecture seule a trouvé deux index, chacun composé de 70 entrées natives et sans entrée composite. Aucun index ne correspond au cycle courant du 20 novembre à 18 h UTC. Le flux de qualification doit produire et vérifier l’index de chaque archive avant de l’ajouter aux cycles proposés. Pour un cycle absent, le rendu qualifié indique explicitement l’absence de preuve.
 
 Avec autorisation d’écrire en privé, réunir le paquet local et les fichiers natifs conservés dans le même répertoire, puis préparer le plan existant `scripts/couv05_store.py --root … --index-sha256 … --budget-bytes …`. Inventorier les objets privés, appliquer les gardes du runbook et utiliser `--upload --retained-forecast-bytes …` uniquement lors de l’opération approuvée. Les blobs sont insérés avant l’index et relus par SHA. Les pointeurs d’archive restent immuables pendant l’opération.
 

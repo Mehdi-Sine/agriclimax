@@ -11,7 +11,7 @@
 | Cartes interactives | Températures AROME, ARPEGE et IFS, puis pluie qualifiée 709/4/0 et absence 0/0/713 aux trois largeurs. Sélection de cycle, d’échéance et de PRA corse contrôlée dans Chromium. [Contrôles et captures](UX_VALIDATION.md) |
 | Historique ERA5 | Neuf rendus Chromium sur ERA5 et le THI historique aux trois largeurs. Les cas température et pluie restent à 681 entières, 31 partielles et une grise. La preuve ERA5 reste vérifiée après la désactivation locale du lecteur prévisionnel. |
 | Archives du Journal | Dix cartes publiées et dix miniatures comparées octet pour octet à l’origine publique. Journal et Cartes du jour vérifiés aux trois largeurs. |
-| Production | **NO-GO**. Paquet composite absent du stockage distant. Cycle courant sans index qualifié vérifié, performance navigateur non qualifiée et canari Vercel non vérifié. |
+| Production | **NO-GO**. Paquet composite absent du stockage distant. Le cycle courant est absent du registre privé de preuves vérifié. Seuils de latence non reproductibles sur les parcours mesurés et canari Vercel non vérifié. |
 
 Le build Next de production, le lint des fichiers modifiés et les 13 tests ciblés passent. La suite web générale intermédiaire a donné 817 réussites et 15 tests facultatifs ignorés. L’audit privé a relu 260 objets et 172 331 262 octets en lecture seule. Les empreintes de `catalogue.json` et `current.json` sont identiques avant et après.
 
