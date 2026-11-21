@@ -156,6 +156,10 @@ def run(root: Path, output: Path, run_date: date, geometry: bool, archive_sha256
                     document = qualify(proofs[variable], territories, ws, aggregated=originals,
                                    make_geometry=geometry, geometry_cache=geometry_cache,
                                        reject_invalid_geometry=True)
+                if require_complete and any(r.get("geometry_error") or r["reason"] in {
+                    "aggregate_identity_mismatch", "native_fraction_disagrees_with_archive",
+                } for r in document["rows"]):
+                    raise ValueError(f"Inconsistent native support: {model}/{day}/{variable}")
                 stats["rejections"].extend({"model": model, "day": str(day), "variable": variable,
                     "pra_id": r["pra_id"], "reason": r["geometry_error"]}
                     for r in document["rows"] if r.get("geometry_error"))

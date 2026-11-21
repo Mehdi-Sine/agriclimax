@@ -111,6 +111,35 @@ def geometry_blob(raw: bytes, checksum: str) -> dict[str, Any]:
     return value
 
 
+def check_entry(root: Path, entry: dict[str, Any],
+                verified_geometry: dict[str, tuple[int, tuple[str, ...]]]) -> dict[str, Any]:
+    """Verify each immutable geometry shard once per snapshot."""
+    document = decode((root / entry["path"]).read_bytes(), entry["sha256"])
+    by_id = {r["pra_id"]: r for r in document["rows"]}
+    for ref in document.get("geometry_entries", []):
+        expected = (ref["bytes"], tuple(ref["pra_ids"]))
+        checked = verified_geometry.get(ref["sha256"])
+        if checked is None:
+            raw = (root / ref["path"]).read_bytes()
+            shard = geometry_blob(raw, ref["sha256"])
+            ids = tuple(sorted(f["id"] for f in shard["features"]))
+            checked = (len(raw), ids)
+            if checked != expected:
+                raise ValueError("Geometry shard integrity or PRA identity mismatch")
+            from shapely.geometry import shape
+            for feature in shard["features"]:
+                polygon = shape(feature["geometry"])
+                if (feature["id"] != "pra:" + feature["properties"]["code"]
+                        or polygon.is_empty or not polygon.is_valid
+                        or polygon.geom_type not in {"Polygon", "MultiPolygon"}):
+                    raise ValueError("Invalid persisted native geometry")
+            verified_geometry[ref["sha256"]] = checked
+        if checked != expected or any(not by_id[pra]["geometry_verified"] or not by_id[pra]["support_id"]
+                                      for pra in ref["pra_ids"]):
+            raise ValueError("Geometry shard does not bind to the manifest rows")
+    return document
+
+
 def read_document(root: Path, entry: dict[str, Any]) -> dict[str, Any]:
     document = decode((root / entry["path"]).read_bytes(), entry["sha256"])
     by_id = {r["pra_id"]: r for r in document["rows"]}
@@ -176,10 +205,11 @@ def save_index(root: Path, entries: list[dict[str, Any]], *, archive_sha256: str
     identities = [(e["model"], e["run"], e["period"], e["variable"]) for e in entries]
     if len(set(identities)) != len(entries):
         raise ValueError("Ambiguous spatial index")
+    verified_geometry: dict[str, tuple[int, tuple[str, ...]]] = {}
     for entry in entries:
         if entry["path"] != f'forecast-masks/blobs/{entry["sha256"]}.json.gz':
             raise ValueError("Invalid spatial object path")
-        document = read_document(root, entry)
+        document = check_entry(root, entry, verified_geometry)
         if any(document[k] != entry[k] for k in ("version", "model", "run", "period", "variable",
                                                 "grid_version", "reference_sha256", "weights_sha256")):
             raise ValueError("Spatial index identity mismatch")

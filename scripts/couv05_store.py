@@ -13,7 +13,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-from agriclimax.territories.forecast_mask_store import MAX_PACKED, read_document
+from agriclimax.territories.forecast_mask_store import MAX_PACKED, check_entry
 from agriclimax.territories.forecast_masks import VERSION
 
 
@@ -47,6 +47,7 @@ def plan(root: Path, index_sha256: str, budget_bytes: int) -> dict[str, Any]:
         total += len(raw)
 
     seen = set()
+    verified_geometry: dict[str, tuple[int, tuple[str, ...]]] = {}
     for entry in entries:
         identity = tuple(entry[k] for k in ("model", "run", "period", "variable"))
         if identity in seen:
@@ -56,7 +57,7 @@ def plan(root: Path, index_sha256: str, budget_bytes: int) -> dict[str, Any]:
         if not re.fullmatch("[a-f0-9]{64}", sha) or entry["path"] != f"forecast-masks/blobs/{sha}.json.gz":
             raise ValueError("Invalid spatial object path")
         raw = (root / entry["path"]).read_bytes()
-        document = read_document(root, entry)
+        document = check_entry(root, entry, verified_geometry)
         if len(raw) != entry["bytes"] or any(document[k] != entry[k] for k in (
             "version", "model", "run", "period", "variable", "reference_sha256", "grid_version", "weights_sha256"
         )):
