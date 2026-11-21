@@ -1,0 +1,270 @@
+{
+  "origin": "https://agriclimax.vercel.app",
+  "epsg": 3035,
+  "checks": [
+    {
+      "start": "2026-11-01",
+      "end": "2026-11-01",
+      "variable": "temperature",
+      "partial": 31,
+      "maxAreaDelta": 0.00048354165942299243,
+      "maxOutsideFraction": 7.178896363348523e-08,
+      "invalidWgs84": [
+        "pra:13468",
+        "pra:17377",
+        "pra:29101",
+        "pra:33137",
+        "pra:34471",
+        "pra:50083",
+        "pra:56364"
+      ],
+      "invalidAfterProjection": [
+        "pra:33137",
+        "pra:40131",
+        "pra:44365"
+      ]
+    },
+    {
+      "start": "2026-11-01",
+      "end": "2026-11-01",
+      "variable": "temperature_min",
+      "partial": 31,
+      "maxAreaDelta": 0.00048354165942299243,
+      "maxOutsideFraction": 7.178896363348523e-08,
+      "invalidWgs84": [
+        "pra:13468",
+        "pra:17377",
+        "pra:29101",
+        "pra:33137",
+        "pra:34471",
+        "pra:50083",
+        "pra:56364"
+      ],
+      "invalidAfterProjection": [
+        "pra:33137",
+        "pra:40131",
+        "pra:44365"
+      ]
+    },
+    {
+      "start": "2026-11-01",
+      "end": "2026-11-01",
+      "variable": "temperature_max",
+      "partial": 31,
+      "maxAreaDelta": 0.00048354165942299243,
+      "maxOutsideFraction": 7.178896363348523e-08,
+      "invalidWgs84": [
+        "pra:13468",
+        "pra:17377",
+        "pra:29101",
+        "pra:33137",
+        "pra:34471",
+        "pra:50083",
+        "pra:56364"
+      ],
+      "invalidAfterProjection": [
+        "pra:33137",
+        "pra:40131",
+        "pra:44365"
+      ]
+    },
+    {
+      "start": "2026-11-01",
+      "end": "2026-11-01",
+      "variable": "precipitation",
+      "partial": 31,
+      "maxAreaDelta": 0.00048354165942299243,
+      "maxOutsideFraction": 7.178896363348523e-08,
+      "invalidWgs84": [
+        "pra:13468",
+        "pra:17377",
+        "pra:29101",
+        "pra:33137",
+        "pra:34471",
+        "pra:50083",
+        "pra:56364"
+      ],
+      "invalidAfterProjection": [
+        "pra:33137",
+        "pra:40131",
+        "pra:44365"
+      ]
+    },
+    {
+      "start": "2026-11-08",
+      "end": "2026-11-08",
+      "variable": "temperature",
+      "partial": 31,
+      "maxAreaDelta": 0.0004835416594237696,
+      "maxOutsideFraction": 7.178896545013736e-08,
+      "invalidWgs84": [
+        "pra:13468",
+        "pra:17377",
+        "pra:29101",
+        "pra:33137",
+        "pra:34471",
+        "pra:50083",
+        "pra:56364"
+      ],
+      "invalidAfterProjection": [
+        "pra:33137",
+        "pra:40131",
+        "pra:44365"
+      ]
+    },
+    {
+      "start": "2026-11-08",
+      "end": "2026-11-08",
+      "variable": "temperature_min",
+      "partial": 31,
+      "maxAreaDelta": 0.0004835416594237696,
+      "maxOutsideFraction": 7.178896545013736e-08,
+      "invalidWgs84": [
+        "pra:13468",
+        "pra:17377",
+        "pra:29101",
+        "pra:33137",
+        "pra:34471",
+        "pra:50083",
+        "pra:56364"
+      ],
+      "invalidAfterProjection": [
+        "pra:33137",
+        "pra:40131",
+        "pra:44365"
+      ]
+    },
+    {
+      "start": "2026-11-08",
+      "end": "2026-11-08",
+      "variable": "temperature_max",
+      "partial": 31,
+      "maxAreaDelta": 0.0004835416594237696,
+      "maxOutsideFraction": 7.178896545013736e-08,
+      "invalidWgs84": [
+        "pra:13468",
+        "pra:17377",
+        "pra:29101",
+        "pra:33137",
+        "pra:34471",
+        "pra:50083",
+        "pra:56364"
+      ],
+      "invalidAfterProjection": [
+        "pra:33137",
+        "pra:40131",
+        "pra:44365"
+      ]
+    },
+    {
+      "start": "2026-11-08",
+      "end": "2026-11-08",
+      "variable": "precipitation",
+      "partial": 31,
+      "maxAreaDelta": 0.0004835416594237696,
+      "maxOutsideFraction": 7.178896545013736e-08,
+      "invalidWgs84": [
+        "pra:13468",
+        "pra:17377",
+        "pra:29101",
+        "pra:33137",
+        "pra:34471",
+        "pra:50083",
+        "pra:56364"
+      ],
+      "invalidAfterProjection": [
+        "pra:33137",
+        "pra:40131",
+        "pra:44365"
+      ]
+    },
+    {
+      "start": "2026-11-02",
+      "end": "2026-11-08",
+      "variable": "temperature",
+      "partial": 31,
+      "maxAreaDelta": 0.0004835416594237696,
+      "maxOutsideFraction": 7.178896545013736e-08,
+      "invalidWgs84": [
+        "pra:13468",
+        "pra:17377",
+        "pra:29101",
+        "pra:33137",
+        "pra:34471",
+        "pra:50083",
+        "pra:56364"
+      ],
+      "invalidAfterProjection": [
+        "pra:33137",
+        "pra:40131",
+        "pra:44365"
+      ]
+    },
+    {
+      "start": "2026-11-02",
+      "end": "2026-11-08",
+      "variable": "temperature_min",
+      "partial": 31,
+      "maxAreaDelta": 0.0004835416594237696,
+      "maxOutsideFraction": 7.178896545013736e-08,
+      "invalidWgs84": [
+        "pra:13468",
+        "pra:17377",
+        "pra:29101",
+        "pra:33137",
+        "pra:34471",
+        "pra:50083",
+        "pra:56364"
+      ],
+      "invalidAfterProjection": [
+        "pra:33137",
+        "pra:40131",
+        "pra:44365"
+      ]
+    },
+    {
+      "start": "2026-11-02",
+      "end": "2026-11-08",
+      "variable": "temperature_max",
+      "partial": 31,
+      "maxAreaDelta": 0.0004835416594237696,
+      "maxOutsideFraction": 7.178896545013736e-08,
+      "invalidWgs84": [
+        "pra:13468",
+        "pra:17377",
+        "pra:29101",
+        "pra:33137",
+        "pra:34471",
+        "pra:50083",
+        "pra:56364"
+      ],
+      "invalidAfterProjection": [
+        "pra:33137",
+        "pra:40131",
+        "pra:44365"
+      ]
+    },
+    {
+      "start": "2026-11-02",
+      "end": "2026-11-08",
+      "variable": "precipitation",
+      "partial": 31,
+      "maxAreaDelta": 0.0004835416594237696,
+      "maxOutsideFraction": 7.178896545013736e-08,
+      "invalidWgs84": [
+        "pra:13468",
+        "pra:17377",
+        "pra:29101",
+        "pra:33137",
+        "pra:34471",
+        "pra:50083",
+        "pra:56364"
+      ],
+      "invalidAfterProjection": [
+        "pra:33137",
+        "pra:40131",
+        "pra:44365"
+      ]
+    }
+  ]
+}

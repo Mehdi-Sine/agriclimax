@@ -8,7 +8,7 @@ it('activates history alone while forecast rendering remains disabled', async ()
   expect(coverageEnabledFor('reanalysis')).toBe(true);
   expect(coverageEnabledFor('forecast')).toBe(false);
 });
-it('accepts an explicit rollback and preserves the existing global switch', async () => {
+it('rolls back history independently when forecast rendering is enabled', async () => {
   vi.stubEnv('NEXT_PUBLIC_COUV04_RENDER_ENABLED','false');
   vi.stubEnv('NEXT_PUBLIC_COUV06_HISTORICAL_RENDER_ENABLED','false');
   vi.resetModules();
@@ -16,7 +16,7 @@ it('accepts an explicit rollback and preserves the existing global switch', asyn
   vi.stubEnv('NEXT_PUBLIC_COUV04_RENDER_ENABLED','true');
   vi.resetModules();
   const {coverageEnabledFor} = await import('./coverage');
-  expect(coverageEnabledFor('reanalysis')).toBe(true);
+  expect(coverageEnabledFor('reanalysis')).toBe(false);
   expect(coverageEnabledFor('forecast')).toBe(true);
 });
 

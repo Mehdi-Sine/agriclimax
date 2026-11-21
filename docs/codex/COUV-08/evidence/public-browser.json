@@ -1,0 +1,40 @@
+{
+  "upstream": "https://agriclimax.vercel.app",
+  "transport": "local HTTP relay of public responses with HTTPS certificate verification upstream",
+  "checks": [
+    {
+      "width": 1440,
+      "route": "/climat?temporal=history&date=2026-11-01&start=2026-11-01&mode=value&indicateur=temperature",
+      "counts": [
+        681,
+        31,
+        1
+      ],
+      "contours": 713,
+      "elapsedMs": 72437
+    },
+    {
+      "width": 768,
+      "route": "/climat?temporal=history&date=2026-11-01&start=2026-11-01&mode=value&indicateur=temperature",
+      "counts": [
+        681,
+        31,
+        1
+      ],
+      "contours": 713,
+      "elapsedMs": 5521
+    },
+    {
+      "width": 390,
+      "route": "/climat?temporal=history&date=2026-11-01&start=2026-11-01&mode=value&indicateur=temperature",
+      "counts": [
+        681,
+        31,
+        1
+      ],
+      "contours": 713,
+      "elapsedMs": 5257
+    }
+  ],
+  "errors": []
+}

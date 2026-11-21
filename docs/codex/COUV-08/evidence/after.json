@@ -1,0 +1,116 @@
+{
+  "origin": "http://127.0.0.1:3018",
+  "label": "after",
+  "checks": [
+    {
+      "width": 1440,
+      "indicator": "temperature",
+      "counts": [
+        681,
+        31,
+        1
+      ],
+      "apiMs": 15409,
+      "readyMs": 29647,
+      "legend": "≤ 0\n> 0 à 10\n> 10 à 20\n> 20 à 30\n> 30\n\n°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 1440,
+      "indicator": "rain",
+      "counts": [
+        681,
+        31,
+        1
+      ],
+      "apiMs": 4894,
+      "readyMs": 19303,
+      "legend": "≤ 1\n> 1 à 5\n> 5 à 10\n> 10 à 20\n> 20\n\nmm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 1440,
+      "indicator": "thi",
+      "counts": [
+        0,
+        0,
+        713
+      ],
+      "apiMs": 2755,
+      "readyMs": 15929,
+      "legend": "≤ 72\n> 72 à 75\n> 75 à 80\n> 80 à 85\n> 85\n\nTHI · THI synthétique ; seuil descriptif strict > 72, variante Bohmanova 2005 · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 768,
+      "indicator": "temperature",
+      "counts": [
+        681,
+        31,
+        1
+      ],
+      "apiMs": 5056,
+      "readyMs": 9875,
+      "legend": "≤ 0\n> 0 à 10\n> 10 à 20\n> 20 à 30\n> 30\n\n°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 768,
+      "indicator": "rain",
+      "counts": [
+        681,
+        31,
+        1
+      ],
+      "apiMs": 1799,
+      "readyMs": 16186,
+      "legend": "≤ 1\n> 1 à 5\n> 5 à 10\n> 10 à 20\n> 20\n\nmm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 768,
+      "indicator": "thi",
+      "counts": [
+        0,
+        0,
+        713
+      ],
+      "apiMs": 1709,
+      "readyMs": 12956,
+      "legend": "≤ 72\n> 72 à 75\n> 75 à 80\n> 80 à 85\n> 85\n\nTHI · THI synthétique ; seuil descriptif strict > 72, variante Bohmanova 2005 · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 390,
+      "indicator": "temperature",
+      "counts": [
+        681,
+        31,
+        1
+      ],
+      "apiMs": 1772,
+      "readyMs": 11376,
+      "legend": "≤ 0\n> 0 à 10\n> 10 à 20\n> 20 à 30\n> 30\n\n°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 390,
+      "indicator": "rain",
+      "counts": [
+        681,
+        31,
+        1
+      ],
+      "apiMs": 1360,
+      "readyMs": 7455,
+      "legend": "≤ 1\n> 1 à 5\n> 5 à 10\n> 10 à 20\n> 20\n\nmm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 390,
+      "indicator": "thi",
+      "counts": [
+        0,
+        0,
+        713
+      ],
+      "apiMs": 1646,
+      "readyMs": 7085,
+      "legend": "≤ 72\n> 72 à 75\n> 75 à 80\n> 80 à 85\n> 85\n\nTHI · THI synthétique ; seuil descriptif strict > 72, variante Bohmanova 2005 · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    }
+  ],
+  "archives": [],
+  "errors": []
+}

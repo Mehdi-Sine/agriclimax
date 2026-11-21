@@ -34,8 +34,19 @@ def run(output: Path, index_sha256: str = PIN) -> dict[str, Any]:
 
     pointers = {p: read(p) for p in ('catalogue.json','current.json')}
     catalogue = json.loads(pointers['catalogue.json'])
+    index_path = f'forecast-masks/indexes/{index_sha256}.json.gz'
+    index_raw = read(index_path)
+    if digest(index_raw) != index_sha256:
+        raise ValueError('Retained index corrupted')
+    index = json.loads(gzip.decompress(index_raw))
+    archive = next((entry for entry in catalogue['weather'] if entry['sha256'] == index['archive_sha256']), None)
+    if archive is None:
+        raise ValueError('Exact archive bound to the retained index is missing from the catalogue')
+    entries = sorted(catalogue['weather'],key=lambda e:e.get('run_at',e.get('run_date','')))[-3:]
+    if archive not in entries:
+        entries.insert(0, archive)
     cycles = []
-    for entry in sorted(catalogue['weather'],key=lambda e:e.get('run_at',e.get('run_date','')))[-3:]:
+    for entry in entries:
         before = time.monotonic()
         raw = read(entry['path'])
         if digest(raw) != entry['sha256'] or len(raw) != entry['bytes']:
@@ -43,11 +54,6 @@ def run(output: Path, index_sha256: str = PIN) -> dict[str, Any]:
         (output / Path(entry['path']).name).write_bytes(raw)
         cycles.append({'run':entry.get('run_at',entry.get('run_date')), 'sha256':digest(raw),
                        'bytes':len(raw),'read_seconds':time.monotonic()-before})
-    index_path = f'forecast-masks/indexes/{index_sha256}.json.gz'
-    index_raw = read(index_path)
-    if digest(index_raw) != index_sha256:
-        raise ValueError('Retained index corrupted')
-    index = json.loads(gzip.decompress(index_raw))
     refs = {index_path:{'path':index_path,'sha256':index_sha256,'bytes':len(index_raw)}}
     objects = {index_path:index_raw}
 

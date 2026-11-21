@@ -39,6 +39,7 @@ export default function NationalMap({
   quantitative,
   coveredSupport,
   coverageEnabled = EXHAUSTIVE_COVERAGE,
+  preservePublishedHatching = false,
   highlighted,
   loading=false,
   geography = { prefix: 'pra:', label: '713 PRA', attribution: 'PRA · OFB / MASA · contours source inchangés' },
@@ -47,6 +48,7 @@ export default function NationalMap({
   loading?:boolean;
   coveredSupport?:PraCollection|null;
   coverageEnabled?:boolean;
+  preservePublishedHatching?:boolean;
   collection: PraCollection;
   rows: TerritoryRow[] | null;
   contextRows: ClimateContextRow[] | null;
@@ -265,7 +267,7 @@ export default function NationalMap({
           value: paint ? paint.value : value ?? null,
           quality: paint ? paint.label : q ? ({ available: 'Disponible', partial: 'Partiel', unavailable: 'Indisponible', not_applicable: 'Non applicable', source_error: 'Erreur source', suppressed: 'Secret statistique', stale: 'Ancien millésime' }[q.status]) : 'Indisponible',
           suppressed: q?.status === 'suppressed',
-          partial: paint ? paint.target === 'covered' : q?.status === 'partial',
+          partial: paint ? preservePublishedHatching && paint.target === 'covered' : q?.status === 'partial',
           anomaly: climate?.anomaly ?? null,
           selected: f.id === selected || !!highlighted?.includes(String(f.id)),
         },
@@ -273,7 +275,7 @@ export default function NationalMap({
       if(map.current.getSource('pra-covered'))map.current.setFeatureState({source:'pra-covered',id:f.properties.code},{color:(paint ? paint.target !== 'covered' : value == null)?css.getPropertyValue(coverageEnabled ? '--map-coverage-unavailable' : '--national-unavailable').trim():ink,value:paint ? paint.value : value??null,quality:paint ? paint.label : q?.status==='partial'?'Partiel · aire renseignée':'Disponible'});
     }
     return()=>cancelAnimationFrame(frame);
-  }, [ready, rows, contextRows, mode, selected, collection, quantitative,coveredSupport,coverageEnabled,highlighted,loading]);
+  }, [ready, rows, contextRows, mode, selected, collection, quantitative,coveredSupport,coverageEnabled,preservePublishedHatching,highlighted,loading]);
 
   useEffect(() => {
     if (!ready || !map.current || !selected || (quantitative&&!highlighted)) return;

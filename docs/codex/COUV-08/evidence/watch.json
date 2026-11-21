@@ -1,0 +1,80 @@
+{
+  "origin": "http://127.0.0.1:3022",
+  "label": "watch-final",
+  "checks": [
+    {
+      "width": 1440,
+      "variable": "temperature",
+      "date": "2026-11-14",
+      "counts": [
+        645,
+        0,
+        68
+      ],
+      "elapsedMs": 15424,
+      "legend": "≤ -3\n> -3 à -1\n> -1 à 1\n> 1 à 3\n> 3\n\n°C · Bleu : froid ; classe neutre centrée sur 0 °C ; chaud : orange/rouge · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 1440,
+      "variable": "precipitation",
+      "date": "2026-11-14",
+      "counts": [
+        645,
+        0,
+        68
+      ],
+      "elapsedMs": 16319,
+      "legend": "≤ -50\n> -50 à -10\n> -10 à 10\n> 10 à 50\n> 50\n\nmm · Déficit sec, référence neutre, excédent bleu ; écart absolu, jamais sécheresse des sols · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 768,
+      "variable": "temperature",
+      "date": "2026-11-14",
+      "counts": [
+        645,
+        0,
+        68
+      ],
+      "elapsedMs": 7637,
+      "legend": "≤ -3\n> -3 à -1\n> -1 à 1\n> 1 à 3\n> 3\n\n°C · Bleu : froid ; classe neutre centrée sur 0 °C ; chaud : orange/rouge · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 768,
+      "variable": "precipitation",
+      "date": "2026-11-14",
+      "counts": [
+        645,
+        0,
+        68
+      ],
+      "elapsedMs": 8493,
+      "legend": "≤ -50\n> -50 à -10\n> -10 à 10\n> 10 à 50\n> 50\n\nmm · Déficit sec, référence neutre, excédent bleu ; écart absolu, jamais sécheresse des sols · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 390,
+      "variable": "temperature",
+      "date": "2026-11-14",
+      "counts": [
+        645,
+        0,
+        68
+      ],
+      "elapsedMs": 6900,
+      "legend": "≤ -3\n> -3 à -1\n> -1 à 1\n> 1 à 3\n> 3\n\n°C · Bleu : froid ; classe neutre centrée sur 0 °C ; chaud : orange/rouge · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 390,
+      "variable": "precipitation",
+      "date": "2026-11-14",
+      "counts": [
+        645,
+        0,
+        68
+      ],
+      "elapsedMs": 7777,
+      "legend": "≤ -50\n> -50 à -10\n> -10 à 10\n> 10 à 50\n> 50\n\nmm · Déficit sec, référence neutre, excédent bleu ; écart absolu, jamais sécheresse des sols · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    }
+  ],
+  "archives": [],
+  "errors": []
+}
