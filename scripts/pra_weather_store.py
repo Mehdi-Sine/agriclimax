@@ -64,7 +64,7 @@ class ArchiveStore:
         body: bytes | None = None,
         upsert: bool = False,
     ) -> bytes:
-        write = method != "GET" and not (method == "POST" and path == f"object/list/{BUCKET}")
+        write = method not in {"GET", "HEAD"} and not (method == "POST" and path == f"object/list/{BUCKET}")
         lease = os.environ.get("AGRICLIMAX_ACQUISITION_LEASE_TOKEN")
         if write and lease:
             from task36_nightly import rpc
@@ -91,13 +91,19 @@ class ArchiveStore:
                 ),
                 timeout=30,
             ) as response:
-                raw = response.read(MAX_OBJECT + 1)
+                if method == "HEAD":
+                    raw = json.dumps({"size": response.headers.get("Content-Length"),
+                                      "etag": response.headers.get("ETag")}).encode()
+                else:
+                    raw = response.read(MAX_OBJECT + 1)
             if len(raw) > MAX_OBJECT:
                 raise ValueError("Storage response budget exceeded")
             if write:
                 self.writes += 1
             return bytes(raw)
         except HTTPError as error:
+            if method == "HEAD" and error.code in {400, 404}:
+                return b""
             if method == "GET" and error.code in {400, 404}:
                 # Storage uses 400 for a missing object; permission errors remain failures.
                 detail = json.loads(error.read(4096))
@@ -233,6 +239,28 @@ class ArchiveStore:
         if self.request(f"object/{BUCKET}/{path}") != raw:
             raise ValueError("Uploaded archive readback mismatch")
         return True
+
+    def put_immutable_verified_metadata(self, path: str, raw: bytes) -> bool:
+        """Verify standard single-upload Storage ETags without downloading large blobs again."""
+        if not 0 < len(raw) <= MAX_OBJECT:
+            raise ValueError("Archive object budget exceeded")
+        endpoint = f"object/{BUCKET}/{path}"
+        previous = self.request(endpoint, "HEAD")
+        if not previous:
+            self.request(endpoint, "POST", raw)
+        observed = previous or self.request(endpoint, "HEAD")
+        if not observed:
+            raise ValueError("Published private object metadata missing")
+        metadata = json.loads(observed)
+        if metadata["size"] != str(len(raw)):
+            raise ValueError("Immutable archive metadata size mismatch")
+        etag = metadata["etag"]
+        if isinstance(etag, str) and re.fullmatch(r'"[a-f0-9]{32}"', etag):
+            if etag[1:-1] != hashlib.md5(raw, usedforsecurity=False).hexdigest():
+                raise ValueError("Immutable archive ETag mismatch")
+        elif self.request(endpoint) != raw:
+            raise ValueError("Immutable archive byte verification mismatch")
+        return not previous
 
     def publish_weather(self, document: dict[str, Any]) -> dict[str, Any]:
         reference = json.loads(

@@ -97,7 +97,7 @@ def prune_for_capacity(store: ArchiveStore, inventory: dict[str, int], weather: 
 
 
 def publish(candidate: dict[str, Any], *, shared: bool = False,
-            protect_current: bool = False, allow_retention: bool = False) -> dict[str, Any]:
+            protect_current: bool = False, allow_retention: bool = False, verify_metadata: bool = False) -> dict[str, Any]:
     store = ArchiveStore()
     bucket = retry(lambda: store.request(f"bucket/{BUCKET}"))
     config = json.loads(bucket)
@@ -135,11 +135,12 @@ def publish(candidate: dict[str, Any], *, shared: bool = False,
     if sum(total_existing.values()) + new_bytes > STORAGE_GUARD:
         raise ValueError("Private Storage inventory plus candidate exceeds the 900 MiB guard")
 
+    index_path = stored_path(index, archive, layout)
+
     def put(path: str) -> None:
         raw = objects[path]
-        retry(lambda: store.put_immutable(path, raw))
-
-    index_path = stored_path(index, archive, layout)
+        put_object = store.put_immutable_verified_metadata if verify_metadata and path != index_path else store.put_immutable
+        retry(lambda: put_object(path, raw))
     with ThreadPoolExecutor(max_workers=6) as pool:
         list(pool.map(put, sorted(set(objects) - {index_path})))
     put(index_path)
@@ -149,10 +150,11 @@ def publish(candidate: dict[str, Any], *, shared: bool = False,
         raise ValueError("Published catalogue binding could not be verified")
     return {**binding, "objects_verified": len(objects), "private_bucket_bytes_before": before, "retired_cycles": retired,
             "new_bytes": new_bytes, "cycle_bytes": candidate["bytes"],
-            "storage_writes": store.writes, "source_requests": 0}
+            "storage_writes": store.writes, "source_requests": 0,
+            "blob_verification": "metadata_with_byte_fallback" if verify_metadata else "full_bytes"}
 
 
-def latest(root: Path, output: Path, *, publish_remote: bool, allow_retention: bool = False) -> dict[str, Any]:
+def latest(root: Path, output: Path, *, publish_remote: bool, allow_retention: bool = False, verify_metadata: bool = False) -> dict[str, Any]:
     report = root / "report.json"
     if not report.exists() and publish_remote:
         status = health()
@@ -180,11 +182,12 @@ def latest(root: Path, output: Path, *, publish_remote: bool, allow_retention: b
         replay_cycle(checkpoint, replayed)
         checkpoint = replayed
     return build(checkpoint, output, archive, cycle, publish_remote=publish_remote,
-                 require_latest=True, allow_retention=allow_retention)
+                 require_latest=True, allow_retention=allow_retention, verify_metadata=verify_metadata)
 
 
 def build(checkpoint: Path, output: Path, archive: str, cycle: datetime,
-          *, publish_remote: bool, require_latest: bool = False, allow_retention: bool = False) -> dict[str, Any]:
+          *, publish_remote: bool, require_latest: bool = False, allow_retention: bool = False,
+          verify_metadata: bool = False) -> dict[str, Any]:
     if not DIGEST.fullmatch(archive):
         raise ValueError("Invalid numeric archive SHA-256")
     destination = output / archive
@@ -192,7 +195,8 @@ def build(checkpoint: Path, output: Path, archive: str, cycle: datetime,
                         require_complete=True, expected_run=cycle)
     index_sha = stats["spatial_index"]["sha256"]
     candidate = plan(destination, index_sha, MAX_CYCLE)
-    result = publish(candidate, protect_current=require_latest, allow_retention=allow_retention) if publish_remote else {
+    result = publish(candidate, protect_current=require_latest, allow_retention=allow_retention,
+                     verify_metadata=verify_metadata) if publish_remote else {
         "archive_sha256": archive, "index_sha256": index_sha, "cycle_bytes": candidate["bytes"],
         "objects_verified": len(candidate["objects"]), "source_requests": 0}
     return {**result, "status": "published" if publish_remote else "qualified",
@@ -231,6 +235,7 @@ def main() -> None:
     parser.add_argument("--publish", action="store_true")
     parser.add_argument("--health", action="store_true")
     parser.add_argument("--retain-within-budget", action="store_true")
+    parser.add_argument("--verify-metadata", action="store_true")
     args = parser.parse_args()
     if args.health:
         result = health()
@@ -240,16 +245,17 @@ def main() -> None:
         candidate = plan(args.existing_package, args.index_sha256, MAX_CYCLE)
         if args.publish:
             result = publish(candidate, shared=args.shared_composites,
-                             protect_current=not args.shared_composites)
+                             protect_current=not args.shared_composites, verify_metadata=args.verify_metadata)
         else:
             result = {k: v for k, v in candidate.items() if k != "objects"}
     elif args.checkpoint:
         if not args.archive_sha256 or not args.run:
             parser.error("--checkpoint requires --archive-sha256 and --run")
         result = build(args.checkpoint, args.output, args.archive_sha256, args.run,
-                       publish_remote=args.publish, require_latest=True)
+                       publish_remote=args.publish, require_latest=True, verify_metadata=args.verify_metadata)
     else:
-        result = latest(args.root, args.output, publish_remote=args.publish, allow_retention=args.retain_within_budget)
+        result = latest(args.root, args.output, publish_remote=args.publish,
+                        allow_retention=args.retain_within_budget, verify_metadata=args.verify_metadata)
     print(json.dumps(result), flush=True)
     if args.health and result["status"] != "healthy":
         raise SystemExit(1)

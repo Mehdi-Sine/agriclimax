@@ -8,6 +8,7 @@ import {archiveCatalogue,nationalWeatherDocument,nationalLandMasks} from '../../
 import {isCalendarDate} from '../../../features/national/daily-availability';
 
 export const runtime='nodejs';
+export const preferredRegion='cdg1';
 export const maxDuration=30;
 const MODELS:{id:WeatherModel;label:string}[]=[{id:'selected',label:'Sélection nationale · un modèle par jour'},{id:'arome',label:'Météo-France AROME 0,025°'},{id:'arpege',label:'Météo-France ARPEGE 0,1°'},{id:'ifs',label:'ECMWF IFS 0,25°'}];
 import {forecastIndexLocation, forecastIndexPin} from '../../../lib/server/forecast-index';
@@ -70,7 +71,7 @@ export async function GET(request:Request){
       model, effectiveDate, effectiveVariable,
     ]) : undefined;
     const beforeMasks = performance.now();
-    const { body, maskMs, responseMs, cached } = await mapResponse(key, async () => {
+    const { body, maskMs, responseMs, cached, verified } = await mapResponse(key, async () => {
       const spatial = national && (!pra || date && variable) ? await forecastMasks(selectedRows,national.archive_sha256) : undefined;
       const maskMs = performance.now() - beforeMasks;
       const beforeResponse = performance.now();
@@ -80,9 +81,14 @@ export async function GET(request:Request){
           status: spatial.reason ?? (spatial.proofs.length ? 'verified' : 'no_verified_support')},
       } : {};
       const body = JSON.stringify({...cycle,...native,coverage_quality:weatherQualityBundle(selectedRows,spatial),coastal_qualification:qualification,available_dates:dates,all_dates:national?[...new Set(national.rows.map(r=>r.valid_date))].sort():dates,pra_ids:ids,rows:selectedRows});
-      return {body, maskMs, responseMs: performance.now() - beforeResponse, verified: !!spatial && !spatial.reason};
+      return {body, maskMs, responseMs: performance.now() - beforeResponse, verified: !!spatial?.proofs.length && !spatial.reason};
     });
     const response = new Response(body,{headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
+    // This response is the same for every reader of an exact, committed public map.
+    // The cycle-less catalogue and user-selected PRA details always bypass the edge cache.
+    if (verified && location?.certified && requestedRun === national?.run && date && variable && !pra) {
+      response.headers.set('Vercel-CDN-Cache-Control', 'public, s-maxage=60');
+    }
     response.headers.set('Server-Timing', `archive;dur=${archiveMs.toFixed(1)}, masks;dur=${maskMs.toFixed(1)}, response;dur=${responseMs.toFixed(1)}, map-cache;desc="${cached ? 'hit' : 'miss'}"`);
     return response;
   }catch{return Response.json({error:'VERIFIED_WEATHER_SOURCE_UNAVAILABLE'},{status:503,headers:{'Cache-Control':'no-store'}});}

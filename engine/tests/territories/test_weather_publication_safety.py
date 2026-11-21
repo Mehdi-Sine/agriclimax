@@ -94,3 +94,20 @@ def test_native_binding_is_committed_only_after_all_immutable_objects(monkeypatc
     assert writes == [stored_path(blob, archive, "cycle"), stored_path(index, archive, "cycle"), binding_path(archive)]
     assert json.loads(files[binding_path(archive)])["index_sha256"] == "c" * 64
     assert publish(candidate)["storage_writes"] == 0
+
+
+def test_native_storage_etag_verifies_bytes_without_fetching_blob():
+    with patch.dict("os.environ", {
+        "NEXT_PUBLIC_SUPABASE_URL": "https://yyfbpecxvxglzxopsmel.supabase.co",
+        "SUPABASE_SECRET_KEY": "test",
+    }):
+        store = ArchiveStore()
+    clean = b'{"size":"4","etag":"\\"098f6bcd4621d373cade4e832627b4f6\\""}'
+    endpoint = "object/pra-climate-archives/forecast-native/v1/test.json"
+    with patch.object(store, "request", side_effect=[b"", b"", clean]) as request:
+        assert store.put_immutable_verified_metadata("forecast-native/v1/test.json", b"test")
+        assert [call.args[:2] for call in request.call_args_list] == [
+            (endpoint, "HEAD"), (endpoint, "POST"), (endpoint, "HEAD"),
+        ]
+    with patch.object(store, "request", return_value=clean), pytest.raises(ValueError, match="ETag mismatch"):
+        store.put_immutable_verified_metadata("forecast-native/v1/test.json", b"fail")

@@ -151,7 +151,7 @@ jobs:
           mkdir -p work/task36/logs
           set +e
           set -o pipefail
-          python scripts/forecast_native_publication.py --publish --retain-within-budget 2>&1 | tee work/task36/logs/forecast-native.log
+          python scripts/forecast_native_publication.py --publish --retain-within-budget --verify-metadata 2>&1 | tee work/task36/logs/forecast-native.log
           publication=$?
           python scripts/forecast_native_publication.py --health 2>&1 | tee work/task36/logs/forecast-native-health.log
           health=$?
