@@ -670,12 +670,13 @@ export function useAgroclimatic(
       </details>
     </section>
   );
+  const coverageEnabled = mode === 'history' ? HISTORICAL_COVERAGE : EXHAUSTIVE_COVERAGE;
   return {
     loading:active&&!resource.data&&!resource.error,
     error:resource.error,
     filters,
-    coverageEnabled: mode==='history'?HISTORICAL_COVERAGE:EXHAUSTIVE_COVERAGE,
-    coveredSupport: !(mode==='history'?HISTORICAL_COVERAGE:EXHAUSTIVE_COVERAGE) && data.some(r => r.quality) ? null : coveredSupport,
+    coverageEnabled,
+    coveredSupport: !coverageEnabled && data.some(r => r.quality) ? null : coveredSupport,
     panel,
     summary,
     mapTitle: (
@@ -703,7 +704,7 @@ export function useAgroclimatic(
             : `${data.filter((r) => r.value !== null && r.support_scope !== "qualified_pra_estimate").length} PRA complètes · ${data.filter((r) => r.value !== null && r.support_scope === "qualified_pra_estimate").length} estimations qualifiées ≥90% · ${data.filter((r) => r.observed_value != null && r.value === null).length} valeurs de portion seulement · ${data.filter((r) => r.complementary).length} estimation(s) complémentaire(s) en fiche. Gris : portion native absente ou résultat non calculable, jamais zéro.`}
       </p>
     ),
-    legend: <><SemanticLegend coverage={mode==='history'?HISTORICAL_COVERAGE:EXHAUSTIVE_COVERAGE} palette={semantic}/><p>Trame : support partiel. La valeur décrit uniquement la portion renseignée, sans extrapolation à toute la PRA.</p></>,
+    legend: <><SemanticLegend coverage={coverageEnabled} palette={semantic}/>{!coverageEnabled && <p>Trame : support partiel. La valeur décrit uniquement la portion renseignée, sans extrapolation à toute la PRA.</p>}</>,
     mapProps: {
       selected: pra,
       onSelect: (id: string) => change({ pra: id }),

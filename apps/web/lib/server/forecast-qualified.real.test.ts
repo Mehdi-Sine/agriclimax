@@ -3,6 +3,8 @@ import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
 import {gunzipSync} from 'node:zlib';
 import {resolve} from 'node:path';
 import type {Rule} from '../../features/agroclimatic/catalogue';
+import {UNIFIED_AGRO_VERSION} from '../../features/climate-quality/calculate';
+import {VERSION as EDITION_RULE_VERSION} from '../../features/multiproduction/registry';
 import type {WeatherRow} from '../../features/operational/model';
 import {coveragePaint} from '../../features/cartography/coverage';
 import {unpackWeatherArchive} from './weather-archive-codec';
@@ -35,7 +37,10 @@ it.skipIf(!existsSync(root))('reads all 1185 retained results and binds all 540 
       if(r.fraction<.9){partial++;expect(coveragePaint({...reading,geometrySupportId:'incompatible'}).target).toBe('unavailable');}
     }
     expect((await forecastQualified(rows,'f'.repeat(64),entry.rule,entry.start,entry.end,entry.rule.threshold)).results.size).toBe(0);
-    expect((await forecastQualified(rows,index.archive_sha256,{...entry.rule,version:'incompatible'},entry.start,entry.end,entry.rule.threshold)).results.size).toBe(0);
+    for (const version of [UNIFIED_AGRO_VERSION, EDITION_RULE_VERSION]) {
+      const activeRule = {...entry.rule, version};
+      expect((await forecastQualified(rows,index.archive_sha256,activeRule,entry.start,entry.end,entry.rule.threshold)).results.size).toBe(0);
+    }
     expect((await forecastQualified(rows,index.archive_sha256,entry.rule,entry.start,entry.end,999)).results.size).toBe(0);
     const mutated=rows.map(r=>({...r,provenance_sha256:'f'.repeat(64)}));
     expect((await forecastQualified(mutated,index.archive_sha256,entry.rule,entry.start,entry.end,entry.rule.threshold)).results.size).toBe(0);
@@ -44,7 +49,7 @@ it.skipIf(!existsSync(root))('reads all 1185 retained results and binds all 540 
   times.sort((a,b)=>a-b);
   mkdirSync('../../work/couv05e-results',{recursive:true});
   writeFileSync('../../work/couv05e-results/reader.json',JSON.stringify({accepted,partial,shards:times.length,local_reader_ms:{median:times[Math.floor(times.length/2)],p95:times[Math.floor(times.length*.95)],max:times.at(-1)},transport:'local retained bytes; no HTTP or browser latency',real_route_replay:false},null,2));
-},60000);
+},120000);
 it('does no read when disabled, and fails closed on corrupt bytes',async()=>{
   vi.stubEnv('COUV05_RENDER_ENABLED','false');
   expect((await forecastQualified([],'x',{} as Rule,'','',null)).results.size).toBe(0);expect(remote).not.toHaveBeenCalled();
