@@ -1,0 +1,1031 @@
+{
+  "origin": "http://127.0.0.1:3019",
+  "checks": [
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "temperature",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 8833,
+      "bytes": 1398814
+    },
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "temperature_min",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 5253,
+      "bytes": 1404727
+    },
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "temperature_max",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 4826,
+      "bytes": 1404987
+    },
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "precipitation",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 5291,
+      "bytes": 1434549
+    },
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "humidity",
+      "counts": {
+        "whole": 426,
+        "covered": 0,
+        "unavailable": 287
+      },
+      "legacy": {
+        "available": 426,
+        "partial": 0,
+        "unavailable": 287
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 3881,
+      "bytes": 1438294
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "temperature",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 8731,
+      "bytes": 1419076
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "temperature_min",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 3580,
+      "bytes": 1424966
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "temperature_max",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 4004,
+      "bytes": 1425273
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "precipitation",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 4848,
+      "bytes": 1454803
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "humidity",
+      "counts": {
+        "whole": 481,
+        "covered": 0,
+        "unavailable": 232
+      },
+      "legacy": {
+        "available": 481,
+        "partial": 0,
+        "unavailable": 232
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 3049,
+      "bytes": 1448968
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-17",
+      "variable": "temperature",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 4626,
+      "bytes": 1419338
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-17",
+      "variable": "temperature_min",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 3962,
+      "bytes": 1424911
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-17",
+      "variable": "temperature_max",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 3665,
+      "bytes": 1425287
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-17",
+      "variable": "precipitation",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 5728,
+      "bytes": 1454942
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-17",
+      "variable": "humidity",
+      "counts": {
+        "whole": 623,
+        "covered": 0,
+        "unavailable": 90
+      },
+      "legacy": {
+        "available": 623,
+        "partial": 0,
+        "unavailable": 90
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 4142,
+      "bytes": 1444940
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "temperature",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 6796,
+      "bytes": 1385776
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "temperature_min",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 5304,
+      "bytes": 1424702
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "temperature_max",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 4022,
+      "bytes": 1424952
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "precipitation",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 7673,
+      "bytes": 1387063
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-15",
+      "variable": "humidity",
+      "counts": {
+        "whole": 586,
+        "covered": 0,
+        "unavailable": 127
+      },
+      "legacy": {
+        "available": 586,
+        "partial": 0,
+        "unavailable": 127
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 4058,
+      "bytes": 1415863
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "temperature",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 2482,
+      "bytes": 1386355
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "temperature_min",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 3908,
+      "bytes": 1425901
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "temperature_max",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 4280,
+      "bytes": 1425976
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "precipitation",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 4901,
+      "bytes": 1384170
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-14",
+      "run": "2026-11-14T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "humidity",
+      "counts": {
+        "whole": 448,
+        "covered": 0,
+        "unavailable": 265
+      },
+      "legacy": {
+        "available": 448,
+        "partial": 0,
+        "unavailable": 265
+      },
+      "nativeProofTransport": true,
+      "boundNative": 713,
+      "ms": 4733,
+      "bytes": 1427351
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "gdd",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "ms": 11706,
+      "bytes": 1063348
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "hot",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "ms": 4730,
+      "bytes": 1047563
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "hot_sequence",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "ms": 3694,
+      "bytes": 1047625
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "frost",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "ms": 4968,
+      "bytes": 1046837
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "frost_sequence",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "ms": 5243,
+      "bytes": 1046908
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "rain",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "ms": 5172,
+      "bytes": 1097093
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "heavy_rain",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "ms": 7140,
+      "bytes": 1081819
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "dry",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "ms": 5647,
+      "bytes": 1081066
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "dry_sequence",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "ms": 5148,
+      "bytes": 1081141
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "thi",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 426,
+        "covered": 0,
+        "unavailable": 287
+      },
+      "nativeProofTransport": true,
+      "ms": 3982,
+      "bytes": 1151841
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "thi_days",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 426,
+        "covered": 0,
+        "unavailable": 287
+      },
+      "nativeProofTransport": true,
+      "ms": 3473,
+      "bytes": 1142376
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "thi_sequence",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 426,
+        "covered": 0,
+        "unavailable": 287
+      },
+      "nativeProofTransport": true,
+      "ms": 2830,
+      "bytes": 1142387
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "cattle_heat",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "ms": 2304,
+      "bytes": 1047696
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "indicator": "temperature_mean",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": true,
+      "ms": 1786,
+      "bytes": 1063484
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "gdd",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 6857,
+      "bytes": 1346531
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "hot",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 5494,
+      "bytes": 1380127
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "hot_sequence",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 5086,
+      "bytes": 1380190
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "frost",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 6590,
+      "bytes": 1379401
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "frost_sequence",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 5089,
+      "bytes": 1379473
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "rain",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 6119,
+      "bytes": 1380581
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "heavy_rain",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 4878,
+      "bytes": 1381319
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "dry",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 5187,
+      "bytes": 1380567
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "dry_sequence",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 5318,
+      "bytes": 1380642
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "thi",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 8819,
+      "bytes": 1483457
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "thi_days",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 7678,
+      "bytes": 1483458
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "thi_sequence",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 8861,
+      "bytes": 1483471
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "cattle_heat",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 7838,
+      "bytes": 1380260
+    },
+    {
+      "model": "selected",
+      "path": "agroclimatic",
+      "start": "2026-11-15",
+      "end": "2026-11-21",
+      "indicator": "temperature_mean",
+      "temporal": "forecast",
+      "run": "2026-11-14",
+      "counts": {
+        "whole": 0,
+        "covered": 0,
+        "unavailable": 713
+      },
+      "nativeProofTransport": true,
+      "ms": 7885,
+      "bytes": 1346611
+    }
+  ]
+}

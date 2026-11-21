@@ -2,10 +2,11 @@
   "accepted": 1185,
   "partial": 540,
   "shards": 243,
+  "rejected_model_rule_identities": 18,
   "local_reader_ms": {
-    "median": 66.75910999999905,
-    "p95": 175.31420499999513,
-    "max": 238.9170269999995
+    "median": 54.926236999999674,
+    "p95": 190.70690699999977,
+    "max": 415.0826699999998
   },
   "transport": "local retained bytes; no HTTP or browser latency",
   "real_route_replay": false

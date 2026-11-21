@@ -1,0 +1,635 @@
+{
+  "origin": "https://agriclimax.vercel.app",
+  "checks": [
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-20",
+      "variable": "temperature",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 408,
+      "bytes": 1433651
+    },
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-20",
+      "variable": "temperature_min",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 531,
+      "bytes": 1439372
+    },
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-20",
+      "variable": "temperature_max",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 524,
+      "bytes": 1439801
+    },
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-20",
+      "variable": "precipitation",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 407,
+      "bytes": 1469289
+    },
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-20",
+      "variable": "humidity",
+      "counts": {
+        "whole": 573,
+        "covered": 0,
+        "unavailable": 140
+      },
+      "legacy": {
+        "available": 573,
+        "partial": 0,
+        "unavailable": 140
+      },
+      "nativeProofTransport": false,
+      "ms": 370,
+      "bytes": 1465336
+    },
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "temperature",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 208,
+      "bytes": 1395834
+    },
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "temperature_min",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 455,
+      "bytes": 1401754
+    },
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "temperature_max",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 243,
+      "bytes": 1401934
+    },
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "precipitation",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 544,
+      "bytes": 1432052
+    },
+    {
+      "model": "arome",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "humidity",
+      "counts": {
+        "whole": 231,
+        "covered": 0,
+        "unavailable": 482
+      },
+      "legacy": {
+        "available": 231,
+        "partial": 0,
+        "unavailable": 482
+      },
+      "nativeProofTransport": false,
+      "ms": 313,
+      "bytes": 1446546
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-20",
+      "variable": "temperature",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 721,
+      "bytes": 1453946
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-20",
+      "variable": "temperature_min",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 469,
+      "bytes": 1459628
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-20",
+      "variable": "temperature_max",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 315,
+      "bytes": 1460045
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-20",
+      "variable": "precipitation",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 330,
+      "bytes": 1489834
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-20",
+      "variable": "humidity",
+      "counts": {
+        "whole": 611,
+        "covered": 0,
+        "unavailable": 102
+      },
+      "legacy": {
+        "available": 611,
+        "partial": 0,
+        "unavailable": 102
+      },
+      "nativeProofTransport": false,
+      "ms": 381,
+      "bytes": 1480391
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-23",
+      "variable": "temperature",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 231,
+      "bytes": 1416091
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-23",
+      "variable": "temperature_min",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 352,
+      "bytes": 1422231
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-23",
+      "variable": "temperature_max",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 200,
+      "bytes": 1422056
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-23",
+      "variable": "precipitation",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 491,
+      "bytes": 1452423
+    },
+    {
+      "model": "arpege",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-23",
+      "variable": "humidity",
+      "counts": {
+        "whole": 560,
+        "covered": 0,
+        "unavailable": 153
+      },
+      "legacy": {
+        "available": 560,
+        "partial": 0,
+        "unavailable": 153
+      },
+      "nativeProofTransport": false,
+      "ms": 230,
+      "bytes": 1443715
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "temperature",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 591,
+      "bytes": 1376402
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "temperature_min",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 506,
+      "bytes": 1415709
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "temperature_max",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 375,
+      "bytes": 1416020
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "precipitation",
+      "counts": {
+        "whole": 665,
+        "covered": 0,
+        "unavailable": 48
+      },
+      "legacy": {
+        "available": 665,
+        "partial": 0,
+        "unavailable": 48
+      },
+      "nativeProofTransport": false,
+      "ms": 301,
+      "bytes": 1381886
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-21",
+      "variable": "humidity",
+      "counts": {
+        "whole": 479,
+        "covered": 0,
+        "unavailable": 234
+      },
+      "legacy": {
+        "available": 479,
+        "partial": 0,
+        "unavailable": 234
+      },
+      "nativeProofTransport": false,
+      "ms": 302,
+      "bytes": 1415146
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-27",
+      "variable": "temperature",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 538,
+      "bytes": 1377122
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-27",
+      "variable": "temperature_min",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 187,
+      "bytes": 1417004
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-27",
+      "variable": "temperature_max",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 460,
+      "bytes": 1416275
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-27",
+      "variable": "precipitation",
+      "counts": {
+        "whole": 713,
+        "covered": 0,
+        "unavailable": 0
+      },
+      "legacy": {
+        "available": 713,
+        "partial": 0,
+        "unavailable": 0
+      },
+      "nativeProofTransport": false,
+      "ms": 225,
+      "bytes": 1378328
+    },
+    {
+      "model": "ifs",
+      "path": "operational",
+      "requestedRun": "2026-11-20",
+      "run": "2026-11-20T18:00:00+00:00",
+      "date": "2026-11-27",
+      "variable": "humidity",
+      "counts": {
+        "whole": 532,
+        "covered": 0,
+        "unavailable": 181
+      },
+      "legacy": {
+        "available": 532,
+        "partial": 0,
+        "unavailable": 181
+      },
+      "nativeProofTransport": false,
+      "ms": 310,
+      "bytes": 1411370
+    }
+  ]
+}

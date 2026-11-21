@@ -183,8 +183,10 @@ async function main() {
   if (process.env.COUV08_FORECAST === "true") {
     const runs = process.env.COUV08_RUN ? [process.env.COUV08_RUN] : ["2026-11-14", "2026-11-15"];
     for (const run of runs) {
-      const jobs = ["arome", "arpege", "ifs"].map(model => forecast(run, model));
-      if (process.env.COUV08_FORECAST_AGRO === "true") jobs.push(forecastAgro(run));
+      const jobs = [
+        ...["arome", "arpege", "ifs"].map(model => forecast(run, model)),
+        ...(process.env.COUV08_FORECAST_AGRO === "true" ? [forecastAgro(run)] : []),
+      ];
       checks.push(...(await Promise.all(jobs)).flat());
     }
   }

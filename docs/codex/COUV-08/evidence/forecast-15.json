@@ -1,0 +1,134 @@
+{
+  "origin": "http://127.0.0.1:3020",
+  "label": "forecast-15",
+  "checks": [
+    {
+      "width": 1440,
+      "indicator": "arome",
+      "counts": [
+        713,
+        0,
+        0
+      ],
+      "run": "2026-11-15T18:00:00+00:00",
+      "date": "2026-11-16",
+      "apiMs": 15282,
+      "readyMs": 43783,
+      "legend": "≤ 0\n> 0 à 10\n> 10 à 20\n> 20 à 30\n> 30\n\n°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 1440,
+      "indicator": "arpege",
+      "counts": [
+        713,
+        0,
+        0
+      ],
+      "run": "2026-11-15T18:00:00+00:00",
+      "date": "2026-11-16",
+      "apiMs": 9325,
+      "readyMs": 38275,
+      "legend": "≤ 0\n> 0 à 10\n> 10 à 20\n> 20 à 30\n> 30\n\n°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 1440,
+      "indicator": "ifs",
+      "counts": [
+        713,
+        0,
+        0
+      ],
+      "run": "2026-11-15T18:00:00+00:00",
+      "date": "2026-11-16",
+      "apiMs": 4610,
+      "readyMs": 18603,
+      "legend": "≤ 0\n> 0 à 10\n> 10 à 20\n> 20 à 30\n> 30\n\n°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 768,
+      "indicator": "arome",
+      "counts": [
+        713,
+        0,
+        0
+      ],
+      "run": "2026-11-15T18:00:00+00:00",
+      "date": "2026-11-16",
+      "apiMs": 4882,
+      "readyMs": 17302,
+      "legend": "≤ 0\n> 0 à 10\n> 10 à 20\n> 20 à 30\n> 30\n\n°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 768,
+      "indicator": "arpege",
+      "counts": [
+        713,
+        0,
+        0
+      ],
+      "run": "2026-11-15T18:00:00+00:00",
+      "date": "2026-11-16",
+      "apiMs": 4156,
+      "readyMs": 21810,
+      "legend": "≤ 0\n> 0 à 10\n> 10 à 20\n> 20 à 30\n> 30\n\n°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 768,
+      "indicator": "ifs",
+      "counts": [
+        713,
+        0,
+        0
+      ],
+      "run": "2026-11-15T18:00:00+00:00",
+      "date": "2026-11-16",
+      "apiMs": 7482,
+      "readyMs": 27086,
+      "legend": "≤ 0\n> 0 à 10\n> 10 à 20\n> 20 à 30\n> 30\n\n°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 390,
+      "indicator": "arome",
+      "counts": [
+        713,
+        0,
+        0
+      ],
+      "run": "2026-11-15T18:00:00+00:00",
+      "date": "2026-11-16",
+      "apiMs": 7887,
+      "readyMs": 24967,
+      "legend": "≤ 0\n> 0 à 10\n> 10 à 20\n> 20 à 30\n> 30\n\n°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 390,
+      "indicator": "arpege",
+      "counts": [
+        713,
+        0,
+        0
+      ],
+      "run": "2026-11-15T18:00:00+00:00",
+      "date": "2026-11-16",
+      "apiMs": 6999,
+      "readyMs": 22888,
+      "legend": "≤ 0\n> 0 à 10\n> 10 à 20\n> 20 à 30\n> 30\n\n°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 390,
+      "indicator": "ifs",
+      "counts": [
+        713,
+        0,
+        0
+      ],
+      "run": "2026-11-15T18:00:00+00:00",
+      "date": "2026-11-16",
+      "apiMs": 5357,
+      "readyMs": 22041,
+      "legend": "≤ 0\n> 0 à 10\n> 10 à 20\n> 20 à 30\n> 30\n\n°C · Température absolue, sans comparaison implicite à la normale · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    }
+  ],
+  "archives": [],
+  "errors": []
+}

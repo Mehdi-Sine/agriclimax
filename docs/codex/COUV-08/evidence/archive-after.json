@@ -1,7 +1,26 @@
 {
-  "origin": "http://127.0.0.1:3018",
-  "label": "archive-after",
-  "checks": [],
+  "origin": "http://127.0.0.1:3021",
+  "label": "archive-responsive-after",
+  "checks": [
+    {
+      "width": 1440,
+      "flow": "carrousel → carte publiée",
+      "cards": 6,
+      "contours": 713
+    },
+    {
+      "width": 768,
+      "flow": "carrousel → carte publiée",
+      "cards": 6,
+      "contours": 713
+    },
+    {
+      "width": 390,
+      "flow": "carrousel → carte publiée",
+      "cards": 6,
+      "contours": 713
+    }
+  ],
   "archives": [
     {
       "map": "9cee5770bcea20089a2d09b07a34a0387effdc2e3c7dffa8cc1ec9f8c50d0717",

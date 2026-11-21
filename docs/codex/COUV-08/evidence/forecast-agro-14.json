@@ -1,0 +1,116 @@
+{
+  "origin": "http://127.0.0.1:3019",
+  "label": "forecast-agro-14",
+  "checks": [
+    {
+      "width": 1440,
+      "indicator": "rain",
+      "counts": [
+        0,
+        0,
+        713
+      ],
+      "run": "2026-11-14T18:00:00+00:00",
+      "period": {
+        "start": "2026-11-15",
+        "end": "2026-11-21",
+        "timezone": "UTC"
+      },
+      "apiMs": 8126,
+      "readyMs": 23288,
+      "legend": "≤ 5\n> 5 à 20\n> 20 à 40\n> 40 à 70\n> 70\n\nmm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 1440,
+      "indicator": "thi",
+      "counts": [
+        426,
+        0,
+        287
+      ],
+      "run": "2026-11-14T18:00:00+00:00",
+      "period": {
+        "start": "2026-11-15",
+        "end": "2026-11-15",
+        "timezone": "UTC"
+      },
+      "apiMs": 9175,
+      "readyMs": 20650,
+      "legend": "≤ 72\n> 72 à 75\n> 75 à 80\n> 80 à 85\n> 85\n\nTHI · THI synthétique ; seuil descriptif strict > 72, variante Bohmanova 2005 · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 768,
+      "indicator": "rain",
+      "counts": [
+        0,
+        0,
+        713
+      ],
+      "run": "2026-11-14T18:00:00+00:00",
+      "period": {
+        "start": "2026-11-15",
+        "end": "2026-11-21",
+        "timezone": "UTC"
+      },
+      "apiMs": 1816,
+      "readyMs": 34358,
+      "legend": "≤ 5\n> 5 à 20\n> 20 à 40\n> 40 à 70\n> 70\n\nmm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 768,
+      "indicator": "thi",
+      "counts": [
+        426,
+        0,
+        287
+      ],
+      "run": "2026-11-14T18:00:00+00:00",
+      "period": {
+        "start": "2026-11-15",
+        "end": "2026-11-15",
+        "timezone": "UTC"
+      },
+      "apiMs": 2453,
+      "readyMs": 30174,
+      "legend": "≤ 72\n> 72 à 75\n> 75 à 80\n> 80 à 85\n> 85\n\nTHI · THI synthétique ; seuil descriptif strict > 72, variante Bohmanova 2005 · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 390,
+      "indicator": "rain",
+      "counts": [
+        0,
+        0,
+        713
+      ],
+      "run": "2026-11-14T18:00:00+00:00",
+      "period": {
+        "start": "2026-11-15",
+        "end": "2026-11-21",
+        "timezone": "UTC"
+      },
+      "apiMs": 16610,
+      "readyMs": 35616,
+      "legend": "≤ 5\n> 5 à 20\n> 20 à 40\n> 40 à 70\n> 70\n\nmm · Précipitations faibles claires, cumuls élevés bleu soutenu · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    },
+    {
+      "width": 390,
+      "indicator": "thi",
+      "counts": [
+        426,
+        0,
+        287
+      ],
+      "run": "2026-11-14T18:00:00+00:00",
+      "period": {
+        "start": "2026-11-15",
+        "end": "2026-11-15",
+        "timezone": "UTC"
+      },
+      "apiMs": 10507,
+      "readyMs": 25668,
+      "legend": "≤ 72\n> 72 à 75\n> 75 à 80\n> 80 à 85\n> 85\n\nTHI · THI synthétique ; seuil descriptif strict > 72, variante Bohmanova 2005 · classes fixes semantic-1.0.0\n\nGris : NULL distinct de zéro. Sous 90 % : seule la surface qualifiée est colorée, le complément reste gris.\n\nComprendre cette carte"
+    }
+  ],
+  "archives": [],
+  "errors": []
+}
