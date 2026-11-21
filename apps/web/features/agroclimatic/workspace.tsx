@@ -51,6 +51,7 @@ export function useAgroclimatic(
       : null,
   );
   const archivedRun = search.get("weather_run") ?? "";
+  const resolvedRun = archivedRun || (catalogue.data?.available_runs && catalogue.data.run) || "";
   const model = search.get("agro_model") ?? "selected";
   const root = catalogue.data?.run?.slice(0, 10) ?? "";
   const forecastStart = root ? trailingStart(root, 0) : "";
@@ -82,7 +83,7 @@ export function useAgroclimatic(
     end,
     ...(pra ? { pra } : {}),
     ...(threshold !== null ? { threshold: String(threshold) } : {}),
-    ...(search.get("weather_run") ? { run: search.get("weather_run")! } : {}),
+    ...(resolvedRun && mode !== "history" ? { run: resolvedRun } : {}),
   });
   const resource = useResource<AgroPayload>(
     active && calendarDays(start, end).length

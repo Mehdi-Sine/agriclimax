@@ -73,11 +73,18 @@ def replay(archive: Path, output: Path) -> dict[str, Any]:
     if len(cycles) != 1:
         raise ValueError("One explicit checkpoint cycle required")
     cycle = cycles[0]
-    target = output / "replayed"
-    target.mkdir(exist_ok=True)
+    comparisons = replay_cycle(cycle, output / "replayed")
+    receipt.update(cycle=cycle.name, comparisons=comparisons, source_requests=0, source_bytes=0,
+                   seconds=time.monotonic()-started, max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+                   child_max_rss_kib=resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss)
+    atomic_write(output / "replay.json", json.dumps(receipt, indent=2).encode())
+    return receipt
+
+
+def replay_cycle(cycle: Path, target: Path) -> list[dict[str, Any]]:
+    target.mkdir(parents=True, exist_ok=True)
     shutil.copy2(cycle / "cycle.compact.json.gz", target / "cycle.compact.json.gz")
     territories, reference_sha = reference()
-    os.environ["COUV05_CAPTURE_NATIVE_MASKS"] = "true"  # Local process only; no render flag.
     budget = Budget(requests_limit=0, bytes_limit=0)
     comparisons = []
     for model in ("arome", "arpege"):
@@ -105,7 +112,7 @@ def replay(archive: Path, output: Path) -> dict[str, Any]:
                     return datetime.combine(cls.as_of_day, datetime.min.time(), UTC).astimezone(tz)
             # Preserve the original forecast/recent-estimate context after UTC rollover.
             # Field issue/validity and acquisition timestamps are still decoded from source evidence.
-            with patch.object(reductions, "datetime", ReplayDatetime):
+            with patch.object(reductions, "datetime", ReplayDatetime), patch.dict(os.environ, {"COUV05_CAPTURE_NATIVE_MASKS": "true"}):
                 rows, _ = model_day(provider, run, day, territories, weights, target, reference_sha)
             if rows != saved["rows"]:
                 raise ValueError(f"Scientific replay differs from original reduced checkpoint: {model}/{day}")
@@ -120,7 +127,8 @@ def replay(archive: Path, output: Path) -> dict[str, Any]:
     manifest = json.loads((ifs_target / "native-manifest.json").read_text())
     subprocess.run([sys.executable, "scripts/operational_weather_pilot.py", "--scope", "national",
                     "--run-date", manifest["run_date"], "--root", str(ifs_target),
-                    "--offline-native", "--execute"], check=True)
+                    "--offline-native", "--execute"], check=True,
+                   env={**os.environ, "COUV05_CAPTURE_NATIVE_MASKS": "true"})
     a = json.loads((cycle / "ifs/cycle.json").read_text())
     b = json.loads((ifs_target / "cycle.json").read_text())
     if a["rows"] != b["rows"]:
@@ -128,11 +136,8 @@ def replay(archive: Path, output: Path) -> dict[str, Any]:
     if b["metrics"]["network_requests"] != 0:
         raise ValueError("IFS offline replay attempted acquisition")
     comparisons.append({"model": "ifs", "rows": len(b["rows"]), "identical": True})
-    receipt.update(cycle=cycle.name, comparisons=comparisons, source_requests=0, source_bytes=0,
-                   seconds=time.monotonic()-started, max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
-                   child_max_rss_kib=resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss)
-    atomic_write(output / "replay.json", json.dumps(receipt, indent=2).encode())
-    return receipt
+    return comparisons
+
 
 
 if __name__ == "__main__":

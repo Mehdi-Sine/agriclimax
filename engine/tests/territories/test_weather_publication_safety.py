@@ -38,3 +38,76 @@ def test_current_manifest_failure_retains_original_verified_pointer():
         assert requests.call_args_list[0].args[0].endswith("current.json")
         assert catalogue == prior
         assert store.writes == 0
+
+
+def test_native_binding_is_committed_only_after_all_immutable_objects(monkeypatch):
+    import json
+
+    from forecast_native_publication import binding_path, publish, stored_path
+
+    archive = "a" * 64
+    blob = "forecast-masks/blobs/" + "b" * 64 + ".json.gz"
+    index = "forecast-masks/indexes/" + "c" * 64 + ".json.gz"
+    candidate = {"archive_sha256": archive, "index": index, "bytes": 8,
+                 "objects": {blob: b"blob", index: b"data"}}
+    files: dict[str, bytes] = {}
+    writes: list[str] = []
+    fail = True
+
+    class FakeStore:
+        def __init__(self, read_only=False):
+            self.writes = 0
+
+        def request(self, path):
+            if path.startswith("bucket/"):
+                return b'{"id":"pra-climate-archives","public":false,"file_size_limit":8388608}'
+            return files.get(path.removeprefix("object/pra-climate-archives/"), b"")
+
+        def catalogue(self):
+            return {"weather": [{"sha256": archive, "path": "weather/archive",
+                                 "run_at": "2026-11-20T18:00:00+00:00", "run_date": "2026-11-20",
+                                 "method_version": "pra-national-weather-daily-1"}]}
+
+        def blob(self, path, checksum):
+            return b"verified"
+
+        def inventory(self):
+            return {path: len(raw) for path, raw in files.items()}
+
+        def put_immutable(self, path, raw):
+            if path == stored_path(index, archive, "cycle") and fail:
+                raise ValueError("interrupted index upload")
+            if path not in files:
+                writes.append(path)
+                files[path] = raw
+                self.writes += 1
+            assert files[path] == raw
+
+    monkeypatch.setattr("forecast_native_publication.ArchiveStore", FakeStore)
+    with pytest.raises(ValueError, match="interrupted index upload"):
+        publish(candidate)
+    assert writes == [stored_path(blob, archive, "cycle")]
+    assert binding_path(archive) not in files
+    fail = False
+    result = publish(candidate, protect_current=True)
+    assert result["archive_sha256"] == archive
+    assert writes == [stored_path(blob, archive, "cycle"), stored_path(index, archive, "cycle"), binding_path(archive)]
+    assert json.loads(files[binding_path(archive)])["index_sha256"] == "c" * 64
+    assert publish(candidate)["storage_writes"] == 0
+
+
+def test_native_storage_etag_verifies_bytes_without_fetching_blob():
+    with patch.dict("os.environ", {
+        "NEXT_PUBLIC_SUPABASE_URL": "https://yyfbpecxvxglzxopsmel.supabase.co",
+        "SUPABASE_SECRET_KEY": "test",
+    }):
+        store = ArchiveStore()
+    clean = b'{"size":"4","etag":"\\"098f6bcd4621d373cade4e832627b4f6\\""}'
+    endpoint = "object/pra-climate-archives/forecast-native/v1/test.json"
+    with patch.object(store, "request", side_effect=[b"", b"", clean]) as request:
+        assert store.put_immutable_verified_metadata("forecast-native/v1/test.json", b"test")
+        assert [call.args[:2] for call in request.call_args_list] == [
+            (endpoint, "HEAD"), (endpoint, "POST"), (endpoint, "HEAD"),
+        ]
+    with patch.object(store, "request", return_value=clean), pytest.raises(ValueError, match="ETag mismatch"):
+        store.put_immutable_verified_metadata("forecast-native/v1/test.json", b"fail")

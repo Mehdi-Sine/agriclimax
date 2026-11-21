@@ -32,7 +32,8 @@ export function useOperationalWeather(active:boolean,requestedMode:TemporalMode,
   const dates=modeDates(catalogue,temporalMode);
   const date=modeDate(new URLSearchParams(search.toString()),dates,temporalMode);
   const hasHorizon=active&&dates.includes(date);
-  const base={experimental:'weather',model,...runQuery};
+  const resolvedRun = archivedRun || (catalogue?.available_runs && catalogue.run) || '';
+  const base={experimental:'weather',model,...(resolvedRun ? {run:resolvedRun} : {})};
   const viewResource=useResource<WeatherCycle>(hasHorizon?`/api/operational?${new URLSearchParams({...base,date,variable})}`:null),view=viewResource.data;
   const historyResource=useResource<WeatherCycle>(hasHorizon&&view?`/api/operational?${new URLSearchParams({...base,pra:selected})}`:null),history=historyResource.data;
   const error=catalogueResource.error??viewResource.error??historyResource.error;

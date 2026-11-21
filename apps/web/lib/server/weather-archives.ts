@@ -160,8 +160,13 @@ function evictMask(path: string) {
 }
 
 /** Read-only content-addressed objects. Misses and failed reads are retryable. */
+export async function forecastBindingObject(archiveSha: string): Promise<Uint8Array | null> {
+  if (!/^[a-f0-9]{64}$/.test(archiveSha)) throw Error('FORECAST_MASK_ARCHIVE_BINDING');
+  return storage(`forecast-native/v1/${archiveSha}/binding.json`, 4096);
+}
+
 export async function forecastMaskObject(path: string, limit: number): Promise<Uint8Array | null> {
-  const identity = /^forecast-masks\/(blobs|indexes|geometries)\/([a-f0-9]{64})\.json\.gz$/.exec(path);
+  const identity = /^(?:forecast-native\/v1\/[a-f0-9]{64}\/)?forecast-masks\/(blobs|indexes|geometries)\/([a-f0-9]{64})\.json\.gz$/.exec(path);
   if (!identity) throw Error('FORECAST_MASK_PATH');
   let entry = maskCache.get(path);
   if (entry) {
