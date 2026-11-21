@@ -11,7 +11,7 @@ import type {PraCollection} from '../../features/national/map';
 import {calendarDays} from '../../features/national/daily-availability';
 import {FORECAST_MASK_VERSION} from '../../features/cartography/forecast-support';
 import {record} from './weather-archive-codec';
-import {FORECAST_REFERENCE_SHA256, forecastIndexPin} from './forecast-index';
+import {FORECAST_REFERENCE_SHA256, forecastIndexLocation} from './forecast-index';
 import {forecastMaskObject} from './weather-archives';
 
 export const canonical = (value:unknown):string => JSON.stringify(value, (_key,v:unknown) =>
@@ -60,9 +60,10 @@ export async function forecastQualified(rows:WeatherRow[],archive:string,rule:Ru
   if(process.env.COUV05_RENDER_ENABLED!=='true')return {results,collection};
   try{
     const budget={packed:0,decoded:0};
-    const pin=forecastIndexPin(archive);
-    if(!pin)return {results,collection};
-    const index=await unpack(`forecast-masks/indexes/${pin}.json.gz`,pin,budget);
+    const location=await forecastIndexLocation(archive);
+    if(!location)return {results,collection};
+    const {pin,prefix}=location;
+    const index=await unpack(`${prefix}forecast-masks/indexes/${pin}.json.gz`,pin,budget);
     if(!record(index)||index.version!==FORECAST_MASK_VERSION||index.archive_sha256!==archive||!Array.isArray(index.qualified_entries)||index.qualified_entries.length>512)return {results,collection};
     const sourceRule = certifiedAdapter ? retainedForecastRule(rule) ?? rule : rule;
     const ruleIdentity = canonical(sourceRule);
@@ -81,7 +82,7 @@ export async function forecastQualified(rows:WeatherRow[],archive:string,rule:Ru
     }
     for(const entry of entries){
     if(!record(entry)||typeof entry.sha256!=='string'||entry.path!==`forecast-masks/blobs/${entry.sha256}.json.gz`||typeof entry.bytes!=='number')throw Error('QUALIFIED_ENTRY');
-    const document=await unpack(String(entry.path),entry.sha256,budget,entry.bytes);
+    const document=await unpack(prefix+String(entry.path),entry.sha256,budget,entry.bytes);
     if(!record(document)||document.version!=='couv05e-qualified-1'||!Array.isArray(document.rows)||document.rows.length>1185)throw Error('QUALIFIED_SCHEMA');
     const seen=new Set<string>();
     for(const unknown of document.rows){

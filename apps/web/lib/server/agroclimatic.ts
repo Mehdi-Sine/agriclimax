@@ -1,5 +1,6 @@
 import {isExplicitWeatherModel, WEATHER_MODEL_SOURCES} from "../../features/operational/model";
 import {forecastRecipeMasks} from './forecast-composites';
+import {forecastIndexLocation} from './forecast-index';
 import type {PraCollection} from '../../features/national/map';
 import {calculateQualified, coverageRule, UNIFIED_AGRO_VERSION, type QualifiedDay} from "../../features/climate-quality/calculate";
 import {forecastSupport, applyObservedSupport} from "./climate-quality";
@@ -177,6 +178,7 @@ export async function agroclimaticData(params: URLSearchParams) {
   const historyByDate = new Map(dates.map(date => [date, historical?.rows.filter(row => row.valid_date === date) ?? []]));
   // Weather archives already verify checksums. Cache keys include the complete immutable input identity.
   const version = document?.archive_sha256 ?? historical?.version ?? NATIONAL.dataset;
+  const index = document ? await forecastIndexLocation(document.archive_sha256).catch(() => undefined) : undefined;
   const key = JSON.stringify([
     rule.version,
     rule.id,
@@ -189,6 +191,7 @@ export async function agroclimaticData(params: URLSearchParams) {
     process.env.COUV05_RENDER_ENABLED,
     process.env.COUV05_INDEX_SHA256,
     process.env.COUV05_ARCHIVE_INDEX_PINS,
+    index?.pin,
   ]);
   const hit = cache.get(key);
   if (hit && hit.expires > Date.now()) return project(await hit.value);
