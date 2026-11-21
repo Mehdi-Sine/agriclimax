@@ -3,6 +3,7 @@ import {readFileSync} from 'node:fs';
 import {afterEach, expect, it, vi} from 'vitest';
 
 vi.mock('server-only', () => ({}));
+vi.mock('./weather-archives', () => ({forecastBindingObject: vi.fn()}));
 import {FORECAST_REFERENCE_SHA256, forecastIndexPin} from './forecast-index';
 
 const first = 'a'.repeat(64);
@@ -36,4 +37,25 @@ it('rejects a malformed or ambiguous binding table', () => {
 it('binds to the exact official PRA snapshot bytes', () => {
   const bytes = readFileSync('../../config/coverage/ofb-masa-pra-2017-snapshot-20261017/reference.json');
   expect(createHash('sha256').update(bytes).digest('hex')).toBe(FORECAST_REFERENCE_SHA256);
+});
+
+it('discovers a committed binding only for its exact archive and rolls back with the render flag', async () => {
+  const {forecastIndexLocation} = await import('./forecast-index');
+  const {forecastBindingObject} = await import('./weather-archives');
+  const storage = vi.mocked(forecastBindingObject);
+  const archive = '1'.repeat(64);
+  const unrelated = '2'.repeat(64);
+  vi.stubEnv('COUV05_RENDER_ENABLED', 'true');
+  vi.stubEnv('COUV05_DAILY_INDEX_ENABLED', 'true');
+  vi.stubEnv('COUV05_ARCHIVE_INDEX_PINS', undefined);
+  storage.mockResolvedValue(Buffer.from(JSON.stringify({
+    version: 'forecast-native-binding-1',
+    archive_sha256: archive,
+    index_sha256: firstPin,
+    layout: 'cycle',
+  })));
+  expect(await forecastIndexLocation(archive)).toEqual({pin: firstPin, prefix: `forecast-native/v1/${archive}/`});
+  await expect(forecastIndexLocation(unrelated)).rejects.toThrow('FORECAST_MASK_ARCHIVE_BINDING');
+  vi.stubEnv('COUV05_RENDER_ENABLED', 'false');
+  expect(await forecastIndexLocation(archive)).toBeUndefined();
 });

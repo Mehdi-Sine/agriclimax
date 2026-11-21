@@ -11,7 +11,7 @@ import hashlib
 import io
 import json
 from collections import Counter
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -22,6 +22,7 @@ from agriclimax.territories.national_daily import REFERENCE
 from agriclimax.territories.national_weather import GRID_VERSIONS
 from agriclimax.territories.operational import GRID, weight_fingerprint
 from agriclimax.territories.spatial import Weight, load_reference
+from agriclimax.territories.weather_archive import decode as decode_archive
 
 DAYS = {"arome": [-1, 0, 1], "arpege": [0, 1, 2, 3], "ifs": list(range(1, 8))}
 VARIABLES = ["temperature", "temperature_min", "temperature_max", "precipitation", "humidity"]
@@ -63,15 +64,28 @@ def capture_path(root: Path, model: str, valid: date) -> Path | None:
     return paths[0]
 
 
-def run(root: Path, output: Path, run_date: date, geometry: bool, archive_sha256: str | None = None) -> dict[str, Any]:
+def run(root: Path, output: Path, run_date: date, geometry: bool, archive_sha256: str | None = None, *, require_complete: bool = False, expected_run: datetime | None = None) -> dict[str, Any]:
+    archive_rows: dict[tuple[str, str, str], list[dict[str, Any]]] = {}
+    if require_complete and (not geometry or not archive_sha256):
+        raise ValueError("Complete index requires geometry and an immutable archive")
     if archive_sha256:
         original_archive = root / "cycle.compact.json.gz"
         if not original_archive.is_file() or hashlib.sha256(original_archive.read_bytes()).hexdigest() != archive_sha256:
             raise ValueError("Exact original numeric archive required for spatial index binding")
+        if require_complete:
+            archive = decode_archive(original_archive.read_bytes(), archive_sha256)
+            if (archive["run"][:10] != str(run_date) or archive["scope"] != "national"
+                    or expected_run is not None and datetime.fromisoformat(archive["run"]) != expected_run):
+                raise ValueError("Wrong national cycle for native index")
+            for row in archive["rows"]:
+                key = (row["source_id"], row["valid_date"], row["variable"])
+                archive_rows.setdefault(key, []).append(row)
+
     reference = Path("config/coverage") / REFERENCE / "reference.json"
     raw = reference.read_bytes()
     territories, _ = load_reference(json.loads(raw), version=REFERENCE)
     reference_sha = hashlib.sha256(raw).hexdigest()
+    territory_ids = {t.id for t in territories}
     geometry_cache: dict[tuple[Any, ...], tuple[Any, float]] = {}
     shard_cache: dict[str, dict[str, Any]] = {}
     resumed = {}
@@ -106,7 +120,11 @@ def run(root: Path, output: Path, run_date: date, geometry: bool, archive_sha256
                 proofs = {p.variable: p for p in read_capture(path.read_bytes())}
                 if any(p.reference_sha256 != reference_sha or p.weights_sha256 != weights_sha or p.model != model or p.grid_version != (GRID if model == "ifs" else GRID_VERSIONS[model]) or p.date != str(day) or p.expected_cells != expected for p in proofs.values()):
                     raise ValueError(f"Captured geometry identity mismatch: {model}/{day}")
+                if require_complete and set(proofs) != set(VARIABLES):
+                    raise ValueError(f"Incomplete native variables: {model}/{day}")
                 originals = aggregate_rows(root, model, day)
+            elif require_complete:
+                raise ValueError(f"Missing native proof: {model}/{day}")
             else:
                 proofs = {v: NativeProof(model, "not-captured", str(day), v, "unverified",
                                          reference_sha, weights_sha, None, expected)
@@ -114,6 +132,14 @@ def run(root: Path, output: Path, run_date: date, geometry: bool, archive_sha256
                 originals = None
             for variable in VARIABLES:
                 p = proofs[variable]
+                if require_complete:
+                    source = "ecmwf-open-data" if model == "ifs" else f"meteofrance-{model}"
+                    matching = archive_rows.pop((source, str(day), variable), [])
+                    if (len(matching) != 713 or {r["pra_id"] for r in matching} != territory_ids
+                            or any(datetime.fromisoformat(r["model_run_at"]) != datetime.fromisoformat(p.run)
+                                   or r["provenance_sha256"] != p.source_sha256
+                                   or r != originals[r["pra_id"], variable] for r in matching)):
+                        raise ValueError(f"Native proof does not match the archive: {model}/{day}/{variable}")
                 key = (model, p.run, p.date, variable, p.reference_sha256, p.weights_sha256)
                 cached = resumed.get(key) if geometry else None
                 if cached:
@@ -155,6 +181,8 @@ def run(root: Path, output: Path, run_date: date, geometry: bool, archive_sha256
     writer.writerows(rows)
     packed = gzip.compress(buffer.getvalue().encode(), mtime=0)
     atomic_write(path, packed)
+    if require_complete and archive_rows:
+        raise ValueError("Native index does not cover the full archive")
     if geometry and archive_sha256:
         stats["spatial_index"] = save_index(output, entries, archive_sha256=archive_sha256)
     stats["matrix_rows"] = len(rows)

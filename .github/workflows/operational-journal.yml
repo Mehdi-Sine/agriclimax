@@ -76,7 +76,10 @@ jobs:
       matrix:
         source: ${{ fromJSON(needs.plan.outputs.sources || '[]') }}
     runs-on: ubuntu-latest
-    timeout-minutes: 26
+    timeout-minutes: 42
+    concurrency:
+      group: t36-acquire-${{ matrix.source }}
+      cancel-in-progress: false
     env:
       AGRICLIMAX_RECOVERY: ${{ inputs.recovery && 'true' || 'false' }}
       AGRICLIMAX_EDITION_DATE: ${{ needs.plan.outputs.edition_date }}
@@ -117,6 +120,7 @@ jobs:
           METEOFRANCE_ARPEGE_API_KEY: ${{ secrets.METEOFRANCE_ARPEGE_API_KEY }}
           CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
           OPENBLAS_NUM_THREADS: '1'
+          COUV05_CAPTURE_NATIVE_MASKS: ${{ matrix.source == 'forecast' && 'true' || 'false' }}
           SOURCE: ${{ matrix.source }}
         run: python scripts/task36_nightly.py --source "$SOURCE"
       - name: Export bounded climate recovery files
@@ -131,6 +135,26 @@ jobs:
           name: t36-${{ matrix.source }}-checkpoints
           path: ${{ matrix.source == 'forecast' && 'work/national-weather-export/' || 'work/era5-archive-export/' }}
           retention-days: 3
+      - name: Publish exact native forecasts and check freshness
+        if: always() && !cancelled() && matrix.source == 'forecast'
+        timeout-minutes: 14
+        env:
+          PYTHONPATH: engine/src:scripts
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          mkdir -p work/task36/logs
+          set +e
+          set -o pipefail
+          python scripts/forecast_native_publication.py --publish --retain-within-budget 2>&1 | tee work/task36/logs/forecast-native.log
+          publication=$?
+          python scripts/forecast_native_publication.py --health 2>&1 | tee work/task36/logs/forecast-native-health.log
+          health=$?
+          if (( publication || health )); then
+            echo "::error title=Prévisions natives::Indexation ou fraîcheur en échec. Voir les journaux forecast-native."
+            exit 1
+          fi
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:

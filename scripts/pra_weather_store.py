@@ -64,20 +64,21 @@ class ArchiveStore:
         body: bytes | None = None,
         upsert: bool = False,
     ) -> bytes:
+        write = method != "GET" and not (method == "POST" and path == f"object/list/{BUCKET}")
         lease = os.environ.get("AGRICLIMAX_ACQUISITION_LEASE_TOKEN")
-        if method != "GET" and lease:
+        if write and lease:
             from task36_nightly import rpc
             if rpc("lease_valid", {"edition_date": os.environ["AGRICLIMAX_ACQUISITION_DATE"],
                                   "source": os.environ["AGRICLIMAX_ACQUISITION_SOURCE"], "token": lease}) is not True:
                 raise RuntimeError("ACQUISITION_LEASE_LOST")
-        if self.read_only and method != "GET":
+        if self.read_only and write:
             raise RuntimeError("Read-only archive transport forbids remote mutations")
         if not re.fullmatch(r"[a-zA-Z0-9_./-]+", path) or ".." in path:
             raise ValueError("Invalid archive path")
         headers = {
             "apikey": os.environ["SUPABASE_SECRET_KEY"],
             "Content-Type": "application/json"
-            if path.startswith("bucket") or path.endswith(".json")
+            if method == "DELETE" or path.startswith(("bucket", "object/list/")) or path.endswith(".json")
             else "application/gzip",
         }
         if upsert:
@@ -93,7 +94,7 @@ class ArchiveStore:
                 raw = response.read(MAX_OBJECT + 1)
             if len(raw) > MAX_OBJECT:
                 raise ValueError("Storage response budget exceeded")
-            if method != "GET":
+            if write:
                 self.writes += 1
             return bytes(raw)
         except HTTPError as error:
@@ -130,6 +131,50 @@ class ArchiveStore:
                 }
             ).encode(),
         )
+
+    def inventory(self) -> dict[str, int]:
+        """Bounded physical inventory, including uploads left by interrupted runs."""
+        pending = [""]
+        objects: dict[str, int] = {}
+        requests = 0
+        while pending:
+            prefix = pending.pop()
+            for offset in range(0, 10000, 100):
+                requests += 1
+                if requests > 512:
+                    raise ValueError("Private Storage inventory request budget exceeded")
+                body = json.dumps({"prefix": prefix, "limit": 100, "offset": offset,
+                                   "sortBy": {"column": "name", "order": "asc"}}).encode()
+                entries = json.loads(self.request(f"object/list/{BUCKET}", "POST", body))
+                if not isinstance(entries, list) or len(entries) > 100:
+                    raise ValueError("Invalid Storage inventory result")
+                for entry in entries:
+                    name = entry["name"]
+                    if not re.fullmatch(r"[a-zA-Z0-9_.-]+", name) or ".." in name:
+                        raise ValueError("Unexpected Storage inventory object name")
+                    path = f"{prefix}/{name}" if prefix else name
+                    if entry["id"] is None:
+                        pending.append(path)
+                    else:
+                        size = entry["metadata"]["size"]
+                        if not isinstance(size, int) or size < 0 or path in objects:
+                            raise ValueError("Invalid Storage inventory object")
+                        objects[path] = size
+                if len(entries) < 100:
+                    break
+            else:
+                raise ValueError("Private Storage prefix inventory budget exceeded")
+        return objects
+
+    def remove_native_cycle_objects(self, archive: str, paths: list[str]) -> None:
+        prefix = f"forecast-native/v1/{archive}/"
+        if not re.fullmatch("[a-f0-9]{64}", archive) or not 0 < len(paths) <= 100 or any(
+            not path.startswith(prefix) or not re.fullmatch(
+                r"binding\.json|forecast-masks/(blobs|indexes|geometries)/[a-f0-9]{64}\.json\.gz",
+                path[len(prefix):]) for path in paths
+        ):
+            raise ValueError("Refusing to remove objects outside an expired native cycle")
+        self.request(f"object/{BUCKET}", "DELETE", json.dumps({"prefixes": paths}).encode())
 
     def catalogue(self) -> dict[str, Any]:
         raw = self.request(f"object/{BUCKET}/catalogue.json")

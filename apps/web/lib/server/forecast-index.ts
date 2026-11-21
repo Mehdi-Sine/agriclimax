@@ -25,3 +25,44 @@ export function forecastIndexPin(archiveSha: string): string | undefined {
   }
   return pins.get(archiveSha);
 }
+
+export type ForecastIndexLocation = { pin: string; prefix: string };
+
+const bindingCache = new Map<string, { value: Promise<ForecastIndexLocation | undefined>; expires: number }>();
+
+/** Resolve only the exact archive, after the producer commits its verified index. */
+export function forecastIndexLocation(archiveSha: string): Promise<ForecastIndexLocation | undefined> {
+  if (process.env.COUV05_RENDER_ENABLED !== 'true' || !digest.test(archiveSha)) return Promise.resolve(undefined);
+  const explicit = process.env.COUV05_ARCHIVE_INDEX_PINS !== undefined ? forecastIndexPin(archiveSha) : undefined;
+  if (explicit) return Promise.resolve({ pin: explicit, prefix: '' });
+  if (process.env.COUV05_DAILY_INDEX_ENABLED !== 'true') {
+    const legacy = forecastIndexPin(archiveSha);
+    return Promise.resolve(legacy ? { pin: legacy, prefix: '' } : undefined);
+  }
+  const existing = bindingCache.get(archiveSha);
+  if (existing && existing.expires > Date.now()) return existing.value;
+
+  const value = (async () => {
+    const { forecastBindingObject } = await import('./weather-archives');
+    const { record } = await import('./weather-archive-codec');
+    const raw = await forecastBindingObject(archiveSha);
+    if (!raw) return undefined;
+    const binding: unknown = JSON.parse(Buffer.from(raw).toString());
+    if (!record(binding) || binding.version !== 'forecast-native-binding-1' ||
+        binding.archive_sha256 !== archiveSha || typeof binding.index_sha256 !== 'string' ||
+        !digest.test(binding.index_sha256) || !['cycle', 'shared'].includes(String(binding.layout))) {
+      throw Error('FORECAST_MASK_ARCHIVE_BINDING');
+    }
+    return { pin: binding.index_sha256, prefix: binding.layout === 'cycle' ? `forecast-native/v1/${archiveSha}/` : '' };
+  })();
+  bindingCache.delete(archiveSha);
+  if (bindingCache.size >= 32) bindingCache.delete(bindingCache.keys().next().value!);
+  const pending = { value, expires: Date.now() + 60_000 };
+  bindingCache.set(archiveSha, pending);
+  void value.then(location => {
+    if (!location) pending.expires = Date.now() + 15_000;
+  }, () => {
+    if (bindingCache.get(archiveSha) === pending) bindingCache.delete(archiveSha);
+  });
+  return value;
+}

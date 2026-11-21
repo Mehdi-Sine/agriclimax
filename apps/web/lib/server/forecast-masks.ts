@@ -7,7 +7,7 @@ import type { WeatherRow } from '../../features/operational/model';
 import type { PraCollection } from '../../features/national/map';
 import { record } from './weather-archive-codec';
 import { coveragePaint } from '../../features/cartography/coverage';
-import { FORECAST_REFERENCE_SHA256, forecastIndexPin } from './forecast-index';
+import { FORECAST_REFERENCE_SHA256, forecastIndexLocation } from './forecast-index';
 import { forecastMaskObject } from './weather-archives';
 const hash = (raw: Uint8Array) => createHash('sha256').update(raw).digest('hex');
 const empty = (): PraCollection => ({type:'FeatureCollection', features:[]});
@@ -33,13 +33,16 @@ export async function forecastMasks(rows:WeatherRow[], archiveSha:string, option
   const membershipRejections:Record<string,string>={};
   const budget={packed:0,decoded:0},shards=new Map<string,unknown>();
   let collection=empty(),referenceSha='';
+  const certifiedWhole = new Set<string>();
   try {
-    const pin=forecastIndexPin(archiveSha);
-    if(!pin)throw Error('FORECAST_MASK_INDEX_PIN');
-    const index=unpack(await forecastMaskObject(`forecast-masks/indexes/${pin}.json.gz`,1024**2),pin,budget);
+    const location=await forecastIndexLocation(archiveSha);
+    if(!location)throw Error('FORECAST_MASK_INDEX_PIN');
+    const {pin,prefix}=location;
+    const index=unpack(await forecastMaskObject(`${prefix}forecast-masks/indexes/${pin}.json.gz`,1024**2),pin,budget);
     if(!record(index)||index.version!==FORECAST_MASK_VERSION||index.archive_sha256!==archiveSha||!Array.isArray(index.entries)||index.entries.length>200)throw Error('FORECAST_MASK_ARCHIVE_BINDING');
     referenceSha=FORECAST_REFERENCE_SHA256;
     const modelNames: Record<string, string> = {'arome-0p025':'arome','arpege-0p1':'arpege','ifs-oper-0p25':'ifs'};
+    const rowByKey = new Map(rows.map(row => [`${row.pra_id}/${row.variable}/${row.valid_date}`, row]));
     const keys = new Set(rows.map(row => JSON.stringify([
       modelNames[row.model], row.valid_date, row.variable, Date.parse(row.model_run_at ?? ''),
     ])));
@@ -51,7 +54,7 @@ export async function forecastMasks(rows:WeatherRow[], archiveSha:string, option
     let firstManifest=true;
     for(const entry of wanted){
       if(!record(entry)||typeof entry.sha256!=='string'||!/^[a-f0-9]{64}$/.test(entry.sha256)||entry.path!==`forecast-masks/blobs/${entry.sha256}.json.gz`)throw Error('FORECAST_MASK_ENTRY');
-      const raw=await forecastMaskObject(String(entry.path),8*1024**2);
+      const raw=await forecastMaskObject(prefix+String(entry.path),8*1024**2);
       if(!raw||raw.length!==entry.bytes)throw Error('FORECAST_MASK_SIZE');
       const d=unpack(raw,entry.sha256,budget);
       if(!record(d)||d.version!==FORECAST_MASK_VERSION||!Array.isArray(d.rows)||d.rows.length!==713||!d.rows.every(support)||new Set(d.rows.map(p=>p.pra_id)).size!==713||d.rows.some(p=>!identities.ids.includes(p.pra_id))||!record(d.collection)||d.collection.type!=='FeatureCollection'||!Array.isArray(d.collection.features))throw Error('FORECAST_MASK_SCHEMA');
@@ -77,9 +80,24 @@ export async function forecastMasks(rows:WeatherRow[], archiveSha:string, option
         const byId=new Map(d.rows.map(p=>[p.pra_id,p]));
         const groups=await Promise.all(d.geometry_entries.map(async(ref:unknown)=>{
           if(!record(ref)||typeof ref.sha256!=='string'||!/^[a-f0-9]{64}$/.test(ref.sha256)||ref.path!==`forecast-masks/geometries/${ref.sha256}.json.gz`||!Array.isArray(ref.pra_ids))throw Error('FORECAST_MASK_GEOMETRY_REF');
+          if (prefix && !options?.identicalMemberships) {
+            // The committed producer already verified every polygon. For a whole-PRA
+            // paint, the browser uses its official reference and needs no clipped coordinates.
+            const needsCoordinates = ref.pra_ids.some(id => {
+              const proof = byId.get(String(id));
+              if (!proof?.geometry_verified || !proof.support_id) throw Error('FORECAST_MASK_GEOMETRY_BINDING');
+              const row = rowByKey.get(`${proof.pra_id}/${proof.variable}/${proof.period}`);
+              return row && coveragePaint({ value: row.value, quality: forecastSpatialQuality(row, proof, referenceSha),
+                field: 'value', geometrySupportId: proof.support_id }).target === 'covered';
+            });
+            if (!needsCoordinates) {
+              for (const id of ref.pra_ids) certifiedWhole.add(byId.get(String(id))!.support_id!);
+              return [];
+            }
+          }
           let shard=shards.get(ref.sha256);
           if(!shard){
-            const bytes=await forecastMaskObject(String(ref.path),8*1024**2);
+            const bytes=await forecastMaskObject(prefix+String(ref.path),8*1024**2);
             if(!bytes||bytes.length!==ref.bytes)throw Error('FORECAST_MASK_GEOMETRY_SIZE');
             shard=unpack(bytes,ref.sha256,budget);shards.set(ref.sha256,shard);
           }
@@ -109,7 +127,7 @@ export async function forecastMasks(rows:WeatherRow[], archiveSha:string, option
     collection=boundForecastGeometries(rows,proofs,collection,referenceSha);
     // No positive quality without the corresponding verified feature, even at >=90%.
     const ids=new Set(collection.features.map(f=>f.properties.support_id));
-    const qualified=proofs.filter(p=>p.status==='absent'||!!p.support_id&&ids.has(p.support_id));
+    const qualified=proofs.filter(p=>p.status==='absent'||!!p.support_id&&(ids.has(p.support_id)||certifiedWhole.has(p.support_id)));
     const byKey=new Map(qualified.map(p=>[`${p.pra_id}/${p.variable}/${p.period}`,p]));
     const coveredIds=new Set(rows.flatMap(row=>{
       const proof=byKey.get(`${row.pra_id}/${row.variable}/${row.valid_date}`);
