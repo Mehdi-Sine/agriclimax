@@ -2,13 +2,12 @@ import 'server-only';
 import identities from '../../data/operational/pra-identities.json';
 import { createHash } from 'node:crypto';
 import { gunzipSync } from 'node:zlib';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { FORECAST_MASK_VERSION, boundForecastGeometries, forecastSpatialQuality, type ForecastSupport } from '../../features/cartography/forecast-support';
 import type { WeatherRow } from '../../features/operational/model';
 import type { PraCollection } from '../../features/national/map';
 import { record } from './weather-archive-codec';
 import { coveragePaint } from '../../features/cartography/coverage';
+import { FORECAST_REFERENCE_SHA256, forecastIndexPin } from './forecast-index';
 import { forecastMaskObject } from './weather-archives';
 const hash = (raw: Uint8Array) => createHash('sha256').update(raw).digest('hex');
 const empty = (): PraCollection => ({type:'FeatureCollection', features:[]});
@@ -29,18 +28,24 @@ function support(value:unknown):value is ForecastSupport {
 /** Exact immutable archive + index binding. Failure gives unknown support, never an aggregate fallback. */
 export async function forecastMasks(rows:WeatherRow[], archiveSha:string, options?:{identicalMemberships:boolean}) {
   if(process.env.COUV05_RENDER_ENABLED!=='true')return undefined;
+  if(!rows.length)return undefined;
   const proofs:ForecastSupport[]=[];
   const membershipRejections:Record<string,string>={};
   const budget={packed:0,decoded:0},shards=new Map<string,unknown>();
   let collection=empty(),referenceSha='';
   try {
-    const pin=process.env.COUV05_INDEX_SHA256;
-    if(!pin || !/^[a-f0-9]{64}$/.test(pin))throw Error('FORECAST_MASK_INDEX_PIN');
+    const pin=forecastIndexPin(archiveSha);
+    if(!pin)throw Error('FORECAST_MASK_INDEX_PIN');
     const index=unpack(await forecastMaskObject(`forecast-masks/indexes/${pin}.json.gz`,1024**2),pin,budget);
     if(!record(index)||index.version!==FORECAST_MASK_VERSION||index.archive_sha256!==archiveSha||!Array.isArray(index.entries)||index.entries.length>200)throw Error('FORECAST_MASK_ARCHIVE_BINDING');
-    const ref=readFileSync(join(process.cwd(),'../../config/coverage/ofb-masa-pra-2017-snapshot-20261017/reference.json'));
-    referenceSha=hash(ref);
-    const wanted=index.entries.filter((entry:unknown)=>record(entry)&&rows.some(r=>({'arome-0p025':'arome','arpege-0p1':'arpege','ifs-oper-0p25':'ifs'}[r.model])===entry.model&&r.valid_date===entry.period&&r.variable===entry.variable&&Date.parse(r.model_run_at??'')===Date.parse(String(entry.run))));
+    referenceSha=FORECAST_REFERENCE_SHA256;
+    const modelNames: Record<string, string> = {'arome-0p025':'arome','arpege-0p1':'arpege','ifs-oper-0p25':'ifs'};
+    const keys = new Set(rows.map(row => JSON.stringify([
+      modelNames[row.model], row.valid_date, row.variable, Date.parse(row.model_run_at ?? ''),
+    ])));
+    const wanted = index.entries.filter((entry:unknown) => record(entry) &&
+      keys.has(JSON.stringify([entry.model, entry.period, entry.variable, Date.parse(String(entry.run))])));
+    if(!wanted.length)throw Error('FORECAST_MASK_NO_MATCHING_ENTRY');
     if(wanted.length>(options?.identicalMemberships?14:5))throw Error('FORECAST_MASK_REQUEST_BUDGET');
     const baseline=new Map<string,{proof:ForecastSupport;feature:PraCollection['features'][number]}>();
     let firstManifest=true;

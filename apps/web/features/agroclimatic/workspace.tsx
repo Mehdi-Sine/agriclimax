@@ -50,6 +50,8 @@ export function useAgroclimatic(
             : "")
       : null,
   );
+  const archivedRun = search.get("weather_run") ?? "";
+  const model = search.get("agro_model") ?? "selected";
   const root = catalogue.data?.run?.slice(0, 10) ?? "";
   const forecastStart = root ? trailingStart(root, 0) : "";
   const defaultEnd =
@@ -75,6 +77,7 @@ export function useAgroclimatic(
     indicator: rule.id,
     ...(search.get("rule_version") ? {rule_version: search.get("rule_version")!} : {}),
     temporal: mode,
+    ...(mode !== "history" && model !== "selected" ? {model} : {}),
     start,
     end,
     ...(pra ? { pra } : {}),
@@ -239,6 +242,20 @@ export function useAgroclimatic(
             <option value="forecast">Prévisions</option>
           </select>
         </label>
+        {mode !== "history" && !!catalogue.data?.available_runs?.length && <>
+          <label>Cycle archivé · UTC
+            <select value={archivedRun} onChange={event => change({weather_run: event.target.value, agro_start: "", agro_end: ""})}>
+              <option value="">Cycle courant</option>
+              {archivedRun && !catalogue.data.available_runs.includes(archivedRun) && <option value={archivedRun}>{archivedRun}</option>}
+              {catalogue.data.available_runs.map(run => <option key={run} value={run}>{run}</option>)}
+            </select>
+          </label>
+          <label>Modèle
+            <select value={model} onChange={event => change({agro_model: event.target.value})}>
+              {catalogue.data.models?.map(choice => <option key={choice.id} value={choice.id}>{choice.label}</option>)}
+            </select>
+          </label>
+        </>}
         <label>
           Début · UTC
           <input

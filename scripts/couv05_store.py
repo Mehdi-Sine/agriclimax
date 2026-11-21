@@ -64,6 +64,29 @@ def plan(root: Path, index_sha256: str, budget_bytes: int) -> dict[str, Any]:
         include(entry["path"], raw)
         for ref in document.get("geometry_entries", []):
             include(ref["path"], (root / ref["path"]).read_bytes())
+    qualified = index.get("qualified_entries", [])
+    if not isinstance(qualified, list) or len(qualified) > 512:
+        raise ValueError("Invalid qualified index")
+    qualified_identities = set()
+    for entry in qualified:
+        sha = entry["sha256"]
+        path = entry["path"]
+        identity = json.dumps([entry[k] for k in ("model", "run", "start", "end", "rule")], sort_keys=True)
+        if identity in qualified_identities or not re.fullmatch("[a-f0-9]{64}", sha) or path != f"forecast-masks/blobs/{sha}.json.gz":
+            raise ValueError("Invalid or duplicate qualified object")
+        qualified_identities.add(identity)
+        raw = (root / path).read_bytes()
+        if len(raw) != entry["bytes"] or len(raw) > 1024**2 or hashlib.sha256(raw).hexdigest() != sha:
+            raise ValueError("Qualified object integrity")
+        document = json.loads(gzip.decompress(raw))
+        rows = document.get("rows")
+        if document.get("version") != "couv05e-qualified-1" or not isinstance(rows, list) or not 1 <= len(rows) <= 1185:
+            raise ValueError("Qualified object schema")
+        for row in rows:
+            if row["archive_sha256"] != index["archive_sha256"] or any(row[k] != entry[k] for k in ("model", "run", "start", "end", "rule")):
+                raise ValueError("Qualified object binding mismatch")
+        include(path, raw)
+
     total = sum(len(raw) for raw in objects.values())
     if not 0 < total <= budget_bytes or any(len(raw) > MAX_PACKED for raw in objects.values()):
         raise ValueError("Explicit spatial storage budget exceeded")

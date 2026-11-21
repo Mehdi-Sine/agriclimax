@@ -89,6 +89,7 @@ type WeatherView = {
   rows: WeatherRow[];
   coverage_quality: WeatherQualityBundle;
   forecast_support?: Support["collection"];
+  native_support?: { archive_sha256: string; status: string };
 };
 
 async function forecast(requestedRun: string, model: string) {
@@ -108,11 +109,15 @@ async function forecast(requestedRun: string, model: string) {
           assert.equal(data.rows.length, 713);
           assert.equal([...ids].filter(id => corsica.test(id)).length, 6);
           assert.equal(data.run, catalogue.run);
-          if (requireNative) assert.ok(data.forecast_support, "Native support transport missing");
+          if (requireNative) {
+            assert.ok(data.forecast_support, "Native support transport missing");
+            if (process.env.PREV01_DETAIL === "true") assert.equal(data.native_support?.status, "verified");
+          }
           const supports = new Map(data.forecast_support?.features.map(feature => [feature.id, feature.properties.support_id]));
           const counts = { whole: 0, covered: 0, unavailable: 0 };
           const legacy = { available: 0, partial: 0, unavailable: 0 };
           let boundNative = 0;
+          const details = process.env.PREV01_DETAIL === "true" ? [] as object[] : undefined;
           for (const row of data.rows) {
             assert.equal(row.variable, variable);
             assert.equal(row.valid_date, date);
@@ -123,11 +128,15 @@ async function forecast(requestedRun: string, model: string) {
             if (value == null) legacy.unavailable++;
             else if (quality.state === "observed_partial" || row.status === "partial") legacy.partial++;
             else legacy.available++;
-            const { target } = coveragePaint({ value, quality, field: "value", geometrySupportId: supports.get(row.pra_id) });
+            const shape = supports.get(row.pra_id);
+            const { target, fraction } = coveragePaint({ value, quality, field: "value", geometrySupportId: shape });
+            if (target === "covered") assert.equal(shape, quality.evidence.support_id);
+            details?.push({pra: row.pra_id, target, fraction, support: quality?.evidence.support_id,
+              provenance: row.provenance_sha256, cycle: row.model_run_at, leadHours: row.lead_hours});
             counts[target]++;
           }
           cases.push({ model, path: "operational", requestedRun, run: data.run, date, variable, counts, legacy,
-            nativeProofTransport: data.forecast_support !== undefined, ...(requireNative ? { boundNative } : {}), ms, bytes });
+            nativeProofTransport: data.forecast_support !== undefined, nativeSupport: data.native_support, details, ...(requireNative ? { boundNative } : {}), ms, bytes });
         } catch (error) {
           cases.push({ model, requestedRun, date, variable, error: String(error) });
         }
@@ -155,7 +164,8 @@ async function forecastAgro(run: string) {
         const shapes = new Map(data.forecast_support?.features.map(feature => [feature.id, feature.properties.support_id]));
         const counts = { whole: 0, covered: 0, unavailable: 0 };
         for (const row of data.data) {
-          assert.equal(row.rule_version, "agroclimatic-1.3.0");
+          assert.ok(row.rule_version === "agroclimatic-1.3.0" ||
+            process.env.PREV01_DETAIL === "true" && row.rule_version === "multiproduction-agro03-1.0.0");
           const value = row.value ?? row.observed_value ?? null;
           const { target } = coveragePaint({
             value, quality: row.quality, field: "value", geometrySupportId: shapes.get(row.territoryId),
@@ -181,7 +191,7 @@ async function main() {
     }
   }
   if (process.env.COUV08_FORECAST === "true") {
-    const runs = process.env.COUV08_RUN ? [process.env.COUV08_RUN] : ["2026-11-14", "2026-11-15"];
+    const runs = process.env.COUV08_RUN ? process.env.COUV08_RUN.split(',') : ["2026-11-14", "2026-11-15"];
     for (const run of runs) {
       const jobs = [
         ...["arome", "arpege", "ifs"].map(model => forecast(run, model)),

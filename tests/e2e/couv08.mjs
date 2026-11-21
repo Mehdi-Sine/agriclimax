@@ -29,7 +29,7 @@ const scenarios = forecastAgro ? [
 ].map(({ id, production, days }) => {
   const dateAt = lead => new Date(Date.parse(weatherRun) + lead * 86_400_000).toISOString().slice(0, 10);
   const params = new URLSearchParams({
-    temporal: 'forecast', agro: id, production, weather_run: weatherRun, agro_start: dateAt(1), agro_end: dateAt(days),
+    temporal: 'forecast', agro: id, production, weather_run: weatherRun, agro_start: process.env.PREV01_START ?? dateAt(1), agro_end: process.env.PREV01_END ?? dateAt(days),
   });
   return { id, url: `/analyse?${params}`, api: '/api/agroclimatic', forecastAgro: true };
 }) : weatherRun ? forecastClimat : cases;
@@ -53,7 +53,8 @@ function countsForAgro(payload) {
   const supports = new Map(payload.forecast_support.features.map(feature => [feature.id, feature.properties.support_id]));
   const counts = { whole: 0, covered: 0, unavailable: 0 };
   for (const row of payload.data) {
-    assert.equal(row.rule_version, 'agroclimatic-1.3.0');
+    assert.ok(row.rule_version === 'agroclimatic-1.3.0' ||
+      process.env.PREV01_START && row.rule_version === 'multiproduction-agro03-1.0.0');
     const paint = coveragePaint({ value: row.value ?? row.observed_value ?? null,
       quality: row.quality, field: 'value', geometrySupportId: supports.get(row.territoryId) });
     counts[paint.target]++;
@@ -70,7 +71,7 @@ try {
   const watchOnly = process.env.COUV08_WATCH_ONLY === 'true';
   const widths = process.env.COUV08_ARCHIVES_ONLY === 'true' || watchOnly ? [] : [1440, 768, 390];
   for (const width of widths) {
-    for (const item of scenarios) {
+    for (const item of scenarios.filter(item => !process.env.PREV01_SCENARIO || item.id === process.env.PREV01_SCENARIO)) {
       const context = await browser.newContext({ viewport: { width, height: 1000 }, locale: 'fr-FR' });
       try {
         const page = await context.newPage();
@@ -93,12 +94,16 @@ try {
         await page.locator(selector).waitFor({ timeout });
         await page.locator('.map-updating').waitFor({ state: 'hidden', timeout });
         const readyMs = Math.round(performance.now() - started);
+        if (process.env.PREV01_EXPECT_PARTIAL === 'true') assert.ok(counts[1] > 0, 'Aucune emprise partielle réelle');
+        const resources = await page.evaluate(() => performance.getEntriesByType('resource').map(entry => ({
+          path: new URL(entry.name).pathname, ms: Math.round(entry.duration), bytes: entry.transferSize,
+        })));
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
         const legend = await page.locator('.semantic-legend').innerText();
         assert.match(legend, /Sous 90 %/);
         assert.ok(legend.split('\n').some(line => line.startsWith(`${units[item.id]} · `) && line.includes('classes fixes')));
         await page.locator('.national-map-wrap').screenshot({ path: `${output}/${label}-${width}-${item.id}.png` });
-        report.checks.push({ width, indicator: item.id, counts, run: payload.run, date: payload.rows?.[0]?.valid_date, period: payload.period, apiMs, readyMs, legend });
+        report.checks.push({ width, indicator: item.id, counts, run: payload.run, date: payload.rows?.[0]?.valid_date, period: payload.period, apiMs, readyMs, legend, resources });
       } finally {
         await context.close();
       }
@@ -161,6 +166,15 @@ try {
       await page.locator('.national-map[data-ready="true"][data-rendered-contour-count="713"]').waitFor({ timeout });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       report.checks.push({ width, flow: 'carrousel → carte publiée', cards: cardCount, contours: 713 });
+      if (process.env.PREV01_DAILY_MAP === 'true') {
+        const query = new URLSearchParams({id, map: maps[0].id});
+        const daily = await page.goto(`${origin}/cartes-du-jour?${query}`, {waitUntil: 'domcontentloaded', timeout});
+        assert.equal(daily?.status(), 200);
+        await page.locator('.national-map[data-ready="true"][data-rendered-contour-count="713"]').waitFor({ timeout });
+        assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
+        await page.locator('.national-map-wrap').screenshot({path: `${output}/${label}-${width}-cartes-du-jour.png`});
+        report.checks.push({width, flow: 'Cartes du jour', contours: 713});
+      }
     }
     await page.close();
     if (process.env.COUV08_ARCHIVE_BASELINE) {
