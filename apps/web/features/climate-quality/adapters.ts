@@ -12,16 +12,17 @@ export function forecastSupport(rows: WeatherRow[]): QualifiedDay["climate_suppo
   return {id: [...new Set(rows.map(r=>r.weights_sha256))].sort().join("|"), identity: [...new Set(keys)].sort().join("|"), fraction: Math.min(...rows.map(r => r.spatial_coverage)), temporal_complete: rows.every(r => r.temporal_coverage === 1), mask: "unknown", method: rows.map(r => r.rule_version).sort().join("|")};
 }
 
-export function weatherQualityKey(row: Pick<WeatherRow,"pra_id"|"valid_date"|"variable">) {
+export function weatherQualityKey(row: Pick<WeatherRow,"pra_id"|"valid_date"> & {variable:string}) {
   return `${row.pra_id}/${row.valid_date}/${row.variable}`;
 }
 
 export interface WeatherQualityBundle {lookup: Record<string,string>; definitions: Record<string,CoverageQuality>}
 export function weatherQualityBundle(rows: WeatherRow[], spatial?: {proofs:ForecastSupport[];referenceSha:string}): WeatherQualityBundle {
  const lookup: Record<string,string>={},definitions: Record<string,CoverageQuality>={},ids=new Map<string,string>();
+ const proofs = new Map(spatial?.proofs.map(p => [weatherQualityKey({pra_id:p.pra_id, valid_date:p.period, variable:p.variable}), p]));
  for(const row of rows){
-  const support=forecastSupport([row]);
-  const q=spatial?forecastSpatialQuality(row,spatial.proofs.find(p=>p.pra_id===row.pra_id&&p.variable===row.variable&&p.period===row.valid_date),spatial.referenceSha):qualifyCoverage(row.status==="unavailable"?null:row.value,row.variable==="humidity"?"specific":["temperature_min","temperature_max"].includes(row.variable)?"extreme_event":"mean_sum",{
+  const support=spatial ? undefined : forecastSupport([row]);
+  const q=spatial?forecastSpatialQuality(row,proofs.get(weatherQualityKey(row)),spatial.referenceSha):qualifyCoverage(row.status==="unavailable"?null:row.value,row.variable==="humidity"?"specific":["temperature_min","temperature_max"].includes(row.variable)?"extreme_event":"mean_sum",{
    fraction:row.spatial_coverage,support_id:support?.id??null,mask:support?.mask??"unknown",represented_area_m2:null,
    expected_days:1,available_days:row.temporal_coverage===1?1:0,continuous:row.temporal_coverage===1,homogeneous:!!support,
    method:support?.method??"",estimate_certificate:null,reference_compatible:false,

@@ -17,7 +17,7 @@ export type ArchiveEntry={path:string;sha256:string;bytes:number;dates:string[];
 export type ArchiveCatalogue={version:'pra-archive-catalogue-1';weather:ArchiveEntry[];era5:ArchiveEntry[];supports?:ArchiveEntry[]};
 export type NationalWeatherDocument=JsonRecord&{archive_sha256:string;rows:WeatherRow[];selected_indices:number[];run:string;acquired_at:string;pra_count:713;attribution:string;recent_estimate_status:string};
 let catalogueCache:{expires:number;value:Promise<ArchiveCatalogue|null>}|undefined;
-let cycleCache:{sha:string;value:Promise<NationalWeatherDocument>}|undefined;
+const cycleCache = new Map<string, Promise<NationalWeatherDocument>>();
 
 async function storage(path:string,limit:number):Promise<Uint8Array|null>{
   const base=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.SUPABASE_SECRET_KEY;
@@ -66,11 +66,21 @@ export async function nationalWeatherDocument(requestedRun?:string, expectedSha?
   const catalogue=current??await archiveCatalogue();
   const latest=catalogue?.weather.filter(e=>e.method_version==='pra-national-weather-daily-1'&&(!expectedSha||e.sha256===expectedSha)&&(!requestedRun||(requestedRun.includes('T')?Date.parse(e.run_at??e.run_date+'T00:00:00Z')===Date.parse(requestedRun):e.run_date===requestedRun))&&typeof e.run_date==='string'&&isCalendarDate(e.run_date)).sort((a,b)=>(b.run_at??b.run_date!).localeCompare(a.run_at??a.run_date!))[0];
   if(!latest)return null;
-  if(cycleCache?.sha===latest.sha256)return cycleCache.value;
+  const cached = cycleCache.get(latest.sha256);
+  if (cached) {
+    cycleCache.delete(latest.sha256);
+    cycleCache.set(latest.sha256, cached);
+    return cached;
+  }
   const value=(async()=>{
     return decodeNationalWeather(await archiveBlob(latest),latest.sha256);
   })();
-  cycleCache={sha:latest.sha256,value};void value.catch(()=>{if(cycleCache?.value===value)cycleCache=undefined;});return value;
+  if (cycleCache.size >= 2) cycleCache.delete(cycleCache.keys().next().value!);
+  cycleCache.set(latest.sha256, value);
+  void value.catch(() => {
+    if (cycleCache.get(latest.sha256) === value) cycleCache.delete(latest.sha256);
+  });
+  return value;
 }
 export function decodeNationalWeather(raw:Uint8Array,sha:string):NationalWeatherDocument {
     const d=unpackWeatherArchive(raw,sha);
@@ -138,8 +148,50 @@ export async function nationalLandMasks(){
  for(const name of ['arome','arpege']){const source=raw.sources[name];if(!record(source)||!record(source.pra)||Object.keys(source.pra).length!==713)throw new Error('LAND_MASK_IDENTITIES');result[name]={};for(const [pra,q] of Object.entries(source.pra)){if(!identities.ids.includes(pra)||!record(q)||typeof q.native_cells!=='number'||q.physical_land_mask_available!==true||typeof q.source_land_fraction!=='number'||q.source_land_fraction<0||q.source_land_fraction>1.0001||typeof q.mask_sha256!=='string'||!/^[a-f0-9]{64}$/.test(q.mask_sha256))throw new Error('LAND_MASK_VALUE');result[name][pra]={native_cells:q.native_cells,physical_land_mask_available:true,source_land_fraction:q.source_land_fraction,mask_sha256:q.mask_sha256};}}return result;})();landCache={sha:e.sha256,value};void value.catch(()=>{if(landCache?.value===value)landCache=undefined;});return value;
 }
 
-/** Read-only COUV-05 namespace; never consults or changes published pointers. */
-export async function forecastMaskObject(path:string,limit:number):Promise<Uint8Array|null>{
-  if(!/^forecast-masks\/(blobs|indexes|geometries)\/[a-f0-9]{64}\.json\.gz$/.test(path))throw Error('FORECAST_MASK_PATH');
-  return storage(path,limit);
+type CachedMask = {value: Promise<Uint8Array | null>; bytes: number};
+const maskCache = new Map<string, CachedMask>();
+let maskCacheBytes = 0;
+
+function evictMask(path: string) {
+  const entry = maskCache.get(path);
+  if (!entry) return;
+  maskCacheBytes -= entry.bytes;
+  maskCache.delete(path);
+}
+
+/** Read-only content-addressed objects. Misses and failed reads are retryable. */
+export async function forecastMaskObject(path: string, limit: number): Promise<Uint8Array | null> {
+  const identity = /^forecast-masks\/(blobs|indexes|geometries)\/([a-f0-9]{64})\.json\.gz$/.exec(path);
+  if (!identity) throw Error('FORECAST_MASK_PATH');
+  let entry = maskCache.get(path);
+  if (entry) {
+    maskCache.delete(path);
+    maskCache.set(path, entry);
+  } else {
+    const value = storage(path, limit).then(raw => {
+      if (raw && createHash('sha256').update(raw).digest('hex') !== identity[2]) {
+        throw Error('FORECAST_MASK_INTEGRITY');
+      }
+      return raw;
+    });
+    entry = {value, bytes: 0};
+    const pending = entry;
+    if (maskCache.size >= 64) evictMask(maskCache.keys().next().value!);
+    maskCache.set(path, pending);
+    void value.then(raw => {
+      if (maskCache.get(path) !== pending) return;
+      if (!raw) {
+        evictMask(path);
+        return;
+      }
+      pending.bytes = raw.byteLength;
+      maskCacheBytes += pending.bytes;
+      while (maskCacheBytes > 24 * 1024 ** 2) evictMask(maskCache.keys().next().value!);
+    }, () => {
+      if (maskCache.get(path) === pending) evictMask(path);
+    });
+  }
+  const raw = await entry.value;
+  if (raw && raw.byteLength > limit) throw Error('FORECAST_MASK_SIZE');
+  return raw;
 }

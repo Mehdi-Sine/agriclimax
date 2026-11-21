@@ -1,3 +1,4 @@
+import {isExplicitWeatherModel, WEATHER_MODEL_SOURCES} from "../../features/operational/model";
 import {forecastRecipeMasks} from './forecast-composites';
 import type {PraCollection} from '../../features/national/map';
 import {calculateQualified, coverageRule, UNIFIED_AGRO_VERSION, type QualifiedDay} from "../../features/climate-quality/calculate";
@@ -5,7 +6,6 @@ import {forecastSupport, applyObservedSupport} from "./climate-quality";
 import "server-only";
 import {climateHistoryWindow} from "./climate-history";
 import { coastalComplement } from "./coastal-complement";
-import { createHash } from "node:crypto";
 import identities from "../../data/operational/pra-identities.json";
 import { RULES, type Rule } from "../../features/agroclimatic/catalogue";
 import {
@@ -80,6 +80,7 @@ export async function agroclimaticData(params: URLSearchParams) {
     "start",
     "end",
     "run",
+    "model",
     "pra",
     "rule_version",
   ];
@@ -119,11 +120,13 @@ export async function agroclimaticData(params: URLSearchParams) {
     start = params.get("start") ?? "",
     end = params.get("end") ?? "";
   const dates = calendarDays(start, end),
+    model = params.get("model") ?? "selected",
     threshold = params.has("threshold")
       ? Number(params.get("threshold"))
       : (rule?.threshold ?? null);
   if (
     !rule ||
+    (model !== "selected" && (temporal === "history" || !isExplicitWeatherModel(model))) ||
     !["history", "recent", "forecast"].includes(temporal) ||
     !dates.length ||
     dates.length > 30 ||
@@ -173,28 +176,19 @@ export async function agroclimaticData(params: URLSearchParams) {
   const historical = temporal === "history" && unified ? await climateHistoryWindow(dates) : null;
   const historyByDate = new Map(dates.map(date => [date, historical?.rows.filter(row => row.valid_date === date) ?? []]));
   // Weather archives already verify checksums. Cache keys include the complete immutable input identity.
-  const version = document
-    ? createHash("sha256")
-        .update(
-          JSON.stringify([
-            document.run,
-            document.acquired_at,
-            document.selected_indices,
-            document.rows.map((r) => r.provenance_sha256),
-          ]),
-        )
-        .digest("hex")
-    : historical?.version ?? NATIONAL.dataset;
+  const version = document?.archive_sha256 ?? historical?.version ?? NATIONAL.dataset;
   const key = JSON.stringify([
     rule.version,
     rule.id,
     threshold,
     temporal,
+    model,
     start,
     end,
     version,
     process.env.COUV05_RENDER_ENABLED,
     process.env.COUV05_INDEX_SHA256,
+    process.env.COUV05_ARCHIVE_INDEX_PINS,
   ]);
   const hit = cache.get(key);
   if (hit && hit.expires > Date.now()) return project(await hit.value);
@@ -203,9 +197,10 @@ export async function agroclimaticData(params: URLSearchParams) {
     const grouped = new Map<string, (SupportedDay & QualifiedDay)[]>();
     let spatial: Awaited<ReturnType<typeof forecastRecipeMasks>>;
     if (document) {
-      const selected = document.selected_indices
-        .map((i) => document.rows[i])
-        .filter((r) => dates.includes(r.valid_date));
+      const modelRows = isExplicitWeatherModel(model)
+        ? document.rows.filter(row => row.source_id === WEATHER_MODEL_SOURCES[model])
+        : document.selected_indices.map(i => document.rows[i]);
+      const selected = modelRows.filter(row => dates.includes(row.valid_date));
       if (unified) spatial = await forecastRecipeMasks(selected.filter(r=>rule!.variables.includes(r.variable)), document.archive_sha256, rule!, start, end, threshold);
       const daily = new Map<string, WeatherRow[]>();
       for (const row of selected) {

@@ -56,7 +56,7 @@ export function qualifyForecastRecipe(rows:WeatherRow[], spatial:Spatial, rule:R
 }
 export async function forecastRecipeMasks(rows:WeatherRow[],archiveSha:string,rule:Rule,start:string,end:string,threshold:number|null){
   const [retained,spatial]=await Promise.all([
-    forecastQualified(rows,archiveSha,rule,start,end,threshold),
+    forecastQualified(rows,archiveSha,rule,start,end,threshold,true),
     forecastMasks(rows,archiveSha,{identicalMemberships:true}),
   ]);
   if(!spatial)return undefined;

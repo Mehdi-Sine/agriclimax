@@ -68,7 +68,8 @@ export default function NationalMap({
     modeRef = useRef(mode),
     quantRef = useRef(quantitative),
     collectionRef = useRef(collection),
-    supportRef=useRef(coveredSupport),
+    sourceCollectionRef = useRef<PraCollection | null>(null),
+    supportFeaturesRef = useRef<PraCollection['features']>([]),
     coverageRef=useRef(coverageEnabled),
     geographyRef = useRef(geography);
   const [ready, setReady] = useState(false),
@@ -85,10 +86,9 @@ export default function NationalMap({
     modeRef.current = mode;
     quantRef.current = quantitative;
     collectionRef.current = collection;
-    supportRef.current=coveredSupport;
     coverageRef.current=coverageEnabled;
     geographyRef.current = geography;
-  }, [mode, quantitative, collection, geography,coveredSupport,coverageEnabled]);
+  }, [mode, quantitative, collection, geography,coverageEnabled]);
 
   useEffect(() => {
     let disposed = false;
@@ -154,9 +154,11 @@ export default function NationalMap({
           if (disposed) return;
           m.addSource('national-silhouette',{type:'geojson',data:'/maps/france-silhouette.geojson'});
           m.addLayer({id:'national-shadow',type:'line',source:'national-silhouette',paint:{'line-color':color('--text-primary'),'line-width':10,'line-blur':7,'line-opacity':coverageRef.current?0:0.12,'line-translate':[2,3]}});
+          sourceCollectionRef.current = collectionRef.current;
+          supportFeaturesRef.current = [];
           m.addSource('pra', {
             type: 'geojson',
-            data: collectionRef.current,
+            data: sourceCollectionRef.current,
             promoteId: 'code',
           });
           m.addLayer({
@@ -165,7 +167,7 @@ export default function NationalMap({
             source: 'pra',
             paint: { 'fill-color': ['coalesce', ['feature-state', 'color'], fill], 'fill-antialias': false, 'fill-opacity': ['case', ['boolean', ['feature-state', 'suppressed'], false], 0.4, 0.9] },
           });
-          m.addSource('pra-covered',{type:'geojson',data:supportRef.current??{type:'FeatureCollection',features:[]},promoteId:'code'});
+          m.addSource('pra-covered',{type:'geojson',data:{type:'FeatureCollection',features:[]},promoteId:'code'});
           m.addLayer({id:'pra-covered-fill',type:'fill',source:'pra-covered',paint:{'fill-color':['coalesce',['feature-state','color'],color('--national-unavailable')],'fill-antialias':false,'fill-opacity':0.9}});
           const hatch=document.createElement('canvas');hatch.width=8;hatch.height=8;const ink=hatch.getContext('2d');
           if(ink){ink.strokeStyle=color('--text-primary');ink.lineWidth=1;ink.beginPath();ink.moveTo(0,8);ink.lineTo(8,0);ink.stroke();m.addImage('partial-hatch',ink.getImageData(0,0,8,8));m.addLayer({id:'pra-partial-pattern',type:'fill',source:'pra',paint:{'fill-pattern':'partial-hatch','fill-antialias':false,'fill-opacity':['case',['boolean',['feature-state','partial'],false],0.25,0]}});}
@@ -222,7 +224,8 @@ export default function NationalMap({
 
   // Keep the same MapLibre canvas across spaces/scales; replace only GeoJSON data.
   useEffect(() => {
-    if (!ready || !map.current) return;
+    if (!ready || !map.current || sourceCollectionRef.current === collection) return;
+    sourceCollectionRef.current = collection;
     map.current.removeFeatureState({ source: 'pra' });
     (map.current.getSource('pra') as GeoJSONSource).setData(collection);
   }, [ready, collection]);
@@ -246,7 +249,13 @@ export default function NationalMap({
     const drawnSupport = coverageEnabled && quantitative && coveredSupport
       ? {...coveredSupport, features: coveredSupport.features.filter(f => paints.get(f.properties.code)?.target === 'covered')}
       : coveredSupport;
-    if(map.current.getSource('pra-covered'))(map.current.getSource('pra-covered') as GeoJSONSource).setData(drawnSupport??{type:'FeatureCollection',features:[]});
+    const coveredSource = m.getSource<GeoJSONSource>('pra-covered');
+    const features = drawnSupport?.features ?? [];
+    const prior = supportFeaturesRef.current;
+    if (coveredSource && (prior.length !== features.length || features.some((feature, i) => feature !== prior[i]))) {
+      supportFeaturesRef.current = features;
+      coveredSource.setData({type:'FeatureCollection', features});
+    }
     for (const f of collection.features) {
       const id = String(f.id);
       const climate = contextById.get(id);
