@@ -41,11 +41,18 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
   consultableEdition(existing);
   return existing;
  }
- const maps=o.prepareSelection?await o.prepareSelection(run.id):o.mapSelection;
- if(maps)await o.store.diagnostic(hash([run.id,"map-selection"]),{kind:"map_selection_request",run_id:run.id,selection:maps});
- const request=maps&&maps.ranking.ranked.some(r=>r.card.admission.eligible)?dailyRequest(maps.ranking):undefined;
- const started=performance.now();
+ let maps:DailySelection|undefined;
+ let original:Archive|undefined;
+ let archiving=false;
+ let archive:Archive;
+ let phase="MAP_SELECTION";
  try {
+  const candidate=o.prepareSelection?await o.prepareSelection(run.id):o.mapSelection;
+  const request=candidate?.ranking.ranked.some(r=>r.card.admission.eligible)?dailyRequest(candidate.ranking):undefined;
+  if(candidate)await o.store.diagnostic(hash([run.id,"map-selection"]),{kind:"map_selection_request",run_id:run.id,selection:candidate});
+  maps=candidate;
+  phase="PROVIDER";
+  const started=performance.now();
   const result=await o.provider(editorialPayload(b,[],request),c,{usageOptional:true,beforeRequest:async metadata=>{
    await o.store.diagnostic(hash([run.id,"request"]),{kind:"provider_request",run_id:run.id,metadata});
   }});
@@ -54,32 +61,34 @@ export async function generateOperational(o:{briefing:EditorialBriefingBundle;co
   if(result.usage&&result.model===c.model)run.actual_eur=cost(result.usage.input_tokens,result.usage.output_tokens,c.pricing);
   const envelope=result.draft as {draft?:unknown;map_selection?:unknown}|null;
   const selection=maps?chooseDaily(maps.ranking,maps.maps_sha256,envelope?.map_selection):undefined;
-  const original=await archiveOperationalResult({...o,run,result:{...result,draft:request?envelope?.draft:result.draft},mapSelection:selection,generatedAt:now,durationMs:Math.round(performance.now()-started)});
-  const archive=original.validation.status==="rejected"?await archiveFactualFallback(original,o.store):original;
-  const validation=archive.validation,estimate=original.receipt?.cost_eur??null;
-  run.state=validation.status==="rejected"?"validation_failed":"completed";run.error=validation.status==="rejected"?"DRAFT_REJECTED":null;run.archive_id=archive.edition_id;run.actual_eur=estimate;
-  await o.store.finishAttempt(run);
-  // A rejected provider text is retained privately; only the checked factual replacement is admitted.
-  if(validation.status==="rejected") throw Error("INCOMPATIBLE_EDITORIAL_DATA");
+  phase="ARCHIVE";
+  archiving=true;
+  original=await archiveOperationalResult({...o,run,result:{...result,draft:request?envelope?.draft:result.draft},mapSelection:selection,generatedAt:now,durationMs:Math.round(performance.now()-started)});
+  archive=original.validation.status==="rejected"?await archiveFactualFallback(original,o.store):original;
   consultableEdition(archive);
-  return archive;
  } catch(error) {
-  if(run.state==="running") {
-   run.error=error instanceof ProviderFailure?error.code:"PROVIDER_OR_ARCHIVE_FAILED";
-   if(error instanceof ProviderFailure)await o.store.diagnostic(hash([run.id,"error"]),{kind:"provider_error",run_id:run.id,code:error.code,diagnostic:error.diagnostic??null,evidence:error.evidence??null});
-   if(error instanceof ProviderFailure||error instanceof Error&&(error.message.startsWith("DRAFT_CONTRACT")||error.message==="PROVIDER_MODEL_OR_ID_MISMATCH")) {
-    let archive:Archive;
-    try {archive=await archiveProviderFactualFallback({briefing:b,config:c,store:o.store,runId:run.id,generatedAt:now,mapSelection:maps});}
-    catch(failure){run.state="outcome_unknown";await o.store.finishAttempt(run);throw failure;}
-    // attempt_write only admits a transition from running. Persist exactly once,
-    // after the factual archive exists; retain the provider error and unknown cost.
-    run.archive_id=archive.edition_id;run.state="completed";await o.store.finishAttempt(run);
-    return archive;
-   }
-   run.state="outcome_unknown";await o.store.finishAttempt(run);
+  run.error=error instanceof ProviderFailure?error.code:`GENERATION_${phase}_FAILED`;
+  if(error instanceof ProviderFailure) {
+   await o.store.diagnostic(hash([run.id,"error"]),{kind:"provider_error",run_id:run.id,code:error.code,diagnostic:error.diagnostic??null,evidence:error.evidence??null})
+    .catch(()=>console.warn("PROVIDER_ERROR_DIAGNOSTIC_FAILED"));
   }
-  throw error;
+  if(phase==="MAP_SELECTION") run.actual_eur=0;
+  try {
+   // An archive write may have committed before the response was lost.
+   const saved=original??(archiving?await o.store.read(run.id):null);
+   if(saved) {
+    archive=saved.validation.status==="rejected"?await archiveFactualFallback(saved,o.store):saved;
+   } else {
+    archive=await archiveProviderFactualFallback({briefing:b,config:c,store:o.store,runId:run.id,generatedAt:now,mapSelection:maps});
+   }
+   consultableEdition(archive);
+  } catch(failure) {
+   await o.store.finishAttempt({...run,state:"outcome_unknown"});
+   throw failure;
+  }
  }
+ await o.store.finishAttempt({...run,state:"completed",archive_id:archive.edition_id});
+ return archive;
 }
 
 /** A new immutable archive, derived only from verified facts. Provider failures never reach here. */

@@ -51,6 +51,14 @@ async function prepare() {
    newsPath:newsPath>=0?process.argv[newsPath+1]:undefined,phase:value=>{phase=value;}})).snapshot;
 }
 
+async function prepareFallbackSelection(snapshot:DailyEditorialSnapshot,id:string) {
+ try {return await prepareDailySelection(snapshot,id);}
+ catch(error) {
+  console.warn(JSON.stringify({warning:"FACTUAL_FALLBACK_MAP_SELECTION_FAILED",error_type:error instanceof Error?error.name:"UnknownError"}));
+  return undefined;
+ }
+}
+
 async function main() {
   if(command==="revalidate") {
     phase="revalidation";
@@ -87,6 +95,8 @@ async function main() {
   if(control.emergency_stop) {output({status:"no_op",reason:"emergency_stop",paid_calls:0});return;}
   phase="snapshot_read";
   let snapshot = await editorialRPC<DailyEditorialSnapshot|null>("snapshot_read",{edition_date:date});
+  const authorized=process.argv.indexOf("--authorize-snapshot");
+  if(authorized>=0&&(!snapshot||process.argv[authorized+1]!==snapshot.id)) throw Error("EXACT_SNAPSHOT_AUTHORIZATION_REQUIRED");
   if(!snapshot && ["prepare","run","qualify"].includes(command)) {
     snapshot=await prepare();
     phase="freeze";
@@ -108,8 +118,6 @@ async function main() {
       api_key_present:!!process.env.OPENAI_API_KEY,control:await editorialRPC("control"),paid_calls:0});return;
   }
   if(command!=="run") throw Error("UNKNOWN_NIGHTLY_COMMAND");
-  const authorized=process.argv.indexOf("--authorize-snapshot");
-  if(authorized>=0&&process.argv[authorized+1]!==snapshot.id) throw Error("EXACT_SNAPSHOT_AUTHORIZATION_REQUIRED");
   // An interrupted process may have persisted the response before saving the
   // edition. Replay only that response through the same validator/archive engine.
   phase="edition_history";
@@ -136,7 +144,7 @@ async function main() {
      } else if(["running","outcome_unknown"].includes(prior.state)) {
        const startedAt=history.diagnostics.find(d=>d.kind==="provider_request"&&d.run_id===prior.id)?.metadata?.started_at;
        recovered=await archiveProviderFactualFallback({briefing:snapshot.briefing,config,store,runId:prior.id,
-        generatedAt:startedAt??snapshot.frozen_at,mapSelection:savedMaps??await prepareDailySelection(snapshot,prior.id)});
+        generatedAt:startedAt??snapshot.frozen_at,mapSelection:savedMaps??await prepareFallbackSelection(snapshot,prior.id)});
      }
     }
     if(recovered) {
@@ -164,7 +172,7 @@ async function main() {
   if(fallbackReason) {
     if(history.runs.length) throw Error("EXISTING_ATTEMPT_REQUIRES_RECOVERY");
     const id=hash([snapshot.id,"standalone-factual-fallback-1"]);
-    const selection=await prepareDailySelection(snapshot,id);
+    const selection=await prepareFallbackSelection(snapshot,id);
     archive=await archiveProviderFactualFallback({briefing:snapshot.briefing,config,store,runId:id,
       generatedAt:snapshot.frozen_at,mapSelection:selection,standaloneReason:fallbackReason});
   } else {
