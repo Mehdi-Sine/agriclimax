@@ -1,3 +1,4 @@
+import { TerritorialWatchSection } from "../agro-territorial/section";
 import Link from "next/link";
 import {PRODUCTIONS} from "../multiproduction/registry";
 import {EditorialHeader} from "../../components/navigation/editorial-header";
@@ -157,6 +158,9 @@ export function EditorialPreview({
                 </article>
               ))}
             </section>
+          {!published && "territorial_watch" in a.briefing &&
+            <TerritorialWatchSection situations={a.briefing.territorial_watch ?? []}
+              returnTo={`${base}?date=${a.date}&id=${a.edition_id}#productions-surveillance`} />}
           </section>
           {!carousel && <section className="ux01-cartes-teasers" aria-labelledby="ux01-carte-title">
               <div className="ux01-teaser-heading">

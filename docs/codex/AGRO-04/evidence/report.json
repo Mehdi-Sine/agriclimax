@@ -1,0 +1,181 @@
+{
+  "date": "2026-11-22",
+  "otex": {
+    "release": "bpa-elevage-otex2020-rpg2025-exp-01",
+    "systems": "bps-vegetal-animal-rpg2025-otex2020-v0-20261121",
+    "reference": "ofb-masa-pra-2017-snapshot-20261017",
+    "source_sha256": "285d3df3125e8914e65f6cfbfe001532f7d61bffa2573723aa15cb8cad8e3d6a",
+    "sha256": "7397a6fbc3380e36a88fead1db85bc6edc00876ed564402b5a0776a8b43f21d1"
+  },
+  "total_pra": 713,
+  "sampled_pra": 675,
+  "budget": {
+    "before": {
+      "model": "unconfigured",
+      "month": "2026-11",
+      "pricing_version": "unverified",
+      "input_bytes": 40424,
+      "input_token_upper_bound": 59944,
+      "max_output_tokens": 6000,
+      "reserved_eur": 0.089944,
+      "edition_cap_eur": 0.15,
+      "monthly_cap_eur": 5,
+      "accounted_month_eur": 0,
+      "available_month_eur": 5,
+      "blockers": [],
+      "allowed": true
+    },
+    "after": {
+      "model": "unconfigured",
+      "month": "2026-11",
+      "pricing_version": "unverified",
+      "input_bytes": 45191,
+      "input_token_upper_bound": 65465,
+      "max_output_tokens": 6000,
+      "reserved_eur": 0.095465,
+      "edition_cap_eur": 0.15,
+      "monthly_cap_eur": 5,
+      "accounted_month_eur": 0,
+      "available_month_eur": 5,
+      "blockers": [],
+      "allowed": true
+    }
+  },
+  "selected": [
+    {
+      "id": "rain-field-access/pra:87430/2026-11-22/forecast",
+      "pra": "pra:87430",
+      "place": "PLATEAU DE MILLEVACHES - 87",
+      "region": "Nouvelle-Aquitaine",
+      "productions": [
+        "Céréales, oléagineux et légumineuses"
+      ],
+      "phenomenon": "rain",
+      "date": "2026-11-22",
+      "nature": "forecast",
+      "value": 43.5376848959644,
+      "unit": "mm",
+      "confidence": "qualified_exposure",
+      "mechanism": "Des pluies importantes peuvent retarder le ressuyage avant une intervention sur les parcelles.",
+      "limitation": "Vérifier la portance sur place. Le cumul journalier ne renseigne ni le drainage, ni l’humidité initiale, ni les travaux en cours.",
+      "window": "ALM-005",
+      "reference": "https://www.arvalis.fr/infos-techniques/risque-graminees-en-cereales-paille-mieux-vaut-attendre-pour-semer",
+      "href": "/veille?pra=pra%3A87430&cycle=2026-11-21T18%3A00%3A00%2B00%3A00&phenomene=rain&jour=2026-11-22&archive=faa81c1149d3184e88ba0f7d61c6fbdac4241d7da3e7bb9d17e52265ba5a25d5",
+      "rule_version": "agro-territorial-1/national-watch-1.1.0/agroclimatic-1.0.0",
+      "data_freshness": [
+        "unknown"
+      ],
+      "provenance": [
+        "faa81c1149d3184e88ba0f7d61c6fbdac4241d7da3e7bb9d17e52265ba5a25d5",
+        "ef433a0265b0f90e4e27aec0f13171c0403b582f9dfc8d6df2208ffaf315c0c3",
+        "07afe77f98583d05f83f476be44bdaf3de89f77b55d9935459253c7a079a8d30"
+      ],
+      "quality_flags": [
+        "exploratory",
+        "land_sea_representativeness_requires_qualification",
+        "model_forecast_not_observation",
+        "native_24h_interval_verified",
+        "negative_source_precipitation_invalid_null_not_clamped",
+        "publication_time_unknown",
+        "source_land_mask_unavailable",
+        "total_area_not_agricultural_area",
+        "utc_half_open_day_extrema",
+        "field_conditions_unverified"
+      ]
+    },
+    {
+      "id": "rain-field-access/pra:01449/2026-11-22/forecast",
+      "pra": "pra:01449",
+      "place": "HAUT BUGEY - 01",
+      "region": "Auvergne-Rhône-Alpes",
+      "productions": [
+        "Céréales, oléagineux et légumineuses"
+      ],
+      "phenomenon": "rain",
+      "date": "2026-11-22",
+      "nature": "forecast",
+      "value": 103.65999199690965,
+      "unit": "mm",
+      "confidence": "qualified_exposure",
+      "mechanism": "Des pluies importantes peuvent retarder le ressuyage avant une intervention sur les parcelles.",
+      "limitation": "Vérifier la portance sur place. Le cumul journalier ne renseigne ni le drainage, ni l’humidité initiale, ni les travaux en cours.",
+      "window": "ALM-005",
+      "reference": "https://www.arvalis.fr/infos-techniques/risque-graminees-en-cereales-paille-mieux-vaut-attendre-pour-semer",
+      "href": "/veille?pra=pra%3A01449&cycle=2026-11-21T18%3A00%3A00%2B00%3A00&phenomene=rain&jour=2026-11-22&archive=faa81c1149d3184e88ba0f7d61c6fbdac4241d7da3e7bb9d17e52265ba5a25d5",
+      "rule_version": "agro-territorial-1/national-watch-1.1.0/agroclimatic-1.0.0",
+      "data_freshness": [
+        "unknown"
+      ],
+      "provenance": [
+        "faa81c1149d3184e88ba0f7d61c6fbdac4241d7da3e7bb9d17e52265ba5a25d5",
+        "ef433a0265b0f90e4e27aec0f13171c0403b582f9dfc8d6df2208ffaf315c0c3",
+        "07afe77f98583d05f83f476be44bdaf3de89f77b55d9935459253c7a079a8d30"
+      ],
+      "quality_flags": [
+        "exploratory",
+        "land_sea_representativeness_requires_qualification",
+        "model_forecast_not_observation",
+        "native_24h_interval_verified",
+        "negative_source_precipitation_invalid_null_not_clamped",
+        "publication_time_unknown",
+        "source_land_mask_unavailable",
+        "total_area_not_agricultural_area",
+        "utc_half_open_day_extrema",
+        "field_conditions_unverified"
+      ]
+    },
+    {
+      "id": "rain-field-access/pra:39449/2026-11-22/forecast",
+      "pra": "pra:39449",
+      "place": "HAUT JURA - 39",
+      "region": "Bourgogne-Franche-Comté",
+      "productions": [
+        "Céréales, oléagineux et légumineuses"
+      ],
+      "phenomenon": "rain",
+      "date": "2026-11-22",
+      "nature": "forecast",
+      "value": 79.71627309946372,
+      "unit": "mm",
+      "confidence": "qualified_exposure",
+      "mechanism": "Des pluies importantes peuvent retarder le ressuyage avant une intervention sur les parcelles.",
+      "limitation": "Vérifier la portance sur place. Le cumul journalier ne renseigne ni le drainage, ni l’humidité initiale, ni les travaux en cours.",
+      "window": "ALM-005",
+      "reference": "https://www.arvalis.fr/infos-techniques/risque-graminees-en-cereales-paille-mieux-vaut-attendre-pour-semer",
+      "href": "/veille?pra=pra%3A39449&cycle=2026-11-21T18%3A00%3A00%2B00%3A00&phenomene=rain&jour=2026-11-22&archive=faa81c1149d3184e88ba0f7d61c6fbdac4241d7da3e7bb9d17e52265ba5a25d5",
+      "rule_version": "agro-territorial-1/national-watch-1.1.0/agroclimatic-1.0.0",
+      "data_freshness": [
+        "unknown"
+      ],
+      "provenance": [
+        "faa81c1149d3184e88ba0f7d61c6fbdac4241d7da3e7bb9d17e52265ba5a25d5",
+        "ef433a0265b0f90e4e27aec0f13171c0403b582f9dfc8d6df2208ffaf315c0c3",
+        "07afe77f98583d05f83f476be44bdaf3de89f77b55d9935459253c7a079a8d30"
+      ],
+      "quality_flags": [
+        "exploratory",
+        "land_sea_representativeness_requires_qualification",
+        "model_forecast_not_observation",
+        "native_24h_interval_verified",
+        "negative_source_precipitation_invalid_null_not_clamped",
+        "publication_time_unknown",
+        "source_land_mask_unavailable",
+        "total_area_not_agricultural_area",
+        "utc_half_open_day_extrema",
+        "field_conditions_unverified"
+      ]
+    }
+  ],
+  "elapsed_ms": 525.9073420000022,
+  "openai_calls": 0,
+  "payload_before": 40424,
+  "payload_after": 45191,
+  "gzip_delta": 575,
+  "counts": {
+    "threshold_not_crossed": 4959,
+    "outside_sensitivity_window": 170,
+    "climate_insufficient": 272,
+    "potential_sensitivity": 299,
+    "production_not_documented": 4
+  }
+}

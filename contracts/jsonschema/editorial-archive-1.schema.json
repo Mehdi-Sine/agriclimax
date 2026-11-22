@@ -594,6 +594,154 @@
     "briefing": {
       "type": "object",
       "properties": {
+        "territorial_watch": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "pra",
+              "place",
+              "region",
+              "mechanism",
+              "limitation",
+              "window",
+              "unit",
+              "rule_version",
+              "productions",
+              "data_freshness",
+              "provenance",
+              "quality_flags",
+              "date",
+              "nature",
+              "phenomenon",
+              "value",
+              "confidence",
+              "reference",
+              "href"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "pra": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "place": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "region": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "mechanism": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "limitation": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "window": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "rule_version": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "productions": {
+                "type": "array",
+                "maxItems": 5,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "data_freshness": {
+                "type": "array",
+                "maxItems": 10,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "provenance": {
+                "type": "array",
+                "maxItems": 12,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "quality_flags": {
+                "type": "array",
+                "maxItems": 40,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "nature": {
+                "enum": [
+                  "forecast",
+                  "reanalysis"
+                ]
+              },
+              "phenomenon": {
+                "enum": [
+                  "rain",
+                  "frost",
+                  "heat"
+                ]
+              },
+              "value": {
+                "type": "number"
+              },
+              "confidence": {
+                "enum": [
+                  "qualified_exposure",
+                  "indicative"
+                ]
+              },
+              "reference": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://"
+              },
+              "href": {
+                "type": "string",
+                "pattern": "^/(veille)?\\?"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
         "version": {
           "const": "editorial-briefing-1"
         },

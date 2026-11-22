@@ -32,6 +32,7 @@ export function operationalConfig(model:string):AIConfig {
 }
 export async function generateOperational(o:{briefing:EditorialBriefingBundle;config:AIConfig;store:AttemptStore;provider:Provider;manualRetry:boolean;mapSelection?:DailySelection;prepareSelection?:(id:string)=>Promise<DailySelection>}) {
  const b=o.briefing,c=o.config;assertBriefing(b);
+ if(b.territorial_watch?.length) throw Error("AGRO04_PREVIEW_ONLY");
  const now=new Date().toISOString();
  const proposed:Run={id:hash([b.edition_date,b.bundle_id,randomUUID()]),edition_date:b.edition_date,scope:"daily",month:now.slice(0,7),state:"running",reserved_eur:0,actual_eur:null,error:null,archive_id:null};
  const run=await o.store.claimAttempt(proposed,o.manualRetry);

@@ -1,3 +1,4 @@
+import { prepareTerritorialWatch } from "../apps/web/lib/server/agro-territorial";
 /** Shared preparation: nightly and isolated manual tests use identical selection/validation. */
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -98,6 +99,9 @@ export async function prepareDossier(options:PreparationOptions) {
     forecast={doc,entry,cycles};
     break;
   }
+  const territorialWatch = options.readOnly && process.env.AGRICLIMAX_AGRO04_PREVIEW === "true"
+    ? await prepareTerritorialWatch(date, historyCutoff, history, forecast?.doc, geography.places)
+    : undefined;
   const cycles=forecast?.cycles??[];
   const selected=selectCycles(cycles,date,cutoff);
   const edition=forecast?buildEdition(await nationalWatch(forecast.doc.run,forecast.doc),{now}):undefined;
@@ -106,6 +110,7 @@ export async function prepareDossier(options:PreparationOptions) {
     if(news && Date.parse(news.generated_at)>Date.parse(cutoff)) news=undefined;
     const base:BriefingInput={date,generated_at:now,history_cutoff:historyCutoff,
       source_fingerprint:options.extraHistory?hash([forecast?.entry??null,historyEntries,options.extraHistory.map(r=>[r.pra_id,r.valid_date,r.batch_key])]):hash([forecast?.entry??null,historyEntries]),history,comparisons,episodes,episode_archive_sha256:hash(episodes),edition,contributions:options.calculate?await options.calculate(rows,forecast?.doc??null):options.contributions,previous_topic_keys:previousTopicKeys};
+    if (territorialWatch) base.territorial_watch = territorialWatch.selected;
     if(news) {
       const events=briefingEvents(base);
       const matched=spawnSync(process.env.PYTHON??"python",["scripts/task33_news_links.py"],{
@@ -150,7 +155,7 @@ export async function prepareDossier(options:PreparationOptions) {
     };
     const archive = options.readOnly ? inline : manifest;
     phase("snapshot");
-    const snapshot = freezeSnapshot(date,cycles,briefing,now,historyQuality,cutoff,options.testOnly);
+    const snapshot = freezeSnapshot(date,cycles,briefing,now,historyQuality,cutoff,options.testOnly || !!territorialWatch);
     phase("input_archive");
     let encoded;
     if(!options.readOnly || historical_cartography) {

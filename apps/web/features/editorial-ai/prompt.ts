@@ -17,3 +17,10 @@ Ne déduis ni dommage, rendement, maladie, mortalité, impact économique, risqu
 Pour les régions, utilise les noms exacts du dossier et cite dans chaque bloc des faits appartenant aux candidats de chaque région nommée, y compris dans une comparaison entre régions. Les réserves doivent être explicites : « aucune moyenne régionale ne peut être déduite », « aucun dommage agricole évalué ». Un signal « à confirmer » appelle des observations futures, jamais une confirmation documentaire. Pour la presse, ne sélectionne que news_ids liés au candidat avec documentary-overlap ; jamais confirmation scientifique. Aucun propos inventé, contenu intégral ou longue citation. Les métadonnées originales seront rendues par le serveur, pas réécrites.
 Sélectionne seulement illustration_ids réellement fournis avec période, cycle et preuves compatibles ; liste vide si aucune carte qualifiée. Ne promets jamais une carte inexistante.
 La sortie JSON suit strictement EditorialDraft. bundle_id et edition_date sont copiés. Tous les champs sont requis. main_candidate_id peut être null en journée calme, rubriques absentes = tableaux vides. Tous les textes, y compris titre et décision, sont des blocs traçables. Les nuances non vérifiables feront l'objet d'une revue humaine. Cette sortie ne constitue pas une certification scientifique. Le serveur peut la rendre consultable comme édition expérimentale avec réserves ; ne la présente jamais comme scientifiquement approuvée.`;
+
+
+export function editorialPrompt(territorial: boolean) {
+  return territorial
+    ? { version: `${PROMPT_VERSION}-agro04`, instructions: INSTRUCTIONS + `\nSi territorial_watch est présent, utilise sa sélection de PRA pour prioriser les sujets déjà admissibles. La rubrique « Productions sous surveillance » reprend les situations structurées à part. N'introduis aucun chiffre ni fait tiré de cette rubrique dans la rédaction sans preuve éditoriale autorisée. Distingue exposition climatique, sensibilité à vérifier et dommage constaté. L’OTEX échantillonnée décrit un contexte ancien.` }
+    : { version: PROMPT_VERSION, instructions: INSTRUCTIONS };
+}
