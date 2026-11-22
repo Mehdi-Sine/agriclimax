@@ -584,3 +584,10 @@ bddeb5677cba6f063d3f4c79e658d7fbe797c659:docs/codex/task33/evidence/real-cases.j
 71486291736b5d42e52d7fde8d3017e8b2d8b62c:docs/codex/OPS-07/evidence/stations-existing-diagnostic.json:generic-api-key:3
 # UX-02B: public SHA-256 of scientific UI tokens, not a credential.
 95d3c3e45592c55686e7d39f9221c66dffa087f9:docs/codex/UX-02B/evidence/protected-scope.json:generic-api-key:11
+
+# AGRO-04 simulations (unpublished): six generic-api-key findings originate
+# from non-credential editorial topic_key values (forecast:...); two exact
+# commit/path/rule/line fingerprints because both JSON archives occupy one line.
+# Keep full-history secret scanning and all other Gitleaks rules unchanged.
+2cffb8655b6dd9f8a7ded185d0205cb8dace6f43:docs/codex/AGRO-04/evidence/edition-apres.json:generic-api-key:1
+2cffb8655b6dd9f8a7ded185d0205cb8dace6f43:docs/codex/AGRO-04/evidence/edition-avant.json:generic-api-key:1
