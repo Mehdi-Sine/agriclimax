@@ -2,14 +2,14 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
-import {gzipSync} from "node:zlib";
 import {freezeHistoricalCartography,type FrozenHistoricalCartography} from "../apps/web/lib/server/historical-cartography";
 import {shift} from "../apps/web/features/editorial/temporal";
-import { archiveInputs } from "../apps/web/features/nightly/immutable-inputs";
+import { encodeFrozenInputs, storeFrozenInputs } from "../apps/web/features/nightly/immutable-inputs";
+import { EDITORIAL_HISTORY_DAYS, FROZEN_SOURCE_VERSION, HISTORY_ADAPTER_VERSION, pinEra5Day, type Era5Pin } from "../apps/web/features/nightly/frozen-source-pins";
 import { archiveCatalogue, nationalWeatherDocument, archivedEra5Day, type ArchivedDaily, type ArchiveEntry, type NationalWeatherDocument } from "../apps/web/lib/server/weather-archives";
 import { nationalWatch } from "../apps/web/lib/server/national-watch";
 import { buildEdition } from "../apps/web/features/journal/model";
-import { adaptHistory, compareHistory, reconstructEpisodes, hash } from "../apps/web/features/editorial/temporal";
+import { adaptHistory, compareHistory, reconstructEpisodes, hash, TEMPORAL_VERSION } from "../apps/web/features/editorial/temporal";
 import { buildBriefing, briefingEvents, type BriefingInput, type NewsContext } from "../apps/web/features/editorial/briefing";
 import { parisDate } from "../apps/web/features/editorial/almanac";
 import { freezeSnapshot, verifySnapshot, cutoffUTC, selectCycles, modelFamily, POLICY, type Cycle } from "../apps/web/features/nightly/snapshot";
@@ -37,12 +37,17 @@ export async function prepareDossier(options:PreparationOptions) {
   if(!catalogue) throw Error("NO_REAL_CATALOGUE");
   phase("history");
   const historyEntries = catalogue.era5.filter(e=>e.dates.some(d=>d<date));
-  const dates = [...new Set(historyEntries.flatMap(e=>e.dates))].filter(d=>d<date).sort().slice(-60);
+  const dates = [...new Set(historyEntries.flatMap(e=>e.dates))].filter(d=>d<date).sort().slice(-EDITORIAL_HISTORY_DAYS);
   const rows = [];
+  const era5 = new Map<string,Era5Pin>();
   for(const d of dates) {
     const e=historyEntries.find(e=>e.dates.includes(d));
-    const daily=e?await archivedEra5Day(d,e):null;
-    if(daily?.every(r=>Date.parse(r.computed_at)<=Date.parse(cutoff))) rows.push(...daily);
+    if(!e) continue;
+    const daily=await archivedEra5Day(d,e);
+    if(daily?.every(r=>Date.parse(r.computed_at)<=Date.parse(cutoff))) {
+      rows.push(...daily);
+      pinEra5Day(era5,d,e);
+    }
   }
   if(options.extraHistory) {
     const extra=options.extraHistory.filter(r=>r.valid_date<date&&Date.parse(r.computed_at)<=Date.parse(cutoff));
@@ -51,7 +56,7 @@ export async function prepareDossier(options:PreparationOptions) {
     rows.push(...extra);
   }
   const historyCutoff = rows.map(r=>r.valid_date).sort().at(-1) ?? date;
-  const history = adaptHistory(rows,geography.places,"nightly-era5-archive-1");
+  const history = adaptHistory(rows,geography.places,HISTORY_ADAPTER_VERSION);
   const historyQuality = assessHistory(history,date);
   const comparisons = compareHistory(history,historyCutoff,geography.places);
   const episodes = reconstructEpisodes(history,historyCutoff);
@@ -129,22 +134,48 @@ export async function prepareDossier(options:PreparationOptions) {
         console.warn("COUV06_HISTORICAL_SUPPORT_UNAVAILABLE_ORIGINAL_MAPS_PRESERVED");
       }
     }
-    const inputs = {...(historical_cartography ? {historical_cartography} : {}),catalogue,document:forecast?.doc??null,quality:historyQuality,acquisitions:report.acquisitions,history:rows,episodes,comparisons,news:news??null,previous_edition:prior?{id:prior.edition_id,date:prior.date,checksum:prior.checksum}:null};
-    if(inputs.historical_cartography&&(Buffer.byteLength(JSON.stringify(inputs))>96*1024**2||gzipSync(JSON.stringify(inputs)).length>8*1024**2)){
-      delete inputs.historical_cartography;
-      historical_cartography_status="budget_exceeded_preserved_original_maps";
-      console.warn("COUV06_HISTORICAL_SUPPORT_BUDGET_ORIGINAL_MAPS_PRESERVED");
-    }
-    if(options.persistInputs!==false)writeFileSync(join(out,"frozen-inputs.json"),JSON.stringify(inputs));
+    const previous_edition=prior?{id:prior.edition_id,date:prior.date,checksum:prior.checksum}:null;
+    const context={quality:historyQuality,acquisitions:report.acquisitions,news:news??null,previous_edition};
+    const inline={catalogue,document:forecast?.doc??null,history:rows,episodes,comparisons,...context};
+    // Isolated manual captures may contain data without an already retained Storage object.
+    if(!options.readOnly&&(options.extraHistory||options.extraWeather)) throw Error("INPUT_ARCHIVE_UNPINNED_SOURCES");
+    const manifest={
+      version:FROZEN_SOURCE_VERSION,
+      sources:{era5:[...era5.values()],weather:forecast?.entry??null},
+      temporal:{
+        version:TEMPORAL_VERSION,history_adapter:HISTORY_ADAPTER_VERSION,history_cutoff:historyCutoff,
+        episodes_sha256:base.episode_archive_sha256,comparisons_sha256:hash(comparisons),
+      },
+      ...context,
+    };
+    const archive = options.readOnly ? inline : manifest;
     phase("snapshot");
     const snapshot = freezeSnapshot(date,cycles,briefing,now,historyQuality,cutoff,options.testOnly);
     phase("input_archive");
-    snapshot.input_archive = options.readOnly ? null : await archiveInputs(inputs);
+    let encoded;
+    if(!options.readOnly || historical_cartography) {
+      encoded=encodeFrozenInputs(historical_cartography?{...archive,historical_cartography}:archive);
+      if(historical_cartography&&(encoded.metrics.decoded_bytes>96*1024**2||encoded.metrics.exceeded)){
+        console.warn(JSON.stringify({warning:"COUV06_HISTORICAL_SUPPORT_BUDGET_ORIGINAL_MAPS_PRESERVED",...encoded.metrics}));
+        historical_cartography=undefined;
+        historical_cartography_status="budget_exceeded_preserved_original_maps";
+        encoded=encodeFrozenInputs(archive);
+      }
+    }
+    const support=historical_cartography?{historical_cartography}:{};
+    const inputs={...inline,...support};
+    if(options.persistInputs!==false)writeFileSync(join(out,"frozen-inputs.json"),JSON.stringify({...archive,...support}));
+    if(!options.readOnly&&encoded){
+      console.log(JSON.stringify({event:"editorial_input_archive_size",edition_date:date,format:FROZEN_SOURCE_VERSION,
+        history_days:manifest.sources.era5.reduce((sum,pin)=>sum+pin.dates.length,0),
+        history_rows:rows.length,forecast_rows:forecast?.doc.rows.length??0,historical_cartography_status,...encoded.metrics}));
+      snapshot.input_archive=await storeFrozenInputs(encoded);
+    }
     const {id: unused,...body}=snapshot; void unused;
     snapshot.id=hash(body);
     writeFileSync(join(out,"preparation-metrics.json"),JSON.stringify({date,snapshot_id:snapshot.id,
       quality:snapshot.quality,forecast_archive:forecast?.entry.sha256??null,history_rows:rows.length,
-      historical_cartography_status,facts:briefing.national.facts.length,elapsed_seconds:(performance.now()-began)/1000,
+      input_archive:encoded?.metrics,historical_cartography_status,facts:briefing.national.facts.length,elapsed_seconds:(performance.now()-began)/1000,
       rss_mib:process.memoryUsage().rss/1024**2,read_only:options.readOnly,openai_calls:0}));
     return {snapshot,inputs};
 }

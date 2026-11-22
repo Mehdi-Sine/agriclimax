@@ -30,8 +30,12 @@ on:
         required: false
       authorized_snapshot:
         type: string
-        description: Optional exact snapshot assertion; never authorizes a second OpenAI call
+        description: Exact frozen snapshot ID; required for generation_only
         required: false
+      generation_only:
+        type: boolean
+        default: false
+        description: Run one authorized generation and leave the archive awaiting review
       recovery:
         type: boolean
         default: false
@@ -241,13 +245,15 @@ jobs:
           STAGE: ${{ needs.plan.outputs.stage }}
           RECOVERY: ${{ inputs.recovery }}
           AUTHORIZED_SNAPSHOT: ${{ inputs.authorized_snapshot }}
+          GENERATION_ONLY: ${{ inputs.generation_only }}
         run: |
           args=("$STAGE")
           if [[ "$RECOVERY" == true ]]; then args+=(--recover); fi
           if [[ -n "$AUTHORIZED_SNAPSHOT" ]]; then args+=(--authorize-snapshot "$AUTHORIZED_SNAPSHOT"); fi
+          if [[ "$GENERATION_ONLY" == true ]]; then args+=(--generation-only); fi
           pnpm editorial:nightly "${args[@]}"
       - name: Send admin report when publication is verified
-        if: always() && !cancelled() && (needs.plan.outputs.stage == 'run' || needs.plan.outputs.stage == 'report')
+        if: always() && !cancelled() && !inputs.generation_only && (needs.plan.outputs.stage == 'run' || needs.plan.outputs.stage == 'report')
         env:
           ADMIN_REPORT_TOKEN: ${{ secrets.AGRICLIMAX_ADMIN_REPORT_TOKEN }}
         run: |
