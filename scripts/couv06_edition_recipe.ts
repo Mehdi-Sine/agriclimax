@@ -10,15 +10,14 @@ import {hash,shift} from '../apps/web/features/editorial/temporal';
 import {verifyBundle,mapInfo} from '../apps/web/features/edition-maps/model';
 import type {Archive} from '../apps/web/features/editorial-ai/model';
 import type {DailyEditorialSnapshot} from '../apps/web/features/nightly/snapshot';
-import type {ArchivedDaily,NationalWeatherDocument} from '../apps/web/lib/server/weather-archives';
-import {gunzipSync} from 'node:zlib';
 import {verifyConsultable,type ConsultableEdition} from '../apps/web/features/editorial-ai/consultable';
+import {decodeFrozenMapInputs} from './edit04_frozen';
 async function main(){
 const root=process.argv[2];
 if(!root)throw Error('LOCAL_REPLAY_ROOT_REQUIRED');
 const archive=JSON.parse(readFileSync(join(root,'archive.json'),'utf8')) as Archive;
 const snapshot=JSON.parse(readFileSync(join(root,'snapshot.json'),'utf8')) as DailyEditorialSnapshot;
-const inputs=JSON.parse(gunzipSync(readFileSync(join(root,'frozen-inputs.json.gz'))).toString()) as {history:ArchivedDaily[];document:NationalWeatherDocument|null};
+const inputs=await decodeFrozenMapInputs(readFileSync(join(root,'frozen-inputs.json.gz')),snapshot);
 const begun=performance.now();
 const original=buildEditionMaps(archive,snapshot,inputs);
 const end=archive.briefing.validity.history_cutoff;
@@ -33,7 +32,7 @@ const newBody={...body,input_archive:{sha256,path:`editorial-inputs/${sha256}.js
 const candidateSnapshot={...newBody,id:hash(newBody)};
 const candidate=buildEditionMaps(archive,candidateSnapshot,enriched);
 verifyBundle(candidate,archive);
-const replay=buildEditionMaps(archive,candidateSnapshot,JSON.parse(gunzipSync(bytes).toString()));
+const replay=buildEditionMaps(archive,candidateSnapshot,await decodeFrozenMapInputs(bytes,candidateSnapshot));
 if(replay.sha256!==candidate.sha256)throw Error('REPLAY_MISMATCH');
 const maps=candidate.maps.map(map=>{
  const before=original.maps.find(m=>m.indicator===map.indicator&&m.nature===map.nature)!;

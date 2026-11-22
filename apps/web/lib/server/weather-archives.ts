@@ -65,20 +65,23 @@ export async function nationalWeatherDocument(requestedRun?:string, expectedSha?
   const current=requestedRun||expectedSha?null:await currentManifest();
   const catalogue=current??await archiveCatalogue();
   const latest=catalogue?.weather.filter(e=>e.method_version==='pra-national-weather-daily-1'&&(!expectedSha||e.sha256===expectedSha)&&(!requestedRun||(requestedRun.includes('T')?Date.parse(e.run_at??e.run_date+'T00:00:00Z')===Date.parse(requestedRun):e.run_date===requestedRun))&&typeof e.run_date==='string'&&isCalendarDate(e.run_date)).sort((a,b)=>(b.run_at??b.run_date!).localeCompare(a.run_at??a.run_date!))[0];
-  if(!latest)return null;
-  const cached = cycleCache.get(latest.sha256);
+  return latest ? pinnedNationalWeatherDocument(latest) : null;
+}
+/** Replay the validated immutable archive without consulting either mutable index. */
+export function pinnedNationalWeatherDocument(entry:ArchiveEntry):Promise<NationalWeatherDocument>{
+  const cached = cycleCache.get(entry.sha256);
   if (cached) {
-    cycleCache.delete(latest.sha256);
-    cycleCache.set(latest.sha256, cached);
+    cycleCache.delete(entry.sha256);
+    cycleCache.set(entry.sha256, cached);
     return cached;
   }
   const value=(async()=>{
-    return decodeNationalWeather(await archiveBlob(latest),latest.sha256);
+    return decodeNationalWeather(await archiveBlob(entry),entry.sha256);
   })();
   if (cycleCache.size >= 2) cycleCache.delete(cycleCache.keys().next().value!);
-  cycleCache.set(latest.sha256, value);
+  cycleCache.set(entry.sha256, value);
   void value.catch(() => {
-    if (cycleCache.get(latest.sha256) === value) cycleCache.delete(latest.sha256);
+    if (cycleCache.get(entry.sha256) === value) cycleCache.delete(entry.sha256);
   });
   return value;
 }

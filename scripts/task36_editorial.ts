@@ -60,6 +60,9 @@ async function prepareFallbackSelection(snapshot:DailyEditorialSnapshot,id:strin
 }
 
 async function main() {
+  const generationOnly=process.argv.includes("--generation-only");
+  const authorized=process.argv.indexOf("--authorize-snapshot");
+  if(generationOnly&&(command!=="run"||authorized<0))throw Error("EXACT_SNAPSHOT_AUTHORIZATION_REQUIRED");
   if(command==="revalidate") {
     phase="revalidation";
     const i=process.argv.indexOf("--source-checksum");
@@ -95,7 +98,6 @@ async function main() {
   if(control.emergency_stop) {output({status:"no_op",reason:"emergency_stop",paid_calls:0});return;}
   phase="snapshot_read";
   let snapshot = await editorialRPC<DailyEditorialSnapshot|null>("snapshot_read",{edition_date:date});
-  const authorized=process.argv.indexOf("--authorize-snapshot");
   if(authorized>=0&&(!snapshot||process.argv[authorized+1]!==snapshot.id)) throw Error("EXACT_SNAPSHOT_AUTHORIZATION_REQUIRED");
   if(!snapshot && ["prepare","run","qualify"].includes(command)) {
     snapshot=await prepare();
@@ -126,6 +128,7 @@ async function main() {
     output({status:"no_op",reason:"already_consultable",id:history.publications[0].archive_id,paid_calls:0});return;
   }
   for(const prior of history.runs) {
+    if(generationOnly)throw Error("EXISTING_ATTEMPT_REQUIRES_RECOVERY");
     let recovered=await store.read(prior.archive_id??prior.id);
     const savedMaps=history.diagnostics.find(d=>d.kind==="map_selection_request"&&d.run_id===prior.id)?.selection;
     if(!recovered) {
@@ -167,6 +170,8 @@ async function main() {
   }
   const key=process.env.OPENAI_API_KEY;
   const fallbackReason=!control.ai_enabled?"ai_disabled":!key?"openai_key_missing":null;
+  if(generationOnly&&fallbackReason)throw Error("LIVE_GENERATION_NOT_CONFIGURED");
+  if(generationOnly&&process.env.AGRICLIMAX_EDITORIAL_MAP_SELECTION==="false")throw Error("LIVE_GENERATION_MAP_VALIDATION_REQUIRED");
   phase="generation";
   let archive:Archive;
   if(fallbackReason) {
@@ -181,9 +186,12 @@ async function main() {
   }
   const run=await store.readRun(archive.edition_id);
   consultableEdition(archive);
-  publishExperimentalMaps(archive);
-  output({id:archive.edition_id,mode:archive.mode,status:"consultable",
-    validation_status:archive.status,provider_receipt_archived:!!archive.receipt,checksum:archive.checksum,run_state:run?.state,fallback_reason:fallbackReason,error:run?.error??null});
+  if(!generationOnly)publishExperimentalMaps(archive);
+  const live=archive.mode==="live"&&!!archive.receipt&&run?.state==="completed"&&archive.validation.status!=="rejected";
+  output({id:archive.edition_id,mode:archive.mode,status:generationOnly?(live?"awaiting_review":"live_generation_failed"):"consultable",
+    validation_status:archive.status,provider_receipt_archived:!!archive.receipt,checksum:archive.checksum,run_state:run?.state,fallback_reason:fallbackReason,
+    error:run?.error??null,actual_eur:run?.actual_eur??null});
+  if(generationOnly&&!live)process.exitCode=1;
   // Archiving makes an experimental edition consultable. Certification/promotion remains explicit.
 }
 async function execute() {
