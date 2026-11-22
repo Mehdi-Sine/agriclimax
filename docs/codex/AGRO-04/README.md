@@ -57,6 +57,8 @@ Le [fichier national](evidence/territoires.json.gz) contient les profils des 713
 
 Le rejeu utilise le bulletin du 21 novembre 2026 à 18 h UTC. En prévision du 22 novembre, le seuil de pluie est franchi sur 303 PRA et 299 donnent une situation potentielle avec contexte RPG. La réanalyse du 15 novembre compte 645 PRA qualifiées par règle et 68 insuffisantes. Les sorties de novembre ne justifient aucune rubrique gel ou chaleur.
 
+**Interprétation des 299 :** ce nombre mesure des associations exploratoires entre un seuil météorologique prévu et une production documentée à l’échelle PRA. Il ne dénombre ni exploitations affectées, ni parcelles où l’impact serait constaté, ni pertes de rendement. La présence de cultures et les fenêtres saisonnières ne prouvent ni la réalisation de travaux ni leur vulnérabilité réelle. Validation scientifique préalable indispensable.
+
 ## Coût, archivage et activation
 
 ```bash
