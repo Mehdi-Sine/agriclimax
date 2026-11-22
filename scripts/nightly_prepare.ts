@@ -1,4 +1,3 @@
-import { prepareTerritorialWatch } from "../apps/web/lib/server/agro-territorial";
 /** Shared preparation: nightly and isolated manual tests use identical selection/validation. */
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -99,8 +98,10 @@ export async function prepareDossier(options:PreparationOptions) {
     forecast={doc,entry,cycles};
     break;
   }
+  // Experimental territorial enrichment must never load during daily publication.
   const territorialWatch = options.readOnly && process.env.AGRICLIMAX_AGRO04_PREVIEW === "true"
-    ? await prepareTerritorialWatch(date, historyCutoff, history, forecast?.doc, geography.places)
+    ? await (await import("../apps/web/lib/server/agro-territorial"))
+      .prepareTerritorialWatch(date, historyCutoff, history, forecast?.doc, geography.places)
     : undefined;
   const cycles=forecast?.cycles??[];
   const selected=selectCycles(cycles,date,cutoff);
