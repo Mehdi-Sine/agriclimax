@@ -1,3 +1,4 @@
+import { STRICT_BOARD_VERSIONS } from "../../features/editorial-ai/model";
 import "server-only";
 import {editorialRPC,SupabaseEditorialStore} from "../../features/editorial-ai/supabase-store";
 import type {Run} from "../../features/editorial-ai/archive";
@@ -40,7 +41,7 @@ async function readOperationalEditions() {
     if(a?.validation.status==="rejected")a=await read(hash([a.checksum,"experimental-factual-fallback-1"]))??a;
     if(a){const edition=consultableEdition(a);
      // New experimental publications become visible only after the immutable map commit.
-     if(a.map_selection||["editorial-board-fr-4","editorial-board-fr-5"].includes(a.prompt_version)||a.mode==="fallback"){
+     if(a.map_selection||STRICT_BOARD_VERSIONS.includes(a.prompt_version)||a.mode==="fallback"){
       const maps=await readPublishedMaps(a);if(!maps)continue;
       if(a.map_selection)selectedMapIds(a.map_selection,maps);
      }

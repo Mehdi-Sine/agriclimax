@@ -55,6 +55,9 @@ export function EditionMaps({view,editionId,initialMapId,main=false}:{view:Editi
       <p className="pra-source">Sources : {info.sources.join(", ")} · {info.cycles.length?`cycles ${info.cycles.map(frenchCycle).join(" ; ")}`:"historique de réanalyse"}. Validité : {info.period.join(" → ")}. Résultats descriptifs exploratoires, sans dommage agricole déduit.</p>
       <details><summary>Traçabilité de la carte</summary><p>Carte {info.id} · bundle {view.bundle_sha256}.</p><p>Empreinte des entrées : {info.input_sha256}.</p><a href={url??undefined}>Données structurées de cette carte</a></details>
     </figure>
-    {main&&<Link href={`/cartes-du-jour?id=${encodeURIComponent(editionId)}&map=${id}`}>Toutes les cartes de cette édition →</Link>}
+    {main && <p className="edition-links">
+      <a href="#essentiel">Reprendre la lecture de l’article →</a>
+      <Link href={`/cartes-du-jour?id=${encodeURIComponent(editionId)}&map=${id}`}>Toutes les cartes de cette édition →</Link>
+    </p>}
   </section>;
 }

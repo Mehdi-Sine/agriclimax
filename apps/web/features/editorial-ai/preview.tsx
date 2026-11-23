@@ -7,10 +7,15 @@ import type {ConsultableEdition} from "./consultable";
 import { frenchDate } from "../journal/ui/stories";
 import { editorialText, frenchPeriod, frenchCycle } from "../journal/ui/editorial-dates";
 import JournalPraMap from "../journal/ui/pra-map";
-import {JournalMapCarousel} from "../edition-maps/carousel";
-import {journalMapCards} from "../edition-maps/carousel-model";
 import {EditionMaps} from "../edition-maps/view";
 import type {EditionMapsView} from "../edition-maps/model";
+const fieldQuestions: Record<string, string> = {
+  field_peak_rain5: "Si une intervention est envisagée, quels sols ont suffisamment ressuyé pour porter le matériel ? La texture et le drainage modulent le ressuyage.",
+  field_antecedent_rain: "Quel ressuyage vérifier avant d’intervenir ? La texture et le drainage influencent la portance.",
+  field_frost: "Quels stades et quelles expositions vérifier ? La sensibilité au froid varie avec la variété, le stade et la durée du gel.",
+  field_dry_sequence: "Quelle humidité vérifier dans le lit de semences ? Les réserves initiales et l’irrigation modifient l’eau disponible.",
+};
+
 function Text({ block, facts }: { block: Block; facts: {id:string}[] }) {
   const unresolved=block.evidence_ids.filter(id=>!facts.some(f=>f.id===id));
   const resolved=block.evidence_ids.some(id=>facts.some(f=>f.id===id));
@@ -45,7 +50,22 @@ export function EditorialPreview({
   const d = a?.draft;
   const selection=a?.map_selection;
   const selectedMaps=selection ? ("map_ids" in selection ? selection : {hero_map_id:selection.response.hero_map_id,map_ids:[...selection.response.priority,...selection.response.complementary].map(c=>c.map_id)}) : undefined;
-  const carousel = published && a && editionMaps?.maps.length ? journalMapCards(editionMaps, a.edition_id, a.date, selectedMaps) : undefined;
+  const articleMaps = editionMaps && {
+    ...editionMaps,
+    maps: selectedMaps?.map_ids.length
+      ? selectedMaps.map_ids.flatMap(id => editionMaps.maps.filter(map => map.id === id))
+      : selectedMaps ? [] : editionMaps.maps,
+  };
+  const seasonal = d?.article.find(block =>
+    (block.kind === "question" || block.kind === "context") && block.seasonal_ids.some(id => a?.briefing.seasonal.windows.some(window => window.id === id)),
+  );
+  const takeaways = d?.article.filter(block => block !== seasonal && block.kind === "fact").slice(0, 3) ?? [];
+  const remaining = d?.article.filter(block => block !== seasonal && !takeaways.includes(block));
+
+  const agroField = [...(a?.briefing.agro_field ?? [])];
+  if (articleMaps?.maps[0]?.indicator === "frost") {
+    agroField.sort((lhs, rhs) => Number(rhs.indicator === "field_frost") - Number(lhs.indicator === "field_frost"));
+  }
   const cycles=[...new Set(a?.briefing.national.facts.flatMap(f=>{try{const cycle=new URL(f.href,"https://agriclimax.invalid").searchParams.get("cycle");return cycle&&Number.isFinite(Date.parse(cycle))?[cycle]:[];}catch{return [];}})??[])];
   const base=personalStatus?"/journal/personnel":published?"/journal":"/journal/preview";
   const api=personalStatus?"/api/journal/personnel":published?"/api/journal/edition":"/api/journal-preview";
@@ -54,9 +74,9 @@ export function EditorialPreview({
   return (
     <>
       <EditorialHeader active="journal"/>
-    <main className="journal ux01-journal ux02b-journal">
+    <main className="journal ux01-journal ux02b-journal journal-edition">
       <div className="ux01-edition-meta"><span>{a?`ÉDITION DU ${frenchDate(a.date)}`:"ARCHIVES DU JOURNAL"}</span><span>France métropolitaine & Corse · {published?"Journal IA":personalStatus?"Espace personnel":"Prévisualisation"}</span></div>
-      
+
       {!a || !d ? (
         <section className="empty-story">
           <h1>{personalStatus?"Aucun brouillon IA vérifié à cette date":"Aucune édition archivée à cette date"}</h1>
@@ -64,22 +84,12 @@ export function EditorialPreview({
         </section>
       ) : (
         <>
-          <aside className="freshness">
-            {published&&<p>Édition expérimentale — Les analyses présentées sont produites automatiquement à partir de données météorologiques et de modèles de prévision. Elles peuvent comporter des incertitudes et ne constituent pas des constats de dommages agricoles.</p>}
-            <p>
-              {a.mode === "simulation"
-                ? "SIMULATION · Texte d’essai rédigé pour la recette, aucune génération OpenAI réelle."
-                : a.mode === "fallback"
-                  ? "ÉDITION DE SECOURS · Rédaction déterministe."
-                  : "Rédigé avec assistance IA."}{" "}
-              {personalStatus ? personalStatus : published ? "Édition expérimentale IA — contenu non entièrement vérifié" : "Revue éditoriale requise. Archive historique : ne décrit pas la situation actuelle."}
-            </p>
-          </aside>
-          {published&&<details className="editorial-note"><summary>Réserves scientifiques de cette édition</summary>
-            <p>Consultable ne signifie pas scientifiquement validée ou approuvée.</p>
-            <p>Contrôles enregistrés : {a.validation.errors.join(" · ")||"aucune erreur détectée"}.</p>
-            {"assessment" in a&&<p>Réexamen actuel : {[...a.assessment.errors,...a.assessment.review].join(" · ")||"aucune réserve automatique"}.</p>}
-          </details>}
+          <p className="edition-status">
+            {a.mode === "simulation" ? "Simulation éditoriale sur archives"
+              : a.mode === "fallback" ? "Édition de secours · Rédaction déterministe"
+              : "Rédigé avec assistance IA"}
+            {personalStatus ? ` · ${personalStatus}` : published ? " · Édition expérimentale" : " · Revue éditoriale requise"}
+          </p>
           <section className="front-page" aria-labelledby="headline">
             <div className="hero-copy">
               <p className="eyebrow">À LA UNE · FRANCE</p>
@@ -88,19 +98,8 @@ export function EditorialPreview({
                 <Text facts={a.briefing.national.facts} block={d.lead} />
               </div>
             </div>
-            {carousel && <JournalMapCarousel key={a.edition_id} cards={carousel} preview={editionMaps?.status === "preview"}/>}
-            <aside className="ux02b-essential" aria-label="L’essentiel de cette édition">
-              <p className="eyebrow">L’ESSENTIEL</p>
-              <h2>Une lecture nationale, des réalités locales</h2>
-              <Text facts={a.briefing.national.facts} block={d.decision}/>
-              <div className="ux02b-metrics">
-                <div><strong>713</strong><small>PRA du référentiel</small></div>
-                <div><strong>{editionMaps?.maps.length??a.illustrations.filter(m=>d.illustration_ids.includes(m.id)).length}</strong><small>Cartes de l’édition</small></div>
-                <div><strong>{d.regions.length}</strong><small>Éclairages régionaux</small></div>
-              </div>
-            </aside>
-            {!carousel && <><div className="ux02b-map-heading"><h2>La carte de l’édition</h2><Link href={`${mapsBase}?date=${a.date}&id=${a.edition_id}`}>Explorer les cartes →</Link></div>
-            {editionMaps?.maps.length ? <EditionMaps key={a.edition_id} view={editionMaps} editionId={a.edition_id} main/> : a.illustrations.some(m=>d.illustration_ids.includes(m.id)) ? (
+            <div className="edition-hero-map" id="carte">
+            {articleMaps?.maps.length ? <EditionMaps key={a.edition_id} view={articleMaps} editionId={a.edition_id} initialMapId={selectedMaps?.hero_map_id ?? undefined} main/> : a.illustrations.some(m=>d.illustration_ids.includes(m.id)) ? (
               a.illustrations
                 .filter((m) => d.illustration_ids.includes(m.id))
                 .slice(0,1)
@@ -115,7 +114,7 @@ export function EditorialPreview({
                   />
                 ))
             ) : (
-              editionMaps ? <EditionMaps view={editionMaps} editionId={a.edition_id} main/> : <aside className="empty-story">
+              articleMaps ? <EditionMaps view={articleMaps} editionId={a.edition_id} main/> : <aside className="empty-story">
                 <p className="eyebrow">LA CARTE DU DOSSIER</p>
                 <h2>Aucune carte compatible archivée</h2>
                 <p>
@@ -124,20 +123,25 @@ export function EditorialPreview({
                 </p>
               </aside>
             )}
-            </>}
-            <aside className="ux01-map-context">
-                <h2>Dans cette édition</h2>
-                <a className="ux02b-story-link" href="#regions"><strong>Tour des régions</strong><span>Les éclairages territoriaux de cette édition.</span></a>
-                <a className="ux02b-story-link" href="#filieres"><strong>Focus productions</strong><span>Les données et les limites pour les cultures et l’élevage.</span></a>
-                <a className="ux02b-story-link" href="#sources"><strong>Repères et archives</strong><span>Sources, méthodes et éditions précédentes.</span></a>
-                <p className="ux01-map-footnote">Les phénomènes météorologiques ne préjugent pas, à eux seuls, de leurs conséquences sur les cultures et les élevages.</p>
-                <Link href="/climat">Explorer les indicateurs →</Link>
-              </aside>
-              <section className="key-facts" aria-label="Les faits essentiels">
+            </div>
+          </section>
+          <section className="edition-takeaways" aria-labelledby="essentiel">
+            <h2 id="essentiel">Ce qu’il faut retenir</h2>
+            {takeaways.length > 0 && <ol>{takeaways.map((block, i) =>
+              <li key={i}><Text facts={a.briefing.national.facts} block={block}/></li>,
+            )}</ol>}
+            {remaining?.filter(block => block.kind !== "limitation").map((block, i) =>
+              <Text key={i} facts={a.briefing.national.facts} block={block}/>,
+            )}
+            <p className="edition-links">
+              <a href="#carte">Carte et territoires</a>
+              <Link href={`${mapsBase}?date=${a.date}&id=${a.edition_id}`}>Toutes les cartes</Link>
+            </p>
+            {d.key_figures.length > 0 && <div className="key-facts">
               {d.key_figures.slice(0,3).map((f) => (
                 <article key={f.fact_id}>
                   <p className="eyebrow">
-                    ÉCHANTILLON TERRITORIAL · {f.region ?? "France"}
+                    {f.nature === "forecast" ? "PRÉVISION" : f.nature === "reanalysis" ? "RÉANALYSE" : "INDICATEUR DESCRIPTIF"} · {f.region ?? "France"}
                   </p>
                   <strong>
                     {new Intl.NumberFormat("fr-FR",{maximumFractionDigits:2}).format(f.value)}
@@ -151,58 +155,36 @@ export function EditorialPreview({
                       )?.text
                     }
                   </p>
-                  <p>
-                    Valeur issue du dossier ; aucun effet agricole déduit. Un
-                    extrême PRA ne caractérise pas la région.
-                  </p>
+                  <Link href={a.briefing.national.facts.find(source => source.id === f.fact_id)?.href ?? "#sources"}>Détail de l’indicateur</Link>
                 </article>
               ))}
-            </section>
+            </div>}
+          </section>
           {!published && "territorial_watch" in a.briefing &&
             <TerritorialWatchSection situations={a.briefing.territorial_watch ?? []}
               returnTo={`${base}?date=${a.date}&id=${a.edition_id}#productions-surveillance`} />}
-          </section>
-          {!carousel && <section className="ux01-cartes-teasers" aria-labelledby="ux01-carte-title">
-              <div className="ux01-teaser-heading">
-                <div><p className="eyebrow">L’ESSENTIEL EN CARTES</p><h2 id="ux01-carte-title">Les cartes de l’édition</h2></div>
-                <Link href={`${mapsBase}?date=${a.date}&id=${a.edition_id}`}>Toutes les cartes →</Link>
-              </div>
-              <div className="ux01-teaser-grid">
-                {a.illustrations.filter(m=>d.illustration_ids.includes(m.id)).slice(0,3).map(m=>
-                  <Link key={m.id} href={`${mapsBase}?date=${a.date}&id=${a.edition_id}&map=${m.id}`} className="ux01-teaser-card">
-                    <span className="ux01-teaser-stripe" aria-hidden="true"/>
-                    <span className="ux01-kicker">CARTE ARCHIVÉE · {m.period[0]} → {m.period[1]}</span>
-                    <h3>{m.caption}</h3>
-                    <small>Explorer les données et la légende →</small>
-                  </Link>)}
-                {editionMaps?.maps.slice(0,3).map(m=><Link key={m.id} href={`${mapsBase}?id=${a.edition_id}&map=${m.id}`} className="ux01-teaser-card"><span className="ux01-kicker">{m.nature==="forecast"?"PRÉVISION":"RÉANALYSE"} · {m.period.join(" → ")}</span><h3>{m.title}</h3><small>{editionMaps.status==="preview"?"Candidate non publiée":"Carte publiée de l’édition"} · {m.unit}</small></Link>)}
-                {!editionMaps?.maps.length&&!a.illustrations.some(m=>d.illustration_ids.includes(m.id))&&<p>Cette édition ne comporte pas de carte archivée compatible. Aucune carte récente ne lui est substituée.</p>}
-              </div>
-            </section>}
-           <section className="understand">
-            <article className="article-column">
-              <p className="eyebrow">DÉCRYPTAGE</p>
-              <h2>Comprendre la situation</h2>
-              {d.article.map((b, i) => (
-                <Text facts={a.briefing.national.facts} block={b} key={i} />
+          <section id="regions">
+            <h2>Tour des régions</h2>
+            <div className="region-grid">
+              {d.regions.map((r) => (
+                <article key={r.region}>
+                  <h3>{r.region}</h3>
+                  {r.blocks.map((b, i) => (
+                    <Text facts={a.briefing.national.facts} key={i} block={b} />
+                  ))}
+                  {(() => {
+                    const fact = a.briefing.national.facts.find(f =>
+                      r.blocks.some(block => block.evidence_ids.includes(f.id)) && f.href.startsWith("/veille?"),
+                    );
+                    return fact && <Link href={fact.href}>Explorer le signal territorial</Link>;
+                  })()}
+                </article>
               ))}
-            </article>
-            <aside className="editorial-note">
-              <h2>Le choix de la rédaction</h2>
-              <Text facts={a.briefing.national.facts} block={d.decision} />
-              {d.alternatives.map((x) => (
-                <Text facts={a.briefing.national.facts} key={x.candidate_id} block={x.reason} />
-              ))}
-            </aside>
+            </div>
           </section>
           <section id="filieres">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">L’AGRICULTURE EN CONTEXTE</p>
-                <h2>Dans les filières</h2>
-              </div>
-            </div>
-            <div className="production-grid">
+            <h2>Le regard agricole</h2>
+            {d.productions.length > 0 && <div className="production-grid">
               {d.productions.map((p) => (
                 <article className="production-card" key={p.production_id}>
                   <h3>
@@ -213,29 +195,38 @@ export function EditorialPreview({
                   ))}
                 </article>
               ))}
-            </div>
-            {!d.productions.length && (
+            </div>}
+            {agroField.length ? (
+              <div className="edition-field">
+                <p>ERA5-Land · Réanalyse {frenchPeriod(agroField[0].period.start, agroField[0].period.end)}. Les productions citées proviennent des déclarations historiques au RPG 2025.</p>
+                {agroField.map((summary, i) => {
+                  const content = <article key={summary.indicator}>
+                    {i === 0 && <h3>{summary.label}</h3>}
+                    <p>{fieldQuestions[summary.indicator]}</p>
+                    <p>Maximum territorial de {summary.maximum?.toLocaleString("fr-FR", {maximumFractionDigits: 2})} {summary.unit} sur {summary.evaluable_pra} PRA évaluables sur {summary.total_pra}.</p>
+                    {summary.territories.length > 0 && <ul>{summary.territories.map(territory => (
+                      <li key={territory.id}>
+                        <Link prefetch={false} href={`/analyse?${new URLSearchParams({
+                          production: "field", agro: summary.indicator, agro_start: summary.period.start,
+                          agro_end: summary.period.end, pra: territory.id,
+                          retour: `${base}?date=${a.date}&id=${a.edition_id}#filieres`,
+                        })}`}>{territory.name}</Link>
+                        {territory.productions.length > 0 && ` · ${territory.productions.map(production => production.label).join(", ")}`}
+                      </li>
+                    ))}</ul>}
+                  </article>;
+                  return i === 0 ? content : <details key={summary.indicator}><summary>{summary.label}</summary>{content}</details>;
+                })}
+              </div>
+            ) : !d.productions.length && (
               <p>Aucun éclairage de filière suffisamment documenté.</p>
             )}
           </section>
-          <section id="regions">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">AU PLUS PRÈS DES TERRITOIRES</p>
-                <h2>Le tour des régions</h2>
-              </div>
-            </div>
-            <div className="region-grid">
-              {d.regions.map((r) => (
-                <article key={r.region}>
-                  <h3>{r.region}</h3>
-                  {r.blocks.map((b, i) => (
-                    <Text facts={a.briefing.national.facts} key={i} block={b} />
-                  ))}
-                </article>
-              ))}
-            </div>
-          </section>
+          {seasonal && <section id="almanach" aria-labelledby="almanach-title">
+            <h2 id="almanach-title">L’Almanach</h2>
+            <Text facts={a.briefing.national.facts} block={seasonal}/>
+            <Link href="/almanach">Consulter les repères saisonniers</Link>
+          </section>}
           {d.news_ids.length > 0 && (
             <section>
               <h2>Ce qu’en disent les instituts et la presse agricole</h2>
@@ -263,17 +254,28 @@ export function EditorialPreview({
                 ))}
             </section>
           )}
-          
+
            <footer id="sources">
-            <p className="eyebrow">LA RIGUEUR DERRIÈRE LE RÉCIT</p>
-            <h2>Sources & méthodes</h2>
+            <h2>Pour aller plus loin</h2>
+            {published && <details>
+              <summary>Réserves et validation éditoriale</summary>
+              <p>Édition expérimentale — Les analyses présentées sont produites automatiquement à partir de données météorologiques et de modèles de prévision.</p>
+              <p>Édition expérimentale IA — contenu non entièrement vérifié.</p>
+              <p>Contrôles enregistrés : {a.validation.errors.join(" · ") || "aucune erreur détectée"}.</p>
+              {"assessment" in a && <p>Réexamen actuel : {[...a.assessment.errors, ...a.assessment.review].join(" · ") || "aucune réserve automatique"}.</p>}
+            </details>}
+            <p>Les stations fournissent des observations. ERA5-Land fournit une réanalyse et les modèles fournissent des prévisions. Les indicateurs décrivent un signal météorologique. Les situations agricoles potentielles appellent une vérification à la parcelle. Un impact avéré exige un constat de terrain.</p>
+            {a.briefing.agro_field?.length ? <p>Les décomptes AGRO-05 excluent les supports partiels. Chaque PRA évaluable compte une fois.</p> : null}
             {cycles.length>0&&<p>Cycles de prévision : {cycles.map(frenchCycle).join(" · ")}.</p>}
-            <p>Historique disponible jusqu’au {frenchDate(a.briefing.validity.history_cutoff)}. Prévisions : {frenchPeriod(a.briefing.validity.forecast_period?.[0]??a.date,a.briefing.validity.forecast_period?.[1]??a.date)}.</p>
-            {d.limitations.map((b, i) => (
+            <p>Historique disponible jusqu’au {frenchDate(a.briefing.validity.history_cutoff)}. {a.briefing.validity.forecast_period && ` Prévisions ${frenchPeriod(...a.briefing.validity.forecast_period)}.`}</p>
+            {[...d.limitations, ...(remaining?.filter(block => block.kind === "limitation") ?? [])].map((b, i) => (
               <Text facts={a.briefing.national.facts} key={i} block={b} />
             ))}
             <details>
-              <summary>Preuves, Almanach et arbitrages documentaires</summary>
+              <summary>Sources, méthode et arbitrages</summary>
+              <Text facts={a.briefing.national.facts} block={d.decision}/>
+              {d.alternatives.map(item => <Text key={item.candidate_id} facts={a.briefing.national.facts} block={item.reason}/>)}
+              {a.briefing.agro_field?.map(summary => <p key={summary.indicator}>{summary.label}. {summary.limitations[0]}</p>)}
               <p>
                 Les rapprochements faibles de T34 sont écartés de la rubrique
                 presse.

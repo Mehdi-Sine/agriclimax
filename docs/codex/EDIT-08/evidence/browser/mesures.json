@@ -1,0 +1,82 @@
+[
+  {
+    "day": "22",
+    "device": "desktop",
+    "before": true,
+    "title_ms": 3201,
+    "map_ms": 4251,
+    "width": 1440,
+    "used_api_bytes": 242288,
+    "geometry_bytes": 0
+  },
+  {
+    "day": "22",
+    "device": "desktop",
+    "before": false,
+    "title_ms": 1905,
+    "map_ms": 6234,
+    "width": 1440,
+    "used_api_bytes": 1042555,
+    "geometry_bytes": 2549501
+  },
+  {
+    "day": "22",
+    "device": "mobile",
+    "before": true,
+    "title_ms": 1614,
+    "map_ms": 2015,
+    "width": 390,
+    "used_api_bytes": 242288,
+    "geometry_bytes": 0
+  },
+  {
+    "day": "22",
+    "device": "mobile",
+    "before": false,
+    "title_ms": 1073,
+    "map_ms": 3379,
+    "width": 390,
+    "used_api_bytes": 1042555,
+    "geometry_bytes": 2549501
+  },
+  {
+    "day": "23",
+    "device": "desktop",
+    "before": true,
+    "title_ms": 1534,
+    "map_ms": 2582,
+    "width": 1440,
+    "used_api_bytes": 244618,
+    "geometry_bytes": 0
+  },
+  {
+    "day": "23",
+    "device": "desktop",
+    "before": false,
+    "title_ms": 1213,
+    "map_ms": 4226,
+    "width": 1440,
+    "used_api_bytes": 996520,
+    "geometry_bytes": 2549501
+  },
+  {
+    "day": "23",
+    "device": "mobile",
+    "before": true,
+    "title_ms": 1370,
+    "map_ms": 1696,
+    "width": 390,
+    "used_api_bytes": 244618,
+    "geometry_bytes": 0
+  },
+  {
+    "day": "23",
+    "device": "mobile",
+    "before": false,
+    "title_ms": 1384,
+    "map_ms": 3428,
+    "width": 390,
+    "used_api_bytes": 996520,
+    "geometry_bytes": 2549501
+  }
+]

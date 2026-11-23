@@ -20,17 +20,22 @@ try{
     await context.route("**/*",async route=>{const url=new URL(route.request().url());if(url.origin!==new URL(origin).origin){external.push(url.origin);await route.abort();}else await route.continue();});
     try{
       await page.goto(origin+"/",{waitUntil:"domcontentloaded",timeout:90000});
-      assert.equal(new URL(page.url()).pathname,"/","UX-03 renders the Journal directly on the homepage");
-      await page.waitForFunction(()=>document.querySelectorAll('.journal-thumbnail[data-state="ready"]').length===10,{},{timeout:90000});
-      assert.equal(await page.locator(".journal-map-card").count(),10);
-      assert.equal(await page.locator(".maplibregl-canvas").count(),0,"The Journal uses raster previews");
+      assert.equal(new URL(page.url()).pathname,"/","The homepage renders the Journal directly");
+      await ready(page);
+      const indicator=page.getByRole("combobox",{name:"Indicateur de l’édition",exact:true});
+      assert.equal(await indicator.locator("option").count(),10);
+      assert.equal(await indicator.inputValue(),candidate.maps[0].id);
       assert.match(await page.locator("body").innerText(),/RECETTE.*non publiées/);
       await noOverflow(page);
       await page.screenshot({path:path.join(out,`${name}-journal.png`),fullPage:true,animations:"disabled"});
-      // Follow the real thumbnail into the interactive archive before testing PRA selection.
-      const link=page.locator(".journal-map-card-link").first();
+      const articleReturn=page.getByRole("link",{name:"Reprendre la lecture de l’article →",exact:true});
+      await articleReturn.click();
+      assert.equal(new URL(page.url()).hash,"#essentiel");
+      // The full catalogue keeps its edition and selected-map permalink.
+      const link=page.locator("#carte").getByRole("link",{name:"Toutes les cartes de cette édition →",exact:true});
       const linked=new URL(await link.getAttribute("href"),origin);
       assert.equal(linked.searchParams.get("id"),edition);
+      assert.equal(linked.searchParams.get("map"),candidate.maps[0].id);
       await link.click();await page.waitForURL("**/cartes-du-jour?**");await ready(page);await noOverflow(page);
       const picker=page.getByRole("combobox",{name:"PRA de l’édition",exact:true});
       assert.equal(await picker.locator("option").count(),714);
