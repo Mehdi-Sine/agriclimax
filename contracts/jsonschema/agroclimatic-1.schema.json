@@ -80,6 +80,9 @@
     "source_version": {
       "type": "string"
     },
+    "history_series": {
+      "enum": ["exact-storage-1", "legacy-rpc-1"]
+    },
     "run": {
       "type": [
         "string",
@@ -174,7 +177,8 @@
               "agroclimatic-1.0.0",
               "agroclimatic-1.1.0",
               "agroclimatic-1.2.0",
-              "agroclimatic-1.3.0"
+              "agroclimatic-1.3.0",
+              "agro-field-1.0.0"
             ]
           },
           "parameters": {

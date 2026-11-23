@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agriclimax.invalid/contracts/agro-field-summary-1",
+  "title": "Synthèse nationale agroclimatique à destination du comité éditorial",
+  "type": "object",
+  "required": ["version", "indicator", "rule_version", "label", "question", "kind", "unit", "threshold", "period", "source", "technical_reference", "data_freshness", "provenance", "quality_flags", "total_pra", "evaluable_pra", "distribution", "regions", "remarkable", "evolution", "anomaly", "abstentions", "limitations"],
+  "properties": {
+    "version": { "const": "agro-field-summary-1" },
+    "indicator": { "enum": ["field_maize_gdd", "field_frost", "field_dry_sequence", "field_antecedent_rain", "field_peak_rain5"] },
+    "rule_version": { "const": "agro-field-1.0.0" },
+    "label": { "type": "string" },
+    "question": { "type": "string" },
+    "kind": { "enum": ["reanalysis", "potential"] },
+    "unit": { "enum": ["°C·j", "jours", "mm"] },
+    "threshold": { "type": ["number", "null"] },
+    "period": { "$ref": "#/$defs/period" },
+    "source": {
+      "type": "object",
+      "required": ["label", "version"],
+      "properties": { "label": { "type": "string" }, "version": { "type": "string" } }
+    },
+    "technical_reference": { "type": "string" },
+    "data_freshness": { "$ref": "#/$defs/strings", "maxItems": 2 },
+    "provenance": { "$ref": "#/$defs/strings" },
+    "quality_flags": { "$ref": "#/$defs/strings" },
+    "total_pra": { "const": 713 },
+    "evaluable_pra": { "$ref": "#/$defs/count" },
+    "distribution": { "$ref": "#/$defs/distribution" },
+    "regions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["region", "total_pra", "evaluable_pra", "distribution"],
+        "properties": {
+          "region": { "type": "string" },
+          "total_pra": { "$ref": "#/$defs/count" },
+          "evaluable_pra": { "$ref": "#/$defs/count" },
+          "distribution": { "$ref": "#/$defs/distribution" }
+        }
+      }
+    },
+    "remarkable": {
+      "type": "object",
+      "required": ["minimum", "maximum", "lowest", "highest", "minimum_count", "maximum_count"],
+      "properties": {
+        "minimum": { "type": ["number", "null"] },
+        "maximum": { "type": ["number", "null"] },
+        "lowest": { "$ref": "#/$defs/territories" },
+        "highest": { "$ref": "#/$defs/territories" },
+        "minimum_count": { "$ref": "#/$defs/count" },
+        "maximum_count": { "$ref": "#/$defs/count" }
+      }
+    },
+    "evolution": {
+      "oneOf": [
+        { "$ref": "#/$defs/abstention" },
+        {
+          "type": "object",
+          "required": ["value", "statistic", "unit", "paired_pra", "previous_period", "previous_source_version", "interpretation"],
+          "properties": {
+            "value": { "type": "number" },
+            "statistic": { "const": "median_paired_delta" },
+            "unit": { "type": "string" },
+            "paired_pra": { "type": "integer", "minimum": 1, "maximum": 713 },
+            "previous_period": { "$ref": "#/$defs/period" },
+            "previous_source_version": { "type": "string" },
+            "interpretation": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "anomaly": { "$ref": "#/$defs/abstention" },
+    "abstentions": { "type": "object", "additionalProperties": { "$ref": "#/$defs/count" } },
+    "limitations": { "$ref": "#/$defs/strings" }
+  },
+  "$defs": {
+    "period": {
+      "type": "object",
+      "required": ["start", "end", "timezone"],
+      "properties": {
+        "start": { "type": "string", "format": "date" },
+        "end": { "type": "string", "format": "date" },
+        "timezone": { "const": "UTC" }
+      }
+    },
+    "count": { "type": "integer", "minimum": 0, "maximum": 713 },
+    "strings": { "type": "array", "items": { "type": "string" } },
+    "distribution": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["class", "count"],
+        "properties": { "class": { "type": "string" }, "count": { "$ref": "#/$defs/count" } }
+      }
+    },
+    "territories": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "region", "value", "productions", "data_freshness", "provenance", "quality_flags"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^pra:[0-9AB]{5}$" },
+          "name": { "type": "string" },
+          "region": { "type": "string" },
+          "value": { "type": "number" },
+          "productions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["label", "source", "year", "declaredHectares"],
+              "properties": {
+                "label": { "type": "string" },
+                "source": { "const": "rpg-2025" },
+                "year": { "const": 2025 },
+                "declaredHectares": { "type": "number", "exclusiveMinimum": 0 }
+              }
+            }
+          },
+          "data_freshness": { "$ref": "#/$defs/strings" },
+          "provenance": { "$ref": "#/$defs/strings" },
+          "quality_flags": { "$ref": "#/$defs/strings" }
+        }
+      }
+    },
+    "abstention": {
+      "type": "object",
+      "required": ["value", "reason"],
+      "properties": { "value": { "type": "null" }, "reason": { "type": "string" } }
+    }
+  }
+}

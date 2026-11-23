@@ -5,17 +5,17 @@ import type {PraCollection} from '../../features/national/map';
 import {calculateQualified, coverageRule, UNIFIED_AGRO_VERSION, type QualifiedDay} from "../../features/climate-quality/calculate";
 import {forecastSupport, applyObservedSupport} from "./climate-quality";
 import "server-only";
-import {climateHistoryWindow} from "./climate-history";
+import {climateHistoryWindow, legacyHistoryDates} from "./climate-history";
 import { coastalComplement } from "./coastal-complement";
 import identities from "../../data/operational/pra-identities.json";
-import { RULES, type Rule } from "../../features/agroclimatic/catalogue";
+import { AGRO_RULES, type Rule } from "../../features/agroclimatic/catalogue";
 import {
   calculate,
   type AgroResult,
 } from "../../features/agroclimatic/calculate";
 import { calendarDays } from "../../features/national/daily-availability";
 import { NATIONAL } from "../../features/national/model";
-import { nationalWeatherDocument, archivedEra5Day } from "./weather-archives";
+import { archiveCatalogue, nationalWeatherDocument, archivedEra5Day } from "./weather-archives";
 import { nationalData } from "./national";
 import { nationalDays } from "./national-availability";
 import { observedSupportDay } from "./spatial-restitution";
@@ -31,7 +31,9 @@ import {
 import { ApiError } from "./query";
 import type { ClimateContextRow } from "../../features/national/model";
 import type { WeatherRow } from "../../features/operational/model";
+import type { summarizeField } from "./field-summary";
 export interface AgroPayload {
+  summary?: Awaited<ReturnType<typeof summarizeField>>;
   forecast_support?: PraCollection;
   forecast_support_rejections?: Record<string,string>;
   contract_version: string;
@@ -40,6 +42,7 @@ export interface AgroPayload {
   period: { start: string; end: string; timezone: string };
   temporal: string;
   source_version: string;
+  history_series?: string;
   run: string | null;
   calculated_at: string;
   calculation_ms: number;
@@ -49,6 +52,22 @@ const cache = new Map<
   string,
   { expires: number; value: Promise<AgroPayload> }
 >();
+const historyCache = new Map<string, {
+  expires: number;
+  value: ReturnType<typeof climateHistoryWindow>;
+}>();
+function retainedHistory(dates: string[]) {
+  const key = `${dates[0]}/${dates.at(-1)}`;
+  const hit = historyCache.get(key);
+  if (hit && hit.expires > Date.now()) return hit.value;
+  const value = climateHistoryWindow(dates);
+  if (historyCache.size >= 6) historyCache.delete(historyCache.keys().next().value!);
+  historyCache.set(key, { expires: Date.now() + 60000, value });
+  void value.catch(() => {
+    if (historyCache.get(key)?.value === value) historyCache.delete(key);
+  });
+  return value;
+}
 const nativeDayCache = new Map<
   string,
   { expires: number; value: Promise<ClimateContextRow[]> }
@@ -73,7 +92,7 @@ function retainedDay(date: string, variable: string) {
   });
   return value;
 }
-export async function agroclimaticData(params: URLSearchParams) {
+export async function agroclimaticData(params: URLSearchParams): Promise<AgroPayload> {
   const allowed = [
     "indicator",
     "threshold",
@@ -84,18 +103,20 @@ export async function agroclimaticData(params: URLSearchParams) {
     "model",
     "pra",
     "rule_version",
+    "summary",
+    "compare",
   ];
   const pra = params.get("pra");
   if (pra && !identities.ids.includes(pra))
     throw new ApiError("INVALID_QUERY", 400);
-  const baseRule = RULES.find((r) => r.id === params.get("indicator"));
+  const baseRule = AGRO_RULES.find((r) => r.id === params.get("indicator"));
   const requestedVersion = params.get("rule_version");
-  const unified = !requestedVersion || requestedVersion === UNIFIED_AGRO_VERSION;
+  const unified = !!baseRule?.priority || !requestedVersion || requestedVersion === UNIFIED_AGRO_VERSION;
   if (
     requestedVersion &&
     ![STRICT_RULE_VERSION, OBSERVED_RULE_VERSION, NATIVE_RULE_VERSION, UNIFIED_AGRO_VERSION].includes(
       requestedVersion,
-    )
+    ) && requestedVersion !== baseRule?.version
   )
     throw new ApiError("INVALID_QUERY", 400);
   const useSupport =
@@ -112,11 +133,13 @@ export async function agroclimaticData(params: URLSearchParams) {
         "dry_sequence",
         "heavy_rain",
       ].includes(baseRule.id));
-  const rule = unified && baseRule ? coverageRule(baseRule) : useSupport
+  const rule = unified && baseRule ? coverageRule(baseRule, baseRule.priority ? baseRule.version : undefined) : useSupport
     ? observedRule(baseRule!, requestedVersion ?? NATIVE_RULE_VERSION)
     : baseRule;
   if (requestedVersion && rule && rule.version !== requestedVersion)
     throw new ApiError("INVALID_QUERY", 400);
+  const summary = params.get("summary");
+  const compare = params.get("compare");
   const temporal = params.get("temporal") ?? "history",
     start = params.get("start") ?? "",
     end = params.get("end") ?? "";
@@ -127,6 +150,9 @@ export async function agroclimaticData(params: URLSearchParams) {
       : (rule?.threshold ?? null);
   if (
     !rule ||
+    (summary !== null && (summary !== "1" || !rule.priority)) ||
+    (compare !== null && (compare !== "previous" || summary !== "1")) ||
+    (rule.priority && (temporal !== "history" || threshold !== rule.threshold || dates.length < rule.priority.minimumDays)) ||
     (model !== "selected" && (temporal === "history" || !isExplicitWeatherModel(model))) ||
     !["history", "recent", "forecast"].includes(temporal) ||
     !dates.length ||
@@ -141,8 +167,9 @@ export async function agroclimaticData(params: URLSearchParams) {
       threshold < 0)
   )
     throw new ApiError("INVALID_QUERY", 400);
-  const availableDays =
-    temporal === "history" ? await nationalDays(fetch, [start, end]) : [];
+  const availableDays = rule.priority
+    ? [...legacyHistoryDates, ...((await archiveCatalogue())?.era5.flatMap(entry => entry.dates) ?? [])]
+    : temporal === "history" ? await nationalDays(fetch, [start, end]) : [];
   if (
     temporal === "history" &&
     (!availableDays.includes(start) || !availableDays.includes(end))
@@ -174,8 +201,13 @@ export async function agroclimaticData(params: URLSearchParams) {
     )
       throw new ApiError("INVALID_QUERY", 400);
   }
-  const historical = temporal === "history" && unified ? await climateHistoryWindow(dates) : null;
-  const historyByDate = new Map(dates.map(date => [date, historical?.rows.filter(row => row.valid_date === date) ?? []]));
+  const historical = temporal === "history" && unified ? await (rule.priority ? retainedHistory(dates) : climateHistoryWindow(dates)) : null;
+  const historyByDate = new Map<string, NonNullable<typeof historical>["rows"]>();
+  for (const row of historical?.rows ?? []) {
+    const day = historyByDate.get(row.valid_date) ?? [];
+    day.push(row);
+    historyByDate.set(row.valid_date, day);
+  }
   // Weather archives already verify checksums. Cache keys include the complete immutable input identity.
   const version = document?.archive_sha256 ?? historical?.version ?? NATIONAL.dataset;
   const index = document ? await forecastIndexLocation(document.archive_sha256).catch(() => undefined) : undefined;
@@ -306,7 +338,7 @@ export async function agroclimaticData(params: URLSearchParams) {
                   quality_flags: [...row.quality_flags, ...p.quality_flags],
                 };
               }
-              const archived = historical ? historyByDate.get(date)! : await archivedEra5Day(date);
+              const archived = historical ? (historyByDate.get(date) ?? []) : await archivedEra5Day(date);
               if (archived) {
                 for (const saved of archived) {
                   const fields = [
@@ -431,6 +463,7 @@ export async function agroclimaticData(params: URLSearchParams) {
       parameters: { threshold },
       period: { start, end, timezone: "UTC" },
       temporal,
+      ...(rule!.priority && historical ? { history_series: historical.series } : {}),
       source_version: version,
       run: document?.run ?? null,
       calculated_at: new Date().toISOString(),
@@ -445,9 +478,24 @@ export async function agroclimaticData(params: URLSearchParams) {
     if (cache.get(key)?.value === value) cache.delete(key);
   });
   return project(await value);
-  function project(payload: AgroPayload): AgroPayload {
+  async function previous() {
+    const dayBefore = (days: number) => new Date(Date.parse(start) - days * 86400000).toISOString().slice(0, 10);
+    try {
+      return await agroclimaticData(new URLSearchParams({
+        indicator: rule!.id, start: dayBefore(dates.length), end: dayBefore(1),
+      }));
+    } catch {
+      return null;
+    }
+  }
+
+  async function project(payload: AgroPayload): Promise<AgroPayload> {
+    const contribution = summary ? await (await import("./field-summary")).summarizeField(
+      payload, compare ? await previous() : undefined,
+    ) : undefined;
     return {
       ...payload,
+      ...(contribution ? { summary: contribution } : {}),
       data: payload.data.map((r) => ({
         ...r,
         series: r.territoryId === pra ? r.series : [],
@@ -458,10 +506,10 @@ export async function agroclimaticData(params: URLSearchParams) {
 }
 export async function readAgroclimatic(request: Request) {
   try {
-    return Response.json(
-      await agroclimaticData(new URL(request.url).searchParams),
-      { headers: { "Cache-Control": "private, max-age=60" } },
-    );
+    const payload = await agroclimaticData(new URL(request.url).searchParams);
+    return Response.json(payload.summary ?? payload, {
+      headers: { "Cache-Control": "private, max-age=60" },
+    });
   } catch (error) {
     const safe =
       error instanceof ApiError

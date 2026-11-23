@@ -93,6 +93,8 @@ export function calculate(
   if (
     !dates.length ||
     dates.length > 30 ||
+    dates.length < (rule.priority?.minimumDays ?? 1) ||
+    (!!rule.priority && threshold !== rule.threshold) ||
     (threshold !== null && !Number.isFinite(threshold)) ||
     (rule.threshold !== null && threshold === null)
   )
@@ -118,7 +120,9 @@ export function calculate(
       value = rule.variables.includes("humidity")
         ? thi(row.values.temperature!, row.values.humidity!)
         : row.values[rule.variables[0]]!;
-      if (rule.operator === "gdd") value = Math.max(0, value - threshold!);
+      if (rule.operator === "gdd") {
+        value = Math.max(0, Math.min(value, rule.upperTemperature ?? Infinity) - threshold!);
+      }
     }
     return {
       date,
@@ -158,7 +162,7 @@ export function calculate(
       longest = Math.max(longest, run);
     } else run = 0;
   }
-  const thresholdRule = !["gdd", "mean", "min", "max", "sum", "thi"].includes(rule.operator);
+  const thresholdRule = !["gdd", "maxRain5", "mean", "min", "max", "sum", "thi"].includes(rule.operator);
   const signals =
     thresholdRule && threshold !== null
       ? series.flatMap((r) =>
@@ -183,6 +187,8 @@ export function calculate(
       : [];
   const value = !complete
     ? null
+    : rule.operator === "maxRain5"
+      ? maximumRainFiveDays(good)
     : rule.operator === "min"
       ? Math.min(...good)
     : ["thi", "max"].includes(rule.operator)
@@ -248,4 +254,14 @@ export function calculate(
     signals,
     series,
   };
+}
+
+function maximumRainFiveDays(values: number[]): number {
+  let total = values.slice(0, 5).reduce((sum, value) => sum + value, 0);
+  let maximum = total;
+  for (let i = 5; i < values.length; i++) {
+    total += values[i] - values[i - 5];
+    maximum = Math.max(maximum, total);
+  }
+  return maximum;
 }

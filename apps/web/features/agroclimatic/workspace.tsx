@@ -8,11 +8,12 @@ import { useMemo, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { ComplementNotice } from "./complement";
 import { supportPolicy } from "./observed-support";
-import { RULES, type Production } from "./catalogue";
+import { AGRO_RULES, type Production } from "./catalogue";
 import type { AgroResult } from "./calculate";
 import type { AgroPayload } from "../../lib/server/agroclimatic";
 import type { NationalAvailability } from "../national/daily-availability";
 import { calendarDays, trailingStart } from "../national/daily-availability";
+import { NATIONAL } from "../national/model";
 import type { PraCollection } from "../national/map";
 import type { WeatherCycle } from "../operational/model";
 import { useResource } from "../unified/resource";
@@ -30,20 +31,22 @@ export function useAgroclimatic(
 ) {
   const search = useSearchParams(),
     pathname = usePathname();
-  const production: Production =
-    search.get("production") === "cattle" ? "cattle" : "wheat";
+  const requestedProduction = search.get("production");
+  const production: Production = requestedProduction === "cattle" || requestedProduction === "field"
+    ? requestedProduction : "wheat";
+  const productionLabel = { wheat: "Blé tendre", cattle: "Bovins", field: "Situations agricoles" }[production];
   const rule =
-    RULES.find(
+    AGRO_RULES.find(
       (r) => r.id === search.get("agro") && r.production === production,
-    ) ?? RULES.find((r) => r.production === production)!;
+    ) ?? AGRO_RULES.find((r) => r.production === production)!;
   const mode =
-    search.get("temporal") === "forecast"
+    rule.priority ? "history" : search.get("temporal") === "forecast"
       ? "forecast"
       : search.get("temporal") === "recent"
         ? "recent"
         : "history";
   const catalogue = useResource<WeatherCycle>(
-    active
+    active && !rule.priority
       ? "/api/operational?experimental=weather&catalogue=1" +
           (search.get("weather_run")
             ? "&run=" + encodeURIComponent(search.get("weather_run")!)
@@ -57,7 +60,7 @@ export function useAgroclimatic(
   const forecastStart = root ? trailingStart(root, 0) : "";
   const defaultEnd =
     mode === "history"
-      ? (availability?.latest ?? "")
+      ? (availability?.latest ?? (rule.priority ? NATIONAL.end : ""))
       : mode === "recent"
         ? root
         : forecastStart;
@@ -72,11 +75,11 @@ export function useAgroclimatic(
   const threshold =
     rule.threshold === null
       ? null
-      : Number(search.get("agro_threshold") ?? rule.threshold);
+      : rule.priority ? rule.threshold : Number(search.get("agro_threshold") ?? rule.threshold);
   const pra = search.get("pra") ?? "";
   const query = new URLSearchParams({
     indicator: rule.id,
-    ...(search.get("rule_version") ? {rule_version: search.get("rule_version")!} : {}),
+    ...(!rule.priority && search.get("rule_version") ? {rule_version: search.get("rule_version")!} : {}),
     temporal: mode,
     ...(mode !== "history" && model !== "selected" ? {model} : {}),
     start,
@@ -85,8 +88,10 @@ export function useAgroclimatic(
     ...(threshold !== null ? { threshold: String(threshold) } : {}),
     ...(resolvedRun && mode !== "history" ? { run: resolvedRun } : {}),
   });
+  const days = calendarDays(start, end).length;
+  const validPeriod = days >= (rule.priority?.minimumDays ?? 1) && days <= 30;
   const resource = useResource<AgroPayload>(
-    active && calendarDays(start, end).length
+    active && validPeriod
       ? `/api/agroclimatic?${query}`
       : null,
   );
@@ -94,7 +99,7 @@ export function useAgroclimatic(
     collection: PraCollection;
     available_dates?: string[];
   }>(
-    active && mode === "history" && supportPolicy(rule)
+    active && validPeriod && mode === "history" && supportPolicy(rule)
       ? "/api/national/support?" +
           new URLSearchParams({ start, end, variable: rule.variables[0] })
       : null,
@@ -121,7 +126,7 @@ export function useAgroclimatic(
     current = data.find((r) => r.territoryId === pra),
     feature = collection?.features.find((f) => f.id === pra);
   const [queryPra, setQueryPra] = useState("");
-  const semantic=semanticPalette(rule.id,rule.unit,Math.round((Date.parse(end)-Date.parse(start))/86400000)+1);
+  const semantic = semanticPalette(rule.id, rule.unit, days);
   const colors=usePaletteColors(semantic),bounds=semantic.bounds;
   function change(patch: Record<string, string>) {
     const p = new URLSearchParams(search.toString());
@@ -133,7 +138,7 @@ export function useAgroclimatic(
   }
   const families = [
     ...new Set(
-      RULES.filter((r) => r.production === production).map((r) => r.family),
+      AGRO_RULES.filter((r) => r.production === production).map((r) => r.family),
     ),
   ];
   const matches = (collection?.features ?? []).filter((f) =>
@@ -184,11 +189,13 @@ export function useAgroclimatic(
             onChange={(e) =>
               change({
                 production: e.target.value,
-                agro: e.target.value === "cattle" ? "thi" : "gdd",
+                agro: AGRO_RULES.find(r => r.production === e.target.value)!.id,
+                ...(e.target.value === "field" ? { temporal: "history", agro_start: "", agro_end: "" } : {}),
                 agro_threshold: "",
               })
             }
           >
+            <option value="field">Situations agricoles</option>
             <option value="wheat">Blé tendre</option>
             <option value="cattle">Bovins</option>
           </select>
@@ -200,7 +207,7 @@ export function useAgroclimatic(
             value={rule.family}
             onChange={(e) =>
               change({
-                agro: RULES.find(
+                agro: AGRO_RULES.find(
                   (r) =>
                     r.production === production && r.family === e.target.value,
                 )!.id,
@@ -222,14 +229,14 @@ export function useAgroclimatic(
               change({ agro: e.target.value, agro_threshold: "" })
             }
           >
-            {RULES.filter((r) => r.production === production).map((r) => (
+            {AGRO_RULES.filter((r) => r.production === production).map((r) => (
               <option value={r.id} key={r.id}>
                 {r.label}
               </option>
             ))}
           </select>
         </label>
-        <label>
+        {!rule.priority && <label>
           Temporalité
           <select
             aria-label="Temporalité"
@@ -242,7 +249,7 @@ export function useAgroclimatic(
             <option value="recent">Récent · estimation par prévision</option>
             <option value="forecast">Prévisions</option>
           </select>
-        </label>
+        </label>}
         {mode !== "history" && !!catalogue.data?.available_runs?.length && <>
           <label>Cycle archivé · UTC
             <select value={archivedRun} onChange={event => change({weather_run: event.target.value, agro_start: "", agro_end: ""})}>
@@ -273,7 +280,7 @@ export function useAgroclimatic(
             onChange={(e) => change({ agro_end: e.target.value })}
           />
         </label>
-        {threshold !== null && (
+        {threshold !== null && !rule.priority && (
           <label>
             {rule.operator === "gdd" ? "Base" : "Seuil"} ·{" "}
             {rule.variables.includes("humidity")
@@ -412,7 +419,7 @@ export function useAgroclimatic(
       <span className="eyebrow">PRA · {feature.properties.code}</span>
       <h2>{feature.properties.name}</h2>
       <p>
-        {production === "wheat" ? "Blé tendre" : "Bovins"} · {rule.label}
+        {productionLabel} · {rule.label}
       </p>
       <div className="unified-value">
         {current?.complementary && <small>Historique natif</small>}
@@ -470,13 +477,13 @@ export function useAgroclimatic(
       {mode === "history" && stateCrozon(current) && (
         <p>
           Absence de support ERA5-Land : aucun historique inventé.{" "}
-          <button
+          {!rule.priority && <button
             onClick={() =>
               change({ temporal: "forecast", agro_start: "", agro_end: "" })
             }
           >
             Consulter la météo opérationnelle disponible
-          </button>
+          </button>}
         </p>
       )}
       {current?.reason && !current.complementary && (
@@ -539,7 +546,7 @@ export function useAgroclimatic(
             cumulative={rule.operator === "gdd"}
             rain={rule.unit === "mm" || rule.variables[0] === "precipitation"}
             threshold={
-              ["gdd", "sum", "thi"].includes(rule.operator) ? null : threshold
+              ["gdd", "sum", "thi", "maxRain5"].includes(rule.operator) ? null : threshold
             }
             unit={
               rule.unit === "jours"
@@ -552,7 +559,7 @@ export function useAgroclimatic(
             }
           />
           <p>
-            {["gdd", "thi", "sum"].includes(rule.operator)
+            {["gdd", "thi", "sum", "maxRain5"].includes(rule.operator)
               ? ""
               : `Épisodes : ${fmt(current.episodes)} · durée maximale : ${fmt(current.longest)} jours. Seuil : ${fmt(threshold)}.`}{" "}
             Les lacunes interrompent les courbes.
@@ -599,9 +606,9 @@ export function useAgroclimatic(
           end={end}
           threshold={threshold ?? 0}
         />
-      ) : (
+      ) : production === "cattle" ? (
         <CattleContext department={feature.properties.department} pra={pra} />
-      )}
+      ) : null}
       {current && (
         <details>
           <summary>Provenance et qualité</summary>
@@ -637,6 +644,12 @@ export function useAgroclimatic(
       </p>
     </>
   );
+  const priorityNotice = rule.priority && (
+    <p>{rule.description} {rule.limits}{" "}
+      <a href={rule.source}>Référence technique</a>
+    </p>
+  );
+  const exportQuery = new URLSearchParams({ indicator: rule.id, start, end, summary: "1", compare: "previous" });
   const summary = (
     <section
       className="unified-method"
@@ -644,6 +657,11 @@ export function useAgroclimatic(
       id="sources"
     >
       <h2>Synthèse nationale · {rule.label}</h2>
+      {priorityNotice}
+      {rule.priority && resource.data && <p>
+        <a href={`/api/agroclimatic?${exportQuery}`}>Exporter la synthèse pour le Journal (JSON)</a>
+      </p>}
+      {(!rule.priority || resource.data) && <>
       <p>
         {eligible.length}/713 PRA exploitables ·{" "}
         {data.filter((r) => r.status === "partial").length} périodes partielles
@@ -666,7 +684,8 @@ export function useAgroclimatic(
           </span>
         ))}
       </div>
-      <p>
+      </>}
+      {!rule.priority && <><p>
         {rule.operator === "gdd" || rule.operator === "thi"
           ? "Aucun signal de dépassement défini pour cette vue. "
           : ""}
@@ -685,12 +704,12 @@ export function useAgroclimatic(
             · {fmt(r.value)} {rule.unit}
           </button>
         ))}
-      </details>
+      </details></>}
     </section>
   );
   const coverageEnabled = mode === 'history' ? HISTORICAL_COVERAGE : EXHAUSTIVE_COVERAGE;
   return {
-    loading:active&&!resource.data&&!resource.error,
+    loading:active&&validPeriod&&!resource.data&&!resource.error,
     error:resource.error,
     filters,
     coverageEnabled,
@@ -700,7 +719,7 @@ export function useAgroclimatic(
     mapTitle: (
       <div className="unified-map-title">
         <strong>
-          {production === "wheat" ? "Blé tendre" : "Bovins"} · {rule.label} ·{" "}
+          {productionLabel} · {rule.label} ·{" "}
           {rule.unit}
         </strong>
         <span>
@@ -711,15 +730,20 @@ export function useAgroclimatic(
               ? "Estimation"
               : "Réanalyse"}
         </span>
+        {rule.priority && <span>{rule.priority.kind === "potential" ? "Potentiel thermique · " : ""}{rule.meteorological_source}</span>}
       </div>
     ),
     mapState: (
       <p role={resource.error ? "alert" : "status"}>
-        {resource.error
-          ? `${resource.error} Vérifiez les dates (J+1 à J+7 pour la prévision) et la couverture.`
-          : !resource.data
-            ? "Chargement des indicateurs nationaux…"
-            : `${data.filter((r) => r.value !== null && r.support_scope !== "qualified_pra_estimate").length} PRA complètes · ${data.filter((r) => r.value !== null && r.support_scope === "qualified_pra_estimate").length} estimations qualifiées ≥90% · ${data.filter((r) => r.observed_value != null && r.value === null).length} valeurs de portion seulement · ${data.filter((r) => r.complementary).length} estimation(s) complémentaire(s) en fiche. Gris : portion native absente ou résultat non calculable, jamais zéro.`}
+        {!validPeriod
+          ? `Choisissez une fenêtre de ${rule.priority?.minimumDays ?? 1} à 30 jours UTC.`
+          : resource.error
+            ? rule.priority
+              ? "Données insuffisantes ou source inaccessible pour ces dates. Choisissez une autre période de réanalyse."
+              : `${resource.error} Vérifiez les dates (J+1 à J+7 pour la prévision) et la couverture.`
+            : !resource.data
+              ? "Chargement des indicateurs nationaux…"
+              : `${data.filter((r) => r.value !== null && r.support_scope !== "qualified_pra_estimate").length} PRA complètes · ${data.filter((r) => r.value !== null && r.support_scope === "qualified_pra_estimate").length} estimations qualifiées ≥90% · ${data.filter((r) => r.observed_value != null && r.value === null).length} valeurs de portion seulement · ${data.filter((r) => r.complementary).length} estimation(s) complémentaire(s) en fiche. Gris : portion native absente ou résultat non calculable, jamais zéro.`}
       </p>
     ),
     legend: <><SemanticLegend coverage={coverageEnabled} palette={semantic}/>{!coverageEnabled && <p>Trame : support partiel. La valeur décrit uniquement la portion renseignée, sans extrapolation à toute la PRA.</p>}</>,

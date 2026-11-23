@@ -22,3 +22,8 @@ admissibilité scientifique et publication. Les modèles compressés de la veill
 sont développés avec `qualityForEvidence` avant consommation de ce contrat.
 Les règles 1.0–1.2 et blé 2.0 restent reproductibles ; voir
 `docs/codex/CORE-01/ARCHITECTURE.md` et `COVERAGE_POLICY.md`.
+
+`agro-field-summary-1.schema.json` décrit l’export éditorial des vues Situations agricoles.
+`GET /api/agroclimatic?indicator=field_peak_rain5&start=2026-11-10&end=2026-11-16&summary=1&compare=previous`
+renvoie cette synthèse. Sans `summary=1`, la même route renvoie le contrat cartographique
+`agroclimatic-1`. La comparaison à la fenêtre précédente est facultative.

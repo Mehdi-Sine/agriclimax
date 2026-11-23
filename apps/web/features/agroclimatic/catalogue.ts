@@ -1,6 +1,6 @@
 import { cattleRule } from "../cattle/thi";
 import type { WeatherVariable } from "../operational/model";
-export type Production = "wheat" | "cattle";
+export type Production = "wheat" | "cattle" | "field";
 export type Operator =
   | "max"
   | "atLeast"
@@ -8,6 +8,7 @@ export type Operator =
   | "min"
   | "mean"
   | "gdd"
+  | "maxRain5"
   | "above"
   | "below"
   | "sum"
@@ -17,6 +18,7 @@ export type Operator =
   | "thiAbove"
   | "thiLongest";
 export interface Rule {
+  priority?: { base: string; minimumDays: number; kind: "reanalysis" | "potential" };
   coverage_family?: import("../climate-quality/policy").Family;
   id: string;
   version: string;
@@ -27,6 +29,7 @@ export interface Rule {
   operator: Operator;
   unit: string;
   threshold: number | null;
+  upperTemperature?: number;
   formula: string;
   source: string;
   description: string;
@@ -234,3 +237,67 @@ export const RULES: Rule[] = [
     "Moyenne des Tmoy quotidiennes sur un support spatial explicitement défini",
   ),
 ];
+
+function fieldIndicator(
+  base: string,
+  definition: Pick<Rule, "id" | "label" | "description" | "source" | "limits"> &
+    Partial<Pick<Rule, "variables" | "operator" | "threshold" | "formula" | "coverage_family" | "upperTemperature">>,
+  kind: "reanalysis" | "potential" = "reanalysis",
+  minimumDays = 1,
+): Rule {
+  return {
+    ...RULES.find(rule => rule.id === base)!,
+    ...definition,
+    production: "field",
+    version: "agro-field-1.0.0",
+    priority: { base, kind, minimumDays },
+    admissible_period: `Réanalyse, fenêtre complète de ${minimumDays} à 30 jours UTC.`,
+    meteorological_source: "ERA5-Land · pra-native-1",
+  };
+}
+
+export const FIELD_RULES: Rule[] = [
+  fieldIndicator("gdd", {
+    id: "field_maize_gdd",
+    label: "Chaleur accumulée pour le maïs",
+    threshold: 6,
+    upperTemperature: 30,
+    formula: "Σ max(0, min(Tmoy PRA, 30 °C) − 6 °C)",
+    coverage_family: "mean_sum",
+    source: "https://www.inrae.fr/sites/default/files/pdf/Adaptation%20des%20cultures%20au%20CC-projet%20AP3C.pdf",
+    description: "Quel potentiel thermique le maïs a-t-il reçu sur la période ? Comparez des fenêtres de même durée, choisies selon le calendrier local.",
+    limits: "Le calcul utilise la température moyenne territoriale. Les besoins variétaux mesurés en station ne s’y appliquent pas directement. Date de semis, stade et date de récolte restent inconnus.",
+  }, "potential"),
+  fieldIndicator("frost", {
+    id: "field_frost",
+    label: "Jours de gel en période sensible",
+    source: "https://www.arvalis.fr/infos-techniques/cereales-faut-il-craindre-le-retour-du-froid",
+    description: "Combien de jours avec gel météorologique pendant la fenêtre que vous avez choisie ? Au printemps, rapprochez le signal du stade des cultures sur le terrain.",
+    limits: "0 °C définit le gel météorologique. La température agrégée par PRA ne détecte pas tous les fonds froids. La sensibilité dépend de l’espèce, de la variété, du stade et de la durée du froid.",
+  }),
+  fieldIndicator("dry_sequence", {
+    id: "field_dry_sequence",
+    label: "Plus longue séquence sans pluie significative",
+    source: "https://climate-scenarios.canada.ca/?page=climdex-indices",
+    description: "Combien de jours consécutifs sans pluie significative pendant la période ? Utile pour repérer une interruption des apports de pluie, notamment après un semis.",
+    limits: "Séquence bornée par la fenêtre. L’humidité du sol, l’irrigation et les besoins de la culture ne sont pas évalués.",
+  }),
+  fieldIndicator("rain", {
+    id: "field_antecedent_rain",
+    label: "Pluie reçue avant une intervention",
+    source: "https://www.arvalis.fr/infos-techniques/les-cereales-vont-elles-pouvoir-compenser-face-aux-exces-deau",
+    description: "Quelle pluie est tombée avant la date retenue ? Choisissez par exemple les sept jours précédant une intervention envisagée.",
+    limits: "La pluie reçue apporte un contexte pour vérifier le ressuyage au champ. Portance, réserves d’eau, drainage et engorgement restent inconnus.",
+  }),
+  fieldIndicator("rain", {
+    id: "field_peak_rain5",
+    label: "Plus fort cumul de pluie sur 5 jours",
+    operator: "maxRain5",
+    formula: "max des sommes sur 5 jours UTC consécutifs entièrement inclus dans la période",
+    coverage_family: "extreme_event",
+    source: "https://climate-scenarios.canada.ca/?page=climdex-indices",
+    description: "Quel a été le plus fort apport de pluie sur cinq jours consécutifs ? Repérez les épisodes concentrés susceptibles de compliquer les interventions.",
+    limits: "Pic de pluie territoriale. Sans normale homologue, sol ou drainage renseigné, aucun excès statistique, engorgement ou dégât agricole ne peut être déduit.",
+  }, "reanalysis", 5),
+];
+export const AGRO_RULES = [...RULES, ...FIELD_RULES];
