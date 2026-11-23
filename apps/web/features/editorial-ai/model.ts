@@ -1,7 +1,8 @@
 import type { EditorialBriefingBundle } from "../editorial/briefing";
 import type { JournalMapData } from "../journal/ui/map-data";
 export const ENGINE = "editorial-ai-1";
-export const PROMPT_VERSION = "editorial-board-fr-5";
+export const PROMPT_VERSION = "editorial-board-fr-6";
+export const STRICT_BOARD_VERSIONS = ["editorial-board-fr-4", "editorial-board-fr-5", PROMPT_VERSION];
 export const CONFIG_VERSION = "editorial-config-1";
 export interface Block {
   text: string;

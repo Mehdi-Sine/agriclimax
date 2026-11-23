@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-22",
+  "edition_id": "7422369546f55e1ef5c33563a18f7b9da4bfdbc09bc88522f71d78fb56f50271",
+  "snapshot_id": "cfaf51b0b12c9409468e1eaf3ae4ff07eec6a367e472a8f94692c6040b68b71f",
+  "frozen_input": {
+    "path": "editorial-inputs/ee592137b037e0dacd59d7d24df7eae45b79e7153f8a16b94495966e163c9c6c.json.gz",
+    "sha256": "ee592137b037e0dacd59d7d24df7eae45b79e7153f8a16b94495966e163c9c6c",
+    "bytes": 1074583
+  },
+  "before": {
+    "title": "Pluie en Auvergne-Rhône-Alpes : un signal dans les prévisions du 22 au 28 novembre",
+    "regions": 2,
+    "article_words": 275,
+    "selected_maps": 6,
+    "json_bytes": 118294,
+    "gzip_bytes": 16580,
+    "recorded_usage": {
+      "input_tokens": 54417,
+      "output_tokens": 3323,
+      "reasoning_tokens": 40
+    },
+    "recorded_cost_eur": 0.078136,
+    "recorded_duration_ms": 39610
+  },
+  "after": {
+    "title": "Travaux d’automne : où les modèles prévoient les pluies les plus fortes",
+    "regions": 3,
+    "article_words": 104,
+    "selected_maps": 2,
+    "json_bytes": 135748,
+    "gzip_bytes": 20766,
+    "request_bytes": 178760,
+    "input_byte_token_bound": 182856,
+    "incremental_input_bytes": 17454,
+    "incremental_input_cost_bound_eur": 0.020364,
+    "briefing_bytes": 58320,
+    "field_computation_ms": 594,
+    "validation": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "field": [
+      {
+        "indicator": "field_peak_rain5",
+        "period": {
+          "start": "2026-11-09",
+          "end": "2026-11-15",
+          "timezone": "UTC"
+        },
+        "maximum": 79.07838220000001,
+        "evaluable_pra": 645
+      },
+      {
+        "indicator": "field_antecedent_rain",
+        "period": {
+          "start": "2026-11-09",
+          "end": "2026-11-15",
+          "timezone": "UTC"
+        },
+        "maximum": 94.18897954000002,
+        "evaluable_pra": 645
+      },
+      {
+        "indicator": "field_dry_sequence",
+        "period": {
+          "start": "2026-11-09",
+          "end": "2026-11-15",
+          "timezone": "UTC"
+        },
+        "maximum": 4,
+        "evaluable_pra": 645
+      },
+      {
+        "indicator": "field_frost",
+        "period": {
+          "start": "2026-11-09",
+          "end": "2026-11-15",
+          "timezone": "UTC"
+        },
+        "maximum": 7,
+        "evaluable_pra": 645
+      }
+    ]
+  },
+  "replay_duration_ms": 9025,
+  "openai_calls": 0,
+  "simulation_cost_eur": 0,
+  "remote_writes": 0
+}

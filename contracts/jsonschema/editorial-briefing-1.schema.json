@@ -1422,6 +1422,216 @@
       ],
       "additionalProperties": false
     },
+    "previous_seasonal_ids": {
+      "type": "array",
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 100 }
+    },
+    "agro_field": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "version",
+          "indicator",
+          "rule_version",
+          "label",
+          "unit",
+          "period",
+          "source",
+          "data_freshness",
+          "provenance",
+          "quality_flags",
+          "total_pra",
+          "evaluable_pra",
+          "limitations",
+          "maximum",
+          "maximum_count",
+          "territories"
+        ],
+        "properties": {
+          "version": {
+            "const": "agro-field-summary-1"
+          },
+          "indicator": {
+            "enum": [
+              "field_frost",
+              "field_dry_sequence",
+              "field_antecedent_rain",
+              "field_peak_rain5"
+            ]
+          },
+          "rule_version": {
+            "const": "agro-field-1.0.0"
+          },
+          "label": {
+            "type": "string"
+          },
+          "unit": {
+            "enum": [
+              "°C·j",
+              "jours",
+              "mm"
+            ]
+          },
+          "period": {
+            "type": "object",
+            "required": [
+              "start",
+              "end",
+              "timezone"
+            ],
+            "properties": {
+              "start": {
+                "type": "string",
+                "format": "date"
+              },
+              "end": {
+                "type": "string",
+                "format": "date"
+              },
+              "timezone": {
+                "const": "UTC"
+              }
+            },
+            "additionalProperties": false
+          },
+          "source": {
+            "type": "object",
+            "required": [
+              "label",
+              "version"
+            ],
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              }
+            }
+          },
+          "data_freshness": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 2
+          },
+          "provenance": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "quality_flags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "total_pra": {
+            "const": 713
+          },
+          "evaluable_pra": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 713
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "maximum": {
+            "type": "number"
+          },
+          "maximum_count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 713
+          },
+          "territories": {
+            "type": "array",
+            "maxItems": 3,
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "name",
+                "region",
+                "value",
+                "provenance",
+                "quality_flags",
+                "data_freshness",
+                "productions"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^pra:[0-9]{5}$"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                },
+                "provenance": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "quality_flags": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "data_freshness": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "productions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "label",
+                      "source",
+                      "year"
+                    ],
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "const": "rpg-2025"
+                      },
+                      "year": {
+                        "const": 2025
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "limitations": {
       "type": "array",
       "items": {

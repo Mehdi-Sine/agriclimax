@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-23",
+  "edition_id": "fb5216ce23a36b9804824d8c998d4a4d20c0ae5d02db611cb18fe3f430368b48",
+  "snapshot_id": "2d226df5b2136900d163e795ce266263def505872fa9f6137a8689d642d5cf92",
+  "frozen_input": {
+    "path": "editorial-inputs/9b783acbd82f8aadc2debfadcfd9d37ede552b12513ac4e4e78ed6dab9d643bb.json.gz",
+    "sha256": "9b783acbd82f8aadc2debfadcfd9d37ede552b12513ac4e4e78ed6dab9d643bb",
+    "bytes": 1074707
+  },
+  "before": {
+    "title": "Les modèles prévoient du gel en Auvergne-Rhône-Alpes du 23 au 29 novembre",
+    "regions": 3,
+    "article_words": 301,
+    "selected_maps": 6,
+    "json_bytes": 118321,
+    "gzip_bytes": 16592,
+    "recorded_usage": {
+      "input_tokens": 55615,
+      "output_tokens": 3576,
+      "reasoning_tokens": 48
+    },
+    "recorded_cost_eur": 0.080845,
+    "recorded_duration_ms": 43390
+  },
+  "after": {
+    "title": "Gel prévu : le froid à lire à l’échelle des parcelles",
+    "regions": 3,
+    "article_words": 77,
+    "selected_maps": 2,
+    "json_bytes": 135807,
+    "gzip_bytes": 20390,
+    "request_bytes": 178823,
+    "input_byte_token_bound": 182919,
+    "incremental_input_bytes": 17486,
+    "incremental_input_cost_bound_eur": 0.020403,
+    "briefing_bytes": 58383,
+    "field_computation_ms": 332,
+    "validation": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "field": [
+      {
+        "indicator": "field_peak_rain5",
+        "period": {
+          "start": "2026-11-10",
+          "end": "2026-11-16",
+          "timezone": "UTC"
+        },
+        "maximum": 78.19815990000001,
+        "evaluable_pra": 645
+      },
+      {
+        "indicator": "field_antecedent_rain",
+        "period": {
+          "start": "2026-11-10",
+          "end": "2026-11-16",
+          "timezone": "UTC"
+        },
+        "maximum": 84.38120716,
+        "evaluable_pra": 645
+      },
+      {
+        "indicator": "field_dry_sequence",
+        "period": {
+          "start": "2026-11-10",
+          "end": "2026-11-16",
+          "timezone": "UTC"
+        },
+        "maximum": 4,
+        "evaluable_pra": 645
+      },
+      {
+        "indicator": "field_frost",
+        "period": {
+          "start": "2026-11-10",
+          "end": "2026-11-16",
+          "timezone": "UTC"
+        },
+        "maximum": 7,
+        "evaluable_pra": 645
+      }
+    ]
+  },
+  "replay_duration_ms": 5453,
+  "openai_calls": 0,
+  "simulation_cost_eur": 0,
+  "remote_writes": 0
+}

@@ -8,6 +8,8 @@ import { hash } from "./temporal";
 const ajv = new Ajv({ strict: true });
 addFormats(ajv);
 const check = ajv.compile<EditorialBriefingBundle>(schema);
+export const BRIEFING_MAX_BYTES = 96 * 1024;
+
 export class BriefingContractError extends Error {
   constructor(readonly diagnostics:{path:string;keyword:string}[]) {super("EDITORIAL_BRIEFING_CONTRACT");}
 }
@@ -16,10 +18,19 @@ export function assertBriefing(
 ): asserts value is EditorialBriefingBundle {
   if (!check(value))
     throw new BriefingContractError((check.errors??[]).map(e=>({path:e.instancePath,keyword:e.keyword})));
-  if (Buffer.byteLength(JSON.stringify(value)) > 96 * 1024)
+  if (Buffer.byteLength(JSON.stringify(value)) > BRIEFING_MAX_BYTES)
     throw Error("EDITORIAL_BRIEFING_BUDGET");
   if (hash({ ...value, bundle_id: undefined }) !== value.bundle_id)
     throw Error("EDITORIAL_BRIEFING_CHECKSUM");
+  const agro = value.agro_field ?? [];
+  if (new Set(agro.map(summary => summary.indicator)).size !== agro.length ||
+      agro.some(summary =>
+        summary.period.end !== value.validity.history_cutoff ||
+        Date.parse(summary.period.end) - Date.parse(summary.period.start) !== 6 * 86400000 ||
+        summary.maximum_count > summary.evaluable_pra ||
+        summary.territories.length > summary.maximum_count ||
+        summary.territories.some(pra => pra.value !== summary.maximum),
+      )) throw Error("EDITORIAL_AGRO_FIELD_CONTEXT");
   const facts = new Set(value.national.facts.map((f) => f.id)),
     candidates = new Set(value.candidates.map((c) => c.id)),
     comparisons = new Set(value.national.comparisons.map((c) => c.id)),

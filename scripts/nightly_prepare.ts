@@ -11,6 +11,7 @@ import { nationalWatch } from "../apps/web/lib/server/national-watch";
 import { buildEdition } from "../apps/web/features/journal/model";
 import { adaptHistory, compareHistory, reconstructEpisodes, hash, TEMPORAL_VERSION } from "../apps/web/features/editorial/temporal";
 import { buildBriefing, briefingEvents, type BriefingInput, type NewsContext } from "../apps/web/features/editorial/briefing";
+import { BRIEFING_MAX_BYTES } from "../apps/web/features/editorial/validate";
 import { parisDate } from "../apps/web/features/editorial/almanac";
 import { freezeSnapshot, verifySnapshot, cutoffUTC, selectCycles, modelFamily, POLICY, type Cycle } from "../apps/web/features/nightly/snapshot";
 import { editorialRPC, publishedEditions } from "../apps/web/features/editorial-ai/supabase-store";
@@ -32,6 +33,7 @@ export async function prepareDossier(options:PreparationOptions) {
   const previous:Archive[]=options.readOnly?[]:await publishedEditions();
   const prior=previous.filter(a=>a.date<date).sort((a,b)=>b.date.localeCompare(a.date))[0];
   const previousTopicKeys=prior?.briefing.candidates.filter(c=>[prior.draft.main_candidate_id,...prior.draft.secondary_candidate_ids].includes(c.id)).map(c=>c.topic_key)??[];
+  const previousSeasonalIds = [...new Set(prior?.draft.article.flatMap(block => block.seasonal_ids) ?? [])].slice(0, 16);
   phase("catalogue");
   const catalogue = await archiveCatalogue();
   if(!catalogue) throw Error("NO_REAL_CATALOGUE");
@@ -111,6 +113,7 @@ export async function prepareDossier(options:PreparationOptions) {
     if(news && Date.parse(news.generated_at)>Date.parse(cutoff)) news=undefined;
     const base:BriefingInput={date,generated_at:now,history_cutoff:historyCutoff,
       source_fingerprint:options.extraHistory?hash([forecast?.entry??null,historyEntries,options.extraHistory.map(r=>[r.pra_id,r.valid_date,r.batch_key])]):hash([forecast?.entry??null,historyEntries]),history,comparisons,episodes,episode_archive_sha256:hash(episodes),edition,contributions:options.calculate?await options.calculate(rows,forecast?.doc??null):options.contributions,previous_topic_keys:previousTopicKeys};
+    if (previousSeasonalIds.length) base.previous_seasonal_ids = previousSeasonalIds;
     if (territorialWatch) base.territorial_watch = territorialWatch.selected;
     if(news) {
       const events=briefingEvents(base);
@@ -122,11 +125,23 @@ export async function prepareDossier(options:PreparationOptions) {
       // Documentary failure is explicit, never a reason to invent a scientific confirmation.
     }
     phase("briefing");
+    if (rows.length) {
+      try {
+        const { editorialFieldSummaries } = await import("../apps/web/lib/server/editorial-field");
+        base.agro_field = await editorialFieldSummaries(rows, historyCutoff);
+      } catch {
+        console.warn("EDITORIAL_FIELD_CONTEXT_UNAVAILABLE");
+      }
+    }
     const briefing=buildBriefing(base);
     if(!base.news) briefing.limitations.push("Lot documentaire T34 indisponible ou non qualifié avant cutoff ; aucune confirmation documentaire ajoutée.");
     briefing.limitations.push(...cycles.map(c=>`Prévisions ${c.model} émises le ${c.emitted_at}, acquises le ${c.acquired_at}; validité ${c.valid_dates[0]}–${c.valid_dates.at(-1)}.`));
     if(selected.quality==="fallback_valid") briefing.limitations.push("Cycle antérieur encore valide : ne pas affirmer une évolution observée sans nouvelle observation comparable.");
     briefing.limitations.push(...qualityLimitations(historyQuality,!!forecast,report.acquisitions));
+    while (briefing.agro_field?.length && Buffer.byteLength(JSON.stringify(briefing)) > BRIEFING_MAX_BYTES) {
+      briefing.agro_field.pop();
+    }
+    if (!briefing.agro_field?.length) delete briefing.agro_field;
     briefing.bundle_id=hash({...briefing,bundle_id:undefined});
     // Immutable inputs retained alongside snapshot. Existing methods are reused without changing science.
     let historical_cartography:FrozenHistoricalCartography|undefined;

@@ -1,3 +1,4 @@
+import { STRICT_BOARD_VERSIONS } from "./model";
 import {hash} from "../editorial/temporal";
 import {verifyArchive} from "./archive";
 import {validateDraft} from "./validate";
@@ -7,7 +8,7 @@ import {gunzipSync} from "node:zlib";
 import {createHash} from "node:crypto";
 /** Public editorial content only. Provider receipts, parameters and diagnostics stay server-side. */
 export type ConsultableEdition=Pick<Archive,"edition_id"|"revision"|"date"|"generated_at"|"mode"|"status"|"draft"|"illustrations"|"validation"|"checksum">&{
- briefing:{bundle_id:string;edition_date:string;validity:Archive["briefing"]["validity"];national:Pick<Archive["briefing"]["national"],"facts">;seasonal:Pick<Archive["briefing"]["seasonal"],"windows">;documentary:Pick<Archive["briefing"]["documentary"],"publications">};
+ briefing:{bundle_id:string;edition_date:string;validity:Archive["briefing"]["validity"];agro_field?:Archive["briefing"]["agro_field"];national:Pick<Archive["briefing"]["national"],"facts">;seasonal:Pick<Archive["briefing"]["seasonal"],"windows">;documentary:Pick<Archive["briefing"]["documentary"],"publications">};
  map_selection?:{hero_map_id:string|null;map_ids:string[]};
  assessment:Validation;consultable:true;scientifically_validated:boolean;content_sha256:string;
 };
@@ -19,11 +20,11 @@ export function consultableEdition(a:Archive):ConsultableEdition {
  if(a.briefing.territorial_watch?.length) throw Error("AGRO04_PREVIEW_ONLY");
  if((a.mode!=="fallback"&&(a.mode!=="live"||!a.receipt?.response_id))||a.briefing.status==="insufficient") throw Error("NOT_A_CONSULTABLE_AI_EDITION");
  const assessment=validateDraft(a.draft,a.briefing,a.illustrations);
- if((a.mode==="fallback"||["editorial-board-fr-4","editorial-board-fr-5"].includes(a.prompt_version))&&assessment.status==="rejected")throw Error("INCOMPATIBLE_EDITORIAL_DATA");
+ if((a.mode==="fallback"||STRICT_BOARD_VERSIONS.includes(a.prompt_version))&&assessment.status==="rejected")throw Error("INCOMPATIBLE_EDITORIAL_DATA");
  if((a.briefing.limitations.some(l=>l.includes("journal-data-quality-1"))&&assessment.status==="rejected")||assessment.errors.some(e=>incompatible.has(e))) throw Error("INCOMPATIBLE_EDITORIAL_DATA");
  const body={edition_id:a.edition_id,revision:a.revision,date:a.date,generated_at:a.generated_at,mode:a.mode,status:a.status,consultable:true as const,scientifically_validated:assessment.status==="validated_automatically"&&a.validation.status==="validated_automatically",
   ...(a.map_selection?{map_selection:{hero_map_id:a.map_selection.response.hero_map_id,map_ids:[...a.map_selection.response.priority,...a.map_selection.response.complementary].map(c=>c.map_id)}}:{}),
-  draft:a.draft,briefing:{bundle_id:a.briefing.bundle_id,edition_date:a.briefing.edition_date,validity:a.briefing.validity,national:{facts:a.briefing.national.facts},seasonal:{windows:a.briefing.seasonal.windows},documentary:{publications:a.briefing.documentary.publications}},illustrations:a.illustrations,validation:a.validation,checksum:a.checksum,assessment};
+  draft:a.draft,briefing:{bundle_id:a.briefing.bundle_id,edition_date:a.briefing.edition_date,validity:a.briefing.validity,...(a.briefing.agro_field?.length?{agro_field:a.briefing.agro_field}:{}),national:{facts:a.briefing.national.facts},seasonal:{windows:a.briefing.seasonal.windows},documentary:{publications:a.briefing.documentary.publications}},illustrations:a.illustrations,validation:a.validation,checksum:a.checksum,assessment};
  return {...body,content_sha256:hash(body)};
 }
 export function verifyConsultable(value:unknown):ConsultableEdition {

@@ -5,7 +5,7 @@ import type { AgroPayload } from "./agroclimatic";
 import { datasets } from "./agriculture-index";
 import { territorialProfiles } from "./agro-territorial";
 
-async function documentedProductions(indicator: string): Promise<Record<string, DocumentedProduction[]>> {
+export async function documentedProductions(indicator: string): Promise<Record<string, DocumentedProduction[]>> {
   if (indicator === "field_maize_gdd") {
     const { indicator: metadata, rows } = await datasets["rpg-group-2-surf-pra"]();
     if (metadata.source_id !== "rpg-2025" || metadata.scale !== "pra" ||

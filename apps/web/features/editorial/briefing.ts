@@ -1,3 +1,4 @@
+import type { EditorialFieldSummary } from "../../lib/server/editorial-field";
 import type { Situation } from "../agro-territorial/situations";
 import type { JournalEdition, EditorialFact } from "../journal/model";
 import { assertEdition } from "../journal/validate";
@@ -59,7 +60,9 @@ export interface BriefingInput {
   contributions?: Contribution[];
   news?: NewsContext;
   previous_topic_keys?: string[];
+  previous_seasonal_ids?: string[];
   territorial_watch?: Situation[];
+  agro_field?: EditorialFieldSummary[];
 }
 export function briefingEvents(
   input: Pick<BriefingInput, "episodes" | "history_cutoff" | "edition">,
@@ -397,6 +400,8 @@ export function buildBriefing(input: BriefingInput) {
       },
     },
     candidates,
+    ...(input.previous_seasonal_ids?.length ? { previous_seasonal_ids: input.previous_seasonal_ids } : {}),
+    ...(input.agro_field?.length ? { agro_field: input.agro_field } : {}),
     ...(input.territorial_watch?.length ? { territorial_watch: input.territorial_watch } : {}),
     contributions: selectedIndicators.map((i) => ({
       production: i.production,

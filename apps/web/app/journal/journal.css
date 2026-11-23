@@ -901,3 +901,59 @@
 }
 
 .agro-territorial-proof { overflow-wrap: anywhere; }
+
+.journal.journal-edition .front-page {
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.journal-edition .edition-status {
+  color: var(--ink);
+  font-size: .875rem;
+  margin-block: 1rem 0;
+}
+
+.journal-edition .edition-hero-map,
+.journal-edition .edition-hero-map select {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.journal-edition .edition-takeaways > ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding-inline-start: 1.25rem;
+}
+
+.journal-edition .edition-takeaways > ol p {
+  margin-top: 0;
+}
+
+.journal-edition .edition-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.journal-edition .edition-field {
+  max-width: 74ch;
+}
+
+.journal-edition .edition-field article {
+  border-top: 1px solid var(--border);
+  padding-block: .75rem;
+}
+
+.journal-edition section[id],
+.journal-edition [id="carte"],
+.journal-edition footer[id] {
+  scroll-margin-top: 5rem;
+}
+
+@media (max-width: 720px) {
+  .journal-edition .edition-takeaways > ol {
+    grid-template-columns: minmax(0, 1fr);
+    gap: .5rem;
+  }
+}
