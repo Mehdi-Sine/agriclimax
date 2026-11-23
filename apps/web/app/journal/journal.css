@@ -899,3 +899,5 @@
   .journal.ux02b-journal .front-page:has(> .key-facts:empty) > .ux01-map-context > p,
   .journal.ux02b-journal .front-page:has(> .key-facts:empty) > .ux01-map-context > a:last-child { grid-column: 1 / -1; }
 }
+
+.agro-territorial-proof { overflow-wrap: anywhere; }

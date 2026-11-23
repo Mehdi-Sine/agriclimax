@@ -41,4 +41,14 @@ describe('national watch source/version boundaries (synthetic unit fixtures)',()
   weather.mockResolvedValue(fixture('archived-fixture','2026-07-01T00:00:00Z'));
   const response=await GET(new Request('http://localhost/api/veille?run=2026-07-01'));expect(response.status).toBe(200);expect(weather).toHaveBeenCalledWith('2026-07-01');
  });
+ it('opens exactly one day of a content-addressed bulletin',async()=>{
+  const sha='2'.repeat(64);
+  weather.mockResolvedValue(fixture(sha,'2026-07-01T00:00:00Z'));
+  const response=await GET(new Request(`http://localhost/api/veille?run=2026-07-01&day=2026-07-04&sha=${sha}`));
+  expect(response.status).toBe(200);
+  expect((await response.json()).period).toEqual(['2026-07-04','2026-07-04']);
+  expect(weather).toHaveBeenCalledWith('2026-07-01',sha);
+  expect((await GET(new Request('http://localhost/api/veille?day=2026-07-04'))).status).toBe(400);
+ });
+
 });

@@ -1,4 +1,5 @@
 'use client';
+import { isTerritorialJournalReturn } from '../agro-territorial/navigation';
 import {EXHAUSTIVE_COVERAGE,HISTORICAL_COVERAGE} from '../cartography/coverage';
 import {semanticPalette} from '../cartography/registry';
 import {usePaletteColors} from '../cartography/use-palette';
@@ -139,6 +140,7 @@ function HistoricalWorkspace() {
     <main id="main" className="unified-main">
       <div className="unified-heading"><div><p className="eyebrow">EXPLORER LES TERRITOIRES · FRANCE MÉTROPOLITAINE ET CORSE</p><h1>{analysis?TITLES.analyse:weather?(operational.temporalMode==='recent'?'Météo récente des territoires agricoles':'Prévisions des territoires agricoles'):TITLES[space]}</h1><p>{analysis?'Blé tendre et bovins : indicateurs exploratoires, historiques et prévisionnels, à l’échelle PRA.':weather?'Données de modèles, sources et couvertures qualifiées ; les observations et normales historiques restent distinctes.':DESCRIPTIONS[space]}</p></div><span className="scale-badge">{space === 'productions' ? 'Mailles agricoles · sources officielles' : '713 PRA · contours officiels'}</span></div>
       <div className="unified-context" role={availability.error?'alert':'status'}>{availability.error?<span>Disponibilité climatique inaccessible. {availability.error}</span>:availability.data?<span>Historique ERA5-Land · dernière journée acquise · {availability.data.freshness==='stale'?'Données retardées':'Réanalyse récente'} · date source : {availability.data.source_date} UTC · acquisition : {availability.data.acquired_at??'date non exposée par le service actuel'} · mise à jour : {availability.data.updated_at??'inconnue'} (UTC)</span>:<span>Vérification de la dernière journée nationale acquise…</span>}</div>
+      {isTerritorialJournalReturn(search.get('retour')) && <p><Link href={search.get('retour')!}>Revenir aux productions sous surveillance</Link></p>}
       {search.get('retour')?.startsWith('/veille?')&&<p><Link href={search.get('retour')!}>← Revenir à la veille nationale</Link></p>}
       {climateBody}
     </main>

@@ -2,7 +2,7 @@ import "server-only";
 import schema from "../../../../contracts/jsonschema/editorial-draft-1.schema.json";
 import type { AIConfig } from "./config";
 import type { Usage } from "./model";
-import { INSTRUCTIONS } from "./prompt";
+import { editorialPrompt } from "./prompt";
 import {randomUUID} from "node:crypto";
 import {auditSchema, rejectionReason, sha256} from "./request-audit";
 export interface RequestMetadata {client_request_id:string;request_sha256:string;schema_sha256:string;model:string;max_output_tokens:number;started_at:string}
@@ -45,7 +45,7 @@ export function requestBody(payload: string, c: AIConfig) {
   const { $schema: dialect, title, ...outputSchema } = schema;
   void dialect;
   void title;
-  let dossier:{map_selection?: {response_schema: unknown}}={};
+  let dossier:{briefing?: {territorial_watch?: unknown[]};map_selection?: {response_schema: unknown}}={};
   try {const value:unknown=JSON.parse(payload);if(value&&typeof value==="object")dossier=value;}catch{/* Legacy plain-text payloads use the original draft schema. */}
   const normalized=providerSchema(dossier.map_selection ? {type:"object",additionalProperties:false,required:["draft","map_selection"],properties:{draft:outputSchema,map_selection:dossier.map_selection.response_schema}} : outputSchema);
   auditSchema(normalized);
@@ -59,7 +59,7 @@ export function requestBody(payload: string, c: AIConfig) {
           prompt_cache_options: { mode: "explicit", ttl: "30m" },
         }
       : {}),
-    instructions: INSTRUCTIONS,
+    instructions: editorialPrompt(!!dossier.briefing?.territorial_watch?.length).instructions,
     input: [{ role: "user", content: [{ type: "input_text", text: payload }] }],
     max_output_tokens: c.max_output_tokens,
     text: {

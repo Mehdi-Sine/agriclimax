@@ -4,7 +4,6 @@ import { assertBriefing } from "../editorial/validate";
 import type { EditorialBriefingBundle } from "../editorial/briefing";
 import {
   ENGINE,
-  PROMPT_VERSION,
   CONFIG_VERSION,
   type Archive,
   type Illustration,
@@ -15,7 +14,7 @@ import { validateDraft, assertDraft } from "./validate";
 import { fallbackDraft } from "./fallback";
 import { ProviderFailure, type Provider } from "./provider";
 import { BudgetRefusal, budgetReport, editorialPayload } from "./budget";
-import { INSTRUCTIONS } from "./prompt";
+import { editorialPrompt } from "./prompt";
 export interface GenerateOptions {
   briefing: EditorialBriefingBundle;
   config: AIConfig;
@@ -33,6 +32,7 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
   const b = o.briefing,
     c = o.config;
   assertBriefing(b);
+  const prompt = editorialPrompt(!!b.territorial_watch?.length);
   if (
     o.experiment &&
     (!/^[a-z0-9][a-z0-9_-]{0,63}$/.test(o.experiment.id) ||
@@ -46,7 +46,7 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
   const id = hash([
     b.edition_date,
     b.bundle_id,
-    PROMPT_VERSION,
+    prompt.version,
     c.model,
     CONFIG_VERSION,
     hash(c),
@@ -243,7 +243,7 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
       date: b.edition_date,
       generated_at: now,
       engine: ENGINE,
-      prompt_version: PROMPT_VERSION,
+      prompt_version: prompt.version,
       config_version: CONFIG_VERSION,
       mode,
       status: validation.status,
@@ -252,7 +252,7 @@ export async function generate(o: GenerateOptions): Promise<Archive> {
       illustrations: mode === "fallback" ? [] : assets,
       validation,
       receipt,
-      prompt_sha256: hash(INSTRUCTIONS),
+      prompt_sha256: hash(prompt.instructions),
       parameters: {
         model: c.model,
         max_output_tokens: c.max_output_tokens,

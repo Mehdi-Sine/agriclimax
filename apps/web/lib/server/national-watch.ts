@@ -6,17 +6,19 @@ import {detectQualifiedNational,packMetrics,PHENOMENA,WATCH_VERSION,type Place,t
 import {PRODUCTIONS} from '../../features/national-watch/productions';
 import {PALETTE_VERSION} from '../../features/cartography/registry';
 const cache=new Map<string,Promise<WatchSummary>>();
-export async function nationalWatch(requestedRun?:string,pinned?:NationalWeatherDocument):Promise<WatchSummary>{
- const document=pinned??await nationalWeatherDocument(requestedRun);
+export async function nationalWatch(requestedRun?:string,pinned?:NationalWeatherDocument,day?:string,sha?:string):Promise<WatchSummary>{
+ const document=pinned??await (sha ? nationalWeatherDocument(requestedRun,sha) : nationalWeatherDocument(requestedRun));
  if(!document)throw new Error('NO_VERIFIED_NATIONAL_CYCLE');
  const source=document.archive_sha256;
- const identity=`${source}/${WATCH_VERSION}/${PALETTE_VERSION}/${sources.find(s=>s.source_id.includes('rpg'))?.sha256??'rpg-2025'}`;
+ const identity=`${source}/${WATCH_VERSION}/${PALETTE_VERSION}/${day??'weekly'}/${sources.find(s=>s.source_id.includes('rpg'))?.sha256??'rpg-2025'}`;
  const hit=cache.get(identity);if(hit)return hit;
  const promise=(async():Promise<WatchSummary>=>{
   const started=performance.now();
   const places:Place[]=geography.places;
   if(places.length!==713||new Set(places.map(p=>p.id)).size!==713||places.some(p=>!p.region))throw new Error('INVALID_WATCH_GEOGRAPHY');
-  const start=new Date(Date.parse(document.run)+86400000).toISOString().slice(0,10),end=new Date(Date.parse(document.run)+7*86400000).toISOString().slice(0,10);
+  const first=new Date(Date.parse(document.run)+86400000).toISOString().slice(0,10),last=new Date(Date.parse(document.run)+7*86400000).toISOString().slice(0,10);
+  if(day&&(day<first||day>last))throw new Error('DAY_OUTSIDE_CYCLE');
+  const start=day??first,end=day??last;
   const {metrics,events}=detectQualifiedNational(document.selected_indices.map(i=>document.rows[i]),places,start,end);
   const productions:ProductionPresence[]=await Promise.all(PRODUCTIONS.map(async production=>{
    const data=await Promise.all(production.groups.map(g=>datasets[`rpg-group-${g}-surf-pra`]()));

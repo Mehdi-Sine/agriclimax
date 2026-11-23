@@ -16,6 +16,7 @@ export type ConsultableEdition=Pick<Archive,"edition_id"|"revision"|"date"|"gene
 const incompatible=new Set(["DRAFT_CONTRACT","DRAFT_IDENTITY","CANDIDATE_REFERENCE","DOCUMENTARY_REFERENCE","REGION_REFERENCE","PRODUCTION_REFERENCE","FIGURE_MISMATCH","FIGURE_REGION","FIGURE_SCOPE","FIGURE_NATURE","PRA_ATTRIBUTION","ILLUSTRATION_CONTEXT","FORECAST_WITHOUT_EVIDENCE"]);
 export function consultableEdition(a:Archive):ConsultableEdition {
  verifyArchive(a,false);
+ if(a.briefing.territorial_watch?.length) throw Error("AGRO04_PREVIEW_ONLY");
  if((a.mode!=="fallback"&&(a.mode!=="live"||!a.receipt?.response_id))||a.briefing.status==="insufficient") throw Error("NOT_A_CONSULTABLE_AI_EDITION");
  const assessment=validateDraft(a.draft,a.briefing,a.illustrations);
  if((a.mode==="fallback"||["editorial-board-fr-4","editorial-board-fr-5"].includes(a.prompt_version))&&assessment.status==="rejected")throw Error("INCOMPATIBLE_EDITORIAL_DATA");
