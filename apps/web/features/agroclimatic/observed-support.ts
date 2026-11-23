@@ -6,7 +6,8 @@ export const STRICT_RULE_VERSION = "agroclimatic-1.0.0";
 export const supportPolicy = (
   rule: Rule,
 ): "qualified_mean" | "event_on_support" | null =>
-  ["gdd", "temperature_mean", "rain"].includes(rule.id)
+  rule.variables.length !== 1 ? null :
+  ["gdd", "temperature_mean", "rain"].includes(rule.priority?.base ?? rule.id)
     ? "qualified_mean"
     : [
           "dry",
@@ -17,7 +18,7 @@ export const supportPolicy = (
           "frost",
           "frost_sequence",
           "cattle_heat",
-        ].includes(rule.id)
+        ].includes(rule.priority?.base ?? rule.id)
       ? "event_on_support"
       : null;
 export interface ObservedSupport {

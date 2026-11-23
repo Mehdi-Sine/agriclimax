@@ -36,6 +36,11 @@ beforeEach(() => {
 it("validates query shape and physical threshold bounds before archive access", async () => {
   for (const query of [
     "indicator=unknown",
+    "indicator=field_peak_rain5&start=2026-10-27&end=2026-10-30",
+    "indicator=field_frost&start=2026-10-24&end=2026-10-30&temporal=forecast",
+    "indicator=field_maize_gdd&start=2026-10-24&end=2026-10-30&threshold=7",
+    "indicator=field_frost&start=2026-10-24&end=2026-10-30&compare=previous",
+    "indicator=rain&start=2026-10-24&end=2026-10-30&summary=1",
     "indicator=hot&start=2026-11-07&end=2026-11-07&temporal=bad",
     "indicator=rain&start=2026-10-30&end=2026-10-31&threshold=NaN",
     "indicator=dry&start=2026-10-30&end=2026-10-31&threshold=-1",

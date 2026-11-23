@@ -1,0 +1,4911 @@
+{
+  "archiveMonths": [
+    "2026-10",
+    "2026-11"
+  ],
+  "failures": [],
+  "report": [
+    {
+      "indicator": "field_maize_gdd",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0,
+      "max": 63.736069,
+      "payload_bytes": 2192587,
+      "calculation_ms": 82,
+      "elapsed_ms": 2066,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 58.04842865539783,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 49.931472336764415,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 49.118059917192056,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 68.32742515470323,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 68.5789068693038,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 47.97269332220546,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 68.17350809225869,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 64.60681123931278,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 48.455688212003125,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 51.765911169117956,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 62.64584551353948,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "field_frost",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0,
+      "max": 7,
+      "payload_bytes": 2180076,
+      "calculation_ms": 152,
+      "elapsed_ms": 673,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "field_dry_sequence",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 2,
+      "max": 7,
+      "payload_bytes": 2181854,
+      "calculation_ms": 204,
+      "elapsed_ms": 371,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 6,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 3,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 4,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 4,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 7,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "field_antecedent_rain",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0.4064742918,
+      "max": 50.563333573899996,
+      "payload_bytes": 2191231,
+      "calculation_ms": 81,
+      "elapsed_ms": 274,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 1.70902866769227,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 8.30134801383961,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 34.09097917076368,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 6.898962262202985,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 5.900554188442051,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 3.7503884586206846,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 2.3906544644571905,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 1.9451897994128113,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 2.534821567935211,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 8.413632245876954,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 0.3682382191155405,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "field_peak_rain5",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0.2419251479,
+      "max": 50.561611,
+      "payload_bytes": 2190855,
+      "calculation_ms": 124,
+      "elapsed_ms": 273,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 1.7033925706166526,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 8.299620896468847,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 34.08925659689347,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 4.0758481634447525,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 3.2671175128126877,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 2.9790007948245263,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 2.1530585134001203,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 1.7788717336956266,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 2.419405494993386,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 8.389716827803861,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 0.3655703376225421,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "field_maize_gdd",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "source_version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0,
+      "max": 64.364522,
+      "payload_bytes": 2619587,
+      "calculation_ms": 67,
+      "elapsed_ms": 9511,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 54.360062267444754,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 43.32721049079752,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 36.53264646167186,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 67.76811592672155,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 67.78260118799123,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 45.020838425816535,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 66.47592521689012,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 61.84622794006729,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 46.28146038638222,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 47.84098197249011,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 57.447722082264846,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "field_frost",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "source_version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0,
+      "max": 7,
+      "payload_bytes": 2608096,
+      "calculation_ms": 61,
+      "elapsed_ms": 2263,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "field_dry_sequence",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "source_version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0,
+      "max": 4,
+      "payload_bytes": 2609936,
+      "calculation_ms": 51,
+      "elapsed_ms": 1873,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 1,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 1,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 2,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 1,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 1,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 1,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 1,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "field_antecedent_rain",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "source_version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 10.636679269999998,
+      "max": 84.38120716,
+      "payload_bytes": 2616331,
+      "calculation_ms": 101,
+      "elapsed_ms": 2053,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 48.99794337714966,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 41.41045723824898,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 42.15902337068604,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 86.82306787575806,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 87.41897513749554,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 94.17374804170258,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 52.47784916971238,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 52.67953226672966,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 60.20236114394808,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 38.59012855534084,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 47.1085078167858,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "field_peak_rain5",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "source_version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 8.7558507792,
+      "max": 78.19815990000001,
+      "payload_bytes": 2616315,
+      "calculation_ms": 196,
+      "elapsed_ms": 2846,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 47.9962508103623,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 37.39896505093319,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 33.30187015767857,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 71.00802964465993,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 70.5956647390954,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 77.53008537255128,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 47.86562932290837,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 47.652430113128844,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 52.70606080044454,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 32.52594563843917,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 44.63412074625748,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "field_maize_gdd",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-01",
+      "end": "2026-10-30",
+      "source_version": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "evaluable": 645,
+      "partial_only": 0,
+      "no_value": 68,
+      "min": 11.323,
+      "max": 324.3802,
+      "payload_bytes": 4035776,
+      "calculation_ms": 178,
+      "elapsed_ms": 798,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.85235
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.764595
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.999839
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.787465
+        }
+      ]
+    },
+    {
+      "indicator": "field_frost",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-01",
+      "end": "2026-10-30",
+      "source_version": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "evaluable": 645,
+      "partial_only": 0,
+      "no_value": 68,
+      "min": 0,
+      "max": 21,
+      "payload_bytes": 4032686,
+      "calculation_ms": 258,
+      "elapsed_ms": 381,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.85235
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.764595
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.999839
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.787465
+        }
+      ]
+    },
+    {
+      "indicator": "field_dry_sequence",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-01",
+      "end": "2026-10-30",
+      "source_version": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "evaluable": 645,
+      "partial_only": 0,
+      "no_value": 68,
+      "min": 2,
+      "max": 12,
+      "payload_bytes": 4029018,
+      "calculation_ms": 321,
+      "elapsed_ms": 497,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.85235
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.764595
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.999839
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.787465
+        }
+      ]
+    },
+    {
+      "indicator": "field_antecedent_rain",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-01",
+      "end": "2026-10-30",
+      "source_version": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "evaluable": 645,
+      "partial_only": 0,
+      "no_value": 68,
+      "min": 48.413786566,
+      "max": 225.011779056,
+      "payload_bytes": 4035878,
+      "calculation_ms": 245,
+      "elapsed_ms": 448,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.85235
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.764595
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.999839
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.787465
+        }
+      ]
+    },
+    {
+      "indicator": "field_peak_rain5",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-01",
+      "end": "2026-10-30",
+      "source_version": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "evaluable": 645,
+      "partial_only": 0,
+      "no_value": 68,
+      "min": 20.338569999999997,
+      "max": 122.96431949999999,
+      "payload_bytes": 4034133,
+      "calculation_ms": 306,
+      "elapsed_ms": 560,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.85235
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.764595
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.999839
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": null,
+          "state": "unknown",
+          "reason": "incompatible_sources_or_runs",
+          "fraction": 0.787465
+        }
+      ]
+    },
+    {
+      "indicator": "gdd",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 11.2169993,
+      "max": 105.736069,
+      "payload_bytes": 2183120,
+      "calculation_ms": 106,
+      "elapsed_ms": 2346,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 100.04842865539784,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 91.9314723367644,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 91.11805991719206,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 110.32742515470323,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 110.5789068693038,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 89.97269332220547,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 110.17350809225867,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 106.60681123931278,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 90.45568821200311,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 93.76591116911796,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 104.64584551353948,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "gdd",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 713,
+      "partial_only": 0,
+      "no_value": 0,
+      "min": 0,
+      "max": 14.022792833441395,
+      "payload_bytes": 1050877,
+      "calculation_ms": 43,
+      "elapsed_ms": 2040,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 9.984069111343823,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 10.51273840682709,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 10.149861287646468,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 11.273820038883418,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 13.483668761578679,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 12.49695606312315,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": 6.903681986096486,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B258",
+          "value": 14.022792833441395,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B259",
+          "value": 12.065992882088658,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B260",
+          "value": 7.416345556511684,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:33115",
+          "value": 11.18448834946607,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 11.414278334463441,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "indicator": "hot",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0,
+      "max": 0,
+      "payload_bytes": 2168823,
+      "calculation_ms": 67,
+      "elapsed_ms": 117,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "hot",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 713,
+      "partial_only": 0,
+      "no_value": 0,
+      "min": 0,
+      "max": 0,
+      "payload_bytes": 1035347,
+      "calculation_ms": 28,
+      "elapsed_ms": 40,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B259",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B260",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:33115",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "indicator": "hot_sequence",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0,
+      "max": 0,
+      "payload_bytes": 2168886,
+      "calculation_ms": 44,
+      "elapsed_ms": 142,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "hot_sequence",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 713,
+      "partial_only": 0,
+      "no_value": 0,
+      "min": 0,
+      "max": 0,
+      "payload_bytes": 1035409,
+      "calculation_ms": 16,
+      "elapsed_ms": 60,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B259",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B260",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:33115",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "indicator": "frost",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0,
+      "max": 7,
+      "payload_bytes": 2168099,
+      "calculation_ms": 34,
+      "elapsed_ms": 138,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "frost",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 713,
+      "partial_only": 0,
+      "no_value": 0,
+      "min": 0,
+      "max": 1,
+      "payload_bytes": 1034620,
+      "calculation_ms": 10,
+      "elapsed_ms": 19,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B259",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B260",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:33115",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "indicator": "frost_sequence",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0,
+      "max": 7,
+      "payload_bytes": 2168169,
+      "calculation_ms": 66,
+      "elapsed_ms": 193,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "frost_sequence",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 713,
+      "partial_only": 0,
+      "no_value": 0,
+      "min": 0,
+      "max": 1,
+      "payload_bytes": 1034693,
+      "calculation_ms": 12,
+      "elapsed_ms": 19,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B259",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B260",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:33115",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "indicator": "rain",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0.4064742918,
+      "max": 50.563333573899996,
+      "payload_bytes": 2184526,
+      "calculation_ms": 64,
+      "elapsed_ms": 154,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 1.70902866769227,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 8.30134801383961,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 34.09097917076368,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 6.898962262202985,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 5.900554188442051,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 3.7503884586206846,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 2.3906544644571905,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 1.9451897994128113,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 2.534821567935211,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 8.413632245876954,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 0.3682382191155405,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "rain",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 713,
+      "partial_only": 0,
+      "no_value": 0,
+      "min": 0,
+      "max": 28.17767107960611,
+      "payload_bytes": 1084717,
+      "calculation_ms": 9,
+      "elapsed_ms": 17,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 1.882101626777414,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 0.531926632725512,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 0.7566283513639843,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 0.4913916146148694,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 0.22481845034081566,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": 4.752912628439982,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B258",
+          "value": 0.002103313748299701,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B259",
+          "value": 0.8021916753729412,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B260",
+          "value": 5.570986493139112,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:33115",
+          "value": 0.6513567706083491,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "indicator": "heavy_rain",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0,
+      "max": 2,
+      "payload_bytes": 2170799,
+      "calculation_ms": 32,
+      "elapsed_ms": 112,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "heavy_rain",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 713,
+      "partial_only": 0,
+      "no_value": 0,
+      "min": 0,
+      "max": 1,
+      "payload_bytes": 1069603,
+      "calculation_ms": 10,
+      "elapsed_ms": 21,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B259",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B260",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:33115",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "indicator": "dry",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 3,
+      "max": 7,
+      "payload_bytes": 2170046,
+      "calculation_ms": 67,
+      "elapsed_ms": 107,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 6,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 3,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 6,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 6,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 6,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 6,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 7,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "dry",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 713,
+      "partial_only": 0,
+      "no_value": 0,
+      "min": 0,
+      "max": 1,
+      "payload_bytes": 1068851,
+      "calculation_ms": 10,
+      "elapsed_ms": 19,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B258",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B259",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B260",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:33115",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "indicator": "dry_sequence",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 2,
+      "max": 7,
+      "payload_bytes": 2170121,
+      "calculation_ms": 74,
+      "elapsed_ms": 141,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 6,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 3,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 4,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 4,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 5,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 7,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "dry_sequence",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 713,
+      "partial_only": 0,
+      "no_value": 0,
+      "min": 0,
+      "max": 1,
+      "payload_bytes": 1068926,
+      "calculation_ms": 10,
+      "elapsed_ms": 19,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B258",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B259",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B260",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:33115",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 1,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "indicator": "thi",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 0,
+      "partial_only": 0,
+      "no_value": 713,
+      "min": null,
+      "max": null,
+      "payload_bytes": 2158862,
+      "calculation_ms": 64,
+      "elapsed_ms": 98,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9260709
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9599558
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.84865963
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.4692216
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.88456357
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9926908
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.85235006
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.7645953
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9998391
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.6250896
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.78746516
+        }
+      ]
+    },
+    {
+      "indicator": "thi",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 425,
+      "partial_only": 0,
+      "no_value": 288,
+      "min": 34.68481528173593,
+      "max": 56.6424905326573,
+      "payload_bytes": 1188306,
+      "calculation_ms": 28,
+      "elapsed_ms": 41,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 51.42251767693583,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 51.578422110180334,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 50.73277781035846,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 52.7118032845128,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 56.6424905326573,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 55.193183080846076,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.848552780325568
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9999650063924755
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9857545530216452
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9049476358211567
+        },
+        {
+          "id": "pra:33115",
+          "value": 52.735652140081946,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 53.79161782031812,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "indicator": "thi_days",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 0,
+      "partial_only": 0,
+      "no_value": 713,
+      "min": null,
+      "max": null,
+      "payload_bytes": 2158862,
+      "calculation_ms": 86,
+      "elapsed_ms": 123,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9260709
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9599558
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.84865963
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.4692216
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.88456357
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9926908
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.85235006
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.7645953
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9998391
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.6250896
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.78746516
+        }
+      ]
+    },
+    {
+      "indicator": "thi_days",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 425,
+      "partial_only": 0,
+      "no_value": 288,
+      "min": 0,
+      "max": 0,
+      "payload_bytes": 1178856,
+      "calculation_ms": 10,
+      "elapsed_ms": 23,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.848552780325568
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9999650063924755
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9857545530216452
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9049476358211567
+        },
+        {
+          "id": "pra:33115",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "indicator": "thi_sequence",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 0,
+      "partial_only": 0,
+      "no_value": 713,
+      "min": null,
+      "max": null,
+      "payload_bytes": 2158874,
+      "calculation_ms": 74,
+      "elapsed_ms": 112,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9260709
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9599558
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.84865963
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.4692216
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.88456357
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9926908
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.85235006
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.7645953
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9998391
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.6250896
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.78746516
+        }
+      ]
+    },
+    {
+      "indicator": "thi_sequence",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 425,
+      "partial_only": 0,
+      "no_value": 288,
+      "min": 0,
+      "max": 0,
+      "payload_bytes": 1178870,
+      "calculation_ms": 11,
+      "elapsed_ms": 25,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.848552780325568
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9999650063924755
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9857545530216452
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "humidity_missing",
+          "fraction": 0.9049476358211567
+        },
+        {
+          "id": "pra:33115",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "indicator": "cattle_heat",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0,
+      "max": 0,
+      "payload_bytes": 2168956,
+      "calculation_ms": 96,
+      "elapsed_ms": 164,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 0,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "cattle_heat",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 713,
+      "partial_only": 0,
+      "no_value": 0,
+      "min": 0,
+      "max": 0,
+      "payload_bytes": 1035479,
+      "calculation_ms": 8,
+      "elapsed_ms": 20,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B258",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B259",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B260",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:33115",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 0,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "indicator": "temperature_mean",
+      "temporal": "history",
+      "run": null,
+      "start": "2026-10-24",
+      "end": "2026-10-30",
+      "source_version": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "evaluable": 645,
+      "partial_only": 67,
+      "no_value": 1,
+      "min": 0.8764319578571429,
+      "max": 15.105152714285714,
+      "payload_bytes": 2186476,
+      "calculation_ms": 92,
+      "elapsed_ms": 160,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": null,
+          "portion": 14.292632665056834,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9260709079747366
+        },
+        {
+          "id": "pra:17111",
+          "value": null,
+          "portion": 13.133067476680628,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9599558028371323
+        },
+        {
+          "id": "pra:29101",
+          "value": null,
+          "portion": 13.016865702456007,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8486596116160978
+        },
+        {
+          "id": "pra:29102",
+          "value": null,
+          "portion": null,
+          "state": "unavailable",
+          "reason": "variable_unavailable",
+          "fraction": 0
+        },
+        {
+          "id": "pra:2A258",
+          "value": null,
+          "portion": 15.761060736386176,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.4692215787208781
+        },
+        {
+          "id": "pra:2A259",
+          "value": null,
+          "portion": 15.796986695614828,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8845635429854587
+        },
+        {
+          "id": "pra:2A260",
+          "value": null,
+          "portion": 12.85324190317221,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9926908133329774
+        },
+        {
+          "id": "pra:2B258",
+          "value": null,
+          "portion": 15.739072584608381,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.8523500667147054
+        },
+        {
+          "id": "pra:2B259",
+          "value": null,
+          "portion": 15.229544462758968,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7645953157328961
+        },
+        {
+          "id": "pra:2B260",
+          "value": null,
+          "portion": 12.922241173143302,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.9998391064170352
+        },
+        {
+          "id": "pra:33115",
+          "value": null,
+          "portion": 13.39513016701685,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.6250895705887968
+        },
+        {
+          "id": "pra:83469",
+          "value": null,
+          "portion": 14.949406501934211,
+          "state": "observed_partial",
+          "reason": "observed_area_only",
+          "fraction": 0.7874651605721475
+        }
+      ]
+    },
+    {
+      "indicator": "temperature_mean",
+      "temporal": "forecast",
+      "run": "2026-11-22T18:00:00+00:00",
+      "start": "2026-11-23",
+      "end": "2026-11-23",
+      "source_version": "a28e87458e00f5caca74963a0dcbad53b3a992eb79160cbc8a96619b77f69426",
+      "evaluable": 713,
+      "partial_only": 0,
+      "no_value": 0,
+      "min": -4.942567735827814,
+      "max": 14.022792833441395,
+      "payload_bytes": 1051184,
+      "calculation_ms": 9,
+      "elapsed_ms": 17,
+      "coastal": [
+        {
+          "id": "pra:13469",
+          "value": 9.984069111343823,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:17111",
+          "value": 10.51273840682709,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29101",
+          "value": 10.149861287646468,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:29102",
+          "value": 11.273820038883418,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A258",
+          "value": 13.483668761578679,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A259",
+          "value": 12.49695606312315,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2A260",
+          "value": 6.903681986096486,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B258",
+          "value": 14.022792833441395,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B259",
+          "value": 12.065992882088658,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:2B260",
+          "value": 7.416345556511684,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:33115",
+          "value": 11.18448834946607,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        },
+        {
+          "id": "pra:83469",
+          "value": 11.414278334463441,
+          "portion": null,
+          "state": "native_complete",
+          "reason": null,
+          "fraction": 1
+        }
+      ]
+    }
+  ]
+}

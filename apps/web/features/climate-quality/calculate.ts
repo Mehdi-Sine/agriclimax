@@ -4,7 +4,7 @@ import {calendarDays} from "../national/daily-availability";
 import {indicatorFamily, qualifyCoverage, type CoverageEvidence} from "./policy";
 export const UNIFIED_AGRO_VERSION = "agroclimatic-1.3.0";
 export function coverageRule(rule: Rule, version = UNIFIED_AGRO_VERSION): Rule {
-  return {...rule, version, coverage_family: rule.coverage_family ?? indicatorFamily(rule.id),
+  return {...rule, version, coverage_family: rule.coverage_family ?? indicatorFamily(rule.priority?.base ?? rule.id),
     quality: "Contrat climate-coverage-1 : support identifié et compatible, période complète ; valeur descriptive de portion séparée. Toute estimation territoriale exige un certificat enregistré.",
     limits: rule.limits + " Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite."};
 }
@@ -30,7 +30,7 @@ export function calculateQualified(pra: string, rows: QualifiedDay[], start: str
   const prepared = rows.map(r => ({...r, compatible: r.compatible && stable, complete: r.complete && !!r.climate_support?.temporal_complete}));
   const calculated = calculate(pra, prepared, start, end, rule, threshold);
   const first = rows[0]?.climate_support;
-  const quality = qualifyCoverage(calculated.value, rule.coverage_family ?? indicatorFamily(rule.id), {
+  const quality = qualifyCoverage(calculated.value, rule.coverage_family ?? indicatorFamily(rule.priority?.base ?? rule.id), {
     fraction: fractions.length && fractions.every(Number.isFinite) ? Math.min(...fractions) : null,
     support_id: stable ? first!.id : null,
     mask: first?.mask ?? "unknown", represented_area_m2: first?.represented_area_m2 ?? null,

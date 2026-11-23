@@ -1,0 +1,132 @@
+{
+  "checks": [
+    {
+      "id": "field_maize_gdd",
+      "width": 1440,
+      "elapsed_ms": 28685,
+      "support": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "id": "field_frost",
+      "width": 1440,
+      "elapsed_ms": 17758,
+      "support": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "id": "field_dry_sequence",
+      "width": 1440,
+      "elapsed_ms": 12536,
+      "support": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "id": "field_antecedent_rain",
+      "width": 1440,
+      "elapsed_ms": 18582,
+      "support": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "id": "field_peak_rain5",
+      "width": 1440,
+      "elapsed_ms": 27251,
+      "support": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "id": "field_peak_rain5",
+      "width": 768,
+      "elapsed_ms": 23986,
+      "support": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "id": "field_antecedent_rain",
+      "width": 390,
+      "pra": "pra:29102",
+      "elapsed_ms": 11592,
+      "support": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    }
+  ],
+  "pageErrors": []
+}
