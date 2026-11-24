@@ -21,7 +21,9 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
-    return [{ source: '/maps/pra-national.geojson', headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }] }];
+    return ['/maps/pra-national.geojson', '/maps/journal-pra-v1.geojson'].map(source => ({
+      source, headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }],
+    }));
   },
   outputFileTracingIncludes: {
     "/api/journal/thumbnail": ["./public/maps/journal-pra-v1.geojson", "./styles/tokens.css"],

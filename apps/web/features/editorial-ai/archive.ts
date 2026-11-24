@@ -2,6 +2,7 @@ import "server-only";
 import {verifyDailySelection} from "../editorial-map-selection/daily";
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
+import briefingSchema from "../../../../contracts/jsonschema/editorial-briefing-1.schema.json";
 import archiveSchema from "../../../../contracts/jsonschema/editorial-archive-1.schema.json";
 import {
   mkdirSync,
@@ -56,6 +57,7 @@ export interface GenerationStore {
 }
 const ajv = new Ajv({ strict: true });
 addFormats(ajv);
+ajv.addSchema(briefingSchema);
 const archiveCheck = ajv.compile<Archive>(archiveSchema);
 const validId = (s: string) => /^[a-f0-9]{64}$/.test(s);
 /** Local/DEV filesystem store. One shared durable volume per batch; never serverless ephemeral storage for paid runs. */
