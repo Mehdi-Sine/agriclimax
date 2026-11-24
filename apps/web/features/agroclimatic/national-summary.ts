@@ -1,6 +1,6 @@
 import { classIndex, classLabel, semanticPalette } from "../cartography/registry";
 import type { AgroResult } from "./calculate";
-import type { Rule } from "./catalogue";
+import { FIELD_PRODUCTIONS, type Rule } from "./catalogue";
 import type { AgroPayload } from "../../lib/server/agroclimatic";
 
 interface Place {
@@ -15,6 +15,12 @@ export interface DocumentedProduction {
   declaredHectares: number;
 }
 
+export interface DocumentedOrientation {
+  label: string;
+  source: "otex-2020-sampled";
+  year: 2020;
+}
+
 export function fieldSummary(
   rule: Rule,
   period: { start: string; end: string; timezone: string },
@@ -22,6 +28,7 @@ export function fieldSummary(
   results: AgroResult[],
   places: Place[],
   productions: Record<string, DocumentedProduction[]>,
+  orientations?: Record<string, DocumentedOrientation[]>,
 ) {
   const days = (Date.parse(period.end) - Date.parse(period.start)) / 86400000 + 1;
   const palette = semanticPalette(rule.id, rule.unit, days);
@@ -45,6 +52,7 @@ export function fieldSummary(
   };
   const remarkable = (items: typeof evaluable) => items.map(({ id, name, region, value, result }) => ({
     id, name, region, value, productions: productions[id] ?? [],
+    ...(orientations ? { orientations: orientations[id] ?? [] } : {}),
     data_freshness: result.data_freshness,
     provenance: result.provenance,
     quality_flags: result.quality_flags,
@@ -74,6 +82,18 @@ export function fieldSummary(
     period,
     source: { label: rule.meteorological_source, version: sourceVersion },
     technical_reference: rule.source,
+    ...(rule.science ? {
+      map: "/analyse?" + new URLSearchParams({
+        production: "field", agro: rule.id, agro_start: period.start, agro_end: period.end,
+      }),
+      scientific_context: {
+        season: rule.science.season,
+        confidence: rule.science.confidence,
+        productions: rule.science.productions.map(group => FIELD_PRODUCTIONS[group]),
+        threshold_basis: rule.science.thresholdBasis,
+        editorial: rule.science.editorial,
+      },
+    } : {}),
     data_freshness: freshness.length > 1 ? [freshness[0], freshness.at(-1)!] : freshness,
     provenance: [`${rule.meteorological_source}/${sourceVersion}`],
     quality_flags: [...new Set(results.flatMap(row => row.quality_flags))].sort(),
@@ -103,6 +123,7 @@ export function fieldSummary(
       rule.limits,
       "Distribution non pondérée, une valeur par PRA évaluable. Les classes sont cartographiques.",
       "Les productions indiquent une surface déclarée au RPG 2025. Stade, présence pendant la fenêtre et dommages restent inconnus.",
+      ...(orientations ? ["Les orientations OTEX 2020 sont échantillonnées. Les effectifs et la présence d’animaux durant la fenêtre restent inconnus."] : []),
     ],
   };
 }

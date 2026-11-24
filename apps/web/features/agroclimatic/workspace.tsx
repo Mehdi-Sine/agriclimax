@@ -8,7 +8,8 @@ import { useMemo, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { ComplementNotice } from "./complement";
 import { supportPolicy } from "./observed-support";
-import { AGRO_RULES, type Production } from "./catalogue";
+import { FIELD_PRODUCTIONS, type Production } from "./catalogue";
+import { ANALYSIS_RULES } from "./analysis-catalogue";
 import type { AgroResult } from "./calculate";
 import type { AgroPayload } from "../../lib/server/agroclimatic";
 import type { NationalAvailability } from "../national/daily-availability";
@@ -35,10 +36,15 @@ export function useAgroclimatic(
   const production: Production = requestedProduction === "cattle" || requestedProduction === "field"
     ? requestedProduction : "wheat";
   const productionLabel = { wheat: "Blé tendre", cattle: "Bovins", field: "Situations agricoles" }[production];
-  const rule =
-    AGRO_RULES.find(
-      (r) => r.id === search.get("agro") && r.production === production,
-    ) ?? AGRO_RULES.find((r) => r.production === production)!;
+  const productionRules = ANALYSIS_RULES.filter(rule => rule.production === production);
+  const requestedCrop = search.get("agro_crop");
+  const crop = requestedCrop && Object.hasOwn(FIELD_PRODUCTIONS, requestedCrop)
+    ? requestedCrop as keyof typeof FIELD_PRODUCTIONS
+    : undefined;
+  const matchingRules = production === "field" && crop
+    ? productionRules.filter(rule => rule.science?.productions.includes(crop))
+    : productionRules;
+  const rule = matchingRules.find(rule => rule.id === search.get("agro")) ?? matchingRules[0];
   const mode =
     rule.priority ? "history" : search.get("temporal") === "forecast"
       ? "forecast"
@@ -72,6 +78,7 @@ export function useAgroclimatic(
         ? root
         : forecastStart);
   const end = search.get("agro_end") ?? defaultEnd;
+  const shortcutEnd = production === "field" ? end : availability?.latest;
   const threshold =
     rule.threshold === null
       ? null
@@ -136,11 +143,8 @@ export function useAgroclimatic(
     }
     window.history.pushState(null, "", `${pathname}?${p}`);
   }
-  const families = [
-    ...new Set(
-      AGRO_RULES.filter((r) => r.production === production).map((r) => r.family),
-    ),
-  ];
+  const families = [...new Set(matchingRules.map(rule => rule.family))];
+  const wetAggregate = rule.operator === "wetTotal" || rule.operator === "wetIntensity";
   const matches = (collection?.features ?? []).filter((f) =>
     `${f.properties.name} ${f.properties.code} ${f.properties.department_name}`
       .normalize("NFD")
@@ -189,9 +193,9 @@ export function useAgroclimatic(
             onChange={(e) =>
               change({
                 production: e.target.value,
-                agro: AGRO_RULES.find(r => r.production === e.target.value)!.id,
+                agro: ANALYSIS_RULES.find(r => r.production === e.target.value)!.id,
                 ...(e.target.value === "field" ? { temporal: "history", agro_start: "", agro_end: "" } : {}),
-                agro_threshold: "",
+                agro_threshold: "", agro_crop: "",
               })
             }
           >
@@ -200,6 +204,19 @@ export function useAgroclimatic(
             <option value="cattle">Bovins</option>
           </select>
         </label>
+        {production === "field" && <label>
+          Filière
+          <select aria-label="Filière" value={crop ?? ""} onChange={event => {
+            const value = event.target.value as keyof typeof FIELD_PRODUCTIONS | "";
+            const selected = value && !rule.science?.productions.includes(value)
+              ? productionRules.find(candidate => candidate.science?.productions.includes(value))
+              : rule;
+            change({ agro_crop: value, agro: selected?.id ?? "", agro_threshold: "" });
+          }}>
+            <option value="">Toutes les filières</option>
+            {Object.entries(FIELD_PRODUCTIONS).map(([id, label]) => <option key={id} value={id}>{label}</option>)}
+          </select>
+        </label>}
         <label>
           Famille
           <select
@@ -207,10 +224,7 @@ export function useAgroclimatic(
             value={rule.family}
             onChange={(e) =>
               change({
-                agro: AGRO_RULES.find(
-                  (r) =>
-                    r.production === production && r.family === e.target.value,
-                )!.id,
+                agro: matchingRules.find(r => r.family === e.target.value)!.id,
                 agro_threshold: "",
               })
             }
@@ -229,11 +243,12 @@ export function useAgroclimatic(
               change({ agro: e.target.value, agro_threshold: "" })
             }
           >
-            {AGRO_RULES.filter((r) => r.production === production).map((r) => (
-              <option value={r.id} key={r.id}>
-                {r.label}
-              </option>
-            ))}
+            {production === "field"
+              ? families.map(family => <optgroup key={family} label={family}>
+                {matchingRules.filter(rule => rule.family === family).map(rule =>
+                  <option value={rule.id} key={rule.id}>{rule.label}</option>)}
+              </optgroup>)
+              : matchingRules.map(rule => <option value={rule.id} key={rule.id}>{rule.label}</option>)}
           </select>
         </label>
         {!rule.priority && <label>
@@ -356,15 +371,13 @@ export function useAgroclimatic(
                 </button>,
               ])
           : mode === "history"
-            ? [7, 30].map((n) => (
+            ? (production === "field" ? [3, 7, 14, 30] : [7, 30]).filter(n => n >= (rule.priority?.minimumDays ?? 1)).map((n) => (
                 <button
                   key={n}
                   onClick={() =>
                     change({
-                      agro_start: availability?.latest
-                        ? trailingStart(availability.latest, n)
-                        : "",
-                      agro_end: availability?.latest ?? "",
+                      agro_start: shortcutEnd ? trailingStart(shortcutEnd, n) : "",
+                      agro_end: shortcutEnd ?? "",
                     })
                   }
                 >
@@ -409,8 +422,8 @@ export function useAgroclimatic(
           </p>
         )}
       <p>
-        Indicateurs exploratoires à l’échelle PRA. Aucun stade phénologique,
-        dommage, diagnostic animal ou conseil automatique.
+        {rule.science ? "Indicateur météorologique descriptif à l’échelle PRA." : "Indicateur exploratoire à l’échelle PRA."}
+        {" "}Stades, dommages et état des animaux restent inconnus.
       </p>
     </>
   );
@@ -488,7 +501,9 @@ export function useAgroclimatic(
       )}
       {current?.reason && !current.complementary && (
         <p role="status">
-          {current.reason === "incompatible_spatial_support"
+          {current.reason === "no_wet_day"
+            ? "Aucun jour humide sur cette fenêtre. La pluie moyenne par jour humide est indéfinie."
+            : current.reason === "incompatible_spatial_support"
             ? "Cumul refusé : supports spatiaux différents. Aucune union des surfaces journalières n’est affichée."
             : current.reason === "qualified_spatial_estimate" ||
                 current.reason === "observed_area_only"
@@ -549,7 +564,7 @@ export function useAgroclimatic(
               ["gdd", "sum", "thi", "maxRain5"].includes(rule.operator) ? null : threshold
             }
             unit={
-              rule.unit === "jours"
+              (rule.unit === "jours" || wetAggregate)
                 ? rule.variables.includes("humidity")
                   ? "THI"
                   : rule.variables[0] === "precipitation"
@@ -559,7 +574,7 @@ export function useAgroclimatic(
             }
           />
           <p>
-            {["gdd", "thi", "sum", "maxRain5"].includes(rule.operator)
+            {wetAggregate || threshold === null || ["gdd", "thi", "sum", "maxRain5"].includes(rule.operator)
               ? ""
               : `Épisodes : ${fmt(current.episodes)} · durée maximale : ${fmt(current.longest)} jours. Seuil : ${fmt(threshold)}.`}{" "}
             Les lacunes interrompent les courbes.
@@ -645,9 +660,19 @@ export function useAgroclimatic(
     </>
   );
   const priorityNotice = rule.priority && (
-    <p>{rule.description} {rule.limits}{" "}
-      <a href={rule.source}>Référence technique</a>
-    </p>
+    <>
+      <p>{rule.description} {rule.limits}</p>
+      {rule.science ? <details>
+        <summary>Méthode et références scientifiques</summary>
+        <p>{rule.formula} · {rule.unit} · {rule.version}</p>
+        <p>{rule.science.thresholdBasis} {rule.science.confidence}</p>
+        <p>{rule.science.season}</p>
+        <p>{rule.science.productions.map(group => FIELD_PRODUCTIONS[group]).join(" · ")}</p>
+        <p>{rule.admissible_period} {rule.unavailable}</p>
+        <ul>{rule.science.references.map(reference =>
+          <li key={reference.url}><a href={reference.url}>{reference.title}</a></li>)}</ul>
+      </details> : <p><a href={rule.source}>Référence technique</a></p>}
+    </>
   );
   const exportQuery = new URLSearchParams({ indicator: rule.id, start, end, summary: "1", compare: "previous" });
   const summary = (

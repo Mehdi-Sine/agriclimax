@@ -6,12 +6,24 @@
   "required": ["version", "indicator", "rule_version", "label", "question", "kind", "unit", "threshold", "period", "source", "technical_reference", "data_freshness", "provenance", "quality_flags", "total_pra", "evaluable_pra", "distribution", "regions", "remarkable", "evolution", "anomaly", "abstentions", "limitations"],
   "properties": {
     "version": { "const": "agro-field-summary-1" },
-    "indicator": { "enum": ["field_maize_gdd", "field_frost", "field_dry_sequence", "field_antecedent_rain", "field_peak_rain5"] },
-    "rule_version": { "const": "agro-field-1.0.0" },
+    "indicator": { "type": "string" },
+    "rule_version": { "enum": ["agro-field-1.0.0", "agro-analysis-1.0.0"] },
+    "map": { "type": "string", "pattern": "^/analyse\\?" },
+    "scientific_context": {
+      "type": "object",
+      "required": ["season", "confidence", "productions", "threshold_basis", "editorial"],
+      "properties": {
+        "season": { "type": "string" },
+        "confidence": { "type": "string" },
+        "productions": { "$ref": "#/$defs/strings" },
+        "threshold_basis": { "type": "string" },
+        "editorial": { "const": "manual_descriptive_export" }
+      }
+    },
     "label": { "type": "string" },
     "question": { "type": "string" },
     "kind": { "enum": ["reanalysis", "potential"] },
-    "unit": { "enum": ["°C·j", "jours", "mm"] },
+    "unit": { "enum": ["°C·j", "jours", "mm", "mm/j humide"] },
     "threshold": { "type": ["number", "null"] },
     "period": { "$ref": "#/$defs/period" },
     "source": {
@@ -73,6 +85,22 @@
     "abstentions": { "type": "object", "additionalProperties": { "$ref": "#/$defs/count" } },
     "limitations": { "$ref": "#/$defs/strings" }
   },
+  "oneOf": [
+    {
+      "properties": {
+        "rule_version": { "const": "agro-field-1.0.0" },
+        "indicator": { "enum": ["field_maize_gdd", "field_frost", "field_dry_sequence", "field_antecedent_rain", "field_peak_rain5"] },
+        "unit": { "enum": ["°C·j", "jours", "mm"] }
+      }
+    },
+    {
+      "required": ["map", "scientific_context"],
+      "properties": {
+        "rule_version": { "const": "agro-analysis-1.0.0" },
+        "indicator": { "enum": ["wet_days1", "wet_sequence1", "rain10_days", "rain_max1day", "wet_total1", "wet_intensity1", "warm_nights20", "warm_nights20_sequence", "ice_days", "ice_sequence"] }
+      }
+    }
+  ],
   "$defs": {
     "period": {
       "type": "object",
@@ -114,6 +142,18 @@
                 "source": { "const": "rpg-2025" },
                 "year": { "const": 2025 },
                 "declaredHectares": { "type": "number", "exclusiveMinimum": 0 }
+              }
+            }
+          },
+          "orientations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["label", "source", "year"],
+              "properties": {
+                "label": { "type": "string" },
+                "source": { "const": "otex-2020-sampled" },
+                "year": { "const": 2020 }
               }
             }
           },

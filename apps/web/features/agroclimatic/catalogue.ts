@@ -9,6 +9,8 @@ export type Operator =
   | "mean"
   | "gdd"
   | "maxRain5"
+  | "wetTotal"
+  | "wetIntensity"
   | "above"
   | "below"
   | "sum"
@@ -17,7 +19,30 @@ export type Operator =
   | "thi"
   | "thiAbove"
   | "thiLongest";
+export const FIELD_PRODUCTIONS = {
+  cereals: "Grandes cultures",
+  forage: "Prairies et fourrages",
+  vine: "Viticulture",
+  orchard: "Arboriculture",
+  cattle: "Bovins lait et viande",
+} as const;
+
+export interface ScientificContext {
+  status: "A";
+  shortLabel: string;
+  productions: readonly (keyof typeof FIELD_PRODUCTIONS)[];
+  season: string;
+  thresholdBasis: string;
+  references: readonly { title: string; url: string }[];
+  confidence: string;
+  palettes: readonly string[];
+  compatibility: { history: true; observation: false; forecast: false };
+  editorial: "manual_descriptive_export";
+  derivedFrom?: string;
+}
+
 export interface Rule {
+  science?: ScientificContext;
   priority?: { base: string; minimumDays: number; kind: "reanalysis" | "potential" };
   coverage_family?: import("../climate-quality/policy").Family;
   id: string;

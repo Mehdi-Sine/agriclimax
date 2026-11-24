@@ -162,7 +162,7 @@ export function calculate(
       longest = Math.max(longest, run);
     } else run = 0;
   }
-  const thresholdRule = !["gdd", "maxRain5", "mean", "min", "max", "sum", "thi"].includes(rule.operator);
+  const thresholdRule = !["gdd", "maxRain5", "wetTotal", "wetIntensity", "mean", "min", "max", "sum", "thi"].includes(rule.operator);
   const signals =
     thresholdRule && threshold !== null
       ? series.flatMap((r) =>
@@ -185,21 +185,49 @@ export function calculate(
             : [],
         )
       : [];
-  const value = !complete
-    ? null
-    : rule.operator === "maxRain5"
-      ? maximumRainFiveDays(good)
-    : rule.operator === "min"
-      ? Math.min(...good)
-    : ["thi", "max"].includes(rule.operator)
-      ? Math.max(...good)
-      : ["above", "below", "thiAbove", "atLeast"].includes(rule.operator)
-        ? count
-        : ["longestAbove", "longestBelow", "thiLongest", "longestAtLeast"].includes(rule.operator)
-          ? longest
-          : rule.operator === "mean"
-            ? good.reduce((a, b) => a + b, 0) / good.length
-            : good.reduce((a, b) => a + b, 0);
+  let value: number | null = null;
+  let noWetDay = false;
+  if (complete) {
+    switch (rule.operator) {
+      case "wetTotal":
+      case "wetIntensity": {
+        const wet = good.filter(value => value >= threshold!);
+        const total = wet.reduce((sum, value) => sum + value, 0);
+        noWetDay = rule.operator === "wetIntensity" && wet.length === 0;
+        value = rule.operator === "wetTotal" ? total : noWetDay ? null : total / wet.length;
+        break;
+      }
+      case "maxRain5":
+        value = maximumRainFiveDays(good);
+        break;
+      case "min":
+        value = Math.min(...good);
+        break;
+      case "thi":
+      case "max":
+        value = Math.max(...good);
+        break;
+      case "above":
+      case "below":
+      case "thiAbove":
+      case "atLeast":
+        value = count;
+        break;
+      case "longestAbove":
+      case "longestBelow":
+      case "thiLongest":
+      case "longestAtLeast":
+        value = longest;
+        break;
+      case "mean":
+        value = good.reduce((sum, value) => sum + value, 0) / good.length;
+        break;
+      case "gdd":
+      case "sum":
+        value = good.reduce((sum, value) => sum + value, 0);
+        break;
+    }
+  }
   const partialSupport = orderedRows.some(
     (r) => !r.complete && rule.variables.some((v) => r.values[v] != null),
   );
@@ -219,13 +247,13 @@ export function calculate(
             : "variable_unavailable"
       : !complete
         ? "incomplete_period"
-        : null;
+        : noWetDay ? "no_wet_day" : null;
   return {
     territoryId: pra,
     value,
     normal: null,
     anomaly: null,
-    status: complete
+    status: noWetDay ? "unavailable" : complete
       ? "available"
       : good.length || partialSupport
         ? "partial"

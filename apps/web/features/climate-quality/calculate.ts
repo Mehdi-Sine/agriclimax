@@ -46,7 +46,7 @@ export function calculateQualified(pra: string, rows: QualifiedDay[], start: str
     support_id: quality.evidence.support_id,
     support_scope: descriptive ? "observed_area" : quality.state === "qualified_estimate" ? "qualified_pra_estimate" : eligible ? "whole_pra" : "unavailable",
     spatial_coverage: quality.evidence.fraction ?? 0, temporal_coverage: calculated.coverage,
-    status: quality.state === "native_complete" ? "available" : rows.some(r => r.complete || (r.climate_support?.fraction ?? 0) > 0) ? "partial" : "unavailable",
+    status: quality.state === "native_complete" ? "available" : calculated.reason !== "no_wet_day" && rows.some(r => r.complete || (r.climate_support?.fraction ?? 0) > 0) ? "partial" : "unavailable",
     reason: eligible ? quality.reason : calculated.reason ?? quality.reason,
     signals: eligible ? calculated.signals : [],
     series: calculated.series.map(day => ({...day, support_id: rows.find(row => row.date === day.date)?.climate_support?.id ?? null})),

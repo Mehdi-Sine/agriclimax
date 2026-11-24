@@ -1,4 +1,4 @@
-/** Offline opt-in catalogue. No production module imports this file. */
+/** Multi-production recipes. Analyse can expose selected kernels without enabling editorial publication. */
 import { RECIPES, PRODUCTIONS, validateRegistry, type Recipe, type Production } from "./registry";
 import { computeBatch, type InputProvider } from "./engine";
 import type { Rule } from "../agroclimatic/catalogue";

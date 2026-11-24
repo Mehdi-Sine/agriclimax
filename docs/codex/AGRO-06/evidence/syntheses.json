@@ -1,0 +1,5816 @@
+[
+  {
+    "version": "agro-field-summary-1",
+    "indicator": "wet_days1",
+    "rule_version": "agro-analysis-1.0.0",
+    "label": "Jours humides (pluie ≥ 1 mm)",
+    "question": "Comptez les journées avec au moins 1 mm de pluie pour décrire la fréquence des apports.",
+    "kind": "reanalysis",
+    "unit": "jours",
+    "threshold": 1,
+    "period": {
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "timezone": "UTC"
+    },
+    "source": {
+      "label": "ERA5-Land · pra-native-1",
+      "version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    },
+    "technical_reference": "https://climate-scenarios.canada.ca/?page=climdex-indices",
+    "map": "/analyse?production=field&agro=wet_days1&agro_start=2026-11-10&agro_end=2026-11-16",
+    "scientific_context": {
+      "season": "Toute l’année, en particulier autour des semis, passages et récoltes selon le calendrier local.",
+      "confidence": "Méthode météorologique documentée, appliquée à la lame d’eau moyenne qualifiée de la PRA.",
+      "productions": [
+        "Grandes cultures",
+        "Prairies et fourrages",
+        "Viticulture",
+        "Arboriculture"
+      ],
+      "threshold_basis": "P ≥ 1 mm par jour UTC selon la définition ETCCDI du jour humide.",
+      "editorial": "manual_descriptive_export"
+    },
+    "data_freshness": [
+      "source 2026-11-10; calculated 2026-11-17T02:51:39.199456+00:00",
+      "source 2026-11-16; calculated 2026-11-23T03:08:31.884809+00:00"
+    ],
+    "provenance": [
+      "ERA5-Land · pra-native-1/c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    ],
+    "quality_flags": [
+      "24_hourly_samples_required",
+      "coastal_representativeness_not_guaranteed",
+      "exploratory",
+      "missing",
+      "missing_cells",
+      "no_homologous_normal_or_anomaly",
+      "not_for_extremes_normals_anomalies",
+      "observed_area_not_whole_pra",
+      "observed_area_only",
+      "publication_time_unknown",
+      "spatial_mean",
+      "total_area_not_agricultural_area",
+      "tp_next_day_00_utc_accumulation",
+      "utc_daily_reduction",
+      "value_unavailable",
+      "variable_unavailable",
+      "verified_24_hourly_samples_upstream"
+    ],
+    "total_pra": 713,
+    "evaluable_pra": 645,
+    "distribution": [
+      {
+        "class": "≤ 0",
+        "count": 0
+      },
+      {
+        "class": "> 0 à 2",
+        "count": 1
+      },
+      {
+        "class": "> 2 à 5",
+        "count": 391
+      },
+      {
+        "class": "> 5 à 10",
+        "count": 253
+      },
+      {
+        "class": "> 10",
+        "count": 0
+      }
+    ],
+    "regions": [
+      {
+        "region": "Auvergne-Rhône-Alpes",
+        "total_pra": 112,
+        "evaluable_pra": 112,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 25
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 87
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bourgogne-Franche-Comté",
+        "total_pra": 61,
+        "evaluable_pra": 61,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 26
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 35
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bretagne",
+        "total_pra": 25,
+        "evaluable_pra": 14,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 14
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Centre-Val de Loire",
+        "total_pra": 45,
+        "evaluable_pra": 45,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 32
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 13
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Corse",
+        "total_pra": 6,
+        "evaluable_pra": 0,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Grand Est",
+        "total_pra": 70,
+        "evaluable_pra": 70,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 70
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Hauts-de-France",
+        "total_pra": 39,
+        "evaluable_pra": 34,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 34
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Normandie",
+        "total_pra": 36,
+        "evaluable_pra": 25,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 25
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Nouvelle-Aquitaine",
+        "total_pra": 115,
+        "evaluable_pra": 103,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 28
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 75
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Occitanie",
+        "total_pra": 93,
+        "evaluable_pra": 86,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 1
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 53
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 32
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Pays de la Loire",
+        "total_pra": 39,
+        "evaluable_pra": 31,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 31
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Provence-Alpes-Côte d'Azur",
+        "total_pra": 35,
+        "evaluable_pra": 27,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 16
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 11
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Île-de-France",
+        "total_pra": 37,
+        "evaluable_pra": 37,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 37
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      }
+    ],
+    "remarkable": {
+      "minimum": 2,
+      "maximum": 7,
+      "lowest": [
+        {
+          "id": "pra:66256",
+          "name": "CERDAGNE - 66",
+          "region": "Occitanie",
+          "value": 2,
+          "productions": [
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 3202.2253777831097
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 477.4556250664904
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 2.3887884468141274
+            },
+            {
+              "label": "Vigne",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 1.7647664643273568
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:41.395002+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:27.041217+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:09.077213+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:58.007937+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:15.624611+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:28.117946+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:31.016136+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/ba6180b66a304a975cd080b6e40a451bc1624fad654b91edf0940f95225e88a7",
+            "era5land-national-20260919-20261018-v1/pra-native-1/90d1d2d1d1eb324fe776f47cc362dc69010b7d033f31265d20f9dac65ba9af5f",
+            "era5land-national-20260919-20261018-v1/pra-native-1/6daafb701088f5bc20cec6494b3527cb3f58924e131875b5ba7a4a35dc3e66ca",
+            "era5land-national-20260919-20261018-v1/pra-native-1/59efb8984b6e617714bb4cca98a8d2d1e5b0beec774399e032225410a2bc5e0b",
+            "era5land-national-20260919-20261018-v1/pra-native-1/e9d8c921b85844b12ac4e27d7c29851130f979f805b314ce0fbcb5709b248fb2",
+            "era5land-national-20260919-20261018-v1/pra-native-1/e35d03819aa43f454625a67ade9a68c817114f08c3af2a1be25271babd9dbb05",
+            "era5land-national-20260919-20261018-v1/pra-native-1/eed846329ea7fa1593a8143c05925638d1078861b134cde87d5543767dd11c9d"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        }
+      ],
+      "highest": [
+        {
+          "id": "pra:05236",
+          "name": "DEVOLUY - 05",
+          "region": "Provence-Alpes-Côte d'Azur",
+          "value": 7,
+          "productions": [
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 1590.6640590305217
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 171.99782098971596
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.325003+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:24.949602+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.636917+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.668625+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.496973+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.394651+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:28.885681+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/49e6660658edad07f5e12c14ad2193192b02dad6d62c339c73e9b0cf44f6f3b6",
+            "era5land-national-20260919-20261018-v1/pra-native-1/f10ba184c847b9ecf4da38e639cf21fc8b763ce84ee026b2cdc6adfb03d5ef1e",
+            "era5land-national-20260919-20261018-v1/pra-native-1/13a63c574a937960d3a0547996cf789bac30c638a84403c846e41b11656a9f5e",
+            "era5land-national-20260919-20261018-v1/pra-native-1/52b7b8e4730a471de182c21090446168bbe6d1036df9d3fda7e08323c6b4f9d2",
+            "era5land-national-20260919-20261018-v1/pra-native-1/c7161344a0cb3d0c46f6839ba3b91e1c0ae948a7cfc10859130b7fd893d46c94",
+            "era5land-national-20260919-20261018-v1/pra-native-1/ff6cc8602f5605864865ac4a57b4e1f227981d687fc76821f86a9a5be5f99c1b",
+            "era5land-national-20260919-20261018-v1/pra-native-1/d7259199d0667f9c5afeb2705981762e0c36d57d6dfbb1956e3ca36148ed7677"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        },
+        {
+          "id": "pra:05457",
+          "name": "BRIANCONNAIS - 05",
+          "region": "Provence-Alpes-Côte d'Azur",
+          "value": 7,
+          "productions": [
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 4865.380691115481
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 15.255545907478197
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 0.12358054199185098
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.336659+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:24.961116+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.645435+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.676021+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.509229+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.403823+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:28.897345+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/f0b3f042ea857811966b54ecb5502a4e846fac3f3f5d59c1cb44695d75781a61",
+            "era5land-national-20260919-20261018-v1/pra-native-1/5277e9396c702679d0975846455160ee11113599855711aefdd8a335407ad9b5",
+            "era5land-national-20260919-20261018-v1/pra-native-1/25161d3271091721491c36b412a5c0566062abceca40c63c881e989df5f9b856",
+            "era5land-national-20260919-20261018-v1/pra-native-1/ba256cf5eea598a50fc32f1fd140ab68bd0fa43969cd6bf6adde32f77cf73009",
+            "era5land-national-20260919-20261018-v1/pra-native-1/a6b729f8dfd904e1b88bc560bb6f41238e8b9b7776419c52732d078493326aa7",
+            "era5land-national-20260919-20261018-v1/pra-native-1/5a5c2711650665f6f08e1356e34b92ab4f5d51679a2e41d98188f00386fc854c",
+            "era5land-national-20260919-20261018-v1/pra-native-1/4cd744b348debe09709a972c6fe7f562ddc75a57663bdd1a4dfdbbf081f3b5d5"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        },
+        {
+          "id": "pra:19408",
+          "name": "BAS-PAYS DE BRIVE - 19",
+          "region": "Nouvelle-Aquitaine",
+          "value": 7,
+          "productions": [
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 26994.525177868956
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 2027.2247288526657
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 450.4668899877014
+            },
+            {
+              "label": "Vigne",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 56.90227131982769
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.737898+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:25.375617+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.925484+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.953744+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.927454+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.759544+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:29.320302+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/8dd16e59783a68aa7dc99f47cc09afde325eb5391a54fb21e38a8cff4122c4c1",
+            "era5land-national-20260919-20261018-v1/pra-native-1/51fdb0e1371de011b2ac965f77968601436c4f034114a2a57b3fafda7022ecd2",
+            "era5land-national-20260919-20261018-v1/pra-native-1/ce351297a2a0cdb3e55e11902f249d9abb74afe2146b4cd46c7c3f1a79f02387",
+            "era5land-national-20260919-20261018-v1/pra-native-1/3b16ac77348bdf1a32c843f823107198b82b8499d7364ff4b4303e2f270c7383",
+            "era5land-national-20260919-20261018-v1/pra-native-1/81a010bfe598a345a2d417e8ad211b38cdfc58951918e5ad86e78cb8541b20e4",
+            "era5land-national-20260919-20261018-v1/pra-native-1/ef1e47df13c0849b2e9593234b22dfded293df64e0cee84f1eb8413a3402b540",
+            "era5land-national-20260919-20261018-v1/pra-native-1/b4a2ef90c6bf67d51bca9a1c9a9d78706050c1a388f118d7f0c495eba927e844"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        }
+      ],
+      "minimum_count": 1,
+      "maximum_count": 35
+    },
+    "anomaly": {
+      "value": null,
+      "reason": "no_qualified_homologous_reference_for_this_indicator"
+    },
+    "abstentions": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "limitations": [
+      "Lame d’eau moyenne du support PRA. La pluie renseigne le contexte des travaux. Portance, drainage, engorgement et humidité du sol restent inconnus. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+      "Distribution non pondérée, une valeur par PRA évaluable. Les classes sont cartographiques.",
+      "Les productions indiquent une surface déclarée au RPG 2025. Stade, présence pendant la fenêtre et dommages restent inconnus."
+    ],
+    "evolution": {
+      "value": 3,
+      "statistic": "median_paired_delta",
+      "unit": "jours",
+      "paired_pra": 645,
+      "previous_period": {
+        "start": "2026-11-03",
+        "end": "2026-11-09",
+        "timezone": "UTC"
+      },
+      "previous_source_version": "4d28e3ecc6768d24d102ce877c271111ed2d269e6d7f145478cdda45b1539089",
+      "interpretation": "Écart entre deux fenêtres successives de même durée sur les seules PRA comparables. Les cumuls et séquences redémarrent à chaque début de fenêtre."
+    }
+  },
+  {
+    "version": "agro-field-summary-1",
+    "indicator": "wet_sequence1",
+    "rule_version": "agro-analysis-1.0.0",
+    "label": "Séquence humide maximale (pluie ≥ 1 mm)",
+    "question": "Repérez la plus longue suite de jours humides dans la période sélectionnée.",
+    "kind": "reanalysis",
+    "unit": "jours",
+    "threshold": 1,
+    "period": {
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "timezone": "UTC"
+    },
+    "source": {
+      "label": "ERA5-Land · pra-native-1",
+      "version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    },
+    "technical_reference": "https://climate-scenarios.canada.ca/?page=climdex-indices",
+    "map": "/analyse?production=field&agro=wet_sequence1&agro_start=2026-11-10&agro_end=2026-11-16",
+    "scientific_context": {
+      "season": "Toute l’année, en particulier autour des semis, passages et récoltes selon le calendrier local.",
+      "confidence": "Méthode météorologique documentée, appliquée à la lame d’eau moyenne qualifiée de la PRA.",
+      "productions": [
+        "Grandes cultures",
+        "Prairies et fourrages",
+        "Viticulture",
+        "Arboriculture"
+      ],
+      "threshold_basis": "P ≥ 1 mm par jour UTC selon la définition ETCCDI du jour humide.",
+      "editorial": "manual_descriptive_export"
+    },
+    "data_freshness": [
+      "source 2026-11-10; calculated 2026-11-17T02:51:39.199456+00:00",
+      "source 2026-11-16; calculated 2026-11-23T03:08:31.884809+00:00"
+    ],
+    "provenance": [
+      "ERA5-Land · pra-native-1/c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    ],
+    "quality_flags": [
+      "24_hourly_samples_required",
+      "coastal_representativeness_not_guaranteed",
+      "exploratory",
+      "missing",
+      "missing_cells",
+      "no_homologous_normal_or_anomaly",
+      "not_for_extremes_normals_anomalies",
+      "observed_area_not_whole_pra",
+      "observed_area_only",
+      "publication_time_unknown",
+      "spatial_mean",
+      "total_area_not_agricultural_area",
+      "tp_next_day_00_utc_accumulation",
+      "utc_daily_reduction",
+      "value_unavailable",
+      "variable_unavailable",
+      "verified_24_hourly_samples_upstream"
+    ],
+    "total_pra": 713,
+    "evaluable_pra": 645,
+    "distribution": [
+      {
+        "class": "≤ 0",
+        "count": 0
+      },
+      {
+        "class": "> 0 à 2",
+        "count": 179
+      },
+      {
+        "class": "> 2 à 5",
+        "count": 361
+      },
+      {
+        "class": "> 5 à 10",
+        "count": 105
+      },
+      {
+        "class": "> 10",
+        "count": 0
+      }
+    ],
+    "regions": [
+      {
+        "region": "Auvergne-Rhône-Alpes",
+        "total_pra": 112,
+        "evaluable_pra": 112,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 2
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 63
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 47
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bourgogne-Franche-Comté",
+        "total_pra": 61,
+        "evaluable_pra": 61,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 61
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bretagne",
+        "total_pra": 25,
+        "evaluable_pra": 14,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 8
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 6
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Centre-Val de Loire",
+        "total_pra": 45,
+        "evaluable_pra": 45,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 3
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 42
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Corse",
+        "total_pra": 6,
+        "evaluable_pra": 0,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Grand Est",
+        "total_pra": 70,
+        "evaluable_pra": 70,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 52
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 18
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Hauts-de-France",
+        "total_pra": 39,
+        "evaluable_pra": 34,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 34
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Normandie",
+        "total_pra": 36,
+        "evaluable_pra": 25,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 25
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Nouvelle-Aquitaine",
+        "total_pra": 115,
+        "evaluable_pra": 103,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 5
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 77
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 21
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Occitanie",
+        "total_pra": 93,
+        "evaluable_pra": 86,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 20
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 34
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 32
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Pays de la Loire",
+        "total_pra": 39,
+        "evaluable_pra": 31,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 12
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 19
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Provence-Alpes-Côte d'Azur",
+        "total_pra": 35,
+        "evaluable_pra": 27,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 1
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 21
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 5
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Île-de-France",
+        "total_pra": 37,
+        "evaluable_pra": 37,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 17
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 20
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      }
+    ],
+    "remarkable": {
+      "minimum": 2,
+      "maximum": 7,
+      "lowest": [
+        {
+          "id": "pra:02034",
+          "name": "SAINT-QUENTINOIS ET LAONNOIS - 02",
+          "region": "Hauts-de-France",
+          "value": 2,
+          "productions": [
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 124536.40598889452
+            },
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 9335.724599310211
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 105.23701959010896
+            },
+            {
+              "label": "Vigne",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 33.229351154572456
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.239217+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:24.858748+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.576575+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.612254+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.408285+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.325333+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:28.798666+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/fd9de337202136e8dbfec1f7346887781e0f35ab1ab51fcfc0ea929faa626989",
+            "era5land-national-20260919-20261018-v1/pra-native-1/9c23495405da800209c8878069456b361aed6e33dda2a3bfbe08d510680fd323",
+            "era5land-national-20260919-20261018-v1/pra-native-1/0e0fb2c30f7f696ec73ca8010adc12211c882d7a2402c8d8c5888f3c7ba3b3a1",
+            "era5land-national-20260919-20261018-v1/pra-native-1/c0d3b87af69691e30d69f45ac86ec63695359a5068f4acb0083bfba77b979ecb",
+            "era5land-national-20260919-20261018-v1/pra-native-1/77b22312b5655a37a52e7f3abb02f68a9742f4be60257edeb7182e6df30bc8cc",
+            "era5land-national-20260919-20261018-v1/pra-native-1/c2246dda3ed8ff683be408c8aca3abffa497264ced7450d76e000e2ddcbd0e01",
+            "era5land-national-20260919-20261018-v1/pra-native-1/443485ba7cf7aa4f854279a0c807a97c8f29cd3e76b1e534e6713c5d41aac6ba"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        },
+        {
+          "id": "pra:02317",
+          "name": "CHAMPAGNE CRAYEUSE - 02",
+          "region": "Hauts-de-France",
+          "value": 2,
+          "productions": [
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 23526.596862528586
+            },
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 2840.7931065043895
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 44.75024261159825
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.243446+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:24.863023+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.579509+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.615008+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.412613+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.328727+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:28.802895+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/6479641fb5a1893f90c85755a30e18462942c7389437aed98bd24e922d7a5f8a",
+            "era5land-national-20260919-20261018-v1/pra-native-1/c3a8f5f44d3dac6db952ea8571e94163a6333f12c53071eccd87d3cf206042ce",
+            "era5land-national-20260919-20261018-v1/pra-native-1/e914bdc4908cb6c045475496c5b8385006ba65ffc78ec6c4c3b1818282be10aa",
+            "era5land-national-20260919-20261018-v1/pra-native-1/5dda73b4e413501cee4d49cd12efe8442d4157b8a21f80581e9cc7698da4f88e",
+            "era5land-national-20260919-20261018-v1/pra-native-1/08f2a6f38f0c6df1862e93d195d93b0486c52eb4c7580873846a42f873b08634",
+            "era5land-national-20260919-20261018-v1/pra-native-1/3d9845e012d21cd36b133851fe7076e08819c57cf454779f0557c5f10663ed7c",
+            "era5land-national-20260919-20261018-v1/pra-native-1/f45581badd764434e7b46ba170e4b3e37bce79f9d13eff72c87486a4d7a18d26"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        },
+        {
+          "id": "pra:02323",
+          "name": "THIERACHE - 02",
+          "region": "Hauts-de-France",
+          "value": 2,
+          "productions": [
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 42246.160768627095
+            },
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 37808.25351263282
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 160.1796665819918
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.248941+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:24.868653+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.583317+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.618542+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.418275+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.333173+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:28.808549+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/03f592cb5670a18d4a3b9e8c71af8b522ed1805533992639b726a504706a9eb4",
+            "era5land-national-20260919-20261018-v1/pra-native-1/8cb3e5e7f1647779d7e4b1069006dc20520be611d40188b17e95f8a25b8a1c0e",
+            "era5land-national-20260919-20261018-v1/pra-native-1/7d1a1dad31c0ac148bbc81bdf7fc2fa965884fc2112dfcf1c0ac88729afe9adc",
+            "era5land-national-20260919-20261018-v1/pra-native-1/c479c225ef720470922f62c99ef6bbb9b585c8004c72055ab2352e4e372002eb",
+            "era5land-national-20260919-20261018-v1/pra-native-1/e9b6f093a4804393e03c07fd99bfc72b6751f7ad1c6193763b368d1230edda23",
+            "era5land-national-20260919-20261018-v1/pra-native-1/9f18fc76be1f77cfd3e19b9641e9aa902e508c057b902829827b66ce9ea7f734",
+            "era5land-national-20260919-20261018-v1/pra-native-1/c948ad462817a89b047aa52edc379a85ccc5295b96da05de738624f62aa9684c"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        }
+      ],
+      "highest": [
+        {
+          "id": "pra:05236",
+          "name": "DEVOLUY - 05",
+          "region": "Provence-Alpes-Côte d'Azur",
+          "value": 7,
+          "productions": [
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 1590.6640590305217
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 171.99782098971596
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.325003+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:24.949602+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.636917+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.668625+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.496973+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.394651+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:28.885681+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/49e6660658edad07f5e12c14ad2193192b02dad6d62c339c73e9b0cf44f6f3b6",
+            "era5land-national-20260919-20261018-v1/pra-native-1/f10ba184c847b9ecf4da38e639cf21fc8b763ce84ee026b2cdc6adfb03d5ef1e",
+            "era5land-national-20260919-20261018-v1/pra-native-1/13a63c574a937960d3a0547996cf789bac30c638a84403c846e41b11656a9f5e",
+            "era5land-national-20260919-20261018-v1/pra-native-1/52b7b8e4730a471de182c21090446168bbe6d1036df9d3fda7e08323c6b4f9d2",
+            "era5land-national-20260919-20261018-v1/pra-native-1/c7161344a0cb3d0c46f6839ba3b91e1c0ae948a7cfc10859130b7fd893d46c94",
+            "era5land-national-20260919-20261018-v1/pra-native-1/ff6cc8602f5605864865ac4a57b4e1f227981d687fc76821f86a9a5be5f99c1b",
+            "era5land-national-20260919-20261018-v1/pra-native-1/d7259199d0667f9c5afeb2705981762e0c36d57d6dfbb1956e3ca36148ed7677"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        },
+        {
+          "id": "pra:05457",
+          "name": "BRIANCONNAIS - 05",
+          "region": "Provence-Alpes-Côte d'Azur",
+          "value": 7,
+          "productions": [
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 4865.380691115481
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 15.255545907478197
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 0.12358054199185098
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.336659+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:24.961116+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.645435+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.676021+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.509229+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.403823+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:28.897345+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/f0b3f042ea857811966b54ecb5502a4e846fac3f3f5d59c1cb44695d75781a61",
+            "era5land-national-20260919-20261018-v1/pra-native-1/5277e9396c702679d0975846455160ee11113599855711aefdd8a335407ad9b5",
+            "era5land-national-20260919-20261018-v1/pra-native-1/25161d3271091721491c36b412a5c0566062abceca40c63c881e989df5f9b856",
+            "era5land-national-20260919-20261018-v1/pra-native-1/ba256cf5eea598a50fc32f1fd140ab68bd0fa43969cd6bf6adde32f77cf73009",
+            "era5land-national-20260919-20261018-v1/pra-native-1/a6b729f8dfd904e1b88bc560bb6f41238e8b9b7776419c52732d078493326aa7",
+            "era5land-national-20260919-20261018-v1/pra-native-1/5a5c2711650665f6f08e1356e34b92ab4f5d51679a2e41d98188f00386fc854c",
+            "era5land-national-20260919-20261018-v1/pra-native-1/4cd744b348debe09709a972c6fe7f562ddc75a57663bdd1a4dfdbbf081f3b5d5"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        },
+        {
+          "id": "pra:19408",
+          "name": "BAS-PAYS DE BRIVE - 19",
+          "region": "Nouvelle-Aquitaine",
+          "value": 7,
+          "productions": [
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 26994.525177868956
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 2027.2247288526657
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 450.4668899877014
+            },
+            {
+              "label": "Vigne",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 56.90227131982769
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.737898+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:25.375617+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.925484+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.953744+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.927454+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.759544+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:29.320302+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/8dd16e59783a68aa7dc99f47cc09afde325eb5391a54fb21e38a8cff4122c4c1",
+            "era5land-national-20260919-20261018-v1/pra-native-1/51fdb0e1371de011b2ac965f77968601436c4f034114a2a57b3fafda7022ecd2",
+            "era5land-national-20260919-20261018-v1/pra-native-1/ce351297a2a0cdb3e55e11902f249d9abb74afe2146b4cd46c7c3f1a79f02387",
+            "era5land-national-20260919-20261018-v1/pra-native-1/3b16ac77348bdf1a32c843f823107198b82b8499d7364ff4b4303e2f270c7383",
+            "era5land-national-20260919-20261018-v1/pra-native-1/81a010bfe598a345a2d417e8ad211b38cdfc58951918e5ad86e78cb8541b20e4",
+            "era5land-national-20260919-20261018-v1/pra-native-1/ef1e47df13c0849b2e9593234b22dfded293df64e0cee84f1eb8413a3402b540",
+            "era5land-national-20260919-20261018-v1/pra-native-1/b4a2ef90c6bf67d51bca9a1c9a9d78706050c1a388f118d7f0c495eba927e844"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        }
+      ],
+      "minimum_count": 179,
+      "maximum_count": 35
+    },
+    "anomaly": {
+      "value": null,
+      "reason": "no_qualified_homologous_reference_for_this_indicator"
+    },
+    "abstentions": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "limitations": [
+      "Lame d’eau moyenne du support PRA. La pluie renseigne le contexte des travaux. Portance, drainage, engorgement et humidité du sol restent inconnus. La suite peut se prolonger hors de la fenêtre. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+      "Distribution non pondérée, une valeur par PRA évaluable. Les classes sont cartographiques.",
+      "Les productions indiquent une surface déclarée au RPG 2025. Stade, présence pendant la fenêtre et dommages restent inconnus."
+    ],
+    "evolution": {
+      "value": 2,
+      "statistic": "median_paired_delta",
+      "unit": "jours",
+      "paired_pra": 645,
+      "previous_period": {
+        "start": "2026-11-03",
+        "end": "2026-11-09",
+        "timezone": "UTC"
+      },
+      "previous_source_version": "4d28e3ecc6768d24d102ce877c271111ed2d269e6d7f145478cdda45b1539089",
+      "interpretation": "Écart entre deux fenêtres successives de même durée sur les seules PRA comparables. Les cumuls et séquences redémarrent à chaque début de fenêtre."
+    }
+  },
+  {
+    "version": "agro-field-summary-1",
+    "indicator": "rain10_days",
+    "rule_version": "agro-analysis-1.0.0",
+    "label": "Jours de pluie ≥ 10 mm",
+    "question": "Comptez les jours ayant reçu au moins 10 mm en moyenne sur le support couvert.",
+    "kind": "reanalysis",
+    "unit": "jours",
+    "threshold": 10,
+    "period": {
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "timezone": "UTC"
+    },
+    "source": {
+      "label": "ERA5-Land · pra-native-1",
+      "version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    },
+    "technical_reference": "https://climate-scenarios.canada.ca/?page=climdex-indices",
+    "map": "/analyse?production=field&agro=rain10_days&agro_start=2026-11-10&agro_end=2026-11-16",
+    "scientific_context": {
+      "season": "Toute l’année, en particulier autour des semis, passages et récoltes selon le calendrier local.",
+      "confidence": "Méthode météorologique documentée, appliquée à la lame d’eau moyenne qualifiée de la PRA.",
+      "productions": [
+        "Grandes cultures",
+        "Prairies et fourrages",
+        "Viticulture",
+        "Arboriculture"
+      ],
+      "threshold_basis": "P ≥ 10 mm par jour UTC selon l’indice R10mm de l’ETCCDI.",
+      "editorial": "manual_descriptive_export"
+    },
+    "data_freshness": [
+      "source 2026-11-10; calculated 2026-11-17T02:51:39.199456+00:00",
+      "source 2026-11-16; calculated 2026-11-23T03:08:31.884809+00:00"
+    ],
+    "provenance": [
+      "ERA5-Land · pra-native-1/c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    ],
+    "quality_flags": [
+      "24_hourly_samples_required",
+      "coastal_representativeness_not_guaranteed",
+      "exploratory",
+      "missing",
+      "missing_cells",
+      "no_homologous_normal_or_anomaly",
+      "not_for_extremes_normals_anomalies",
+      "observed_area_not_whole_pra",
+      "observed_area_only",
+      "publication_time_unknown",
+      "spatial_mean",
+      "total_area_not_agricultural_area",
+      "tp_next_day_00_utc_accumulation",
+      "utc_daily_reduction",
+      "value_unavailable",
+      "variable_unavailable",
+      "verified_24_hourly_samples_upstream"
+    ],
+    "total_pra": 713,
+    "evaluable_pra": 645,
+    "distribution": [
+      {
+        "class": "≤ 0",
+        "count": 133
+      },
+      {
+        "class": "> 0 à 2",
+        "count": 478
+      },
+      {
+        "class": "> 2 à 5",
+        "count": 34
+      },
+      {
+        "class": "> 5 à 10",
+        "count": 0
+      },
+      {
+        "class": "> 10",
+        "count": 0
+      }
+    ],
+    "regions": [
+      {
+        "region": "Auvergne-Rhône-Alpes",
+        "total_pra": 112,
+        "evaluable_pra": 112,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 1
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 91
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 20
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bourgogne-Franche-Comté",
+        "total_pra": 61,
+        "evaluable_pra": 61,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 19
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 36
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 6
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bretagne",
+        "total_pra": 25,
+        "evaluable_pra": 14,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 14
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Centre-Val de Loire",
+        "total_pra": 45,
+        "evaluable_pra": 45,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 14
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 31
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Corse",
+        "total_pra": 6,
+        "evaluable_pra": 0,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 0
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Grand Est",
+        "total_pra": 70,
+        "evaluable_pra": 70,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 10
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 58
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 2
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Hauts-de-France",
+        "total_pra": 39,
+        "evaluable_pra": 34,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 19
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 15
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Normandie",
+        "total_pra": 36,
+        "evaluable_pra": 25,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 1
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 24
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Nouvelle-Aquitaine",
+        "total_pra": 115,
+        "evaluable_pra": 103,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 17
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 84
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 2
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Occitanie",
+        "total_pra": 93,
+        "evaluable_pra": 86,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 52
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 31
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 3
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Pays de la Loire",
+        "total_pra": 39,
+        "evaluable_pra": 31,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 31
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Provence-Alpes-Côte d'Azur",
+        "total_pra": 35,
+        "evaluable_pra": 27,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 27
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Île-de-France",
+        "total_pra": 37,
+        "evaluable_pra": 37,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 2",
+            "count": 36
+          },
+          {
+            "class": "> 2 à 5",
+            "count": 1
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10",
+            "count": 0
+          }
+        ]
+      }
+    ],
+    "remarkable": {
+      "minimum": 0,
+      "maximum": 4,
+      "lowest": [
+        {
+          "id": "pra:02323",
+          "name": "THIERACHE - 02",
+          "region": "Hauts-de-France",
+          "value": 0,
+          "productions": [
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 42246.160768627095
+            },
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 37808.25351263282
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 160.1796665819918
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.248941+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:24.868653+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.583317+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.618542+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.418275+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.333173+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:28.808549+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/03f592cb5670a18d4a3b9e8c71af8b522ed1805533992639b726a504706a9eb4",
+            "era5land-national-20260919-20261018-v1/pra-native-1/8cb3e5e7f1647779d7e4b1069006dc20520be611d40188b17e95f8a25b8a1c0e",
+            "era5land-national-20260919-20261018-v1/pra-native-1/7d1a1dad31c0ac148bbc81bdf7fc2fa965884fc2112dfcf1c0ac88729afe9adc",
+            "era5land-national-20260919-20261018-v1/pra-native-1/c479c225ef720470922f62c99ef6bbb9b585c8004c72055ab2352e4e372002eb",
+            "era5land-national-20260919-20261018-v1/pra-native-1/e9b6f093a4804393e03c07fd99bfc72b6751f7ad1c6193763b368d1230edda23",
+            "era5land-national-20260919-20261018-v1/pra-native-1/9f18fc76be1f77cfd3e19b9641e9aa902e508c057b902829827b66ce9ea7f734",
+            "era5land-national-20260919-20261018-v1/pra-native-1/c948ad462817a89b047aa52edc379a85ccc5295b96da05de738624f62aa9684c"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        },
+        {
+          "id": "pra:11392",
+          "name": "RAZES - 11",
+          "region": "Occitanie",
+          "value": 0,
+          "productions": [
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 25290.207715813383
+            },
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 13734.904730352695
+            },
+            {
+              "label": "Vigne",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 5750.392446988241
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 181.17177599568848
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.490190+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:25.121745+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.752920+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.790459+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.671938+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.550276+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:29.058389+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/ff44771e77d888d37f34e820526cca34a5f1bcada70bbb239230dc829aaaf946",
+            "era5land-national-20260919-20261018-v1/pra-native-1/df98a363158987be4f10dd0904e6aa25ffae8fd167c2fe60eaab73249ebb1cdc",
+            "era5land-national-20260919-20261018-v1/pra-native-1/40f42c68765905eaebe633e0c46c9596b69330a7fa3b02f6c55f97ec2250f4f8",
+            "era5land-national-20260919-20261018-v1/pra-native-1/fd82ee43ed2e0fcb26243d6f42f3be86c61acbb5514211c8dc4bc7a19a634954",
+            "era5land-national-20260919-20261018-v1/pra-native-1/f6d2cc2a2cfbab60c4836092c5a822735a5172a9b37f35690f475681de5e28ca",
+            "era5land-national-20260919-20261018-v1/pra-native-1/cb45202dcf0084b44459f48e377ff78fea2a07573fe242e473f2ec2666966336",
+            "era5land-national-20260919-20261018-v1/pra-native-1/a3334a5d47e5d3c6ce51850e8608602ccf479aacff1dff32946ed621d05d4522"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        },
+        {
+          "id": "pra:11413",
+          "name": "MONTAGNE NOIRE - 11",
+          "region": "Occitanie",
+          "value": 0,
+          "productions": [
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 4779.032795522215
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 555.9349229133932
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 13.042979607222529
+            },
+            {
+              "label": "Vigne",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 9.856092184800193
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.493773+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:25.125340+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.755315+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.794526+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.675545+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.553009+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:29.063526+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/3ef1ed5d0e570fa80943719c8ac9e46b4c62e843b8c78b42eb4de63633904ddc",
+            "era5land-national-20260919-20261018-v1/pra-native-1/ead27a3a2a0d3b45bce1bd0770acd0d0667d36d0f91c8357266b3cf41fcdfb31",
+            "era5land-national-20260919-20261018-v1/pra-native-1/e65c6fbd7c0b38e30b401a01924509aac4fcac84ed9d123c3e7f46ca776f0556",
+            "era5land-national-20260919-20261018-v1/pra-native-1/499b6bc0fcef9e6e1c85c4491258be332da29dc406a9969e249d507ae3eadec4",
+            "era5land-national-20260919-20261018-v1/pra-native-1/dfde8711fc85161ac83d404628b53e757ee502876bf4872481ccac257096d307",
+            "era5land-national-20260919-20261018-v1/pra-native-1/e1699eef5e1b76febf5ed4a534dbd82114c0557e9f592b34c9daedf918cf135d",
+            "era5land-national-20260919-20261018-v1/pra-native-1/d21f7a4b5b7ed9bd46d0b563140840d0185d402a2bc3681ae120df76dbebc09a"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        }
+      ],
+      "highest": [
+        {
+          "id": "pra:25452",
+          "name": "PLATEAUX SUPERIEURS DU JURA - 25",
+          "region": "Bourgogne-Franche-Comté",
+          "value": 4,
+          "productions": [
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 73986.84225428801
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 800.76724103838
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 0.5016368182831523
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.914037+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:25.552270+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:08.048212+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:57.066088+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:14.109675+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.899201+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:29.504114+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/bf766dfc52a792883bab830668e6b0bbd9961a4c99f8782d418bdf1ec772832a",
+            "era5land-national-20260919-20261018-v1/pra-native-1/7cf3f29a5d94f5a49ba6e301acac7b60a0e2b3bfaba73585fc1e77057da9446c",
+            "era5land-national-20260919-20261018-v1/pra-native-1/6f475f0cdef8557fc0aa37a7f5ac838390c45f7ca6ab69c514ef53762b838757",
+            "era5land-national-20260919-20261018-v1/pra-native-1/5763633d8d727488cc3e60e7154d993603d562dbce04644941a9297f8aa68fb1",
+            "era5land-national-20260919-20261018-v1/pra-native-1/834fb1e808d9cd6b3cc4fc994ee97e33240fb6e73a0319193448ba602b30194b",
+            "era5land-national-20260919-20261018-v1/pra-native-1/09f81f2b76ed754311b7d7252c2c49d665b57e4deb3ff62f72208033275593a8",
+            "era5land-national-20260919-20261018-v1/pra-native-1/632e586fa7c55213b784cc6e9da80029e501217ff6fb75493da73decb8f12861"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        }
+      ],
+      "minimum_count": 133,
+      "maximum_count": 1
+    },
+    "anomaly": {
+      "value": null,
+      "reason": "no_qualified_homologous_reference_for_this_indicator"
+    },
+    "abstentions": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "limitations": [
+      "Lame d’eau moyenne du support PRA. La pluie renseigne le contexte des travaux. Portance, drainage, engorgement et humidité du sol restent inconnus. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+      "Distribution non pondérée, une valeur par PRA évaluable. Les classes sont cartographiques.",
+      "Les productions indiquent une surface déclarée au RPG 2025. Stade, présence pendant la fenêtre et dommages restent inconnus."
+    ],
+    "evolution": {
+      "value": 1,
+      "statistic": "median_paired_delta",
+      "unit": "jours",
+      "paired_pra": 645,
+      "previous_period": {
+        "start": "2026-11-03",
+        "end": "2026-11-09",
+        "timezone": "UTC"
+      },
+      "previous_source_version": "4d28e3ecc6768d24d102ce877c271111ed2d269e6d7f145478cdda45b1539089",
+      "interpretation": "Écart entre deux fenêtres successives de même durée sur les seules PRA comparables. Les cumuls et séquences redémarrent à chaque début de fenêtre."
+    }
+  },
+  {
+    "version": "agro-field-summary-1",
+    "indicator": "rain_max1day",
+    "rule_version": "agro-analysis-1.0.0",
+    "label": "Maximum de pluie quotidienne",
+    "question": "Repérez le plus fort cumul sur une journée UTC dans la fenêtre.",
+    "kind": "reanalysis",
+    "unit": "mm",
+    "threshold": null,
+    "period": {
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "timezone": "UTC"
+    },
+    "source": {
+      "label": "ERA5-Land · pra-native-1",
+      "version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    },
+    "technical_reference": "https://climate-scenarios.canada.ca/?page=climdex-indices",
+    "map": "/analyse?production=field&agro=rain_max1day&agro_start=2026-11-10&agro_end=2026-11-16",
+    "scientific_context": {
+      "season": "Toute l’année, en particulier autour des semis, passages et récoltes selon le calendrier local.",
+      "confidence": "Méthode météorologique documentée, appliquée à la lame d’eau moyenne qualifiée de la PRA.",
+      "productions": [
+        "Grandes cultures",
+        "Prairies et fourrages",
+        "Viticulture",
+        "Arboriculture"
+      ],
+      "threshold_basis": "Classes de lecture cartographique. Aucun seuil agronomique.",
+      "editorial": "manual_descriptive_export"
+    },
+    "data_freshness": [
+      "source 2026-11-10; calculated 2026-11-17T02:51:39.199456+00:00",
+      "source 2026-11-16; calculated 2026-11-23T03:08:31.884809+00:00"
+    ],
+    "provenance": [
+      "ERA5-Land · pra-native-1/c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    ],
+    "quality_flags": [
+      "24_hourly_samples_required",
+      "coastal_representativeness_not_guaranteed",
+      "exploratory",
+      "missing",
+      "missing_cells",
+      "no_homologous_normal_or_anomaly",
+      "not_for_extremes_normals_anomalies",
+      "observed_area_not_whole_pra",
+      "observed_area_only",
+      "publication_time_unknown",
+      "spatial_mean",
+      "total_area_not_agricultural_area",
+      "tp_next_day_00_utc_accumulation",
+      "utc_daily_reduction",
+      "value_unavailable",
+      "variable_unavailable",
+      "verified_24_hourly_samples_upstream"
+    ],
+    "total_pra": 713,
+    "evaluable_pra": 645,
+    "distribution": [
+      {
+        "class": "≤ 1",
+        "count": 0
+      },
+      {
+        "class": "> 1 à 5",
+        "count": 3
+      },
+      {
+        "class": "> 5 à 10",
+        "count": 130
+      },
+      {
+        "class": "> 10 à 20",
+        "count": 364
+      },
+      {
+        "class": "> 20",
+        "count": 148
+      }
+    ],
+    "regions": [
+      {
+        "region": "Auvergne-Rhône-Alpes",
+        "total_pra": 112,
+        "evaluable_pra": 112,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 1
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 20
+          },
+          {
+            "class": "> 20",
+            "count": 91
+          }
+        ]
+      },
+      {
+        "region": "Bourgogne-Franche-Comté",
+        "total_pra": 61,
+        "evaluable_pra": 61,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 19
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 42
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bretagne",
+        "total_pra": 25,
+        "evaluable_pra": 14,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 8
+          },
+          {
+            "class": "> 20",
+            "count": 6
+          }
+        ]
+      },
+      {
+        "region": "Centre-Val de Loire",
+        "total_pra": 45,
+        "evaluable_pra": 45,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 14
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 31
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Corse",
+        "total_pra": 6,
+        "evaluable_pra": 0,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Grand Est",
+        "total_pra": 70,
+        "evaluable_pra": 70,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 10
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 60
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Hauts-de-France",
+        "total_pra": 39,
+        "evaluable_pra": 34,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 3
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 16
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 15
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Normandie",
+        "total_pra": 36,
+        "evaluable_pra": 25,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 1
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 24
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Nouvelle-Aquitaine",
+        "total_pra": 115,
+        "evaluable_pra": 103,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 17
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 78
+          },
+          {
+            "class": "> 20",
+            "count": 8
+          }
+        ]
+      },
+      {
+        "region": "Occitanie",
+        "total_pra": 93,
+        "evaluable_pra": 86,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 52
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 27
+          },
+          {
+            "class": "> 20",
+            "count": 7
+          }
+        ]
+      },
+      {
+        "region": "Pays de la Loire",
+        "total_pra": 39,
+        "evaluable_pra": 31,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 22
+          },
+          {
+            "class": "> 20",
+            "count": 9
+          }
+        ]
+      },
+      {
+        "region": "Provence-Alpes-Côte d'Azur",
+        "total_pra": 35,
+        "evaluable_pra": 27,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20",
+            "count": 27
+          }
+        ]
+      },
+      {
+        "region": "Île-de-France",
+        "total_pra": 37,
+        "evaluable_pra": 37,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 37
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      }
+    ],
+    "remarkable": {
+      "minimum": 4.401311,
+      "maximum": 51.3154,
+      "lowest": [
+        {
+          "id": "pra:59324",
+          "name": "PLAINE DE LA LYS - 59",
+          "region": "Hauts-de-France",
+          "value": 4.401311,
+          "productions": [
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 12145.329495041648
+            },
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 2652.8390555757364
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 2.44587030403679
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:41.141916+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:26.786921+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:08.902799+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:57.846769+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:15.367163+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:27.889228+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:30.763674+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/a741081434e519ec5bf99267ff877aec5d91995e93c2b4bbc5543cb84cefd1f1",
+            "era5land-national-20260919-20261018-v1/pra-native-1/2949640395402b163aa743c244b477a2d2a5200df486674ad801bdbfcfd0b477",
+            "era5land-national-20260919-20261018-v1/pra-native-1/51cbdf64937f6547667177ad370aa7db906a955d6de43b88fe489a23cdd0c882",
+            "era5land-national-20260919-20261018-v1/pra-native-1/83143432d0d53c91b56f18d2a0c9167944c207d0e52f7818815d88639ac38da5",
+            "era5land-national-20260919-20261018-v1/pra-native-1/7911c3de691fd3243bf8331d4343d3f046eb2c1e5cf33a747c38993b8835e179",
+            "era5land-national-20260919-20261018-v1/pra-native-1/ed723fc6edf49a75191533b45385ff6250967a09f4325fa6a7c98a01113760a8",
+            "era5land-national-20260919-20261018-v1/pra-native-1/01c987468a5f8c8bcac572916804f6812da6df8013bffaa454994680bc146790"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        }
+      ],
+      "highest": [
+        {
+          "id": "pra:83460",
+          "name": "MONTAGNE DE HAUTE-PROVENCE - 83",
+          "region": "Provence-Alpes-Côte d'Azur",
+          "value": 51.3154,
+          "productions": [
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 5928.248740439667
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 2410.7477075336656
+            },
+            {
+              "label": "Vigne",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 584.5965667252474
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 19.218561326588237
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:41.994377+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:27.646700+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:09.491832+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:58.390741+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:16.230764+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:28.615298+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:31.630077+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/e4f1503b7c013535152a8f5aa158275278b0363407a28ad5258ec38a8c0130a3",
+            "era5land-national-20260919-20261018-v1/pra-native-1/2cb95d9cf8e7c71145c113dd731cce17dc65182ac3e6b567b10cac8a9525ac29",
+            "era5land-national-20260919-20261018-v1/pra-native-1/34ecc82b1619bab0ef21994a331aa94796c041caf475974f458de4efaec0b708",
+            "era5land-national-20260919-20261018-v1/pra-native-1/d4c4b406477cf5e4a1ab63553bfcab4e9a6562bedd1b8dbf24ca771020ba3338",
+            "era5land-national-20260919-20261018-v1/pra-native-1/14f339b8ecbd32b92b456c6be2276f14b4a22e8d3711aebae6e1df369569a1b6",
+            "era5land-national-20260919-20261018-v1/pra-native-1/725e6ebba735716997d25749e4febc2f1be844805e95d12c39fb9cb7707fb2bd",
+            "era5land-national-20260919-20261018-v1/pra-native-1/c3e5126398b7d471ebc16cb98795c08761b56ac8020353a9fb8e4ad8c6e64655"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        }
+      ],
+      "minimum_count": 1,
+      "maximum_count": 1
+    },
+    "anomaly": {
+      "value": null,
+      "reason": "no_qualified_homologous_reference_for_this_indicator"
+    },
+    "abstentions": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "limitations": [
+      "Lame d’eau moyenne du support PRA. La pluie renseigne le contexte des travaux. Portance, drainage, engorgement et humidité du sol restent inconnus. Le maximum quotidien ne décrit pas l’intensité horaire. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+      "Distribution non pondérée, une valeur par PRA évaluable. Les classes sont cartographiques.",
+      "Les productions indiquent une surface déclarée au RPG 2025. Stade, présence pendant la fenêtre et dommages restent inconnus."
+    ],
+    "evolution": {
+      "value": 8.898493,
+      "statistic": "median_paired_delta",
+      "unit": "mm",
+      "paired_pra": 645,
+      "previous_period": {
+        "start": "2026-11-03",
+        "end": "2026-11-09",
+        "timezone": "UTC"
+      },
+      "previous_source_version": "4d28e3ecc6768d24d102ce877c271111ed2d269e6d7f145478cdda45b1539089",
+      "interpretation": "Écart entre deux fenêtres successives de même durée sur les seules PRA comparables. Les cumuls et séquences redémarrent à chaque début de fenêtre."
+    }
+  },
+  {
+    "version": "agro-field-summary-1",
+    "indicator": "wet_total1",
+    "rule_version": "agro-analysis-1.0.0",
+    "label": "Cumul de pluie des jours humides",
+    "question": "Additionnez uniquement les apports des jours avec au moins 1 mm de pluie.",
+    "kind": "reanalysis",
+    "unit": "mm",
+    "threshold": 1,
+    "period": {
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "timezone": "UTC"
+    },
+    "source": {
+      "label": "ERA5-Land · pra-native-1",
+      "version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    },
+    "technical_reference": "https://climate-scenarios.canada.ca/?page=climdex-indices",
+    "map": "/analyse?production=field&agro=wet_total1&agro_start=2026-11-10&agro_end=2026-11-16",
+    "scientific_context": {
+      "season": "Toute l’année, en particulier autour des semis, passages et récoltes selon le calendrier local.",
+      "confidence": "Méthode météorologique documentée, appliquée à la lame d’eau moyenne qualifiée de la PRA.",
+      "productions": [
+        "Grandes cultures",
+        "Prairies et fourrages",
+        "Viticulture",
+        "Arboriculture"
+      ],
+      "threshold_basis": "P ≥ 1 mm par jour UTC selon la définition ETCCDI du jour humide.",
+      "editorial": "manual_descriptive_export"
+    },
+    "data_freshness": [
+      "source 2026-11-10; calculated 2026-11-17T02:51:39.199456+00:00",
+      "source 2026-11-16; calculated 2026-11-23T03:08:31.884809+00:00"
+    ],
+    "provenance": [
+      "ERA5-Land · pra-native-1/c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    ],
+    "quality_flags": [
+      "24_hourly_samples_required",
+      "coastal_representativeness_not_guaranteed",
+      "exploratory",
+      "missing",
+      "missing_cells",
+      "no_homologous_normal_or_anomaly",
+      "not_for_extremes_normals_anomalies",
+      "observed_area_not_whole_pra",
+      "observed_area_only",
+      "publication_time_unknown",
+      "spatial_mean",
+      "total_area_not_agricultural_area",
+      "tp_next_day_00_utc_accumulation",
+      "utc_daily_reduction",
+      "value_unavailable",
+      "variable_unavailable",
+      "verified_24_hourly_samples_upstream"
+    ],
+    "total_pra": 713,
+    "evaluable_pra": 645,
+    "distribution": [
+      {
+        "class": "≤ 5",
+        "count": 0
+      },
+      {
+        "class": "> 5 à 20",
+        "count": 55
+      },
+      {
+        "class": "> 20 à 40",
+        "count": 401
+      },
+      {
+        "class": "> 40 à 70",
+        "count": 181
+      },
+      {
+        "class": "> 70",
+        "count": 8
+      }
+    ],
+    "regions": [
+      {
+        "region": "Auvergne-Rhône-Alpes",
+        "total_pra": 112,
+        "evaluable_pra": 112,
+        "distribution": [
+          {
+            "class": "≤ 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20 à 40",
+            "count": 46
+          },
+          {
+            "class": "> 40 à 70",
+            "count": 65
+          },
+          {
+            "class": "> 70",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "region": "Bourgogne-Franche-Comté",
+        "total_pra": 61,
+        "evaluable_pra": 61,
+        "distribution": [
+          {
+            "class": "≤ 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20 à 40",
+            "count": 33
+          },
+          {
+            "class": "> 40 à 70",
+            "count": 28
+          },
+          {
+            "class": "> 70",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bretagne",
+        "total_pra": 25,
+        "evaluable_pra": 14,
+        "distribution": [
+          {
+            "class": "≤ 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20 à 40",
+            "count": 10
+          },
+          {
+            "class": "> 40 à 70",
+            "count": 4
+          },
+          {
+            "class": "> 70",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Centre-Val de Loire",
+        "total_pra": 45,
+        "evaluable_pra": 45,
+        "distribution": [
+          {
+            "class": "≤ 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20 à 40",
+            "count": 44
+          },
+          {
+            "class": "> 40 à 70",
+            "count": 1
+          },
+          {
+            "class": "> 70",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Corse",
+        "total_pra": 6,
+        "evaluable_pra": 0,
+        "distribution": [
+          {
+            "class": "≤ 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20 à 40",
+            "count": 0
+          },
+          {
+            "class": "> 40 à 70",
+            "count": 0
+          },
+          {
+            "class": "> 70",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Grand Est",
+        "total_pra": 70,
+        "evaluable_pra": 70,
+        "distribution": [
+          {
+            "class": "≤ 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20 à 40",
+            "count": 67
+          },
+          {
+            "class": "> 40 à 70",
+            "count": 3
+          },
+          {
+            "class": "> 70",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Hauts-de-France",
+        "total_pra": 39,
+        "evaluable_pra": 34,
+        "distribution": [
+          {
+            "class": "≤ 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 20",
+            "count": 13
+          },
+          {
+            "class": "> 20 à 40",
+            "count": 21
+          },
+          {
+            "class": "> 40 à 70",
+            "count": 0
+          },
+          {
+            "class": "> 70",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Normandie",
+        "total_pra": 36,
+        "evaluable_pra": 25,
+        "distribution": [
+          {
+            "class": "≤ 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20 à 40",
+            "count": 25
+          },
+          {
+            "class": "> 40 à 70",
+            "count": 0
+          },
+          {
+            "class": "> 70",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Nouvelle-Aquitaine",
+        "total_pra": 115,
+        "evaluable_pra": 103,
+        "distribution": [
+          {
+            "class": "≤ 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 20",
+            "count": 3
+          },
+          {
+            "class": "> 20 à 40",
+            "count": 52
+          },
+          {
+            "class": "> 40 à 70",
+            "count": 48
+          },
+          {
+            "class": "> 70",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Occitanie",
+        "total_pra": 93,
+        "evaluable_pra": 86,
+        "distribution": [
+          {
+            "class": "≤ 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 20",
+            "count": 39
+          },
+          {
+            "class": "> 20 à 40",
+            "count": 40
+          },
+          {
+            "class": "> 40 à 70",
+            "count": 7
+          },
+          {
+            "class": "> 70",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Pays de la Loire",
+        "total_pra": 39,
+        "evaluable_pra": 31,
+        "distribution": [
+          {
+            "class": "≤ 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20 à 40",
+            "count": 25
+          },
+          {
+            "class": "> 40 à 70",
+            "count": 6
+          },
+          {
+            "class": "> 70",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Provence-Alpes-Côte d'Azur",
+        "total_pra": 35,
+        "evaluable_pra": 27,
+        "distribution": [
+          {
+            "class": "≤ 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20 à 40",
+            "count": 1
+          },
+          {
+            "class": "> 40 à 70",
+            "count": 19
+          },
+          {
+            "class": "> 70",
+            "count": 7
+          }
+        ]
+      },
+      {
+        "region": "Île-de-France",
+        "total_pra": 37,
+        "evaluable_pra": 37,
+        "distribution": [
+          {
+            "class": "≤ 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20 à 40",
+            "count": 37
+          },
+          {
+            "class": "> 40 à 70",
+            "count": 0
+          },
+          {
+            "class": "> 70",
+            "count": 0
+          }
+        ]
+      }
+    ],
+    "remarkable": {
+      "minimum": 10.0901062,
+      "maximum": 83.9982899,
+      "lowest": [
+        {
+          "id": "pra:34470",
+          "name": "MINERVOIS - 34",
+          "region": "Occitanie",
+          "value": 10.0901062,
+          "productions": [
+            {
+              "label": "Vigne",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 4805.758173958574
+            },
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 868.133675027708
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 62.597729276171876
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 16.696521614504938
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:40.315629+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:25.960697+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:08.327741+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:57.328072+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:14.529404+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:27.232232+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:29.929984+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/05251518ec9a72eceb685e04462fc3f0d94745a9d78f963b866f1714318e642d",
+            "era5land-national-20260919-20261018-v1/pra-native-1/85ec69bb40051a5df72d630362f9a3e08d17a09e9d400999d1e3f614dc8fb521",
+            "era5land-national-20260919-20261018-v1/pra-native-1/d9b2c6d8c0884addacbb4be3f6384445bf56f2e86a199492eeefb47148bb4278",
+            "era5land-national-20260919-20261018-v1/pra-native-1/07eda4231a136f52fbb07b72442f87cf8c478d0ab8355b40671ff21ff876a14a",
+            "era5land-national-20260919-20261018-v1/pra-native-1/49c58cbcc876a3fe860b8f509c319db0c1b7c4c3a449fea848dc089e55d470ad",
+            "era5land-national-20260919-20261018-v1/pra-native-1/eccfe53b95d1572e62474f50f4c34d8e16063b4eb851e4c1d5f8dbdf7f01db1f",
+            "era5land-national-20260919-20261018-v1/pra-native-1/68509cb28b784c1ade7951cd17ffa65053facde53ffff81aa7847927e287edfa"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        }
+      ],
+      "highest": [
+        {
+          "id": "pra:06250",
+          "name": "ALPES NICOISES - 06",
+          "region": "Provence-Alpes-Côte d'Azur",
+          "value": 83.9982899,
+          "productions": [
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 3870.1251616831655
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 57.66680475816311
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 12.818844390254203
+            },
+            {
+              "label": "Vigne",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 0.3522679587906936
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.363391+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:24.989099+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.664368+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.693083+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.538148+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.425679+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:28.927144+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/1716c0990c9a7132fc6369fc71652c02db3ce18e4f03e2566ac5696284c96202",
+            "era5land-national-20260919-20261018-v1/pra-native-1/a588e4d37b64934b426fa156066db6833bf5edcd2aa50582b7d562fbd97d8ba5",
+            "era5land-national-20260919-20261018-v1/pra-native-1/9bd8ea83569291877149b28a083ef29ed63773847538b6813060f311e0346c95",
+            "era5land-national-20260919-20261018-v1/pra-native-1/70171ace8733c6bad8c03666822fa0ad232ac886134b5bc59781cf8fdebc4b90",
+            "era5land-national-20260919-20261018-v1/pra-native-1/c5a764981946b7eabec566e91e96f5c023c9dd120954eb354f036de557d68f67",
+            "era5land-national-20260919-20261018-v1/pra-native-1/ac25507c554bbae51ecff8bb3b8a2811996416d5a8a8fedee1acbe9a7121ddc7",
+            "era5land-national-20260919-20261018-v1/pra-native-1/ceb3ec2f2a6ed304a7d6083db5c44ad79b6ef498b36ad72259e322bc348a6361"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        }
+      ],
+      "minimum_count": 1,
+      "maximum_count": 1
+    },
+    "anomaly": {
+      "value": null,
+      "reason": "no_qualified_homologous_reference_for_this_indicator"
+    },
+    "abstentions": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "limitations": [
+      "Lame d’eau moyenne du support PRA. La pluie renseigne le contexte des travaux. Portance, drainage, engorgement et humidité du sol restent inconnus. Les apports inférieurs à 1 mm sont exclus par définition. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+      "Distribution non pondérée, une valeur par PRA évaluable. Les classes sont cartographiques.",
+      "Les productions indiquent une surface déclarée au RPG 2025. Stade, présence pendant la fenêtre et dommages restent inconnus."
+    ],
+    "evolution": {
+      "value": 27.007653499999996,
+      "statistic": "median_paired_delta",
+      "unit": "mm",
+      "paired_pra": 645,
+      "previous_period": {
+        "start": "2026-11-03",
+        "end": "2026-11-09",
+        "timezone": "UTC"
+      },
+      "previous_source_version": "4d28e3ecc6768d24d102ce877c271111ed2d269e6d7f145478cdda45b1539089",
+      "interpretation": "Écart entre deux fenêtres successives de même durée sur les seules PRA comparables. Les cumuls et séquences redémarrent à chaque début de fenêtre."
+    }
+  },
+  {
+    "version": "agro-field-summary-1",
+    "indicator": "wet_intensity1",
+    "rule_version": "agro-analysis-1.0.0",
+    "label": "Pluie moyenne par jour humide",
+    "question": "Comparez la lame d’eau moyenne des jours humides. Une période sans jour humide donne un résultat indisponible.",
+    "kind": "reanalysis",
+    "unit": "mm/j humide",
+    "threshold": 1,
+    "period": {
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "timezone": "UTC"
+    },
+    "source": {
+      "label": "ERA5-Land · pra-native-1",
+      "version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    },
+    "technical_reference": "https://climate-scenarios.canada.ca/?page=climdex-indices",
+    "map": "/analyse?production=field&agro=wet_intensity1&agro_start=2026-11-10&agro_end=2026-11-16",
+    "scientific_context": {
+      "season": "Toute l’année, en particulier autour des semis, passages et récoltes selon le calendrier local.",
+      "confidence": "Méthode météorologique documentée, appliquée à la lame d’eau moyenne qualifiée de la PRA.",
+      "productions": [
+        "Grandes cultures",
+        "Prairies et fourrages",
+        "Viticulture",
+        "Arboriculture"
+      ],
+      "threshold_basis": "P ≥ 1 mm par jour UTC selon la définition ETCCDI du jour humide.",
+      "editorial": "manual_descriptive_export"
+    },
+    "data_freshness": [
+      "source 2026-11-10; calculated 2026-11-17T02:51:39.199456+00:00",
+      "source 2026-11-16; calculated 2026-11-23T03:08:31.884809+00:00"
+    ],
+    "provenance": [
+      "ERA5-Land · pra-native-1/c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    ],
+    "quality_flags": [
+      "24_hourly_samples_required",
+      "coastal_representativeness_not_guaranteed",
+      "exploratory",
+      "missing",
+      "missing_cells",
+      "no_homologous_normal_or_anomaly",
+      "not_for_extremes_normals_anomalies",
+      "observed_area_not_whole_pra",
+      "observed_area_only",
+      "publication_time_unknown",
+      "spatial_mean",
+      "total_area_not_agricultural_area",
+      "tp_next_day_00_utc_accumulation",
+      "utc_daily_reduction",
+      "value_unavailable",
+      "variable_unavailable",
+      "verified_24_hourly_samples_upstream"
+    ],
+    "total_pra": 713,
+    "evaluable_pra": 645,
+    "distribution": [
+      {
+        "class": "≤ 1",
+        "count": 0
+      },
+      {
+        "class": "> 1 à 5",
+        "count": 91
+      },
+      {
+        "class": "> 5 à 10",
+        "count": 478
+      },
+      {
+        "class": "> 10 à 20",
+        "count": 76
+      },
+      {
+        "class": "> 20",
+        "count": 0
+      }
+    ],
+    "regions": [
+      {
+        "region": "Auvergne-Rhône-Alpes",
+        "total_pra": 112,
+        "evaluable_pra": 112,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 2
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 100
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 10
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bourgogne-Franche-Comté",
+        "total_pra": 61,
+        "evaluable_pra": 61,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 57
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 4
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bretagne",
+        "total_pra": 25,
+        "evaluable_pra": 14,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 13
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 1
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Centre-Val de Loire",
+        "total_pra": 45,
+        "evaluable_pra": 45,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 6
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 39
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Corse",
+        "total_pra": 6,
+        "evaluable_pra": 0,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 0
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 0
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Grand Est",
+        "total_pra": 70,
+        "evaluable_pra": 70,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 52
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 18
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Hauts-de-France",
+        "total_pra": 39,
+        "evaluable_pra": 34,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 13
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 20
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 1
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Normandie",
+        "total_pra": 36,
+        "evaluable_pra": 25,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 23
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 2
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Nouvelle-Aquitaine",
+        "total_pra": 115,
+        "evaluable_pra": 103,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 12
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 89
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 2
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Occitanie",
+        "total_pra": 93,
+        "evaluable_pra": 86,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 58
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 24
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 4
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Pays de la Loire",
+        "total_pra": 39,
+        "evaluable_pra": 31,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 26
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 5
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Provence-Alpes-Côte d'Azur",
+        "total_pra": 35,
+        "evaluable_pra": 27,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 7
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 20
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Île-de-France",
+        "total_pra": 37,
+        "evaluable_pra": 37,
+        "distribution": [
+          {
+            "class": "≤ 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 5",
+            "count": 0
+          },
+          {
+            "class": "> 5 à 10",
+            "count": 28
+          },
+          {
+            "class": "> 10 à 20",
+            "count": 9
+          },
+          {
+            "class": "> 20",
+            "count": 0
+          }
+        ]
+      }
+    ],
+    "remarkable": {
+      "minimum": 2.52252655,
+      "maximum": 15.6307719,
+      "lowest": [
+        {
+          "id": "pra:34470",
+          "name": "MINERVOIS - 34",
+          "region": "Occitanie",
+          "value": 2.52252655,
+          "productions": [
+            {
+              "label": "Vigne",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 4805.758173958574
+            },
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 868.133675027708
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 62.597729276171876
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 16.696521614504938
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:40.315629+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:25.960697+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:08.327741+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:57.328072+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:14.529404+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:27.232232+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:29.929984+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/05251518ec9a72eceb685e04462fc3f0d94745a9d78f963b866f1714318e642d",
+            "era5land-national-20260919-20261018-v1/pra-native-1/85ec69bb40051a5df72d630362f9a3e08d17a09e9d400999d1e3f614dc8fb521",
+            "era5land-national-20260919-20261018-v1/pra-native-1/d9b2c6d8c0884addacbb4be3f6384445bf56f2e86a199492eeefb47148bb4278",
+            "era5land-national-20260919-20261018-v1/pra-native-1/07eda4231a136f52fbb07b72442f87cf8c478d0ab8355b40671ff21ff876a14a",
+            "era5land-national-20260919-20261018-v1/pra-native-1/49c58cbcc876a3fe860b8f509c319db0c1b7c4c3a449fea848dc089e55d470ad",
+            "era5land-national-20260919-20261018-v1/pra-native-1/eccfe53b95d1572e62474f50f4c34d8e16063b4eb851e4c1d5f8dbdf7f01db1f",
+            "era5land-national-20260919-20261018-v1/pra-native-1/68509cb28b784c1ade7951cd17ffa65053facde53ffff81aa7847927e287edfa"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        }
+      ],
+      "highest": [
+        {
+          "id": "pra:05459",
+          "name": "LARAGNAIS - 05",
+          "region": "Provence-Alpes-Côte d'Azur",
+          "value": 15.6307719,
+          "productions": [
+            {
+              "label": "Prairies et cultures fourragères",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 3529.434141690854
+            },
+            {
+              "label": "Céréales, oléagineux et légumineuses",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 1438.3154610862352
+            },
+            {
+              "label": "Vergers",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 1428.9140328117712
+            },
+            {
+              "label": "Vigne",
+              "source": "rpg-2025",
+              "year": 2025,
+              "declaredHectares": 4.640246267549026
+            }
+          ],
+          "data_freshness": [
+            "source 2026-11-10; calculated 2026-11-17T02:51:39.340745+00:00",
+            "source 2026-11-11; calculated 2026-11-18T02:48:24.965355+00:00",
+            "source 2026-11-12; calculated 2026-11-19T03:19:07.648480+00:00",
+            "source 2026-11-13; calculated 2026-11-20T03:07:56.678727+00:00",
+            "source 2026-11-14; calculated 2026-11-21T02:52:13.513589+00:00",
+            "source 2026-11-15; calculated 2026-11-22T03:03:26.407163+00:00",
+            "source 2026-11-16; calculated 2026-11-23T03:08:28.901549+00:00"
+          ],
+          "provenance": [
+            "era5land-national-20260919-20261018-v1/pra-native-1/d7a5ce6936c0f18597caafb70293b9bc2dd9ee7952a8e49140069090e8d470b6",
+            "era5land-national-20260919-20261018-v1/pra-native-1/7e9e4ac6ed369f7add178279c2b3b8418737a6ee16be51f0a64b3e7114b01253",
+            "era5land-national-20260919-20261018-v1/pra-native-1/9fb99174290a326c30e0748c34b0a9e28599da0e682ffcf00cc437e84ba7d4e0",
+            "era5land-national-20260919-20261018-v1/pra-native-1/69e0f589cf4c48964cccd646cd0ec5296ede0b9da432adeee105355fc9b187d5",
+            "era5land-national-20260919-20261018-v1/pra-native-1/4c2a86f675ba06bbe6b5aa730ab92205825523d507961b5eaca4fe4b67fe5aa9",
+            "era5land-national-20260919-20261018-v1/pra-native-1/e62f7c91f7bc9566c0560b8166851ea09ee35e253786dc8935ba7ab9308d741d",
+            "era5land-national-20260919-20261018-v1/pra-native-1/753acb612a8c2d2cdcc466b7e1098c71637e567c789aa93d14a77598f0390404"
+          ],
+          "quality_flags": [
+            "24_hourly_samples_required",
+            "exploratory",
+            "publication_time_unknown",
+            "total_area_not_agricultural_area",
+            "tp_next_day_00_utc_accumulation",
+            "utc_daily_reduction",
+            "coastal_representativeness_not_guaranteed"
+          ]
+        }
+      ],
+      "minimum_count": 1,
+      "maximum_count": 1
+    },
+    "anomaly": {
+      "value": null,
+      "reason": "no_qualified_homologous_reference_for_this_indicator"
+    },
+    "abstentions": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "limitations": [
+      "Lame d’eau moyenne du support PRA. La pluie renseigne le contexte des travaux. Portance, drainage, engorgement et humidité du sol restent inconnus. L’indice SDII est une moyenne quotidienne. Les intensités horaires restent inconnues. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+      "Distribution non pondérée, une valeur par PRA évaluable. Les classes sont cartographiques.",
+      "Les productions indiquent une surface déclarée au RPG 2025. Stade, présence pendant la fenêtre et dommages restent inconnus."
+    ],
+    "evolution": {
+      "value": 3.130570999999999,
+      "statistic": "median_paired_delta",
+      "unit": "mm/j humide",
+      "paired_pra": 622,
+      "previous_period": {
+        "start": "2026-11-03",
+        "end": "2026-11-09",
+        "timezone": "UTC"
+      },
+      "previous_source_version": "4d28e3ecc6768d24d102ce877c271111ed2d269e6d7f145478cdda45b1539089",
+      "interpretation": "Écart entre deux fenêtres successives de même durée sur les seules PRA comparables. Les cumuls et séquences redémarrent à chaque début de fenêtre."
+    }
+  },
+  {
+    "version": "agro-field-summary-1",
+    "indicator": "warm_nights20",
+    "rule_version": "agro-analysis-1.0.0",
+    "label": "Jours à Tmin > 20 °C",
+    "question": "Comptez les jours où le minimum territorial reste supérieur à 20 °C.",
+    "kind": "reanalysis",
+    "unit": "jours",
+    "threshold": 20,
+    "period": {
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "timezone": "UTC"
+    },
+    "source": {
+      "label": "ERA5-Land · pra-native-1",
+      "version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    },
+    "technical_reference": "https://climate-scenarios.canada.ca/?page=climdex-indices",
+    "map": "/analyse?production=field&agro=warm_nights20&agro_start=2026-11-10&agro_end=2026-11-16",
+    "scientific_context": {
+      "season": "Saison chaude, selon la région et les conditions d’élevage.",
+      "confidence": "Méthode météorologique documentée, appliquée aux extrema quotidiens du support qualifié.",
+      "productions": [
+        "Bovins lait et viande"
+      ],
+      "threshold_basis": "Tmin > 20 °C, convention météorologique des nuits tropicales ETCCDI.",
+      "editorial": "manual_descriptive_export"
+    },
+    "data_freshness": [
+      "source 2026-11-10; calculated 2026-11-17T02:51:39.199456+00:00",
+      "source 2026-11-16; calculated 2026-11-23T03:08:31.884809+00:00"
+    ],
+    "provenance": [
+      "ERA5-Land · pra-native-1/c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    ],
+    "quality_flags": [
+      "24_hourly_samples_required",
+      "coastal_representativeness_not_guaranteed",
+      "exploratory",
+      "missing",
+      "missing_cells",
+      "native_spatial_min",
+      "no_homologous_normal_or_anomaly",
+      "observed_area_not_whole_pra",
+      "observed_area_only",
+      "publication_time_unknown",
+      "total_area_not_agricultural_area",
+      "tp_next_day_00_utc_accumulation",
+      "utc_daily_reduction",
+      "value_unavailable",
+      "variable_unavailable",
+      "verified_24_hourly_samples_upstream"
+    ],
+    "total_pra": 713,
+    "evaluable_pra": 645,
+    "distribution": [
+      {
+        "class": "≤ 0",
+        "count": 645
+      },
+      {
+        "class": "> 0 à 1",
+        "count": 0
+      },
+      {
+        "class": "> 1 à 3",
+        "count": 0
+      },
+      {
+        "class": "> 3 à 7",
+        "count": 0
+      },
+      {
+        "class": "> 7",
+        "count": 0
+      }
+    ],
+    "regions": [
+      {
+        "region": "Auvergne-Rhône-Alpes",
+        "total_pra": 112,
+        "evaluable_pra": 112,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 112
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bourgogne-Franche-Comté",
+        "total_pra": 61,
+        "evaluable_pra": 61,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 61
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bretagne",
+        "total_pra": 25,
+        "evaluable_pra": 14,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 14
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Centre-Val de Loire",
+        "total_pra": 45,
+        "evaluable_pra": 45,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 45
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Corse",
+        "total_pra": 6,
+        "evaluable_pra": 0,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Grand Est",
+        "total_pra": 70,
+        "evaluable_pra": 70,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 70
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Hauts-de-France",
+        "total_pra": 39,
+        "evaluable_pra": 34,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 34
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Normandie",
+        "total_pra": 36,
+        "evaluable_pra": 25,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 25
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Nouvelle-Aquitaine",
+        "total_pra": 115,
+        "evaluable_pra": 103,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 103
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Occitanie",
+        "total_pra": 93,
+        "evaluable_pra": 86,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 86
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Pays de la Loire",
+        "total_pra": 39,
+        "evaluable_pra": 31,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 31
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Provence-Alpes-Côte d'Azur",
+        "total_pra": 35,
+        "evaluable_pra": 27,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 27
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Île-de-France",
+        "total_pra": 37,
+        "evaluable_pra": 37,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 37
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      }
+    ],
+    "remarkable": {
+      "minimum": 0,
+      "maximum": 0,
+      "lowest": [],
+      "highest": [],
+      "minimum_count": 645,
+      "maximum_count": 645
+    },
+    "anomaly": {
+      "value": null,
+      "reason": "no_qualified_homologous_reference_for_this_indicator"
+    },
+    "abstentions": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "limitations": [
+      "Le Tmin UTC territorial décrit la météo extérieure. L’humidité, les conditions du bâtiment et la récupération thermique des animaux restent inconnues. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+      "Distribution non pondérée, une valeur par PRA évaluable. Les classes sont cartographiques.",
+      "Les productions indiquent une surface déclarée au RPG 2025. Stade, présence pendant la fenêtre et dommages restent inconnus.",
+      "Les orientations OTEX 2020 sont échantillonnées. Les effectifs et la présence d’animaux durant la fenêtre restent inconnus."
+    ],
+    "evolution": {
+      "value": 0,
+      "statistic": "median_paired_delta",
+      "unit": "jours",
+      "paired_pra": 645,
+      "previous_period": {
+        "start": "2026-11-03",
+        "end": "2026-11-09",
+        "timezone": "UTC"
+      },
+      "previous_source_version": "4d28e3ecc6768d24d102ce877c271111ed2d269e6d7f145478cdda45b1539089",
+      "interpretation": "Écart entre deux fenêtres successives de même durée sur les seules PRA comparables. Les cumuls et séquences redémarrent à chaque début de fenêtre."
+    }
+  },
+  {
+    "version": "agro-field-summary-1",
+    "indicator": "warm_nights20_sequence",
+    "rule_version": "agro-analysis-1.0.0",
+    "label": "Séquence de jours à Tmin > 20 °C",
+    "question": "Repérez la persistance des jours où le minimum territorial reste supérieur à 20 °C.",
+    "kind": "reanalysis",
+    "unit": "jours",
+    "threshold": 20,
+    "period": {
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "timezone": "UTC"
+    },
+    "source": {
+      "label": "ERA5-Land · pra-native-1",
+      "version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    },
+    "technical_reference": "https://climate-scenarios.canada.ca/?page=climdex-indices",
+    "map": "/analyse?production=field&agro=warm_nights20_sequence&agro_start=2026-11-10&agro_end=2026-11-16",
+    "scientific_context": {
+      "season": "Saison chaude, selon la région et les conditions d’élevage.",
+      "confidence": "Méthode météorologique documentée, appliquée aux extrema quotidiens du support qualifié.",
+      "productions": [
+        "Bovins lait et viande"
+      ],
+      "threshold_basis": "Tmin > 20 °C selon la convention ETCCDI, appliquée en séquence.",
+      "editorial": "manual_descriptive_export"
+    },
+    "data_freshness": [
+      "source 2026-11-10; calculated 2026-11-17T02:51:39.199456+00:00",
+      "source 2026-11-16; calculated 2026-11-23T03:08:31.884809+00:00"
+    ],
+    "provenance": [
+      "ERA5-Land · pra-native-1/c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    ],
+    "quality_flags": [
+      "24_hourly_samples_required",
+      "coastal_representativeness_not_guaranteed",
+      "exploratory",
+      "missing",
+      "missing_cells",
+      "native_spatial_min",
+      "no_homologous_normal_or_anomaly",
+      "observed_area_not_whole_pra",
+      "observed_area_only",
+      "publication_time_unknown",
+      "total_area_not_agricultural_area",
+      "tp_next_day_00_utc_accumulation",
+      "utc_daily_reduction",
+      "value_unavailable",
+      "variable_unavailable",
+      "verified_24_hourly_samples_upstream"
+    ],
+    "total_pra": 713,
+    "evaluable_pra": 645,
+    "distribution": [
+      {
+        "class": "≤ 0",
+        "count": 645
+      },
+      {
+        "class": "> 0 à 1",
+        "count": 0
+      },
+      {
+        "class": "> 1 à 3",
+        "count": 0
+      },
+      {
+        "class": "> 3 à 7",
+        "count": 0
+      },
+      {
+        "class": "> 7",
+        "count": 0
+      }
+    ],
+    "regions": [
+      {
+        "region": "Auvergne-Rhône-Alpes",
+        "total_pra": 112,
+        "evaluable_pra": 112,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 112
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bourgogne-Franche-Comté",
+        "total_pra": 61,
+        "evaluable_pra": 61,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 61
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bretagne",
+        "total_pra": 25,
+        "evaluable_pra": 14,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 14
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Centre-Val de Loire",
+        "total_pra": 45,
+        "evaluable_pra": 45,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 45
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Corse",
+        "total_pra": 6,
+        "evaluable_pra": 0,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Grand Est",
+        "total_pra": 70,
+        "evaluable_pra": 70,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 70
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Hauts-de-France",
+        "total_pra": 39,
+        "evaluable_pra": 34,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 34
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Normandie",
+        "total_pra": 36,
+        "evaluable_pra": 25,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 25
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Nouvelle-Aquitaine",
+        "total_pra": 115,
+        "evaluable_pra": 103,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 103
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Occitanie",
+        "total_pra": 93,
+        "evaluable_pra": 86,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 86
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Pays de la Loire",
+        "total_pra": 39,
+        "evaluable_pra": 31,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 31
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Provence-Alpes-Côte d'Azur",
+        "total_pra": 35,
+        "evaluable_pra": 27,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 27
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Île-de-France",
+        "total_pra": 37,
+        "evaluable_pra": 37,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 37
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      }
+    ],
+    "remarkable": {
+      "minimum": 0,
+      "maximum": 0,
+      "lowest": [],
+      "highest": [],
+      "minimum_count": 645,
+      "maximum_count": 645
+    },
+    "anomaly": {
+      "value": null,
+      "reason": "no_qualified_homologous_reference_for_this_indicator"
+    },
+    "abstentions": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "limitations": [
+      "Le Tmin UTC territorial décrit la météo extérieure. L’humidité, les conditions du bâtiment et la récupération thermique des animaux restent inconnues. La suite peut se prolonger hors de la fenêtre. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+      "Distribution non pondérée, une valeur par PRA évaluable. Les classes sont cartographiques.",
+      "Les productions indiquent une surface déclarée au RPG 2025. Stade, présence pendant la fenêtre et dommages restent inconnus.",
+      "Les orientations OTEX 2020 sont échantillonnées. Les effectifs et la présence d’animaux durant la fenêtre restent inconnus."
+    ],
+    "evolution": {
+      "value": 0,
+      "statistic": "median_paired_delta",
+      "unit": "jours",
+      "paired_pra": 645,
+      "previous_period": {
+        "start": "2026-11-03",
+        "end": "2026-11-09",
+        "timezone": "UTC"
+      },
+      "previous_source_version": "4d28e3ecc6768d24d102ce877c271111ed2d269e6d7f145478cdda45b1539089",
+      "interpretation": "Écart entre deux fenêtres successives de même durée sur les seules PRA comparables. Les cumuls et séquences redémarrent à chaque début de fenêtre."
+    }
+  },
+  {
+    "version": "agro-field-summary-1",
+    "indicator": "ice_days",
+    "rule_version": "agro-analysis-1.0.0",
+    "label": "Jours sans dégel (Tmax < 0 °C)",
+    "question": "Comptez les jours où le maximum territorial reste inférieur à 0 °C.",
+    "kind": "reanalysis",
+    "unit": "jours",
+    "threshold": 0,
+    "period": {
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "timezone": "UTC"
+    },
+    "source": {
+      "label": "ERA5-Land · pra-native-1",
+      "version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    },
+    "technical_reference": "https://climate-scenarios.canada.ca/?page=climdex-indices",
+    "map": "/analyse?production=field&agro=ice_days&agro_start=2026-11-10&agro_end=2026-11-16",
+    "scientific_context": {
+      "season": "Repos hivernal et épisodes froids des intersaisons, selon les cultures.",
+      "confidence": "Méthode météorologique documentée, appliquée aux extrema quotidiens du support qualifié.",
+      "productions": [
+        "Viticulture",
+        "Arboriculture"
+      ],
+      "threshold_basis": "Tmax < 0 °C selon l’indice de jours sans dégel ETCCDI.",
+      "editorial": "manual_descriptive_export"
+    },
+    "data_freshness": [
+      "source 2026-11-10; calculated 2026-11-17T02:51:39.199456+00:00",
+      "source 2026-11-16; calculated 2026-11-23T03:08:31.884809+00:00"
+    ],
+    "provenance": [
+      "ERA5-Land · pra-native-1/c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    ],
+    "quality_flags": [
+      "24_hourly_samples_required",
+      "coastal_representativeness_not_guaranteed",
+      "exploratory",
+      "missing",
+      "missing_cells",
+      "native_spatial_max",
+      "no_homologous_normal_or_anomaly",
+      "observed_area_not_whole_pra",
+      "observed_area_only",
+      "publication_time_unknown",
+      "total_area_not_agricultural_area",
+      "tp_next_day_00_utc_accumulation",
+      "utc_daily_reduction",
+      "value_unavailable",
+      "variable_unavailable",
+      "verified_24_hourly_samples_upstream"
+    ],
+    "total_pra": 713,
+    "evaluable_pra": 645,
+    "distribution": [
+      {
+        "class": "≤ 0",
+        "count": 645
+      },
+      {
+        "class": "> 0 à 1",
+        "count": 0
+      },
+      {
+        "class": "> 1 à 3",
+        "count": 0
+      },
+      {
+        "class": "> 3 à 7",
+        "count": 0
+      },
+      {
+        "class": "> 7",
+        "count": 0
+      }
+    ],
+    "regions": [
+      {
+        "region": "Auvergne-Rhône-Alpes",
+        "total_pra": 112,
+        "evaluable_pra": 112,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 112
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bourgogne-Franche-Comté",
+        "total_pra": 61,
+        "evaluable_pra": 61,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 61
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bretagne",
+        "total_pra": 25,
+        "evaluable_pra": 14,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 14
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Centre-Val de Loire",
+        "total_pra": 45,
+        "evaluable_pra": 45,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 45
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Corse",
+        "total_pra": 6,
+        "evaluable_pra": 0,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Grand Est",
+        "total_pra": 70,
+        "evaluable_pra": 70,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 70
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Hauts-de-France",
+        "total_pra": 39,
+        "evaluable_pra": 34,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 34
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Normandie",
+        "total_pra": 36,
+        "evaluable_pra": 25,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 25
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Nouvelle-Aquitaine",
+        "total_pra": 115,
+        "evaluable_pra": 103,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 103
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Occitanie",
+        "total_pra": 93,
+        "evaluable_pra": 86,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 86
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Pays de la Loire",
+        "total_pra": 39,
+        "evaluable_pra": 31,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 31
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Provence-Alpes-Côte d'Azur",
+        "total_pra": 35,
+        "evaluable_pra": 27,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 27
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Île-de-France",
+        "total_pra": 37,
+        "evaluable_pra": 37,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 37
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      }
+    ],
+    "remarkable": {
+      "minimum": 0,
+      "maximum": 0,
+      "lowest": [],
+      "highest": [],
+      "minimum_count": 645,
+      "maximum_count": 645
+    },
+    "anomaly": {
+      "value": null,
+      "reason": "no_qualified_homologous_reference_for_this_indicator"
+    },
+    "abstentions": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "limitations": [
+      "Le Tmax natif est un extrême territorial échantillonné. Le froid des organes, les alternances gel-dégel à la parcelle et la sensibilité du stade restent inconnus. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+      "Distribution non pondérée, une valeur par PRA évaluable. Les classes sont cartographiques.",
+      "Les productions indiquent une surface déclarée au RPG 2025. Stade, présence pendant la fenêtre et dommages restent inconnus."
+    ],
+    "evolution": {
+      "value": 0,
+      "statistic": "median_paired_delta",
+      "unit": "jours",
+      "paired_pra": 645,
+      "previous_period": {
+        "start": "2026-11-03",
+        "end": "2026-11-09",
+        "timezone": "UTC"
+      },
+      "previous_source_version": "4d28e3ecc6768d24d102ce877c271111ed2d269e6d7f145478cdda45b1539089",
+      "interpretation": "Écart entre deux fenêtres successives de même durée sur les seules PRA comparables. Les cumuls et séquences redémarrent à chaque début de fenêtre."
+    }
+  },
+  {
+    "version": "agro-field-summary-1",
+    "indicator": "ice_sequence",
+    "rule_version": "agro-analysis-1.0.0",
+    "label": "Séquence de jours sans dégel",
+    "question": "Repérez la persistance des jours où le maximum territorial reste inférieur à 0 °C.",
+    "kind": "reanalysis",
+    "unit": "jours",
+    "threshold": 0,
+    "period": {
+      "start": "2026-11-10",
+      "end": "2026-11-16",
+      "timezone": "UTC"
+    },
+    "source": {
+      "label": "ERA5-Land · pra-native-1",
+      "version": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    },
+    "technical_reference": "https://climate-scenarios.canada.ca/?page=climdex-indices",
+    "map": "/analyse?production=field&agro=ice_sequence&agro_start=2026-11-10&agro_end=2026-11-16",
+    "scientific_context": {
+      "season": "Repos hivernal et épisodes froids des intersaisons, selon les cultures.",
+      "confidence": "Méthode météorologique documentée, appliquée aux extrema quotidiens du support qualifié.",
+      "productions": [
+        "Viticulture",
+        "Arboriculture"
+      ],
+      "threshold_basis": "Tmax < 0 °C selon la convention ETCCDI, appliquée en séquence.",
+      "editorial": "manual_descriptive_export"
+    },
+    "data_freshness": [
+      "source 2026-11-10; calculated 2026-11-17T02:51:39.199456+00:00",
+      "source 2026-11-16; calculated 2026-11-23T03:08:31.884809+00:00"
+    ],
+    "provenance": [
+      "ERA5-Land · pra-native-1/c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd"
+    ],
+    "quality_flags": [
+      "24_hourly_samples_required",
+      "coastal_representativeness_not_guaranteed",
+      "exploratory",
+      "missing",
+      "missing_cells",
+      "native_spatial_max",
+      "no_homologous_normal_or_anomaly",
+      "observed_area_not_whole_pra",
+      "observed_area_only",
+      "publication_time_unknown",
+      "total_area_not_agricultural_area",
+      "tp_next_day_00_utc_accumulation",
+      "utc_daily_reduction",
+      "value_unavailable",
+      "variable_unavailable",
+      "verified_24_hourly_samples_upstream"
+    ],
+    "total_pra": 713,
+    "evaluable_pra": 645,
+    "distribution": [
+      {
+        "class": "≤ 0",
+        "count": 645
+      },
+      {
+        "class": "> 0 à 1",
+        "count": 0
+      },
+      {
+        "class": "> 1 à 3",
+        "count": 0
+      },
+      {
+        "class": "> 3 à 7",
+        "count": 0
+      },
+      {
+        "class": "> 7",
+        "count": 0
+      }
+    ],
+    "regions": [
+      {
+        "region": "Auvergne-Rhône-Alpes",
+        "total_pra": 112,
+        "evaluable_pra": 112,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 112
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bourgogne-Franche-Comté",
+        "total_pra": 61,
+        "evaluable_pra": 61,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 61
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Bretagne",
+        "total_pra": 25,
+        "evaluable_pra": 14,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 14
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Centre-Val de Loire",
+        "total_pra": 45,
+        "evaluable_pra": 45,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 45
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Corse",
+        "total_pra": 6,
+        "evaluable_pra": 0,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 0
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Grand Est",
+        "total_pra": 70,
+        "evaluable_pra": 70,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 70
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Hauts-de-France",
+        "total_pra": 39,
+        "evaluable_pra": 34,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 34
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Normandie",
+        "total_pra": 36,
+        "evaluable_pra": 25,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 25
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Nouvelle-Aquitaine",
+        "total_pra": 115,
+        "evaluable_pra": 103,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 103
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Occitanie",
+        "total_pra": 93,
+        "evaluable_pra": 86,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 86
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Pays de la Loire",
+        "total_pra": 39,
+        "evaluable_pra": 31,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 31
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Provence-Alpes-Côte d'Azur",
+        "total_pra": 35,
+        "evaluable_pra": 27,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 27
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      },
+      {
+        "region": "Île-de-France",
+        "total_pra": 37,
+        "evaluable_pra": 37,
+        "distribution": [
+          {
+            "class": "≤ 0",
+            "count": 37
+          },
+          {
+            "class": "> 0 à 1",
+            "count": 0
+          },
+          {
+            "class": "> 1 à 3",
+            "count": 0
+          },
+          {
+            "class": "> 3 à 7",
+            "count": 0
+          },
+          {
+            "class": "> 7",
+            "count": 0
+          }
+        ]
+      }
+    ],
+    "remarkable": {
+      "minimum": 0,
+      "maximum": 0,
+      "lowest": [],
+      "highest": [],
+      "minimum_count": 645,
+      "maximum_count": 645
+    },
+    "anomaly": {
+      "value": null,
+      "reason": "no_qualified_homologous_reference_for_this_indicator"
+    },
+    "abstentions": {
+      "observed_area_only": 67,
+      "variable_unavailable": 1
+    },
+    "limitations": [
+      "Le Tmax natif est un extrême territorial échantillonné. Le froid des organes, les alternances gel-dégel à la parcelle et la sensibilité du stade restent inconnus. La suite peut se prolonger hors de la fenêtre. Sur support partiel, aucune généralisation à la PRA entière sans qualification explicite.",
+      "Distribution non pondérée, une valeur par PRA évaluable. Les classes sont cartographiques.",
+      "Les productions indiquent une surface déclarée au RPG 2025. Stade, présence pendant la fenêtre et dommages restent inconnus."
+    ],
+    "evolution": {
+      "value": 0,
+      "statistic": "median_paired_delta",
+      "unit": "jours",
+      "paired_pra": 645,
+      "previous_period": {
+        "start": "2026-11-03",
+        "end": "2026-11-09",
+        "timezone": "UTC"
+      },
+      "previous_source_version": "4d28e3ecc6768d24d102ce877c271111ed2d269e6d7f145478cdda45b1539089",
+      "interpretation": "Écart entre deux fenêtres successives de même durée sur les seules PRA comparables. Les cumuls et séquences redémarrent à chaque début de fenêtre."
+    }
+  }
+]
