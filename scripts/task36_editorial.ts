@@ -61,8 +61,10 @@ async function prepareFallbackSelection(snapshot:DailyEditorialSnapshot,id:strin
 
 async function main() {
   const generationOnly=process.argv.includes("--generation-only");
+  const recoveryOnly=process.argv.includes("--recovery-only");
   const authorized=process.argv.indexOf("--authorize-snapshot");
-  if(generationOnly&&(command!=="run"||authorized<0))throw Error("EXACT_SNAPSHOT_AUTHORIZATION_REQUIRED");
+  if((generationOnly||recoveryOnly)&&(command!=="run"||authorized<0))throw Error("EXACT_SNAPSHOT_AUTHORIZATION_REQUIRED");
+  if(generationOnly&&recoveryOnly)throw Error("INCOMPATIBLE_EDITORIAL_MODES");
   if(command==="revalidate") {
     phase="revalidation";
     const i=process.argv.indexOf("--source-checksum");
@@ -168,6 +170,7 @@ async function main() {
       output(await resumeArchivedEdition(recovered,payload=>editorialRPC("recover_archive",payload),publishExperimentalMaps));return;
     }
   }
+  if(recoveryOnly)throw Error("NO_RECOVERABLE_EDITORIAL_ATTEMPT");
   const key=process.env.OPENAI_API_KEY;
   const fallbackReason=!control.ai_enabled?"ai_disabled":!key?"openai_key_missing":null;
   if(generationOnly&&fallbackReason)throw Error("LIVE_GENERATION_NOT_CONFIGURED");

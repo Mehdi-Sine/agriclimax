@@ -71,7 +71,10 @@ try {
     check(name + " HTTP 200", response.status() === 200);
     check(
       name + " simulation visible",
-      (await page.locator("main").innerText()).includes("SIMULATION"),
+      await page
+        .locator("main .edition-status")
+        .filter({ hasText: "Simulation éditoriale sur archives" })
+        .isVisible(),
     );
     check(
       name + " current replay",
