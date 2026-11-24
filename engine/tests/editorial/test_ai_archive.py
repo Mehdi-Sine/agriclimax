@@ -3,8 +3,8 @@ import json
 from pathlib import Path
 
 import pytest
-from referencing import Registry, Resource
 from jsonschema import Draft7Validator, FormatChecker, ValidationError
+from referencing import Registry, Resource
 
 ROOT = Path(__file__).resolve().parents[3]
 
