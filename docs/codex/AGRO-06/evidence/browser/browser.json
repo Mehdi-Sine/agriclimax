@@ -1,0 +1,77 @@
+{
+  "checks": [
+    {
+      "agro": "wet_intensity1",
+      "width": 1440,
+      "crop": "cereals",
+      "support": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "agro": "wet_sequence1",
+      "width": 390,
+      "crop": "forage",
+      "pra": "pra:29102",
+      "support": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "agro": "ice_days",
+      "width": 1440,
+      "crop": "vine",
+      "support": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    },
+    {
+      "agro": "warm_nights20",
+      "width": 390,
+      "crop": "cattle",
+      "support": {
+        "ready": "true",
+        "featureCount": "713",
+        "renderedContourCount": "713",
+        "quantitativeCount": "712",
+        "partialValueCount": "67",
+        "coveredSupportCount": "67",
+        "mode": "availability",
+        "coverageEnabled": "true",
+        "wholeCount": "681",
+        "coveredCount": "31",
+        "unavailableCount": "1"
+      }
+    }
+  ]
+}

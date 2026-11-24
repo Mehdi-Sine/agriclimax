@@ -43,10 +43,31 @@ const restoredChecksum = createHash("sha256")
 const baselineChecksum = createHash("sha256")
   .update(JSON.stringify(source))
   .digest("hex");
-let cached: { sha: string; data: Promise<SupportData> } | undefined;
-let geometryCache:
-  | { sha: string; geometries: SupportData["geometries"] }
-  | undefined;
+// A window uses up to 30 daily objects. Keep immutable, checksum-pinned
+// objects available across recipes and the separate map-mask request.
+const supportCache = new Map<string, Promise<SupportData>>();
+const geometryCache = new Map<string, Promise<SupportData["geometries"]>>();
+
+function loadGeometries(entry: { path: string; sha256: string; bytes: number }) {
+  const hit = geometryCache.get(entry.sha256);
+  if (hit) return hit;
+  const geometries = (async () => {
+    const geo: unknown = JSON.parse(
+      gunzipSync(await archiveBlob({ ...entry, dates: [] }), {
+        maxOutputLength: 16 * 1024 ** 2,
+      }).toString(),
+    );
+    if (!record(geo) || !record(geo.geometries) || geo.rule_version !== baseline.rule_version)
+      throw new Error("SPATIAL_GEOMETRY");
+    return geo.geometries as SupportData["geometries"];
+  })();
+  if (geometryCache.size >= 2) geometryCache.delete(geometryCache.keys().next().value!);
+  geometryCache.set(entry.sha256, geometries);
+  void geometries.catch(() => {
+    if (geometryCache.get(entry.sha256) === geometries) geometryCache.delete(entry.sha256);
+  });
+  return geometries;
+}
 async function load(
   date: string,
   variable: string,
@@ -64,7 +85,12 @@ async function load(
     current?.supports?.find((e) => e.dates.includes(date)) ??
     (await archiveCatalogue())?.supports?.find((e) => e.dates.includes(date));
   if (!e) return baseline;
-  if (cached?.sha === e.sha256) return cached.data;
+  const hit = supportCache.get(e.sha256);
+  if (hit) {
+    supportCache.delete(e.sha256);
+    supportCache.set(e.sha256, hit);
+    return hit;
+  }
   const data = (async () => {
     const value: unknown = JSON.parse(
       gunzipSync(await archiveBlob(e), {
@@ -89,38 +115,16 @@ async function load(
       typeof g.bytes !== "number"
     )
       throw new Error("SPATIAL_GEOMETRY_ENTRY");
-    if (geometryCache?.sha !== g.sha256) {
-      const geo: unknown = JSON.parse(
-        gunzipSync(
-          await archiveBlob({
-            path: g.path,
-            sha256: g.sha256,
-            bytes: g.bytes,
-            dates: [],
-          }),
-          { maxOutputLength: 16 * 1024 ** 2 },
-        ).toString(),
-      );
-      if (
-        !record(geo) ||
-        !record(geo.geometries) ||
-        geo.rule_version !== baseline.rule_version
-      )
-        throw new Error("SPATIAL_GEOMETRY");
-      geometryCache = {
-        sha: g.sha256,
-        geometries: geo.geometries as SupportData["geometries"],
-      };
-    }
     return {
       ...value,
-      geometries: geometryCache.geometries,
+      geometries: await loadGeometries({ path: g.path, sha256: g.sha256, bytes: g.bytes }),
       document_sha256: e.sha256,
     } as SupportData;
   })();
-  cached = { sha: e.sha256, data };
+  if (supportCache.size >= 32) supportCache.delete(supportCache.keys().next().value!);
+  supportCache.set(e.sha256, data);
   void data.catch(() => {
-    if (cached?.data === data) cached = undefined;
+    if (supportCache.get(e.sha256) === data) supportCache.delete(e.sha256);
   });
   return data;
 }

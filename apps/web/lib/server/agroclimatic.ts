@@ -8,7 +8,8 @@ import "server-only";
 import {climateHistoryWindow, legacyHistoryDates} from "./climate-history";
 import { coastalComplement } from "./coastal-complement";
 import identities from "../../data/operational/pra-identities.json";
-import { AGRO_RULES, type Rule } from "../../features/agroclimatic/catalogue";
+import { ANALYSIS_RULES } from "../../features/agroclimatic/analysis-catalogue";
+import type { Rule } from "../../features/agroclimatic/catalogue";
 import {
   calculate,
   type AgroResult,
@@ -109,7 +110,7 @@ export async function agroclimaticData(params: URLSearchParams): Promise<AgroPay
   const pra = params.get("pra");
   if (pra && !identities.ids.includes(pra))
     throw new ApiError("INVALID_QUERY", 400);
-  const baseRule = AGRO_RULES.find((r) => r.id === params.get("indicator"));
+  const baseRule = ANALYSIS_RULES.find((r) => r.id === params.get("indicator"));
   const requestedVersion = params.get("rule_version");
   const unified = !!baseRule?.priority || !requestedVersion || requestedVersion === UNIFIED_AGRO_VERSION;
   if (

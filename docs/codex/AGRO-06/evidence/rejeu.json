@@ -1,0 +1,3058 @@
+{
+  "archiveAvailable": true,
+  "storageReads": [
+    {
+      "kind": "catalogue.json",
+      "status": 200,
+      "contentLength": null
+    },
+    {
+      "kind": "current.json",
+      "status": 200,
+      "contentLength": null
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 474556
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 351528
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 232359
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 233053
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 233727
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 232844
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 232734
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 234611
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 233435
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 232359
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 233053
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 233727
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 232844
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 232734
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 234611
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 233435
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 13139
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 13033
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 13085
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 12837
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 983376
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 12994
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 13029
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 13042
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 233876
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 231265
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 232038
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 232817
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 232767
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 231625
+    },
+    {
+      "kind": "era5",
+      "status": 200,
+      "contentLength": 232124
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 13023
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 13081
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 13077
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 13044
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 13106
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 12986
+    },
+    {
+      "kind": "support",
+      "status": 200,
+      "contentLength": 13003
+    }
+  ],
+  "reports": [
+    {
+      "rule": "wet_days1",
+      "period": {
+        "start": "2026-10-24",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 47,
+      "routeMs": 183,
+      "summaryMs": 231,
+      "mapBytes": 2171714,
+      "mapGzipBytes": 161958,
+      "summaryBytes": 14647,
+      "summaryGzipBytes": 3405,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 3,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 2,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 1,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 1,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 2,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 2,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 1,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "wet_sequence1",
+      "period": {
+        "start": "2026-10-24",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 87,
+      "routeMs": 109,
+      "summaryMs": 20,
+      "mapBytes": 2171798,
+      "mapGzipBytes": 161959,
+      "summaryBytes": 14703,
+      "summaryGzipBytes": 3428,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 3,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 2,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 1,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 1,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 2,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 1,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 1,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "rain10_days",
+      "period": {
+        "start": "2026-10-24",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 57,
+      "routeMs": 115,
+      "summaryMs": 8,
+      "mapBytes": 2172423,
+      "mapGzipBytes": 161666,
+      "summaryBytes": 14567,
+      "summaryGzipBytes": 3330,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 1,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 1,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "rain_max1day",
+      "period": {
+        "start": "2026-10-24",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 87,
+      "routeMs": 143,
+      "summaryMs": 42,
+      "mapBytes": 2182134,
+      "mapGzipBytes": 166093,
+      "summaryBytes": 8818,
+      "summaryGzipBytes": 2574,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 11.152103,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 9.737421,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 2.6581388,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0.2059965,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 0.8260622016603506,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 3.0798779,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 11.248006,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 3.6199093570217507,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 2.122692255050816,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "wet_total1",
+      "period": {
+        "start": "2026-10-24",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 33,
+      "routeMs": 54,
+      "summaryMs": 9,
+      "mapBytes": 2181163,
+      "mapGzipBytes": 165934,
+      "summaryBytes": 11717,
+      "summaryGzipBytes": 2987,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 20.9199636,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 18.833013,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 2.6581388,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 3.0798779,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 14.877885,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 6.42612333986473,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 2.122692255050816,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "wet_intensity1",
+      "period": {
+        "start": "2026-10-24",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 598,
+      "abstentions": {
+        "no_wet_day": 59,
+        "observed_area_only": 55,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 49,
+      "routeMs": 68,
+      "summaryMs": 8,
+      "mapBytes": 2191322,
+      "mapGzipBytes": 167863,
+      "summaryBytes": 8938,
+      "summaryGzipBytes": 2629,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 6.9733212,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 9.4165065,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 2.6581388,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": null,
+          "portion": null,
+          "reason": "no_wet_day"
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": null,
+          "reason": "no_wet_day"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 3.0798779,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 7.4389425,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 3.213061669932365,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 2.122692255050816,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "warm_nights20",
+      "period": {
+        "start": "2026-10-24",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 34,
+      "routeMs": 58,
+      "summaryMs": 10,
+      "mapBytes": 2170492,
+      "mapGzipBytes": 161061,
+      "summaryBytes": 5843,
+      "summaryGzipBytes": 1817,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "warm_nights20_sequence",
+      "period": {
+        "start": "2026-10-24",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 29,
+      "routeMs": 71,
+      "summaryMs": 8,
+      "mapBytes": 2170602,
+      "mapGzipBytes": 161112,
+      "summaryBytes": 5933,
+      "summaryGzipBytes": 1858,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "ice_days",
+      "period": {
+        "start": "2026-10-24",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 31,
+      "routeMs": 78,
+      "summaryMs": 7,
+      "mapBytes": 2169522,
+      "mapGzipBytes": 160858,
+      "summaryBytes": 10489,
+      "summaryGzipBytes": 2665,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "ice_sequence",
+      "period": {
+        "start": "2026-10-24",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "9c213b5a9a631099f3c68b86130053b74f2c9cf2fc51ce88fbe489b4485b1566",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 36,
+      "routeMs": 106,
+      "summaryMs": 8,
+      "mapBytes": 2169623,
+      "mapGzipBytes": 160896,
+      "summaryBytes": 10566,
+      "summaryGzipBytes": 2699,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "wet_days1",
+      "period": {
+        "start": "2026-11-10",
+        "end": "2026-11-16",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 70,
+      "routeMs": 4786,
+      "summaryMs": 11,
+      "mapBytes": 2595949,
+      "mapGzipBytes": 306246,
+      "summaryBytes": 13855,
+      "summaryGzipBytes": 3863,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 4,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 6,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 6,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 5,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 6,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 6,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 7,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 7,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 7,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "wet_sequence1",
+      "period": {
+        "start": "2026-11-10",
+        "end": "2026-11-16",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 58,
+      "routeMs": 98,
+      "summaryMs": 14,
+      "mapBytes": 2596034,
+      "mapGzipBytes": 306162,
+      "summaryBytes": 17888,
+      "summaryGzipBytes": 4741,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 3,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 3,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 3,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 3,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 6,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 6,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 7,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 7,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 7,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "rain10_days",
+      "period": {
+        "start": "2026-11-10",
+        "end": "2026-11-16",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 60,
+      "routeMs": 75,
+      "summaryMs": 17,
+      "mapBytes": 2596657,
+      "mapGzipBytes": 306420,
+      "summaryBytes": 13911,
+      "summaryGzipBytes": 3883,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 1,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 1,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 1,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 1,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 1,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 2,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 2,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 3,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 1,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "rain_max1day",
+      "period": {
+        "start": "2026-11-10",
+        "end": "2026-11-16",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 71,
+      "routeMs": 101,
+      "summaryMs": 10,
+      "mapBytes": 2606343,
+      "mapGzipBytes": 311070,
+      "summaryBytes": 10010,
+      "summaryGzipBytes": 3081,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 12.28606,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 18.36874,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 12.963271,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 27.907543,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 56.76669083061974,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 49.408043,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 29.809866,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 42.11935921822025,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 37.739691161708606,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "wet_total1",
+      "period": {
+        "start": "2026-11-10",
+        "end": "2026-11-16",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 34,
+      "routeMs": 47,
+      "summaryMs": 9,
+      "mapBytes": 2606475,
+      "mapGzipBytes": 311787,
+      "summaryBytes": 10122,
+      "summaryGzipBytes": 3085,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 29.0931915,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 38.8890225,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 34.5026981,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 43.2108143,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 82.77478260989844,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 83.9982899,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 64.2839417,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 86.82306787575806,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 60.20236114394808,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "wet_intensity1",
+      "period": {
+        "start": "2026-11-10",
+        "end": "2026-11-16",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 45,
+      "routeMs": 70,
+      "summaryMs": 57,
+      "mapBytes": 2614329,
+      "mapGzipBytes": 312493,
+      "summaryBytes": 10171,
+      "summaryGzipBytes": 3116,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 7.273297875,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 6.481503750000001,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 5.750449683333334,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 8.642162860000001,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 13.79579710164974,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 13.999714983333334,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 9.183420242857142,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 12.40329541082258,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 8.600337306278297,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "warm_nights20",
+      "period": {
+        "start": "2026-11-10",
+        "end": "2026-11-16",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 103,
+      "routeMs": 120,
+      "summaryMs": 74,
+      "mapBytes": 2594727,
+      "mapGzipBytes": 305446,
+      "summaryBytes": 5843,
+      "summaryGzipBytes": 1813,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "warm_nights20_sequence",
+      "period": {
+        "start": "2026-11-10",
+        "end": "2026-11-16",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 33,
+      "routeMs": 44,
+      "summaryMs": 11,
+      "mapBytes": 2594836,
+      "mapGzipBytes": 305494,
+      "summaryBytes": 5933,
+      "summaryGzipBytes": 1854,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "ice_days",
+      "period": {
+        "start": "2026-11-10",
+        "end": "2026-11-16",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 31,
+      "routeMs": 43,
+      "summaryMs": 9,
+      "mapBytes": 2593757,
+      "mapGzipBytes": 305223,
+      "summaryBytes": 5719,
+      "summaryGzipBytes": 1774,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "ice_sequence",
+      "period": {
+        "start": "2026-11-10",
+        "end": "2026-11-16",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "c4eb83c2d20a93603fff7a338326ebe99a457fac4c44e51fb63bbc4a3e8476bd",
+      "historySeries": "exact-storage-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "observed_area_only": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 33,
+      "routeMs": 43,
+      "summaryMs": 14,
+      "mapBytes": 2593858,
+      "mapGzipBytes": 305263,
+      "summaryBytes": 5796,
+      "summaryGzipBytes": 1807,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": 0,
+          "reason": "observed_area_only"
+        }
+      ]
+    },
+    {
+      "rule": "wet_days1",
+      "period": {
+        "start": "2026-10-01",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "historySeries": "legacy-rpc-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "incompatible_sources_or_runs": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 203,
+      "routeMs": 350,
+      "summaryMs": 65,
+      "mapBytes": 4014197,
+      "mapGzipBytes": 366450,
+      "summaryBytes": 23055,
+      "summaryGzipBytes": 4745,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 13,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 12,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 10,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 9,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 12,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 13,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        }
+      ]
+    },
+    {
+      "rule": "wet_sequence1",
+      "period": {
+        "start": "2026-10-01",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "historySeries": "legacy-rpc-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "incompatible_sources_or_runs": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 171,
+      "routeMs": 289,
+      "summaryMs": 19,
+      "mapBytes": 4013678,
+      "mapGzipBytes": 366270,
+      "summaryBytes": 26362,
+      "summaryGzipBytes": 5249,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 8,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 5,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 3,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 3,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 5,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 4,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        }
+      ]
+    },
+    {
+      "rule": "rain10_days",
+      "period": {
+        "start": "2026-10-01",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "historySeries": "legacy-rpc-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "incompatible_sources_or_runs": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 299,
+      "routeMs": 406,
+      "summaryMs": 54,
+      "mapBytes": 4014291,
+      "mapGzipBytes": 365707,
+      "summaryBytes": 26301,
+      "summaryGzipBytes": 5317,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 2,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 3,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 2,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 4,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 2,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 5,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        }
+      ]
+    },
+    {
+      "rule": "rain_max1day",
+      "period": {
+        "start": "2026-10-01",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "historySeries": "legacy-rpc-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "incompatible_sources_or_runs": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 124,
+      "routeMs": 190,
+      "summaryMs": 19,
+      "mapBytes": 4021289,
+      "mapGzipBytes": 367410,
+      "summaryBytes": 12877,
+      "summaryGzipBytes": 3245,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 13.957,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 23.3118,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 16.7563,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 77.572,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 76.4038,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 33.5077,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        }
+      ]
+    },
+    {
+      "rule": "wet_total1",
+      "period": {
+        "start": "2026-10-01",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "historySeries": "legacy-rpc-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "incompatible_sources_or_runs": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 126,
+      "routeMs": 189,
+      "summaryMs": 17,
+      "mapBytes": 4022406,
+      "mapGzipBytes": 368230,
+      "summaryBytes": 12989,
+      "summaryGzipBytes": 3284,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 60.61359,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 93.63480000000001,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 49.57838,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 172.68912,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 136.75868000000003,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 121.56154000000001,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        }
+      ]
+    },
+    {
+      "rule": "wet_intensity1",
+      "period": {
+        "start": "2026-10-01",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "historySeries": "legacy-rpc-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "incompatible_sources_or_runs": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 122,
+      "routeMs": 181,
+      "summaryMs": 20,
+      "mapBytes": 4031540,
+      "mapGzipBytes": 370061,
+      "summaryBytes": 12982,
+      "summaryGzipBytes": 3296,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 4.662583846153846,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 7.802900000000001,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 4.957838000000001,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 19.18768,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 11.396556666666669,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 9.350887692307692,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        }
+      ]
+    },
+    {
+      "rule": "warm_nights20",
+      "period": {
+        "start": "2026-10-01",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "historySeries": "legacy-rpc-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "incompatible_sources_or_runs": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 122,
+      "routeMs": 190,
+      "summaryMs": 18,
+      "mapBytes": 4014638,
+      "mapGzipBytes": 364610,
+      "summaryBytes": 5890,
+      "summaryGzipBytes": 1837,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        }
+      ]
+    },
+    {
+      "rule": "warm_nights20_sequence",
+      "period": {
+        "start": "2026-10-01",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "historySeries": "legacy-rpc-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "incompatible_sources_or_runs": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 173,
+      "routeMs": 304,
+      "summaryMs": 33,
+      "mapBytes": 4014748,
+      "mapGzipBytes": 364658,
+      "summaryBytes": 5980,
+      "summaryGzipBytes": 1878,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        }
+      ]
+    },
+    {
+      "rule": "ice_days",
+      "period": {
+        "start": "2026-10-01",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "historySeries": "legacy-rpc-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "incompatible_sources_or_runs": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 115,
+      "routeMs": 178,
+      "summaryMs": 17,
+      "mapBytes": 4013668,
+      "mapGzipBytes": 364407,
+      "summaryBytes": 18393,
+      "summaryGzipBytes": 3945,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        }
+      ]
+    },
+    {
+      "rule": "ice_sequence",
+      "period": {
+        "start": "2026-10-01",
+        "end": "2026-10-30",
+        "timezone": "UTC"
+      },
+      "sourceVersion": "54e615f08a99440c40b8e0b804d1c822c90100d8aca3cf655ec0d396825fa55d",
+      "historySeries": "legacy-rpc-1",
+      "crossChecks": 645,
+      "evaluable": 645,
+      "abstentions": {
+        "incompatible_sources_or_runs": 67,
+        "variable_unavailable": 1
+      },
+      "calculationMs": 112,
+      "routeMs": 156,
+      "summaryMs": 35,
+      "mapBytes": 4013770,
+      "mapGzipBytes": 364450,
+      "summaryBytes": 18470,
+      "summaryGzipBytes": 3982,
+      "examples": [
+        {
+          "id": "pra:28342",
+          "context": "Beauce, grandes cultures",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:71187",
+          "context": "Charollais, élevage",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:33128",
+          "context": "Côtes du Bordelais, viticulture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:84467",
+          "context": "Comtat, arboriculture",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:29102",
+          "context": "Crozon, littoral",
+          "value": null,
+          "portion": null,
+          "reason": "variable_unavailable"
+        },
+        {
+          "id": "pra:06249",
+          "context": "Littoral niçois",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:06250",
+          "context": "Alpes niçoises",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:73229",
+          "context": "Maurienne, montagne",
+          "value": 0,
+          "portion": null,
+          "reason": null
+        },
+        {
+          "id": "pra:2A258",
+          "context": "Littoral corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        },
+        {
+          "id": "pra:2B260",
+          "context": "Montagne corse",
+          "value": null,
+          "portion": null,
+          "reason": "incompatible_sources_or_runs"
+        }
+      ]
+    }
+  ]
+}
