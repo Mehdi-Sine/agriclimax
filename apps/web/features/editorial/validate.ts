@@ -25,6 +25,7 @@ export function assertBriefing(
   const agro = value.agro_field ?? [];
   if (new Set(agro.map(summary => summary.indicator)).size !== agro.length ||
       agro.some(summary =>
+        summary.rule_version !== (summary.indicator.startsWith("field_") ? "agro-field-1.0.0" : "agro-analysis-1.0.0") ||
         summary.period.end !== value.validity.history_cutoff ||
         Date.parse(summary.period.end) - Date.parse(summary.period.start) !== 6 * 86400000 ||
         summary.maximum_count > summary.evaluable_pra ||

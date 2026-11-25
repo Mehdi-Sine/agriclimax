@@ -13,7 +13,18 @@ import {
   ProductionStoryCard,
   RegionStory,
 } from "../../features/journal/ui/stories";
-import JournalPraMap from "../../features/journal/ui/pra-map";
+import {JournalMapCarousel} from "../../features/edition-maps/carousel";
+import {journalMapCards} from "../../features/edition-maps/carousel-model";
+import type {ConsultableEdition} from "../../features/editorial-ai/consultable";
+
+async function ArchivedCarousel({edition}: {edition: ConsultableEdition}) {
+  const {editionMaps} = await import("../../lib/server/edition-maps");
+  const {view} = await editionMaps(edition);
+  return <JournalMapCarousel
+    cards={journalMapCards(view, edition.edition_id, edition.date, edition.map_selection)}
+    preview={view.status === "preview"}
+  />;
+}
 import {
   editorialText,
   frenchCycle,
@@ -87,9 +98,7 @@ async function JournalContent({
       return <main className="journal ux01-journal"><h1>Le Journal agroclimatique</h1><p role="status">Lecture des archives momentanément indisponible.</p></main>;
     }
     const selected=date||id ? editions.find(e=>(!date||e.date===date)&&(!id||e.edition_id===id)) : editions[0];
-    const {editionMaps}=await import("../../lib/server/edition-maps");
-    const maps=selected?(await editionMaps(selected)).view:undefined;
-    return <>{!date && editions[0]?.date!==parisDate(new Date().toISOString()) && <p role="status">L’édition du jour est retardée. La dernière édition consultable conserve sa date réelle.</p>}<EditorialPreview edition={selected} editions={editions} published editionMaps={maps}/></>;
+    return <>{!date && editions[0]?.date!==parisDate(new Date().toISOString()) && <p role="status">L’édition du jour est retardée. La dernière édition consultable conserve sa date réelle.</p>}<EditorialPreview edition={selected} editions={editions} published mapCarousel={selected && <Suspense fallback={<p role="status">Chargement des cartes de l’édition…</p>}><ArchivedCarousel key={selected.edition_id} edition={selected}/></Suspense>}/></>;
   }
   if (run !== undefined && !isJournalRun(run)) notFound();
   let edition: JournalEdition;
@@ -104,8 +113,8 @@ async function JournalContent({
           Archives nationales vérifiées momentanément indisponibles. Aucune
           édition de substitution.
         </p>
-        <Link href="/journal">Réessayer</Link> ·{" "}
-        <Link href="/veille">Veille nationale</Link>
+        <Link prefetch={false} href="/journal">Réessayer</Link> ·{" "}
+        <Link prefetch={false} href="/veille">Veille nationale</Link>
       </main>
     );
   }
@@ -151,29 +160,10 @@ async function JournalContent({
               Prévisions <strong>{frenchPeriod(...period)}</strong>
             </p>
           )}
-          <Link className="read-link" href={story?.href ?? "/veille"}>
+          <Link prefetch={false} className="read-link" href={story?.href ?? "/veille"}>
             Approfondir dans la veille nationale
           </Link>
         </div>
-        {story ? (
-          <JournalPraMap
-            key={`${edition.source_cycles[0]}/${story.phenomenon}/${edition.provenance[0]}`}
-            run={edition.source_cycles[0]}
-            phenomenon={story.phenomenon}
-            period={story.period}
-            source={edition.provenance[0]}
-          />
-        ) : (
-          <aside className="empty-story">
-            <p className="eyebrow">UNE LECTURE À NUANCER</p>
-            <h2>Pas de signal à mettre en carte</h2>
-            <p>
-              {editorialText(edition.headline)}. L’absence de fait saillant ne
-              signifie pas une absence de risque agricole.
-            </p>
-            <a href="#regions">Consulter la couverture régionale</a>
-          </aside>
-        )}
         <Suspense
           fallback={
             <section className="key-facts" aria-busy="true">
@@ -233,7 +223,7 @@ async function JournalContent({
           </div>
         </section>
       )}
-      <section className="ux01-cartes-link"><div><h2>Les cartes du jour</h2><p>Voir les cartes et leurs périodes d’origine.</p></div><Link href="/cartes-du-jour">Voir la sélection →</Link></section>
+      <section className="ux01-cartes-link"><div><h2>Les cartes du jour</h2><p>Voir les cartes et leurs périodes d’origine.</p></div><Link prefetch={false} href="/cartes-du-jour">Voir la sélection →</Link></section>
       <section id="filieres" aria-labelledby="filieres-title">
         <div className="section-heading">
           <div>
@@ -293,7 +283,7 @@ async function JournalContent({
               <li id={`reference-${f.id}`} key={f.id}>
                 <p>
                   {editorialText(f.text)} · {frenchPeriod(...f.period)} ·{" "}
-                  <Link href={f.href}>Voir les données</Link>
+                  <Link prefetch={false} href={f.href}>Voir les données</Link>
                 </p>
                 <details>
                   <summary>Traçabilité du fait</summary>

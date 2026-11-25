@@ -156,7 +156,11 @@ export function validateDraft(
     )
       errors.push("UNPROVEN_AGRONOMY");
     if (
-      unqualifiedAssertion(text, /(?:toute la r[eé]gion|moyenne r[eé]gionale|surface agricole affect[eé]e|hectares?)/i)
+      unqualifiedAssertion(
+        // A comma-led nominal denial can end a sentence without changing
+        // the scope of any other proposition in the block.
+        text.replace(/, pas une (?:température représentative de toute la région|moyenne régionale)(?=\s*[.!?]|$)/gi, ""),
+        /(?:toute la r[eé]gion|moyenne r[eé]gionale|surface agricole affect[eé]e|hectares?)/i)
     )
       errors.push("REGIONAL_EXTRAPOLATION");
     if (

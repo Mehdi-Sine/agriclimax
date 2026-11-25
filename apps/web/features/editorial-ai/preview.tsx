@@ -6,9 +6,7 @@ import type { Archive, Block } from "./model";
 import type {ConsultableEdition} from "./consultable";
 import { frenchDate } from "../journal/ui/stories";
 import { editorialText, frenchPeriod, frenchCycle } from "../journal/ui/editorial-dates";
-import JournalPraMap from "../journal/ui/pra-map";
-import {EditionMaps} from "../edition-maps/view";
-import type {EditionMapsView} from "../edition-maps/model";
+import type {ReactNode} from "react";
 const fieldQuestions: Record<string, string> = {
   field_peak_rain5: "Si une intervention est envisagée, quels sols ont suffisamment ressuyé pour porter le matériel ? La texture et le drainage modulent le ressuyage.",
   field_antecedent_rain: "Quel ressuyage vérifier avant d’intervenir ? La texture et le drainage influencent la portance.",
@@ -39,23 +37,15 @@ export function EditorialPreview({
   editions,
   published = false,
   personalStatus,
-  editionMaps,
+  mapCarousel,
 }: {
   edition: Archive|ConsultableEdition|undefined;
   editions: (Archive|ConsultableEdition)[];
   published?: boolean;
   personalStatus?: string;
-  editionMaps?: EditionMapsView;
+  mapCarousel?: ReactNode;
 }) {
   const d = a?.draft;
-  const selection=a?.map_selection;
-  const selectedMaps=selection ? ("map_ids" in selection ? selection : {hero_map_id:selection.response.hero_map_id,map_ids:[...selection.response.priority,...selection.response.complementary].map(c=>c.map_id)}) : undefined;
-  const articleMaps = editionMaps && {
-    ...editionMaps,
-    maps: selectedMaps?.map_ids.length
-      ? selectedMaps.map_ids.flatMap(id => editionMaps.maps.filter(map => map.id === id))
-      : selectedMaps ? [] : editionMaps.maps,
-  };
   const seasonal = d?.article.find(block =>
     (block.kind === "question" || block.kind === "context") && block.seasonal_ids.some(id => a?.briefing.seasonal.windows.some(window => window.id === id)),
   );
@@ -63,19 +53,15 @@ export function EditorialPreview({
   const remaining = d?.article.filter(block => block !== seasonal && !takeaways.includes(block));
 
   const agroField = [...(a?.briefing.agro_field ?? [])];
-  if (articleMaps?.maps[0]?.indicator === "frost") {
-    agroField.sort((lhs, rhs) => Number(rhs.indicator === "field_frost") - Number(lhs.indicator === "field_frost"));
-  }
   const cycles=[...new Set(a?.briefing.national.facts.flatMap(f=>{try{const cycle=new URL(f.href,"https://agriclimax.invalid").searchParams.get("cycle");return cycle&&Number.isFinite(Date.parse(cycle))?[cycle]:[];}catch{return [];}})??[])];
   const base=personalStatus?"/journal/personnel":published?"/journal":"/journal/preview";
   const api=personalStatus?"/api/journal/personnel":published?"/api/journal/edition":"/api/journal-preview";
   const mapsBase=personalStatus?"/journal/personnel":published?"/cartes-du-jour":"/journal/preview";
-  const mapApi=personalStatus?"/api/journal/personnel/map":published?"/api/journal/edition-map":"/api/journal-preview/map";
   return (
     <>
       <EditorialHeader active="journal"/>
     <main className="journal ux01-journal ux02b-journal journal-edition">
-      <div className="ux01-edition-meta"><span>{a?`ÉDITION DU ${frenchDate(a.date)}`:"ARCHIVES DU JOURNAL"}</span><span>France métropolitaine & Corse · {published?"Journal IA":personalStatus?"Espace personnel":"Prévisualisation"}</span></div>
+      <div className="ux01-edition-meta"><span>{a?`ÉDITION DU ${frenchDate(a.date)}`:"ARCHIVES DU JOURNAL"}</span><span>{published ? <a href="#archives">Archives</a> : personalStatus?"Espace personnel":"Prévisualisation"}</span></div>
 
       {!a || !d ? (
         <section className="empty-story">
@@ -98,31 +84,8 @@ export function EditorialPreview({
                 <Text facts={a.briefing.national.facts} block={d.lead} />
               </div>
             </div>
-            <div className="edition-hero-map" id="carte">
-            {articleMaps?.maps.length ? <EditionMaps key={a.edition_id} view={articleMaps} editionId={a.edition_id} initialMapId={selectedMaps?.hero_map_id ?? undefined} main/> : a.illustrations.some(m=>d.illustration_ids.includes(m.id)) ? (
-              a.illustrations
-                .filter((m) => d.illustration_ids.includes(m.id))
-                .slice(0,1)
-                .map((m) => (
-                  <JournalPraMap
-                    key={m.id}
-                    run={m.cycle}
-                    phenomenon={m.phenomenon}
-                    period={m.period}
-                    source={m.data.source}
-                    archiveUrl={`${mapApi}?id=${a.edition_id}&map=${m.id}`}
-                  />
-                ))
-            ) : (
-              articleMaps ? <EditionMaps view={articleMaps} editionId={a.edition_id} main/> : <aside className="empty-story">
-                <p className="eyebrow">LA CARTE DU DOSSIER</p>
-                <h2>Aucune carte compatible archivée</h2>
-                <p>
-                  Aucune carte compatible n’a été archivée pour cette édition.
-                  Aucune carte actuelle ne lui est substituée.
-                </p>
-              </aside>
-            )}
+            <div id="carte">
+              {mapCarousel ?? (published && <Link prefetch={false} href={`${mapsBase}?date=${a.date}&id=${a.edition_id}`}>Explorer les cartes de cette édition</Link>)}
             </div>
           </section>
           <section className="edition-takeaways" aria-labelledby="essentiel">
@@ -135,7 +98,7 @@ export function EditorialPreview({
             )}
             <p className="edition-links">
               <a href="#carte">Carte et territoires</a>
-              <Link href={`${mapsBase}?date=${a.date}&id=${a.edition_id}`}>Toutes les cartes</Link>
+              <Link prefetch={false} href={`${mapsBase}?date=${a.date}&id=${a.edition_id}`}>Toutes les cartes</Link>
             </p>
             {d.key_figures.length > 0 && <div className="key-facts">
               {d.key_figures.slice(0,3).map((f) => (
@@ -155,7 +118,7 @@ export function EditorialPreview({
                       )?.text
                     }
                   </p>
-                  <Link href={a.briefing.national.facts.find(source => source.id === f.fact_id)?.href ?? "#sources"}>Détail de l’indicateur</Link>
+                  <Link prefetch={false} href={a.briefing.national.facts.find(source => source.id === f.fact_id)?.href ?? "#sources"}>Détail de l’indicateur</Link>
                 </article>
               ))}
             </div>}
@@ -176,7 +139,7 @@ export function EditorialPreview({
                     const fact = a.briefing.national.facts.find(f =>
                       r.blocks.some(block => block.evidence_ids.includes(f.id)) && f.href.startsWith("/veille?"),
                     );
-                    return fact && <Link href={fact.href}>Explorer le signal territorial</Link>;
+                    return fact && <Link prefetch={false} href={fact.href}>Explorer le signal territorial</Link>;
                   })()}
                 </article>
               ))}
@@ -202,7 +165,11 @@ export function EditorialPreview({
                 {agroField.map((summary, i) => {
                   const content = <article key={summary.indicator}>
                     {i === 0 && <h3>{summary.label}</h3>}
-                    <p>{fieldQuestions[summary.indicator]}</p>
+                    <p>{fieldQuestions[summary.indicator] ?? summary.limitations[0]}</p>
+                    <p><Link prefetch={false} href={`/analyse?${new URLSearchParams({
+                      production: "field", agro: summary.indicator, agro_start: summary.period.start, agro_end: summary.period.end,
+                      retour: `${base}?date=${a.date}&id=${a.edition_id}#filieres`,
+                    })}`}>Voir la carte et la méthode</Link></p>
                     <p>Maximum territorial de {summary.maximum?.toLocaleString("fr-FR", {maximumFractionDigits: 2})} {summary.unit} sur {summary.evaluable_pra} PRA évaluables sur {summary.total_pra}.</p>
                     {summary.territories.length > 0 && <ul>{summary.territories.map(territory => (
                       <li key={territory.id}>
@@ -225,7 +192,7 @@ export function EditorialPreview({
           {seasonal && <section id="almanach" aria-labelledby="almanach-title">
             <h2 id="almanach-title">L’Almanach</h2>
             <Text facts={a.briefing.national.facts} block={seasonal}/>
-            <Link href="/almanach">Consulter les repères saisonniers</Link>
+            <Link prefetch={false} href="/almanach">Consulter les repères saisonniers</Link>
           </section>}
           {d.news_ids.length > 0 && (
             <section>
@@ -265,7 +232,7 @@ export function EditorialPreview({
               {"assessment" in a && <p>Réexamen actuel : {[...a.assessment.errors, ...a.assessment.review].join(" · ") || "aucune réserve automatique"}.</p>}
             </details>}
             <p>Les stations fournissent des observations. ERA5-Land fournit une réanalyse et les modèles fournissent des prévisions. Les indicateurs décrivent un signal météorologique. Les situations agricoles potentielles appellent une vérification à la parcelle. Un impact avéré exige un constat de terrain.</p>
-            {a.briefing.agro_field?.length ? <p>Les décomptes AGRO-05 excluent les supports partiels. Chaque PRA évaluable compte une fois.</p> : null}
+            {a.briefing.agro_field?.length ? <p>Les décomptes agroclimatiques excluent les supports partiels. Chaque PRA évaluable compte une fois.</p> : null}
             {cycles.length>0&&<p>Cycles de prévision : {cycles.map(frenchCycle).join(" · ")}.</p>}
             <p>Historique disponible jusqu’au {frenchDate(a.briefing.validity.history_cutoff)}. {a.briefing.validity.forecast_period && ` Prévisions ${frenchPeriod(...a.briefing.validity.forecast_period)}.`}</p>
             {[...d.limitations, ...(remaining?.filter(block => block.kind === "limitation") ?? [])].map((b, i) => (
@@ -304,18 +271,18 @@ export function EditorialPreview({
                   {w.title} — {w.question} Contexte théorique, à vérifier.
                 </p>
               ))}
-              <Link href={`${api}?id=${a.edition_id}`}>
+              <Link prefetch={false} href={`${api}?id=${a.edition_id}`}>
                 Archive JSON et preuves de cette édition
               </Link>
             </details>
-            <p><Link href="/almanach">Almanach agricole</Link> · <Link href="/aide-et-documentation/indicateurs">Définitions des indicateurs</Link></p>
+            <p><Link prefetch={false} href="/almanach">Almanach agricole</Link> · <Link prefetch={false} href="/aide-et-documentation/indicateurs">Définitions des indicateurs</Link></p>
             <p className="footer-brand">
               Climacta <span>Le Journal agroclimatique</span>
             </p>
           </footer>
         </>
       )}
-      <section className="editorial-note" aria-label="Archives">
+      <section id="archives" className="editorial-note" aria-label="Archives">
         <h2>{personalStatus ? "Vos brouillons IA archivés" : published ? "Les éditions archivées" : "Les éditions en Preview"}</h2>
         <form action={base}>
           <label htmlFor="edition-date">Choisir une date </label>
@@ -330,7 +297,7 @@ export function EditorialPreview({
         <nav aria-label="Éditions archivées">
           {editions.map((e) => (
             <p key={e.edition_id}>
-              <Link href={`${base}?date=${e.date}&id=${e.edition_id}`}>
+              <Link prefetch={false} href={`${base}?date=${e.date}&id=${e.edition_id}`}>
                 {frenchDate(e.date)} · Révision {e.revision}
               </Link>
             </p>

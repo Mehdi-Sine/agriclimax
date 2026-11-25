@@ -204,53 +204,32 @@ export function useAgroclimatic(
             <option value="cattle">Bovins</option>
           </select>
         </label>
-        {production === "field" && <label>
-          Filière
-          <select aria-label="Filière" value={crop ?? ""} onChange={event => {
-            const value = event.target.value as keyof typeof FIELD_PRODUCTIONS | "";
-            const selected = value && !rule.science?.productions.includes(value)
-              ? productionRules.find(candidate => candidate.science?.productions.includes(value))
-              : rule;
-            change({ agro_crop: value, agro: selected?.id ?? "", agro_threshold: "" });
-          }}>
-            <option value="">Toutes les filières</option>
-            {Object.entries(FIELD_PRODUCTIONS).map(([id, label]) => <option key={id} value={id}>{label}</option>)}
-          </select>
-        </label>}
-        <label>
-          Famille
-          <select
-            aria-label="Famille"
-            value={rule.family}
-            onChange={(e) =>
-              change({
-                agro: matchingRules.find(r => r.family === e.target.value)!.id,
-                agro_threshold: "",
-              })
-            }
-          >
-            {families.map((f) => (
-              <option key={f}>{f}</option>
-            ))}
-          </select>
-        </label>
-        <label>
-          Indicateur
-          <select
-            aria-label="Indicateur"
-            value={rule.id}
-            onChange={(e) =>
-              change({ agro: e.target.value, agro_threshold: "" })
-            }
-          >
-            {production === "field"
-              ? families.map(family => <optgroup key={family} label={family}>
-                {matchingRules.filter(rule => rule.family === family).map(rule =>
-                  <option value={rule.id} key={rule.id}>{rule.label}</option>)}
-              </optgroup>)
-              : matchingRules.map(rule => <option value={rule.id} key={rule.id}>{rule.label}</option>)}
-          </select>
-        </label>
+        {production === "field" && <fieldset className="agro-analysis-choices">
+          <legend>Filière</legend>
+          {(["", ...Object.keys(FIELD_PRODUCTIONS)] as (keyof typeof FIELD_PRODUCTIONS | "")[]).map(value =>
+            <button type="button" key={value} aria-pressed={value === (crop ?? "")} onClick={() => {
+              const selected = value && !rule.science?.productions.includes(value)
+                ? productionRules.find(candidate => candidate.science?.productions.includes(value))
+                : rule;
+              change({ agro_crop: value, agro: selected?.id ?? "", agro_threshold: "" });
+            }}>{value ? FIELD_PRODUCTIONS[value] : "Toutes les filières"}</button>
+          )}
+        </fieldset>}
+        <fieldset className="agro-analysis-choices">
+          <legend>Famille</legend>
+          {families.map(family => <button type="button" key={family} aria-pressed={family === rule.family}
+            onClick={() => {
+              const first = matchingRules.find(candidate => candidate.family === family);
+              if (first) change({ agro: first.id, agro_threshold: "" });
+            }}>{family}</button>)}
+        </fieldset>
+        <fieldset className="agro-analysis-choices">
+          <legend>Indicateur</legend>
+          {matchingRules.filter(candidate => candidate.family === rule.family).map(candidate =>
+            <button type="button" key={candidate.id} aria-pressed={candidate.id === rule.id}
+              onClick={() => change({ agro: candidate.id, agro_threshold: "" })}>{candidate.science?.shortLabel ?? candidate.label}</button>
+          )}
+        </fieldset>
         {!rule.priority && <label>
           Temporalité
           <select

@@ -12,7 +12,7 @@ function Thumbnail({card, priority}: {card: JournalMapCard; priority: boolean}) 
     if (image.current?.complete) setState(image.current.naturalWidth ? "ready" : "error");
   }, []);
   return <div className="journal-thumbnail" data-state={state} aria-busy={state === "loading"}>
-    {state !== "error" && <Image unoptimized ref={image} src={card.thumbnail_url} width={480} height={300} alt={`Carte PRA · ${card.title} · ${card.caption}`} loading="eager" fetchPriority={priority ? "high" : "low"} decoding="async" onLoad={() => setState("ready")} onError={() => setState("error")}/>}
+    {state !== "error" && <Image unoptimized ref={image} src={card.thumbnail_url} width={480} height={300} alt={`Carte PRA · ${card.title} · ${card.caption}`} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : "low"} decoding="async" onLoad={() => setState("ready")} onError={() => setState("error")}/>}
     {state !== "ready" && <span className="journal-thumbnail-status" role="status">{state === "error" ? "Aperçu indisponible · ouvrir la carte interactive →" : "Chargement de l’aperçu…"}</span>}
   </div>;
 }
@@ -69,7 +69,7 @@ export function JournalMapCarousel({cards, preview = false}: {cards: JournalMapC
     <ul ref={track} id={`${id}-track`} className="journal-carousel-track" aria-describedby={`${id}-help`} onKeyDown={keyboard}>
       {cards.map((card, i) => <li key={card.map_id} className="journal-map-card" data-map-id={card.map_id}>
         <Link href={card.interactive_url} prefetch={false} className="journal-map-card-link">
-          <Thumbnail card={card} priority={i < 2}/>
+          <Thumbnail card={card} priority={i === 0}/>
           <div className="journal-map-card-copy"><span className="eyebrow">{card.info.nature === "forecast" ? "PRÉVISION" : "HISTORIQUE · RÉANALYSE"}</span><h3>{card.title}</h3><p>{card.info.period.join(" → ")}</p><span className="journal-card-open">Explorer la carte PRA →</span></div>
         </Link>
         <CardLegend card={card}/>

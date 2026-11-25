@@ -29,7 +29,7 @@ describe("rapport Climacta",()=>{
     ["nominal","VERT","Aucune intervention nécessaire"],
     ["source-secondaire","ORANGE","3 tentatives"],
     ["secours-factuel","ORANGE","Secours factuel"],
-    ["edition-absente","ROUGE","Préparation en cours"],
+    ["edition-absente","ROUGE","Briefing en cours"],
   ])("rend %s en HTML et texte", (name,status,phrase)=>{
     const {data,edition} = scenarios[name];
     const mail = renderReport(buildReport(date,data,edition,"https://example.com"));

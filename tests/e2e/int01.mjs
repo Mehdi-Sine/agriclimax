@@ -21,18 +21,12 @@ try{
     try{
       await page.goto(origin+"/",{waitUntil:"domcontentloaded",timeout:90000});
       assert.equal(new URL(page.url()).pathname,"/","The homepage renders the Journal directly");
-      await ready(page);
-      const indicator=page.getByRole("combobox",{name:"Indicateur de l’édition",exact:true});
-      assert.equal(await indicator.locator("option").count(),10);
-      assert.equal(await indicator.inputValue(),candidate.maps[0].id);
+      const link=page.locator(".journal-map-card-link").first();
+      await link.waitFor();
+      assert.equal(await page.locator("canvas").count(),0);
       assert.match(await page.locator("body").innerText(),/RECETTE.*non publiées/);
       await noOverflow(page);
       await page.screenshot({path:path.join(out,`${name}-journal.png`),fullPage:true,animations:"disabled"});
-      const articleReturn=page.getByRole("link",{name:"Reprendre la lecture de l’article →",exact:true});
-      await articleReturn.click();
-      assert.equal(new URL(page.url()).hash,"#essentiel");
-      // The full catalogue keeps its edition and selected-map permalink.
-      const link=page.locator("#carte").getByRole("link",{name:"Toutes les cartes de cette édition →",exact:true});
       const linked=new URL(await link.getAttribute("href"),origin);
       assert.equal(linked.searchParams.get("id"),edition);
       assert.equal(linked.searchParams.get("map"),candidate.maps[0].id);
@@ -70,7 +64,7 @@ try{
       assert.ok(clicked);assert.notEqual(clicked,"pra:2B258","A rendered mainland polygon must update the PRA selection");
       if(name==="desktop"){
         await page.goto(origin+"/journal?date=2026-11-10",{waitUntil:"domcontentloaded",timeout:90000});
-        await page.getByRole("heading",{name:"Pas de carte opérationnelle publiée",exact:true}).waitFor();
+        await page.getByRole("heading",{name:"Les cartes de l’édition",exact:true}).waitFor();
         assert.equal(await page.locator(".edition-maps canvas").count(),0);
         await page.screenshot({path:path.join(out,"desktop-archive-absent.png"),fullPage:true});
         await page.goto(origin+`/cartes-du-jour?id=${edition}`,{waitUntil:"domcontentloaded",timeout:90000});

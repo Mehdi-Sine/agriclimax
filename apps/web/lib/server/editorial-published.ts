@@ -36,8 +36,16 @@ async function readOperationalEditions() {
   // in series on a cold Vercel instance. Selection order remains deterministic.
   await Promise.all(Array.from({length:Math.min(6,ids.length)},async()=>{
    for(let index=next++;index<ids.length;index=next++) {
-   try {let a=await read(ids[index]);
-    if(runs.some(r=>r.archive_id===ids[index]&&r.state==="outcome_unknown")&&a?.mode!=="fallback")continue;
+   try {
+    const id=ids[index];
+    const retained=sharedIds.has(id)?editions.get(id):undefined;
+    const uncertain=runs.some(r=>r.archive_id===id&&r.state==="outcome_unknown");
+    if(retained&&(!uncertain||retained.mode==="fallback")){
+      results[index]=retained;
+      continue;
+    }
+    let a=await read(id);
+    if(uncertain&&a?.mode!=="fallback")continue;
     if(a?.validation.status==="rejected")a=await read(hash([a.checksum,"experimental-factual-fallback-1"]))??a;
     if(a){const edition=consultableEdition(a);
      // New experimental publications become visible only after the immutable map commit.
@@ -50,8 +58,8 @@ async function readOperationalEditions() {
   }));
   for(const edition of results)if(edition){editions.set(edition.edition_id,edition);liveIds.add(edition.edition_id);}
  }catch{/* a durable public edition remains available during a database outage */}
- previous=[...editions.values()].sort((a,b)=>b.date.localeCompare(a.date)||b.revision-a.revision||b.generated_at.localeCompare(a.generated_at));
+ previous=[...editions.values()].sort((a,b)=>b.date.localeCompare(a.date)||b.revision-a.revision||Number(b.mode==="live")-Number(a.mode==="live")||b.generated_at.localeCompare(a.generated_at));
  sharedIds=liveIds;
- try{const preview=mapPreviewEdition();if(preview)return [preview,...previous.filter(e=>e.edition_id!==preview.edition_id)].sort((a,b)=>b.date.localeCompare(a.date)||b.revision-a.revision||b.generated_at.localeCompare(a.generated_at));}catch{/* invalid local recipe is never substituted */}
+ try{const preview=mapPreviewEdition();if(preview)return [preview,...previous.filter(e=>e.edition_id!==preview.edition_id)].sort((a,b)=>b.date.localeCompare(a.date)||b.revision-a.revision||Number(b.mode==="live")-Number(a.mode==="live")||b.generated_at.localeCompare(a.generated_at));}catch{/* invalid local recipe is never substituted */}
  return previous;
 }

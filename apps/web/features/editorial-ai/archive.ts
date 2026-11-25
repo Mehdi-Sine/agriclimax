@@ -190,7 +190,7 @@ export function verifyArchive(value: unknown,revalidate=true): asserts value is 
     throw Error("LIVE_ARCHIVE_MISSING_PROVIDER_RECEIPT");
   if(a.map_selection){
     const s=a.map_selection;
-    if(s.version!=="edit04-1"||!validId(s.maps_sha256)||s.ranking.edition_date!==a.date||s.ranking.edition_id!==a.edition_id&&a.mode!=="fallback"||!["ai","deterministic"].includes(s.mode)||s.response.priority.length>1||s.response.complementary.length>5)throw Error("EDIT04_ARCHIVE_SELECTION");
+    if(s.version!=="edit04-1"||!validId(s.maps_sha256)||s.ranking.edition_date!==a.date||s.ranking.edition_id!==a.edition_id&&a.mode!=="fallback"&&!(a.revision>1&&s.ranking.edition_id===a.supersedes)||!["ai","deterministic"].includes(s.mode)||s.response.priority.length>1||s.response.complementary.length>5)throw Error("EDIT04_ARCHIVE_SELECTION");
     verifyDailySelection(s);
   }
   assertBriefing(a.briefing);
@@ -199,12 +199,12 @@ export function verifyArchive(value: unknown,revalidate=true): asserts value is 
     throw Error("T35_PUBLICATION_DISABLED");
   if (a.status !== a.validation.status && a.status !== "draft")
     throw Error("ARCHIVE_STATUS");
-  const v = validateDraft(a.draft, a.briefing, a.illustrations);
-  if (revalidate && (
-    a.validation.status !== v.status ||
-    JSON.stringify(a.validation.errors) !== JSON.stringify(v.errors)
-  ))
-    throw Error("ARCHIVE_VALIDATION");
+  if (revalidate) {
+    const current = validateDraft(a.draft, a.briefing, a.illustrations);
+    if (a.validation.status !== current.status ||
+        JSON.stringify(a.validation.errors) !== JSON.stringify(current.errors))
+      throw Error("ARCHIVE_VALIDATION");
+  }
   if (a.illustrations.some((i) => hash(i.data) !== i.sha256))
     throw Error("ARCHIVE_MAP_INTEGRITY");
 }

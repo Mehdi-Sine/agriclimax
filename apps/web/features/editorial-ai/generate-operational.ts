@@ -108,15 +108,31 @@ export async function archiveFactualFallback(source:Archive,store:AttemptStore):
 export async function archiveOperationalResult(o:{briefing:EditorialBriefingBundle;config:AIConfig;store:AttemptStore;run:Run;result:ProviderResult;generatedAt:string;durationMs:number;mapSelection?:DailySelection}) {
  const {briefing:b,config:c,run,result}=o;const now=o.generatedAt;
   if(result.model!==c.model||!result.response_id) throw Error("PROVIDER_MODEL_OR_ID_MISMATCH");
-  const validation=validateDraft(result.draft,b,[]);
+  let validation=validateDraft(result.draft,b,[]);
   if(validation.status==="rejected") {
    await o.store.diagnostic(hash([run.id,"validation"]),{kind:"scientific_validation",run_id:run.id,validation});
   }
   assertDraft(result.draft);
+  let draft=result.draft;
+  // An optional context paragraph can be discarded without paraphrasing its
+  // unsupported claim. The provider response remains in the immutable diagnostics.
+  if(validation.errors.length===1&&validation.errors[0]==="REGIONAL_EXTRAPOLATION"&&draft.article.filter(block=>block.kind==="fact").length>=3){
+   for(const [index,block] of draft.article.entries()){
+    if(block.kind!=="context")continue;
+    const candidate={...draft,article:draft.article.filter((_,position)=>position!==index)};
+    const checked=validateDraft(candidate,b,[]);
+    if(checked.status==="rejected")continue;
+    await o.store.diagnostic(hash([run.id,"localized-edit"]),{kind:"localized_editorial_edit",run_id:run.id,
+     section:"article",index,removed:block,reason:"REGIONAL_EXTRAPOLATION",validation:checked});
+    draft=candidate;
+    validation=checked;
+    break;
+   }
+  }
   const estimate=result.usage?cost(result.usage.input_tokens,result.usage.output_tokens,c.pricing):null;
   const archive=sealArchive({version:"editorial-archive-1",edition_id:run.id,revision:1,supersedes:null,date:b.edition_date,generated_at:now,
    ...(o.mapSelection?{map_selection:o.mapSelection}:{}),
-   engine:ENGINE,prompt_version:PROMPT_VERSION,config_version:CONFIG_VERSION,mode:"live",status:validation.status,draft:result.draft,briefing:b,illustrations:[],validation,
+   engine:ENGINE,prompt_version:PROMPT_VERSION,config_version:CONFIG_VERSION,mode:"live",status:validation.status,draft,briefing:b,illustrations:[],validation,
    receipt:{model:result.model,response_id:result.response_id,usage:result.usage,cost_eur:estimate,duration_ms:o.durationMs,pricing_version:c.pricing.version},
    prompt_sha256:hash(INSTRUCTIONS),parameters:{model:c.model,max_output_tokens:c.max_output_tokens,request_profile:c.request_profile}});
   await o.store.save(archive);

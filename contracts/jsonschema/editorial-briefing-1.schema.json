@@ -1460,11 +1460,21 @@
               "field_frost",
               "field_dry_sequence",
               "field_antecedent_rain",
-              "field_peak_rain5"
+              "field_peak_rain5",
+              "wet_days1",
+              "wet_sequence1",
+              "rain10_days",
+              "rain_max1day",
+              "wet_total1",
+              "wet_intensity1",
+              "warm_nights20",
+              "warm_nights20_sequence",
+              "ice_days",
+              "ice_sequence"
             ]
           },
           "rule_version": {
-            "const": "agro-field-1.0.0"
+            "enum": ["agro-field-1.0.0", "agro-analysis-1.0.0"]
           },
           "label": {
             "type": "string"
@@ -1473,7 +1483,8 @@
             "enum": [
               "°C·j",
               "jours",
-              "mm"
+              "mm",
+              "mm/j humide"
             ]
           },
           "period": {

@@ -69,11 +69,10 @@ try {
       assert.equal(exported.total_pra, 713);
       assert.ok(exported.map.startsWith("/analyse?"));
       assert.equal(Object.hasOwn(exported, "data"), false);
-      await page.getByLabel("Filière", { exact: true }).selectOption("cattle");
+      await page.getByRole("group", { name: "Filière", exact: true }).getByRole("button", { name: /bovins/i }).click();
       await page.waitForURL(url => url.searchParams.get("agro_crop") === "cattle");
-      const indicator = page.getByLabel("Indicateur", { exact: true });
-      await indicator.locator('option[value="warm_nights20"]').waitFor({ state: "attached" });
-      assert.equal(await indicator.inputValue(), "warm_nights20");
+      await page.getByRole("group", { name: "Indicateur", exact: true }).getByRole("button", {name:"Jours à Tmin > 20 °C",pressed:true,exact:true}).waitFor();
+
     }
     assert.deepEqual(errors, []);
     checks.push({ agro, width, crop, pra, support });
