@@ -47,12 +47,13 @@ for(const [name,route] of [['Productions','/productions'],['Explorer le climat',
  await page.waitForURL(url=>url.pathname===route);
  assert.equal(new URL(page.url()).searchParams.get('pra'),id,'PRA preserved by the new main navigation');
 }
-// Analyse agroclimatique remains available by its legacy deep link, not as a sixth main tab.
+// Analyse remains available by deep link and from the main navigation.
 await page.goto(base+'/analyse?date=2026-10-15&pra='+encodeURIComponent(id));
 await page.reload();
 assert.equal(new URL(page.url()).searchParams.get('pra'),id);
-report.cases.push('Five-tab UX keeps PRA context, Analyse legacy deep link and reload');
-await page.getByRole('combobox',{name:'Indicateur',exact:true}).selectOption('rain');await page.getByRole('button',{name:'30 jours',exact:true}).click();
+assert.equal(await page.getByRole('link',{name:'Analyse',exact:true}).getAttribute('aria-current'),'page');
+report.cases.push('Navigation keeps PRA context and the Analyse deep link survives a reload');
+await page.getByRole('group',{name:'Indicateur',exact:true}).getByRole('button',{name:'Pluie cumulée',exact:true}).click();await page.getByRole('button',{name:'30 jours',exact:true}).click();
 assert.equal(new URL(page.url()).searchParams.get('agro_start'),'2026-09-19');assert.equal(new URL(page.url()).searchParams.get('agro_end'),'2026-10-18');
 report.cases.push('Wheat period and indicator controls');
 await page.goto(base+'/?pra=pra%3A29102&date=2026-10-15');await page.getByRole('heading',{name:/CROZON/}).waitFor();await page.locator('.unified-value strong').filter({hasText:'Indisponible'}).waitFor();
