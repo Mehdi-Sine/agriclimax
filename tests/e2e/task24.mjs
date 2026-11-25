@@ -53,6 +53,7 @@ await page.reload();
 assert.equal(new URL(page.url()).searchParams.get('pra'),id);
 assert.equal(await page.getByRole('link',{name:'Analyse',exact:true}).getAttribute('aria-current'),'page');
 report.cases.push('Navigation keeps PRA context and the Analyse deep link survives a reload');
+await page.getByRole('group',{name:'Famille',exact:true}).getByRole('button',{name:'Précipitations',exact:true}).click();
 await page.getByRole('group',{name:'Indicateur',exact:true}).getByRole('button',{name:'Pluie cumulée',exact:true}).click();await page.getByRole('button',{name:'30 jours',exact:true}).click();
 assert.equal(new URL(page.url()).searchParams.get('agro_start'),'2026-09-19');assert.equal(new URL(page.url()).searchParams.get('agro_end'),'2026-10-18');
 report.cases.push('Wheat period and indicator controls');
