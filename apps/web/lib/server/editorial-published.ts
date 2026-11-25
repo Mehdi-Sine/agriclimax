@@ -12,9 +12,14 @@ let sharedIds=new Set<string>();
 export function sharedArchiveRead(id:string){return sharedIds.has(id);}
 /** Archive-only reads. The controlled public copy bridges DEV/production and cold-start outages. */
 let loading:Promise<ConsultableEdition[]>|undefined;
-/** Share concurrent page/map reads, but recheck publication on every later request. */
+let recent:{editions:ConsultableEdition[];expiresAt:number}|undefined;
+/** Group the article and its thumbnail requests around one catalogue refresh. */
 export function operationalEditions() {
- if(!loading)loading=readOperationalEditions().finally(()=>{loading=undefined;});
+ if(recent&&recent.expiresAt>Date.now()) return Promise.resolve(recent.editions);
+ if(!loading)loading=readOperationalEditions().then(editions=>{
+  if(sharedIds.size) recent={editions,expiresAt:Date.now()+15_000};
+  return editions;
+ }).finally(()=>{loading=undefined;});
  return loading;
 }
 async function readOperationalEditions() {
