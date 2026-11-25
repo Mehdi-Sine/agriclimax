@@ -22,14 +22,16 @@ async function Content({
     <>
     <EditorialPreview
       edition={edition}
-      mapCarousel={edition && map && <JournalPraMap
+      mapCarousel={map && edition ? <JournalPraMap
         key={map.id}
         run={map.cycle}
         phenomenon={map.phenomenon}
         period={map.period}
         source={map.data.source}
         archiveUrl={`/api/journal-preview/map?id=${edition.edition_id}&map=${map.id}`}
-      />}
+      /> : edition && <aside className="empty-story">
+        <h2>Aucune carte compatible archivée</h2>
+      </aside>}
       editions={previewEditions()}
     />
     {catalogue.length>0&&<ManualMaps catalogue={catalogue}/>}
