@@ -123,3 +123,5 @@ L’édition de secours du 25 a été mesurée dans Chromium, au premier chargem
 | 1 440 px | [Production](evidence/avant-1440.png) | [Recette](evidence/apres-1440.png) |
 
 Contrôles locaux exécutés sur la branche. Les 309 tests ciblés couvrant validation, exploitation, rapports, indicateurs et cartes sont passés. Le build Next, le contrôle des contrats et le scanner du bundle client sont passés. Les workflows GitHub constituent les contrôles de livraison.
+
+Sur la révision IA isolée, Chromium à 390 px a vérifié l’ordre des deux cartes, le défilement horizontal, l’ouverture de la première carte et le retour à l’identifiant de révision. Sur Analyse, les boutons de famille et le filtre bovins ont été actionnés. [Révision IA](evidence/revision-390.png) · [Analyse](evidence/analyse-390.png)
