@@ -14,22 +14,24 @@ export function sharedArchiveRead(id:string){return sharedIds.has(id);}
 let loading:Promise<ConsultableEdition[]>|undefined;
 let recent:{editions:ConsultableEdition[];expiresAt:number}|undefined;
 /** Group the article and its thumbnail requests around one catalogue refresh. */
-export function operationalEditions() {
- if(recent&&recent.expiresAt>Date.now()) return Promise.resolve(recent.editions);
+export function operationalEditions(date?:string) {
+ if(recent&&recent.expiresAt>Date.now())
+   return Promise.resolve(date ? recent.editions.filter(edition=>edition.date===date) : recent.editions);
+ if(date) return readOperationalEditions(date);
  if(!loading)loading=readOperationalEditions().then(editions=>{
   if(sharedIds.size) recent={editions,expiresAt:Date.now()+15_000};
   return editions;
  }).finally(()=>{loading=undefined;});
  return loading;
 }
-async function readOperationalEditions() {
+async function readOperationalEditions(date?:string) {
  const editions=new Map<string,ConsultableEdition>();
  const liveIds=new Set<string>();
- for(const a of previous) try {editions.set(a.edition_id,verifyConsultable(a));}catch{/* retain other dates */}
- try {for(const a of unpackConsultable(bootstrap))editions.set(a.edition_id,a);}catch{/* corrupted copy is never served */}
+ for(const a of previous) if(!date||a.date===date) try {editions.set(a.edition_id,verifyConsultable(a));}catch{/* retain other dates */}
+ try {for(const a of unpackConsultable(bootstrap))if(!date||a.date===date)editions.set(a.edition_id,a);}catch{/* corrupted copy is never served */}
  try {
   const runs=await editorialRPC<Run[]>("runs");
-  const ids=[...new Set(runs.filter(r=>r.archive_id&&["completed","validation_failed","outcome_unknown"].includes(r.state)).slice(-60).map(r=>r.archive_id!))];
+  const ids=[...new Set(runs.filter(r=>(!date||r.edition_date===date)&&r.archive_id&&["completed","validation_failed","outcome_unknown"].includes(r.state)).slice(-60).map(r=>r.archive_id!))];
   const store=new SupabaseEditorialStore("");
   // Rejected runs can point to the same fallback as a completed run. Read each
   // immutable archive once per refresh, including failed reads (retried next time).
@@ -63,8 +65,20 @@ async function readOperationalEditions() {
   }));
   for(const edition of results)if(edition){editions.set(edition.edition_id,edition);liveIds.add(edition.edition_id);}
  }catch{/* a durable public edition remains available during a database outage */}
- previous=[...editions.values()].sort((a,b)=>b.date.localeCompare(a.date)||b.revision-a.revision||Number(b.mode==="live")-Number(a.mode==="live")||b.generated_at.localeCompare(a.generated_at));
- sharedIds=liveIds;
- try{const preview=mapPreviewEdition();if(preview)return [preview,...previous.filter(e=>e.edition_id!==preview.edition_id)].sort((a,b)=>b.date.localeCompare(a.date)||b.revision-a.revision||Number(b.mode==="live")-Number(a.mode==="live")||b.generated_at.localeCompare(a.generated_at));}catch{/* invalid local recipe is never substituted */}
- return previous;
+ const compare=(a:ConsultableEdition,b:ConsultableEdition)=>
+   b.date.localeCompare(a.date)||b.revision-a.revision||Number(b.mode==="live")-Number(a.mode==="live")||b.generated_at.localeCompare(a.generated_at);
+ const selected=[...editions.values()].sort(compare);
+ if(date) {
+   previous=[...previous.filter(edition=>edition.date!==date),...selected].sort(compare);
+   for(const id of liveIds) sharedIds.add(id);
+ } else {
+   previous=selected;
+   sharedIds=liveIds;
+ }
+ try{
+   const preview=mapPreviewEdition();
+   if(preview&&(!date||preview.date===date))
+     return [preview,...selected.filter(e=>e.edition_id!==preview.edition_id)].sort(compare);
+ }catch{/* invalid local recipe is never substituted */}
+ return selected;
 }

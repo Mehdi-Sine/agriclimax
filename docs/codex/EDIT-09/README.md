@@ -70,7 +70,7 @@ Le briefing du 25 garde une marge de 42 245 octets sous 96 Kio. En prenant un je
 
 Carrousel restauré depuis `4e11b2d`, tel qu’il apparaissait avant la fusion EDIT-08 dans `740d2ee`. La sélection des cartes et l’identité de la période restent archivées. La vignette ouvre Cartes du jour avec l’identité de la carte et celle de l’édition. La première vignette est prioritaire et les suivantes utilisent le chargement différé du navigateur. Le rendu éditorial a une frontière Suspense distincte pour le carrousel.
 
-L’audit de l’implémentation historique a trouvé des WebP rendus à froid via la route de miniature, avec cache HTTP et mémoire de processus. Les publications existantes archivent le catalogue et les valeurs gelés. La persistance durable des octets WebP et un index éditorial de lecture à froid restent à traiter. Les archives déjà vérifiées sont réutilisées sur une instance chaude tant que le registre les référence. Un cache de catalogue de 15 s regroupe les lectures du Journal et des miniatures. Il peut différer la découverte d’une nouvelle révision de 15 s sur l’instance qui sert la requête. Le premier chargement peut encore lire des archives et des bundles cartographiques côté serveur. Les révisions dispensent le navigateur de télécharger les géométries, masques et valeurs détaillées avant l’ouverture de Cartes.
+L’audit de l’implémentation historique a trouvé des WebP rendus à froid via la route de miniature, avec cache HTTP et mémoire de processus. Les publications existantes archivent le catalogue et les valeurs gelés. La persistance durable des octets WebP et un index éditorial de lecture à froid restent à traiter. Les archives déjà vérifiées sont réutilisées sur une instance chaude tant que le registre les référence. Un cache de catalogue de 15 s regroupe les lectures du Journal et des miniatures. Il peut différer la découverte d’une nouvelle révision de 15 s sur l’instance qui sert la requête. L’accueil et le Journal daté lisent d’abord les archives de la date recherchée. La liste complète des archives charge séparément. Le premier chargement peut encore lire le bundle cartographique de l’édition sélectionnée côté serveur pour vérifier sa disponibilité. Les révisions dispensent le navigateur de télécharger les géométries, masques et valeurs détaillées avant l’ouverture de Cartes.
 
 Les manifestes de références client de l’accueil et de /journal référencent le carrousel et ne référencent pas le composant PRA interactif. Les traces de fichiers serveur du build local totalisent 68,82 Mo pour /journal et 40,05 Mo pour Cartes du jour, avant compression. Le build Next signale un traçage dynamique dans `features/editorial-ai/archive.ts` qui peut embarquer des fichiers supplémentaires dans certaines fonctions. Le transfert du Journal et le stockage historique des fonctions Vercel sont des métriques distinctes. Les tableaux Vercel Function Storage et Supabase Usage/Billing doivent être relevés sur la période comparable pour mesurer les octets agrégés et la part facturée. Les économies de requêtes serveur et de transfert nominal du navigateur ne donnent pas directement ces valeurs.
 
@@ -125,3 +125,20 @@ L’édition de secours du 25 a été mesurée dans Chromium, au premier chargem
 Contrôles locaux exécutés sur la branche. Les 309 tests ciblés couvrant validation, exploitation, rapports, indicateurs et cartes sont passés. Le build Next, le contrôle des contrats et le scanner du bundle client sont passés. Les workflows GitHub constituent les contrôles de livraison.
 
 Sur la révision IA isolée, Chromium à 390 px a vérifié l’ordre des deux cartes, le défilement horizontal, l’ouverture de la première carte et le retour à l’identifiant de révision. Sur Analyse, les boutons de famille et le filtre bovins ont été actionnés. [Révision IA](evidence/revision-390.png) · [Analyse](evidence/analyse-390.png)
+
+### Profil mobile sur Vercel
+
+Chromium à 390 × 844, processeur ralenti ×4, latence ajoutée de 150 ms, débit descendant de 1,6 Mbit/s et débit montant de 0,75 Mbit/s. Production et Preview ont servi l’édition de secours du 25 novembre. Le cache navigateur était vide sur le premier accueil et partagé par les visites suivantes. Le titre, le chapeau et le premier bloc de l’article sont mesurés à leur apparition dans le DOM.
+
+| Métrique | Accueil production, premier | Accueil Preview, premier | Accueil production, recharge | Accueil Preview, recharge |
+|---|---:|---:|---:|---:|
+| TTFB | 2 747 ms | 2 462 ms | 241 ms | 276 ms |
+| LCP | 19 800 ms | 11 596 ms | 15 284 ms | 1 196 ms |
+| Titre | 18 939 ms | 11 410 ms | 14 891 ms | 969 ms |
+| Chapeau | 18 940 ms | 11 410 ms | 14 891 ms | 970 ms |
+| Article | 18 940 ms | 11 410 ms | 14 891 ms | 970 ms |
+| Poids transféré | 222 266 o | 305 658 o | 13 607 o | 37 019 o |
+| JavaScript transféré | 171 250 o | 154 503 o | 0 o | 0 o |
+| Requêtes | 14 | 16 | 14 | 16 |
+
+La première mesure d’accueil en production a été relevée avant la requête des contours. Les deux vignettes de Preview totalisent environ 76,7 ko sur cette même mesure. Au premier accès au Journal daté depuis chaque accueil, la production a téléchargé 777 712 octets de géométrie et de valeurs détaillées, contre 0 en Preview. Le LCP daté est de 15 172 ms en production et de 820 ms en Preview avec le cache de l’accueil. Les mesures portent sur la Preview avant la lecture ciblée par date du dernier correctif. La performance à froid reste à revérifier sur le déploiement final. [Mesures Vercel](evidence/vercel-mobile.json)

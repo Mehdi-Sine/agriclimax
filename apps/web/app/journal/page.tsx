@@ -1,5 +1,5 @@
 import {EditorialHeader} from "../../components/navigation/editorial-header";
-import { EditorialPreview } from "../../features/editorial-ai/preview";
+import { EditionArchiveLinks, EditorialPreview } from "../../features/editorial-ai/preview";
 import { parisDate } from "../../features/editorial/almanac";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -34,6 +34,11 @@ import { selectKeyFigures } from "../../features/journal/ui/key-figures";
 import { nationalWatch } from "../../lib/server/national-watch";
 import type { WatchSummary } from "../../features/national-watch/model";
 import "./journal.css";
+async function JournalArchiveLinks() {
+  const {operationalEditions}=await import("../../lib/server/editorial-published");
+  return <EditionArchiveLinks editions={await operationalEditions()} base="/journal"/>;
+}
+
 export const dynamic = "force-dynamic";
 export const metadata={robots:{index:false,follow:false}};
 async function EditionFigures({
@@ -90,15 +95,23 @@ async function JournalContent({
 }) {
   const { run, date, id } = await searchParams;
   if(!run) {
+    const today=parisDate(new Date().toISOString());
     let editions;
     try {
-      const { operationalEditions }=await import("../../lib/server/editorial-published");
-      editions=await operationalEditions();
+      const {operationalEditions}=await import("../../lib/server/editorial-published");
+      editions=await operationalEditions(date??(id?undefined:today));
+      if(!id&&!editions.length) editions=await operationalEditions();
     } catch {
       return <main className="journal ux01-journal"><h1>Le Journal agroclimatique</h1><p role="status">Lecture des archives momentanément indisponible.</p></main>;
     }
     const selected=date||id ? editions.find(e=>(!date||e.date===date)&&(!id||e.edition_id===id)) : editions[0];
-    return <>{!date && editions[0]?.date!==parisDate(new Date().toISOString()) && <p role="status">L’édition du jour est retardée. La dernière édition consultable conserve sa date réelle.</p>}<EditorialPreview edition={selected} editions={editions} published mapCarousel={selected && <Suspense fallback={<p role="status">Chargement des cartes de l’édition…</p>}><ArchivedCarousel key={selected.edition_id} edition={selected}/></Suspense>}/></>;
+    return <>
+      {!date && selected?.date!==today && <p role="status">L’édition du jour est retardée. La dernière édition consultable conserve sa date réelle.</p>}
+      <EditorialPreview edition={selected} editions={editions} published
+        mapCarousel={selected && <Suspense fallback={<p role="status">Chargement des cartes de l’édition…</p>}><ArchivedCarousel key={selected.edition_id} edition={selected}/></Suspense>}
+        archiveList={<Suspense fallback={<EditionArchiveLinks editions={editions} base="/journal"/>}><JournalArchiveLinks/></Suspense>}
+      />
+    </>;
   }
   if (run !== undefined && !isJournalRun(run)) notFound();
   let edition: JournalEdition;
@@ -164,6 +177,10 @@ async function JournalContent({
             Approfondir dans la veille nationale
           </Link>
         </div>
+        {!story && <aside className="empty-story">
+          <h2>Pas de signal à mettre en carte</h2>
+          <a href="#regions">Consulter la couverture régionale</a>
+        </aside>}
         <Suspense
           fallback={
             <section className="key-facts" aria-busy="true">

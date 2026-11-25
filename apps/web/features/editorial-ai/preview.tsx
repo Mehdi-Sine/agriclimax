@@ -38,12 +38,14 @@ export function EditorialPreview({
   published = false,
   personalStatus,
   mapCarousel,
+  archiveList,
 }: {
   edition: Archive|ConsultableEdition|undefined;
   editions: (Archive|ConsultableEdition)[];
   published?: boolean;
   personalStatus?: string;
   mapCarousel?: ReactNode;
+  archiveList?: ReactNode;
 }) {
   const d = a?.draft;
   const seasonal = d?.article.find(block =>
@@ -294,17 +296,23 @@ export function EditorialPreview({
           />
           <button type="submit">Consulter</button>
         </form>
-        <nav aria-label="Éditions archivées">
-          {editions.map((e) => (
-            <p key={e.edition_id}>
-              <Link prefetch={false} href={`${base}?date=${e.date}&id=${e.edition_id}`}>
-                {frenchDate(e.date)} · Révision {e.revision}
-              </Link>
-            </p>
-          ))}
-        </nav>
+        {archiveList ?? <EditionArchiveLinks editions={editions} base={base}/>}
       </section>
     </main>
     </>
   );
+}
+
+
+export function EditionArchiveLinks({editions,base}: {
+  editions: (Archive|ConsultableEdition)[];
+  base: string;
+}) {
+  return <nav aria-label="Éditions archivées">
+    {editions.map(edition => <p key={edition.edition_id}>
+      <Link prefetch={false} href={`${base}?date=${edition.date}&id=${edition.edition_id}`}>
+        {frenchDate(edition.date)} · Révision {edition.revision}{edition.mode === "fallback" ? " · Secours" : ""}
+      </Link>
+    </p>)}
+  </nav>;
 }
