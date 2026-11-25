@@ -70,7 +70,7 @@ try{
         await page.goto(origin+`/cartes-du-jour?id=${edition}`,{waitUntil:"domcontentloaded",timeout:90000});
         // Failure recipe changes transport availability only; it never substitutes map values.
         await context.route("**/api/journal/maps?*",route=>route.fulfill({status:503,contentType:"application/json",body:JSON.stringify({status:"error",code:"RECIPE_TRANSPORT_UNAVAILABLE"})}));
-        await page.reload({waitUntil:"domcontentloaded"});await page.getByRole("alert").getByText(/Carte indisponible ou contours incompatibles/).waitFor();
+        await page.reload({waitUntil:"domcontentloaded"});await page.getByRole("alert").filter({hasText:/Carte indisponible ou contours incompatibles/}).waitFor();
         await page.screenshot({path:path.join(out,"desktop-map-unavailable.png"),fullPage:true});
       }
       assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
