@@ -77,6 +77,7 @@ describe("independent checks across the entire rendered edition", () => {
     expect(validateDraft(d(), b).status).toBe("needs_editorial_review"));
   it.each([
     "Aucune moyenne régionale ne peut être déduite de ce signal.",
+    "Les dénombrements portent sur les PRA évaluables, pas sur les hectares agricoles. Les extrêmes territoriaux sont locaux : aucune moyenne régionale ne peut être déduite. Les températures sont échantillonnées et la représentativité littorale doit être qualifiée.",
     "Le minimum territorial prévu est une valeur locale, pas une température représentative de toute la région. Aucun dommage agricole n’a été évalué.",
     "Ce maximum ne représente pas une moyenne régionale.",
     "Sans moyenne régionale ni surface agricole affectée déduite.",
@@ -86,6 +87,10 @@ describe("independent checks across the entire rendered edition", () => {
   });
   it("still rejects an extrapolation in a sentence following the archived limitation",()=>{
     const draft=d();draft.article.push({kind:"context",text:"Le minimum territorial prévu est une valeur locale, pas une température représentative de toute la région. Toute la région est affectée.",evidence_ids:[b.national.facts[0].id],seasonal_ids:[]});
+    expect(validateDraft(draft,b).errors).toContain("REGIONAL_EXTRAPOLATION");
+  });
+  it("retains hectare assertions outside the scoped denial",()=>{
+    const draft=d();draft.article.push({kind:"limitation",text:"Les dénombrements portent sur les PRA évaluables, pas sur les hectares agricoles. Les hectares agricoles sont touchés.",evidence_ids:[b.national.facts[0].id],seasonal_ids:[]});
     expect(validateDraft(draft,b).errors).toContain("REGIONAL_EXTRAPOLATION");
   });
   it("does not let a negation excuse an affirmative extrapolation after mais",()=>{

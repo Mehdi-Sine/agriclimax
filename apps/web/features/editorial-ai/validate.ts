@@ -159,7 +159,7 @@ export function validateDraft(
       unqualifiedAssertion(
         // A comma-led nominal denial can end a sentence without changing
         // the scope of any other proposition in the block.
-        text.replace(/, pas une (?:température représentative de toute la région|moyenne régionale)(?=\s*[.!?]|$)/gi, ""),
+        text.replace(/, pas (?:une (?:température représentative de toute la région|moyenne régionale)|sur les hectares agricoles)(?=\s*[.!?]|$)/gi, ""),
         /(?:toute la r[eé]gion|moyenne r[eé]gionale|surface agricole affect[eé]e|hectares?)/i)
     )
       errors.push("REGIONAL_EXTRAPOLATION");
