@@ -62,7 +62,7 @@ Qualifier la réduction de 70 % sur une période à fréquentation et nombre d�
 | Métadonnées de disponibilité | `no-store`. La sonde lit l’état courant et le Journal daté. | Délai de six secondes maintenu. Un état public valide ne renseigne pas à lui seul le LCP. |
 | Contours et science | Assets publics versionnés servis par Next, masques, valeurs et géométries détaillées à la demande dans les rubriques dédiées. | Les contrats de 713 PRA, six en Corse, et la couverture à 90 % restent ceux d’EDIT-09 et COUV. |
 
-Le cache Supabase HIT mesure une lecture depuis le cache du fournisseur. Un HIT Vercel peut éviter cette lecture, selon la région et la clé. Les anciens articles sans projection et les requêtes de catalogue peuvent encore charger les bundles pour vérifier l’accès. Le benchmark de recette OPTI-01 isole une édition. Une revue Vercel sur une recette active et un échantillon d’archives est nécessaire pour chiffrer l’économie à l’échelle du site.
+Le cache Supabase HIT mesure une lecture depuis le cache du fournisseur. Un HIT Vercel peut éviter cette lecture, selon la région et la clé. La page Cartes et son API ciblent aussi la date portée par le lien du carrousel. Les anciens articles sans projection et les requêtes de catalogue peuvent encore charger les bundles pour vérifier l’accès. Le benchmark de recette OPTI-01 isole une édition. Une revue Vercel sur une recette active et un échantillon d’archives est nécessaire pour chiffrer l’économie à l’échelle du site.
 
 ### Mesure et seuils d’acceptation
 

@@ -2,11 +2,11 @@ import {editionForecastRendering} from '../../../../lib/server/edition-forecast'
 import {operationalEditions} from "../../../../lib/server/editorial-published";
 import {editionMaps} from "../../../../lib/server/edition-maps";
 export async function GET(request:Request){
-  const p=new URL(request.url).searchParams,id=p.get("id"),mapId=p.get("map");
+  const p=new URL(request.url).searchParams,id=p.get("id"),mapId=p.get("map"),date=p.get("date");
   const headers={"Cache-Control":"no-store"};
   if(!id||!/^[a-f0-9]{64}$/.test(id)||mapId!==null&&!/^[a-f0-9]{64}$/.test(mapId))return Response.json({status:"absent",code:"MAP_EDITION_ID"},{status:400,headers});
   try{
-    const edition=(await operationalEditions()).find(a=>a.edition_id===id);
+    const edition=(await operationalEditions(date||undefined)).find(a=>a.edition_id===id&&(!date||a.date===date));
     if(!edition)return Response.json({status:"absent",code:"EDITION_NOT_FOUND"},{status:404,headers});
     const {view,bundle}=await editionMaps(edition);
     if(!mapId)return Response.json({edition_id:id,edition_checksum:edition.checksum,...view},{headers});

@@ -76,7 +76,7 @@ Chaque matin, noter les acquisitions et relances, le dossier, le coût OpenAI, l
 
 Sur cinq à sept jours, faire une courte série de visites, courante et historique, avec reload, une ouverture Cartes et un contrôle Analyse. Comparer des plages de même durée à charge similaire, isoler les copies et les tests, puis noter les lectures de masques. Utiliser les métriques existantes. Le jour de passage à Pro et le jour de fin de cycle se vérifient dans Billing. La date du 18 décembre communiquée pour le quota Free peut différer. Suspendre la décision de rétrogradation en cas de projection de dépassement, de perte de marge ou de sauvegarde intégrale non restaurée. [Conditions et seuils](COUTS.md)
 
-Pour la reprise du 27, la relecture des trois objets locaux a confirmé le bundle `c49c3530dbb3763b080a82b4a37805b0596e49a540e92e794f82ffa7f4dd32af` et les vignettes suivantes, dans l’ordre éditorial.
+Pour la reprise du 27, la relecture des trois objets locaux a confirmé l’index SHA-256 `25bc4530dbf71183be894ffa57031d3b0ce12fce7ee55ce4df14f22b6b75ce9a`, le bundle `c49c3530dbb3763b080a82b4a37805b0596e49a540e92e794f82ffa7f4dd32af` et les vignettes suivantes, dans l’ordre éditorial.
 
 | Carte | SHA-256 WebP | Octets |
 |---|---|---:|
@@ -84,3 +84,10 @@ Pour la reprise du 27, la relecture des trois objets locaux a confirmé le bundl
 | `3bde54b594d80bf82c028367931ad638b0a17b3914fe8735a22765a894563c8d` | `c8531b6a8631fd9e07ebe4aba3cde0f3c8209a6a5ef80e0fda753c1380e44bc5` | 35 868 |
 
 Comparer la première simulation Supabase à ces octets de recette. Si une version de runtime ou de Sharp produit un encodage différent, vérifier l’image, les masques, la légende, la palette et les cartes avant de retenir le nouveau SHA. Une réexécution contre une projection déjà créée doit retrouver ses empreintes.
+
+Les simulations des éditions de secours ont également réussi en lecture seule avec les bundles hébergés, deux cartes chacune, sans publication ni appel OpenAI.
+
+| Date | Index simulé | WebP cumulés | SHA-256 de l’index simulé |
+|---|---:|---:|---|
+| 25 novembre | 39 616 o | 76 138 o | `78b13d4f741765877c30963862acad2a1fd619f84134a86db0c65f46454288cf` |
+| 26 novembre | 39 780 o | 75 916 o | `7a404958f24385c10befb89ffc4e155d098e2cfa7ca85877043cb13b57df17b2` |
