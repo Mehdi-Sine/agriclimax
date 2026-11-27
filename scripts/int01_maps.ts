@@ -6,15 +6,40 @@ import {editorialRPC,SupabaseEditorialStore} from "../apps/web/features/editoria
 import {consultableEdition} from "../apps/web/features/editorial-ai/consultable";
 import {verifySnapshot,type DailyEditorialSnapshot} from "../apps/web/features/nightly/snapshot";
 import {verifyBundle,mapInfo,type MapApproval} from "../apps/web/features/edition-maps/model";
-import {publishMapBundle,encodeMapBundle} from "../apps/web/lib/server/edition-maps";
+import {publishMapBundle,encodeMapBundle,readPublishedMaps} from "../apps/web/lib/server/edition-maps";
 import {selectedMapIds} from "../apps/web/features/editorial-map-selection/daily";
+import {publishJournal} from "./opti01_journal_projection";
+import type {Archive} from "../apps/web/features/editorial-ai/model";
+import type {EditionMapBundle} from "../apps/web/features/edition-maps/model";
 import {buildEditionMaps} from "./int01_map_builder";
 const [command,id]=process.argv.slice(2);
 function arg(name:string){const i=process.argv.indexOf(name);return i<0?undefined:process.argv[i+1];}
+async function journalProjection(archive: Archive, bundle: EditionMapBundle, execute: boolean) {
+  const cwd = process.cwd();
+  process.chdir(resolve("apps/web"));
+  try {
+    console.log(JSON.stringify({edition_id:archive.edition_id, ...await publishJournal(archive,bundle,undefined,execute)}));
+  } finally {process.chdir(cwd);}
+}
+async function optionalJournalProjection(archive: Archive, bundle: EditionMapBundle) {
+  if (process.env.AGRICLIMAX_JOURNAL_PROJECTION_ENABLED !== "true") return;
+  try {await journalProjection(archive,bundle,true);}
+  catch {console.error("JOURNAL_PROJECTION_PENDING");}
+}
 async function main(){
-  if(!["prepare","publish","publish-experimental"].includes(command)||!id||!/^[a-f0-9]{64}$/.test(id))throw Error("USAGE_INT01_PREPARE_OR_PUBLISH_EDITION_ID");
+  if(!["prepare","publish","publish-experimental","journal-projection"].includes(command)||!id||!/^[a-f0-9]{64}$/.test(id))throw Error("USAGE_INT01_PREPARE_OR_PUBLISH_EDITION_ID");
   const archive=await new SupabaseEditorialStore("").read(id);if(!archive)throw Error("MAP_EDITION_NOT_FOUND");
   const publicEdition=consultableEdition(archive); // preserves existing text admission; never promotes/revalidates it
+  if (command==="journal-projection") {
+    const existing = await readPublishedMaps(archive);
+    if (!existing) throw Error("MAP_NOT_PUBLISHED");
+    if (process.argv.includes("--execute")) {
+      const control=await editorialRPC<{emergency_stop:boolean}>("control");
+      if (control.emergency_stop) throw Error("EMERGENCY_STOP");
+    }
+    await journalProjection(archive,existing,process.argv.includes("--execute"));
+    return;
+  }
   const publish=command==="publish";
   if(publish&&(!process.argv.includes("--execute")||!arg("--bundle")||!arg("--approval")||!arg("--expected-bundle")))throw Error("EXPLICIT_MAP_PUBLICATION_REQUIRED");
   const snapshot=await editorialRPC<DailyEditorialSnapshot|null>("snapshot_read",{edition_date:archive.date});
@@ -26,11 +51,11 @@ async function main(){
     const control=await editorialRPC<{emergency_stop:boolean}>("control");
     if(control.emergency_stop)throw Error("EMERGENCY_STOP");
     // Machine qualification is explicit; this is not a human scientific certification.
-    const {readPublishedMaps}=await import("../apps/web/lib/server/edition-maps");
     const prior=await readPublishedMaps(archive);
-    if(prior){if(prior.sha256!==bundle.sha256)throw Error("MAP_IMMUTABLE_CONFLICT");console.log(JSON.stringify({status:"already_published",edition_id:id}));return;}
+    if(prior){if(prior.sha256!==bundle.sha256)throw Error("MAP_IMMUTABLE_CONFLICT");await optionalJournalProjection(archive,prior);console.log(JSON.stringify({status:"already_published",edition_id:id}));return;}
     const approval:MapApproval={bundle_sha256:bundle.sha256,reviewer:"automatic:experimental-integrity-1",reviewed_at:new Date().toISOString(),scope:"descriptive_maps"};
     await publishMapBundle(bundle,approval);
+    await optionalJournalProjection(archive,bundle);
     console.log(JSON.stringify({status:"published_experimental",edition_id:id,bundle_sha256:bundle.sha256,maps:bundle.maps.map(mapInfo)}));return;
   }
   if(publish){
@@ -42,7 +67,9 @@ async function main(){
     const control=await editorialRPC<{emergency_stop:boolean;publication_enabled:boolean}>("control");
     if(control.emergency_stop||!control.publication_enabled)throw Error("MAP_PUBLICATION_DISABLED");
     // Review covers descriptive cartography only. Editorial approval remains independently required.
-    console.log(JSON.stringify({status:"published",publication:await publishMapBundle(bundle,approval),openai_calls:0}));return;
+    const publication=await publishMapBundle(bundle,approval);
+    await optionalJournalProjection(archive,bundle);
+    console.log(JSON.stringify({status:"published",publication,openai_calls:0}));return;
   }
   const out=resolve(arg("--out")??"work/int-01/candidates");mkdirSync(out,{recursive:true});
   writeFileSync(join(out,`${id}.json`),JSON.stringify(bundle));

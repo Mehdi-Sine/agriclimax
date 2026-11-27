@@ -25,6 +25,14 @@ const nextConfig: NextConfig = {
       source, headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }],
     }));
   },
+  // Served directly as a public asset. These functions only use the separate
+  // Journal outline, or receive the detailed geometry from the browser.
+  outputFileTracingExcludes: {
+    "/": ["./public/maps/pra-national.geojson"],
+    "/journal": ["./public/maps/pra-national.geojson"],
+    "/api/journal/thumbnail": ["./public/maps/pra-national.geojson"],
+    "/cartes-du-jour": ["./public/maps/pra-national.geojson"],
+  },
   outputFileTracingIncludes: {
     "/api/journal/thumbnail": ["./public/maps/journal-pra-v1.geojson", "./styles/tokens.css"],
   },

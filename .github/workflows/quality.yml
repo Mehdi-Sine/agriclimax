@@ -204,6 +204,7 @@ jobs:
         with:
           name: demo-browser-report
           path: work/quality/e2e/
+          retention-days: 14
   sql:
     runs-on: ubuntu-latest
     timeout-minutes: 15

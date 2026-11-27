@@ -4,8 +4,8 @@ import {editorialRPC,SupabaseEditorialStore} from "../../features/editorial-ai/s
 import type {Run} from "../../features/editorial-ai/archive";
 import {consultableEdition,verifyConsultable,unpackConsultable,type ConsultableEdition} from "../../features/editorial-ai/consultable";
 import bootstrap from "../../data/editorial/consultable-bootstrap.json";
-import {mapPreviewEdition,readPublishedMaps} from "./edition-maps";
 import {selectedMapIds} from "../../features/editorial-map-selection/daily";
+import {readJournalPublication} from "./journal-publication";
 import {hash} from "../../features/editorial/temporal";
 let previous:ConsultableEdition[]=[];
 let sharedIds=new Set<string>();
@@ -51,14 +51,24 @@ async function readOperationalEditions(date?:string) {
       results[index]=retained;
       continue;
     }
+    const indexed = await readJournalPublication(id).catch(() => null);
+    if(indexed && indexed.edition.validation.status !== "rejected" && indexed.edition.date === runs.find(r => r.archive_id === id)?.edition_date &&
+      (!uncertain || indexed.edition.mode === "fallback")) {
+      results[index]=indexed.edition;
+      continue;
+    }
     let a=await read(id);
     if(uncertain&&a?.mode!=="fallback")continue;
     if(a?.validation.status==="rejected")a=await read(hash([a.checksum,"experimental-factual-fallback-1"]))??a;
     if(a){const edition=consultableEdition(a);
      // New experimental publications become visible only after the immutable map commit.
      if(a.map_selection||STRICT_BOARD_VERSIONS.includes(a.prompt_version)||a.mode==="fallback"){
-      const maps=await readPublishedMaps(a);if(!maps)continue;
-      if(a.map_selection)selectedMapIds(a.map_selection,maps);
+      const projection = a.edition_id === id ? indexed : await readJournalPublication(a.edition_id).catch(() => null);
+      if(projection?.edition.checksum !== edition.checksum || projection.edition.date !== edition.date) {
+        const {readPublishedMaps}=await import("./edition-maps");
+        const maps=await readPublishedMaps(a);if(!maps)continue;
+        if(a.map_selection)selectedMapIds(a.map_selection,maps);
+      }
      }
      results[index]=edition;}}catch{/* skip this corrupt/incompatible archive and keep the previous edition */}
    }
@@ -76,6 +86,8 @@ async function readOperationalEditions(date?:string) {
    sharedIds=liveIds;
  }
  try{
+   if(process.env.AGRICLIMAX_MAP_PREVIEW_ENABLED!=="true") return selected;
+   const {mapPreviewEdition}=await import("./edition-maps");
    const preview=mapPreviewEdition();
    if(preview&&(!date||preview.date===date))
      return [preview,...selected.filter(e=>e.edition_id!==preview.edition_id)].sort(compare);

@@ -242,6 +242,7 @@ jobs:
           AGRICLIMAX_JOURNAL_HEALTH_URL: ${{ vars.AGRICLIMAX_JOURNAL_HEALTH_URL }}
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
           AGRICLIMAX_COUV06_EDITION_ENABLED: ${{ vars.AGRICLIMAX_COUV06_EDITION_ENABLED || 'true' }}
+          AGRICLIMAX_JOURNAL_PROJECTION_ENABLED: ${{ vars.AGRICLIMAX_JOURNAL_PROJECTION_ENABLED }}
           STAGE: ${{ needs.plan.outputs.stage }}
           RECOVERY: ${{ inputs.recovery }}
           AUTHORIZED_SNAPSHOT: ${{ inputs.authorized_snapshot }}
