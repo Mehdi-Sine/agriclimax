@@ -1,3 +1,4 @@
+import {readJournalPublication, readJournalThumbnail} from "../../../../lib/server/journal-publication";
 import {editionForecastRendering} from '../../../../lib/server/edition-forecast';
 import {operationalEditions} from "../../../../lib/server/editorial-published";
 import {editionMaps} from "../../../../lib/server/edition-maps";
@@ -8,18 +9,41 @@ import {mapThumbnail} from "../../../../lib/server/map-thumbnail";
 import {THUMBNAIL_VERSION} from "../../../../features/edition-maps/carousel-model";
 export const runtime = "nodejs";
 const noStore = {"Cache-Control": "no-store"};
-// The report can reuse an already-rendered published thumbnail. A cache miss
-// returns immediately, without fetching a map or calling the image renderer.
+// The report can reuse a durable or in-memory published thumbnail.
+// This path never loads a map or calls the renderer.
 const publishedThumbnails = new Map<string, Uint8Array>();
 export async function GET(request: Request) {
   const p = new URL(request.url).searchParams, id = p.get("id"), mapId = p.get("map");
   if (!id || !mapId || !/^[a-f0-9]{64}$/.test(id) || !/^[a-f0-9]{64}$/.test(mapId) || p.get("v") !== THUMBNAIL_VERSION)
     return Response.json({status: "absent", code: "THUMBNAIL_ID"}, {status: 400, headers: noStore});
+  const sha = p.get("sha");
+  if (sha !== null) {
+    if (!/^[a-f0-9]{64}$/.test(sha)) return Response.json({status: "absent", code: "THUMBNAIL_ID"}, {status:400, headers:noStore});
+    try {
+      const publication = await readJournalPublication(id);
+      if (!publication || !publication.thumbnails.some(ref => ref.map_id === mapId && ref.sha256 === sha)) return new Response(null, {status:404, headers:noStore});
+      const etag = `"${sha}"`;
+      const headers = {"Content-Type":"image/webp", "X-Content-Type-Options":"nosniff", ETag:etag,
+        "Cache-Control":"public, max-age=31536000, immutable",
+        "CDN-Cache-Control":"public, s-maxage=86400, stale-while-revalidate=604800"};
+      // A conditional response can use the exact reference validated by the
+      // immutable index. Fresh responses still verify the object bytes.
+      if (request.headers.get("if-none-match") === etag) return new Response(null, {status:304, headers});
+      const raw = await readJournalThumbnail(publication, mapId, sha);
+      return raw ? new Response(new Uint8Array(raw), {headers}) : new Response(null, {status:404, headers:noStore});
+    } catch {return Response.json({status:"error", code:"THUMBNAIL_UNAVAILABLE"}, {status:503, headers:noStore});}
+  }
   const key = `${id}/${mapId}`;
   if (p.get("cached") === "1") {
-    const existing = publishedThumbnails.get(key);
-    return existing ? new Response(new Uint8Array(existing), {headers:{...noStore,"Content-Type":"image/webp"}})
-      : new Response(null, {status:404,headers:noStore});
+    try {
+      const inMemory = publishedThumbnails.get(key);
+      if (inMemory) return new Response(new Uint8Array(inMemory), {headers:{...noStore,"Content-Type":"image/webp"}});
+      const publication = await readJournalPublication(id);
+      const ref = publication?.thumbnails.find(t => t.map_id === mapId);
+      const raw = publication && ref && await readJournalThumbnail(publication, mapId, ref.sha256);
+      if (raw) return new Response(new Uint8Array(raw), {headers:{...noStore,"Content-Type":"image/webp"}});
+    } catch {/* The report can proceed without its optional illustration. */}
+    return new Response(null, {status:404,headers:noStore});
   }
   try {
     const edition = (await operationalEditions()).find(e => e.edition_id === id);

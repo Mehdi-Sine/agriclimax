@@ -73,7 +73,7 @@ export class EditorialStore {
   constructor(readonly root: string) {
     mkdirSync(root, { recursive: true });
     for (const d of ["runs", "editions", "diagnostics"])
-      mkdirSync(join(root, d), { recursive: true });
+      mkdirSync(join(/*turbopackIgnore: true*/ root, d), { recursive: true });
   }
   lock() {
     const p = join(this.root, "budget.lock");

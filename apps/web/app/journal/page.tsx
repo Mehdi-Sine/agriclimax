@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { isJournalRun } from "../../features/journal/query";
-import { journal } from "../../lib/server/journal";
 import type { JournalEdition } from "../../features/journal/model";
 import { RegionalChart } from "../../features/journal/ui/visualizations";
 import {
@@ -18,6 +17,11 @@ import {journalMapCards} from "../../features/edition-maps/carousel-model";
 import type {ConsultableEdition} from "../../features/editorial-ai/consultable";
 
 async function ArchivedCarousel({edition}: {edition: ConsultableEdition}) {
+  const {readJournalPublication, publishedJournalCards} = await import("../../lib/server/journal-publication");
+  const projection = process.env.AGRICLIMAX_MAP_PREVIEW_ENABLED === "true" ? null
+    : await readJournalPublication(edition.edition_id).catch(() => null);
+  const cards = projection && publishedJournalCards(edition, projection);
+  if (cards) return <JournalMapCarousel cards={cards}/>;
   const {editionMaps} = await import("../../lib/server/edition-maps");
   const {view} = await editionMaps(edition);
   return <JournalMapCarousel
@@ -31,7 +35,6 @@ import {
   frenchPeriod,
 } from "../../features/journal/ui/editorial-dates";
 import { selectKeyFigures } from "../../features/journal/ui/key-figures";
-import { nationalWatch } from "../../lib/server/national-watch";
 import type { WatchSummary } from "../../features/national-watch/model";
 import "./journal.css";
 async function JournalArchiveLinks() {
@@ -51,6 +54,7 @@ async function EditionFigures({
   let summary: WatchSummary | undefined;
   if (edition.main_story) {
     try {
+      const {nationalWatch} = await import("../../lib/server/national-watch");
       summary = await nationalWatch(edition.source_cycles[0]);
     } catch {
       summary = undefined;
@@ -116,6 +120,7 @@ async function JournalContent({
   if (run !== undefined && !isJournalRun(run)) notFound();
   let edition: JournalEdition;
   try {
+    const {journal} = await import("../../lib/server/journal");
     edition = await journal(run);
   } catch {
     return (

@@ -28,6 +28,7 @@ function publishExperimentalMaps(archive:Archive|{edition_id:string}) {
  phase="experimental_maps";
  const result=spawnSync(process.execPath,["--conditions=react-server","apps/web/node_modules/tsx/dist/cli.mjs","scripts/int01_maps.ts","publish-experimental",archive.edition_id],{env:process.env,encoding:"utf8",timeout:300000,maxBuffer:1024*1024});
  if(result.status!==0)throw Error("EXPERIMENTAL_MAP_PUBLICATION_FAILED");
+ if(result.stderr?.includes("JOURNAL_PROJECTION_PENDING")) console.warn("JOURNAL_PROJECTION_PENDING");
 }
 function failureCode(error:unknown) {
   const prefix=error instanceof Error?error.message.split(":")[0]:"";

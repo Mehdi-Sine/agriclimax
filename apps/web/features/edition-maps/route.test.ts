@@ -20,7 +20,9 @@ it("returns one shared, checksum-bound catalogue and exact structured data witho
   vi.mocked(editionMaps).mockResolvedValue({bundle,view:{status:"published",code:"MAP_PUBLISHED",bundle_sha256:bundle.sha256,maps:bundle.maps.map(mapInfo)}});
   const catalogue=await GET(request(`id=${edition.edition_id}`));
   expect((await catalogue.json()).maps).toHaveLength(10);
-  const r=await GET(request(`id=${edition.edition_id}&map=${bundle.maps[0].id}`)),json=await r.json();
+  const r=await GET(request(`id=${edition.edition_id}&map=${bundle.maps[0].id}&date=${edition.date}`)),json=await r.json();
+  expect(operationalEditions).toHaveBeenLastCalledWith(edition.date);
+  expect((await GET(request(`id=${edition.edition_id}&date=2026-01-01`))).status).toBe(404);
   expect(r.status).toBe(200);expect(r.headers.get("cache-control")).toContain("immutable");
   expect(json.map).toEqual(bundle.maps[0]);expect(json.edition_checksum).toBe(edition.checksum);
   expect(JSON.stringify(json)).not.toMatch(/"(?:receipt|parameters|response_id|apikey)":/);

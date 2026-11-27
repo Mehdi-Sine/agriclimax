@@ -1,4 +1,4 @@
-name: INT-01 prepare edition maps (read-only)
+name: INT-01 edition maps and Journal projection
 on:
   workflow_dispatch:
     inputs:
@@ -6,6 +6,14 @@ on:
         description: Exact existing consultable edition ID (64 hex characters)
         type: string
         required: true
+      operation:
+        description: Prepare maps, simulate projection, or publish the approved projection
+        type: choice
+        default: prepare-maps
+        options:
+          - prepare-maps
+          - verify-projection
+          - publish-projection
 permissions:
   contents: read
 concurrency:
@@ -27,13 +35,35 @@ jobs:
           node-version: '22'
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Compute from frozen persisted inputs; never acquire, call AI or publish
+        if: inputs.operation == 'prepare-maps'
         env:
           EDITION_ID: ${{ inputs.edition_id }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           NODE_OPTIONS: --conditions=react-server
         run: apps/web/node_modules/.bin/tsx scripts/int01_maps.ts prepare "$EDITION_ID" --out work/int01-maps
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      - name: Verify or publish one projection from an existing edition
+        if: inputs.operation != 'prepare-maps'
+        env:
+          EDITION_ID: ${{ inputs.edition_id }}
+          OPERATION: ${{ inputs.operation }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          AGRICLIMAX_JOURNAL_PROJECTION_ENABLED: ${{ vars.AGRICLIMAX_JOURNAL_PROJECTION_ENABLED }}
+          AGRICLIMAX_JOURNAL_STORE: supabase
+          NODE_OPTIONS: --conditions=react-server
+        run: |
+          args=()
+          if [[ "$OPERATION" == publish-projection ]]; then
+            if [[ "$GITHUB_REF" != refs/heads/main || "$AGRICLIMAX_JOURNAL_PROJECTION_ENABLED" != true ]]; then
+              echo 'Projection publication requires main and the enabled GitHub Actions variable.'
+              exit 1
+            fi
+            args+=(--execute)
+          fi
+          apps/web/node_modules/.bin/tsx scripts/int01_maps.ts journal-projection "$EDITION_ID" "${args[@]}"
+      - if: inputs.operation == 'prepare-maps'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: int01-map-candidates-${{ github.run_id }}
           path: |

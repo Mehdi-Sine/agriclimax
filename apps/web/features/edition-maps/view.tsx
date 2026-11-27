@@ -15,12 +15,12 @@ import {SemanticLegend} from "../cartography/legend";
 import {frenchPeriod,frenchCycle} from "../journal/ui/editorial-dates";
 const NationalMap=dynamic(()=>import("../national/map"),{ssr:false});
 const nature=(n:string)=>n==="reanalysis"?"Réanalyse":"Prévision";
-export function EditionMaps({view,editionId,initialMapId,main=false}:{view:EditionMapsView;editionId:string;initialMapId?:string;main?:boolean}){
+export function EditionMaps({view,editionId,editionDate,initialMapId,main=false}:{view:EditionMapsView;editionId:string;editionDate?:string;initialMapId?:string;main?:boolean}){
   const [id,setId]=useState(view.maps.some(m=>m.id===initialMapId)?initialMapId!:view.maps[0]?.id??"");
   const [selected,setSelected]=useState("");
   const picker=useId();
   const info=view.maps.find(m=>m.id===id);
-  const url=info?`/api/journal/maps?id=${encodeURIComponent(editionId)}&map=${info.id}`:null;
+  const url=info?`/api/journal/maps?${new URLSearchParams({id:editionId,map:info.id,...(editionDate?{date:editionDate}:{})})}`:null;
   const result=useResource<{map:EditionMap;bundle_sha256:string;forecast_rendering?:EditionForecastRendering}>(url);
   const geometry=useResource<PraCollection>(info?"/maps/journal-pra-v1.geojson":null,true);
   const days=info?(Date.parse(info.period[1])-Date.parse(info.period[0]))/86400000+1:1;

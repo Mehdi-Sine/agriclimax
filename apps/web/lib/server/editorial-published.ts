@@ -4,20 +4,35 @@ import {editorialRPC,SupabaseEditorialStore} from "../../features/editorial-ai/s
 import type {Run} from "../../features/editorial-ai/archive";
 import {consultableEdition,verifyConsultable,unpackConsultable,type ConsultableEdition} from "../../features/editorial-ai/consultable";
 import bootstrap from "../../data/editorial/consultable-bootstrap.json";
-import {mapPreviewEdition,readPublishedMaps} from "./edition-maps";
 import {selectedMapIds} from "../../features/editorial-map-selection/daily";
+import {readJournalPublication} from "./journal-publication";
 import {hash} from "../../features/editorial/temporal";
 let previous:ConsultableEdition[]=[];
 let sharedIds=new Set<string>();
 export function sharedArchiveRead(id:string){return sharedIds.has(id);}
 /** Archive-only reads. The controlled public copy bridges DEV/production and cold-start outages. */
 let loading:Promise<ConsultableEdition[]>|undefined;
+let registryLoading:Promise<Run[]>|undefined;
+let retainedBootstrap:ConsultableEdition[]|undefined;
+const datesLoading=new Map<string,Promise<ConsultableEdition[]>>();
+
+function registry() {
+ if(!registryLoading) registryLoading=editorialRPC<Run[]>("runs").finally(()=>{registryLoading=undefined;});
+ return registryLoading;
+}
 let recent:{editions:ConsultableEdition[];expiresAt:number}|undefined;
 /** Group the article and its thumbnail requests around one catalogue refresh. */
 export function operationalEditions(date?:string) {
  if(recent&&recent.expiresAt>Date.now())
    return Promise.resolve(date ? recent.editions.filter(edition=>edition.date===date) : recent.editions);
- if(date) return readOperationalEditions(date);
+ if(date) {
+  const existing=datesLoading.get(date);
+  if(existing) return existing;
+  if(datesLoading.size>=16) return readOperationalEditions(date);
+  const pending=readOperationalEditions(date).finally(()=>datesLoading.delete(date));
+  datesLoading.set(date,pending);
+  return pending;
+ }
  if(!loading)loading=readOperationalEditions().then(editions=>{
   if(sharedIds.size) recent={editions,expiresAt:Date.now()+15_000};
   return editions;
@@ -28,9 +43,9 @@ async function readOperationalEditions(date?:string) {
  const editions=new Map<string,ConsultableEdition>();
  const liveIds=new Set<string>();
  for(const a of previous) if(!date||a.date===date) try {editions.set(a.edition_id,verifyConsultable(a));}catch{/* retain other dates */}
- try {for(const a of unpackConsultable(bootstrap))if(!date||a.date===date)editions.set(a.edition_id,a);}catch{/* corrupted copy is never served */}
+ try {for(const a of (retainedBootstrap??=unpackConsultable(bootstrap)))if(!date||a.date===date)editions.set(a.edition_id,a);}catch{/* corrupted copy is never served */}
  try {
-  const runs=await editorialRPC<Run[]>("runs");
+  const runs=await registry();
   const ids=[...new Set(runs.filter(r=>(!date||r.edition_date===date)&&r.archive_id&&["completed","validation_failed","outcome_unknown"].includes(r.state)).slice(-60).map(r=>r.archive_id!))];
   const store=new SupabaseEditorialStore("");
   // Rejected runs can point to the same fallback as a completed run. Read each
@@ -51,14 +66,24 @@ async function readOperationalEditions(date?:string) {
       results[index]=retained;
       continue;
     }
+    const indexed = await readJournalPublication(id).catch(() => null);
+    if(indexed && indexed.edition.validation.status !== "rejected" && indexed.edition.date === runs.find(r => r.archive_id === id)?.edition_date &&
+      (!uncertain || indexed.edition.mode === "fallback")) {
+      results[index]=indexed.edition;
+      continue;
+    }
     let a=await read(id);
     if(uncertain&&a?.mode!=="fallback")continue;
     if(a?.validation.status==="rejected")a=await read(hash([a.checksum,"experimental-factual-fallback-1"]))??a;
     if(a){const edition=consultableEdition(a);
      // New experimental publications become visible only after the immutable map commit.
      if(a.map_selection||STRICT_BOARD_VERSIONS.includes(a.prompt_version)||a.mode==="fallback"){
-      const maps=await readPublishedMaps(a);if(!maps)continue;
-      if(a.map_selection)selectedMapIds(a.map_selection,maps);
+      const projection = a.edition_id === id ? indexed : await readJournalPublication(a.edition_id).catch(() => null);
+      if(projection?.edition.checksum !== edition.checksum || projection.edition.date !== edition.date) {
+        const {readPublishedMaps}=await import("./edition-maps");
+        const maps=await readPublishedMaps(a);if(!maps)continue;
+        if(a.map_selection)selectedMapIds(a.map_selection,maps);
+      }
      }
      results[index]=edition;}}catch{/* skip this corrupt/incompatible archive and keep the previous edition */}
    }
@@ -76,6 +101,8 @@ async function readOperationalEditions(date?:string) {
    sharedIds=liveIds;
  }
  try{
+   if(process.env.AGRICLIMAX_MAP_PREVIEW_ENABLED!=="true") return selected;
+   const {mapPreviewEdition}=await import("./edition-maps");
    const preview=mapPreviewEdition();
    if(preview&&(!date||preview.date===date))
      return [preview,...selected.filter(e=>e.edition_id!==preview.edition_id)].sort(compare);
