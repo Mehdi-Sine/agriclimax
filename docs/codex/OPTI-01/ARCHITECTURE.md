@@ -27,3 +27,7 @@ Les étapes futures de découplage sont un catalogue versionné compact pour dé
 - **Avant le 29 novembre**. Stabiliser la continuité avec le fournisseur et relever les séries Usage par projet. Préparer la projection et la sauvegarde indépendante. Rétroalimenter les archives consultées sur une recette autorisée. Voir [Runbook](RUNBOOK.md).
 - **À six mois**. Cibler l’architecture 2 si l’usage commercial ou associatif et la charge respectent les plans choisis, les révisions sont restaurables et le cached egress tient sous 3 Go par mois. La phase 2 privilégie les archives effectivement lues.
 - **À deux ans**. Garder la publication cloud légère. Comparer l’architecture 6 à un VPS DB et archive R2 si calcul local, prévisions ou beta augmentent sensiblement la charge. Décider après coût total avec exploitation, disponibilité, restauration, résidence et éligibilité des offres.
+
+## Orientation OPTI-01A
+
+La cible opérationnelle remplace la recommandation de migration antérieure. GitHub, Supabase et Vercel couvrent les quatre fonctions de Climacta. L’adaptateur S3 reste en réserve et aucun nouveau service ne participe à l’écriture ou à la lecture initiale. La publication quotidienne bénéficie des clés immuables sans redéploiement du code. Le workflow INT-01 existant permet une reprise ponctuelle par identifiant, avec contrôle d’admission et de révision. [Décision d’architecture](DECISION-ARCHITECTURE.md)

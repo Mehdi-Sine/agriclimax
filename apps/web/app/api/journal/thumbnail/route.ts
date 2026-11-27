@@ -21,14 +21,16 @@ export async function GET(request: Request) {
     if (!/^[a-f0-9]{64}$/.test(sha)) return Response.json({status: "absent", code: "THUMBNAIL_ID"}, {status:400, headers:noStore});
     try {
       const publication = await readJournalPublication(id);
-      const raw = publication && await readJournalThumbnail(publication, mapId, sha);
-      if (!raw) return new Response(null, {status:404, headers:noStore});
+      if (!publication || !publication.thumbnails.some(ref => ref.map_id === mapId && ref.sha256 === sha)) return new Response(null, {status:404, headers:noStore});
       const etag = `"${sha}"`;
       const headers = {"Content-Type":"image/webp", "X-Content-Type-Options":"nosniff", ETag:etag,
         "Cache-Control":"public, max-age=31536000, immutable",
         "CDN-Cache-Control":"public, s-maxage=86400, stale-while-revalidate=604800"};
-      return request.headers.get("if-none-match") === etag ? new Response(null, {status:304, headers})
-        : new Response(new Uint8Array(raw), {headers});
+      // A conditional response can use the exact reference validated by the
+      // immutable index. Fresh responses still verify the object bytes.
+      if (request.headers.get("if-none-match") === etag) return new Response(null, {status:304, headers});
+      const raw = await readJournalThumbnail(publication, mapId, sha);
+      return raw ? new Response(new Uint8Array(raw), {headers}) : new Response(null, {status:404, headers:noStore});
     } catch {return Response.json({status:"error", code:"THUMBNAIL_UNAVAILABLE"}, {status:503, headers:noStore});}
   }
   const key = `${id}/${mapId}`;

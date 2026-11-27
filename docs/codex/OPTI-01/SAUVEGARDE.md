@@ -77,3 +77,40 @@ Vérifier le nombre de PRA (713), les distributions de couverture, les dates et 
 Les trois objets de la projection réelle du 27 ont été copiés dans un second répertoire isolé avec rclone. Deux copies successives en mode immuable ont donné les mêmes octets. Les trois SHA-256 et les tailles ont été contrôlés avec `opti01_objects.py`.
 
 Un `pg_dump -Fc` et un `pg_restore --exit-on-error --single-transaction` ont été exécutés dans PostgreSQL 17 sans réseau, avec l’archive réelle du 27 et 713 identifiants PRA uniques en données de recette. Les contrôles après restauration donnent le même SHA-256 pour les 423 424 octets de l’archive et le même nombre d’identifiants. Ce jeu inclut des lignes de liaison de test. Le dump hébergé, les extensions PostGIS et gérées et les 1 414 objets de production restent à restaurer ensemble sur la cible complète.
+
+## OPTI-01A · Poste Windows
+
+Prévoir PowerShell 7.4+, PostgreSQL client 17 ou compatible avec le serveur, Python 3.11+, Git, rclone et age. Utiliser un volume BitLocker et deux destinations physiques indépendantes. Prévoir au moins 5 Go libres pour le bucket (0,824 Go), le dump logique, le dépôt et les contrôles. À 10 Mbit/s, 0,824 Go représentent environ 11 min de transfert utile. Prévoir 20 à 45 min avec métadonnées, vérification et restauration de recette. Le transfert intégral exige un accord sur la fenêtre et la marge d’egress.
+
+Dans Supabase → Connect, relever la connexion PostgreSQL directe ou le pooler **Session**. Préparer un service libpq `climacta_backup` dans un fichier désigné par `PGSERVICEFILE` et les identifiants dans `PGPASSFILE` à accès restreint. Vérifier TLS et la chaîne de confiance. Le profil rclone `supabase-private` pointe vers l’endpoint S3 Supabase avec des droits de lecture adaptés. Conserver sa configuration et les clés age hors du dépôt. Les clés SMTP, OpenAI, GitHub, Vercel et Vault se restaurent dans leur gestionnaire.
+
+Après consentement, ouvrir PowerShell depuis le dossier du dépôt. Les commandes utilisent des fichiers UTF-8 et évitent une redirection PowerShell des dumps binaires.
+
+```powershell
+$ErrorActionPreference = 'Stop'
+$PSNativeCommandUseErrorActionPreference = $true
+$dir = 'D:\Climacta\backup-2026-11-27'
+New-Item -ItemType Directory -Force "$dir\objects" | Out-Null
+git bundle create "$dir\source.bundle" --all
+pg_dump --dbname='service=climacta_backup' --format=custom --exclude-schema=vault --exclude-schema=net --exclude-table-data=cron.job --exclude-table-data=cron.job_run_details --file="$dir\postgres.dump"
+pg_restore --list "$dir\postgres.dump" | Set-Content -Encoding utf8 "$dir\postgres-toc.txt"
+$sql = @'
+SELECT json_build_object('key',name,'bytes',(metadata->>'size')::bigint,'etag',metadata->>'eTag','content_type',metadata->>'mimetype','created_at',created_at,'updated_at',updated_at)
+FROM storage.objects WHERE bucket_id='pra-climate-archives' ORDER BY name;
+'@
+psql 'service=climacta_backup' -X -qAt -v ON_ERROR_STOP=1 -c $sql -o "$dir\storage-inventory.ndjson"
+psql 'service=climacta_backup' -X --csv -v ON_ERROR_STOP=1 -c 'SELECT jobname,schedule,active FROM cron.job ORDER BY jobid' -o "$dir\cron-schedules.csv"
+$env:PYTHONUTF8 = '1'
+python scripts/opti01_objects.py keys "$dir\storage-inventory.ndjson" | Set-Content -Encoding utf8 "$dir\keys.txt"
+rclone copy supabase-private:pra-climate-archives "$dir\objects" --files-from-raw "$dir\keys.txt" --immutable --transfers 2 --checkers 2
+python scripts/opti01_objects.py seal "$dir\storage-inventory.ndjson" "$dir\objects" | Set-Content -Encoding utf8 "$dir\objects.sha256.ndjson"
+python scripts/opti01_objects.py verify "$dir\objects.sha256.ndjson" "$dir\objects"
+Get-ChildItem $dir -File | Where-Object Name -ne 'SHA256SUMS' | ForEach-Object { '{0}  {1}' -f (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant(), $_.Name } | Set-Content -Encoding utf8 "$dir\SHA256SUMS"
+tar.exe -cf 'D:\Climacta\backup-2026-11-27.tar' -C "$dir" .
+New-Item -ItemType Directory -Force 'E:\Climacta' | Out-Null
+age -r $env:CLIMACTA_BACKUP_AGE_RECIPIENT -o 'E:\Climacta\backup-2026-11-27.tar.age' 'D:\Climacta\backup-2026-11-27.tar'
+```
+
+Comparer les inventaires et les pointeurs avant/après la copie. Contrôler les empreintes de la copie chiffrée sur le second support. Pour restaurer, utiliser `age -d -i <fichier-identité> -o D:\Climacta\restore.tar E:\Climacta\backup-2026-11-27.tar.age`, puis `tar.exe -xf D:\Climacta\restore.tar -C D:\Climacta\restore` dans un dossier préparé sur le volume chiffré. Comparer `Get-FileHash -Algorithm SHA256` au manifest. Préparer un service `climacta_restore_isolated`, réinstaller les dépendances gérées, valider une liste TOC et exécuter `pg_restore --dbname='service=climacta_restore_isolated' --exit-on-error --single-transaction --use-list=D:\Climacta\restore\toc-reviewed.txt D:\Climacta\restore\postgres.dump`. Copier les objets dans un bucket privé isolé et les relire avec la commande `verify`. Tester accès autorisés, 713 PRA, révisions, reçus, masques, référence des vignettes et watchdog simulé.
+
+La restauration partielle PostgreSQL et les trois objets d’OPTI-01 constituent une preuve de recette. La procédure Windows et le dump hébergé complet restent à exécuter avec les accès de sauvegarde et une fenêtre autorisée.

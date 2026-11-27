@@ -40,3 +40,48 @@ La projection du 27 représente 121 388 o et deux vignettes. À poids fixe, 30 p
 | Cache miss / uncached | 20,47 Mo de réponses Storage MISS le dernier jour mesuré, agrégat facturé manquant | Mesurer séparément, y compris le coût transitoire des copies. |
 | IA quotidienne | 0,087014 € le 27 | Aucun appel supplémentaire. Le coût des futures productions dépend des jetons. |
 | Fonctions et parcours mobile | Mesures de référence EDIT-09 et traces Next | Voir [Performances](PERFORMANCES.md). |
+
+## OPTI-01A · Architecture de référence et seuils d’observation
+
+La référence avant activation est le relevé OPTI-01, confirmé le 27 novembre à **201 422 515 o** PostgreSQL et **823 463 484 o** Storage pour **1 414 clés**. Aucun objet `journal/v1` n’était présent. La facturation de l’organisation demeure à extraire. Les logs étendus, soit 22,77 Go HIT et 1,17 Go MISS, couvrent 26 fenêtres d’observation et une partie des sources. Ils servent à attribuer les familles et ne couvrent pas tous les postes de facturation.
+
+| Dimension | Avant OPTI-01A | Après activation, estimation ou validation requise |
+|---|---|---|
+| Composants d’hébergement | GitHub, Supabase, Vercel | Mêmes trois fournisseurs. Projection dans le bucket privé existant. |
+| Secrets et workflows | Identifiants Supabase dans Actions et Vercel, autres accès scientifiques et éditoriaux existants | Zéro nouveau secret ou workflow pour la voie Supabase. Deux drapeaux non secrets. |
+| Intervention | Un déploiement pour livrer le code | Activation ponctuelle, reprise du 27 et activation web. Zéro action à chaque édition normale. |
+| Stockage | 823,46 Mo scientifiques et associés | +121,4 ko pour le 27. À taille fixe, ~44,3 Mo pour 365 éditions, archives scientifiques en sus. |
+| Risque | Lecture historique coûteuse à froid, quotas partagés, prévision indisponible | Projections manquantes ou indisponibles et réchauffement du CDN. Secours historique et drapeaux indépendants. |
+| Coûts | OpenAI 0,087014 € pour le 27, cumuls d’hébergement à extraire | Aucun service ajouté. Budget indicatif Supabase Pro à partir de 25 USD/mois et calcul selon usage. Le coût des éditions dépend des jetons. |
+
+### Scénarios avec cache
+
+Hypothèses illustratives sur 30 jours. Une visite quotidienne, un accès origine à l’index de 45 472 o pour 10 % des visites, et accès origine aux WebP de 75 916 o au total pour 5 %. Pour Cartes, 10 % des visiteurs ouvrent une carte et 20 % de ces ouvertures nécessitent une lecture du bundle de 6 330 949 o. Jouer les hypothèses avec les taux mesurés, par région et par profil. Les volumes de la colonne Journal sont des transferts origine indicatifs, pas du cached egress facturé. Les anciennes dates sans projection restent hors du scénario optimisé.
+
+| Lecteurs quotidiens | Visites / 30 j | Journal indexé vers origine | Cartes vers origine |
+|---:|---:|---:|---:|
+| 1 | 30 | 0,25 Mo | 3,80 Mo |
+| 10 | 300 | 2,50 Mo | 37,99 Mo |
+| 100 | 3 000 | 25,03 Mo | 379,86 Mo |
+| 1 000 | 30 000 | 250,29 Mo | 3 798,57 Mo |
+
+Ajouter la charge indépendante des visiteurs et les lectures du catalogue. Mesurer acquisitions, réessais, copies, previews, rapports et lectures de masques dans des fenêtres séparées, puis rapprocher les compteurs d’organisation. Le modèle large de l’audit donne un solde théorique de 2,08 Go HIT par 30 jours à fréquentation constante si les transferts des cartes d’édition et des masques étaient entièrement évités. Il ne constitue pas une prévision. La croissance des nouvelles clés hors natives atteignait environ 3,36 Go/an en extrapolation de cohorte. Pour tenir sur Free, remplacer cette extrapolation par une série nette après rotation autorisée et contrôle des dépendances. [Audit](AUDIT.md) · [Inventaire](INVENTAIRE.md)
+
+### Décider d’un retour à Free
+
+Le plafond publié est de 500 Mo DB par projet, 1 Go Storage, 5 Go cached et 5 Go uncached séparés selon le barème public, avec vérification des unités et de l’imputation dans Acta. Repères opérationnels proposés **DB < 400 Mo**, **Storage ≤ 0,90 Go** avec trajectoire compatible, **cached ≤ 3 Go/mois**, **uncached ≤ 4 Go/mois** en incluant la charge de l’organisation. Viser également −70 % cached à fréquentation comparable, trois productions successives acceptables, restauration intégrale vérifiée, maintien de l’accès historique et résultats mobiles stables. Une seule semaine sert à décider s’il faut prolonger l’observation. Tenir compte des cycles de prévision et des pointes.
+
+Le propriétaire relève dans Supabase → organisation Acta → Billing le plan actif, la date réelle de renouvellement Pro, les projets, options payantes, limites, période d’usage, crédits et factures. La date de reconstitution Free annoncée au 18 décembre ne détermine pas le renouvellement Pro. Vérifier l’offre et l’aperçu de la modification avant toute décision. La documentation directe indique que le changement peut être immédiat et que les dépassements du cycle sont calculés au changement de plan. Les crédits éventuels dépendent des conditions du compte. **NO-GO tant que mesures, marge et sauvegarde intégrale n’ont pas été vérifiées.** [Gestion de l’abonnement Supabase](https://supabase.com/docs/guides/platform/manage-your-subscription) · [FAQ facturation](https://supabase.com/docs/guides/platform/billing-faq)
+
+### Alternatives de publication
+
+| Service | Capacité et usage pertinent | Effet sur l’exploitation |
+|---|---|---|
+| Vercel Blob | Offre Hobby annoncée avec 1 Go-mois, 10 Go de Blob Data Transfer, 10 000 opérations simples et 2 000 avancées incluses. Au-delà, consulter prix et zone. Blobs privés via accès autorisé et fonction. | Un service et un ou plusieurs tokens, sauvegarde et plan de récupération. Adapté aux projections légères si leur coût d’origine le justifie. Son stockage et son transfert sont distincts de Function Storage. |
+| Git existant | Référentiels stables, Almanach, code et géométries publiques versionnés. | Les publications quotidiennes feraient grossir l’historique, les clones et la CI. Si couplées à une livraison Vercel, elles déclencheraient des déploiements inutiles. |
+| Dépôt GitHub dédié / Pages | Publication statique publique découplée de Vercel. Pages prévoit 1 Go recommandé pour la source et 100 Go/mois souples. Le service impose des conditions d’usage commercial. | Dépôt et pipeline supplémentaires, coordination des révisions, gestion du cache et des clés. Les archives scientifiques privées restent ailleurs. |
+| Releases | Actifs de moins de 2 Gio par fichier, intéressants pour des versions publiables et des snapshots de preuve. | Les releases d’un dépôt public sont publiques. Friction quotidienne et restauration à concevoir pour le Journal. |
+| Artifacts / LFS | Artifacts pour checkpoints et rapports à durée de vie contrôlée. LFS pour fichiers versionnés avec quotas de stockage et transfert. | Les expirations et quotas rendent ces services peu adaptés à la source de vérité des archives et du Journal. |
+| Cloudflare R2 | Standard annonce 10 Go-mois, 1 million A, 10 millions B et egress R2 gratuit. Pertinent si la charge bloquante reste celle des masques et archives lourdes. | Fournisseur, clés, contrôle des copies et reprise supplémentaires. Maintenir S3 en réserve. |
+
+GitHub Actions standard sur dépôt public et Vercel Hobby sont soumis à leurs conditions. Hobby vise l’usage personnel et non commercial. Requalifier la bêta et toute exploitation professionnelle avant de planifier un hébergement Hobby. [Vercel Blob](https://vercel.com/docs/vercel-blob/usage-and-pricing) · [Vercel Hobby](https://vercel.com/docs/plans/hobby) · [Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits) · [Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases) · [Git LFS](https://docs.github.com/en/billing/concepts/product-billing/git-lfs) · [R2](https://developers.cloudflare.com/r2/pricing/)

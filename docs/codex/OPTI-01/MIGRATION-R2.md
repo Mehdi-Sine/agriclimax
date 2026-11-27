@@ -1,4 +1,6 @@
-# OPTI-01 · Migration progressive vers R2
+# OPTI-01 · Alternative de stockage R2
+
+**OPTI-01A conserve Supabase comme backend initial.** Ce document décrit une option de réserve. Le verdict d’OPTI-01 concernant une recette R2 est historique. Aucun compte, bucket ni essai distant R2 n’est requis pour OPTI-01A. [Décision actuelle](DECISION-ARCHITECTURE.md)
 
 **GO pour la recette avec une destination privée et des copies vérifiées. NO-GO pour tout basculement de production.** L’endpoint, les identifiants R2, le test R2 réel, la restauration complète et l’autorisation de bascule restent à obtenir. R2 Standard propose 10 Go-mois, 1 million d’opérations A et 10 millions B par mois en franchise, avec egress propre à R2 sans frais. Les franchises s’appliquent au compte et les dépassements sont facturables. L’accès nécessite une configuration Cloudflare existante et autorisée. [Tarifs R2](https://developers.cloudflare.com/r2/pricing/) · [Compatibilité S3](https://developers.cloudflare.com/r2/api/s3/api/)
 

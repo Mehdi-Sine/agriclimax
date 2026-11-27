@@ -78,3 +78,5 @@ Les rapports navigateur concentrent 91,1 % de la taille totale exposée par l’
 | 18 | `editorial-inputs/c3a58d9eddf6….json.gz` | 4 898 530 | 2026-11-10 |
 | 19 | `editorial-inputs/319bce61de5d….json.gz` | 4 533 471 | 2026-11-09 |
 | 20 | `edition-maps/blobs/45751bc69a16….json.gz` | 1 554 592 | 2026-11-12 |
+
+OPTI-01A a confirmé les totaux du bucket et l’absence de clés de projection avant activation. Le registre et les manifestes effectivement consultables des 25, 26 et 27 sont réconciliés dans le runbook. La part du transfert mensuel de chaque environnement doit être observée à partir des fenêtres d’activité et de l’export Acta. [Runbook](RUNBOOK.md)

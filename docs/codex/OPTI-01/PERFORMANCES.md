@@ -50,3 +50,43 @@ Dans le rejeu à froid historique, les chemins du Journal et de la route de vign
 Mesurer accueil, Journal daté et une édition historique, avec un premier rendu et une recharge. Utiliser 390 × 844, CPU ×4, latence 150 ms et débit descendant 1,6 Mbit/s. Relever séparément le cache navigateur, le cache CDN et l’instance Next. Reprendre le protocole sur production et recette avec les mêmes sources et volumes comparables, et conserver au moins cinq essais par état. Vérifier le titre, le chapeau et le premier bloc, l’ordre des vignettes, l’absence de canvas et de géométrie dans le Journal, le lien vers Cartes et les filtres visibles dans Analyse. Isoler les octets navigateur, réponses R2/Supabase, RPC, temps d’origine, LCP et TTFB. Pour la cible LCP **< 2,5 s**, suivre le p75 sur le profil mobile et les visites réelles si disponibles.
 
 Qualifier la réduction de 70 % sur une période à fréquentation et nombre d’éditions comparables, en rapportant séparément scans administratifs, déploiements, explorations des cartes et copies d’objets. Le seuil de 3 Go concerne l’organisation et une fenêtre de facturation complète. L’activité du second projet doit être prise en compte. EDIT-09 mesurait 11,60 s à froid et 1,20 s à chaud sur un accueil Preview mobile. Cette série sert de référence historique avec limites de comparabilité. [Relevé EDIT-09](../EDIT-09/evidence/vercel-mobile.json)
+
+## OPTI-01A · Politique de cache
+
+| Ressource | Politique après OPTI-01A | Fraîcheur et contrôle |
+|---|---|---|
+| Accueil et alias par date | HTML Next dynamique. Aucun ISR. Registre partagé entre requêtes simultanées dans une instance, avec démarrage par la date visée. | Le catalogue déjà chaud peut grouper les lectures pendant 15 s. Les lectures ciblées et les reprises gardent les contrôles existants. |
+| API d’édition | Recherche limitée à la date si fournie. ETag et `no-store`, y compris sur `304` et `404`. | Une nouvelle révision a sa propre identité. Les alias restent frais et les états indisponibles réessayables. |
+| Index versionné de projection | Petits objets privés, vérifiés, cache mémoire borné à 48 entrées positives par instance. | Admission d’après le registre et concordance de l’édition. Erreurs et absences réessayables. |
+| WebP immuables vérifiés | Clé HTTP par id d’édition, carte, version et SHA. Cache navigateur un an, CDN un jour et réutilisation pendant revalidation si disponible. | Un ETag correspondant à une référence vérifiée retourne 304 sans relecture du raster. Réponse 200 à partir des octets validés. Les erreurs et lectures du mail gardent `no-store`. |
+| Métadonnées de disponibilité | `no-store`. La sonde lit l’état courant et le Journal daté. | Délai de six secondes maintenu. Un état public valide ne renseigne pas à lui seul le LCP. |
+| Contours et science | Assets publics versionnés servis par Next, masques, valeurs et géométries détaillées à la demande dans les rubriques dédiées. | Les contrats de 713 PRA, six en Corse, et la couverture à 90 % restent ceux d’EDIT-09 et COUV. |
+
+Le cache Supabase HIT mesure une lecture depuis le cache du fournisseur. Un HIT Vercel peut éviter cette lecture, selon la région et la clé. Les anciens articles sans projection et les requêtes de catalogue peuvent encore charger les bundles pour vérifier l’accès. Le benchmark de recette OPTI-01 isole une édition. Une revue Vercel sur une recette active et un échantillon d’archives est nécessaire pour chiffrer l’économie à l’échelle du site.
+
+### Mesure et seuils d’acceptation
+
+Mesurer sur le même déploiement et les mêmes révisions. Prendre un navigateur neuf, un premier rendu puis un rechargement. Enregistrer la navigation et les ressources via DevTools. Exporter un HAR épuré des cookies et en-têtes d’accès. Relever TTFB, LCP, arrivée du titre/chapeau et premier bloc d’article, deux événements `load` des images, nombres de requêtes et octets navigateur/JS. Consigner la région de mesure, `x-vercel-cache`, `Age`, ETag et compteurs Storage depuis les consoles. Contrôler mobile 390 × 844 et bureau, navigation entre les dates, carrousel, carte et Analyse. Arrêter l’essai si des réponses répétées ou un transfert disproportionné apparaissent.
+
+Les vérifications locales couvrent le regroupement des consultations concurrentes d’une date, la liaison de la projection et le 304 du WebP à partir de l’index, ainsi que le rejet d’octets corrompus lors d’une lecture complète. Les tests de recette d’OPTI-01 restent la référence de dimensionnement. Tout relevé Preview avec drapeaux désactivés qualifie la voie historique. Le LCP mesuré sur une projection locale ne démontre ni le cache HIT CDN, ni la sonde de six secondes en production. [Cache CDN Vercel](https://vercel.com/docs/caching/cache-control-headers) · [Cache CDN Next.js](https://nextjs.org/docs/app/guides/cdn-caching)
+
+La Preview Vercel de départ de la PR a renvoyé le 27 depuis `shared_archive` avec HTTP 200, `no-store` et `x-vercel-cache: MISS`. Temps jusqu’aux en-têtes **4 859 ms**, mesuré sur une seule requête de disponibilité. Le double contrôle du mail inclut aussi une page Journal et garde son propre budget.
+
+### Rejeu supplémentaire OPTI-01A
+
+Même build Next, édition réelle du 27 rejouée avec origine simulée à 80 ms et index sur disque. Une paire par configuration. Mobile 390 × 844, CPU ×4, 150 ms et 1,6 Mbit/s. Bureau 1 280 × 900 sans limitation ajoutée. Les temps du contenu indiquent son apparition dans le DOM.
+
+| Mesure | Mobile historique froid / chaud | Mobile indexé froid / chaud | Bureau indexé froid / chaud |
+|---|---:|---:|---:|
+| TTFB | 863 / 30 ms | 506 / 37 ms | 445 / 24 ms |
+| LCP | 3 036 / 592 ms | 1 464 / 592 ms | 916 / 88 ms |
+| Titre et chapeau | 2 688 / 306 ms | 978 / 226 ms | 564 / 46 ms |
+| Premier contenu d’article | 2 700 / 306 ms | 978 / 226 ms | 564 / 46 ms |
+| Deux premiers chargements d’image, froid | 5 532 et 5 671 ms | 2 449 et 2 544 ms | 1 192 et 1 193 ms |
+| Requêtes navigateur | 17 / 17 | 17 / 17 | 17 / 17 |
+| Octets navigateur | 310 850 / 19 849 | 310 851 / 19 504 | 310 853 / 19 502 |
+| Octets JS | 151 044 / 0 | 151 044 / 0 | 151 044 / 0 |
+| Appels d’origine simulée | 12 / 1 | 2 / 0 | 2 / 0 |
+| Bundle scientifique | 12 661 898 / 0 o | 0 / 0 o | 0 / 0 o |
+
+Les appels au registre figurent parfois deux fois quand le chargement du catalogue suit la requête de date. Le regroupement ne concerne que les requêtes réellement simultanées d’un même processus. Aucun canvas, débordement ou chargement de géométrie dans ces visites Journal. Les identifiants et l’ordre des deux cartes correspondent à la projection et à la voie historique. L’échantillon est local et ponctuel. La médiane sur trois essais OPTI-01 constitue un repère complémentaire.

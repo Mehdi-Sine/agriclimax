@@ -53,6 +53,11 @@ it("publishes verified WebP and its index once, preserving edition and map ident
     expect(await publishJournal(archive,bundle,restartedStore)).toMatchObject({status:"already_published"});
     await writeFile(join(root,"journal/v1",id,ref.map_id,`${ref.sha256}.webp`), Buffer.alloc(webp.length));
     await expect(readJournalThumbnail(publication,ref.map_id,ref.sha256,restartedStore)).rejects.toThrow("JOURNAL_THUMBNAIL_CHECKSUM");
+    url.searchParams.delete("cached");
+    url.searchParams.set("sha",ref.sha256);
+    expect((await GET(new Request(url,{headers:{"If-None-Match":`"${ref.sha256}"`}}))).status).toBe(304);
+    expect((await GET(new Request(url))).status).toBe(503);
+    await expect(publishJournal(archive,bundle,restartedStore,false)).rejects.toThrow("JOURNAL_THUMBNAIL_CHECKSUM");
   } finally {await rm(root,{recursive:true,force:true});}
 }, 30_000);
 

@@ -31,6 +31,10 @@ async function main(){
   const archive=await new SupabaseEditorialStore("").read(id);if(!archive)throw Error("MAP_EDITION_NOT_FOUND");
   const publicEdition=consultableEdition(archive); // preserves existing text admission; never promotes/revalidates it
   if (command==="journal-projection") {
+    const {operationalEditions} = await import("../apps/web/lib/server/editorial-published");
+    const admitted = (await operationalEditions(archive.date)).some(edition =>
+      edition.edition_id === archive.edition_id && edition.checksum === archive.checksum);
+    if (!admitted) throw Error("JOURNAL_EDITION_NOT_CONSULTABLE");
     const existing = await readPublishedMaps(archive);
     if (!existing) throw Error("MAP_NOT_PUBLISHED");
     if (process.argv.includes("--execute")) {

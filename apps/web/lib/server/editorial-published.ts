@@ -12,12 +12,27 @@ let sharedIds=new Set<string>();
 export function sharedArchiveRead(id:string){return sharedIds.has(id);}
 /** Archive-only reads. The controlled public copy bridges DEV/production and cold-start outages. */
 let loading:Promise<ConsultableEdition[]>|undefined;
+let registryLoading:Promise<Run[]>|undefined;
+let retainedBootstrap:ConsultableEdition[]|undefined;
+const datesLoading=new Map<string,Promise<ConsultableEdition[]>>();
+
+function registry() {
+ if(!registryLoading) registryLoading=editorialRPC<Run[]>("runs").finally(()=>{registryLoading=undefined;});
+ return registryLoading;
+}
 let recent:{editions:ConsultableEdition[];expiresAt:number}|undefined;
 /** Group the article and its thumbnail requests around one catalogue refresh. */
 export function operationalEditions(date?:string) {
  if(recent&&recent.expiresAt>Date.now())
    return Promise.resolve(date ? recent.editions.filter(edition=>edition.date===date) : recent.editions);
- if(date) return readOperationalEditions(date);
+ if(date) {
+  const existing=datesLoading.get(date);
+  if(existing) return existing;
+  if(datesLoading.size>=16) return readOperationalEditions(date);
+  const pending=readOperationalEditions(date).finally(()=>datesLoading.delete(date));
+  datesLoading.set(date,pending);
+  return pending;
+ }
  if(!loading)loading=readOperationalEditions().then(editions=>{
   if(sharedIds.size) recent={editions,expiresAt:Date.now()+15_000};
   return editions;
@@ -28,9 +43,9 @@ async function readOperationalEditions(date?:string) {
  const editions=new Map<string,ConsultableEdition>();
  const liveIds=new Set<string>();
  for(const a of previous) if(!date||a.date===date) try {editions.set(a.edition_id,verifyConsultable(a));}catch{/* retain other dates */}
- try {for(const a of unpackConsultable(bootstrap))if(!date||a.date===date)editions.set(a.edition_id,a);}catch{/* corrupted copy is never served */}
+ try {for(const a of (retainedBootstrap??=unpackConsultable(bootstrap)))if(!date||a.date===date)editions.set(a.edition_id,a);}catch{/* corrupted copy is never served */}
  try {
-  const runs=await editorialRPC<Run[]>("runs");
+  const runs=await registry();
   const ids=[...new Set(runs.filter(r=>(!date||r.edition_date===date)&&r.archive_id&&["completed","validation_failed","outcome_unknown"].includes(r.state)).slice(-60).map(r=>r.archive_id!))];
   const store=new SupabaseEditorialStore("");
   // Rejected runs can point to the same fallback as a completed run. Read each

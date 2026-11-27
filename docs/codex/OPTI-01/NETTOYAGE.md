@@ -24,3 +24,7 @@ Construire la fermeture du graphe de références à partir des éditions consul
 Rechercher les révisions reconstructibles et objets orphelins parmi les fichiers en dehors de ce graphe, avec revue des chemins résolus depuis Python, TypeScript et SQL et double inventaire avant/après. Pour les diagnostics et JSON volumineux, comparer taille exacte, gzip et zstd sur copie. Préserver les chaînes exactes hachées et les positions canoniques lorsque le format l’exige. Conserver les versions antérieures jusqu’à restauration et rejeu par date.
 
 Une action de nettoyage distante nécessite la liste finale, la sauvegarde validée et l’autorisation explicite du propriétaire. La simulation ne contient aucune commande de suppression.
+
+### Relevé OPTI-01A
+
+L’inventaire hébergé confirme le même total d’objets et d’octets. La simulation conserve les 47 groupes de taille/ETag, 83 copies candidates et 71 494 610 o théoriques en attente de SHA-256 et de résolution des références. Calculer les empreintes sur les octets de la sauvegarde chiffrée afin d’éviter une deuxième lecture de masse. Résoudre les manifestes des 25, 26 et 27, les pointeurs météo et les archives historiques avant de proposer un seul retrait. Le gain autorisable reste indéterminé. Aucun retrait n’a été exécuté.

@@ -21,7 +21,10 @@ describe("initial Journal archive loading",()=>{
   ]);
   state.read.mockResolvedValue(null);
   const {operationalEditions}=await import("../../lib/server/editorial-published");
-  await operationalEditions("2026-11-25");
+  const first=operationalEditions("2026-11-25"),second=operationalEditions("2026-11-25");
+  expect(first).toBe(second);
+  await first;
+  expect(state.runs).toHaveBeenCalledTimes(1);
   expect(state.read.mock.calls).toEqual([["requested"]]);
  });
  it("bounds parallel reads, deduplicates archive IDs and shares concurrent requests",async()=>{

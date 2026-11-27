@@ -24,10 +24,9 @@ export async function publishJournal(
   if (existing) {
     if (existing.edition.checksum !== edition.checksum || existing.view.bundle_sha256 !== bundle.sha256)
       throw Error("JOURNAL_PUBLICATION_CONFLICT");
-    if (execute) {
-      for (const ref of existing.thumbnails) await readJournalThumbnail(existing, ref.map_id, ref.sha256, store);
-    }
-    return {status: "already_published", thumbnails: existing.thumbnails.length};
+    for (const ref of existing.thumbnails) await readJournalThumbnail(existing, ref.map_id, ref.sha256, store);
+    return {status: "already_published", revision: edition.revision, edition_checksum: edition.checksum,
+      bundle_sha256: bundle.sha256, thumbnails: existing.thumbnails.length, images: existing.thumbnails};
   }
   const images = [];
   const infos = [];
@@ -52,6 +51,7 @@ export async function publishJournal(
     for (const image of images) await insertExact(store, journalImagePath(id, image.reference), image.bytes, journalThumbnailLimit);
     await insertExact(store, journalIndexPath(id), index, journalIndexLimit);
   }
-  return {status: execute ? "published" : "simulation", index_bytes: index.length,
+  return {status: execute ? "published" : "simulation", revision: edition.revision, edition_checksum: edition.checksum,
+    bundle_sha256: bundle.sha256, index_sha256: journalObjectDigest(index), index_bytes: index.length, images: publication.thumbnails,
     thumbnail_bytes: images.reduce((size, image) => size + image.bytes.length, 0), thumbnails: images.length};
 }
