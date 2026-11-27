@@ -1,0 +1,92 @@
+[
+  {
+    "mode": "avant",
+    "width": 390,
+    "ttfb": 1166,
+    "lcp": 17196,
+    "requests": 14,
+    "bytes": 222388,
+    "jsBytes": 171250,
+    "canvas": 0,
+    "cardCount": 0,
+    "headline": "Le point agroclimatique : des faits à mettre en perspective",
+    "overflow": false,
+    "mapRequests": [
+      "/maps/journal-pra-v1.geojson"
+    ]
+  },
+  {
+    "mode": "avant",
+    "width": 768,
+    "ttfb": 306,
+    "lcp": 14840,
+    "requests": 18,
+    "bytes": 247679,
+    "jsBytes": 171250,
+    "canvas": 0,
+    "cardCount": 0,
+    "headline": "Le point agroclimatique : des faits à mettre en perspective",
+    "overflow": false,
+    "mapRequests": [
+      "/maps/journal-pra-v1.geojson"
+    ]
+  },
+  {
+    "mode": "avant",
+    "width": 1440,
+    "ttfb": 588,
+    "lcp": 15788,
+    "requests": 15,
+    "bytes": 245565,
+    "jsBytes": 171250,
+    "canvas": 0,
+    "cardCount": 0,
+    "headline": "Le point agroclimatique : des faits à mettre en perspective",
+    "overflow": false,
+    "mapRequests": [
+      "/maps/journal-pra-v1.geojson"
+    ]
+  },
+  {
+    "mode": "apres",
+    "width": 390,
+    "ttfb": 2019,
+    "lcp": 17168,
+    "requests": 12,
+    "bytes": 207573,
+    "jsBytes": 151044,
+    "canvas": 0,
+    "cardCount": 2,
+    "headline": "Le point agroclimatique : des faits à mettre en perspective",
+    "overflow": false,
+    "mapRequests": []
+  },
+  {
+    "mode": "apres",
+    "width": 768,
+    "ttfb": 1279,
+    "lcp": 2600,
+    "requests": 12,
+    "bytes": 207573,
+    "jsBytes": 151044,
+    "canvas": 0,
+    "cardCount": 2,
+    "headline": "Le point agroclimatique : des faits à mettre en perspective",
+    "overflow": false,
+    "mapRequests": []
+  },
+  {
+    "mode": "apres",
+    "width": 1440,
+    "ttfb": 2476,
+    "lcp": 5748,
+    "requests": 12,
+    "bytes": 207573,
+    "jsBytes": 151044,
+    "canvas": 0,
+    "cardCount": 2,
+    "headline": "Le point agroclimatique : des faits à mettre en perspective",
+    "overflow": false,
+    "mapRequests": []
+  }
+]

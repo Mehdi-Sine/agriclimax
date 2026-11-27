@@ -67,8 +67,8 @@ export function buildReport(date: string, data: Diagnostics, edition: Edition | 
   const critical = !edition || data.security_stop || data.awaiting_ai || permanent.length > 0;
   const normal = acquired===6 && forecasts.every(f=>f.end) && data.snapshot?.quality==="fresh" && edition?.mode==="live" && !data.awaiting_ai;
   const status: "VERT" | "ORANGE" | "ROUGE" = critical ? "ROUGE" : normal ? "VERT" : "ORANGE";
-  const summary = !edition ? "Édition indisponible" : critical ? "Édition publiée · intervention requise" :
-    normal ? "Édition publiée" : "Édition publiée en mode dégradé";
+  const summary = !edition ? "Édition indisponible" : critical ? "Édition consultable · intervention requise" :
+    normal ? "Édition consultable" : "Édition consultable en mode dégradé";
   const sourceRows = [
     ["ERA5-Land", describe("era5") + (era ? ` · ${shortDate(era)} (J−${(Date.parse(date)-Date.parse(era))/86400000})` : " · dernière date inconnue")],
     ["Prévisions", describe("forecast")],
@@ -83,21 +83,25 @@ export function buildReport(date: string, data: Diagnostics, edition: Edition | 
   const maintenance = [failures,
     ...(data.redundant ? [`${data.redundant} relance${data.redundant===1?"":"s"} sans travail restant`] : []), ...persistent];
   const action = data.security_stop ? "Examiner l’arrêt d’urgence et les diagnostics avant toute reprise." :
-    !edition ? "Vérifier le dernier traitement du Journal et reprendre l’étape en échec." :
+    !edition ? "Vérifier la consultation publique et l’archive du jour avant toute reprise." :
     permanent.length ? "Examiner les accès ou les erreurs des sources signalées." :
     data.awaiting_ai ? "Vérifier le reçu OpenAI avant toute relance." : "Aucune intervention nécessaire";
   const seconds = Math.round(data.runner_seconds ?? 0);
   return {
     date: shortDate(date), subject: `Climacta · ${status} · ${date}`, status, summary, sourceRows, maintenance, action,
     metrics: [
-      ["Publication (Paris)",edition ? edition.published_at ? timeFormat.format(new Date(edition.published_at)) : "Heure inconnue" : "En attente"],
+      ["Consultation vérifiée (Paris)",edition ? edition.published_at ? timeFormat.format(new Date(edition.published_at)) : "Heure inconnue" : "En attente"],
       ["Sources récupérées", `${acquired}/6`],
       ...(data.runner_seconds===null ? [] : [["Runner mesuré", `${Math.floor(seconds/60)} min ${seconds%60} s`]]),
       ["OpenAI", data.cost===null ? "Coût indisponible" : data.cost===0 && !data.cost_partial ? "0 €" :
         `${amountFormat.format(data.cost)} (${data.cost_partial ? "estimation partielle" : "estimé sur usage"})`],
     ],
-    steps: `Préparation ${data.snapshot ? "terminée" : stageLabel(data.preparation)} · ${edition ?
-      edition.mode==="fallback" ? "Secours factuel" : "Rédaction IA" : `édition ${stageLabel(data.execution)} · publication non vérifiée`}`,
+    steps: [
+      `Briefing ${data.snapshot ? "archivé" : stageLabel(data.preparation)}`,
+      data.awaiting_ai ? "Résultat OpenAI incertain" : data.cost !== null && data.cost > 0 ? "Usage OpenAI enregistré" : "Usage OpenAI sans coût établi",
+      `Traitement éditorial ${stageLabel(data.execution)}`,
+      edition?.mode === "fallback" ? "Secours factuel · archive vérifiée" : edition ? "Archive IA vérifiée" : "Consultation publique non vérifiée",
+    ].join(" · "),
     edition, thumbnail: Boolean(thumbnail && edition?.hero),
     link: edition ? new URL(`/journal?date=${date}`,origin).href : null,
   };

@@ -14,6 +14,16 @@ import {PROMPT_VERSION} from "../editorial-ai/model";
 const flush=async()=>{for(let i=0;i<12;i++)await Promise.resolve();};
 beforeEach(()=>{vi.resetModules();vi.clearAllMocks();});
 describe("initial Journal archive loading",()=>{
+ it("renders a dated edition without fetching archives from other days",async()=>{
+  state.runs.mockResolvedValue([
+   {edition_date:"2026-11-25",state:"completed",archive_id:"requested"},
+   {edition_date:"2026-11-24",state:"completed",archive_id:"unrelated"},
+  ]);
+  state.read.mockResolvedValue(null);
+  const {operationalEditions}=await import("../../lib/server/editorial-published");
+  await operationalEditions("2026-11-25");
+  expect(state.read.mock.calls).toEqual([["requested"]]);
+ });
  it("bounds parallel reads, deduplicates archive IDs and shares concurrent requests",async()=>{
   const releases:(()=>void)[]=[];let active=0,peak=0;
   state.runs.mockResolvedValue([...Array.from({length:9},(_,i)=>({state:"completed",archive_id:`archive-${i}`})),{state:"completed",archive_id:"archive-0"}]);

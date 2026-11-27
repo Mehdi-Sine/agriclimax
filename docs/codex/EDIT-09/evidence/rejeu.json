@@ -1,0 +1,219 @@
+[
+  {
+    "date": "2026-11-22",
+    "mode": "live",
+    "archived": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "replay": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "before": 40866,
+    "after": 58618,
+    "archiveBytes": 408562,
+    "context": [
+      {
+        "indicator": "wet_days1",
+        "max": 7,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_peak_rain5",
+        "max": 79.07838220000001,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_antecedent_rain",
+        "max": 94.18897954000002,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_dry_sequence",
+        "max": 4,
+        "evaluable": 645
+      }
+    ]
+  },
+  {
+    "date": "2026-11-24",
+    "mode": "fallback",
+    "archived": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "replay": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "before": 55605,
+    "after": 55829,
+    "archiveBytes": 422015,
+    "context": [
+      {
+        "indicator": "wet_days1",
+        "max": 7,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_peak_rain5",
+        "max": 73.10354389999999,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_antecedent_rain",
+        "max": 84.1679035,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_dry_sequence",
+        "max": 5,
+        "evaluable": 645
+      }
+    ]
+  },
+  {
+    "date": "2026-11-25",
+    "mode": "live",
+    "archived": {
+      "status": "rejected",
+      "errors": [
+        "REGIONAL_EXTRAPOLATION"
+      ],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "replay": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "before": 55835,
+    "after": 56059,
+    "archiveBytes": 423136,
+    "context": [
+      {
+        "indicator": "wet_days1",
+        "max": 7,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_peak_rain5",
+        "max": 86.5240588,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_antecedent_rain",
+        "max": 109.744942,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_dry_sequence",
+        "max": 5,
+        "evaluable": 645
+      }
+    ]
+  },
+  {
+    "date": "2026-11-25",
+    "mode": "fallback",
+    "archived": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "replay": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "before": 55835,
+    "after": 56059,
+    "archiveBytes": 418161,
+    "context": [
+      {
+        "indicator": "wet_days1",
+        "max": 7,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_peak_rain5",
+        "max": 86.5240588,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_antecedent_rain",
+        "max": 109.744942,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_dry_sequence",
+        "max": 5,
+        "evaluable": 645
+      }
+    ]
+  },
+  {
+    "date": "2026-11-23",
+    "mode": "live",
+    "archived": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "replay": {
+      "status": "needs_editorial_review",
+      "errors": [],
+      "review": [
+        "SEMANTIC_REVIEW_REQUIRED"
+      ]
+    },
+    "before": 40897,
+    "after": 58684,
+    "archiveBytes": 409021,
+    "context": [
+      {
+        "indicator": "wet_days1",
+        "max": 7,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_peak_rain5",
+        "max": 78.19815990000001,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_antecedent_rain",
+        "max": 84.38120716,
+        "evaluable": 645
+      },
+      {
+        "indicator": "field_dry_sequence",
+        "max": 4,
+        "evaluable": 645
+      }
+    ]
+  }
+]

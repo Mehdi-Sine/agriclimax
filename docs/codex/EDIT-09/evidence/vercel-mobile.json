@@ -1,0 +1,151 @@
+[
+  {
+    "mode": "production",
+    "route": "/",
+    "cache": "premier",
+    "ttfb": 2747,
+    "lcp": 19800,
+    "title": 18939,
+    "lead": 18940,
+    "article": 18940,
+    "titleText": "Le point agroclimatique : des faits à mettre en perspective",
+    "jsBytes": 171250,
+    "bytes": 222266,
+    "requests": 14,
+    "map": [],
+    "thumbnails": []
+  },
+  {
+    "mode": "production",
+    "route": "/",
+    "cache": "recharge",
+    "ttfb": 241,
+    "lcp": 15284,
+    "title": 14891,
+    "lead": 14891,
+    "article": 14891,
+    "titleText": "Le point agroclimatique : des faits à mettre en perspective",
+    "jsBytes": 0,
+    "bytes": 13607,
+    "requests": 14,
+    "map": [],
+    "thumbnails": []
+  },
+  {
+    "mode": "production",
+    "route": "/journal?date=2026-11-25",
+    "cache": "premier",
+    "ttfb": 349,
+    "lcp": 15172,
+    "title": 14817,
+    "lead": 14817,
+    "article": 14847,
+    "titleText": "Le point agroclimatique : des faits à mettre en perspective",
+    "jsBytes": 471569,
+    "bytes": 1314155,
+    "requests": 38,
+    "map": [
+      {
+        "path": "/api/journal/maps",
+        "bytes": 38385
+      },
+      {
+        "path": "/maps/journal-pra-v1.geojson",
+        "bytes": 739327
+      }
+    ],
+    "thumbnails": []
+  },
+  {
+    "mode": "production",
+    "route": "/journal?date=2026-11-25",
+    "cache": "recharge",
+    "ttfb": 279,
+    "lcp": 16044,
+    "title": 15697,
+    "lead": 15697,
+    "article": 15714,
+    "titleText": "Le point agroclimatique : des faits à mettre en perspective",
+    "jsBytes": 0,
+    "bytes": 13741,
+    "requests": 14,
+    "map": [],
+    "thumbnails": []
+  },
+  {
+    "mode": "preview",
+    "route": "/",
+    "cache": "premier",
+    "ttfb": 2462,
+    "lcp": 11596,
+    "title": 11410,
+    "lead": 11410,
+    "article": 11410,
+    "titleText": "Le point agroclimatique : des faits à mettre en perspective",
+    "jsBytes": 154503,
+    "bytes": 305658,
+    "requests": 16,
+    "map": [],
+    "thumbnails": [
+      40148,
+      36590
+    ]
+  },
+  {
+    "mode": "preview",
+    "route": "/",
+    "cache": "recharge",
+    "ttfb": 276,
+    "lcp": 1196,
+    "title": 969,
+    "lead": 970,
+    "article": 970,
+    "titleText": "Le point agroclimatique : des faits à mettre en perspective",
+    "jsBytes": 0,
+    "bytes": 37019,
+    "requests": 16,
+    "map": [],
+    "thumbnails": [
+      0,
+      0
+    ]
+  },
+  {
+    "mode": "preview",
+    "route": "/journal?date=2026-11-25",
+    "cache": "premier",
+    "ttfb": 254,
+    "lcp": 820,
+    "title": 664,
+    "lead": 664,
+    "article": 664,
+    "titleText": "Le point agroclimatique : des faits à mettre en perspective",
+    "jsBytes": 0,
+    "bytes": 38144,
+    "requests": 18,
+    "map": [],
+    "thumbnails": [
+      0,
+      0
+    ]
+  },
+  {
+    "mode": "preview",
+    "route": "/journal?date=2026-11-25",
+    "cache": "recharge",
+    "ttfb": 228,
+    "lcp": 852,
+    "title": 436,
+    "lead": 437,
+    "article": 437,
+    "titleText": "Le point agroclimatique : des faits à mettre en perspective",
+    "jsBytes": 0,
+    "bytes": 38194,
+    "requests": 18,
+    "map": [],
+    "thumbnails": [
+      0,
+      0
+    ]
+  }
+]

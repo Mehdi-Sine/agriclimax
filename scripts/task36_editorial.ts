@@ -79,6 +79,7 @@ async function main() {
         id:revised.edition_id,checksum:revised.checksum,validation_version:REVALIDATION_VERSION,archive:revised,archive_json:JSON.stringify(revised)});
       const restored=await store.read(revised.edition_id);
       if(restored?.checksum!==revised.checksum) throw Error("REVALIDATION_READBACK_FAILED");
+      if(process.argv.includes("--publish-experimental-maps")) publishExperimentalMaps(restored);
     }
     output({status:process.argv.includes("--execute-revalidation")?"archive_revalidated":"revalidation_ready",id:revised.edition_id,
       checksum:revised.checksum,supersedes:original.edition_id,validation:revised.validation,paid_calls:0});return;

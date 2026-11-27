@@ -169,7 +169,11 @@
 }
 @media(max-width:850px) {
   .editorial-chrome .editorial-site-head { padding-inline: 18px; }
-  .editorial-chrome .editorial-nav { gap: 10px 23px; }
+  .editorial-chrome .editorial-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 23px;
+  }
   .journal.ux01-journal,.ux01-doc,.ux01-daily { padding: 26px 18px 70px; }
   .journal.ux01-journal > .editorial-chrome { margin-top: -26px; margin-bottom: 26px; }
   .journal.ux02b-journal .front-page { grid-template-columns: minmax(0,1fr); gap: 20px; padding-top: 20px; }

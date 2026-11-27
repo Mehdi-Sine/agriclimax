@@ -25,7 +25,8 @@ describe("published read path (synthetic manifest)",()=>{
   const html=await new Response(stream).text();
   expect(html).toContain("La dernière édition consultable conserve sa date réelle");
   expect(html).toContain("/api/journal/edition?id=");
-  expect(html).toContain('data-cycle="2026-11-07T00:00:00+00:00"');
+  expect(html).toContain("Les cartes de l’édition");
+  expect(html).not.toContain("journal-pra-map");
   expect(html).not.toContain("/api/journal-preview/map");
  });
  it("keeps historical maps and immutable ETags",async()=>{
@@ -45,7 +46,7 @@ describe("published read path (synthetic manifest)",()=>{
   const stream=await renderToReadableStream(<Page searchParams={Promise.resolve({id:old.edition_id})}/>);await stream.allReady;
   const html=await new Response(stream).text();
   expect(html).toContain("ÉDITION DU 30 octobre 2026");
-  expect(html).toContain("Pas de carte opérationnelle publiée");
+  expect(html).toContain("Aucune miniature disponible");
   expect(html).not.toContain(`data-cycle="${editions[0].illustrations[0].cycle}"`);
  });
  it("health identifies a delayed edition instead of inventing today",async()=>{

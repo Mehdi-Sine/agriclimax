@@ -8,7 +8,7 @@ const origin=process.env.UX01_ORIGIN??"http://127.0.0.1:3000";
 const out=path.resolve(process.env.UX01_ARTIFACTS??"work/quality/e2e/ux01");
 await mkdir(out,{recursive:true});
 const sizes=[["desktop-1440",1440,900],["desktop-1280",1280,800],["tablet-768",768,1024],["mobile-390",390,844],["mobile-360",360,780]];
-const expected=["Le Journal","Cartes du jour","Explorer le climat","Productions","Aide et documentation"];
+const expected=["Le Journal","Cartes du jour","Explorer le climat","Analyse","Productions","Aide et documentation"];
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE_PATH,args:["--no-sandbox","--enable-unsafe-swiftshader"]});
 const report=[];
 try {
@@ -42,7 +42,7 @@ try {
         assert.ok(home?.ok(),"Accueil accessible");
         assert.equal(new URL(page.url()).pathname,"/","UX-02B renders the Journal directly on the homepage");
         assert.equal(home.request().redirectedFrom(),null,"Homepage must render without a redirect");
-        for(const route of ["/cartes-du-jour","/climat","/productions"]){
+        for(const route of ["/cartes-du-jour","/climat","/analyse","/productions"]){
           const response=await page.goto(origin+route,{waitUntil:"domcontentloaded",timeout:45000});
           assert.equal(response?.status(),200,route);
           await page.waitForFunction(()=>document.querySelectorAll(".editorial-nav").length===1,{},{timeout:15000});

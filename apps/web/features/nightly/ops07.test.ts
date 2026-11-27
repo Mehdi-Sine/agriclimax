@@ -11,7 +11,7 @@ import type {Archive} from "../editorial-ai/model";
 import type {Run} from "../editorial-ai/archive";
 
 describe("OPS-07 real November 13 response replay",()=>{
- it("retains REGIONAL_EXTRAPOLATION and produces an idempotent factual revision with no second provider call",async()=>{
+ it.each([false,true])("replays the archived response with one provider call, with an added severe error: %s",async severe=>{
   const briefing=replay.briefing as unknown as EditorialBriefingBundle;
   const before=JSON.stringify(replay),archives=new Map<string,Archive>();
   let run:Run|undefined;
@@ -21,12 +21,25 @@ describe("OPS-07 real November 13 response replay",()=>{
    read:async id=>archives.get(id)??null,
   };
   const config=operationalConfig("gpt-6.1-terra");
-  const provider=vi.fn().mockResolvedValue({draft:replay.draft,model:config.model,response_id:"synthetic-replay-only",usage:null});
-  expect(validateDraft(replay.draft,briefing).errors).toEqual(["REGIONAL_EXTRAPOLATION"]);
+  const draft=structuredClone(replay.draft);
+  expect(validateDraft(draft,briefing).errors).toEqual([]);
+  if(severe) draft.lead.text+=" Toute la région est touchée.";
+  else draft.article.push({kind:"context",text:"Toute la région est touchée.",evidence_ids:[briefing.national.facts[0].id],seasonal_ids:[]});
+  const provider=vi.fn().mockResolvedValue({draft,model:config.model,response_id:"synthetic-replay-only",usage:null});
+  expect(validateDraft(draft,briefing).errors).toEqual(["REGIONAL_EXTRAPOLATION"]);
   const fallback=await generateOperational({briefing,config,store,provider,manualRetry:false});
+  if(!severe){
+   expect(fallback.mode).toBe("live");
+   expect(fallback.validation.errors).toEqual([]);
+   expect(fallback.draft.article).toEqual(replay.draft.article);
+   expect(store.diagnostic).toHaveBeenCalledWith(expect.any(String),expect.objectContaining({kind:"localized_editorial_edit",removed:draft.article.at(-1)}));
+   expect(provider).toHaveBeenCalledTimes(1);
+   expect(JSON.stringify(replay)).toBe(before);
+   return;
+  }
   const original=archives.get(fallback.supersedes!)!;
   expect(original.validation.errors).toEqual(["REGIONAL_EXTRAPOLATION"]);
-  expect(original.draft).toEqual(replay.draft);expect(fallback.mode).toBe("fallback");
+  expect(original.draft).toEqual(draft);expect(fallback.mode).toBe("fallback");
   expect(fallback.validation.errors).toEqual([]);expect(consultableEdition(fallback).consultable).toBe(true);
   expect(run?.archive_id).toBe(fallback.edition_id);expect(run?.state).toBe("completed");
   expect(await archiveFactualFallback(original,store)).toEqual(fallback);
