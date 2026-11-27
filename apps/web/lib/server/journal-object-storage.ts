@@ -3,7 +3,7 @@ import {localJournalStore} from "./journal-local-storage";
 import {AwsClient} from "aws4fetch";
 import {journalObjectPath, mapObjectStore, type MapObjectStore} from "./immutable-map-storage";
 
-export function s3JournalStore(env: NodeJS.ProcessEnv): MapObjectStore {
+export function s3JournalStore(env: Readonly<Record<string, string | undefined>>): MapObjectStore {
   const {AGRICLIMAX_JOURNAL_S3_ENDPOINT: endpoint, AGRICLIMAX_JOURNAL_S3_BUCKET: bucket,
     AGRICLIMAX_JOURNAL_S3_REGION: region = "auto", AGRICLIMAX_JOURNAL_S3_ACCESS_KEY_ID: accessKeyId,
     AGRICLIMAX_JOURNAL_S3_SECRET_ACCESS_KEY: secretAccessKey} = env;
