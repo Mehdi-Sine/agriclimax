@@ -32,6 +32,28 @@ Le 27, **1 510 301 514 o sur 1 542 712 597 o HIT (97,9 %)** proviennent d’`edi
 
 Le 27, les inputs gelés et ERA5, candidats pour les acquisitions et reprises, représentent 5,37 et 19,60 Mo HIT respectivement. L’action watchdog apparaît comme tâche `pg_cron` active toutes les 15 minutes. La liste des Edge Functions du projet est vide. Les trois échecs d’acquisition prévision et la relance ERA5 sont visibles dans le registre, avec la qualification finale du dossier. Les masques prévisionnels sont volumineux sur disque. `forecast-native` représente environ 13 ko HIT, et la famille racine `forecast-masks` n’apparaît pas sur cette fenêtre. Les archives d’articles sont lues via RPC PostgREST, hors du tableau Storage. Les transferts GitHub d’artifacts et les transferts amont météo sont sur des canaux distincts.
 
+### Du 1er au 27 novembre
+
+Les 26 fenêtres UTC de 24 h entre le 1er novembre 08 h et le 27 novembre 08 h cumulent **22 770 840 272 o HIT** et **1 173 162 919 o MISS** sur les GET Storage publics ou authentifiés en succès. Leur rapprochement avec l’alerte à 13,44 Go exige les bornes exactes du relevé de facturation et la définition du compteur. Le résultat des logs dépasse le chiffre de l’alerte. L’imputation détaillée des 13,44 Go reste ouverte.
+
+| Famille | GET HIT | Octets HIT | GET MISS | Octets MISS |
+|---|---:|---:|---:|---:|
+| `edition-maps` | 19 526 | 16 210 301 242 | 152 | 197 228 845 |
+| `forecast-masks` | 7 565 | 4 761 906 412 | 1 087 | 545 666 687 |
+| `era5` | 2 068 | 557 441 525 | 203 | 54 504 152 |
+| `support` | 3 225 | 517 477 853 | 112 | 16 981 356 |
+| `weather` | 698 | 391 648 579 | 54 | 30 265 811 |
+| `editorial-inputs` | 68 | 302 568 654 | 33 | 144 406 571 |
+| `forecast-native` | 150 | 17 761 643 | 293 | 182 485 753 |
+| `current.json` | 3 324 | 5 744 424 | 73 | 135 969 |
+| `catalogue.json` | 536 | 5 415 461 | 85 | 1 006 074 |
+| `candidates` | 44 | 523 360 | 23 | 345 493 |
+| `catalogues` | 19 | 51 119 | 49 | 136 208 |
+
+Les cartes d’édition représentent **71,2 %** des octets HIT sur cette fenêtre et les masques de prévision à la racine **20,9 %**. Ensemble, ces deux familles représentent **92,1 %**. Les masques ont une charge historique importante et sont presque absents lors des deux dernières fenêtres. Garder les deux profils pour la qualification. Une suppression théorique de toutes les lectures de cartes d’édition laisserait **6,56 Go HIT** sur ce relevé élargi. La seule projection du Journal ne démontre donc pas la cible mensuelle de 3 Go. Dans un scénario où les transferts Supabase des deux familles seraient entièrement évités, le solde observé serait de 1,80 Go sur 26 jours, soit 2,08 Go extrapolés sur 30 jours à charge constante. Cette borne ignore les nouveaux transferts et les profils de fréquentation futurs.
+
+Sur le second projet, les 26 fenêtres contiennent 351 requêtes edge GET 200/206, avec zéro octet de réponse Storage HIT ou MISS exploitable et zéro octet déclaré HIT sur les autres services. Ce résultat est limité aux journaux et aux filtres employés. L’état et le compteur de facturation du projet restent à rapprocher dans Usage/Billing.
+
 ### Vingt chemins classés par transfert
 
 Fenêtre 26 → 27 novembre. Les clés complètes sont identifiables dans l’inventaire privé par le préfixe SHA-256.

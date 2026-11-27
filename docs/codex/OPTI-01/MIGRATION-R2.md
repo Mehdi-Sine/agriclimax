@@ -7,8 +7,8 @@
 | Phase | Chemins | Consommateurs et conditions |
 |---|---|---|
 | 1 · Publication légère | `journal/v1/<edition>/index.json`, WebP par carte et SHA | Lecteur et producteur OPTI-01. Adaptateurs serveur Supabase et S3 (R2) et mode fichiers local. |
-| 2 · Cartes historiques et supports lus | `edition-maps/`, `era5/`, `support/` | Gain principal via la suppression des lectures scientifiques lors de la consultation du Journal. Déplacer ensuite les lectures Cartes. Conserver la résolution des manifestes, des checksums et des routes existantes. |
-| 3 · Prévisions natives et masques de cycles | `forecast-native/`, `forecast-masks/`, `weather/` | Index et liens liés au cycle et à la couverture. Valider identité, lock, rétention, métadonnées et vues historiques. |
+| 2 · Cartes historiques et masques lus | `edition-maps/`, objets immuables de `forecast-masks/`, `era5/`, `support/` | Gain principal via la suppression des lectures scientifiques lors de la consultation du Journal. Déplacer ensuite les lectures Cartes et les index, géométries et masques les plus lus. Les masques racine ont représenté 4,76 Go HIT du 1er au 27 novembre. Conserver la résolution des manifestes, les empreintes et les routes existantes. |
+| 3 · Prévisions natives et masques liés aux cycles | `forecast-native/`, `weather/` | Index et liens liés au cycle et à la couverture. Valider identité, lock, rétention, métadonnées et vues historiques. |
 | 4 · Autres gros objets | `editorial-inputs/`, candidats et catalogues | Les champs de référence existants sont des clés relatives. Les pointeurs mutables nécessitent une stratégie de version et de mise à jour à part. |
 
 La phase 1 est câblée. Les stockages scientifiques phases 2 à 4 nécessitent des adaptations et des essais additionnels. Les scripts de copie s’appliquent à des listes finies de clés et gardent les octets et noms actuels. Supabase PostgreSQL, l’API RPC et le watchdog continuent à servir le registre.
