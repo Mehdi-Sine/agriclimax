@@ -33,13 +33,26 @@ Les projections extrapolent les nouvelles clés encore présentes du 20 au 27 no
 | Ressource | Quantité ou volume constaté | Lectures, écritures et rétention |
 |---|---|---|
 | PostgreSQL/PostGIS | 97 tables, 201 414 323 o | Compteurs cumulatifs par table. Suivre quotidiennement taille, index et écritures. |
-| Archives éditoriales PostgreSQL | 27 lignes estimées, 6 119 424 o, ~226,6 ko/ligne physique | 857 balayages séquentiels et 27 398 index scans cumulés. Conserver le texte exact et les états. |
+| Archives éditoriales PostgreSQL | 27 archives, 6 119 424 o sur disque, ~226,6 ko/ligne physique. Octets JSON exacts cumulés 7 544 102 | 857 balayages séquentiels et 27 398 index scans cumulés. 9 archives et 3 753 263 o JSON sur 7 jours, ~0,54 Mo/jour, ~16,1 Mo/30 j et ~195,7 Mo/an avant compression, à cadence identique. Conserver le texte exact et les états. |
 | Diagnostics éditoriaux | 696 lignes estimées, 7 151 616 o, ~10,3 ko/ligne | 8 767 balayages séquentiels, 2 404 index scans et 484 mises à jour cumulés. Politique de rétention à qualifier. |
 | Cron et Edge | 1 watchdog actif, 0 Edge Function listée | `*/15 * * * *` UTC, 96 déclenchements théoriques par jour. Audit supplémentaire du statut d’exécution et du délai par invocation requis. |
 | Next.js | 37 350 655 o de fichiers Git sous `apps/web` | Inclut tests et sources. Géométrie du Journal 2,55 Mo au fichier. Les builds et traces d’EDIT-09 mesurent une autre surface. |
-| Vercel | Alerte Function Storage 10 Go, total précis à exporter | Versions de fonctions par déploiement et historique, CPU, exécutions et transfert séparés. Conservation et croissance à relever dans le compte. |
-| Actions | Réponse API 3 868 artifacts, 100 derniers examinés, 557 347 829 o, 5,57 Mo en moyenne sur l’échantillon | Les 100 sont actifs au relevé. Les cinq checkpoints prévision mesurent 467,46 Mo et expirent après 3 jours. Trois rapports navigateur entre 22,70 et 22,71 Mo chacun expirent à 90 jours. Aucun compteur de téléchargements n’est exposé par cette liste. |
+| Vercel | Alerte Function Storage 10 Go. GitHub liste 458 déploiements Preview et 29 depuis le 20 novembre | Versions de fonctions par déploiement et historique, CPU, exécutions et transfert séparés. Conservation et croissance à relever dans le compte. |
+| Actions | 3 868 artifacts non expirés, 177 noms distincts, 5 822 105 965 o en 39 pages API, ~1,51 Mo par artifact | 377 artifacts encore retenus depuis le 20 novembre et 1 116 869 956 o, ~0,16 Go/jour, 4,79 Go/30 j et 58,24 Go/an de créations à rythme fixe avant expiration. Six checkpoints prévision totalisent 467,50 Mo à rétention courte. Les rapports navigateur représentent 5,30 Go et utilisent la rétention générale avant OPTI-01. Aucun compteur de téléchargements n’est exposé par cette liste. |
 | Vignettes | Aucun WebP autonome dans le bucket au relevé | Route historique à froid avec rendu, caches mémoire et HTTP. EDIT-09 a mesuré deux WebP totalisant 76 738 o. Les épreuves en dépôt relèvent de la catégorie scientifique ou de recette selon usage. |
+
+### Principaux artifacts retenus
+
+| Nom | Nombre | Octets |
+|---|---:|---:|
+| `demo-browser-report` | 421 | 5 302 360 440 |
+| `t36-forecast-checkpoints` | 6 | 467 504 685 |
+| `t36-era5-checkpoints` | 6 | 19 087 388 |
+| `task12-era5-real-smoke` | 116 | 9 444 062 |
+| `sql-public` | 495 | 8 961 572 |
+| `sql-extensions` | 495 | 8 845 262 |
+
+Les rapports navigateur concentrent 91,1 % de la taille totale exposée par l’API. Parmi eux, 333 objets antérieurs au 13 novembre totalisent 3,48 Go. La rétention de 14 jours appliquée aux nouveaux rapports réduit la durée de résidence, avec un effet progressif au fil des expirations. L’API ne fournit pas le montant facturé ni les téléchargements réels.
 
 ## Vingt objets classés par taille
 
