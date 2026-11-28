@@ -33,6 +33,12 @@ export const mapObjectStore:MapObjectStore={
   async insert(path,bytes){
     const {url,key}=location(path);
     const r=await fetch(url,{method:"POST",headers:{apikey:key,"Content-Type":path.endsWith(".gz")?"application/gzip":path.endsWith(".webp")?"image/webp":"application/json","x-upsert":"false"},body:Buffer.from(bytes),redirect:"error",signal:AbortSignal.timeout(12000)});
+    if((r.status===400||r.status===415)&&path.endsWith(".webp")){
+      const error:unknown=await r.json().catch(()=>null);
+      if(error&&typeof error==="object"&&
+        (("code" in error&&error.code==="InvalidMimeType")||("error" in error&&error.error==="invalid_mime_type")))
+        throw Error("JOURNAL_STORAGE_WEBP_NOT_ALLOWED");
+    }
     if(!r.ok&&![400,409].includes(r.status))throw Error("MAP_STORAGE_INSERT");
   },
 };
