@@ -16,6 +16,30 @@ afterEach(() => {
   vi.unstubAllEnvs();
 });
 
+it.each([
+  [400, {error:"invalid_mime_type"}],
+  [415, {code:"InvalidMimeType"}],
+])("distinguishes a Supabase WebP MIME rejection (HTTP %i) from an immutable object conflict", async (status,error) => {
+  vi.stubEnv("NEXT_PUBLIC_SUPABASE_URL","https://storage.example.invalid");
+  vi.stubEnv("SUPABASE_SECRET_KEY","test-key");
+  const path = `journal/v1/${"1".repeat(64)}/${"2".repeat(64)}/${"3".repeat(64)}.webp`;
+  const candidate = Buffer.from("candidate");
+  const fetchObject = vi.fn()
+    .mockResolvedValueOnce(new Response(null,{status:404}))
+    .mockResolvedValueOnce(Response.json(error,{status}));
+  vi.stubGlobal("fetch",fetchObject);
+  await expect(insertExact(mapObjectStore,path,candidate)).rejects.toThrow("JOURNAL_STORAGE_WEBP_NOT_ALLOWED");
+  expect(fetchObject).toHaveBeenCalledTimes(2);
+  expect(fetchObject.mock.calls[1][1]).toMatchObject({method:"POST",headers:{"Content-Type":"image/webp","x-upsert":"false"}});
+
+  fetchObject.mockReset()
+    .mockResolvedValueOnce(new Response(null,{status:404}))
+    .mockResolvedValueOnce(Response.json({error:"Duplicate"},{status:400}))
+    .mockResolvedValueOnce(new Response("different bytes"));
+  await expect(insertExact(mapObjectStore,path,candidate)).rejects.toThrow("MAP_IMMUTABLE_CONFLICT");
+  expect(fetchObject).toHaveBeenCalledTimes(3);
+});
+
 it("publishes verified WebP and its index once, preserving edition and map identity", async () => {
   const root = await mkdtemp(join(tmpdir(), "journal-publication-"));
   try {

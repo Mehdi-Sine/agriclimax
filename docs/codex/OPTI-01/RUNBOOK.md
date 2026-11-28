@@ -38,18 +38,18 @@ ERA5 a réussi après deux tentatives. Observations, stations et actualités son
 
 [Vercel, rétention Hobby](https://vercel.com/changelog/hobby-projects-now-retain-fewer-deployments-to-free-up-storage) · [GitHub, rétention](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)
 
-## OPTI-01A · Activation sur Supabase
+## OPTI-01B · Activation sur Supabase
 
-Cette procédure s’applique après fusion manuelle de la PR #118 et après accord explicite du propriétaire pour les opérations sur la production. Le stockage initial est le bucket privé existant `pra-climate-archives`. La lecture et l’écriture ont chacune un drapeau du même nom dans leur console respective.
+Cette procédure s’applique après fusion manuelle d’OPTI-01B et accord explicite du propriétaire. Le bucket privé reste `pra-climate-archives`. La lecture et l’écriture ont chacune un drapeau du même nom dans leur console respective.
 
 | Ordre | Console et chemin | Paramètre, opération et contrôle |
 |---:|---|---|
-| 1 | GitHub → Pull requests → #118 → Checks | Vérifier Quality et Security audits, puis revoir la PR et la fusionner manuellement. Laisser les drapeaux absents pendant ce premier déploiement. Vercel → Deployments → Production doit indiquer Ready. |
-| 2 | GitHub → Settings → Secrets and variables → Actions → Variables | Créer `AGRICLIMAX_JOURNAL_PROJECTION_ENABLED` avec la valeur `true`. Les secrets Actions existants `NEXT_PUBLIC_SUPABASE_URL` et `SUPABASE_SECRET_KEY` suffisent. Ces valeurs restent dans leur console. |
-| 3 | GitHub → Actions → INT-01 edition maps and Journal projection → Run workflow | Choisir la branche `main`, `verify-projection`, et l’identifiant du 27 ci-dessous. Le job relit l’archive et son manifeste existant. Comparer `edition_checksum`, `bundle_sha256`, la révision et les SHA des deux rendus. |
-| 4 | Même écran | Après accord et résultat attendu, choisir `publish-projection`, toujours sur `main`. Le résultat doit indiquer `published` ou `already_published`. `verify-projection` relit les octets et détecte une corruption si la projection existe. Supabase → Storage → `pra-climate-archives` → `journal/v1/<id>` contient l’index et les deux objets WebP privés. |
+| 1 | GitHub → Pull requests → Checks, puis Supabase → Storage → `pra-climate-archives` → Edit bucket | Après Quality, Security audits et Preview Vercel, fusionner manuellement. Pour le bucket, conserver son accès privé, sa limite de 8 Mio, `application/gzip` et `application/json`. Ajouter uniquement `image/webp` à la liste des types MIME autorisés. Relire les paramètres enregistrés. |
+| 2 | GitHub → Settings → Secrets and variables → Actions → Variables | Vérifier que `AGRICLIMAX_JOURNAL_PROJECTION_ENABLED` vaut `true`, ou la définir à cette valeur. Vérifier aussi la valeur effective pour le job nocturne dans l’environnement `editorial-ai-dev`. |
+| 3 | GitHub → Actions → INT-01 edition maps and Journal projection → Run workflow | Sur `main`, choisir `verify-projection` et l’identifiant du 28 ci-dessous. Le job relit l’archive et son manifeste existant. Comparer `edition_checksum`, `bundle_sha256`, la révision et les SHA des deux rendus. |
+| 4 | Même écran, puis Supabase Storage | Lancer `publish-projection` avec le même identifiant sur `main`. Exiger `published` ou `already_published`, puis relancer `verify-projection` et exiger `already_published`. Vérifier la présence de l’index et des deux WebP sous `journal/v1/<id>`. La vérification relit les WebP et valide leurs tailles et empreintes contre l’index. |
 | 5 | Vercel → Project Settings → Environment Variables | Définir `AGRICLIMAX_JOURNAL_PROJECTION_ENABLED=true` pour **Production** et laisser `AGRICLIMAX_JOURNAL_STORE` absent, ou le fixer à `supabase`. Vercel → Deployments → dernier déploiement Production → Redeploy. Ce redéploiement applique la configuration. Les éditions suivantes sont publiées sans déploiement. |
-| 6 | Navigateur → Journal | Vérifier le 27, une ancienne édition, le carrousel dans le même ordre, les URLs contenant `sha=`, le lien vers la carte de la même révision, et les filtres visibles dans Analyse. Dans Réseau, contrôler `Cache-Control`, ETag, `Age` et `x-vercel-cache` des WebP. Une URL fraîche peut retourner MISS lors de la première consultation. Vérifier le rapport de la prochaine nuit. |
+| 6 | Navigateur → Journal | Vérifier le 28, une archive historique, l’ordre du carrousel, les URLs avec `sha=` et les liens Cartes de la même révision. Dans Réseau, relever TTFB, octets, `Cache-Control`, ETag, `Age` et `x-vercel-cache` pour une première visite et une visite répétée. Comparer les lectures et l’egress Storage sur deux fenêtres comparables. Vérifier le rapport de la prochaine nuit. Reprendre ensuite le 27 avec les étapes 3 et 4, puis vérifier son Journal daté. |
 | 7 | Vercel puis GitHub | En cas d’incident, mettre le drapeau Vercel à `false` ou le retirer et redéployer. Si le producteur est en cause, mettre le drapeau Actions à `false` ou le retirer. Vérifier le Journal daté et sa carte avec la voie historique. Les URLs de WebP déjà émises peuvent rester en cache selon leur durée. Conserver les objets et les versions. |
 
 Ces actions conservent les contrôles existants. Le workflow ciblé exige une édition admise au registre et un manifeste cartographique public valide. L’écriture nécessite la branche `main`, la variable GitHub active et un arrêt d’urgence inactif. Le workflow nocturne est inchangé, hormis la projection additive déjà prévue. Aucun secret S3, R2 ou Blob n’est requis.
@@ -58,11 +58,12 @@ Ces actions conservent les contrôles existants. Le workflow ciblé exige une é
 
 | Date | Mode et révision réellement référencés | Identifiant |
 |---|---|---|
+| 28 novembre | IA expérimentale, révision 1 | `585cd3fb02c5c63f3d2cf857bf74f88401e0a99f9b512775d22c1299b88680a7` |
 | 27 novembre | IA expérimentale, révision 1 | `0912d90a018f2bea5e890dd31ec0b86f9b09ff5675f32d14eb470a32ef699a6d` |
 | 26 novembre | Secours, révision 2 | `8adbcac300a37cdee31052cf5b5d1bddc16eb2ab962d55b46ba38626a433ae45` |
 | 25 novembre | Secours, révision 2 | `f45f14d6670f16332b62ca26ae6f63700543d31b59e19700fa44fdcbf976fa26` |
 
-Le 27 est prioritaire. Vérifier le 26 et le 25 individuellement puis reprendre les autres dates selon leur fréquentation. Les candidats éditoriaux IA des 25 et 26 documentés dans EDIT-09 ne sont pas les révisions que le registre hébergé expose au relevé. Reprendre la projection sans relancer les acquisitions ni la génération. L’état du 27 est `fallback_valid` pour le dossier et `live` pour l’archive éditoriale. Le checksum de l’archive est `0848418f2336cee07cee5974fcb031f75e2198d0b274ceb39bddd9d1e986b200`.
+Le 28 est prioritaire, puis le 27. Les éditions des 25 et 26 sont des références de recette. Reprendre la projection directement à partir des archives et des manifestes publiés. L’état du 27 est `fallback_valid` pour le dossier et `live` pour l’archive éditoriale. Le checksum de l’archive est `0848418f2336cee07cee5974fcb031f75e2198d0b274ceb39bddd9d1e986b200`.
 
 ### Veille de production et sonde de six secondes
 
